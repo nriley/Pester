@@ -12,6 +12,7 @@
 #import "PSAlarmsController.h"
 #import "PSPreferencesController.h"
 #import "NJRReadMeController.h"
+#import "NJRSoundManager.h"
 #import "PSAlarm.h"
 #import "PSAlarms.h"
 #import "PSTimer.h"
@@ -230,6 +231,7 @@
 
 - (void)applicationWillTerminate:(NSNotification *)notification;
 {
+    [NJRSoundManager restoreSavedDefaultOutputVolume];
     [NSApp setApplicationIconImage: appIconImage];
 }
 

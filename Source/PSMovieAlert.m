@@ -86,7 +86,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 
 - (NSString *)description;
 {
-    return [NSString stringWithFormat: @"PSMovieAlert (%@%@): %@, repeats %hu times", hasAudio ? @"A" : @"", hasVideo ? @"V" : @"", [alias fullPath], repetitions];
+    return [NSString stringWithFormat: @"PSMovieAlert (%@%@): %@, repeats %hu times%@", hasAudio ? @"A" : @"", hasVideo ? @"V" : @"", [alias fullPath], repetitions, hasAudio && outputVolume != kNoVolume ? [NSString stringWithFormat: @" at %.0f%% volume", outputVolume * 100] : @""];
 }
 
 - (void)triggerForAlarm:(PSAlarm *)alarm;
@@ -105,6 +105,9 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     if (repetitions > 1 && !isStatic) {
         [string appendAttributedString: [[NSString stringWithFormat: @" %hu times", repetitions] small]];
     }
+    if (hasAudio && outputVolume != kNoVolume) {
+        [string appendAttributedString: [[NSString stringWithFormat: @" at %.0f%% volume", outputVolume * 100] small]];
+    }
     return [string autorelease];
 }
 
@@ -120,8 +123,10 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 
 - (id)initWithPropertyList:(NSDictionary *)dict;
 {
-    return [self initWithMovieFileAlias: [BDAlias aliasWithData: [dict objectForRequiredKey: PLAlertAlias]]
-                            repetitions: [[dict objectForRequiredKey: PLAlertRepetitions] unsignedShortValue]];
+    if ( (self = [super initWithPropertyList: dict]) != nil)
+        [self initWithMovieFileAlias: [BDAlias aliasWithData: [dict objectForRequiredKey: PLAlertAlias]]
+                         repetitions: [[dict objectForRequiredKey: PLAlertRepetitions] unsignedShortValue]];
+    return self;
 }
 
 @end

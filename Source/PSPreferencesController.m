@@ -33,9 +33,9 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
                                                hotKey: hotKey
                                                target: NSApp
                                                action: @selector(orderFrontSetAlarmPanel:)]) {
+            [defaults removeObjectForKey: PSSetAlarmHotKey];
             NSRunAlertPanel(NSLocalizedString(@"Can't reserve alarm key equivalent", "Hot key set failure"),
                             NSLocalizedString(@"Pester was unable to reserve the key equivalent %@. Please select another in Pester's Preferences, or click Clear to remove it.", "Hot key set failure"), nil, nil, nil, [hotKey keyGlyphs]);
-            [defaults removeObjectForKey: PSSetAlarmHotKey];
             [(PSApplication *)NSApp performSelector: @selector(orderFrontPreferencesPanel:) withObject: self afterDelay: 0.1];
         }
     }
@@ -75,7 +75,7 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
         [self update];
         // command
         NSMutableCharacterSet *set = [[NSCharacterSet alphanumericCharacterSet] mutableCopy];
-        [set addCharactersInString: @"`-=[]/\\ "];
+        [set addCharactersInString: @"`-=[]/\\, "];
         commandRejectSet = [set copy];
         [set release];
         // no modifiers, shift, option, option-shift
@@ -108,6 +108,12 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 - (IBAction)hotKeySet:(NJRHotKeyField *)sender;
 {
     [self writeToPrefs];
+}
+
+- (IBAction)showWindow:(id)sender;
+{
+    [self readFromPrefs];
+    [super showWindow: sender];
 }
 
 @end

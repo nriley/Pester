@@ -11,10 +11,12 @@
 #import "PSCalendarController.h"
 #import "PSPowerManager.h"
 #import "PSTimeDateEditor.h"
+#import "PSVolumeController.h"
 #import "NJRDateFormatter.h"
 #import "NJRFSObjectSelector.h"
 #import "NJRIntervalField.h"
 #import "NJRQTMediaPopUpButton.h"
+#import "NJRSoundManager.h"
 #import "NJRVoicePopUpButton.h"
 #import "NSString-NJRExtensions.h"
 #import "NSAttributedString-NJRExtensions.h"
@@ -60,6 +62,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
 - (void)_readAlerts:(PSAlerts *)alerts;
 - (BOOL)_setAlerts;
+- (void)_setVolume:(float)volume withPreview:(BOOL)preview;
 - (void)_stopUpdateTimer;
 
 @end
@@ -73,6 +76,11 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     alarm = [[PSAlarm alloc] init];
     [[self window] center];
     [PSTimeDateEditor setUpTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions];
+    { // volume defaults, usually overridden by restored alert info
+        float volume = 0.5;
+        [NJRSoundManager getDefaultOutputVolume: &volume];
+        [self _setVolume: volume withPreview: NO];
+    }
     [editAlert setIntValue: [defaults boolForKey: PSAlertsEditing]];
     {
         NSDictionary *plAlerts = [defaults dictionaryForKey: PSAlertsSelected];
@@ -232,6 +240,37 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     return timeCalendarButton;
 }
 
+#pragma mark volume
+
+- (IBAction)showVolume:(NSButton *)sender;
+{
+    [PSVolumeController controllerWithVolume: [sound outputVolume] delegate: self];
+}
+
+#define VOLUME_IMAGE_INDEX(vol) (vol * 4) - 0.01
+
+- (void)_setVolume:(float)volume withPreview:(BOOL)preview;
+{
+    float outputVolume = [sound outputVolume];
+    short volumeImageIndex = VOLUME_IMAGE_INDEX(volume);
+
+    if (outputVolume > 0 && volumeImageIndex == VOLUME_IMAGE_INDEX(outputVolume)) return;
+    NSString *volumeImageName = [NSString stringWithFormat: @"Volume %ld", volumeImageIndex];
+    [soundVolumeButton setImage: [NSImage imageNamed: volumeImageName]];
+
+    [sound setOutputVolume: volume withPreview: preview];
+}
+
+- (void)volumeController:(PSVolumeController *)controller didSetVolume:(float)volume;
+{
+    [self _setVolume: volume withPreview: YES];
+}
+
+- (NSView *)volumeControllerLaunchingView:(PSVolumeController *)controller;
+{
+    return soundVolumeButton;
+}
+
 #pragma mark alert editing
 
 - (IBAction)toggleAlertEditor:(id)sender;
@@ -298,6 +337,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     BOOL canRepeat = playSoundSelected ? [sound canRepeat] : NO;
     [sound setEnabled: playSoundSelected];
     [soundRepetitions setEnabled: canRepeat];
+    [soundVolumeButton setEnabled: canRepeat && [sound hasAudio]];
     [soundRepetitionStepper setEnabled: canRepeat];
     [soundRepetitionsLabel setTextColor: canRepeat ? [NSColor controlTextColor] : [NSColor disabledControlTextColor]];
     if (playSoundSelected && sender == playSound) {
@@ -365,18 +405,17 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
             [script setAlias: [(PSScriptAlert *)alert scriptFileAlias]];
         } else if ([alert isKindOfClass: [PSNotifierAlert class]]) {
             [displayMessage setIntValue: YES];
-        } else if ([alert isKindOfClass: [PSBeepAlert class]]) {
-            unsigned int repetitions = [(PSBeepAlert *)alert repetitions];
+        } else if ([alert isKindOfClass: [PSMediaAlert class]]) {
+            unsigned int repetitions = [(PSMediaAlert *)alert repetitions];
             [playSound setIntValue: YES];
-            [sound setAlias: nil];
             [soundRepetitions setIntValue: repetitions];
             [soundRepetitionStepper setIntValue: repetitions];
-        } else if ([alert isKindOfClass: [PSMovieAlert class]]) {
-            unsigned int repetitions = [(PSMovieAlert *)alert repetitions];
-            [playSound setIntValue: YES];
-            [sound setAlias: [(PSMovieAlert *)alert movieFileAlias]];
-            [soundRepetitions setIntValue: repetitions];
-            [soundRepetitionStepper setIntValue: repetitions];
+            [self _setVolume: [(PSMediaAlert *)alert outputVolume] withPreview: NO];
+            if ([alert isKindOfClass: [PSBeepAlert class]]) {
+                [sound setAlias: nil];
+            } else if ([alert isKindOfClass: [PSMovieAlert class]]) {
+                [sound setAlias: [(PSMovieAlert *)alert movieFileAlias]];
+            }
         } else if ([alert isKindOfClass: [PSSpeechAlert class]]) {
             [doSpeak setIntValue: YES];
             [voice setVoice: [(PSSpeechAlert *)alert voice]];
@@ -411,10 +450,13 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         if ([playSound intValue]) {
             BDAlias *soundAlias = [sound selectedAlias];
             unsigned short numReps = [soundRepetitions intValue];
+            PSMediaAlert *alert;
             if (soundAlias == nil) // beep alert
-                [alerts addAlert: [PSBeepAlert alertWithRepetitions: numReps]];
+                alert = [PSBeepAlert alertWithRepetitions: numReps];
             else // movie alert
-                [alerts addAlert: [PSMovieAlert alertWithMovieFileAlias: soundAlias repetitions: numReps]];
+                alert = [PSMovieAlert alertWithMovieFileAlias: soundAlias repetitions: numReps];
+            [alerts addAlert: alert];
+            [alert setOutputVolume: [sound outputVolume]];
         }
         // speech alert
         if ([doSpeak intValue])

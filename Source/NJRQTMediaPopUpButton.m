@@ -8,6 +8,7 @@
 
 #import "NJRQTMediaPopUpButton.h"
 #import "SoundFileManager.h"
+#import "NJRSoundManager.h"
 #import "NSMovie-NJRExtensions.h"
 #import "NSImage-NJRExtensions.h"
 #import <QuickTime/Movies.h>
@@ -26,6 +27,8 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (void)_setPath:(NSString *)path;
 - (NSMenuItem *)_itemForAlias:(BDAlias *)alias;
 - (BOOL)_validateWithPreview:(BOOL)doPreview;
+- (void)_updateOutputVolume;
+- (void)_startSoundPreview;
 @end
 
 @implementation NJRQTMediaPopUpButton
@@ -266,6 +269,29 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     return movieCanRepeat;
 }
 
+- (BOOL)hasAudio;
+{
+    return movieHasAudio;
+}
+
+- (float)outputVolume;
+{
+    return outputVolume;
+}
+
+- (void)setOutputVolume:(float)volume withPreview:(BOOL)doPreview;
+{
+    if (![NJRSoundManager volumeIsNotMutedOrInvalid: volume]) return;
+    outputVolume = volume;
+    if (!doPreview) return;
+    // NSLog(@"setting volume to %f, preview movie %@", volume, [preview movie]);
+    if ([preview movie] == nil) {
+        [self _validateWithPreview: YES];
+    } else { // don't restart preview if already playing
+        [self _updateOutputVolume];
+    }
+}
+
 #pragma mark selected media validation
 
 - (void)_invalidateSelection;
@@ -275,13 +301,52 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [[NSNotificationCenter defaultCenter] postNotificationName: NJRQTMediaPopUpButtonMovieChangedNotification object: self];
 }
 
+- (void)_updateOutputVolume;
+{
+    if ([preview movie] != nil && outputVolume != kNoVolume) {
+        if (!savedVolume && ![NJRSoundManager saveDefaultOutputVolume])
+            return;
+        savedVolume = YES;
+        [NJRSoundManager setDefaultOutputVolume: outputVolume];
+        if (![preview isPlaying]) [self _startSoundPreview];
+    }
+}
+
+- (void)_resetOutputVolume;
+{
+    [NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: outputVolume];
+    savedVolume = NO;
+}
+
+- (void)_resetPreview;
+{
+    // if we don’t do this after the runloop has finished, then we crash in MCIdle because it’s expecting a movie and doesn’t have one any more
+    [preview setMovie: nil]; // otherwise we get an extra runloop timer which uses a lot of CPU from +[NSMovieView _idleMovies]
+    // need to wait for runloop to stop movie, otherwise we're still playing at the time the volume changes
+    [self performSelector: @selector(_resetOutputVolume) withObject: nil afterDelay: 0];
+}
+
 void
 MovieStoppedCB(QTCallBack cb, long refCon)
 {
-    NSMovieView *preview = (NSMovieView *)refCon;
-    // if we don’t do this after the runloop has finished, then we crash in MCIdle because it’s expecting a movie and doesn’t have one any more
-    [preview performSelector: @selector(setMovie:) withObject: nil afterDelay: 0]; // otherwise we get an extra runloop timer which uses a lot of CPU from +[NSMovieView _idleMovies]
+    NJRQTMediaPopUpButton *self = (NJRQTMediaPopUpButton *)refCon;
+    // avoid multiple messages from multiple movie playback cycles in the same runloop
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(_resetPreview) object: nil];
+    [self performSelector: @selector(_resetPreview) withObject: nil afterDelay: 0];
     DisposeCallBack(cb);
+}
+
+- (void)_startSoundPreview;
+{
+    Movie qtMovie = [[preview movie] QTMovie];
+    QTCallBack cbStop = NewCallBack(GetMovieTimeBase(qtMovie), callBackAtExtremes);
+    QTCallBackUPP cbStopUPP = NewQTCallBackUPP(MovieStoppedCB);
+    OSErr err = CallMeWhen(cbStop, cbStopUPP, (long)self, triggerAtStop, 0, 0);
+    if (err != noErr) {
+        NSLog(@"Can't register QuickTime stop timebase callback for preview: %ld", err);
+        DisposeCallBack(cbStop);
+    }
+    [preview start: self];
 }
 
 - (BOOL)_validateWithPreview:(BOOL)doPreview;
@@ -290,14 +355,21 @@ MovieStoppedCB(QTCallBack cb, long refCon)
     if (selectedAlias == nil) {
         [preview setMovie: nil];
         movieCanRepeat = YES;
-        if (doPreview) NSBeep();
+        movieHasAudio = NO; // XXX should be YES - this is broken, NSBeep() is asynchronous
+        if (doPreview) {
+            // XXX [self _updateOutputVolume];
+            NSBeep();
+            // XXX [self _resetOutputVolume];
+        }
     } else {
         NSMovie *movie = [[NSMovie alloc] initWithURL: [NSURL fileURLWithPath: [selectedAlias fullPath]] byReference: YES];
         movieCanRepeat = ![movie isStatic];
-        if ([movie hasAudio]) {
+        if (movieHasAudio = [movie hasAudio]) {
             [preview setMovie: doPreview ? movie : nil];
+            [self _updateOutputVolume];
         } else {
-            [preview setMovie: nil];
+            [self _resetPreview];
+            doPreview = NO;
             if (movie == nil) {
                 NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The item you selected isn't a sound or movie recognized by QuickTime.  Please select a different item.", "Message displayed in alert sheet when media document is not recognized by QuickTime"));
                 [self _invalidateSelection];
@@ -311,15 +383,7 @@ MovieStoppedCB(QTCallBack cb, long refCon)
             }
         }
         if (doPreview) {
-            Movie qtMovie = [movie QTMovie];
-            QTCallBack cbStop = NewCallBack(GetMovieTimeBase(qtMovie), callBackAtExtremes);
-            QTCallBackUPP cbStopUPP = NewQTCallBackUPP(MovieStoppedCB);
-            OSErr err = CallMeWhen(cbStop, cbStopUPP, (long)preview, triggerAtStop, 0, 0);
-            if (err != noErr) {
-                NSLog(@"Can't register QuickTime stop timebase callback for preview: %ld", err);
-                DisposeCallBack(cbStop);
-            }
-            [preview start: self];
+            [self _startSoundPreview];
         }
         [movie release];
     }
@@ -332,7 +396,7 @@ MovieStoppedCB(QTCallBack cb, long refCon)
 - (IBAction)stopSoundPreview:(id)sender;
 {
     [preview stop: self];
-    [preview setMovie: nil]; // otherwise we get an extra runloop timer which uses a lot of CPU from +[NSMovieView _idleMovies]
+    [self _resetPreview];
 }
 
 - (void)_beepSelected:(NSMenuItem *)sender;

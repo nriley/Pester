@@ -31,6 +31,7 @@
     IBOutlet NSButton *bounceDockIcon;
     IBOutlet NSButtonCell *playSound;
     IBOutlet NJRQTMediaPopUpButton *sound;
+    IBOutlet NSButton *soundVolumeButton;
     IBOutlet NSTextField *soundRepetitions;
     IBOutlet NSStepper *soundRepetitionStepper;
     IBOutlet NSTextField *soundRepetitionsLabel;
@@ -56,6 +57,7 @@
 - (IBAction)toggleAlertEditor:(id)sender;
 - (IBAction)editAlertChanged:(id)sender;
 - (IBAction)playSoundChanged:(id)sender;
+- (IBAction)showVolume:(NSButton *)sender;
 - (IBAction)doScriptChanged:(id)sender;
 - (IBAction)doSpeakChanged:(id)sender;
 - (IBAction)setAlarm:(NSButton *)sender;

@@ -9,6 +9,7 @@
 #import <AppKit/AppKit.h>
 #import "PSBeepAlert.h"
 #import "PSAlarmAlertController.h"
+#import "NJRSoundManager.h"
 #import "NSDictionary-NJRExtensions.h"
 
 // property list keys
@@ -21,23 +22,10 @@ static NSString * const PLAlertRepetitions = @"times"; // NSNumber
     return [[self alloc] initWithRepetitions: numReps];
 }
 
-- (id)initWithRepetitions:(unsigned short)numReps;
-{
-    if ( (self = [super init]) != nil) {
-        repetitions = numReps;
-    }
-    return self;
-}
-
 - (void)dealloc;
 {
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [super dealloc];
-}
-
-- (unsigned short)repetitions;
-{
-    return repetitions;
 }
 
 - (void)beep;
@@ -45,6 +33,9 @@ static NSString * const PLAlertRepetitions = @"times"; // NSNumber
     NSBeep();
     repetitionsRemaining--;
     if (repetitionsRemaining == 0) {
+        if (savedVolume) {
+            [NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: outputVolume];
+        }
         [self completedForAlarm: alarm];
         [self release];
         return;
@@ -63,27 +54,17 @@ static NSString * const PLAlertRepetitions = @"times"; // NSNumber
     repetitionsRemaining = repetitions;
     [self retain];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_stopBeeping:) name: PSAlarmAlertStopNotification object: nil];
+    savedVolume = [NJRSoundManager saveDefaultOutputVolume];
     [self beep];
 }
 
 - (NSAttributedString *)actionDescription;
 {
-    return [[@"Play the system alert sound" stringByAppendingString:
-                                            repetitions == 1 ? @"" : [NSString stringWithFormat: @" %hu times", repetitions]] small];
-}
-
-#pragma mark property list serialization (Pester 1.1)
-
-- (NSDictionary *)propertyListRepresentation;
-{
-    NSMutableDictionary *plAlert = [[super propertyListRepresentation] mutableCopy];
-    [plAlert setObject: [NSNumber numberWithUnsignedShort: repetitions] forKey: PLAlertRepetitions];
-    return [plAlert autorelease];
-}
-
-- (id)initWithPropertyList:(NSDictionary *)dict;
-{
-    return [self initWithRepetitions: [[dict objectForRequiredKey: PLAlertRepetitions] unsignedShortValue]];
+    return // XXX [
+        [[@"Play the system alert sound" stringByAppendingString:
+                                             repetitions == 1 ? @"" : [NSString stringWithFormat: @" %hu times", repetitions]]
+        // XXX stringByAppendingString: outputVolume == kNoVolume ? @"" : [NSString stringWithFormat: @" at %.0f%% volume", outputVolume * 100]]
+            small];
 }
 
 @end

@@ -48,6 +48,7 @@
                 setAlarm = id; 
                 setSoundRepetitionCount = id; 
                 showCalendar = id; 
+                showVolume = id; 
                 silence = id; 
                 toggleAlertEditor = id; 
                 update = id; 
@@ -73,6 +74,7 @@
                 soundRepetitionStepper = NSStepper; 
                 soundRepetitions = NSTextField; 
                 soundRepetitionsLabel = NSTextField; 
+                soundVolumeButton = NSButton; 
                 timeCalendarButton = NSButton; 
                 timeDate = NSTextField; 
                 timeDateCompletions = NSPopUpButton; 

@@ -7,14 +7,13 @@
 //
 
 #import <AppKit/AppKit.h>
-#import "PSAlert.h"
+#import "PSMediaAlert.h"
 
 @class BDAlias;
 
-@interface PSMovieAlert : PSAlert {
+@interface PSMovieAlert : PSMediaAlert {
     BDAlias *alias;
     NSMovie *movie;
-    unsigned short repetitions;
     BOOL hasAudio;
     BOOL hasVideo;
 }
@@ -26,6 +25,5 @@
 - (BOOL)hasVideo;
 - (NSMovie *)movie;
 - (BDAlias *)movieFileAlias;
-- (unsigned short)repetitions;
 
 @end

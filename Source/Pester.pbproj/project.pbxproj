@@ -49,6 +49,7 @@
 			children = (
 				1058C7A1FEA54F0111CA2CBB,
 				F5F240D0036A87E301FE7503,
+				E18DAAEE0442D02500050002,
 				F5F24187036A90D901FE7503,
 				F59E4BEA036B33EC016B311C,
 				E14DB31203B8038300000028,
@@ -168,15 +169,13 @@
 		29B97317FDCFA39411CA2CEA = {
 			children = (
 				F5243DA40378681101AEEDB1,
-				E17F2F6B03FDFE2C00050002,
-				E1DEF0EA03FE1BF100050002,
-				E1DEF0EB03FE1BF100050002,
-				E1DEF0EC03FE1BF100050002,
-				E1DEF0ED03FE1BF100050002,
+				E18830410442B5FC00050002,
+				E18830420442B60000050002,
 				29B97318FDCFA39411CA2CEA,
 				F560E2EE03574F8A01A4E466,
 				F59DC6DF0353DF5E01AEEDB1,
 				F59E4BDE036B1D94016B311C,
+				E12790090442A5B100050002,
 				E17F2F4D03FDFB3100050002,
 				E1DEF10603FF83AC00050002,
 				E10F2A3B0402E61C00050002,
@@ -239,7 +238,7 @@
 				E130B9A903B7AEED00000028,
 			);
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 16;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = /;
@@ -284,11 +283,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1b3</string>
+	<string>1.1b4</string>
 	<key>CFBundleSignature</key>
 	<string>Pest</string>
 	<key>CFBundleVersion</key>
-	<string>12</string>
+	<string>16</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -361,6 +360,9 @@
 				E14DEC840438969400050002,
 				E11373160439FCC700050002,
 				E1453840043A1DB200050002,
+				E127900E0442A92900050002,
+				E18DA40A0442C56D00050002,
+				E18DAAEC0442CC3E00050002,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +389,11 @@
 				E10F2A3D0402E61C00050002,
 				E10E71F5040C335800050002,
 				E11CB6E2043025F600050002,
+				E127900504429F9300050002,
+				E127900604429F9300050002,
+				E127900704429F9300050002,
+				E127900804429F9300050002,
+				E127900B0442A5B100050002,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +459,9 @@
 				E14DEC850438969400050002,
 				E11373170439FCC700050002,
 				E1453841043A1DB200050002,
+				E127900F0442A92900050002,
+				E18DA40B0442C56D00050002,
+				E18DAAED0442CC3E00050002,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +482,7 @@
 				F5F24189036A90D901FE7503,
 				F59E4C0C036B33EC016B311C,
 				E14DB31303B8038300000028,
+				E18DAAEF0442D02500050002,
 			);
 			isa = PBXFrameworksBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,6 +649,95 @@
 		};
 		E1271F040000012300000028 = {
 			fileRef = E130B9AD03B7C59700000028;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E127900104429F9300050002 = {
+			isa = PBXFileReference;
+			path = "Volume 2.png";
+			refType = 4;
+		};
+		E127900204429F9300050002 = {
+			isa = PBXFileReference;
+			path = "Volume 0.png";
+			refType = 4;
+		};
+		E127900304429F9300050002 = {
+			isa = PBXFileReference;
+			path = "Volume 3.png";
+			refType = 4;
+		};
+		E127900404429F9300050002 = {
+			isa = PBXFileReference;
+			path = "Volume 1.png";
+			refType = 4;
+		};
+		E127900504429F9300050002 = {
+			fileRef = E127900104429F9300050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E127900604429F9300050002 = {
+			fileRef = E127900204429F9300050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E127900704429F9300050002 = {
+			fileRef = E127900304429F9300050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E127900804429F9300050002 = {
+			fileRef = E127900404429F9300050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E12790090442A5B100050002 = {
+			children = (
+				E127900A0442A5B100050002,
+			);
+			isa = PBXVariantGroup;
+			name = Volume.nib;
+			path = "";
+			refType = 4;
+		};
+		E127900A0442A5B100050002 = {
+			isa = PBXFileReference;
+			name = Volume.nib;
+			path = English.lproj/Volume.nib;
+			refType = 4;
+		};
+		E127900B0442A5B100050002 = {
+			fileRef = E12790090442A5B100050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E127900C0442A92900050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSVolumeController.h;
+			refType = 4;
+		};
+		E127900D0442A92900050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSVolumeController.m;
+			refType = 4;
+		};
+		E127900E0442A92900050002 = {
+			fileRef = E127900C0442A92900050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E127900F0442A92900050002 = {
+			fileRef = E127900D0442A92900050002;
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -1005,6 +1105,89 @@
 		};
 		E17F2F6C03FDFE2C00050002 = {
 			fileRef = E17F2F6B03FDFE2C00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E18830410442B5FC00050002 = {
+			children = (
+				E17F2F6B03FDFE2C00050002,
+				E1DEF0EA03FE1BF100050002,
+				E1DEF0EB03FE1BF100050002,
+				E1DEF0EC03FE1BF100050002,
+				E1DEF0ED03FE1BF100050002,
+			);
+			isa = PBXGroup;
+			name = "Calendar icons";
+			refType = 4;
+		};
+		E18830420442B60000050002 = {
+			children = (
+				E127900204429F9300050002,
+				E127900404429F9300050002,
+				E127900104429F9300050002,
+				E127900304429F9300050002,
+			);
+			isa = PBXGroup;
+			name = "Volume icons";
+			refType = 4;
+		};
+		E18DA4080442C56D00050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSMediaAlert.h;
+			refType = 4;
+		};
+		E18DA4090442C56D00050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSMediaAlert.m;
+			refType = 4;
+		};
+		E18DA40A0442C56D00050002 = {
+			fileRef = E18DA4080442C56D00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E18DA40B0442C56D00050002 = {
+			fileRef = E18DA4090442C56D00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E18DAAEA0442CC3E00050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRSoundManager.h;
+			refType = 4;
+		};
+		E18DAAEB0442CC3E00050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRSoundManager.m;
+			refType = 4;
+		};
+		E18DAAEC0442CC3E00050002 = {
+			fileRef = E18DAAEA0442CC3E00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E18DAAED0442CC3E00050002 = {
+			fileRef = E18DAAEB0442CC3E00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E18DAAEE0442D02500050002 = {
+			isa = PBXFrameworkReference;
+			name = CoreAudio.framework;
+			path = /System/Library/Frameworks/CoreAudio.framework;
+			refType = 0;
+		};
+		E18DAAEF0442D02500050002 = {
+			fileRef = E18DAAEE0442D02500050002;
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -1664,6 +1847,8 @@
 				F59E47C0036B1ADD016B311C,
 				E17F2F3203FDF2F000050002,
 				E17F2F3303FDF2F000050002,
+				E127900C0442A92900050002,
+				E127900D0442A92900050002,
 				E1F993C60436310F00050002,
 				E1F993C70436310F00050002,
 				E1DEF10203FF816300050002,
@@ -1709,6 +1894,8 @@
 				E11373150439FCC700050002,
 				E145383E043A1DB200050002,
 				E145383F043A1DB200050002,
+				E18DAAEA0442CC3E00050002,
+				E18DAAEB0442CC3E00050002,
 			);
 			isa = PBXGroup;
 			name = Utilities;
@@ -2008,6 +2195,8 @@
 				F59E4BE6036B2E5E016B311C,
 				F59E47B1036AACD1016B311C,
 				F59E47B0036AACD1016B311C,
+				E18DA4080442C56D00050002,
+				E18DA4090442C56D00050002,
 				F59E47AC036AAC1E016B311C,
 				F59E47AB036AAC1E016B311C,
 				F59E47BD036AB228016B311C,

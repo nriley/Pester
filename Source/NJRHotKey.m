@@ -65,8 +65,8 @@ static NSString * const PLKeyCode = @"keyCode"; // NSNumber
     long modifiers = 0;
     int i;
 
-    for( i = 0 ; modifierMap[i][0] != 0 ; i++ )
-        if( hotKeyModifierFlags & modifierMap[i][0] )
+    for (i = 0 ; modifierMap[i][0] != 0 ; i++)
+        if (hotKeyModifierFlags & modifierMap[i][0])
             modifiers |= modifierMap[i][1];
 
     return modifiers;

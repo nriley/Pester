@@ -15,8 +15,8 @@
 	<string>291.0</string>
 	<key>IBOpenObjects</key>
 	<array>
+		<integer>640</integer>
 		<integer>21</integer>
-		<integer>29</integer>
 	</array>
 	<key>IBSystem Version</key>
 	<string>6I32</string>
@@ -33,8 +33,8 @@
 				<string>Vertical:16.000000</string>
 				<string>Vertical:85.000000</string>
 				<string>Vertical:422.000000</string>
-				<string>Horizontal:151.000000</string>
-				<string>Horizontal:151.000000</string>
+				<string>Horizontal:150.000000</string>
+				<string>Horizontal:150.000000</string>
 			</array>
 			<key>guidesLocked</key>
 			<false/>

@@ -1,0 +1,14 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSObject; LANGUAGE = ObjC; }, 
+        {
+            ACTIONS = {volumeSet = id; }; 
+            CLASS = PSVolumeController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {contentView = NSView; delegate = id; volumeSlider = NSSlider; }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

@@ -15,7 +15,7 @@
 
 + (PSCalendarController *)controllerWithDate:(NSCalendarDate *)aDate delegate:(id)aDelegate;
 {
-    return [[self alloc] initWithDate:(NSCalendarDate *)aDate delegate:(id)aDelegate];
+    return [[self alloc] initWithDate: aDate delegate: aDelegate];
 }
 
 - (id)initWithDate:(NSCalendarDate *)aDate delegate:(id)aDelegate;
@@ -39,10 +39,11 @@
             [window setFrameTopLeftPoint: rect.origin];
             NSRect visibleFrame = [[parentWindow screen] visibleFrame];
             if (!NSContainsRect(visibleFrame, [window frame])) {
-                NSPoint textFieldTopLeft = { rect.origin.x, rect.origin.y + rect.size.height };
-                [window setFrameOrigin: textFieldTopLeft];
+                NSPoint viewTopLeft = { rect.origin.x, rect.origin.y + rect.size.height };
+                [window setFrameOrigin: viewTopLeft];
             }
         }
+        
         [window setOpaque: NO];
         [window setBackgroundColor: [NSColor colorWithCalibratedWhite: 0.81f alpha: 0.9f]];
         [window setHasShadow: NO];

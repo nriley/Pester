@@ -6,17 +6,14 @@
 //  Copyright (c) 2002 Nicholas Riley. All rights reserved.
 //
 
-#import "PSAlert.h"
+#import "PSMediaAlert.h"
 
-@interface PSBeepAlert : PSAlert {
+@interface PSBeepAlert : PSMediaAlert {
     PSAlarm *alarm;
-    unsigned short repetitions;
     unsigned short repetitionsRemaining;
+    BOOL savedVolume;
 }
 
 + (PSBeepAlert *)alertWithRepetitions:(unsigned short)numReps;
-- (id)initWithRepetitions:(unsigned short)numReps;
-
-- (unsigned short)repetitions;
 
 @end

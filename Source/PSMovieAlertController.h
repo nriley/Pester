@@ -17,7 +17,7 @@
     IBOutlet NSMovieView *movieView;
     void *theMovie; /* Movie */
     unsigned short repetitions;
-    unsigned short repetitionsRemaining;    
+    unsigned short repetitionsRemaining;
 }
 
 + (PSMovieAlertController *)controllerWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
