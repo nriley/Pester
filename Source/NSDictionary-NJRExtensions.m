@@ -14,7 +14,7 @@
 - (id)objectForRequiredKey:(NSString *)key;
 {
     id obj = [self objectForKey: key];
-    NSAssert1(obj != nil, @"Dictionary does not contain object for required key Ò%@Ó", key);
+    NSAssert1(obj != nil, NSLocalizedString(@"Dictionary does not contain object for required key '%@'", "Assertion failure in -[NSDictionary objectForRequiredKey:]"), key);
     return obj;
 }
 

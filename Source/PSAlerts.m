@@ -93,7 +93,7 @@ static NSString * const PLAlerts = @"alerts"; // NSString
     PSAlert *alert;
     unsigned int length;
     while ( (alert = [e nextObject]) != nil) {
-        [string appendAttributedString: [@"¥ " small]];
+        [string appendAttributedString: [NSLocalizedString(@"* ", "Unordered list label (usually a bullet followed by a space)") small]];
         [string appendAttributedString: [alert actionDescription]];
         [string appendAttributedString: [@"\n" small]];
     }
@@ -103,7 +103,7 @@ static NSString * const PLAlerts = @"alerts"; // NSString
     } else {
         NSMutableParagraphStyle *paraStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
         [string deleteCharactersInRange: NSMakeRange(length - 1, 1)]; // remove trailing newline
-        [paraStyle setHeadIndent: [[string attribute: NSFontAttributeName atIndex: 0 effectiveRange: NULL] widthOfString: @"¥ "]];
+        [paraStyle setHeadIndent: [[string attribute: NSFontAttributeName atIndex: 0 effectiveRange: NULL] widthOfString: NSLocalizedString(@"* ", "Unordered list label (usually a bullet followed by a space)")]];
         [string addAttribute: NSParagraphStyleAttributeName value: paraStyle range: NSMakeRange(0, length - 1)];
         [paraStyle release]; paraStyle = nil;
         return [string autorelease];

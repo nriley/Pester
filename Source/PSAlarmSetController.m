@@ -258,11 +258,11 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         NSRect textFrame = [alertView frame];
         float textHeight;
         if (![self _setAlerts]) {
-            [alertView setStringValue: [NSString stringWithFormat: @"Couldn’t process alert information.\n%@", status]];
+            [alertView setStringValue: [NSString stringWithFormat: @"%@\n%@", NSLocalizedString(@"Couldn't process alert information.", "Message shown in collapsed alert area when alert information is invalid or inconsistent (prevents setting alarm)"), status]];
         } else {
             NSAttributedString *string = [[alarm alerts] prettyList];
             if (string == nil) {
-                [alertView setStringValue: @"Do nothing. Click the button labeled “Edit” to add an alert."];
+                [alertView setStringValue: NSLocalizedString(@"Do nothing. Click the button labeled 'Edit' to add an alert.", "Message shown in collapsed alert edit area when no alerts have been specified")];
             } else {
                 [alertView setAttributedStringValue: string];
                 [self updateDateDisplay: sender];

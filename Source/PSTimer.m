@@ -65,7 +65,7 @@ NSMutableArray *PSTimerAllTimers = nil;
                 return;
             }
         }
-        NSAssert(NO, @"shouldn’t get here");
+        NSAssert(NO, @"shouldn't get here");
     } else {
         // NSLog(@"_schedule: no timers");
     }

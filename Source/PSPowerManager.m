@@ -175,13 +175,18 @@ closePMUComPort(io_object_t pmuRef)
     return YES;
 }
 
-+ (NSDate *)wakeTime;
++ (io_service_t)_pmuReference;
 {
     io_service_t pmuReference = openPMUComPort();
+    NSAssert(pmuReference != NULL, NSLocalizedString(@"Couldn't find PMU in IORegistry. This computer may not support automatic wake from sleep.", "Assertion message: couldn't open ApplePMU"));
+}
+
++ (NSDate *)wakeTime;
+{
+    io_service_t pmuReference = [self _pmuReference];
     NSNumber *autoWakeTime;
     unsigned long long rawWakeTime;
     
-    NSAssert(pmuReference != NULL, @"Couldn’t find PMU in IORegistry. This computer may not support automatic wake from sleep.");
     autoWakeTime = (NSNumber *)IORegistryEntryCreateCFProperty(pmuReference, CFSTR("AutoWake"), NULL, 0);
     closePMUComPort(pmuReference);
 
@@ -194,9 +199,8 @@ closePMUComPort(io_object_t pmuRef)
 
 + (void)setWakeTime:(NSDate *)time;
 {
+    io_service_t pmuReference = [self _pmuReference];
     unsigned long wakeTime;
-    io_service_t pmuReference = openPMUComPort();
-    NSAssert(pmuReference != NULL, @"Couldn’t find PMU in IORegistry. This computer may not support automatic wake from sleep.");
 
     if (time == nil) wakeTime = 0;
     else {

@@ -14,7 +14,7 @@
 
 - (NSString *)_defaultKey;
 {
-    NSAssert([self tag] != 0, @"Can’t track history for combo box with tag 0: please set a tag");
+    NSAssert([self tag] != 0, NSLocalizedString(@"Can't track history for combo box with tag 0: please set a tag", "Assertion for history tracking combo box if tag is 0"));
     return [NSString stringWithFormat: @"NJRHistoryTrackingComboBox tag %d", [self tag]];
 }
 

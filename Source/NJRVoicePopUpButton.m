@@ -24,7 +24,7 @@
     [item setEnabled: NO];
     [menu addItem: [NSMenuItem separatorItem]];
     if (voiceNames == nil || [voiceNames count] == 0) {
-        item = [menu addItemWithTitle: @"Can’t locate voices" action: nil keyEquivalent: @""];
+        item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate voices", "Voice popup menu item surrogate for voice list if no voices are found") action: nil keyEquivalent: @""];
         [item setEnabled: NO];
     } else {
         NSEnumerator *e = [voiceNames objectEnumerator];
@@ -87,7 +87,7 @@
     [_speaker stopSpeaking];
 
     if ( (err = GetIndVoice(voiceIndex, &voice)) != noErr) {
-        NSBeginAlertSheet(@"Voice not available", nil, nil, nil, [self window], nil, nil, nil, nil, @"The voice “%@” you selected could not be used.  An error of type %ld occurred while attempting to retrieve voice information.", voiceName, err);
+        NSBeginAlertSheet(@"Voice not available", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The voice '%@' you selected could not be used.  An error of type %ld occurred while attempting to retrieve voice information.", "Message displayed in alert sheet when GetIndVoice returns an error"), voiceName, err);
         [self _invalidateVoiceSelection];
         return;
     }

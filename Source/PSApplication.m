@@ -175,9 +175,9 @@
         [dockMenu addItemWithTitle: [NSString stringWithFormat: @"   Remaining: %@", [nextAlarm timeRemainingString]] action: nil keyEquivalent: @""];
     }
     [dockMenu addItem: [NSMenuItem separatorItem]];
-    item = [dockMenu addItemWithTitle: @"Set Alarm…" action: @selector(orderFrontSetAlarmPanel:) keyEquivalent: @""];
+    item = [dockMenu addItemWithTitle: NSLocalizedString(@"Set Alarm...", "Dock menu item") action: @selector(orderFrontSetAlarmPanel:) keyEquivalent: @""];
     [item setTarget: self];
-    item = [dockMenu addItemWithTitle: [NSString stringWithFormat: @"All Alarms (%d)…", [alarms alarmCount]] action: @selector(orderFrontAlarmsPanel:) keyEquivalent: @""];
+    item = [dockMenu addItemWithTitle: [NSString stringWithFormat: NSLocalizedString(@"All Alarms (%d)...", "Dock menu item (%d replaced by number of alarms)"), [alarms alarmCount]] action: @selector(orderFrontAlarmsPanel:) keyEquivalent: @""];
     [item setTarget: self];
     return [dockMenu autorelease];
 }
@@ -193,7 +193,7 @@
     unsigned version1AlarmCount = [allAlarms countOfVersion1Alarms];
     if (version1AlarmCount > 0) {
         int answer = NSRunAlertPanel(@"Import alarms from older Pester version?", @"Pester found %u alarm%@ created with an older version. These alarms must be converted for use with this version of Pester, and will be unavailable in previous versions after conversion. New alarms created with this version of Pester will not appear in Pester version 1.1a3 or earlier.",
-                                     @"Import", @"Discard", @"Don’t Import",
+                                     @"Import", @"Discard", NSLocalizedString(@"Don't Import", "Pester <= 1.1a3 format alarms button"),
                                      version1AlarmCount, version1AlarmCount == 1 ? @"" : @"s");
         switch (answer) {
             case NSAlertDefaultReturn:

@@ -127,7 +127,7 @@ static NJRReadMeController *sharedController = nil;
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     NSAttributedString *readMe = [[NSAttributedString alloc] initWithPath: aPath documentAttributes: nil];
     if (readMe == nil) {
-        [body insertText: [NSString stringWithFormat: @"Can’t read document “%@”", [aPath lastPathComponent]]];
+    [body insertText: [NSString stringWithFormat: NSLocalizedString(@"Can't read document '%@'", "Message displayed in in place of read me contents when read me file could not be read; %@ replaced by last path component of filename, e.g. 'Read Me.rtfd'"), [aPath lastPathComponent]]];
     } else {
         NSTextStorage *storage = [body textStorage];
         [storage setAttributedString: readMe];

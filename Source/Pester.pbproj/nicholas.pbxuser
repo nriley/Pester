@@ -21,14 +21,142 @@
 			F59B967103538BE201154278,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 67564716;
+			PBXPerProjectTemplateStateSaveDate = 67918447;
+			"PBXTemplateGeometry-F5CA7EC9015C08ED0DCA290F" = {
+				ContentSize = "{665, 594}";
+				LeftSlideOut = {
+					Collapsed = NO;
+					Frame = "{{0, 0}, {665, 594}}";
+					Split0 = {
+						ActiveTab = 3;
+						ActiveTabName = PBXProjectFindModule;
+						Collapsed = NO;
+						Frame = "{{0, 0}, {665, 594}}";
+						Split0 = {
+							Frame = "{{0, 301}, {665, 293}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {484, 208}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {664, 208}}";
+								Split0 = {
+									Frame = "{{0, 24}, {664, 184}}";
+									Split0 = {
+										Frame = "{{0, 0}, {325, 184}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											96.123,
+										);
+										Frame = "{{334, 0}, {330, 184}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {664, 208}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {664, 50}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {664, 50}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {667, 265}}";
+							BuildTranscriptFrame = "{{0, 274}, {667, 2}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {665, 298}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {665, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {313, 531}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							280,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {280, 398}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							237,
+						);
+						Frame = "{{0, 0}, {278, 659}}";
+						MembersFrame = "{{0, 407}, {280, 252}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							236,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 557}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 100}}";
+					};
+					TabCount = 5;
+					TabsVisible = NO;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = NO;
+				Template = F5CA7EC9015C08ED0DCA290F;
+				ToolbarVisible = NO;
+				WindowLocation = "{69, 216}";
+			};
 			PBXWorkspaceContents = (
 				{
 					LeftSlideOut = {
 						Split0 = {
 							Split0 = {
 								NavContent0 = {
-									bookmark = E1F40A7B040701D900050002;
+									bookmark = E1A60185040C8C6B00050002;
 									history = (
 										E1D2937B03BD418200F9204E,
 										E1D2937C03BD418200F9204E,
@@ -71,7 +199,6 @@
 										E17AED7603C0F5D300B89ACF,
 										E17AED7703C0F5D300B89ACF,
 										E17AED7803C0F5D300B89ACF,
-										E17AED7903C0F5D300B89ACF,
 										E17AED8703C0F5D300B89ACF,
 										E17AED8803C0F5D300B89ACF,
 										E117A4AC03C3E9C600E10BA2,
@@ -93,7 +220,6 @@
 										E143439503DB479900050002,
 										E14343C103DB52FA00050002,
 										E120347403EDEBC000000ABE,
-										E187C7E203F4C16B00EF60C7,
 										E17F2F7003FE0DCC00050002,
 										E17F2F7403FE0DCC00050002,
 										E17F2F7803FE0DCC00050002,
@@ -128,7 +254,6 @@
 										E1DEF15704003A5F00050002,
 										E1DEF15A04003A5F00050002,
 										E1DEF15B04003A5F00050002,
-										E1DEF15C04003A5F00050002,
 										E1DEF15D04003A5F00050002,
 										E1DEF15E04003A5F00050002,
 										E1DEF16004003A5F00050002,
@@ -186,14 +311,19 @@
 										E1B4701604069E0B00050002,
 										E1B4701704069E0B00050002,
 										E1B4701804069E0B00050002,
-										E1B4701904069E0B00050002,
 										E1B4701A04069E0B00050002,
 										E1B4701B04069E0B00050002,
 										E1B4701C04069E0B00050002,
 										E1B4701E04069E0B00050002,
 										E1EF85620406E47300050002,
 										E1EF85630406E47300050002,
-										E1EF85680406E47300050002,
+										E1A60176040C8C6B00050002,
+										E1A60177040C8C6B00050002,
+										E1A60178040C8C6B00050002,
+										E1A60179040C8C6B00050002,
+										E1A6017A040C8C6B00050002,
+										E1A6017B040C8C6B00050002,
+										E1A6017C040C8C6B00050002,
 									);
 									prevStack = (
 										E1D2939103BD418200F9204E,
@@ -1238,6 +1368,14 @@
 										E1EF85650406E47300050002,
 										E1EF85660406E47300050002,
 										E1EF85670406E47300050002,
+										E1A6017D040C8C6B00050002,
+										E1A6017E040C8C6B00050002,
+										E1A6017F040C8C6B00050002,
+										E1A60180040C8C6B00050002,
+										E1A60181040C8C6B00050002,
+										E1A60182040C8C6B00050002,
+										E1A60183040C8C6B00050002,
+										E1A60184040C8C6B00050002,
 									);
 								};
 								NavCount = 1;
@@ -1312,9 +1450,93 @@
 					LeftSlideOut = {
 						Split0 = {
 							Split0 = {
+								NavContent0 = {
+									bookmark = E1A60187040C8C6B00050002;
+									history = (
+										E1A60186040C8C6B00050002,
+									);
+								};
 								NavCount = 1;
 								NavGeometry0 = {
 									Frame = "{{0, 0}, {685, 150}}";
+									NavBarVisible = YES;
+								};
+								NavSplitVertical = NO;
+							};
+							SplitCount = 1;
+							Tab1 = {
+								Debugger = {
+									Split0 = {
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									TabCount = 2;
+								};
+								LauncherConfigVersion = 7;
+							};
+							Tab2 = {
+								LauncherConfigVersion = 3;
+								Runner = {
+								};
+							};
+							TabCount = 5;
+						};
+						SplitCount = 1;
+						Tab1 = {
+							OptionsSetName = "Hierarchy, all classes";
+						};
+						TabCount = 5;
+					};
+				},
+				{
+					LeftSlideOut = {
+						Split0 = {
+							Split0 = {
+								NavCount = 1;
+								NavGeometry0 = {
+									Frame = "{{0, 0}, {668, 621}}";
+									NavBarVisible = YES;
+								};
+								NavSplitVertical = NO;
+							};
+							SplitCount = 1;
+							Tab1 = {
+								Debugger = {
+									Split0 = {
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									TabCount = 2;
+								};
+								LauncherConfigVersion = 7;
+							};
+							Tab2 = {
+								LauncherConfigVersion = 3;
+								Runner = {
+								};
+							};
+							TabCount = 5;
+						};
+						SplitCount = 1;
+						Tab1 = {
+							OptionsSetName = "Hierarchy, all classes";
+						};
+						TabCount = 5;
+					};
+				},
+				{
+					LeftSlideOut = {
+						Split0 = {
+							Split0 = {
+								NavContent0 = {
+									bookmark = E1A60189040C8C6B00050002;
+									history = (
+										E1A60188040C8C6B00050002,
+									);
+								};
+								NavCount = 1;
+								NavGeometry0 = {
+									Frame = "{{0, 0}, {665, 293}}";
 									NavBarVisible = YES;
 								};
 								NavSplitVertical = NO;
@@ -1472,7 +1694,7 @@
 					StatusViewVisible = YES;
 					Template = 64ABBB4501FA494900185B06;
 					ToolbarVisible = YES;
-					WindowLocation = "{19, 173}";
+					WindowLocation = "{211, 120}";
 				},
 				{
 					ContentSize = "{684, 312}";
@@ -1662,8 +1884,8 @@
 								};
 							};
 							Tab3 = {
-								BuildMessageFrame = "{{0, 0}, {687, 258}}";
-								BuildTranscriptFrame = "{{0, 267}, {687, 6}}";
+								BuildMessageFrame = "{{0, 0}, {687, 264}}";
+								BuildTranscriptFrame = "{{0, 273}, {687, 0}}";
 								BuildTranscriptFrameExpanded = YES;
 								Frame = "{{0, 0}, {685, 295}}";
 							};
@@ -1730,8 +1952,262 @@
 					ToolbarVisible = YES;
 					WindowLocation = "{433, 70}";
 				},
+				{
+					ContentSize = "{668, 621}";
+					LeftSlideOut = {
+						Collapsed = NO;
+						Frame = "{{0, 0}, {668, 621}}";
+						Split0 = {
+							Collapsed = NO;
+							Frame = "{{0, 0}, {668, 621}}";
+							Split0 = {
+								Frame = "{{0, 0}, {668, 621}}";
+							};
+							SplitCount = 1;
+							Tab0 = {
+								Frame = "{{0, 0}, {484, 208}}";
+							};
+							Tab1 = {
+								Debugger = {
+									Collapsed = NO;
+									Frame = "{{0, 0}, {664, 208}}";
+									Split0 = {
+										Frame = "{{0, 24}, {664, 184}}";
+										Split0 = {
+											Frame = "{{0, 0}, {325, 184}}";
+										};
+										Split1 = {
+											DebugVariablesTableConfiguration = (
+												Name,
+												123,
+												Value,
+												85,
+												Summary,
+												96.123,
+											);
+											Frame = "{{334, 0}, {330, 184}}";
+										};
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									Tab0 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									Tab1 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									TabCount = 2;
+									TabsVisible = YES;
+								};
+								Frame = "{{0, 0}, {664, 208}}";
+								LauncherConfigVersion = 7;
+							};
+							Tab2 = {
+								Frame = "{{0, 0}, {664, 50}}";
+								LauncherConfigVersion = 3;
+								Runner = {
+									Frame = "{{0, 0}, {664, 50}}";
+								};
+							};
+							Tab3 = {
+								BuildMessageFrame = "{{0, 0}, {614, 262}}";
+								BuildTranscriptFrame = "{{0, 271}, {614, 2}}";
+								BuildTranscriptFrameExpanded = YES;
+								Frame = "{{0, 0}, {612, 295}}";
+							};
+							Tab4 = {
+								Frame = "{{0, 0}, {612, 295}}";
+							};
+							TabCount = 5;
+							TabsVisible = NO;
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {313, 531}}";
+							GroupTreeTableConfiguration = (
+								TargetStatusColumn,
+								18,
+								MainColumn,
+								280,
+							);
+						};
+						Tab1 = {
+							ClassesFrame = "{{0, 0}, {280, 398}}";
+							ClassesTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXClassColumnIdentifier,
+								237,
+							);
+							Frame = "{{0, 0}, {278, 659}}";
+							MembersFrame = "{{0, 407}, {280, 252}}";
+							MembersTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXMethodColumnIdentifier,
+								236,
+							);
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {200, 100}}";
+						};
+						Tab3 = {
+							Frame = "{{0, 0}, {200, 557}}";
+							TargetTableConfiguration = (
+								ActiveObject,
+								16,
+								ObjectNames,
+								202.296,
+							);
+						};
+						Tab4 = {
+							BreakpointsTreeTableConfiguration = (
+								breakpointColumn,
+								197,
+								enabledColumn,
+								31,
+							);
+							Frame = "{{0, 0}, {250, 100}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					NavBarShownByDefault = YES;
+					StatusViewVisible = NO;
+					Template = F5CA7ECB015C094F0DCA290F;
+					ToolbarVisible = NO;
+					WindowLocation = "{462, 79}";
+				},
+				{
+					ContentSize = "{665, 594}";
+					LeftSlideOut = {
+						Collapsed = NO;
+						Frame = "{{0, 0}, {665, 594}}";
+						Split0 = {
+							ActiveTab = 3;
+							ActiveTabName = PBXProjectFindModule;
+							Collapsed = NO;
+							Frame = "{{0, 0}, {665, 594}}";
+							Split0 = {
+								Frame = "{{0, 301}, {665, 293}}";
+							};
+							SplitCount = 1;
+							Tab0 = {
+								Frame = "{{0, 0}, {484, 208}}";
+							};
+							Tab1 = {
+								Debugger = {
+									Collapsed = NO;
+									Frame = "{{0, 0}, {664, 208}}";
+									Split0 = {
+										Frame = "{{0, 24}, {664, 184}}";
+										Split0 = {
+											Frame = "{{0, 0}, {325, 184}}";
+										};
+										Split1 = {
+											DebugVariablesTableConfiguration = (
+												Name,
+												123,
+												Value,
+												85,
+												Summary,
+												96.123,
+											);
+											Frame = "{{334, 0}, {330, 184}}";
+										};
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									Tab0 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									Tab1 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									TabCount = 2;
+									TabsVisible = YES;
+								};
+								Frame = "{{0, 0}, {664, 208}}";
+								LauncherConfigVersion = 7;
+							};
+							Tab2 = {
+								Frame = "{{0, 0}, {664, 50}}";
+								LauncherConfigVersion = 3;
+								Runner = {
+									Frame = "{{0, 0}, {664, 50}}";
+								};
+							};
+							Tab3 = {
+								BuildMessageFrame = "{{0, 0}, {667, 265}}";
+								BuildTranscriptFrame = "{{0, 274}, {667, 2}}";
+								BuildTranscriptFrameExpanded = YES;
+								Frame = "{{0, 0}, {665, 298}}";
+							};
+							Tab4 = {
+								Frame = "{{0, 0}, {665, 295}}";
+							};
+							TabCount = 5;
+							TabsVisible = NO;
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {313, 531}}";
+							GroupTreeTableConfiguration = (
+								TargetStatusColumn,
+								18,
+								MainColumn,
+								280,
+							);
+						};
+						Tab1 = {
+							ClassesFrame = "{{0, 0}, {280, 398}}";
+							ClassesTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXClassColumnIdentifier,
+								237,
+							);
+							Frame = "{{0, 0}, {278, 659}}";
+							MembersFrame = "{{0, 407}, {280, 252}}";
+							MembersTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXMethodColumnIdentifier,
+								236,
+							);
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {200, 100}}";
+						};
+						Tab3 = {
+							Frame = "{{0, 0}, {200, 557}}";
+							TargetTableConfiguration = (
+								ActiveObject,
+								16,
+								ObjectNames,
+								202.296,
+							);
+						};
+						Tab4 = {
+							BreakpointsTreeTableConfiguration = (
+								breakpointColumn,
+								197,
+								enabledColumn,
+								31,
+							);
+							Frame = "{{0, 0}, {250, 100}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					NavBarShownByDefault = YES;
+					StatusViewVisible = NO;
+					Template = F5CA7EC9015C08ED0DCA290F;
+					ToolbarVisible = NO;
+					WindowLocation = "{69, 216}";
+				},
 			);
-			PBXWorkspaceStateSaveDate = 67564716;
+			PBXWorkspaceStateSaveDate = 67918447;
 		};
 		perUserProjectItems = {
 			E104866604018CF400050002 = E104866604018CF400050002;
@@ -1841,7 +2317,6 @@
 			E17AED7603C0F5D300B89ACF = E17AED7603C0F5D300B89ACF;
 			E17AED7703C0F5D300B89ACF = E17AED7703C0F5D300B89ACF;
 			E17AED7803C0F5D300B89ACF = E17AED7803C0F5D300B89ACF;
-			E17AED7903C0F5D300B89ACF = E17AED7903C0F5D300B89ACF;
 			E17AED8703C0F5D300B89ACF = E17AED8703C0F5D300B89ACF;
 			E17AED8803C0F5D300B89ACF = E17AED8803C0F5D300B89ACF;
 			E17AED8E03C0F5D300B89ACF = E17AED8E03C0F5D300B89ACF;
@@ -1948,7 +2423,6 @@
 			E17F2FC803FE193200050002 = E17F2FC803FE193200050002;
 			E17F2FC903FE193200050002 = E17F2FC903FE193200050002;
 			E17F2FCA03FE193200050002 = E17F2FCA03FE193200050002;
-			E187C7E203F4C16B00EF60C7 = E187C7E203F4C16B00EF60C7;
 			E187C7E303F4C16B00EF60C7 = E187C7E303F4C16B00EF60C7;
 			E195A26603BE251F00186F9B = E195A26603BE251F00186F9B;
 			E195A26703BE251F00186F9B = E195A26703BE251F00186F9B;
@@ -2103,6 +2577,26 @@
 			E19FD3A803C9985C001509F3 = E19FD3A803C9985C001509F3;
 			E19FD3A903C9985C001509F3 = E19FD3A903C9985C001509F3;
 			E19FD3AA03C9985C001509F3 = E19FD3AA03C9985C001509F3;
+			E1A60176040C8C6B00050002 = E1A60176040C8C6B00050002;
+			E1A60177040C8C6B00050002 = E1A60177040C8C6B00050002;
+			E1A60178040C8C6B00050002 = E1A60178040C8C6B00050002;
+			E1A60179040C8C6B00050002 = E1A60179040C8C6B00050002;
+			E1A6017A040C8C6B00050002 = E1A6017A040C8C6B00050002;
+			E1A6017B040C8C6B00050002 = E1A6017B040C8C6B00050002;
+			E1A6017C040C8C6B00050002 = E1A6017C040C8C6B00050002;
+			E1A6017D040C8C6B00050002 = E1A6017D040C8C6B00050002;
+			E1A6017E040C8C6B00050002 = E1A6017E040C8C6B00050002;
+			E1A6017F040C8C6B00050002 = E1A6017F040C8C6B00050002;
+			E1A60180040C8C6B00050002 = E1A60180040C8C6B00050002;
+			E1A60181040C8C6B00050002 = E1A60181040C8C6B00050002;
+			E1A60182040C8C6B00050002 = E1A60182040C8C6B00050002;
+			E1A60183040C8C6B00050002 = E1A60183040C8C6B00050002;
+			E1A60184040C8C6B00050002 = E1A60184040C8C6B00050002;
+			E1A60185040C8C6B00050002 = E1A60185040C8C6B00050002;
+			E1A60186040C8C6B00050002 = E1A60186040C8C6B00050002;
+			E1A60187040C8C6B00050002 = E1A60187040C8C6B00050002;
+			E1A60188040C8C6B00050002 = E1A60188040C8C6B00050002;
+			E1A60189040C8C6B00050002 = E1A60189040C8C6B00050002;
 			E1A9DEEE03BF480F0089E8B2 = E1A9DEEE03BF480F0089E8B2;
 			E1A9DEF103BF480F0089E8B2 = E1A9DEF103BF480F0089E8B2;
 			E1A9DEF203BF480F0089E8B2 = E1A9DEF203BF480F0089E8B2;
@@ -2296,7 +2790,6 @@
 			E1B4701604069E0B00050002 = E1B4701604069E0B00050002;
 			E1B4701704069E0B00050002 = E1B4701704069E0B00050002;
 			E1B4701804069E0B00050002 = E1B4701804069E0B00050002;
-			E1B4701904069E0B00050002 = E1B4701904069E0B00050002;
 			E1B4701A04069E0B00050002 = E1B4701A04069E0B00050002;
 			E1B4701B04069E0B00050002 = E1B4701B04069E0B00050002;
 			E1B4701C04069E0B00050002 = E1B4701C04069E0B00050002;
@@ -2548,7 +3041,6 @@
 			E1DEF15704003A5F00050002 = E1DEF15704003A5F00050002;
 			E1DEF15A04003A5F00050002 = E1DEF15A04003A5F00050002;
 			E1DEF15B04003A5F00050002 = E1DEF15B04003A5F00050002;
-			E1DEF15C04003A5F00050002 = E1DEF15C04003A5F00050002;
 			E1DEF15D04003A5F00050002 = E1DEF15D04003A5F00050002;
 			E1DEF15E04003A5F00050002 = E1DEF15E04003A5F00050002;
 			E1DEF16004003A5F00050002 = E1DEF16004003A5F00050002;
@@ -2935,8 +3427,6 @@
 			E1EF85650406E47300050002 = E1EF85650406E47300050002;
 			E1EF85660406E47300050002 = E1EF85660406E47300050002;
 			E1EF85670406E47300050002 = E1EF85670406E47300050002;
-			E1EF85680406E47300050002 = E1EF85680406E47300050002;
-			E1F40A7B040701D900050002 = E1F40A7B040701D900050002;
 			E1F4C96403C9B1E6001509F3 = E1F4C96403C9B1E6001509F3;
 			E1F4C96503C9B1E6001509F3 = E1F4C96503C9B1E6001509F3;
 			E1F4C96C03CAAF8F001509F3 = E1F4C96C03CAAF8F001509F3;
@@ -3287,7 +3777,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRIntervalField.m: 137";
 		rLen = 0;
-		rLoc = 6600;
+		rLoc = 6594;
 		rType = 0;
 		vrLen = 2083;
 		vrLoc = 4886;
@@ -3835,7 +4325,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmSetController.m: 448";
 		rLen = 0;
-		rLoc = 20453;
+		rLoc = 20695;
 		rType = 0;
 		vrLen = 1403;
 		vrLoc = 19475;
@@ -3935,7 +4425,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmSetController.m: 448";
 		rLen = 0;
-		rLoc = 20453;
+		rLoc = 20695;
 		rType = 0;
 		vrLen = 1403;
 		vrLoc = 19475;
@@ -4014,7 +4504,7 @@
 		fRef = E10F2A3F0402E71400050002;
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 36";
-		rLen = 112;
+		rLen = 285;
 		rLoc = 3576;
 		rType = 0;
 		vrLen = 1193;
@@ -4035,7 +4525,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 56";
 		rLen = 0;
-		rLoc = 5397;
+		rLoc = 5570;
 		rType = 0;
 		vrLen = 1678;
 		vrLoc = 800;
@@ -4055,7 +4545,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 99";
 		rLen = 0;
-		rLoc = 11474;
+		rLoc = 11647;
 		rType = 0;
 		vrLen = 1543;
 		vrLoc = 2309;
@@ -4075,7 +4565,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 99";
 		rLen = 0;
-		rLoc = 11474;
+		rLoc = 11647;
 		rType = 0;
 		vrLen = 1543;
 		vrLoc = 2309;
@@ -4171,16 +4661,6 @@
 		rType = 0;
 		vrLen = 894;
 		vrLoc = 0;
-	};
-	E17AED7903C0F5D300B89ACF = {
-		fRef = F59E47BC036AB228016B311C;
-		isa = PBXTextBookmark;
-		name = "PSMovieAlert.m: 61";
-		rLen = 0;
-		rLoc = 1829;
-		rType = 0;
-		vrLen = 1158;
-		vrLoc = 511;
 	};
 	E17AED8703C0F5D300B89ACF = {
 		fRef = F5F19867036B80AF01EB0372;
@@ -4307,7 +4787,7 @@
 		isa = PBXTextBookmark;
 		name = "PSMovieAlert.m: 61";
 		rLen = 0;
-		rLoc = 1829;
+		rLoc = 1927;
 		rType = 0;
 		vrLen = 1158;
 		vrLoc = 511;
@@ -4621,7 +5101,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 237";
 		rLen = 0;
-		rLoc = 8097;
+		rLoc = 8125;
 		rType = 0;
 		vrLen = 1226;
 		vrLoc = 1179;
@@ -4651,7 +5131,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 237";
 		rLen = 0;
-		rLoc = 8097;
+		rLoc = 8125;
 		rType = 0;
 		vrLen = 1226;
 		vrLoc = 1179;
@@ -5271,16 +5751,6 @@
 		name = NSGeometry.h;
 		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSGeometry.h;
 		refType = 0;
-	};
-	E187C7E203F4C16B00EF60C7 = {
-		fRef = F5F240CC036A877301FE7503;
-		isa = PBXTextBookmark;
-		name = "NJRQTMediaPopUpButton.m: 16";
-		rLen = 0;
-		rLoc = 411;
-		rType = 0;
-		vrLen = 1241;
-		vrLoc = 6753;
 	};
 	E187C7E303F4C16B00EF60C7 = {
 		fRef = F5F240CC036A877301FE7503;
@@ -6790,7 +7260,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRQTMediaPopUpButton.m: 181";
 		rLen = 0;
-		rLoc = 6730;
+		rLoc = 6992;
 		rType = 0;
 		vrLen = 952;
 		vrLoc = 6028;
@@ -6800,7 +7270,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHistoryTrackingComboBox.m: 62";
 		rLen = 0;
-		rLoc = 1883;
+		rLoc = 1958;
 		rType = 0;
 		vrLen = 1252;
 		vrLoc = 1028;
@@ -6860,7 +7330,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRQTMediaPopUpButton.m: ";
 		rLen = 0;
-		rLoc = 4152;
+		rLoc = 4229;
 		rType = 0;
 		vrLen = 1323;
 		vrLoc = 0;
@@ -6951,6 +7421,200 @@
 		vrLen = 1835;
 		vrLoc = 622;
 	};
+	E1A60176040C8C6B00050002 = {
+		fRef = F589C9C6035AA12B0155F4B2;
+		isa = PBXTextBookmark;
+		name = "Read Me.rtfd: 85";
+		rLen = 0;
+		rLoc = 5706;
+		rType = 0;
+		vrLen = 2453;
+		vrLoc = 4870;
+	};
+	E1A60177040C8C6B00050002 = {
+		fRef = F5F240CC036A877301FE7503;
+		isa = PBXTextBookmark;
+		name = "NJRQTMediaPopUpButton.m: 45";
+		rLen = 0;
+		rLoc = 1539;
+		rType = 0;
+		vrLen = 1530;
+		vrLoc = 693;
+	};
+	E1A60178040C8C6B00050002 = {
+		fRef = F59DC6D40353C9E601AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarmSetController.m: 267";
+		rLen = 0;
+		rLoc = 12603;
+		rType = 0;
+		vrLen = 2074;
+		vrLoc = 11205;
+	};
+	E1A60179040C8C6B00050002 = {
+		fRef = F59F6CB50354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.m: 199";
+		rLen = 0;
+		rLoc = 6886;
+		rType = 0;
+		vrLen = 794;
+		vrLoc = 6576;
+	};
+	E1A6017A040C8C6B00050002 = {
+		fRef = F59E47BC036AB228016B311C;
+		isa = PBXTextBookmark;
+		name = "PSMovieAlert.m: 102";
+		rLen = 0;
+		rLoc = 2920;
+		rType = 0;
+		vrLen = 1508;
+		vrLoc = 2148;
+	};
+	E1A6017B040C8C6B00050002 = {
+		fRef = F59E4BE6036B2E5E016B311C;
+		isa = PBXTextBookmark;
+		name = "PSScriptAlert.m: 80";
+		rLen = 0;
+		rLoc = 3845;
+		rType = 0;
+		vrLen = 1614;
+		vrLoc = 2791;
+	};
+	E1A6017C040C8C6B00050002 = {
+		fRef = E10E71F4040C335800050002;
+		isa = PBXTextBookmark;
+		name = "English: 3";
+		rLen = 0;
+		rLoc = 169;
+		rType = 0;
+		vrLen = 1963;
+		vrLoc = 0;
+	};
+	E1A6017D040C8C6B00050002 = {
+		fRef = F589C9C6035AA12B0155F4B2;
+		isa = PBXTextBookmark;
+		name = "Read Me.rtfd: 85";
+		rLen = 0;
+		rLoc = 5706;
+		rType = 0;
+		vrLen = 2453;
+		vrLoc = 4870;
+	};
+	E1A6017E040C8C6B00050002 = {
+		fRef = F5F240CC036A877301FE7503;
+		isa = PBXTextBookmark;
+		name = "NJRQTMediaPopUpButton.m: 45";
+		rLen = 0;
+		rLoc = 1539;
+		rType = 0;
+		vrLen = 1530;
+		vrLoc = 693;
+	};
+	E1A6017F040C8C6B00050002 = {
+		fRef = F59DC6D40353C9E601AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarmSetController.m: 267";
+		rLen = 0;
+		rLoc = 12603;
+		rType = 0;
+		vrLen = 2074;
+		vrLoc = 11205;
+	};
+	E1A60180040C8C6B00050002 = {
+		fRef = F59E4BE6036B2E5E016B311C;
+		isa = PBXTextBookmark;
+		name = "PSScriptAlert.m: 80";
+		rLen = 168;
+		rLoc = 3679;
+		rType = 0;
+		vrLen = 1610;
+		vrLoc = 2791;
+	};
+	E1A60181040C8C6B00050002 = {
+		fRef = F59F6CB50354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.m: 209";
+		rLen = 0;
+		rLoc = 7013;
+		rType = 0;
+		vrLen = 855;
+		vrLoc = 6577;
+	};
+	E1A60182040C8C6B00050002 = {
+		fRef = E10E71F4040C335800050002;
+		isa = PBXTextBookmark;
+		name = "English: 3";
+		rLen = 0;
+		rLoc = 169;
+		rType = 0;
+		vrLen = 1963;
+		vrLoc = 0;
+	};
+	E1A60183040C8C6B00050002 = {
+		fRef = F59E47BC036AB228016B311C;
+		isa = PBXTextBookmark;
+		name = "PSMovieAlert.m: 102";
+		rLen = 0;
+		rLoc = 2920;
+		rType = 0;
+		vrLen = 1508;
+		vrLoc = 2148;
+	};
+	E1A60184040C8C6B00050002 = {
+		fRef = F59E4BE6036B2E5E016B311C;
+		isa = PBXTextBookmark;
+		name = "PSScriptAlert.m: 80";
+		rLen = 0;
+		rLoc = 3845;
+		rType = 0;
+		vrLen = 1614;
+		vrLoc = 2791;
+	};
+	E1A60185040C8C6B00050002 = {
+		fRef = E10E71F4040C335800050002;
+		isa = PBXTextBookmark;
+		name = "English: 26";
+		rLen = 0;
+		rLoc = 1395;
+		rType = 0;
+		vrLen = 1962;
+		vrLoc = 0;
+	};
+	E1A60186040C8C6B00050002 = {
+		fRef = F5F240CC036A877301FE7503;
+		isa = PBXTextBookmark;
+		rLen = 1;
+		rLoc = 109;
+		rType = 1;
+	};
+	E1A60187040C8C6B00050002 = {
+		fRef = F5F240CC036A877301FE7503;
+		isa = PBXTextBookmark;
+		name = "NJRQTMediaPopUpButton.m: 110";
+		rLen = 0;
+		rLoc = 4262;
+		rType = 0;
+		vrLen = 208;
+		vrLoc = 4055;
+	};
+	E1A60188040C8C6B00050002 = {
+		fRef = F59E4BE6036B2E5E016B311C;
+		isa = PBXTextBookmark;
+		rLen = 45;
+		rLoc = 963;
+		rType = 0;
+	};
+	E1A60189040C8C6B00050002 = {
+		fRef = F59E4BE6036B2E5E016B311C;
+		isa = PBXTextBookmark;
+		name = "PSScriptAlert.m: 41";
+		rLen = 0;
+		rLoc = 1089;
+		rType = 0;
+		vrLen = 941;
+		vrLoc = 678;
+	};
 	E1A9DEE703BF3C110089E8B2 = {
 		isa = PBXSymbolicBreakpoint;
 		state = 1;
@@ -7001,7 +7665,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRQTMediaPopUpButton.m: 259";
 		rLen = 0;
-		rLoc = 9522;
+		rLoc = 9784;
 		rType = 0;
 		vrLen = 1353;
 		vrLoc = 8714;
@@ -7021,7 +7685,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRQTMediaPopUpButton.m: ";
 		rLen = 0;
-		rLoc = 6341;
+		rLoc = 6603;
 		rType = 0;
 		vrLen = 960;
 		vrLoc = 6020;
@@ -7041,7 +7705,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRQTMediaPopUpButton.m: ";
 		rLen = 0;
-		rLoc = 6866;
+		rLoc = 7128;
 		rType = 0;
 		vrLen = 1590;
 		vrLoc = 6840;
@@ -7175,7 +7839,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 205";
 		rLen = 0;
-		rLoc = 6897;
+		rLoc = 6956;
 		rType = 0;
 		vrLen = 895;
 		vrLoc = 6428;
@@ -7195,7 +7859,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 205";
 		rLen = 0;
-		rLoc = 6897;
+		rLoc = 6956;
 		rType = 0;
 		vrLen = 907;
 		vrLoc = 6428;
@@ -7215,7 +7879,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 205";
 		rLen = 0;
-		rLoc = 6917;
+		rLoc = 6976;
 		rType = 0;
 		vrLen = 944;
 		vrLoc = 6428;
@@ -7235,7 +7899,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: setWakeUp:";
 		rLen = 32;
-		rLoc = 6863;
+		rLoc = 6922;
 		rType = 0;
 		vrLen = 946;
 		vrLoc = 6428;
@@ -7325,7 +7989,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: setWakeUp:";
 		rLen = 32;
-		rLoc = 6863;
+		rLoc = 6922;
 		rType = 0;
 		vrLen = 946;
 		vrLoc = 6428;
@@ -7455,7 +8119,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 391";
 		rLen = 0;
-		rLoc = 12663;
+		rLoc = 12916;
 		rType = 0;
 		vrLen = 1574;
 		vrLoc = 11400;
@@ -7475,7 +8139,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 389";
 		rLen = 0;
-		rLoc = 12604;
+		rLoc = 12857;
 		rType = 0;
 		vrLen = 1653;
 		vrLoc = 15492;
@@ -7495,7 +8159,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: setWakeUp:";
 		rLen = 32;
-		rLoc = 6863;
+		rLoc = 6922;
 		rType = 0;
 		vrLen = 1179;
 		vrLoc = 5752;
@@ -7535,7 +8199,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 222";
 		rLen = 0;
-		rLoc = 7377;
+		rLoc = 7405;
 		rType = 0;
 		vrLen = 1665;
 		vrLoc = 6570;
@@ -7555,7 +8219,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 245";
 		rLen = 0;
-		rLoc = 7670;
+		rLoc = 7698;
 		rType = 0;
 		vrLen = 1673;
 		vrLoc = 7118;
@@ -7607,7 +8271,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 207";
 		rLen = 0;
-		rLoc = 11295;
+		rLoc = 11468;
 		rType = 0;
 		vrLen = 1189;
 		vrLoc = 5892;
@@ -7907,7 +8571,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 107";
 		rLen = 0;
-		rLoc = 4230;
+		rLoc = 4403;
 		rType = 0;
 		vrLen = 2102;
 		vrLoc = 2043;
@@ -7927,7 +8591,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 107";
 		rLen = 0;
-		rLoc = 4230;
+		rLoc = 4403;
 		rType = 0;
 		vrLen = 2064;
 		vrLoc = 2043;
@@ -7947,7 +8611,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 107";
 		rLen = 0;
-		rLoc = 4230;
+		rLoc = 4403;
 		rType = 0;
 		vrLen = 2024;
 		vrLoc = 2150;
@@ -7987,7 +8651,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 166";
 		rLen = 0;
-		rLoc = 9774;
+		rLoc = 9947;
 		rType = 0;
 		vrLen = 1258;
 		vrLoc = 4291;
@@ -8007,7 +8671,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 172";
 		rLen = 0;
-		rLoc = 7216;
+		rLoc = 7389;
 		rType = 0;
 		vrLen = 1203;
 		vrLoc = 4776;
@@ -8027,7 +8691,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: contentsClicked:";
 		rLen = 51;
-		rLoc = 9371;
+		rLoc = 9544;
 		rType = 0;
 		vrLen = 1105;
 		vrLoc = 5150;
@@ -8047,7 +8711,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 125";
 		rLen = 0;
-		rLoc = 4323;
+		rLoc = 4496;
 		rType = 0;
 		vrLen = 2250;
 		vrLoc = 2988;
@@ -8067,7 +8731,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 194";
 		rLen = 0;
-		rLoc = 11474;
+		rLoc = 11647;
 		rType = 0;
 		vrLen = 1105;
 		vrLoc = 5441;
@@ -8087,7 +8751,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 176";
 		rLen = 0;
-		rLoc = 7066;
+		rLoc = 7239;
 		rType = 0;
 		vrLen = 1290;
 		vrLoc = 5467;
@@ -8107,7 +8771,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 174";
 		rLen = 0;
-		rLoc = 7066;
+		rLoc = 7239;
 		rType = 0;
 		vrLen = 1369;
 		vrLoc = 5441;
@@ -8127,7 +8791,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 207";
 		rLen = 0;
-		rLoc = 11295;
+		rLoc = 11468;
 		rType = 0;
 		vrLen = 1216;
 		vrLoc = 5864;
@@ -8147,7 +8811,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 213";
 		rLen = 0;
-		rLoc = 11292;
+		rLoc = 11465;
 		rType = 0;
 		vrLen = 1135;
 		vrLoc = 6392;
@@ -8167,7 +8831,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 213";
 		rLen = 0;
-		rLoc = 11292;
+		rLoc = 11465;
 		rType = 0;
 		vrLen = 1135;
 		vrLoc = 6392;
@@ -8187,7 +8851,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 213";
 		rLen = 0;
-		rLoc = 11266;
+		rLoc = 11439;
 		rType = 0;
 		vrLen = 1154;
 		vrLoc = 6392;
@@ -8207,7 +8871,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 210";
 		rLen = 0;
-		rLoc = 10588;
+		rLoc = 10761;
 		rType = 0;
 		vrLen = 993;
 		vrLoc = 6478;
@@ -8227,7 +8891,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 158";
 		rLen = 0;
-		rLoc = 6287;
+		rLoc = 6460;
 		rType = 0;
 		vrLen = 1445;
 		vrLoc = 5098;
@@ -8277,7 +8941,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 162";
 		rLen = 0;
-		rLoc = 6586;
+		rLoc = 6759;
 		rType = 0;
 		vrLen = 1503;
 		vrLoc = 5054;
@@ -8297,7 +8961,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 163";
 		rLen = 0;
-		rLoc = 6586;
+		rLoc = 6759;
 		rType = 0;
 		vrLen = 1419;
 		vrLoc = 5167;
@@ -8367,7 +9031,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 164";
 		rLen = 0;
-		rLoc = 6627;
+		rLoc = 6800;
 		rType = 0;
 		vrLen = 976;
 		vrLoc = 6655;
@@ -8507,7 +9171,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 180";
 		rLen = 0;
-		rLoc = 7185;
+		rLoc = 7358;
 		rType = 0;
 		vrLen = 1218;
 		vrLoc = 7022;
@@ -8527,7 +9191,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 207";
 		rLen = 147;
-		rLoc = 10050;
+		rLoc = 10223;
 		rType = 0;
 		vrLen = 1098;
 		vrLoc = 6696;
@@ -8981,16 +9645,6 @@
 		vrLen = 1415;
 		vrLoc = 3424;
 	};
-	E1B4701904069E0B00050002 = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: update:";
-		rLen = 1;
-		rLoc = 9214;
-		rType = 0;
-		vrLen = 1403;
-		vrLoc = 9184;
-	};
 	E1B4701A04069E0B00050002 = {
 		fRef = E1B4707904069E0C00050002;
 		isa = PBXTextBookmark;
@@ -9066,7 +9720,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: contentsSize";
 		rLen = 0;
-		rLoc = 7185;
+		rLoc = 7358;
 		rType = 0;
 		vrLen = 1599;
 		vrLoc = 5778;
@@ -9086,7 +9740,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 204";
 		rLen = 0;
-		rLoc = 9371;
+		rLoc = 9544;
 		rType = 0;
 		vrLen = 1137;
 		vrLoc = 7027;
@@ -9106,7 +9760,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 250";
 		rLen = 0;
-		rLoc = 9642;
+		rLoc = 9815;
 		rType = 0;
 		vrLen = 1508;
 		vrLoc = 8388;
@@ -9366,7 +10020,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 250";
 		rLen = 0;
-		rLoc = 9642;
+		rLoc = 9815;
 		rType = 0;
 		vrLen = 1508;
 		vrLoc = 8388;
@@ -9436,7 +10090,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 234";
 		rLen = 0;
-		rLoc = 9204;
+		rLoc = 9377;
 		rType = 0;
 		vrLen = 1840;
 		vrLoc = 7378;
@@ -9626,7 +10280,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 204";
 		rLen = 0;
-		rLoc = 7752;
+		rLoc = 7925;
 		rType = 0;
 		vrLen = 1672;
 		vrLoc = 6662;
@@ -9646,7 +10300,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: ";
 		rLen = 0;
-		rLoc = 9369;
+		rLoc = 9542;
 		rType = 0;
 		vrLen = 1685;
 		vrLoc = 7546;
@@ -9696,7 +10350,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: 239";
 		rLen = 0;
-		rLoc = 9365;
+		rLoc = 9538;
 		rType = 0;
 		vrLen = 1709;
 		vrLoc = 7698;
@@ -9786,7 +10440,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: widthDiff";
 		rLen = 0;
-		rLoc = 9009;
+		rLoc = 9182;
 		rType = 0;
 		vrLen = 1130;
 		vrLoc = 10063;
@@ -9816,7 +10470,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRReadMeController.m: splitView:canCollapseSubview:";
 		rLen = 0;
-		rLoc = 11191;
+		rLoc = 11364;
 		rType = 0;
 		vrLen = 1130;
 		vrLoc = 10063;
@@ -10016,7 +10670,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 270";
 		rLen = 0;
-		rLoc = 9065;
+		rLoc = 9093;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 7725;
@@ -10066,7 +10720,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: notificationPort";
 		rLen = 0;
-		rLoc = 7670;
+		rLoc = 7698;
 		rType = 0;
 		vrLen = 1717;
 		vrLoc = 7174;
@@ -10285,7 +10939,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 195";
 		rLen = 36;
-		rLoc = 6570;
+		rLoc = 6724;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 5793;
@@ -10305,7 +10959,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 229";
 		rLen = 0;
-		rLoc = 7631;
+		rLoc = 7659;
 		rType = 0;
 		vrLen = 1629;
 		vrLoc = 6863;
@@ -10365,7 +11019,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 223";
 		rLen = 27;
-		rLoc = 7493;
+		rLoc = 7521;
 		rType = 0;
 		vrLen = 1529;
 		vrLoc = 6863;
@@ -10385,7 +11039,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 225";
 		rLen = 0;
-		rLoc = 7599;
+		rLoc = 7627;
 		rType = 0;
 		vrLen = 1591;
 		vrLoc = 6863;
@@ -11557,7 +12211,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHistoryTrackingComboBox.m: 62";
 		rLen = 0;
-		rLoc = 1883;
+		rLoc = 1958;
 		rType = 0;
 		vrLen = 1306;
 		vrLoc = 3;
@@ -11671,16 +12325,6 @@
 		rType = 0;
 		vrLen = 1140;
 		vrLoc = 17;
-	};
-	E1DEF15C04003A5F00050002 = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: 198";
-		rLen = 0;
-		rLoc = 6720;
-		rType = 0;
-		vrLen = 1687;
-		vrLoc = 4065;
 	};
 	E1DEF15D04003A5F00050002 = {
 		fRef = E1DEF30D04003A6000050002;
@@ -13078,7 +13722,7 @@
 		isa = PBXTextBookmark;
 		name = "PSApplication.m: 227";
 		rLen = 0;
-		rLoc = 9503;
+		rLoc = 9674;
 		rType = 0;
 		vrLen = 1348;
 		vrLoc = 8270;
@@ -14158,7 +14802,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHistoryTrackingComboBox.m: 62";
 		rLen = 0;
-		rLoc = 1883;
+		rLoc = 1958;
 		rType = 0;
 		vrLen = 1306;
 		vrLoc = 3;
@@ -14238,7 +14882,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmSetController.m: 526";
 		rLen = 302;
-		rLoc = 22367;
+		rLoc = 22609;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 22944;
@@ -14258,7 +14902,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmSetController.m: 526";
 		rLen = 302;
-		rLoc = 22367;
+		rLoc = 22609;
 		rType = 0;
 		vrLen = 1986;
 		vrLoc = 6124;
@@ -15241,7 +15885,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmSetController.m: 452";
 		rLen = 153;
-		rLoc = 20618;
+		rLoc = 20860;
 		rType = 0;
 		vrLen = 1404;
 		vrLoc = 19475;
@@ -15719,26 +16363,6 @@
 		rType = 0;
 		vrLen = 1177;
 		vrLoc = 0;
-	};
-	E1EF85680406E47300050002 = {
-		fRef = F589C9C6035AA12B0155F4B2;
-		isa = PBXTextBookmark;
-		name = "Read Me.rtfd: 91";
-		rLen = 0;
-		rLoc = 6314;
-		rType = 0;
-		vrLen = 2626;
-		vrLoc = 4870;
-	};
-	E1F40A7B040701D900050002 = {
-		fRef = F589C9C6035AA12B0155F4B2;
-		isa = PBXTextBookmark;
-		name = "Read Me.rtfd: 85";
-		rLen = 0;
-		rLoc = 5706;
-		rType = 0;
-		vrLen = 2515;
-		vrLoc = 4870;
 	};
 	E1F4C96403C9B1E6001509F3 = {
 		fRef = E1BF6E9103C928D200050002;

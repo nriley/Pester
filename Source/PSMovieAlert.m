@@ -30,7 +30,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
         NSString *path = [anAlias fullPath];
         if (path == nil) {
             [self release];
-            [NSException raise: PSAlertCreationException format: @"Can’t locate media to play as alert."];
+            [NSException raise: PSAlertCreationException format: NSLocalizedString(@"Can't locate media to play as alert.", "Exception message on PSMovieAlert initialization when alias doesn't resolve")];
         }
         alias = [anAlias retain];
         repetitions = numReps;
@@ -99,7 +99,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     BOOL isStatic = [movie isStatic];
     NSMutableAttributedString *string = [[(isStatic ? @"Show " : @"Play ") small] mutableCopy];
     NSString *kindString = nil, *name = [alias displayNameWithKindString: &kindString];
-    if (name == nil) name = @"«can’t locate media file»";
+    if (name == nil) name = NSLocalizedString(@"<<can't locate media file>>", "Movie alert description surrogate for media display name when alias doesn't resolve");
     else [string appendAttributedString: [[NSString stringWithFormat: @"%@ ", kindString] small]];
     [string appendAttributedString: [name underlined]];
     if (repetitions > 1 && !isStatic) {

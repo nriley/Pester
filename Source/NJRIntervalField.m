@@ -99,7 +99,7 @@
                                            @"Presented when user value smaller than minimum")]) {
         proposedValue = [[self formatter] minimum];
         alertMessage = [NSString stringWithFormat:
-            NSLocalizedString(@"Ò%@Ó is too small for the %@ field.",
+            NSLocalizedString(@"%@ is too small for the %@ field.",
                               @"Message text for alert posed by numeric field when too-small value entered"),
             string, label];
         alternateButtonString = [NSString localizedStringWithFormat:
@@ -112,7 +112,7 @@
                                            @"Presented when user value larger than maximum")]) {
         proposedValue = [[self formatter] maximum];
         alertMessage = [NSString stringWithFormat:
-            NSLocalizedString(@"Ò%@Ó is too large for the %@ field.",
+            NSLocalizedString(@"%@ is too large for the %@ field.",
                               @"Message text for alert posed by numeric field when too-large value entered"),
             string, label];
         alternateButtonString = [NSString localizedStringWithFormat:
@@ -124,7 +124,7 @@
                                            [NSBundle bundleForClass:[NSFormatter class]],
                                            @"Presented when user typed illegal characters: no valid object")]) {
         alertMessage = [NSString stringWithFormat:
-            NSLocalizedString(@"Ò%@Ó is not a valid entry for the %@ field.",
+            NSLocalizedString(@"%@ is not a valid entry for the %@ field.",
                               @"Message text for alert posed by text field when invalid value entered"),
             string, label];
         alternateButtonString = nil;

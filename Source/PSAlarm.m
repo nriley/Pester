@@ -196,7 +196,7 @@ static NSDictionary *locale;
 - (void)setSnoozeInterval:(NSTimeInterval)anInterval;
 {
     snoozeInterval = anInterval;
-    NSAssert(alarmType == PSAlarmExpired, @"Can’t snooze an alarm that hasn’t expired");
+    NSAssert(alarmType == PSAlarmExpired, NSLocalizedString(@"Can't snooze an alarm that hasn't expired", "Assertion for PSAlarm snooze setting"));
     alarmType = PSAlarmSnooze;
 }
 
@@ -268,7 +268,7 @@ static NSDictionary *locale;
 
 - (NSTimeInterval)timeRemaining;
 {
-    NSAssert1(alarmType == PSAlarmSet, @"Can’t get time remaining on alarm with no timer set: %@", self);
+    NSAssert1(alarmType == PSAlarmSet, NSLocalizedString(@"Can't get time remaining on alarm with no timer set: %@", "Assertion for PSAlarm time remaining, internal error; %@ replaced by alarm description"), self);
     return -[[NSDate date] timeIntervalSinceDate: alarmDate];
 }
 
@@ -353,7 +353,7 @@ static NSDictionary *locale;
     NSAttributedString *alertList = [alerts prettyList];
 
     [string appendAttributedString:
-        [[NSString stringWithFormat: @"At alarm time for “%@”:\n", [self message]] small]];
+        [[NSString stringWithFormat: NSLocalizedString(@"At alarm time for %@:\n", "Alert list title in pretty description, %@ replaced with message"), [self message]] small]];
     if (alertList != nil) {
         [string appendAttributedString: alertList];
     } else {
@@ -444,7 +444,7 @@ static NSDictionary *locale;
             [dict setObject: [NSNumber numberWithBool: repeating] forKey: PLAlarmRepeating];
             break;
         default:
-            NSAssert1(NO, @"Can’t save alarm type %@", [self _alarmTypeString]);
+            NSAssert1(NO, NSLocalizedString(@"Can't save alarm type %@", "Assertion for invalid PSAlarm type on string; %@ replaced with alarm type string"), [self _alarmTypeString]);
             break;
     }
     if (snoozeInterval != 0)
@@ -477,7 +477,7 @@ static NSDictionary *locale;
                 repeating = [[dict objectForRequiredKey: PLAlarmRepeating] boolValue];
                 break;
             default:
-                NSAssert1(NO, @"Can’t load alarm type %@", [self _alarmTypeString]);
+                NSAssert1(NO, NSLocalizedString(@"Can't load alarm type %@", "Assertion for invalid PSAlarm type on load; %@ replaced with alarm type string"), [self _alarmTypeString]);
                 break;
         }
         snoozeInterval = [[dict objectForKey: PLAlarmSnoozeInterval] doubleValue];

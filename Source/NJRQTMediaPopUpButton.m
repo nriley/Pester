@@ -42,7 +42,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (NSString *)_defaultKey;
 {
-    NSAssert([self tag] != 0, @"Can’t track recently selected media for popup with tag 0: please set a tag");
+    NSAssert([self tag] != 0, NSLocalizedString(@"Can't track recently selected media for popup with tag 0: please set a tag", "Assertion for QuickTime media popup button if tag is 0"));
     return [NSString stringWithFormat: @"NJRQTMediaPopUpButtonMaxRecentItems tag %d", [self tag]];
 }
 
@@ -122,7 +122,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [item setTarget: self];
     [menu addItem: [NSMenuItem separatorItem]];
     if (soundCount == 0) {
-        item = [menu addItemWithTitle: @"Can’t locate alert sounds" action: nil keyEquivalent: @""];
+        item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate alert sounds", "QuickTime media popup menu item surrogate for alert sound list if no sounds are found") action: nil keyEquivalent: @""];
         [item setEnabled: NO];
     } else {
         SoundFile *sf;
@@ -137,7 +137,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
         }
     }
     [menu addItem: [NSMenuItem separatorItem]];
-    item = [menu addItemWithTitle: @"Other…" action: @selector(select:) keyEquivalent: @""];
+    item = [menu addItemWithTitle: NSLocalizedString(@"Other...", "Media popup item to select another sound/movie/image") action: @selector(select:) keyEquivalent: @""];
     [item setTarget: self];
     otherItem = [item retain];
 
@@ -299,12 +299,12 @@ MovieStoppedCB(QTCallBack cb, long refCon)
         } else {
             [preview setMovie: nil];
             if (movie == nil) {
-                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, @"The item you selected isn’t a sound or movie recognized by QuickTime.  Please select a different item.");
+                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The item you selected isn't a sound or movie recognized by QuickTime.  Please select a different item.", "Message displayed in alert sheet when media document is not recognized by QuickTime"));
                 [self _invalidateSelection];
                 return NO;
             }
             if (![movie hasAudio] && ![movie hasVideo]) {
-                NSBeginAlertSheet(@"No video or audio", nil, nil, nil, [self window], nil, nil, nil, nil, @"“%@” contains neither audio nor video content playable by QuickTime.  Please select a different item.", [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]);
+                NSBeginAlertSheet(@"No video or audio", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"'%@' contains neither audio nor video content playable by QuickTime.  Please select a different item.", "Message displayed in alert sheet when media document is readable, but has neither audio nor video tracks"), [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]);
                 [self _invalidateSelection];
                 [movie release];
                 return NO;
@@ -316,7 +316,7 @@ MovieStoppedCB(QTCallBack cb, long refCon)
             QTCallBackUPP cbStopUPP = NewQTCallBackUPP(MovieStoppedCB);
             OSErr err = CallMeWhen(cbStop, cbStopUPP, (long)preview, triggerAtStop, 0, 0);
             if (err != noErr) {
-                NSLog(@"Can’t register QuickTime stop timebase callback for preview: %ld", err);
+                NSLog(@"Can't register QuickTime stop timebase callback for preview: %ld", err);
                 DisposeCallBack(cbStop);
             }
             [preview start: self];
@@ -484,7 +484,7 @@ MovieStoppedCB(QTCallBack cb, long refCon)
             sscanf(osTypeHex, "%lx", &osType);
             [s appendFormat: @" '%4s'", &osType];
         } else {
-            [s appendFormat: @" \"%@\"", type];
+            [s appendFormat: @" '%@'", type];
         }
     }
     return s;

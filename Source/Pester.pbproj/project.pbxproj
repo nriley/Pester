@@ -181,6 +181,7 @@
 				E1DEF10603FF83AC00050002,
 				E10F2A3B0402E61C00050002,
 				089C165CFE840E0CC02AAC07,
+				E10E71F3040C335800050002,
 				F59DD44F0358ABF4017318D0,
 				F59DC6E30353ED1201AEEDB1,
 			);
@@ -376,6 +377,7 @@
 				E1DEF0F103FE1BF100050002,
 				E1DEF10803FF83AC00050002,
 				E10F2A3D0402E61C00050002,
+				E10E71F5040C335800050002,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +500,28 @@
 //E12
 //E13
 //E14
+		E10E71F3040C335800050002 = {
+			children = (
+				E10E71F4040C335800050002,
+			);
+			isa = PBXVariantGroup;
+			name = Localizable.strings;
+			path = "";
+			refType = 4;
+		};
+		E10E71F4040C335800050002 = {
+			fileEncoding = 10;
+			isa = PBXFileReference;
+			name = English;
+			path = English.lproj/Localizable.strings;
+			refType = 4;
+		};
+		E10E71F5040C335800050002 = {
+			fileRef = E10E71F3040C335800050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		E10F2A3B0402E61C00050002 = {
 			children = (
 				E10F2A3C0402E61C00050002,

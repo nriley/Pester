@@ -38,7 +38,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     NSString *scriptPath = [alias fullPath];
 
     if (scriptPath == nil) {
-        NSRunAlertPanel(@"Can’t find script", @"Pester couldn’t find the script for the alarm “%@”.",
+        NSRunAlertPanel(NSLocalizedString(@"Can't find script", "Title of alert sheet when alias to script didn't resolve"), NSLocalizedString(@"Pester couldn't find the script for the alarm '%@'.", "Message displayed in alert sheet when alias to script didn't resolve"),
                         nil, nil, nil, [alarm message]);
     } else {
         NSDictionary *errorInfo;
@@ -77,7 +77,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 {
     NSMutableAttributedString *string = [[@"Do script " small] mutableCopy];
     NSString *scriptName = [alias displayNameWithKindString: NULL];
-    if (scriptName == nil) scriptName = @"«can’t locate script»";
+    if (scriptName == nil) scriptName = NSLocalizedString(@"<<can't locate script>>", "Script alert description surrogate for script name when alias doesn't resolve");
     [string appendAttributedString: [scriptName underlined]];
     return [string autorelease];
 }
