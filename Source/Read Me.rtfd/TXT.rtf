@@ -3,15 +3,17 @@
 \f3\fnil\fcharset77 HoeflerText-Regular;\f4\fswiss\fcharset77 Helvetica;\f5\fnil\fcharset77 HoeflerText-Black;
 \f6\fnil\fcharset77 LucidaGrande;\f7\fnil\fcharset77 HoeflerText-Italic;\f8\fnil\fcharset77 GillSans-Italic;
 \f9\fswiss\fcharset77 Helvetica-Bold;\f10\fnil\fcharset77 Monaco;}
-{\colortbl;\red255\green255\blue255;\red255\green15\blue0;\red0\green0\blue255;}
+{\colortbl;\red255\green255\blue255;\red255\green15\blue0;\red0\green0\blue255;\red255\green0\blue0;
+\red35\green110\blue37;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
 \f0\b\fs48 \cf0 Pester 
-\f1\b0 1.1a6 
+\f1\b0 1.1b1 
 \f2\i\b \cf2 [DO NOT REDISTRIBUTE]
 \f0\i0\fs26 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
-\f1\b0 1 January 2003
+\f1\b0 \cf0 6 January 2003
 \fs24 \
 \
 \pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
@@ -24,6 +26,8 @@
 \f3\b0 Nicholas Riley <\cf3 \ul mailto:pester@sabi.net\cf0 \ulnone >.\
 Obtain updates from <\cf3 \ul http://web.sabi.net/nriley/software/\cf0 \ulnone >.\
 \
+\cf4 Note: This documentation is not yet updated for version 1.1, though most of it should still apply; please read the release notes at the end for a listing of what has changed in this version.\
+\cf0 \
 
 \f0\b What is it?\
 
@@ -185,6 +189,7 @@ A.
 \'a5 Fixed time remaining in the dock being wrong by one second, or showing \'c7expired\'c8.\
 \'a5 Fixed empty messages appearing in the combo box list.\
 \'a5	Fixed display of time intervals between 24 and 48 hours: now \'d2One day\'d3 instead of \'d21 days\'d3.\
+\'a5 Fixed alarms not expiring after you put your Mac to sleep and wake it up again.\
 \'a5 Added better indications when a duration value is out of range (okay, Nat? :)\
 \'a5	Added more keyboard navigation, type-selection, sorting and iTunes-like row coloring to the alarm list window.\
 \'a5	Added Delete keyboard shortcut for removing alarms to the alarm list window.
@@ -220,77 +225,17 @@ Known bugs in this version (not to be fixed by 1.1):\
 \f5\b \
 Still to be fixed for 1.1:\
 
-\f3\b0 \'a5 Alarms will not go off after you put your Mac to sleep and wake it up again. Quit and reopen Pester as a workaround.\
-\'a5 Timer management: Only have one timer running at a time (for event expiration).  When timer expires, check what time it is. Make sure that timer info is consistent with reality. Create queue of pending alarms, and trigger them in order. Add a PSTimer wrapper which keeps track of timers on sleep/wakeup and schedules one at a time?  Yes!\
-\'a5 Add another alert type which is 'wake up Mac'. Note somewhere in the docs or readme that this can interfere with EyeTV, which resets the timer immediately before each sleep. Warn that Pester must be running in order to go off at the appointed time. How would this interact with screen savers, I wonder? On wakeup (using power notification), restart.\
-\
+\f3\b0 \'a5 Note somewhere in the app or readme that autowake can interfere with EyeTV, which resets the timer immediately before each sleep (so do we, so it\'d5s order-sensitive; Apple really needs to implement a systemwide scheduler service for this). Warn that Pester must be running in order to go off at the appointed time. Test interaction with screen savers.\
+\'a5	The dock icon still sometimes displays \'c7expired\'c8 briefly; this is an artifact of the new timer implementation.\
+\'a5	Figure out why 
+\f10\fs20 \cf5 \CocoaLigature0 powerManagerShouldSleep:
+\f3\fs28 \cf0 \CocoaLigature1  is not being triggered; test more with broken FaxSTF sleep responses as worst case.\
+\'a5	Alarm times can be off by up to one second in certain cases.\
 \'a5 Preference for dock display?\
 \'a5	Handle alarm restoration failure (finish implementing PSError, test cases).\
-\'a5	Alert information is not saved on quit.\
-\
-wind's comments:\
 \
 
-\f10\fs20 21:52  WindWalkr> being picky: if i snooze an alarm shouldnt it display the\
-                  original time in the alert?\
-21:52  sabi> (which still isn't working, except that the checkbox enables or\
-             disables depending on whether the hardware has it)\
-21:52  sabi> ww: duno\
-21:53  WindWalkr> and if i quit pester, does it still wake up when it's time?\
-21:53  sabi> yeah...\
-21:53  sabi> there's no arbitration for that stuff\
-21:53  WindWalkr> and doesnt ical already do this? ;-)\
-21:53  sabi> which will really be a mess if multiple apps try to set wake time.\
-             but it's apples fault for not exposing it :)\
-21:53  sabi> ww: not really, not as quickly at least\
-21:54  sabi> it's just click, type, hit return, you've scheduled something.\
-21:54  sabi> also the kinds of things like 'remind me every 15 minutes to take\
-             a break'\
-21:54  sabi> anyway, i wanted it :)\
-21:54  WindWalkr> :nods: certainly a lot less mucking around if you just want\
-                  an alarm :)\
-21:54  WindWalkr> looks cool. works well.\
-21:54  sabi> well, couldn't ask for any more :) just gotta fix those last few\
-             bugs\
-21:55  WindWalkr> the doc icon needs to update to show the current time ;-)\
-21:55  sabi> haha\
-21:55  sabi> that would be amusing :) i'll ask the icon guy if he could give me\
-             the hands\
-21:55  sabi> er, the clock without the hands\
-21:56  WindWalkr> re "and if i quit pester, does it still wake up when it's\
-                  time?" i meant does pester still show an alert?\
-21:57  sabi> no, there's no daemon or anything, you gotta keep it running.\
-21:57  WindWalkr> right.\
-21:57  sabi> i thought you meant does it try to clear the pmu autowake, and the\
-             answer is no\
-21:57  WindWalkr> some general comments-\
-21:57  WindWalkr> 1. the 'set alarm' window disappears when i background\
-                  pester.. that's a bit disconcerting.\
-21:58  sabi> hrm, that was a feature :)\
-21:58  WindWalkr> 2. the 'set alarm' window appears when i click the pester\
-                  icon, even if i closed it\
-21:58  sabi> so's that :)\
-21:58  WindWalkr> new windows shouldnt appear unless there are no available\
-                  windows to switch to\
-21:58  sabi> sounds like i might need to make that an option.\
-21:59  WindWalkr> ie. if the 'alarms' window is available, i dont want the 'set\
-                  alarm' window to pop up instead\
-21:59  WindWalkr> the 'alarms' window should have a '+' button\
-21:59  sabi> the idea was that you'd usually want to click on the dock icon to\
-             create an alarm\
-21:59  sabi> a + button? it doesnt?\
-21:59  WindWalkr> no, it only has remove\
-21:59  WindWalkr> + = add\
-21:59  sabi> oh\
-21:59  WindWalkr> not the green thing\
-22:00  sabi> i thought you meant the green thing :)\
-22:00  WindWalkr> any particular reason you dont let me minimise the alarms\
-                  window? :)\
-22:01  sabi> no, i just didn't think there was any point :)\
-22:01  WindWalkr> that's not a good reason to take functionality away ;-)\
-
-\f5\b\fs28 \
-Additional features planned for later versions:\
+\f5\b Additional features planned for later versions:\
 
 \f3\b0 \'a5 Better repeating alarms, such as a \'d2real time\'d3 option so you can schedule an alarm to go off every hour, on the hour, for example.\
 \'a5 Better handling of expired alarms\'d1offer the option to have the alarms go off when Pester is restarted.\

@@ -26,6 +26,7 @@
 #import "PSBeepAlert.h"
 #import "PSMovieAlert.h"
 #import "PSSpeechAlert.h"
+#import "PSWakeAlert.h"
 
 /* Bugs to file:
 
@@ -123,6 +124,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [notificationCenter addObserver: self selector: @selector(playSoundChanged:) name: NJRQTMediaPopUpButtonMovieChangedNotification object: sound];
     [notificationCenter addObserver: self selector: @selector(applicationWillHide:) name: NSApplicationWillHideNotification object: NSApp];
     [notificationCenter addObserver: self selector: @selector(applicationDidUnhide:) name: NSApplicationDidUnhideNotification object: NSApp];
+    [notificationCenter addObserver: self selector: @selector(applicationWillTerminate:) name: NSApplicationWillTerminateNotification object: NSApp];
     [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
     [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
     // XXX workaround for 10.1.x and 10.2.x bug which sets the first responder to the wrong field alternately, but it works if I set the initial first responder to nil... go figure.
@@ -379,8 +381,10 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         } else if ([alert isKindOfClass: [PSSpeechAlert class]]) {
             [doSpeak setIntValue: YES];
             [voice setVoice: [(PSSpeechAlert *)alert voice]];
+        } else if ([alert isKindOfClass: [PSWakeAlert class]]) {
+            [wakeUp setIntValue: YES];
         }
-    }
+}
 }
 
 - (BOOL)_setAlerts;
@@ -416,6 +420,9 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         // speech alert
         if ([doSpeak intValue])
             [alerts addAlert: [PSSpeechAlert alertWithVoice: [voice titleOfSelectedItem]]];
+        // wake alert
+        if ([wakeUp intValue])
+            [alerts addAlert: [PSWakeAlert alert]];
         [[NSUserDefaults standardUserDefaults] setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
     NS_HANDLER
         [self setStatus: [localException reason]];
@@ -524,10 +531,14 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
 @implementation PSAlarmSetController (NSApplicationNotifications)
 
+- (void)applicationWillTerminate:(NSNotification *)notification;
+{
+    [self _setAlerts];
+}
+
 - (void)applicationWillHide:(NSNotification *)notification;
 {
     if ([[self window] isVisible]) {
-        NSLog(@"hide");
         [self silence: nil];
         [self _stopUpdateTimer];
     }
@@ -536,7 +547,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 - (void)applicationDidUnhide:(NSNotification *)notification;
 {
     if ([[self window] isVisible]) {
-        NSLog(@"unhide");
         [self update: self];
     }
 }

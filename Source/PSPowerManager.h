@@ -26,8 +26,8 @@
 
 @interface NSObject (PSPowerManagerDelegate)
 
-- (void)powerManagerWillSleep:(PSPowerManager *)powerManager;
-- (BOOL)powerManagerShouldSleep:(PSPowerManager *)powerManager;
+- (void)powerManagerWillDemandSleep:(PSPowerManager *)powerManager;
+- (BOOL)powerManagerShouldIdleSleep:(PSPowerManager *)powerManager;
 - (void)powerManagerDidWake:(PSPowerManager *)powerManager;
 
 @end

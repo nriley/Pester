@@ -8,6 +8,7 @@
 
 #import "PSAlarms.h"
 #import "PSAlarm.h"
+#import "PSTimer.h"
 #import "NSDictionary-NJRExtensions.h"
 
 NSString * const PSAlarmImportException = @"PSAlarmImportException";
@@ -43,6 +44,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
             PSAlarmsAllAlarms = [[self alloc] initWithPropertyList: plAlarms];
         }
         [PSAlarmsAllAlarms _updateNextAlarm]; // only generate notifications after singleton established
+        [PSTimer setUp];
     }
 }
 
@@ -69,9 +71,9 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 - (void)_alarmTimerExpired:(NSNotification *)notification;
 {
     PSAlarm *alarm = [notification object];
-    NSLog(@"timer expired: %@ retainCount %d", alarm, [alarm retainCount]);
+    // NSLog(@"timer expired: %@ retainCount %d", alarm, [alarm retainCount]);
     [expiredAlarms addObject: alarm];
-    NSLog(@"expired alarms: %@", [expiredAlarms description]);
+    // NSLog(@"expired alarms: %@", [expiredAlarms description]);
     [alarms removeObject: alarm];
     [self _changed];
 }
@@ -79,7 +81,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 - (void)_alarmTimerSet:(NSNotification *)notification;
 {
     PSAlarm *alarm = [notification object];
-    NSLog(@"timer set: %@ retainCount %d", alarm, [alarm retainCount]);
+    // NSLog(@"timer set: %@ retainCount %d", alarm, [alarm retainCount]);
     [alarms addObject: alarm];
     [expiredAlarms removeObject: alarm];
     [self _changed];
@@ -88,7 +90,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 - (void)_alarmDied:(NSNotification *)notification;
 {
     PSAlarm *alarm = [notification object];
-    NSLog(@"alarm died: %@ retainCount %d", alarm, [alarm retainCount]);
+    // NSLog(@"alarm died: %@ retainCount %d", alarm, [alarm retainCount]);
     [alarms removeObject: alarm];
     [expiredAlarms removeObject: alarm];
     [self _changed];

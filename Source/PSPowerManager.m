@@ -219,13 +219,14 @@ closePMUComPort(io_object_t pmuRef)
 {
     switch (messageType) {
         case kIOMessageSystemWillSleep:
-            if ([delegate respondsToSelector: @selector(powerManagerWillSleep:)])
-                [delegate powerManagerWillSleep: self];
-            IOAllowPowerChange(root_port, (long)messageArgument);
+            if ([delegate respondsToSelector: @selector(powerManagerWillDemandSleep:)]) {
+                [delegate powerManagerWillDemandSleep: self];
+                IOAllowPowerChange(root_port, (long)messageArgument);
+            }
             break;
         case kIOMessageCanSystemSleep:
-            if ([delegate respondsToSelector: @selector(powerManagerShouldSleep:)]) {
-                if ([delegate powerManagerShouldSleep: self]) {
+            if ([delegate respondsToSelector: @selector(powerManagerShouldIdleSleep:)]) {
+                if ([delegate powerManagerShouldIdleSleep: self]) {
                     IOAllowPowerChange(root_port, (long)messageArgument);
                 } else {
                     IOCancelPowerChange(root_port, (long)messageArgument);
@@ -251,7 +252,6 @@ powerCallback(void *refCon, io_service_t service, natural_t messageType, void *m
         IONotificationPortRef notificationPort;
 
         delegate = [aDelegate retain];
-
         root_port = IORegisterForSystemPower(self, &notificationPort, powerCallback, &notifier);
         NSAssert(root_port != NULL, @"IORegisterForSystemPower failed");
 

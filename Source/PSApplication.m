@@ -12,6 +12,7 @@
 #import "PSAlarmsController.h"
 #import "PSAlarm.h"
 #import "PSAlarms.h"
+#import "PSTimer.h"
 
 @implementation PSApplication
 
@@ -63,12 +64,12 @@
 
 - (void)_setUpdateTimerForInterval:(NSTimeInterval)interval alarm:(PSAlarm *)alarm repeats:(BOOL)repeats;
 {
-    dockUpdateTimer = [NSTimer scheduledTimerWithTimeInterval: interval target: self selector: @selector(_updateDockTile:) userInfo: alarm repeats: repeats];
+    dockUpdateTimer = [PSTimer scheduledTimerWithTimeInterval: interval target: self selector: @selector(_updateDockTile:) userInfo: alarm repeats: repeats];
     [dockUpdateTimer retain];
     dockUpdateInterval = interval; // because [timer timeInterval] always returns 0 once set
 }
 
-- (void)_updateDockTile:(NSTimer *)timer;
+- (void)_updateDockTile:(PSTimer *)timer;
 {
     PSAlarm *alarm = [timer userInfo];
     NSTimeInterval timeRemaining;
@@ -200,11 +201,9 @@
                     NS_VOIDRETURN;
                 NS_ENDHANDLER
             case NSAlertAlternateReturn:
-                NSLog(@"discard");
-                // [allAlarms discardVersion1Alarms];
+                [allAlarms discardVersion1Alarms];
                 break;
             case NSAlertOtherReturn:
-                NSLog(@"don’t import");
                 break;
         }
     }

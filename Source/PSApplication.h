@@ -10,11 +10,12 @@
 
 @class PSAlarmsController;
 @class PSAlarmSetController;
+@class PSTimer;
 
 @interface PSApplication : NSApplication {
     PSAlarmsController *alarmsController;
     IBOutlet PSAlarmSetController *alarmSetController;
-    NSTimer *dockUpdateTimer;
+    PSTimer *dockUpdateTimer;
     NSTimeInterval dockUpdateInterval;
     NSImage *appIconImage;
 }

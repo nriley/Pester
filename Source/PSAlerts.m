@@ -74,6 +74,11 @@ static NSString * const PLAlerts = @"alerts"; // NSString
 
 #pragma mark actions
 
+- (void)prepareForAlarm:(PSAlarm *)alarm;
+{
+    [alerts makeObjectsPerformSelector: @selector(prepareForAlarm:) withObject: alarm];
+}
+
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
     [alerts makeObjectsPerformSelector: @selector(triggerForAlarm:) withObject: alarm];

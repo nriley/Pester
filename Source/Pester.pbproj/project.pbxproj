@@ -228,7 +228,7 @@
 				E130B9A903B7AEED00000028,
 			);
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 9;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = /;
@@ -261,7 +261,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Pester</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Pester 1.1a5, © 2002 Nicholas Riley</string>
+	<string>Pester 1.1b1, © 2002–03 Nicholas Riley</string>
 	<key>CFBundleIconFile</key>
 	<string>Application icon</string>
 	<key>CFBundleIdentifier</key>
@@ -273,11 +273,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1a5</string>
+	<string>1.1b1</string>
 	<key>CFBundleSignature</key>
 	<string>Pstr</string>
 	<key>CFBundleVersion</key>
-	<string>5</string>
+	<string>9</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -333,6 +333,8 @@
 				E1ECA00803C002B300F54C66,
 				E1D358BB03C60CE900C8A18E,
 				E1E9A33C03C8EF6700050002,
+				E1BF6E9203C928D200050002,
+				E19FD3A003C98645001509F3,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +399,8 @@
 				E1ECA00903C002B300F54C66,
 				E1D358BC03C60CE900C8A18E,
 				E1E9A33B03C8EF6700050002,
+				E1BF6E9303C928D200050002,
+				E19FD3A103C98645001509F3,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,6 +652,30 @@
 			path = "";
 			refType = 4;
 		};
+		E19FD39E03C98645001509F3 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSWakeAlert.h;
+			refType = 4;
+		};
+		E19FD39F03C98645001509F3 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSWakeAlert.m;
+			refType = 4;
+		};
+		E19FD3A003C98645001509F3 = {
+			fileRef = E19FD39E03C98645001509F3;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E19FD3A103C98645001509F3 = {
+			fileRef = E19FD39F03C98645001509F3;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		E1A18CAB03B4344C00000028 = {
 			fileEncoding = 4;
 			isa = PBXFileReference;
@@ -686,6 +714,30 @@
 		};
 		E1A18CB403B439CF00000028 = {
 			fileRef = E1A18CB203B439CF00000028;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1BF6E9003C928D200050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSTimer.h;
+			refType = 4;
+		};
+		E1BF6E9103C928D200050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSTimer.m;
+			refType = 4;
+		};
+		E1BF6E9203C928D200050002 = {
+			fileRef = E1BF6E9003C928D200050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1BF6E9303C928D200050002 = {
+			fileRef = E1BF6E9103C928D200050002;
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -1024,6 +1076,8 @@
 				F517D6420356B8CC016D68B9,
 				F59F6CB40354E7DA01AEEDB1,
 				F59F6CB50354E7DA01AEEDB1,
+				E1BF6E9003C928D200050002,
+				E1BF6E9103C928D200050002,
 			);
 			isa = PBXGroup;
 			name = Alarms;
@@ -1340,6 +1394,8 @@
 				F59E47BC036AB228016B311C,
 				F5F1986D036B813101EB0372,
 				F5F1986C036B813101EB0372,
+				E19FD39E03C98645001509F3,
+				E19FD39F03C98645001509F3,
 			);
 			isa = PBXGroup;
 			name = Alerts;

@@ -24,6 +24,11 @@ static NSString * const PLAlertClass = @"class"; // NSString
     return nil;
 }
 
+- (void)prepareForAlarm:(PSAlarm *)alarm;
+{
+    return;
+}
+
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
     NSAssert(NO, @"Class is abstract");

@@ -22,7 +22,7 @@ extern NSString * const PSAlarmTimerSetNotification;
 extern NSString * const PSAlarmTimerExpiredNotification;
 extern NSString * const PSAlarmDiedNotification;
 
-@class PSAlert, PSAlerts;
+@class PSAlert, PSAlerts, PSTimer;
 
 @interface PSAlarm : NSObject <NSCoding, PSPropertyListSerialization> {
     PSAlarmType alarmType; // changes during lifetime of alarm; more like a state
@@ -32,7 +32,7 @@ extern NSString * const PSAlarmDiedNotification;
     NSTimeInterval timeRemaining;
     NSString *alarmMessage;
     NSString *invalidMessage;
-    NSTimer *timer;
+    PSTimer *timer;
     PSAlerts *alerts;
     BOOL repeating;
 }
@@ -44,6 +44,7 @@ extern NSString * const PSAlarmDiedNotification;
 - (void)setAlerts:(PSAlerts *)theAlerts;
 - (void)setRepeating:(BOOL)isRepeating;
 - (void)setSnoozeInterval:(NSTimeInterval)anInterval;
+- (void)setWakeUp:(BOOL)doWake;
 
 - (NSCalendarDate *)date;
 - (NSCalendarDate *)time;

@@ -27,6 +27,7 @@
 - (NSEnumerator *)alertEnumerator;
 - (BOOL)requirePesterFrontmost; // do any alerts require Pester be in front?
 
+- (void)prepareForAlarm:(PSAlarm *)alarm;
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 
 - (NSAttributedString *)prettyList;

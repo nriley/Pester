@@ -9,6 +9,7 @@
 #import "PSAlarm.h"
 #import "PSAlert.h"
 #import "PSAlerts.h"
+#import "PSTimer.h"
 #import "NJRDateFormatter.h"
 #import "NSCalendarDate-NJRExtensions.h"
 #import "NSDictionary-NJRExtensions.h"
@@ -142,7 +143,7 @@ static NSDictionary *locale;
     return [NSString stringWithFormat: @"%lu years", (unsigned long)(interval / year)];
 }
 
-- (void)_timerExpired:(NSTimer *)aTimer;
+- (void)_timerExpired:(PSTimer *)aTimer;
 {
     NSLog(@"expired: %@; now %@", [[aTimer fireDate] description], [[NSDate date] description]);
     alarmType = PSAlarmExpired;
@@ -197,6 +198,11 @@ static NSDictionary *locale;
     snoozeInterval = anInterval;
     NSAssert(alarmType == PSAlarmExpired, @"Can’t snooze an alarm that hasn’t expired");
     alarmType = PSAlarmSnooze;
+}
+
+- (void)setWakeUp:(BOOL)doWake;
+{
+    [timer setWakeUp: doWake];
 }
 
 #pragma mark accessing
@@ -378,10 +384,12 @@ static NSDictionary *locale;
     } else if (alarmType != PSAlarmInterval) {
         return NO;
     }
-    timer = [NSTimer scheduledTimerWithTimeInterval: (alarmType == PSAlarmSnooze ? snoozeInterval : alarmInterval) target: self selector: @selector(_timerExpired:) userInfo: nil repeats: NO];
+    timer = [PSTimer scheduledTimerWithTimeInterval: (alarmType == PSAlarmSnooze ? snoozeInterval : alarmInterval) target: self selector: @selector(_timerExpired:) userInfo: nil repeats: NO];
     if (timer == nil) return NO;
     [timer retain];
     alarmType = PSAlarmSet;
+    [alerts prepareForAlarm: self];
+
     [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmTimerSetNotification object: self];
     // NSLog(@"set: %@; now %@; remaining %@", [[timer fireDate] description], [[NSDate date] description], [self timeRemainingString]);
     return YES;
