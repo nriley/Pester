@@ -95,16 +95,16 @@ static void initialize() {
     return self;
 }
 
-- (NSAttributedString *)keyEquivalentAttributedStringWithModifierMask:(unsigned int)modifierMask;
+- (NSAttributedString *)keyEquivalentAttributedStringWithModifierFlags:(unsigned int)modifierFlags;
 {
     initialize();
     NSString *keyEquivalentStringNoMask = [self keyEquivalentString];
     NSAttributedString *keyEquivalentAttributedString =
         [[NSString stringWithFormat: @"%@%@%@%@%@",
-            (modifierMask & NSControlKeyMask) ? [NSString stringWithCharacter: kControlUnicode] : @"",
-            (modifierMask & NSAlternateKeyMask) ? [NSString stringWithCharacter: kOptionUnicode] : @"",
-            (modifierMask & NSShiftKeyMask) ? [NSString stringWithCharacter: kShiftUnicode] : @"",
-            (modifierMask & NSCommandKeyMask) ? [NSString stringWithCharacter: kCommandUnicode] : @"",
+            (modifierFlags & NSControlKeyMask) ? [NSString stringWithCharacter: kControlUnicode] : @"",
+            (modifierFlags & NSAlternateKeyMask) ? [NSString stringWithCharacter: kOptionUnicode] : @"",
+            (modifierFlags & NSShiftKeyMask) ? [NSString stringWithCharacter: kShiftUnicode] : @"",
+            (modifierFlags & NSCommandKeyMask) ? [NSString stringWithCharacter: kCommandUnicode] : @"",
                 keyEquivalentStringNoMask]
         attributedStringWithFont: menuItemCmdKeyFont];
     unsigned noMaskLength = [keyEquivalentStringNoMask length];

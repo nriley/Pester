@@ -8,6 +8,7 @@
             SUPERCLASS = NSTextField; 
         }, 
         {
+            ACTIONS = {hotKeySet = id; }; 
             CLASS = PSPreferencesController; 
             LANGUAGE = ObjC; 
             OUTLETS = {setAlarmHotKey = NJRHotKeyField; }; 

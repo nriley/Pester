@@ -10,11 +10,21 @@
 #import "NJRHotKeyFieldCell.h"
 #import "NSString-NJRExtensions.h"
 
-@implementation NJRHotKeyField
+// property list keys
+static NSString * const PLCharacters = @"characters"; // NSString
+static NSString * const PLModifierFlags = @"modifierFlags"; // NSNumber
+static NSString * const PLKeyCode = @"keyCode"; // NSNumber
 
-const NSRange zeroRange = {0, 0};
+static const NSRange zeroRange = {0, 0};
+static const unsigned int capturedModifierMask = (NSShiftKeyMask |
+                                                  NSControlKeyMask |
+                                                  NSAlternateKeyMask |
+                                                  NSCommandKeyMask);
+
 static NSParagraphStyle *leftAlignStyle = nil, *centerAlignStyle = nil;
 static NSDictionary *statusAttributes = nil;
+
+@implementation NJRHotKeyField
 
 + (void)initialize;
 {
@@ -78,7 +88,7 @@ static NSDictionary *statusAttributes = nil;
         [self showStatus: @"none assigned"];
         return;
     }
-    NSMutableAttributedString *equivString = [[hotKeyCharacters keyEquivalentAttributedStringWithModifierMask: hotKeyModifierFlags] mutableCopy];
+    NSMutableAttributedString *equivString = [[hotKeyCharacters keyEquivalentAttributedStringWithModifierFlags: hotKeyModifierFlags] mutableCopy];
     [equivString addAttribute: NSParagraphStyleAttributeName
                         value: (finalized ? centerAlignStyle : leftAlignStyle)
                         range: NSMakeRange(0, [equivString length])];
@@ -87,24 +97,38 @@ static NSDictionary *statusAttributes = nil;
     [equivString release];
 }
 
-- (void)setHotKeyEvent:(NSEvent *)theEvent;
+- (void)clearHotKey;
 {
-    [hotKeyCharacters release]; hotKeyCharacters = [[theEvent charactersIgnoringModifiers] retain];
-    hotKeyModifierFlags = [theEvent modifierFlags];
-    hotKeyCode = [theEvent keyCode];
+    [hotKeyCharacters release];
+    hotKeyCharacters = nil;
+    hotKeyModifierFlags = 0;
+    hotKeyCode = 0;
+    [NSApp sendAction: [self action] to: [self target] from: self];
 }
 
 - (void)keyUp:(NSEvent *)theEvent;
 {
     NSString *characters = [theEvent charactersIgnoringModifiers];
-    if ([characters length] > 1) {
+    int length = [characters length];
+    if (length > 1) {
         [self showStatus: @"please press only one non-modifier key"];
         return;
     }
-    // Yay, we can ask for keyCode, which is likely to be the same as Carbon's, I hope.
-    [self setHotKeyEvent: theEvent];
-
-    [self showKeyEquivalentAttributedStringFinalized: ([theEvent modifierFlags] == 0)];
+    if (length == 1) {
+        unsigned modifierFlags = ([theEvent modifierFlags] & capturedModifierMask);
+        id delegate = [self delegate];
+        NSString *message = nil;
+        if (delegate != nil && ![delegate hotKeyField: self shouldAcceptCharacter: [characters characterAtIndex: 0] modifierFlags: modifierFlags rejectionMessage: &message]) {
+            [self showStatus: message != nil ? message : @"key is unavailable for use"];
+        } else {
+            [hotKeyCharacters release];
+            hotKeyCharacters = [characters retain];
+            hotKeyModifierFlags = modifierFlags;
+            hotKeyCode = [theEvent keyCode];
+            [NSApp sendAction: [self action] to: [self target] from: self];
+            [self showKeyEquivalentAttributedStringFinalized: ([theEvent modifierFlags] & capturedModifierMask) == 0];
+        }
+    }
 }
 
 - (BOOL)performKeyEquivalent:(NSEvent *)theEvent;
@@ -117,22 +141,41 @@ static NSDictionary *statusAttributes = nil;
 {
     unsigned modifierFlags = [theEvent modifierFlags];
 
-    // XXX why does my API call it a modifier mask when NSEvent's API calls it modifier flags? Check HostLauncher for usage.
-
-    if (modifierFlags == 0) {
+    if ((modifierFlags & capturedModifierMask) == 0) {
         [self showKeyEquivalentAttributedStringFinalized: YES];
     } else {
         [self previewKeyEquivalentAttributedString:
-            [@"" keyEquivalentAttributedStringWithModifierMask: modifierFlags]];
+            [@"" keyEquivalentAttributedStringWithModifierFlags: modifierFlags]];
     }
 }
 
 - (IBAction)clear:(id)sender;
 {
-    [hotKeyCharacters release]; hotKeyCharacters = 0;
-    hotKeyModifierFlags = 0;
-    hotKeyCode = 0;
+    [self clearHotKey];
     [self showKeyEquivalentAttributedStringFinalized: YES];
+}
+
+#pragma mark property list serialization (Pester 1.1)
+
+- (NSDictionary *)propertyListRepresentation;
+{
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+        hotKeyCharacters, PLCharacters,
+        [NSNumber numberWithUnsignedInt: hotKeyModifierFlags], PLModifierFlags,
+        [NSNumber numberWithUnsignedShort: hotKeyCode], PLKeyCode,
+        nil];
+}
+
+- (void)setFromPropertyList:(NSDictionary *)dict;
+{
+    NS_DURING
+        hotKeyCharacters = [[dict objectForKey: PLCharacters] retain];
+        hotKeyModifierFlags = [[dict objectForKey: PLModifierFlags] unsignedIntValue];
+        hotKeyCode = [[dict objectForKey: PLKeyCode] unsignedShortValue];
+        [self showKeyEquivalentAttributedStringFinalized: ([[NSApp currentEvent] modifierFlags] & capturedModifierMask) == 0];
+    NS_HANDLER
+        [self clear: nil];
+    NS_ENDHANDLER
 }
 
 @end

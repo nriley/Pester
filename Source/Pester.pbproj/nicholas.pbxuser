@@ -21,34 +21,32 @@
 			F59B967103538BE201154278,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 70791418;
-			"PBXTemplateGeometry-F5CA7ECC015C09990DCA290F" = {
-				ContentSize = "{773, 558}";
+			PBXPerProjectTemplateStateSaveDate = 70906457;
+			"PBXTemplateGeometry-F5314676015831810DCA290F" = {
+				ContentSize = "{685, 434}";
 				LeftSlideOut = {
 					Collapsed = NO;
-					Frame = "{{0, 23}, {773, 535}}";
+					Frame = "{{0, 23}, {685, 411}}";
 					Split0 = {
-						ActiveTab = 0;
-						ActiveTabName = PBXDebugSessionModule;
+						ActiveTab = 2;
+						ActiveTabName = PBXBuildResultsModule;
 						Collapsed = NO;
-						Frame = "{{24, 0}, {749, 535}}";
+						Frame = "{{0, 0}, {685, 411}}";
 						Split0 = {
-							Frame = "{{0, 214}, {749, 321}}";
+							Frame = "{{0, 301}, {685, 110}}";
 						};
 						SplitCount = 1;
 						Tab0 = {
-							Frame = "{{0, 0}, {749, 267}}";
+							Frame = "{{0, 0}, {952, 321}}";
 						};
 						Tab1 = {
 							Debugger = {
-								ActiveTab = 0;
-								ActiveTabName = PBXDebugCLIModule;
 								Collapsed = NO;
-								Frame = "{{0, 0}, {749, 208}}";
+								Frame = "{{0, 0}, {781, 452}}";
 								Split0 = {
-									Frame = "{{0, 74}, {749, 134}}";
+									Frame = "{{0, 24}, {781, 428}}";
 									Split0 = {
-										Frame = "{{0, 0}, {406, 134}}";
+										Frame = "{{0, 0}, {383, 428}}";
 									};
 									Split1 = {
 										DebugVariablesTableConfiguration = (
@@ -57,9 +55,9 @@
 											Value,
 											85,
 											Summary,
-											100.123,
+											155.123,
 										);
-										Frame = "{{415, 0}, {334, 134}}";
+										Frame = "{{392, 0}, {389, 428}}";
 									};
 									SplitCount = 2;
 								};
@@ -68,12 +66,266 @@
 									Frame = "{{0, 0}, {100, 50}}";
 								};
 								Tab1 = {
-									Frame = "{{0, 0}, {749, 50}}";
+									Frame = "{{0, 0}, {100, 50}}";
 								};
 								TabCount = 2;
 								TabsVisible = YES;
 							};
-							Frame = "{{0, 0}, {749, 208}}";
+							Frame = "{{0, 0}, {781, 452}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {685, 215}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {685, 215}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {687, 262}}";
+							BuildTranscriptFrame = "{{0, 271}, {687, 2}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {685, 295}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {300, 533}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							267,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {280, 398}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							237,
+						);
+						Frame = "{{0, 0}, {278, 659}}";
+						MembersFrame = "{{0, 407}, {280, 252}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							236,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 100}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 100}}";
+					};
+					TabCount = 5;
+					TabsVisible = NO;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = YES;
+				Template = F5314676015831810DCA290F;
+				ToolbarVisible = YES;
+				WindowLocation = "{7, 336}";
+			};
+			"PBXTemplateGeometry-F5534CB2020F3F8A0DCA290F" = {
+				ContentSize = "{594, 303}";
+				LeftSlideOut = {
+					Collapsed = NO;
+					Frame = "{{0, 23}, {594, 280}}";
+					Split0 = {
+						ActiveTab = 1;
+						ActiveTabName = PBXRunSessionModule;
+						Collapsed = YES;
+						Frame = "{{0, 0}, {594, 280}}";
+						Split0 = {
+							Frame = "{{1e+06, 1e+06}, {594, 0}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {804, 321}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {594, 274}}";
+								Split0 = {
+									Frame = "{{0, 24}, {594, 250}}";
+									Split0 = {
+										Frame = "{{0, 0}, {290, 250}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											62.123,
+										);
+										Frame = "{{299, 0}, {295, 250}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {594, 274}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {594, 274}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {594, 274}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {614, 262}}";
+							BuildTranscriptFrame = "{{0, 271}, {614, 2}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {300, 533}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							267,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {280, 398}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							237,
+						);
+						Frame = "{{0, 0}, {278, 659}}";
+						MembersFrame = "{{0, 407}, {280, 252}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							236,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 386}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 386}}";
+					};
+					TabCount = 5;
+					TabsVisible = NO;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = YES;
+				Template = F5534CB2020F3F8A0DCA290F;
+				ToolbarVisible = YES;
+				WindowLocation = "{489, 356}";
+			};
+			"PBXTemplateGeometry-F5CA7ECB015C094F0DCA290F" = {
+				ContentSize = "{668, 621}";
+				LeftSlideOut = {
+					Collapsed = NO;
+					Frame = "{{0, 0}, {668, 621}}";
+					Split0 = {
+						Collapsed = NO;
+						Frame = "{{0, 0}, {668, 621}}";
+						Split0 = {
+							Frame = "{{0, 0}, {668, 621}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {484, 208}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {664, 208}}";
+								Split0 = {
+									Frame = "{{0, 24}, {664, 184}}";
+									Split0 = {
+										Frame = "{{0, 0}, {325, 184}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											96.123,
+										);
+										Frame = "{{334, 0}, {330, 184}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {664, 208}}";
 							LauncherConfigVersion = 7;
 						};
 						Tab2 = {
@@ -144,13 +396,13 @@
 						Frame = "{{0, 0}, {250, 100}}";
 					};
 					TabCount = 5;
-					TabsVisible = YES;
+					TabsVisible = NO;
 				};
 				NavBarShownByDefault = YES;
-				StatusViewVisible = YES;
-				Template = F5CA7ECC015C09990DCA290F;
-				ToolbarVisible = YES;
-				WindowLocation = "{7, 78}";
+				StatusViewVisible = NO;
+				Template = F5CA7ECB015C094F0DCA290F;
+				ToolbarVisible = NO;
+				WindowLocation = "{121, 76}";
 			};
 			PBXWorkspaceContents = (
 				{
@@ -158,48 +410,65 @@
 						Split0 = {
 							Split0 = {
 								NavContent0 = {
-									bookmark = E169598B0437D96B00050002;
+									bookmark = E111DEF40439DD3700050002;
 									history = (
 										E1F99AC20436806400050002,
 										E1F99AC30436806400050002,
-										E1F99AC60436806400050002,
-										E1F99AC80436806400050002,
-										E1F99ACA0436806400050002,
-										E1F99ACB0436806400050002,
 										E1F99ACC0436806400050002,
 										E16959490437D96B00050002,
 										E169594A0437D96B00050002,
-										E169594B0437D96B00050002,
-										E169594C0437D96B00050002,
-										E169594D0437D96B00050002,
 										E169594E0437D96B00050002,
-										E169594F0437D96B00050002,
-										E16959500437D96B00050002,
 										E16959510437D96B00050002,
 										E16959520437D96B00050002,
 										E16959530437D96B00050002,
-										E16959540437D96B00050002,
-										E16959550437D96B00050002,
-										E16959560437D96B00050002,
-										E16959570437D96B00050002,
-										E16959580437D96B00050002,
-										E16959590437D96B00050002,
 										E169595A0437D96B00050002,
 										E169595B0437D96B00050002,
 										E169595C0437D96B00050002,
 										E169595D0437D96B00050002,
 										E169595E0437D96B00050002,
-										E169595F0437D96B00050002,
 										E16959600437D96B00050002,
 										E16959610437D96B00050002,
 										E16959620437D96B00050002,
-										E16959630437D96B00050002,
 										E16959640437D96B00050002,
-										E16959650437D96B00050002,
-										E16959660437D96B00050002,
 										E16959670437D96B00050002,
-										E16959680437D96B00050002,
-										E16959690437D96B00050002,
+										E14DEC8E0438CDE100050002,
+										E14DEC8F0438CDE100050002,
+										E14DEC900438CDE100050002,
+										E14DEC910438CDE100050002,
+										E14DEC920438CDE100050002,
+										E14DEC930438CDE100050002,
+										E14DEC940438CDE100050002,
+										E14DEC950438CDE100050002,
+										E14DEC960438CDE100050002,
+										E14DEC970438CDE100050002,
+										E14DEC980438CDE100050002,
+										E14DEC990438CDE100050002,
+										E14DEC9A0438CDE100050002,
+										E14DEC9B0438CDE100050002,
+										E14DEC9C0438CDE100050002,
+										E14DEC9D0438CDE100050002,
+										E14DEC9E0438CDE100050002,
+										E14DEC9F0438CDE100050002,
+										E14DECA00438CDE100050002,
+										E14DECA10438CDE100050002,
+										E14DECA20438CDE100050002,
+										E14DECA30438CDE100050002,
+										E14DECA40438CDE100050002,
+										E14DECA50438CDE100050002,
+										E14DECA60438CDE100050002,
+										E14DECA80438CDE100050002,
+										E14DECAA0438CDE100050002,
+										E14DECAB0438CDE100050002,
+										E14DECAC0438CDE100050002,
+										E1D90AC60439655B00050002,
+										E1D90AC70439655B00050002,
+										E1D90AC80439655B00050002,
+										E111DEF00439DD3700050002,
+										E111DEF10439DD3700050002,
+										E111DEF20439DD3700050002,
+									);
+									nextStack = (
+										E111DEF30439DD3700050002,
 									);
 									prevStack = (
 										E1F99AD80436806400050002,
@@ -207,9 +476,7 @@
 										E1F99ADA0436806400050002,
 										E1F99ADB0436806400050002,
 										E1F99ADC0436806400050002,
-										E1F99ADD0436806400050002,
 										E1F99ADE0436806400050002,
-										E1F99ADF0436806400050002,
 										E1F99AE00436806400050002,
 										E169596A0437D96B00050002,
 										E169596B0437D96B00050002,
@@ -223,7 +490,6 @@
 										E16959730437D96B00050002,
 										E16959740437D96B00050002,
 										E16959750437D96B00050002,
-										E16959760437D96B00050002,
 										E16959770437D96B00050002,
 										E16959780437D96B00050002,
 										E16959790437D96B00050002,
@@ -243,7 +509,50 @@
 										E16959870437D96B00050002,
 										E16959880437D96B00050002,
 										E16959890437D96B00050002,
-										E169598A0437D96B00050002,
+										E14DECAF0438CDE100050002,
+										E14DECB00438CDE100050002,
+										E14DECB10438CDE100050002,
+										E14DECB20438CDE100050002,
+										E14DECB30438CDE100050002,
+										E14DECB40438CDE100050002,
+										E14DECB50438CDE100050002,
+										E14DECB60438CDE100050002,
+										E14DECB70438CDE100050002,
+										E14DECB80438CDE100050002,
+										E14DECB90438CDE100050002,
+										E14DECBA0438CDE100050002,
+										E14DECBB0438CDE100050002,
+										E14DECBC0438CDE100050002,
+										E14DECBD0438CDE100050002,
+										E14DECBE0438CDE100050002,
+										E14DECBF0438CDE100050002,
+										E14DECC00438CDE100050002,
+										E14DECC10438CDE100050002,
+										E14DECC20438CDE100050002,
+										E14DECC30438CDE100050002,
+										E14DECC40438CDE100050002,
+										E14DECC50438CDE100050002,
+										E14DECC60438CDE100050002,
+										E14DECC70438CDE100050002,
+										E14DECC80438CDE100050002,
+										E14DECC90438CDE100050002,
+										E14DECCA0438CDE100050002,
+										E14DECCB0438CDE100050002,
+										E14DECCC0438CDE100050002,
+										E14DECCD0438CDE100050002,
+										E14DECCE0438CDE100050002,
+										E14DECCF0438CDE100050002,
+										E14DECD00438CDE100050002,
+										E14DECD10438CDE100050002,
+										E14DECD20438CDE100050002,
+										E14DECD30438CDE100050002,
+										E14DECD40438CDE100050002,
+										E14DECD50438CDE100050002,
+										E14DECD60438CDE100050002,
+										E14DECD70438CDE100050002,
+										E14DECD80438CDE100050002,
+										E14DECD90438CDE100050002,
+										E1D90ACA0439655B00050002,
 									);
 								};
 								NavCount = 1;
@@ -282,15 +591,51 @@
 					LeftSlideOut = {
 						Split0 = {
 							Split0 = {
+								NavCount = 1;
+								NavGeometry0 = {
+									Frame = "{{0, 0}, {594, 150}}";
+									NavBarVisible = YES;
+								};
+								NavSplitVertical = NO;
+							};
+							SplitCount = 1;
+							Tab1 = {
+								Debugger = {
+									Split0 = {
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									TabCount = 2;
+								};
+								LauncherConfigVersion = 7;
+							};
+							Tab2 = {
+								LauncherConfigVersion = 3;
+								Runner = {
+								};
+							};
+							TabCount = 5;
+						};
+						SplitCount = 1;
+						Tab1 = {
+							OptionsSetName = "Hierarchy, all classes";
+						};
+						TabCount = 5;
+					};
+				},
+				{
+					LeftSlideOut = {
+						Split0 = {
+							Split0 = {
 								NavContent0 = {
-									bookmark = E169598D0437D96B00050002;
+									bookmark = E111DEF50439DD3700050002;
 									history = (
-										E169598C0437D96B00050002,
+										E1D90ACD0439655B00050002,
 									);
 								};
 								NavCount = 1;
 								NavGeometry0 = {
-									Frame = "{{0, 0}, {685, 150}}";
+									Frame = "{{0, 0}, {668, 621}}";
 									NavBarVisible = YES;
 								};
 								NavSplitVertical = NO;
@@ -326,7 +671,7 @@
 							Split0 = {
 								NavCount = 1;
 								NavGeometry0 = {
-									Frame = "{{0, 0}, {594, 150}}";
+									Frame = "{{0, 0}, {685, 150}}";
 									NavBarVisible = YES;
 								};
 								NavSplitVertical = NO;
@@ -475,7 +820,7 @@
 								enabledColumn,
 								31,
 							);
-							Frame = "{{0, 0}, {250, 554}}";
+							Frame = "{{0, 0}, {250, 597}}";
 						};
 						TabCount = 5;
 						TabsVisible = YES;
@@ -485,134 +830,6 @@
 					Template = 64ABBB4501FA494900185B06;
 					ToolbarVisible = YES;
 					WindowLocation = "{18, 150}";
-				},
-				{
-					ContentSize = "{685, 434}";
-					LeftSlideOut = {
-						Collapsed = NO;
-						Frame = "{{0, 23}, {685, 411}}";
-						Split0 = {
-							ActiveTab = 2;
-							ActiveTabName = PBXBuildResultsModule;
-							Collapsed = NO;
-							Frame = "{{0, 0}, {685, 411}}";
-							Split0 = {
-								Frame = "{{0, 301}, {685, 110}}";
-							};
-							SplitCount = 1;
-							Tab0 = {
-								Frame = "{{0, 0}, {952, 321}}";
-							};
-							Tab1 = {
-								Debugger = {
-									Collapsed = NO;
-									Frame = "{{0, 0}, {781, 452}}";
-									Split0 = {
-										Frame = "{{0, 24}, {781, 428}}";
-										Split0 = {
-											Frame = "{{0, 0}, {383, 428}}";
-										};
-										Split1 = {
-											DebugVariablesTableConfiguration = (
-												Name,
-												123,
-												Value,
-												85,
-												Summary,
-												155.123,
-											);
-											Frame = "{{392, 0}, {389, 428}}";
-										};
-										SplitCount = 2;
-									};
-									SplitCount = 1;
-									Tab0 = {
-										Frame = "{{0, 0}, {100, 50}}";
-									};
-									Tab1 = {
-										Frame = "{{0, 0}, {100, 50}}";
-									};
-									TabCount = 2;
-									TabsVisible = YES;
-								};
-								Frame = "{{0, 0}, {781, 452}}";
-								LauncherConfigVersion = 7;
-							};
-							Tab2 = {
-								Frame = "{{0, 0}, {685, 215}}";
-								LauncherConfigVersion = 3;
-								Runner = {
-									Frame = "{{0, 0}, {685, 215}}";
-								};
-							};
-							Tab3 = {
-								BuildMessageFrame = "{{0, 0}, {687, 262}}";
-								BuildTranscriptFrame = "{{0, 271}, {687, 2}}";
-								BuildTranscriptFrameExpanded = YES;
-								Frame = "{{0, 0}, {685, 295}}";
-							};
-							Tab4 = {
-								Frame = "{{0, 0}, {612, 295}}";
-							};
-							TabCount = 5;
-							TabsVisible = NO;
-						};
-						SplitCount = 1;
-						Tab0 = {
-							Frame = "{{0, 0}, {300, 533}}";
-							GroupTreeTableConfiguration = (
-								TargetStatusColumn,
-								18,
-								MainColumn,
-								267,
-							);
-						};
-						Tab1 = {
-							ClassesFrame = "{{0, 0}, {280, 398}}";
-							ClassesTreeTableConfiguration = (
-								PBXBookColumnIdentifier,
-								20,
-								PBXClassColumnIdentifier,
-								237,
-							);
-							Frame = "{{0, 0}, {278, 659}}";
-							MembersFrame = "{{0, 407}, {280, 252}}";
-							MembersTreeTableConfiguration = (
-								PBXBookColumnIdentifier,
-								20,
-								PBXMethodColumnIdentifier,
-								236,
-							);
-						};
-						Tab2 = {
-							Frame = "{{0, 0}, {200, 100}}";
-						};
-						Tab3 = {
-							Frame = "{{0, 0}, {200, 100}}";
-							TargetTableConfiguration = (
-								ActiveObject,
-								16,
-								ObjectNames,
-								202.296,
-							);
-						};
-						Tab4 = {
-							BreakpointsTreeTableConfiguration = (
-								breakpointColumn,
-								197,
-								enabledColumn,
-								31,
-							);
-							Frame = "{{0, 0}, {250, 100}}";
-						};
-						TabCount = 5;
-						TabsVisible = NO;
-					};
-					NavBarShownByDefault = YES;
-					StatusViewVisible = YES;
-					Template = F5314676015831810DCA290F;
-					ToolbarVisible = YES;
-					WindowLocation = "{486, 80}";
 				},
 				{
 					ContentSize = "{594, 303}";
@@ -742,43 +959,358 @@
 					ToolbarVisible = YES;
 					WindowLocation = "{489, 356}";
 				},
+				{
+					ContentSize = "{668, 621}";
+					LeftSlideOut = {
+						Collapsed = NO;
+						Frame = "{{0, 0}, {668, 621}}";
+						Split0 = {
+							Collapsed = NO;
+							Frame = "{{0, 0}, {668, 621}}";
+							Split0 = {
+								Frame = "{{0, 0}, {668, 621}}";
+							};
+							SplitCount = 1;
+							Tab0 = {
+								Frame = "{{0, 0}, {484, 208}}";
+							};
+							Tab1 = {
+								Debugger = {
+									Collapsed = NO;
+									Frame = "{{0, 0}, {664, 208}}";
+									Split0 = {
+										Frame = "{{0, 24}, {664, 184}}";
+										Split0 = {
+											Frame = "{{0, 0}, {325, 184}}";
+										};
+										Split1 = {
+											DebugVariablesTableConfiguration = (
+												Name,
+												123,
+												Value,
+												85,
+												Summary,
+												96.123,
+											);
+											Frame = "{{334, 0}, {330, 184}}";
+										};
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									Tab0 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									Tab1 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									TabCount = 2;
+									TabsVisible = YES;
+								};
+								Frame = "{{0, 0}, {664, 208}}";
+								LauncherConfigVersion = 7;
+							};
+							Tab2 = {
+								Frame = "{{0, 0}, {664, 50}}";
+								LauncherConfigVersion = 3;
+								Runner = {
+									Frame = "{{0, 0}, {664, 50}}";
+								};
+							};
+							Tab3 = {
+								BuildMessageFrame = "{{0, 0}, {614, 262}}";
+								BuildTranscriptFrame = "{{0, 271}, {614, 2}}";
+								BuildTranscriptFrameExpanded = YES;
+								Frame = "{{0, 0}, {612, 295}}";
+							};
+							Tab4 = {
+								Frame = "{{0, 0}, {612, 295}}";
+							};
+							TabCount = 5;
+							TabsVisible = NO;
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {313, 531}}";
+							GroupTreeTableConfiguration = (
+								TargetStatusColumn,
+								18,
+								MainColumn,
+								280,
+							);
+						};
+						Tab1 = {
+							ClassesFrame = "{{0, 0}, {280, 398}}";
+							ClassesTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXClassColumnIdentifier,
+								237,
+							);
+							Frame = "{{0, 0}, {278, 659}}";
+							MembersFrame = "{{0, 407}, {280, 252}}";
+							MembersTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXMethodColumnIdentifier,
+								236,
+							);
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {200, 100}}";
+						};
+						Tab3 = {
+							Frame = "{{0, 0}, {200, 557}}";
+							TargetTableConfiguration = (
+								ActiveObject,
+								16,
+								ObjectNames,
+								202.296,
+							);
+						};
+						Tab4 = {
+							BreakpointsTreeTableConfiguration = (
+								breakpointColumn,
+								197,
+								enabledColumn,
+								31,
+							);
+							Frame = "{{0, 0}, {250, 100}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					NavBarShownByDefault = YES;
+					StatusViewVisible = NO;
+					Template = F5CA7ECB015C094F0DCA290F;
+					ToolbarVisible = NO;
+					WindowLocation = "{121, 76}";
+				},
+				{
+					ContentSize = "{685, 434}";
+					LeftSlideOut = {
+						Collapsed = NO;
+						Frame = "{{0, 23}, {685, 411}}";
+						Split0 = {
+							ActiveTab = 2;
+							ActiveTabName = PBXBuildResultsModule;
+							Collapsed = NO;
+							Frame = "{{0, 0}, {685, 411}}";
+							Split0 = {
+								Frame = "{{0, 301}, {685, 110}}";
+							};
+							SplitCount = 1;
+							Tab0 = {
+								Frame = "{{0, 0}, {952, 321}}";
+							};
+							Tab1 = {
+								Debugger = {
+									Collapsed = NO;
+									Frame = "{{0, 0}, {781, 452}}";
+									Split0 = {
+										Frame = "{{0, 24}, {781, 428}}";
+										Split0 = {
+											Frame = "{{0, 0}, {383, 428}}";
+										};
+										Split1 = {
+											DebugVariablesTableConfiguration = (
+												Name,
+												123,
+												Value,
+												85,
+												Summary,
+												155.123,
+											);
+											Frame = "{{392, 0}, {389, 428}}";
+										};
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									Tab0 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									Tab1 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									TabCount = 2;
+									TabsVisible = YES;
+								};
+								Frame = "{{0, 0}, {781, 452}}";
+								LauncherConfigVersion = 7;
+							};
+							Tab2 = {
+								Frame = "{{0, 0}, {685, 215}}";
+								LauncherConfigVersion = 3;
+								Runner = {
+									Frame = "{{0, 0}, {685, 215}}";
+								};
+							};
+							Tab3 = {
+								BuildMessageFrame = "{{0, 0}, {687, 262}}";
+								BuildTranscriptFrame = "{{0, 271}, {687, 2}}";
+								BuildTranscriptFrameExpanded = YES;
+								Frame = "{{0, 0}, {685, 295}}";
+							};
+							Tab4 = {
+								Frame = "{{0, 0}, {612, 295}}";
+							};
+							TabCount = 5;
+							TabsVisible = NO;
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {300, 533}}";
+							GroupTreeTableConfiguration = (
+								TargetStatusColumn,
+								18,
+								MainColumn,
+								267,
+							);
+						};
+						Tab1 = {
+							ClassesFrame = "{{0, 0}, {280, 398}}";
+							ClassesTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXClassColumnIdentifier,
+								237,
+							);
+							Frame = "{{0, 0}, {278, 659}}";
+							MembersFrame = "{{0, 407}, {280, 252}}";
+							MembersTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXMethodColumnIdentifier,
+								236,
+							);
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {200, 100}}";
+						};
+						Tab3 = {
+							Frame = "{{0, 0}, {200, 100}}";
+							TargetTableConfiguration = (
+								ActiveObject,
+								16,
+								ObjectNames,
+								202.296,
+							);
+						};
+						Tab4 = {
+							BreakpointsTreeTableConfiguration = (
+								breakpointColumn,
+								197,
+								enabledColumn,
+								31,
+							);
+							Frame = "{{0, 0}, {250, 100}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					NavBarShownByDefault = YES;
+					StatusViewVisible = YES;
+					Template = F5314676015831810DCA290F;
+					ToolbarVisible = YES;
+					WindowLocation = "{7, 336}";
+				},
 			);
-			PBXWorkspaceStateSaveDate = 70791418;
+			PBXWorkspaceStateSaveDate = 70906457;
 		};
 		perUserProjectItems = {
+			E111DEF00439DD3700050002 = E111DEF00439DD3700050002;
+			E111DEF10439DD3700050002 = E111DEF10439DD3700050002;
+			E111DEF20439DD3700050002 = E111DEF20439DD3700050002;
+			E111DEF30439DD3700050002 = E111DEF30439DD3700050002;
+			E111DEF40439DD3700050002 = E111DEF40439DD3700050002;
+			E111DEF50439DD3700050002 = E111DEF50439DD3700050002;
+			E14DEC8E0438CDE100050002 = E14DEC8E0438CDE100050002;
+			E14DEC8F0438CDE100050002 = E14DEC8F0438CDE100050002;
+			E14DEC900438CDE100050002 = E14DEC900438CDE100050002;
+			E14DEC910438CDE100050002 = E14DEC910438CDE100050002;
+			E14DEC920438CDE100050002 = E14DEC920438CDE100050002;
+			E14DEC930438CDE100050002 = E14DEC930438CDE100050002;
+			E14DEC940438CDE100050002 = E14DEC940438CDE100050002;
+			E14DEC950438CDE100050002 = E14DEC950438CDE100050002;
+			E14DEC960438CDE100050002 = E14DEC960438CDE100050002;
+			E14DEC970438CDE100050002 = E14DEC970438CDE100050002;
+			E14DEC980438CDE100050002 = E14DEC980438CDE100050002;
+			E14DEC990438CDE100050002 = E14DEC990438CDE100050002;
+			E14DEC9A0438CDE100050002 = E14DEC9A0438CDE100050002;
+			E14DEC9B0438CDE100050002 = E14DEC9B0438CDE100050002;
+			E14DEC9C0438CDE100050002 = E14DEC9C0438CDE100050002;
+			E14DEC9D0438CDE100050002 = E14DEC9D0438CDE100050002;
+			E14DEC9E0438CDE100050002 = E14DEC9E0438CDE100050002;
+			E14DEC9F0438CDE100050002 = E14DEC9F0438CDE100050002;
+			E14DECA00438CDE100050002 = E14DECA00438CDE100050002;
+			E14DECA10438CDE100050002 = E14DECA10438CDE100050002;
+			E14DECA20438CDE100050002 = E14DECA20438CDE100050002;
+			E14DECA30438CDE100050002 = E14DECA30438CDE100050002;
+			E14DECA40438CDE100050002 = E14DECA40438CDE100050002;
+			E14DECA50438CDE100050002 = E14DECA50438CDE100050002;
+			E14DECA60438CDE100050002 = E14DECA60438CDE100050002;
+			E14DECA80438CDE100050002 = E14DECA80438CDE100050002;
+			E14DECAA0438CDE100050002 = E14DECAA0438CDE100050002;
+			E14DECAB0438CDE100050002 = E14DECAB0438CDE100050002;
+			E14DECAC0438CDE100050002 = E14DECAC0438CDE100050002;
+			E14DECAF0438CDE100050002 = E14DECAF0438CDE100050002;
+			E14DECB00438CDE100050002 = E14DECB00438CDE100050002;
+			E14DECB10438CDE100050002 = E14DECB10438CDE100050002;
+			E14DECB20438CDE100050002 = E14DECB20438CDE100050002;
+			E14DECB30438CDE100050002 = E14DECB30438CDE100050002;
+			E14DECB40438CDE100050002 = E14DECB40438CDE100050002;
+			E14DECB50438CDE100050002 = E14DECB50438CDE100050002;
+			E14DECB60438CDE100050002 = E14DECB60438CDE100050002;
+			E14DECB70438CDE100050002 = E14DECB70438CDE100050002;
+			E14DECB80438CDE100050002 = E14DECB80438CDE100050002;
+			E14DECB90438CDE100050002 = E14DECB90438CDE100050002;
+			E14DECBA0438CDE100050002 = E14DECBA0438CDE100050002;
+			E14DECBB0438CDE100050002 = E14DECBB0438CDE100050002;
+			E14DECBC0438CDE100050002 = E14DECBC0438CDE100050002;
+			E14DECBD0438CDE100050002 = E14DECBD0438CDE100050002;
+			E14DECBE0438CDE100050002 = E14DECBE0438CDE100050002;
+			E14DECBF0438CDE100050002 = E14DECBF0438CDE100050002;
+			E14DECC00438CDE100050002 = E14DECC00438CDE100050002;
+			E14DECC10438CDE100050002 = E14DECC10438CDE100050002;
+			E14DECC20438CDE100050002 = E14DECC20438CDE100050002;
+			E14DECC30438CDE100050002 = E14DECC30438CDE100050002;
+			E14DECC40438CDE100050002 = E14DECC40438CDE100050002;
+			E14DECC50438CDE100050002 = E14DECC50438CDE100050002;
+			E14DECC60438CDE100050002 = E14DECC60438CDE100050002;
+			E14DECC70438CDE100050002 = E14DECC70438CDE100050002;
+			E14DECC80438CDE100050002 = E14DECC80438CDE100050002;
+			E14DECC90438CDE100050002 = E14DECC90438CDE100050002;
+			E14DECCA0438CDE100050002 = E14DECCA0438CDE100050002;
+			E14DECCB0438CDE100050002 = E14DECCB0438CDE100050002;
+			E14DECCC0438CDE100050002 = E14DECCC0438CDE100050002;
+			E14DECCD0438CDE100050002 = E14DECCD0438CDE100050002;
+			E14DECCE0438CDE100050002 = E14DECCE0438CDE100050002;
+			E14DECCF0438CDE100050002 = E14DECCF0438CDE100050002;
+			E14DECD00438CDE100050002 = E14DECD00438CDE100050002;
+			E14DECD10438CDE100050002 = E14DECD10438CDE100050002;
+			E14DECD20438CDE100050002 = E14DECD20438CDE100050002;
+			E14DECD30438CDE100050002 = E14DECD30438CDE100050002;
+			E14DECD40438CDE100050002 = E14DECD40438CDE100050002;
+			E14DECD50438CDE100050002 = E14DECD50438CDE100050002;
+			E14DECD60438CDE100050002 = E14DECD60438CDE100050002;
+			E14DECD70438CDE100050002 = E14DECD70438CDE100050002;
+			E14DECD80438CDE100050002 = E14DECD80438CDE100050002;
+			E14DECD90438CDE100050002 = E14DECD90438CDE100050002;
 			E16959490437D96B00050002 = E16959490437D96B00050002;
 			E169594A0437D96B00050002 = E169594A0437D96B00050002;
-			E169594B0437D96B00050002 = E169594B0437D96B00050002;
-			E169594C0437D96B00050002 = E169594C0437D96B00050002;
-			E169594D0437D96B00050002 = E169594D0437D96B00050002;
 			E169594E0437D96B00050002 = E169594E0437D96B00050002;
-			E169594F0437D96B00050002 = E169594F0437D96B00050002;
-			E16959500437D96B00050002 = E16959500437D96B00050002;
 			E16959510437D96B00050002 = E16959510437D96B00050002;
 			E16959520437D96B00050002 = E16959520437D96B00050002;
 			E16959530437D96B00050002 = E16959530437D96B00050002;
-			E16959540437D96B00050002 = E16959540437D96B00050002;
-			E16959550437D96B00050002 = E16959550437D96B00050002;
-			E16959560437D96B00050002 = E16959560437D96B00050002;
-			E16959570437D96B00050002 = E16959570437D96B00050002;
-			E16959580437D96B00050002 = E16959580437D96B00050002;
-			E16959590437D96B00050002 = E16959590437D96B00050002;
 			E169595A0437D96B00050002 = E169595A0437D96B00050002;
 			E169595B0437D96B00050002 = E169595B0437D96B00050002;
 			E169595C0437D96B00050002 = E169595C0437D96B00050002;
 			E169595D0437D96B00050002 = E169595D0437D96B00050002;
 			E169595E0437D96B00050002 = E169595E0437D96B00050002;
-			E169595F0437D96B00050002 = E169595F0437D96B00050002;
 			E16959600437D96B00050002 = E16959600437D96B00050002;
 			E16959610437D96B00050002 = E16959610437D96B00050002;
 			E16959620437D96B00050002 = E16959620437D96B00050002;
-			E16959630437D96B00050002 = E16959630437D96B00050002;
 			E16959640437D96B00050002 = E16959640437D96B00050002;
-			E16959650437D96B00050002 = E16959650437D96B00050002;
-			E16959660437D96B00050002 = E16959660437D96B00050002;
 			E16959670437D96B00050002 = E16959670437D96B00050002;
-			E16959680437D96B00050002 = E16959680437D96B00050002;
-			E16959690437D96B00050002 = E16959690437D96B00050002;
 			E169596A0437D96B00050002 = E169596A0437D96B00050002;
 			E169596B0437D96B00050002 = E169596B0437D96B00050002;
 			E169596C0437D96B00050002 = E169596C0437D96B00050002;
@@ -791,7 +1323,6 @@
 			E16959730437D96B00050002 = E16959730437D96B00050002;
 			E16959740437D96B00050002 = E16959740437D96B00050002;
 			E16959750437D96B00050002 = E16959750437D96B00050002;
-			E16959760437D96B00050002 = E16959760437D96B00050002;
 			E16959770437D96B00050002 = E16959770437D96B00050002;
 			E16959780437D96B00050002 = E16959780437D96B00050002;
 			E16959790437D96B00050002 = E16959790437D96B00050002;
@@ -811,25 +1342,20 @@
 			E16959870437D96B00050002 = E16959870437D96B00050002;
 			E16959880437D96B00050002 = E16959880437D96B00050002;
 			E16959890437D96B00050002 = E16959890437D96B00050002;
-			E169598A0437D96B00050002 = E169598A0437D96B00050002;
-			E169598B0437D96B00050002 = E169598B0437D96B00050002;
-			E169598C0437D96B00050002 = E169598C0437D96B00050002;
-			E169598D0437D96B00050002 = E169598D0437D96B00050002;
+			E1D90AC60439655B00050002 = E1D90AC60439655B00050002;
+			E1D90AC70439655B00050002 = E1D90AC70439655B00050002;
+			E1D90AC80439655B00050002 = E1D90AC80439655B00050002;
+			E1D90ACA0439655B00050002 = E1D90ACA0439655B00050002;
+			E1D90ACD0439655B00050002 = E1D90ACD0439655B00050002;
 			E1F99AC20436806400050002 = E1F99AC20436806400050002;
 			E1F99AC30436806400050002 = E1F99AC30436806400050002;
-			E1F99AC60436806400050002 = E1F99AC60436806400050002;
-			E1F99AC80436806400050002 = E1F99AC80436806400050002;
-			E1F99ACA0436806400050002 = E1F99ACA0436806400050002;
-			E1F99ACB0436806400050002 = E1F99ACB0436806400050002;
 			E1F99ACC0436806400050002 = E1F99ACC0436806400050002;
 			E1F99AD80436806400050002 = E1F99AD80436806400050002;
 			E1F99AD90436806400050002 = E1F99AD90436806400050002;
 			E1F99ADA0436806400050002 = E1F99ADA0436806400050002;
 			E1F99ADB0436806400050002 = E1F99ADB0436806400050002;
 			E1F99ADC0436806400050002 = E1F99ADC0436806400050002;
-			E1F99ADD0436806400050002 = E1F99ADD0436806400050002;
 			E1F99ADE0436806400050002 = E1F99ADE0436806400050002;
-			E1F99ADF0436806400050002 = E1F99ADF0436806400050002;
 			E1F99AE00436806400050002 = E1F99AE00436806400050002;
 		};
 		projectwideBuildSettings = {
@@ -843,6 +1369,104 @@
 		executables = (
 			F59B967103538BE201154278,
 		);
+	};
+	E111DEF00439DD3700050002 = {
+		fRef = E111DEF70439DD3700050002;
+		isa = PBXTextBookmark;
+		name = "NSGeometry.h: 61";
+		rLen = 0;
+		rLoc = 1235;
+		rType = 0;
+		vrLen = 1569;
+		vrLoc = 2356;
+	};
+	E111DEF10439DD3700050002 = {
+		fRef = E111DEF80439DD3700050002;
+		isa = PBXTextBookmark;
+		name = "NSText.h: 57";
+		rLen = 7;
+		rLoc = 1563;
+		rType = 0;
+		vrLen = 1301;
+		vrLoc = 1056;
+	};
+	E111DEF20439DD3700050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 66";
+		rLen = 11;
+		rLoc = 2216;
+		rType = 0;
+		vrLen = 1327;
+		vrLoc = 1435;
+	};
+	E111DEF30439DD3700050002 = {
+		fRef = E111DEF60439DD3700050002;
+		isa = PBXTextBookmark;
+		name = "NSText.h: 57";
+		rLen = 7;
+		rLoc = 1563;
+		rType = 0;
+		vrLen = 1301;
+		vrLoc = 1056;
+	};
+	E111DEF40439DD3700050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 66";
+		rLen = 6;
+		rLoc = 2216;
+		rType = 0;
+		vrLen = 1327;
+		vrLoc = 1435;
+	};
+	E111DEF50439DD3700050002 = {
+		fRef = E1F0B14F03ADBE3800AEFBE0;
+		isa = PBXTextBookmark;
+		name = "NSString-NJRExtensions.m: 82";
+		rLen = 0;
+		rLoc = 3147;
+		rType = 0;
+		vrLen = 2221;
+		vrLoc = 2909;
+	};
+	E111DEF60439DD3700050002 = {
+		isa = PBXFileReference;
+		name = NSText.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSText.h;
+		refType = 0;
+	};
+	E111DEF70439DD3700050002 = {
+		isa = PBXFileReference;
+		name = NSGeometry.h;
+		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSGeometry.h;
+		refType = 0;
+	};
+	E111DEF80439DD3700050002 = {
+		isa = PBXFileReference;
+		name = NSText.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSText.h;
+		refType = 0;
+	};
+	E113730C0439F6E500050002 = {
+		fRef = E1F993C60436310F00050002;
+		isa = PBXTextBookmark;
+		name = "PSPreferencesController.h: __BIG_ENDIAN__";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 483;
+		vrLoc = 0;
+	};
+	E113730D0439F6E500050002 = {
+		fRef = E1F993C70436310F00050002;
+		isa = PBXTextBookmark;
+		name = "PSPreferencesController.m: 74";
+		rLen = 0;
+		rLoc = 2518;
+		rType = 0;
+		vrLen = 1480;
+		vrLoc = 2169;
 	};
 	E120D65F0418AE0E00050002 = {
 		fileReference = F59F6CB50354E7DA01AEEDB1;
@@ -862,6 +1486,8 @@
 			E1F99AAB0436379900050002,
 			E1F99AAD043637C200050002,
 			E1F99AAE04363A8C00050002,
+			E113730C0439F6E500050002,
+			E113730D0439F6E500050002,
 		);
 		isa = PBXBookmarkGroup;
 		name = Root;
@@ -876,6 +1502,837 @@
 		isa = PBXFileBreakpoint;
 		lineNumber = 21;
 		state = 1;
+	};
+	E14DEC8E0438CDE100050002 = {
+		fRef = E14DECF00438CDE100050002;
+		glyphRangeLength = 1354;
+		glyphRangeLocation = 28843;
+		isa = PBXDocBookmark;
+		name = "NSResponder.html: performKeyEq...";
+	};
+	E14DEC8F0438CDE100050002 = {
+		fRef = E14DECF10438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSFormatter.h: 16";
+		rLen = 108;
+		rLoc = 308;
+		rType = 0;
+		vrLen = 1230;
+		vrLoc = 0;
+	};
+	E14DEC900438CDE100050002 = {
+		fRef = E14DECE00438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSAttributedString.h: 28";
+		rLen = 0;
+		rLoc = 1055;
+		rType = 0;
+		vrLen = 1405;
+		vrLoc = 0;
+	};
+	E14DEC910438CDE100050002 = {
+		fRef = E169592A0437A4A400050002;
+		isa = PBXTextBookmark;
+		name = "NSFont-NJRExtensions.m: 25";
+		rLen = 0;
+		rLoc = 873;
+		rType = 0;
+		vrLen = 1070;
+		vrLoc = 0;
+	};
+	E14DEC920438CDE100050002 = {
+		fRef = E14DECE10438CDE100050002;
+		glyphRangeLength = 2012;
+		glyphRangeLocation = 42508;
+		isa = PBXDocBookmark;
+		name = "NSTextView.html: setUsesRuler...";
+	};
+	E14DEC930438CDE100050002 = {
+		fRef = E14DECE20438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "Quickdraw.h: 110";
+		rLen = 39;
+		rLoc = 3098;
+		rType = 0;
+		vrLen = 1693;
+		vrLoc = 2351;
+	};
+	E14DEC940438CDE100050002 = {
+		fRef = E14DECE30438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSResponder.h: 42";
+		rLen = 20;
+		rLoc = 1384;
+		rType = 0;
+		vrLen = 1409;
+		vrLoc = 168;
+	};
+	E14DEC950438CDE100050002 = {
+		fRef = E14DECE90438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSRange.h: 16";
+		rLen = 83;
+		rLoc = 246;
+		rType = 0;
+		vrLen = 1183;
+		vrLoc = 0;
+	};
+	E14DEC960438CDE100050002 = {
+		fRef = E14DECEB0438CDE100050002;
+		glyphRangeLength = 1213;
+		glyphRangeLocation = 4667;
+		isa = PBXDocBookmark;
+		name = "NSParagraphStyle.html: Returns the ...";
+	};
+	E14DEC970438CDE100050002 = {
+		fRef = E14DECE40438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSParagraphStyle.h: 84";
+		rLen = 8;
+		rLoc = 3253;
+		rType = 0;
+		vrLen = 1701;
+		vrLoc = 2082;
+	};
+	E14DEC980438CDE100050002 = {
+		fRef = E14DECE50438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSTextView.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1105;
+		vrLoc = 0;
+	};
+	E14DEC990438CDE100050002 = {
+		fRef = E14DECE60438CDE100050002;
+		glyphRangeLength = 1564;
+		glyphRangeLocation = 10138;
+		isa = PBXDocBookmark;
+		name = "NSTextField.html: doing this t...";
+	};
+	E14DEC9A0438CDE100050002 = {
+		fRef = E14DECED0438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSMatrix.h: 187";
+		rLen = 53;
+		rLoc = 6615;
+		rType = 0;
+		vrLen = 1363;
+		vrLoc = 5968;
+	};
+	E14DEC9B0438CDE100050002 = {
+		fRef = E14DECEE0438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSTextFieldCell.h: 37";
+		rLen = 58;
+		rLoc = 823;
+		rType = 0;
+		vrLen = 957;
+		vrLoc = 86;
+	};
+	E14DEC9C0438CDE100050002 = {
+		fRef = E14DECEF0438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSTextField.h: 11";
+		rLen = 9;
+		rLoc = 198;
+		rType = 0;
+		vrLen = 1187;
+		vrLoc = 107;
+	};
+	E14DEC9D0438CDE100050002 = {
+		fRef = E14DECF50438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSView.h: 255";
+		rLen = 0;
+		rLoc = 8377;
+		rType = 0;
+		vrLen = 1473;
+		vrLoc = 7775;
+	};
+	E14DEC9E0438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 13";
+		rLen = 0;
+		rLoc = 222;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	E14DEC9F0438CDE100050002 = {
+		fRef = E14DECF60438CDE100050002;
+		glyphRangeLength = 833;
+		glyphRangeLocation = 2492;
+		isa = PBXDocBookmark;
+		name = "NSTextFieldCell.html: setTextColor...";
+	};
+	E14DECA00438CDE100050002 = {
+		fRef = E14DECF30438CDE100050002;
+		glyphRangeLength = 501;
+		glyphRangeLocation = 2325;
+		isa = PBXDocBookmark;
+		name = "NSControl.html: Working with...";
+	};
+	E14DECA10438CDE100050002 = {
+		fRef = E14DECF20438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSControl.h: 29";
+		rLen = 12;
+		rLoc = 671;
+		rType = 0;
+		vrLen = 1166;
+		vrLoc = 159;
+	};
+	E14DECA20438CDE100050002 = {
+		fRef = E14DECE70438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "objc.h: 36";
+		rLen = 18;
+		rLoc = 1234;
+		rType = 0;
+		vrLen = 1373;
+		vrLoc = 0;
+	};
+	E14DECA30438CDE100050002 = {
+		fRef = E14DECE80438CDE100050002;
+		glyphRangeLength = 1709;
+		glyphRangeLocation = 21851;
+		isa = PBXDocBookmark;
+		name = "NSCell.html: selectWithFr...";
+	};
+	E14DECA40438CDE100050002 = {
+		fRef = E14DEC820438969400050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyFieldCell.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 241;
+		vrLoc = 0;
+	};
+	E14DECA50438CDE100050002 = {
+		fRef = E14DEC830438969400050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyFieldCell.m: selectWithFrame:inView:editor:delegate:start:length:";
+		rLen = 0;
+		rLoc = 408;
+		rType = 0;
+		vrLen = 591;
+		vrLoc = 0;
+	};
+	E14DECA60438CDE100050002 = {
+		fRef = E14DECEA0438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSCell.h: 243";
+		rLen = 6;
+		rLoc = 7789;
+		rType = 0;
+		vrLen = 1988;
+		vrLoc = 6576;
+	};
+	E14DECA80438CDE100050002 = {
+		fRef = E14DECEC0438CDE100050002;
+		isa = PBXTextBookmark;
+		name = "NSHelpManager.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1081;
+		vrLoc = 20;
+	};
+	E14DECAA0438CDE100050002 = {
+		fRef = E10F2A3F0402E71400050002;
+		isa = PBXTextBookmark;
+		name = "NJRReadMeController.m: 81";
+		rLen = 52;
+		rLoc = 1857;
+		rType = 0;
+		vrLen = 1190;
+		vrLoc = 1507;
+	};
+	E14DECAB0438CDE100050002 = {
+		fRef = F560E2F20357506401A4E466;
+		isa = PBXTextBookmark;
+		name = "PSApplication.h: 19";
+		rLen = 0;
+		rLoc = 474;
+		rType = 0;
+		vrLen = 760;
+		vrLoc = 0;
+	};
+	E14DECAC0438CDE100050002 = {
+		fRef = F560E2F10357506401A4E466;
+		isa = PBXTextBookmark;
+		name = "PSApplication.m: 62";
+		rLen = 0;
+		rLoc = 1794;
+		rType = 0;
+		vrLen = 1219;
+		vrLoc = 1265;
+	};
+	E14DECAF0438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 13";
+		rLen = 16;
+		rLoc = 236;
+		rType = 0;
+		vrLen = 327;
+		vrLoc = 0;
+	};
+	E14DECB00438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 71";
+		rLen = 0;
+		rLoc = 3568;
+		rType = 0;
+		vrLen = 1156;
+		vrLoc = 1136;
+	};
+	E14DECB10438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 13";
+		rLen = 16;
+		rLoc = 236;
+		rType = 0;
+		vrLen = 327;
+		vrLoc = 0;
+	};
+	E14DECB20438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 72";
+		rLen = 0;
+		rLoc = 3568;
+		rType = 0;
+		vrLen = 1246;
+		vrLoc = 1136;
+	};
+	E14DECB30438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 13";
+		rLen = 16;
+		rLoc = 236;
+		rType = 0;
+		vrLen = 327;
+		vrLoc = 0;
+	};
+	E14DECB40438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 72";
+		rLen = 0;
+		rLoc = 3568;
+		rType = 0;
+		vrLen = 1246;
+		vrLoc = 1136;
+	};
+	E14DECB50438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 14";
+		rLen = 19;
+		rLoc = 267;
+		rType = 0;
+		vrLen = 327;
+		vrLoc = 0;
+	};
+	E14DECB60438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 68";
+		rLen = 0;
+		rLoc = 3568;
+		rType = 0;
+		vrLen = 1383;
+		vrLoc = 1277;
+	};
+	E14DECB70438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: clear:";
+		rLen = 0;
+		rLoc = 319;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	E14DECB80438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 68";
+		rLen = 17;
+		rLoc = 2918;
+		rType = 0;
+		vrLen = 1357;
+		vrLoc = 1640;
+	};
+	E14DECB90438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 13";
+		rLen = 16;
+		rLoc = 236;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	E14DECBA0438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 68";
+		rLen = 0;
+		rLoc = 3004;
+		rType = 0;
+		vrLen = 1363;
+		vrLoc = 1640;
+	};
+	E14DECBB0438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 14";
+		rLen = 19;
+		rLoc = 267;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	E14DECBC0438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: editor";
+		rLen = 0;
+		rLoc = 1915;
+		rType = 0;
+		vrLen = 1333;
+		vrLoc = 1251;
+	};
+	E14DECBD0438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 14";
+		rLen = 0;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	E14DECBE0438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 57";
+		rLen = 0;
+		rLoc = 1915;
+		rType = 0;
+		vrLen = 1525;
+		vrLoc = 1280;
+	};
+	E14DECBF0438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 14";
+		rLen = 0;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	E14DECC00438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 146";
+		rLen = 0;
+		rLoc = 5250;
+		rType = 0;
+		vrLen = 859;
+		vrLoc = 3498;
+	};
+	E14DECC10438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 16";
+		rLen = 10;
+		rLoc = 307;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	E14DECC20438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 147";
+		rLen = 0;
+		rLoc = 5250;
+		rType = 0;
+		vrLen = 859;
+		vrLoc = 3498;
+	};
+	E14DECC30438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 16";
+		rLen = 10;
+		rLoc = 307;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	E14DECC40438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: textShouldBeginEditing:";
+		rLen = 0;
+		rLoc = 1915;
+		rType = 0;
+		vrLen = 1105;
+		vrLoc = 924;
+	};
+	E14DECC50438CDE100050002 = {
+		fRef = E1F993C10436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.h: 13";
+		rLen = 0;
+		rLoc = 222;
+		rType = 0;
+		vrLen = 358;
+		vrLoc = 0;
+	};
+	E14DECC60438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 10";
+		rLen = 0;
+		rLoc = 202;
+		rType = 0;
+		vrLen = 1123;
+		vrLoc = 0;
+	};
+	E14DECC70438CDE100050002 = {
+		fRef = E14DEC820438969400050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyFieldCell.h: 12";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 239;
+		vrLoc = 0;
+	};
+	E14DECC80438CDE100050002 = {
+		fRef = E14DEC830438969400050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyFieldCell.m: 10";
+		rLen = 0;
+		rLoc = 213;
+		rType = 0;
+		vrLen = 357;
+		vrLoc = 0;
+	};
+	E14DECC90438CDE100050002 = {
+		fRef = E14DEC820438969400050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyFieldCell.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 241;
+		vrLoc = 0;
+	};
+	E14DECCA0438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 71";
+		rLen = 0;
+		rLoc = 2437;
+		rType = 0;
+		vrLen = 1589;
+		vrLoc = 1384;
+	};
+	E14DECCB0438CDE100050002 = {
+		fRef = E14DEC830438969400050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyFieldCell.m: 18";
+		rLen = 0;
+		rLoc = 586;
+		rType = 0;
+		vrLen = 570;
+		vrLoc = 0;
+	};
+	E14DECCC0438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 55";
+		rLen = 0;
+		rLoc = 1914;
+		rType = 0;
+		vrLen = 1228;
+		vrLoc = 452;
+	};
+	E14DECCD0438CDE100050002 = {
+		fRef = E14DEC830438969400050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyFieldCell.m: ";
+		rLen = 0;
+		rLoc = 564;
+		rType = 0;
+		vrLen = 591;
+		vrLoc = 0;
+	};
+	E14DECCE0438CDE100050002 = {
+		fRef = E14DEC820438969400050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyFieldCell.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 241;
+		vrLoc = 0;
+	};
+	E14DECCF0438CDE100050002 = {
+		fRef = E14DEC830438969400050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyFieldCell.m: selectWithFrame:inView:editor:delegate:start:length:";
+		rLen = 0;
+		rLoc = 408;
+		rType = 0;
+		vrLen = 591;
+		vrLoc = 0;
+	};
+	E14DECD00438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: 65";
+		rLen = 0;
+		rLoc = 2342;
+		rType = 0;
+		vrLen = 1458;
+		vrLoc = 1256;
+	};
+	E14DECD10438CDE100050002 = {
+		fRef = E1F0B14F03ADBE3800AEFBE0;
+		isa = PBXTextBookmark;
+		name = "NSString-NJRExtensions.m: 54";
+		rLen = 0;
+		rLoc = 2703;
+		rType = 0;
+		vrLen = 1977;
+		vrLoc = 551;
+	};
+	E14DECD20438CDE100050002 = {
+		fRef = E1F993C20436280200050002;
+		isa = PBXTextBookmark;
+		name = "NJRHotKeyField.m: keyUp:";
+		rLen = 0;
+		rLoc = 3568;
+		rType = 0;
+		vrLen = 1210;
+		vrLoc = 0;
+	};
+	E14DECD30438CDE100050002 = {
+		fRef = F560E2F20357506401A4E466;
+		isa = PBXTextBookmark;
+		name = "PSApplication.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 676;
+		vrLoc = 0;
+	};
+	E14DECD40438CDE100050002 = {
+		fRef = F560E2F10357506401A4E466;
+		isa = PBXTextBookmark;
+		name = "PSApplication.m: __GNUC__";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1212;
+		vrLoc = 0;
+	};
+	E14DECD50438CDE100050002 = {
+		fRef = F560E2F20357506401A4E466;
+		isa = PBXTextBookmark;
+		name = "PSApplication.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 676;
+		vrLoc = 0;
+	};
+	E14DECD60438CDE100050002 = {
+		fRef = F560E2F10357506401A4E466;
+		isa = PBXTextBookmark;
+		name = "PSApplication.m: 34";
+		rLen = 19;
+		rLoc = 1049;
+		rType = 0;
+		vrLen = 1212;
+		vrLoc = 0;
+	};
+	E14DECD70438CDE100050002 = {
+		fRef = F560E2F20357506401A4E466;
+		isa = PBXTextBookmark;
+		name = "PSApplication.h: 19";
+		rLen = 0;
+		rLoc = 474;
+		rType = 0;
+		vrLen = 760;
+		vrLoc = 0;
+	};
+	E14DECD80438CDE100050002 = {
+		fRef = F560E2F10357506401A4E466;
+		isa = PBXTextBookmark;
+		name = "PSApplication.m: 62";
+		rLen = 0;
+		rLoc = 1794;
+		rType = 0;
+		vrLen = 1219;
+		vrLoc = 1265;
+	};
+	E14DECD90438CDE100050002 = {
+		fRef = E1F0B14F03ADBE3800AEFBE0;
+		isa = PBXTextBookmark;
+		name = "NSString-NJRExtensions.m: 65";
+		rLen = 0;
+		rLoc = 3278;
+		rType = 0;
+		vrLen = 2302;
+		vrLoc = 1859;
+	};
+	E14DECE00438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSAttributedString.h;
+		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSAttributedString.h;
+		refType = 0;
+	};
+	E14DECE10438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSTextView.html;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSTextView.html;
+		refType = 0;
+	};
+	E14DECE20438CDE100050002 = {
+		isa = PBXFileReference;
+		name = Quickdraw.h;
+		path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/Headers/Quickdraw.h;
+		refType = 0;
+	};
+	E14DECE30438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSResponder.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSResponder.h;
+		refType = 0;
+	};
+	E14DECE40438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSParagraphStyle.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSParagraphStyle.h;
+		refType = 0;
+	};
+	E14DECE50438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSTextView.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSTextView.h;
+		refType = 0;
+	};
+	E14DECE60438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSTextField.html;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSTextField.html;
+		refType = 0;
+	};
+	E14DECE70438CDE100050002 = {
+		isa = PBXFileReference;
+		name = objc.h;
+		path = /usr/include/objc/objc.h;
+		refType = 0;
+	};
+	E14DECE80438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSCell.html;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSCell.html;
+		refType = 0;
+	};
+	E14DECE90438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSRange.h;
+		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSRange.h;
+		refType = 0;
+	};
+	E14DECEA0438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSCell.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSCell.h;
+		refType = 0;
+	};
+	E14DECEB0438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSParagraphStyle.html;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSParagraphStyle.html;
+		refType = 0;
+	};
+	E14DECEC0438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSHelpManager.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSHelpManager.h;
+		refType = 0;
+	};
+	E14DECED0438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSMatrix.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSMatrix.h;
+		refType = 0;
+	};
+	E14DECEE0438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSTextFieldCell.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSTextFieldCell.h;
+		refType = 0;
+	};
+	E14DECEF0438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSTextField.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSTextField.h;
+		refType = 0;
+	};
+	E14DECF00438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSResponder.html;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSResponder.html;
+		refType = 0;
+	};
+	E14DECF10438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSFormatter.h;
+		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSFormatter.h;
+		refType = 0;
+	};
+	E14DECF20438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSControl.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSControl.h;
+		refType = 0;
+	};
+	E14DECF30438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSControl.html;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSControl.html;
+		refType = 0;
+	};
+	E14DECF50438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSView.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSView.h;
+		refType = 0;
+	};
+	E14DECF60438CDE100050002 = {
+		isa = PBXFileReference;
+		name = NSTextFieldCell.html;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSTextFieldCell.html;
+		refType = 0;
 	};
 	E16959490437D96B00050002 = {
 		fRef = E169599E0437D96B00050002;
@@ -894,65 +2351,15 @@
 		vrLen = 919;
 		vrLoc = 0;
 	};
-	E169594B0437D96B00050002 = {
-		fRef = E16959A20437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSTextFieldCell.h: 19";
-		rLen = 12;
-		rLoc = 362;
-		rType = 0;
-		vrLen = 957;
-		vrLoc = 86;
-	};
-	E169594C0437D96B00050002 = {
-		fRef = E16959A30437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSControl.h: 32";
-		rLen = 39;
-		rLoc = 723;
-		rType = 0;
-		vrLen = 1266;
-		vrLoc = 811;
-	};
-	E169594D0437D96B00050002 = {
-		fRef = E16959A40437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSEvent.h: 74";
-		rLen = 17;
-		rLoc = 2215;
-		rType = 0;
-		vrLen = 1258;
-		vrLoc = 1384;
-	};
 	E169594E0437D96B00050002 = {
 		fRef = E1F993C70436310F00050002;
 		isa = PBXTextBookmark;
 		name = "PSPreferencesController.m: 18";
 		rLen = 0;
-		rLoc = 395;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 822;
 		vrLoc = 3;
-	};
-	E169594F0437D96B00050002 = {
-		fRef = E16959A50437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSTextField.h: 31";
-		rLen = 34;
-		rLoc = 674;
-		rType = 0;
-		vrLen = 1097;
-		vrLoc = 0;
-	};
-	E16959500437D96B00050002 = {
-		fRef = E16959990437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSCell.h: 174";
-		rLen = 11;
-		rLoc = 4717;
-		rType = 0;
-		vrLen = 1265;
-		vrLoc = 4265;
 	};
 	E16959510437D96B00050002 = {
 		fRef = E130B9AD03B7C59700000028;
@@ -982,66 +2389,6 @@
 		rLoc = 0;
 		rType = 0;
 		vrLen = 499;
-		vrLoc = 0;
-	};
-	E16959540437D96B00050002 = {
-		fRef = E1F99AB004363EC400050002;
-		isa = PBXTextBookmark;
-		name = "NJRHotKeyTextView.m: 16";
-		rLen = 0;
-		rLoc = 313;
-		rType = 0;
-		vrLen = 443;
-		vrLoc = 0;
-	};
-	E16959550437D96B00050002 = {
-		fRef = E169599B0437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSResponder.h: 41";
-		rLen = 30;
-		rLoc = 1346;
-		rType = 0;
-		vrLen = 1369;
-		vrLoc = 522;
-	};
-	E16959560437D96B00050002 = {
-		fRef = E169599C0437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSView.h: 21";
-		rLen = 0;
-		rLoc = 475;
-		rType = 0;
-		vrLen = 1209;
-		vrLoc = 2217;
-	};
-	E16959570437D96B00050002 = {
-		fRef = E169599D0437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSTextView.h: 78";
-		rLen = 12;
-		rLoc = 3594;
-		rType = 0;
-		vrLen = 1729;
-		vrLoc = 3039;
-	};
-	E16959580437D96B00050002 = {
-		fRef = E16959910437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSParagraphStyle.h: 98";
-		rLen = 38;
-		rLoc = 3783;
-		rType = 0;
-		vrLen = 1669;
-		vrLoc = 2816;
-	};
-	E16959590437D96B00050002 = {
-		fRef = E169599F0437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSText.h: 28";
-		rLen = 58;
-		rLoc = 631;
-		rType = 0;
-		vrLen = 1196;
 		vrLoc = 0;
 	};
 	E169595A0437D96B00050002 = {
@@ -1091,16 +2438,6 @@
 		isa = PBXDocBookmark;
 		name = "NSFont.html: fontWithName...";
 	};
-	E169595F0437D96B00050002 = {
-		fRef = E16959A60437D96B00050002;
-		isa = PBXTextBookmark;
-		name = "NSAttributedString.h: 27";
-		rLen = 0;
-		rLoc = 1054;
-		rType = 0;
-		vrLen = 1405;
-		vrLoc = 0;
-	};
 	E16959600437D96B00050002 = {
 		fRef = E16959950437D96B00050002;
 		isa = PBXTextBookmark;
@@ -1131,16 +2468,6 @@
 		vrLen = 1226;
 		vrLoc = 20630;
 	};
-	E16959630437D96B00050002 = {
-		fRef = E1F0B14E03ADBE3800AEFBE0;
-		isa = PBXTextBookmark;
-		name = "NSString-NJRExtensions.h: 11";
-		rLen = 0;
-		rLoc = 187;
-		rType = 0;
-		vrLen = 762;
-		vrLoc = 0;
-	};
 	E16959640437D96B00050002 = {
 		fRef = E162698303B6189000000028;
 		isa = PBXTextBookmark;
@@ -1151,26 +2478,6 @@
 		vrLen = 1156;
 		vrLoc = 0;
 	};
-	E16959650437D96B00050002 = {
-		fRef = E169592A0437A4A400050002;
-		isa = PBXTextBookmark;
-		name = "NSFont-NJRExtensions.m: 21";
-		rLen = 0;
-		rLoc = 655;
-		rType = 0;
-		vrLen = 1143;
-		vrLoc = 0;
-	};
-	E16959660437D96B00050002 = {
-		fRef = E1F0B14F03ADBE3800AEFBE0;
-		isa = PBXTextBookmark;
-		name = "NSString-NJRExtensions.m: attributedStringWithFont:";
-		rLen = 0;
-		rLoc = 5131;
-		rType = 0;
-		vrLen = 1715;
-		vrLoc = 3316;
-	};
 	E16959670437D96B00050002 = {
 		fRef = E16959900437D96B00050002;
 		isa = PBXTextBookmark;
@@ -1180,26 +2487,6 @@
 		rType = 0;
 		vrLen = 1649;
 		vrLoc = 1480;
-	};
-	E16959680437D96B00050002 = {
-		fRef = E1F993C10436280200050002;
-		isa = PBXTextBookmark;
-		name = "NJRHotKeyField.h: 13";
-		rLen = 0;
-		rLoc = 222;
-		rType = 0;
-		vrLen = 327;
-		vrLoc = 0;
-	};
-	E16959690437D96B00050002 = {
-		fRef = E1F993C20436280200050002;
-		isa = PBXTextBookmark;
-		name = "NJRHotKeyField.m: modifierFlags";
-		rLen = 22;
-		rLoc = 3727;
-		rType = 0;
-		vrLen = 1379;
-		vrLoc = 1260;
 	};
 	E169596A0437D96B00050002 = {
 		fRef = E16959A00437D96B00050002;
@@ -1216,7 +2503,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: 43";
 		rLen = 0;
-		rLoc = 3542;
+		rLoc = 4682;
 		rType = 0;
 		vrLen = 1479;
 		vrLoc = 607;
@@ -1236,7 +2523,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: 29";
 		rLen = 0;
-		rLoc = 452;
+		rLoc = 957;
 		rType = 0;
 		vrLen = 1148;
 		vrLoc = 0;
@@ -1246,7 +2533,7 @@
 		isa = PBXTextBookmark;
 		name = "NSString-NJRExtensions.m: 52";
 		rLen = 12;
-		rLoc = 4340;
+		rLoc = 4345;
 		rType = 0;
 		vrLen = 1807;
 		vrLoc = 648;
@@ -1256,7 +2543,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPreferencesController.m: 18";
 		rLen = 0;
-		rLoc = 395;
+		rLoc = 298;
 		rType = 0;
 		vrLen = 822;
 		vrLoc = 3;
@@ -1266,7 +2553,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: keyUp:";
 		rLen = 0;
-		rLoc = 3097;
+		rLoc = 3568;
 		rType = 0;
 		vrLen = 1148;
 		vrLoc = 0;
@@ -1276,7 +2563,7 @@
 		isa = PBXTextBookmark;
 		name = "NSString-NJRExtensions.m: 58";
 		rLen = 0;
-		rLoc = 5131;
+		rLoc = 5137;
 		rType = 0;
 		vrLen = 1310;
 		vrLoc = 0;
@@ -1286,7 +2573,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: 73";
 		rLen = 0;
-		rLoc = 3904;
+		rLoc = 4918;
 		rType = 0;
 		vrLen = 1220;
 		vrLoc = 1408;
@@ -1321,22 +2608,12 @@
 		vrLen = 499;
 		vrLoc = 0;
 	};
-	E16959760437D96B00050002 = {
-		fRef = E1F99AB004363EC400050002;
-		isa = PBXTextBookmark;
-		name = "NJRHotKeyTextView.m: 16";
-		rLen = 0;
-		rLoc = 313;
-		rType = 0;
-		vrLen = 443;
-		vrLoc = 0;
-	};
 	E16959770437D96B00050002 = {
 		fRef = E1F993C20436280200050002;
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: 15";
 		rLen = 0;
-		rLoc = 312;
+		rLoc = 934;
 		rType = 0;
 		vrLen = 1377;
 		vrLoc = 152;
@@ -1436,7 +2713,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: 11";
 		rLen = 0;
-		rLoc = 245;
+		rLoc = 902;
 		rType = 0;
 		vrLen = 991;
 		vrLoc = 0;
@@ -1456,7 +2733,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: 87";
 		rLen = 0;
-		rLoc = 4104;
+		rLoc = 5143;
 		rType = 0;
 		vrLen = 1262;
 		vrLoc = 1251;
@@ -1478,7 +2755,7 @@
 		rLen = 0;
 		rLoc = 187;
 		rType = 0;
-		vrLen = 762;
+		vrLen = 696;
 		vrLoc = 0;
 	};
 	E16959860437D96B00050002 = {
@@ -1516,47 +2793,10 @@
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: modifierFlags";
 		rLen = 22;
-		rLoc = 3727;
+		rLoc = 4867;
 		rType = 0;
 		vrLen = 1379;
 		vrLoc = 1260;
-	};
-	E169598A0437D96B00050002 = {
-		fRef = E1F993C10436280200050002;
-		isa = PBXTextBookmark;
-		name = "NJRHotKeyField.h: 13";
-		rLen = 0;
-		rLoc = 222;
-		rType = 0;
-		vrLen = 327;
-		vrLoc = 0;
-	};
-	E169598B0437D96B00050002 = {
-		fRef = E1F993C20436280200050002;
-		isa = PBXTextBookmark;
-		name = "NJRHotKeyField.m: 67";
-		rLen = 0;
-		rLoc = 3251;
-		rType = 0;
-		vrLen = 1379;
-		vrLoc = 1260;
-	};
-	E169598C0437D96B00050002 = {
-		fRef = E1F0B14F03ADBE3800AEFBE0;
-		isa = PBXTextBookmark;
-		rLen = 0;
-		rLoc = 115;
-		rType = 1;
-	};
-	E169598D0437D96B00050002 = {
-		fRef = E1F0B14F03ADBE3800AEFBE0;
-		isa = PBXTextBookmark;
-		name = "NSString-NJRExtensions.m: 95";
-		rLen = 0;
-		rLoc = 5080;
-		rType = 0;
-		vrLen = 468;
-		vrLoc = 3680;
 	};
 	E169598E0437D96B00050002 = {
 		isa = PBXFileReference;
@@ -1574,12 +2814,6 @@
 		isa = PBXFileReference;
 		name = NSFont.h;
 		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSFont.h;
-		refType = 0;
-	};
-	E16959910437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSParagraphStyle.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSParagraphStyle.h;
 		refType = 0;
 	};
 	E16959920437D96B00050002 = {
@@ -1624,46 +2858,16 @@
 		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSFont.html;
 		refType = 0;
 	};
-	E16959990437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSCell.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSCell.h;
-		refType = 0;
-	};
 	E169599A0437D96B00050002 = {
 		isa = PBXFileReference;
 		name = NSString.h;
 		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSString.h;
 		refType = 0;
 	};
-	E169599B0437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSResponder.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSResponder.h;
-		refType = 0;
-	};
-	E169599C0437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSView.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSView.h;
-		refType = 0;
-	};
-	E169599D0437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSTextView.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSTextView.h;
-		refType = 0;
-	};
 	E169599E0437D96B00050002 = {
 		isa = PBXFileReference;
 		name = NSEvent.html;
 		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSEvent.html;
-		refType = 0;
-	};
-	E169599F0437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSText.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSText.h;
 		refType = 0;
 	};
 	E16959A00437D96B00050002 = {
@@ -1678,47 +2882,73 @@
 		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSActionCell.h;
 		refType = 0;
 	};
-	E16959A20437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSTextFieldCell.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSTextFieldCell.h;
-		refType = 0;
-	};
-	E16959A30437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSControl.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSControl.h;
-		refType = 0;
-	};
-	E16959A40437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSEvent.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSEvent.h;
-		refType = 0;
-	};
-	E16959A50437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSTextField.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSTextField.h;
-		refType = 0;
-	};
-	E16959A60437D96B00050002 = {
-		isa = PBXFileReference;
-		name = NSAttributedString.h;
-		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSAttributedString.h;
-		refType = 0;
-	};
 	E1A9DEE703BF3C110089E8B2 = {
 		isa = PBXSymbolicBreakpoint;
 		state = 1;
 		symbolName = "-[_NSZombie release]";
+	};
+	E1D90AC60439655B00050002 = {
+		fRef = E1F0B14E03ADBE3800AEFBE0;
+		isa = PBXTextBookmark;
+		name = "NSString-NJRExtensions.h: 14";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 696;
+		vrLoc = 0;
+	};
+	E1D90AC70439655B00050002 = {
+		fRef = E1D90ACE0439655B00050002;
+		isa = PBXTextBookmark;
+		name = "NSEvent.h: 69";
+		rLen = 0;
+		rLoc = 2081;
+		rType = 0;
+		vrLen = 1346;
+		vrLoc = 1232;
+	};
+	E1D90AC80439655B00050002 = {
+		fRef = E1F0B14F03ADBE3800AEFBE0;
+		isa = PBXTextBookmark;
+		name = "NSString-NJRExtensions.m: underlined";
+		rLen = 0;
+		rLoc = 682;
+		rType = 0;
+		vrLen = 1237;
+		vrLoc = 0;
+	};
+	E1D90ACA0439655B00050002 = {
+		fRef = E1F0B14E03ADBE3800AEFBE0;
+		isa = PBXTextBookmark;
+		name = "NSString-NJRExtensions.h: 14";
+		rLen = 0;
+		rLoc = 225;
+		rType = 0;
+		vrLen = 696;
+		vrLoc = 0;
+	};
+	E1D90ACD0439655B00050002 = {
+		fRef = E1F0B14F03ADBE3800AEFBE0;
+		isa = PBXTextBookmark;
+		name = "NSString-NJRExtensions.m: keyEquivalentString";
+		rLen = 0;
+		rLoc = 1550;
+		rType = 0;
+		vrLen = 2174;
+		vrLoc = 2987;
+	};
+	E1D90ACE0439655B00050002 = {
+		isa = PBXFileReference;
+		name = NSEvent.h;
+		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSEvent.h;
+		refType = 0;
 	};
 	E1F99AAA0436379100050002 = {
 		fRef = E1F993C70436310F00050002;
 		isa = PBXTextBookmark;
 		name = "PSPreferencesController.m: 25";
 		rLen = 0;
-		rLoc = 456;
+		rLoc = 630;
 		rType = 0;
 		vrLen = 756;
 		vrLoc = 3;
@@ -1728,7 +2958,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: 15";
 		rLen = 0;
-		rLoc = 3097;
+		rLoc = 3568;
 		rType = 0;
 		vrLen = 517;
 		vrLoc = 0;
@@ -1748,24 +2978,10 @@
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: modifierFlags";
 		rLen = 13;
-		rLoc = 3762;
+		rLoc = 4902;
 		rType = 0;
 		vrLen = 1176;
 		vrLoc = 152;
-	};
-	E1F99AAF04363EC400050002 = {
-		fileEncoding = 4;
-		isa = PBXFileReference;
-		name = NJRHotKeyTextView.h;
-		path = /Users/nicholas/Documents/Development/Cocoa/Pester/Source/NJRHotKeyTextView.h;
-		refType = 0;
-	};
-	E1F99AB004363EC400050002 = {
-		fileEncoding = 4;
-		isa = PBXFileReference;
-		name = NJRHotKeyTextView.m;
-		path = /Users/nicholas/Documents/Development/Cocoa/Pester/Source/NJRHotKeyTextView.m;
-		refType = 0;
 	};
 	E1F99AC20436806400050002 = {
 		fRef = E1F99AF80436806400050002;
@@ -1787,37 +3003,6 @@
 		vrLen = 702;
 		vrLoc = 3;
 	};
-	E1F99AC60436806400050002 = {
-		fRef = E1F99AFA0436806400050002;
-		glyphRangeLength = 1747;
-		glyphRangeLocation = 44520;
-		isa = PBXDocBookmark;
-		name = "NSTextView.html: shouldDrawIn...";
-	};
-	E1F99AC80436806400050002 = {
-		fRef = E1F99AFB0436806400050002;
-		glyphRangeLength = 1025;
-		glyphRangeLocation = 39640;
-		isa = PBXDocBookmark;
-		name = "NSCell.html: setUpFieldEd...";
-	};
-	E1F99ACA0436806400050002 = {
-		fRef = E1F99B0E0436806400050002;
-		glyphRangeLength = 1198;
-		glyphRangeLocation = 4950;
-		isa = PBXDocBookmark;
-		name = "NSControl.html: currentEdito...";
-	};
-	E1F99ACB0436806400050002 = {
-		fRef = E1F99AAF04363EC400050002;
-		isa = PBXTextBookmark;
-		name = "NJRHotKeyTextView.h: 17";
-		rLen = 0;
-		rLoc = 232;
-		rType = 0;
-		vrLen = 232;
-		vrLoc = 0;
-	};
 	E1F99ACC0436806400050002 = {
 		fRef = E13919E203B9E4E100000028;
 		isa = PBXTextBookmark;
@@ -1833,7 +3018,7 @@
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: 38";
 		rLen = 0;
-		rLoc = 4012;
+		rLoc = 5051;
 		rType = 0;
 		vrLen = 1375;
 		vrLoc = 769;
@@ -1843,7 +3028,7 @@
 		isa = PBXTextBookmark;
 		name = "NSString-NJRExtensions.m: attributedStringWithFont:";
 		rLen = 0;
-		rLoc = 5131;
+		rLoc = 5137;
 		rType = 0;
 		vrLen = 1332;
 		vrLoc = 1167;
@@ -1855,7 +3040,7 @@
 		rLen = 0;
 		rLoc = 187;
 		rType = 0;
-		vrLen = 742;
+		vrLen = 696;
 		vrLoc = 0;
 	};
 	E1F99ADB0436806400050002 = {
@@ -1878,42 +3063,22 @@
 		vrLen = 501;
 		vrLoc = 0;
 	};
-	E1F99ADD0436806400050002 = {
-		fRef = E1F99AB004363EC400050002;
-		isa = PBXTextBookmark;
-		name = "NJRHotKeyTextView.m: 25";
-		rLen = 0;
-		rLoc = 437;
-		rType = 0;
-		vrLen = 443;
-		vrLoc = 0;
-	};
 	E1F99ADE0436806400050002 = {
 		fRef = E1F993C20436280200050002;
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: 38";
 		rLen = 0;
-		rLoc = 4012;
+		rLoc = 5051;
 		rType = 0;
 		vrLen = 1405;
 		vrLoc = 739;
-	};
-	E1F99ADF0436806400050002 = {
-		fRef = E1F99AB004363EC400050002;
-		isa = PBXTextBookmark;
-		name = "NJRHotKeyTextView.m: 25";
-		rLen = 0;
-		rLoc = 437;
-		rType = 0;
-		vrLen = 443;
-		vrLoc = 0;
 	};
 	E1F99AE00436806400050002 = {
 		fRef = E1F993C20436280200050002;
 		isa = PBXTextBookmark;
 		name = "NJRHotKeyField.m: 58";
 		rLen = 0;
-		rLoc = 4012;
+		rLoc = 5051;
 		rType = 0;
 		vrLen = 1509;
 		vrLoc = 1138;
@@ -1922,24 +3087,6 @@
 		isa = PBXFileReference;
 		name = CFString.h;
 		path = /System/Library/Frameworks/CoreFoundation.framework/Versions/A/Headers/CFString.h;
-		refType = 0;
-	};
-	E1F99AFA0436806400050002 = {
-		isa = PBXFileReference;
-		name = NSTextView.html;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSTextView.html;
-		refType = 0;
-	};
-	E1F99AFB0436806400050002 = {
-		isa = PBXFileReference;
-		name = NSCell.html;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSCell.html;
-		refType = 0;
-	};
-	E1F99B0E0436806400050002 = {
-		isa = PBXFileReference;
-		name = NSControl.html;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSControl.html;
 		refType = 0;
 	};
 	E1F99B120436806400050002 = {

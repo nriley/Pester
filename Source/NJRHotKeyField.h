@@ -17,4 +17,13 @@
 
 - (IBAction)clear:(id)sender;
 
+- (NSDictionary *)propertyListRepresentation;
+- (void)setFromPropertyList:(NSDictionary *)dict;
+
+@end
+
+@interface NSObject (NJRHotKeyFieldDelegate)
+
+- (BOOL)hotKeyField:(NJRHotKeyField *)hotKeyField shouldAcceptCharacter:(unichar)keyChar modifierFlags:(unsigned)modifierFlags rejectionMessage:(NSString **)message;
+
 @end

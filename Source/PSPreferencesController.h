@@ -12,6 +12,12 @@
 
 @interface PSPreferencesController : NSWindowController {
     IBOutlet NJRHotKeyField *setAlarmHotKey;
+    NSCharacterSet *textRejectSet;
+    NSCharacterSet *commandRejectSet;
+    NSCharacterSet *commandShiftRejectSet;
+    NSCharacterSet *commandOptionRejectSet;
 }
+
+- (IBAction)hotKeySet:(NJRHotKeyField *)sender;
 
 @end
