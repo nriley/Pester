@@ -142,7 +142,8 @@ NSString * stringByRemovingSurroundingWhitespace(NSString *string) {
             [(NSMutableDictionary *)alteredLocale setObject: paddedFormat forKey: NSTimeFormatString];
             [(NSMutableDictionary *)alteredLocale setObject:
                 [NSArray arrayWithObjects: stringByRemovingSurroundingWhitespace(am),
-                    stringByRemovingSurroundingWhitespace(pm)] forKey: NSAMPMDesignation];
+                    stringByRemovingSurroundingWhitespace(pm), nil]
+                                                     forKey: NSAMPMDesignation];
             [paddedFormat release];
         } else {
             alteredLocale = [(NSDictionary *)locale retain];
