@@ -14,38 +14,39 @@
 			F59B967103538BE201154278,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 56272636;
-			"PBXTemplateGeometry-F5CA7ECB015C094F0DCA290F" = {
-				ContentSize = "{668, 621}";
+			PBXPerProjectTemplateStateSaveDate = 56760568;
+			"PBXTemplateGeometry-F5CA7ECC015C09990DCA290F" = {
+				ContentSize = "{773, 558}";
 				LeftSlideOut = {
 					Collapsed = NO;
-					Frame = "{{0, 0}, {668, 621}}";
+					Frame = "{{0, 23}, {773, 535}}";
 					Split0 = {
+						ActiveTab = 0;
 						Collapsed = NO;
-						Frame = "{{0, 0}, {668, 621}}";
+						Frame = "{{24, 0}, {749, 535}}";
 						Split0 = {
-							Frame = "{{0, 0}, {668, 621}}";
+							Frame = "{{0, 273}, {749, 262}}";
 						};
 						SplitCount = 1;
 						Tab0 = {
 							Debugger = {
 								Collapsed = NO;
-								Frame = "{{0, 0}, {484, 208}}";
+								Frame = "{{0, 0}, {749, 267}}";
 								Split0 = {
-									Frame = "{{0, 24}, {484, 184}}";
+									Frame = "{{0, 24}, {749, 243}}";
 									Split0 = {
-										Frame = "{{0, 0}, {236, 184}}";
+										Frame = "{{0, 0}, {366, 243}}";
 									};
 									Split1 = {
 										DebugVariablesTableConfiguration = (
 											Name,
-											48.80299,
+											93.80298,
 											Value,
-											71.07401,
+											116.074,
 											Summary,
-											93.123,
+											138.123,
 										);
-										Frame = "{{245, 0}, {239, 184}}";
+										Frame = "{{375, 0}, {374, 243}}";
 									};
 									SplitCount = 2;
 								};
@@ -59,7 +60,7 @@
 								TabCount = 2;
 								TabsVisible = YES;
 							};
-							Frame = "{{0, 0}, {484, 208}}";
+							Frame = "{{0, 0}, {749, 267}}";
 							LauncherConfigVersion = 7;
 						};
 						Tab1 = {
@@ -112,36 +113,14 @@
 					};
 					Tab3 = {
 						Frame = "{{0, 0}, {200, 557}}";
-						Split0 = {
-							Frame = "{{0, 0}, {200, 270}}";
-							TargetTreeTableConfiguration = (
-								ActiveTarget,
-								16,
-								TargetName,
-								168,
-							);
-						};
-						Split1 = {
-							BuildStyleTreeTableConfiguration = (
-								IsActive,
-								16,
-								Name,
-								169,
-							);
-							Frame = "{{0, 279}, {200, 278}}";
-						};
-						SplitCount = 2;
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
 					};
 					Tab4 = {
-						ExecutableTreeTableConfiguration = (
-							ActiveExecutable,
-							16,
-							ExecutableName,
-							217,
-						);
-						Frame = "{{0, 0}, {250, 100}}";
-					};
-					Tab5 = {
 						BreakpointsTreeTableConfiguration = (
 							breakpointColumn,
 							197,
@@ -150,201 +129,15 @@
 						);
 						Frame = "{{0, 0}, {250, 100}}";
 					};
-					TabCount = 6;
-					TabsVisible = NO;
+					TabCount = 5;
+					TabsVisible = YES;
 				};
-				StatusViewVisible = NO;
-				Template = F5CA7ECB015C094F0DCA290F;
-				ToolbarVisible = NO;
-				WindowLocation = "{48, 189}";
+				StatusViewVisible = YES;
+				Template = F5CA7ECC015C09990DCA290F;
+				ToolbarVisible = YES;
+				WindowLocation = "{13, 372}";
 			};
 			PBXWorkspaceContents = (
-				{
-					LeftSlideOut = {
-						Split0 = {
-							Split0 = {
-								NavContent0 = {
-									bookmark = F589C9DE035AAAAB0155F4B2;
-									history = (
-										F5C8B260035A217B01935D7C,
-										F5C8B261035A217B01935D7C,
-										F5C8B263035A217B01935D7C,
-										F519A888035A4D4201F8C15E,
-										F519A889035A4D4201F8C15E,
-										F519A88B035A4D4201F8C15E,
-										F519A88C035A4D4201F8C15E,
-										F519A88D035A4D4201F8C15E,
-										F519A88E035A4D4201F8C15E,
-										F519A88F035A4D4201F8C15E,
-										F519A890035A4D4201F8C15E,
-										F519A891035A4D4201F8C15E,
-										F519A893035A4D4201F8C15E,
-										F519A895035A4D4201F8C15E,
-										F519A896035A4D4201F8C15E,
-										F519A898035A4D4201F8C15E,
-										F519A899035A4D4201F8C15E,
-										F519A89A035A4D4201F8C15E,
-										F519A89B035A4D4201F8C15E,
-										F519A89C035A4D4201F8C15E,
-										F519A89D035A4D4201F8C15E,
-										F519A8FA035A4F7C01F8C15E,
-										F59163CE035A8E270118C656,
-										F59163CF035A8E270118C656,
-										F59163D1035A8E270118C656,
-										F59163D2035A8E270118C656,
-										F59163D3035A8E270118C656,
-										F589C9C8035AA4FF0155F4B2,
-										F589C9C9035AA4FF0155F4B2,
-										F589C9CA035AA4FF0155F4B2,
-										F589C9CB035AA4FF0155F4B2,
-										F589C9D8035AAAAB0155F4B2,
-										F589C9D9035AAAAB0155F4B2,
-										F589C9DA035AAAAB0155F4B2,
-									);
-									prevStack = (
-										F5C8B267035A217B01935D7C,
-										F5C8B268035A217B01935D7C,
-										F5C8B26A035A217B01935D7C,
-										F5C8B26B035A217B01935D7C,
-										F5C8B26C035A217B01935D7C,
-										F5C8B26D035A217B01935D7C,
-										F5C8B26E035A217B01935D7C,
-										F5C8B26F035A217B01935D7C,
-										F5C8B270035A217B01935D7C,
-										F5C8B271035A217B01935D7C,
-										F5C8B272035A217B01935D7C,
-										F5C8B273035A217B01935D7C,
-										F5C8B274035A217B01935D7C,
-										F5C8B275035A217B01935D7C,
-										F5C8B276035A217B01935D7C,
-										F5C8B277035A217B01935D7C,
-										F5C8B278035A217B01935D7C,
-										F5C8B279035A217B01935D7C,
-										F5C8B27A035A217B01935D7C,
-										F5C8B27B035A217B01935D7C,
-										F5C8B27C035A217B01935D7C,
-										F5C8B27D035A217B01935D7C,
-										F5C8B27E035A217B01935D7C,
-										F5C8B27F035A217B01935D7C,
-										F5C8B280035A217B01935D7C,
-										F5C8B281035A217B01935D7C,
-										F519A89F035A4D4201F8C15E,
-										F519A8A0035A4D4201F8C15E,
-										F519A8A1035A4D4201F8C15E,
-										F519A8A2035A4D4201F8C15E,
-										F519A8A3035A4D4201F8C15E,
-										F519A8A4035A4D4201F8C15E,
-										F519A8A5035A4D4201F8C15E,
-										F519A8A6035A4D4201F8C15E,
-										F519A8A7035A4D4201F8C15E,
-										F519A8A8035A4D4201F8C15E,
-										F519A8A9035A4D4201F8C15E,
-										F519A8AA035A4D4201F8C15E,
-										F519A8AB035A4D4201F8C15E,
-										F519A8AC035A4D4201F8C15E,
-										F519A8AD035A4D4201F8C15E,
-										F519A8AE035A4D4201F8C15E,
-										F519A8AF035A4D4201F8C15E,
-										F519A8B0035A4D4201F8C15E,
-										F519A8B1035A4D4201F8C15E,
-										F519A8B2035A4D4201F8C15E,
-										F519A8B3035A4D4201F8C15E,
-										F519A8B4035A4D4201F8C15E,
-										F519A8B5035A4D4201F8C15E,
-										F519A8B6035A4D4201F8C15E,
-										F519A8B7035A4D4201F8C15E,
-										F519A8B8035A4D4201F8C15E,
-										F519A8B9035A4D4201F8C15E,
-										F519A8BA035A4D4201F8C15E,
-										F519A8BB035A4D4201F8C15E,
-										F519A8BC035A4D4201F8C15E,
-										F519A8BD035A4D4201F8C15E,
-										F519A8BE035A4D4201F8C15E,
-										F519A8BF035A4D4201F8C15E,
-										F519A8C0035A4D4201F8C15E,
-										F519A8C1035A4D4201F8C15E,
-										F519A8C2035A4D4201F8C15E,
-										F519A8C3035A4D4201F8C15E,
-										F519A8C4035A4D4201F8C15E,
-										F519A8C5035A4D4201F8C15E,
-										F519A8C6035A4D4201F8C15E,
-										F519A8C7035A4D4201F8C15E,
-										F519A8C8035A4D4201F8C15E,
-										F519A8C9035A4D4201F8C15E,
-										F519A8CA035A4D4201F8C15E,
-										F519A8CB035A4D4201F8C15E,
-										F519A8CC035A4D4201F8C15E,
-										F519A8CD035A4D4201F8C15E,
-										F519A8CE035A4D4201F8C15E,
-										F519A8CF035A4D4201F8C15E,
-										F519A8D0035A4D4201F8C15E,
-										F519A8D1035A4D4201F8C15E,
-										F519A8D2035A4D4201F8C15E,
-										F519A8D3035A4D4201F8C15E,
-										F519A8D4035A4D4201F8C15E,
-										F519A8D5035A4D4201F8C15E,
-										F519A8D6035A4D4201F8C15E,
-										F519A8D7035A4D4201F8C15E,
-										F519A8D8035A4D4201F8C15E,
-										F519A8D9035A4D4201F8C15E,
-										F519A8DA035A4D4201F8C15E,
-										F519A8DB035A4D4201F8C15E,
-										F519A8DC035A4D4201F8C15E,
-										F519A8DD035A4D4201F8C15E,
-										F519A8FF035A4F7C01F8C15E,
-										F519A901035A4F7C01F8C15E,
-										F519A903035A4F7C01F8C15E,
-										F519A904035A4F7C01F8C15E,
-										F519A914035A890101F8C15E,
-										F59163D4035A8E270118C656,
-										F59163D5035A8E270118C656,
-										F59163D6035A8E270118C656,
-										F59163D7035A8E270118C656,
-										F59163D8035A8E270118C656,
-										F59163D9035A8E270118C656,
-										F59163DA035A8E270118C656,
-										F59163DB035A8E270118C656,
-										F59163DC035A8E270118C656,
-										F589C9CD035AA4FF0155F4B2,
-										F589C9DB035AAAAB0155F4B2,
-										F589C9DC035AAAAB0155F4B2,
-										F589C9DD035AAAAB0155F4B2,
-									);
-								};
-								NavCount = 1;
-								NavGeometry0 = {
-									Frame = "{{0, 0}, {675, 558}}";
-									NavBarVisible = YES;
-								};
-							};
-							SplitCount = 1;
-							Tab0 = {
-								Debugger = {
-									Split0 = {
-										SplitCount = 2;
-									};
-									SplitCount = 1;
-									TabCount = 2;
-								};
-								LauncherConfigVersion = 7;
-							};
-							Tab1 = {
-								LauncherConfigVersion = 3;
-								Runner = {
-								};
-							};
-							TabCount = 4;
-						};
-						SplitCount = 1;
-						Tab1 = {
-							OptionsSetName = "Hierarchy, all classes";
-						};
-						Tab3 = {
-							SplitCount = 2;
-						};
-						TabCount = 6;
-					};
-				},
 				{
 					LeftSlideOut = {
 						Split0 = {
@@ -377,10 +170,7 @@
 						Tab1 = {
 							OptionsSetName = "Hierarchy, all classes";
 						};
-						Tab3 = {
-							SplitCount = 2;
-						};
-						TabCount = 6;
+						TabCount = 5;
 					};
 				},
 				{
@@ -415,158 +205,46 @@
 						Tab1 = {
 							OptionsSetName = "Hierarchy, all classes";
 						};
-						Tab3 = {
-							SplitCount = 2;
-						};
-						TabCount = 6;
+						TabCount = 5;
 					};
 				},
-			);
-			PBXWorkspaceGeometries = (
 				{
-					ContentSize = "{959, 581}";
 					LeftSlideOut = {
-						ActiveTab = 0;
-						Collapsed = NO;
-						Frame = "{{0, 23}, {959, 558}}";
 						Split0 = {
-							Collapsed = NO;
-							Frame = "{{284, 0}, {675, 558}}";
 							Split0 = {
-								Frame = "{{0, 0}, {675, 558}}";
+								NavCount = 1;
+								NavGeometry0 = {
+									Frame = "{{0, 0}, {150, 530}}";
+									NavBarVisible = YES;
+								};
 							};
 							SplitCount = 1;
 							Tab0 = {
 								Debugger = {
-									Collapsed = NO;
-									Frame = "{{0, 0}, {681, 289}}";
 									Split0 = {
-										Frame = "{{0, 24}, {681, 265}}";
-										Split0 = {
-											Frame = "{{0, 0}, {333, 265}}";
-										};
-										Split1 = {
-											DebugVariablesTableConfiguration = (
-												Name,
-												82.80298,
-												Value,
-												104.074,
-												Summary,
-												126.123,
-											);
-											Frame = "{{342, 0}, {339, 265}}";
-										};
 										SplitCount = 2;
 									};
 									SplitCount = 1;
-									Tab0 = {
-										Frame = "{{0, 0}, {100, 50}}";
-									};
-									Tab1 = {
-										Frame = "{{0, 0}, {100, 50}}";
-									};
 									TabCount = 2;
-									TabsVisible = YES;
 								};
-								Frame = "{{0, 0}, {681, 289}}";
 								LauncherConfigVersion = 7;
 							};
 							Tab1 = {
-								Frame = "{{0, 0}, {681, 120}}";
 								LauncherConfigVersion = 3;
 								Runner = {
-									Frame = "{{0, 0}, {681, 120}}";
 								};
 							};
-							Tab2 = {
-								BuildMessageFrame = "{{0, 0}, {683, 127}}";
-								BuildTranscriptFrame = "{{0, 136}, {683, 100}}";
-								Frame = "{{0, 0}, {681, 234}}";
-							};
-							Tab3 = {
-								Frame = "{{0, 0}, {681, 238}}";
-							};
 							TabCount = 4;
-							TabsVisible = NO;
 						};
 						SplitCount = 1;
-						Tab0 = {
-							Frame = "{{0, 0}, {260, 558}}";
-							GroupTreeTableConfiguration = (
-								TargetStatusColumn,
-								18,
-								MainColumn,
-								227,
-							);
-						};
 						Tab1 = {
-							ClassesFrame = "{{0, 0}, {250, 333}}";
-							ClassesTreeTableConfiguration = (
-								PBXBookColumnIdentifier,
-								20,
-								PBXClassColumnIdentifier,
-								207,
-							);
-							Frame = "{{0, 0}, {248, 554}}";
-							MembersFrame = "{{0, 342}, {250, 212}}";
-							MembersTreeTableConfiguration = (
-								PBXBookColumnIdentifier,
-								20,
-								PBXMethodColumnIdentifier,
-								206,
-							);
+							OptionsSetName = "Hierarchy, all classes";
 						};
-						Tab2 = {
-							Frame = "{{0, 0}, {217, 548}}";
-						};
-						Tab3 = {
-							Frame = "{{0, 0}, {239, 554}}";
-							Split0 = {
-								Frame = "{{0, 0}, {239, 268}}";
-								TargetTreeTableConfiguration = (
-									ActiveTarget,
-									16,
-									TargetName,
-									207,
-								);
-							};
-							Split1 = {
-								BuildStyleTreeTableConfiguration = (
-									IsActive,
-									16,
-									Name,
-									208,
-								);
-								Frame = "{{0, 277}, {239, 277}}";
-							};
-							SplitCount = 2;
-						};
-						Tab4 = {
-							ExecutableTreeTableConfiguration = (
-								ActiveExecutable,
-								16,
-								ExecutableName,
-								217,
-							);
-							Frame = "{{0, 0}, {250, 554}}";
-						};
-						Tab5 = {
-							BreakpointsTreeTableConfiguration = (
-								breakpointColumn,
-								197,
-								enabledColumn,
-								31,
-							);
-							Frame = "{{0, 0}, {250, 554}}";
-						};
-						TabCount = 6;
-						TabsVisible = YES;
+						TabCount = 5;
 					};
-					StatusViewVisible = YES;
-					Template = 64ABBB4501FA494900185B06;
-					ToolbarVisible = YES;
-					WindowLocation = "{21, 184}";
 				},
+			);
+			PBXWorkspaceGeometries = (
 				{
 					ContentSize = "{654, 265}";
 					LeftSlideOut = {
@@ -665,36 +343,14 @@
 						};
 						Tab3 = {
 							Frame = "{{0, 0}, {200, 100}}";
-							Split0 = {
-								Frame = "{{0, 0}, {200, 45}}";
-								TargetTreeTableConfiguration = (
-									ActiveTarget,
-									16,
-									TargetName,
-									168,
-								);
-							};
-							Split1 = {
-								BuildStyleTreeTableConfiguration = (
-									IsActive,
-									16,
-									Name,
-									169,
-								);
-								Frame = "{{0, 54}, {200, 46}}";
-							};
-							SplitCount = 2;
+							TargetTableConfiguration = (
+								ActiveObject,
+								16,
+								ObjectNames,
+								202.296,
+							);
 						};
 						Tab4 = {
-							ExecutableTreeTableConfiguration = (
-								ActiveExecutable,
-								16,
-								ExecutableName,
-								217,
-							);
-							Frame = "{{0, 0}, {250, 100}}";
-						};
-						Tab5 = {
 							BreakpointsTreeTableConfiguration = (
 								breakpointColumn,
 								197,
@@ -703,7 +359,7 @@
 							);
 							Frame = "{{0, 0}, {250, 100}}";
 						};
-						TabCount = 6;
+						TabCount = 5;
 						TabsVisible = NO;
 					};
 					StatusViewVisible = YES;
@@ -809,45 +465,23 @@
 						};
 						Tab3 = {
 							Frame = "{{0, 0}, {200, 386}}";
-							Split0 = {
-								Frame = "{{0, 0}, {200, 186}}";
-								TargetTreeTableConfiguration = (
-									ActiveTarget,
-									16,
-									TargetName,
-									168,
-								);
-							};
-							Split1 = {
-								BuildStyleTreeTableConfiguration = (
-									IsActive,
-									16,
-									Name,
-									169,
-								);
-								Frame = "{{0, 195}, {200, 191}}";
-							};
-							SplitCount = 2;
+							TargetTableConfiguration = (
+								ActiveObject,
+								16,
+								ObjectNames,
+								202.296,
+							);
 						};
 						Tab4 = {
-							ExecutableTreeTableConfiguration = (
-								ActiveExecutable,
-								16,
-								ExecutableName,
-								217,
-							);
-							Frame = "{{0, 0}, {250, 386}}";
-						};
-						Tab5 = {
 							BreakpointsTreeTableConfiguration = (
 								breakpointColumn,
 								197,
 								enabledColumn,
 								31,
 							);
-							Frame = "{{0, 0}, {250, 100}}";
+							Frame = "{{0, 0}, {250, 386}}";
 						};
-						TabCount = 6;
+						TabCount = 5;
 						TabsVisible = NO;
 					};
 					StatusViewVisible = YES;
@@ -855,152 +489,130 @@
 					ToolbarVisible = YES;
 					WindowLocation = "{34, 99}";
 				},
+				{
+					ContentSize = "{352, 553}";
+					LeftSlideOut = {
+						ActiveTab = 0;
+						Collapsed = YES;
+						Frame = "{{0, 23}, {352, 530}}";
+						Split0 = {
+							Collapsed = NO;
+							Frame = "{{1e+06, 1e+06}, {0, 530}}";
+							Split0 = {
+								Frame = "{{0, 0}, {0, 530}}";
+							};
+							SplitCount = 1;
+							Tab0 = {
+								Debugger = {
+									Collapsed = NO;
+									Frame = "{{0, 0}, {484, 208}}";
+									Split0 = {
+										Frame = "{{0, 24}, {484, 184}}";
+										Split0 = {
+											Frame = "{{0, 0}, {236, 184}}";
+										};
+										Split1 = {
+											DebugVariablesTableConfiguration = (
+												Name,
+												123,
+												Value,
+												85,
+												Summary,
+												62.123,
+											);
+											Frame = "{{245, 0}, {239, 184}}";
+										};
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									Tab0 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									Tab1 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									TabCount = 2;
+									TabsVisible = YES;
+								};
+								Frame = "{{0, 0}, {484, 208}}";
+								LauncherConfigVersion = 7;
+							};
+							Tab1 = {
+								Frame = "{{0, 0}, {664, 208}}";
+								LauncherConfigVersion = 3;
+								Runner = {
+									Frame = "{{0, 0}, {664, 208}}";
+								};
+							};
+							Tab2 = {
+								BuildMessageFrame = "{{0, 0}, {666, 43}}";
+								BuildTranscriptFrame = "{{0, 52}, {666, 0}}";
+								Frame = "{{0, 0}, {664, 50}}";
+							};
+							Tab3 = {
+								Frame = "{{0, 0}, {612, 295}}";
+							};
+							TabCount = 4;
+							TabsVisible = NO;
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {328, 530}}";
+							GroupTreeTableConfiguration = (
+								TargetStatusColumn,
+								18,
+								MainColumn,
+								295,
+							);
+						};
+						Tab1 = {
+							ClassesFrame = "{{0, 0}, {343, 348}}";
+							ClassesTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXClassColumnIdentifier,
+								300,
+							);
+							Frame = "{{0, 0}, {341, 578}}";
+							MembersFrame = "{{0, 357}, {343, 221}}";
+							MembersTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXMethodColumnIdentifier,
+								299,
+							);
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {319, 576}}";
+						};
+						Tab3 = {
+							Frame = "{{0, 0}, {341, 578}}";
+							TargetTableConfiguration = (
+								ActiveObject,
+								16,
+								ObjectNames,
+								308.296,
+							);
+						};
+						Tab4 = {
+							BreakpointsTreeTableConfiguration = (
+								breakpointColumn,
+								266,
+								enabledColumn,
+								31,
+							);
+							Frame = "{{0, 0}, {319, 576}}";
+						};
+						TabCount = 5;
+						TabsVisible = YES;
+					};
+					StatusViewVisible = YES;
+					Template = F5E465990156DFB90DCA290F;
+					ToolbarVisible = YES;
+					WindowLocation = "{14, 548}";
+				},
 			);
-			PBXWorkspaceStateSaveDate = 56272636;
-		};
-		perUserProjectItems = {
-			F519A888035A4D4201F8C15E = F519A888035A4D4201F8C15E;
-			F519A889035A4D4201F8C15E = F519A889035A4D4201F8C15E;
-			F519A88B035A4D4201F8C15E = F519A88B035A4D4201F8C15E;
-			F519A88C035A4D4201F8C15E = F519A88C035A4D4201F8C15E;
-			F519A88D035A4D4201F8C15E = F519A88D035A4D4201F8C15E;
-			F519A88E035A4D4201F8C15E = F519A88E035A4D4201F8C15E;
-			F519A88F035A4D4201F8C15E = F519A88F035A4D4201F8C15E;
-			F519A890035A4D4201F8C15E = F519A890035A4D4201F8C15E;
-			F519A891035A4D4201F8C15E = F519A891035A4D4201F8C15E;
-			F519A893035A4D4201F8C15E = F519A893035A4D4201F8C15E;
-			F519A895035A4D4201F8C15E = F519A895035A4D4201F8C15E;
-			F519A896035A4D4201F8C15E = F519A896035A4D4201F8C15E;
-			F519A898035A4D4201F8C15E = F519A898035A4D4201F8C15E;
-			F519A899035A4D4201F8C15E = F519A899035A4D4201F8C15E;
-			F519A89A035A4D4201F8C15E = F519A89A035A4D4201F8C15E;
-			F519A89B035A4D4201F8C15E = F519A89B035A4D4201F8C15E;
-			F519A89C035A4D4201F8C15E = F519A89C035A4D4201F8C15E;
-			F519A89D035A4D4201F8C15E = F519A89D035A4D4201F8C15E;
-			F519A89F035A4D4201F8C15E = F519A89F035A4D4201F8C15E;
-			F519A8A0035A4D4201F8C15E = F519A8A0035A4D4201F8C15E;
-			F519A8A1035A4D4201F8C15E = F519A8A1035A4D4201F8C15E;
-			F519A8A2035A4D4201F8C15E = F519A8A2035A4D4201F8C15E;
-			F519A8A3035A4D4201F8C15E = F519A8A3035A4D4201F8C15E;
-			F519A8A4035A4D4201F8C15E = F519A8A4035A4D4201F8C15E;
-			F519A8A5035A4D4201F8C15E = F519A8A5035A4D4201F8C15E;
-			F519A8A6035A4D4201F8C15E = F519A8A6035A4D4201F8C15E;
-			F519A8A7035A4D4201F8C15E = F519A8A7035A4D4201F8C15E;
-			F519A8A8035A4D4201F8C15E = F519A8A8035A4D4201F8C15E;
-			F519A8A9035A4D4201F8C15E = F519A8A9035A4D4201F8C15E;
-			F519A8AA035A4D4201F8C15E = F519A8AA035A4D4201F8C15E;
-			F519A8AB035A4D4201F8C15E = F519A8AB035A4D4201F8C15E;
-			F519A8AC035A4D4201F8C15E = F519A8AC035A4D4201F8C15E;
-			F519A8AD035A4D4201F8C15E = F519A8AD035A4D4201F8C15E;
-			F519A8AE035A4D4201F8C15E = F519A8AE035A4D4201F8C15E;
-			F519A8AF035A4D4201F8C15E = F519A8AF035A4D4201F8C15E;
-			F519A8B0035A4D4201F8C15E = F519A8B0035A4D4201F8C15E;
-			F519A8B1035A4D4201F8C15E = F519A8B1035A4D4201F8C15E;
-			F519A8B2035A4D4201F8C15E = F519A8B2035A4D4201F8C15E;
-			F519A8B3035A4D4201F8C15E = F519A8B3035A4D4201F8C15E;
-			F519A8B4035A4D4201F8C15E = F519A8B4035A4D4201F8C15E;
-			F519A8B5035A4D4201F8C15E = F519A8B5035A4D4201F8C15E;
-			F519A8B6035A4D4201F8C15E = F519A8B6035A4D4201F8C15E;
-			F519A8B7035A4D4201F8C15E = F519A8B7035A4D4201F8C15E;
-			F519A8B8035A4D4201F8C15E = F519A8B8035A4D4201F8C15E;
-			F519A8B9035A4D4201F8C15E = F519A8B9035A4D4201F8C15E;
-			F519A8BA035A4D4201F8C15E = F519A8BA035A4D4201F8C15E;
-			F519A8BB035A4D4201F8C15E = F519A8BB035A4D4201F8C15E;
-			F519A8BC035A4D4201F8C15E = F519A8BC035A4D4201F8C15E;
-			F519A8BD035A4D4201F8C15E = F519A8BD035A4D4201F8C15E;
-			F519A8BE035A4D4201F8C15E = F519A8BE035A4D4201F8C15E;
-			F519A8BF035A4D4201F8C15E = F519A8BF035A4D4201F8C15E;
-			F519A8C0035A4D4201F8C15E = F519A8C0035A4D4201F8C15E;
-			F519A8C1035A4D4201F8C15E = F519A8C1035A4D4201F8C15E;
-			F519A8C2035A4D4201F8C15E = F519A8C2035A4D4201F8C15E;
-			F519A8C3035A4D4201F8C15E = F519A8C3035A4D4201F8C15E;
-			F519A8C4035A4D4201F8C15E = F519A8C4035A4D4201F8C15E;
-			F519A8C5035A4D4201F8C15E = F519A8C5035A4D4201F8C15E;
-			F519A8C6035A4D4201F8C15E = F519A8C6035A4D4201F8C15E;
-			F519A8C7035A4D4201F8C15E = F519A8C7035A4D4201F8C15E;
-			F519A8C8035A4D4201F8C15E = F519A8C8035A4D4201F8C15E;
-			F519A8C9035A4D4201F8C15E = F519A8C9035A4D4201F8C15E;
-			F519A8CA035A4D4201F8C15E = F519A8CA035A4D4201F8C15E;
-			F519A8CB035A4D4201F8C15E = F519A8CB035A4D4201F8C15E;
-			F519A8CC035A4D4201F8C15E = F519A8CC035A4D4201F8C15E;
-			F519A8CD035A4D4201F8C15E = F519A8CD035A4D4201F8C15E;
-			F519A8CE035A4D4201F8C15E = F519A8CE035A4D4201F8C15E;
-			F519A8CF035A4D4201F8C15E = F519A8CF035A4D4201F8C15E;
-			F519A8D0035A4D4201F8C15E = F519A8D0035A4D4201F8C15E;
-			F519A8D1035A4D4201F8C15E = F519A8D1035A4D4201F8C15E;
-			F519A8D2035A4D4201F8C15E = F519A8D2035A4D4201F8C15E;
-			F519A8D3035A4D4201F8C15E = F519A8D3035A4D4201F8C15E;
-			F519A8D4035A4D4201F8C15E = F519A8D4035A4D4201F8C15E;
-			F519A8D5035A4D4201F8C15E = F519A8D5035A4D4201F8C15E;
-			F519A8D6035A4D4201F8C15E = F519A8D6035A4D4201F8C15E;
-			F519A8D7035A4D4201F8C15E = F519A8D7035A4D4201F8C15E;
-			F519A8D8035A4D4201F8C15E = F519A8D8035A4D4201F8C15E;
-			F519A8D9035A4D4201F8C15E = F519A8D9035A4D4201F8C15E;
-			F519A8DA035A4D4201F8C15E = F519A8DA035A4D4201F8C15E;
-			F519A8DB035A4D4201F8C15E = F519A8DB035A4D4201F8C15E;
-			F519A8DC035A4D4201F8C15E = F519A8DC035A4D4201F8C15E;
-			F519A8DD035A4D4201F8C15E = F519A8DD035A4D4201F8C15E;
-			F519A8FA035A4F7C01F8C15E = F519A8FA035A4F7C01F8C15E;
-			F519A8FF035A4F7C01F8C15E = F519A8FF035A4F7C01F8C15E;
-			F519A901035A4F7C01F8C15E = F519A901035A4F7C01F8C15E;
-			F519A903035A4F7C01F8C15E = F519A903035A4F7C01F8C15E;
-			F519A904035A4F7C01F8C15E = F519A904035A4F7C01F8C15E;
-			F519A914035A890101F8C15E = F519A914035A890101F8C15E;
-			F589C9C8035AA4FF0155F4B2 = F589C9C8035AA4FF0155F4B2;
-			F589C9C9035AA4FF0155F4B2 = F589C9C9035AA4FF0155F4B2;
-			F589C9CA035AA4FF0155F4B2 = F589C9CA035AA4FF0155F4B2;
-			F589C9CB035AA4FF0155F4B2 = F589C9CB035AA4FF0155F4B2;
-			F589C9CD035AA4FF0155F4B2 = F589C9CD035AA4FF0155F4B2;
-			F589C9D8035AAAAB0155F4B2 = F589C9D8035AAAAB0155F4B2;
-			F589C9D9035AAAAB0155F4B2 = F589C9D9035AAAAB0155F4B2;
-			F589C9DA035AAAAB0155F4B2 = F589C9DA035AAAAB0155F4B2;
-			F589C9DB035AAAAB0155F4B2 = F589C9DB035AAAAB0155F4B2;
-			F589C9DC035AAAAB0155F4B2 = F589C9DC035AAAAB0155F4B2;
-			F589C9DD035AAAAB0155F4B2 = F589C9DD035AAAAB0155F4B2;
-			F589C9DE035AAAAB0155F4B2 = F589C9DE035AAAAB0155F4B2;
-			F59163CE035A8E270118C656 = F59163CE035A8E270118C656;
-			F59163CF035A8E270118C656 = F59163CF035A8E270118C656;
-			F59163D1035A8E270118C656 = F59163D1035A8E270118C656;
-			F59163D2035A8E270118C656 = F59163D2035A8E270118C656;
-			F59163D3035A8E270118C656 = F59163D3035A8E270118C656;
-			F59163D4035A8E270118C656 = F59163D4035A8E270118C656;
-			F59163D5035A8E270118C656 = F59163D5035A8E270118C656;
-			F59163D6035A8E270118C656 = F59163D6035A8E270118C656;
-			F59163D7035A8E270118C656 = F59163D7035A8E270118C656;
-			F59163D8035A8E270118C656 = F59163D8035A8E270118C656;
-			F59163D9035A8E270118C656 = F59163D9035A8E270118C656;
-			F59163DA035A8E270118C656 = F59163DA035A8E270118C656;
-			F59163DB035A8E270118C656 = F59163DB035A8E270118C656;
-			F59163DC035A8E270118C656 = F59163DC035A8E270118C656;
-			F5C8B260035A217B01935D7C = F5C8B260035A217B01935D7C;
-			F5C8B261035A217B01935D7C = F5C8B261035A217B01935D7C;
-			F5C8B263035A217B01935D7C = F5C8B263035A217B01935D7C;
-			F5C8B267035A217B01935D7C = F5C8B267035A217B01935D7C;
-			F5C8B268035A217B01935D7C = F5C8B268035A217B01935D7C;
-			F5C8B26A035A217B01935D7C = F5C8B26A035A217B01935D7C;
-			F5C8B26B035A217B01935D7C = F5C8B26B035A217B01935D7C;
-			F5C8B26C035A217B01935D7C = F5C8B26C035A217B01935D7C;
-			F5C8B26D035A217B01935D7C = F5C8B26D035A217B01935D7C;
-			F5C8B26E035A217B01935D7C = F5C8B26E035A217B01935D7C;
-			F5C8B26F035A217B01935D7C = F5C8B26F035A217B01935D7C;
-			F5C8B270035A217B01935D7C = F5C8B270035A217B01935D7C;
-			F5C8B271035A217B01935D7C = F5C8B271035A217B01935D7C;
-			F5C8B272035A217B01935D7C = F5C8B272035A217B01935D7C;
-			F5C8B273035A217B01935D7C = F5C8B273035A217B01935D7C;
-			F5C8B274035A217B01935D7C = F5C8B274035A217B01935D7C;
-			F5C8B275035A217B01935D7C = F5C8B275035A217B01935D7C;
-			F5C8B276035A217B01935D7C = F5C8B276035A217B01935D7C;
-			F5C8B277035A217B01935D7C = F5C8B277035A217B01935D7C;
-			F5C8B278035A217B01935D7C = F5C8B278035A217B01935D7C;
-			F5C8B279035A217B01935D7C = F5C8B279035A217B01935D7C;
-			F5C8B27A035A217B01935D7C = F5C8B27A035A217B01935D7C;
-			F5C8B27B035A217B01935D7C = F5C8B27B035A217B01935D7C;
-			F5C8B27C035A217B01935D7C = F5C8B27C035A217B01935D7C;
-			F5C8B27D035A217B01935D7C = F5C8B27D035A217B01935D7C;
-			F5C8B27E035A217B01935D7C = F5C8B27E035A217B01935D7C;
-			F5C8B27F035A217B01935D7C = F5C8B27F035A217B01935D7C;
-			F5C8B280035A217B01935D7C = F5C8B280035A217B01935D7C;
-			F5C8B281035A217B01935D7C = F5C8B281035A217B01935D7C;
+			PBXWorkspaceStateSaveDate = 56760568;
 		};
 		projectwideBuildSettings = {
 		};
@@ -1028,942 +640,6 @@
 		rType = 0;
 		vrLen = 822;
 		vrLoc = 4232;
-	};
-	F519A888035A4D4201F8C15E = {
-		fRef = F59F6CB40354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.h: 47";
-		rLen = 0;
-		rLoc = 1106;
-		rType = 0;
-		vrLen = 933;
-		vrLoc = 179;
-	};
-	F519A889035A4D4201F8C15E = {
-		fRef = F59DC6D30353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 971;
-		vrLoc = 0;
-	};
-	F519A88B035A4D4201F8C15E = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: PSAlarmsAllAlarms";
-		rLen = 1;
-		rLoc = 476;
-		rType = 0;
-		vrLen = 975;
-		vrLoc = 0;
-	};
-	F519A88C035A4D4201F8C15E = {
-		fRef = F519A8EF035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "NSString.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1079;
-		vrLoc = 0;
-	};
-	F519A88D035A4D4201F8C15E = {
-		fRef = F519A8F0035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "NSAttributedString.h: 16";
-		rLen = 0;
-		rLoc = 415;
-		rType = 0;
-		vrLen = 1326;
-		vrLoc = 0;
-	};
-	F519A88E035A4D4201F8C15E = {
-		fRef = F519A8F6035A4D4201F8C15E;
-		isa = PBXBookmark;
-	};
-	F519A88F035A4D4201F8C15E = {
-		fRef = F519A8F7035A4D4201F8C15E;
-		isa = PBXBookmark;
-	};
-	F519A890035A4D4201F8C15E = {
-		fRef = F519A8E9035A4D4201F8C15E;
-		isa = PBXBookmark;
-	};
-	F519A891035A4D4201F8C15E = {
-		fRef = F519A8EA035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "CGGeometry.h: 189";
-		rLen = 72;
-		rLoc = 4937;
-		rType = 0;
-		vrLen = 1039;
-		vrLoc = 4227;
-	};
-	F519A893035A4D4201F8C15E = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: init";
-		rLen = 0;
-		rLoc = 821;
-		rType = 0;
-		vrLen = 1379;
-		vrLoc = 0;
-	};
-	F519A895035A4D4201F8C15E = {
-		fRef = F519A8EB035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "NSAttributedString.h: 19";
-		rLen = 30;
-		rLoc = 723;
-		rType = 0;
-		vrLen = 2018;
-		vrLoc = 466;
-	};
-	F519A896035A4D4201F8C15E = {
-		fRef = F519A8EC035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "NSDictionary.h: 54";
-		rLen = 0;
-		rLoc = 1970;
-		rType = 0;
-		vrLen = 1159;
-		vrLoc = 1574;
-	};
-	F519A898035A4D4201F8C15E = {
-		fRef = F519A8ED035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "NSStringDrawing.h: 12";
-		rLen = 239;
-		rLoc = 242;
-		rType = 0;
-		vrLen = 621;
-		vrLoc = 0;
-	};
-	F519A899035A4D4201F8C15E = {
-		fRef = F519A8F4035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "NSImage.h: 71";
-		rLen = 0;
-		rLoc = 2349;
-		rType = 0;
-		vrLen = 1042;
-		vrLoc = 0;
-	};
-	F519A89A035A4D4201F8C15E = {
-		fRef = F519A8EE035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "NSGeometry.h: 62";
-		rLen = 0;
-		rLoc = 1255;
-		rType = 0;
-		vrLen = 1234;
-		vrLoc = 2696;
-	};
-	F519A89B035A4D4201F8C15E = {
-		fRef = F519A8F5035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "NSFont.h: 76";
-		rLen = 83;
-		rLoc = 2324;
-		rType = 0;
-		vrLen = 1548;
-		vrLoc = 1607;
-	};
-	F519A89C035A4D4201F8C15E = {
-		fRef = F519A8F1035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "NSColor.h: 214";
-		rLen = 0;
-		rLoc = 11837;
-		rType = 0;
-		vrLen = 1521;
-		vrLoc = 2035;
-	};
-	F519A89D035A4D4201F8C15E = {
-		fRef = F519A8F2035A4D4201F8C15E;
-		isa = PBXTextBookmark;
-		name = "NSGraphics.h: 118";
-		rLen = 0;
-		rLoc = 5341;
-		rType = 0;
-		vrLen = 1912;
-		vrLoc = 3188;
-	};
-	F519A89F035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: nextAlarmDidChange:";
-		rLen = 0;
-		rLoc = 5249;
-		rType = 0;
-		vrLen = 1437;
-		vrLoc = 1958;
-	};
-	F519A8A0035A4D4201F8C15E = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: setAlarm:";
-		rLen = 41;
-		rLoc = 6943;
-		rType = 0;
-		vrLen = 1366;
-		vrLoc = 6331;
-	};
-	F519A8A1035A4D4201F8C15E = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: interval";
-		rLen = 0;
-		rLoc = 5435;
-		rType = 0;
-		vrLen = 1588;
-		vrLoc = 4345;
-	};
-	F519A8A2035A4D4201F8C15E = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: dateCompleted:";
-		rLen = 0;
-		rLoc = 6411;
-		rType = 0;
-		vrLen = 1386;
-		vrLoc = 6103;
-	};
-	F519A8A3035A4D4201F8C15E = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: removeAlarmsAtIndices:";
-		rLen = 0;
-		rLoc = 4489;
-		rType = 0;
-		vrLen = 1048;
-		vrLoc = 3729;
-	};
-	F519A8A4035A4D4201F8C15E = {
-		fRef = F59F6CB40354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.h: 47";
-		rLen = 0;
-		rLoc = 1106;
-		rType = 0;
-		vrLen = 933;
-		vrLoc = 179;
-	};
-	F519A8A5035A4D4201F8C15E = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: dealloc";
-		rLen = 0;
-		rLoc = 660;
-		rType = 0;
-		vrLen = 998;
-		vrLoc = 486;
-	};
-	F519A8A6035A4D4201F8C15E = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: allAlarms";
-		rLen = 0;
-		rLoc = 4126;
-		rType = 0;
-		vrLen = 991;
-		vrLoc = 3706;
-	};
-	F519A8A7035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 2284;
-		rType = 0;
-		vrLen = 1498;
-		vrLoc = 1339;
-	};
-	F519A8A8035A4D4201F8C15E = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: timeRemainingString";
-		rLen = 0;
-		rLoc = 4857;
-		rType = 0;
-		vrLen = 1207;
-		vrLoc = 4055;
-	};
-	F519A8A9035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 4150;
-		rType = 0;
-		vrLen = 1517;
-		vrLoc = 1339;
-	};
-	F519A8AA035A4D4201F8C15E = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 18";
-		rLen = 18;
-		rLoc = 424;
-		rType = 0;
-		vrLen = 547;
-		vrLoc = 0;
-	};
-	F519A8AB035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 4434;
-		rType = 0;
-		vrLen = 1626;
-		vrLoc = 1567;
-	};
-	F519A8AC035A4D4201F8C15E = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: _updateNextAlarm";
-		rLen = 0;
-		rLoc = 1417;
-		rType = 0;
-		vrLen = 1617;
-		vrLoc = 992;
-	};
-	F519A8AD035A4D4201F8C15E = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: init";
-		rLen = 0;
-		rLoc = 514;
-		rType = 0;
-		vrLen = 1379;
-		vrLoc = 0;
-	};
-	F519A8AE035A4D4201F8C15E = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 18";
-		rLen = 18;
-		rLoc = 424;
-		rType = 0;
-		vrLen = 547;
-		vrLoc = 0;
-	};
-	F519A8AF035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: finishLaunching";
-		rLen = 160;
-		rLoc = 653;
-		rType = 0;
-		vrLen = 1129;
-		vrLoc = 0;
-	};
-	F519A8B0035A4D4201F8C15E = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: init";
-		rLen = 0;
-		rLoc = 1612;
-		rType = 0;
-		vrLen = 1314;
-		vrLoc = 706;
-	};
-	F519A8B1035A4D4201F8C15E = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 18";
-		rLen = 18;
-		rLoc = 424;
-		rType = 0;
-		vrLen = 547;
-		vrLoc = 0;
-	};
-	F519A8B2035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: nextAlarmDidChange:";
-		rLen = 59;
-		rLoc = 4954;
-		rType = 0;
-		vrLen = 1489;
-		vrLoc = 1875;
-	};
-	F519A8B3035A4D4201F8C15E = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: _updateNextAlarm";
-		rLen = 0;
-		rLoc = 1593;
-		rType = 0;
-		vrLen = 1395;
-		vrLoc = 973;
-	};
-	F519A8B4035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 4265;
-		rType = 0;
-		vrLen = 1506;
-		vrLoc = 1875;
-	};
-	F519A8B5035A4D4201F8C15E = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: initWithCoder:";
-		rLen = 0;
-		rLoc = 8761;
-		rType = 0;
-		vrLen = 1130;
-		vrLoc = 7325;
-	};
-	F519A8B6035A4D4201F8C15E = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: __PTRDIFF_TYPE__";
-		rLen = 0;
-		rLoc = 113;
-		rType = 0;
-		vrLen = 1379;
-		vrLoc = 0;
-	};
-	F519A8B7035A4D4201F8C15E = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: setAlarm:";
-		rLen = 0;
-		rLoc = 7560;
-		rType = 0;
-		vrLen = 1297;
-		vrLoc = 6472;
-	};
-	F519A8B8035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: finishLaunching";
-		rLen = 0;
-		rLoc = 652;
-		rType = 0;
-		vrLen = 1129;
-		vrLoc = 0;
-	};
-	F519A8B9035A4D4201F8C15E = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: alarm";
-		rLen = 0;
-		rLoc = 3046;
-		rType = 0;
-		vrLen = 1363;
-		vrLoc = 2173;
-	};
-	F519A8BA035A4D4201F8C15E = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: initWithCoder:";
-		rLen = 0;
-		rLoc = 8761;
-		rType = 0;
-		vrLen = 1273;
-		vrLoc = 7280;
-	};
-	F519A8BB035A4D4201F8C15E = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: alarm";
-		rLen = 0;
-		rLoc = 3046;
-		rType = 0;
-		vrLen = 1377;
-		vrLoc = 2159;
-	};
-	F519A8BC035A4D4201F8C15E = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: encodeWithCoder:";
-		rLen = 0;
-		rLoc = 8102;
-		rType = 0;
-		vrLen = 1110;
-		vrLoc = 7550;
-	};
-	F519A8BD035A4D4201F8C15E = {
-		fRef = F59DC6D30353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 971;
-		vrLoc = 0;
-	};
-	F519A8BE035A4D4201F8C15E = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: init";
-		rLen = 0;
-		rLoc = 1221;
-		rType = 0;
-		vrLen = 1379;
-		vrLoc = 0;
-	};
-	F519A8BF035A4D4201F8C15E = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: showWindow:";
-		rLen = 0;
-		rLoc = 6830;
-		rType = 0;
-		vrLen = 1324;
-		vrLoc = 6445;
-	};
-	F519A8C0035A4D4201F8C15E = {
-		fRef = F59DC6D30353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 971;
-		vrLoc = 0;
-	};
-	F519A8C1035A4D4201F8C15E = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: timeRemainingString";
-		rLen = 0;
-		rLoc = 4838;
-		rType = 0;
-		vrLen = 1337;
-		vrLoc = 4012;
-	};
-	F519A8C2035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 4847;
-		rType = 0;
-		vrLen = 1412;
-		vrLoc = 2197;
-	};
-	F519A8C3035A4D4201F8C15E = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: init";
-		rLen = 0;
-		rLoc = 1221;
-		rType = 0;
-		vrLen = 1379;
-		vrLoc = 0;
-	};
-	F519A8C4035A4D4201F8C15E = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: showWindow:";
-		rLen = 0;
-		rLoc = 6830;
-		rType = 0;
-		vrLen = 1323;
-		vrLoc = 6445;
-	};
-	F519A8C5035A4D4201F8C15E = {
-		fRef = F59DC6DC0353DE5101AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmNotifierController.m: __VERSION__";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 961;
-		vrLoc = 0;
-	};
-	F519A8C6035A4D4201F8C15E = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: interval";
-		rLen = 0;
-		rLoc = 5374;
-		rType = 0;
-		vrLen = 1709;
-		vrLoc = 4406;
-	};
-	F519A8C7035A4D4201F8C15E = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: 23";
-		rLen = 0;
-		rLoc = 994;
-		rType = 0;
-		vrLen = 1976;
-		vrLoc = 0;
-	};
-	F519A8C8035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: finishLaunching";
-		rLen = 0;
-		rLoc = 835;
-		rType = 0;
-		vrLen = 1092;
-		vrLoc = 0;
-	};
-	F519A8C9035A4D4201F8C15E = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 19";
-		rLen = 0;
-		rLoc = 470;
-		rType = 0;
-		vrLen = 574;
-		vrLoc = 0;
-	};
-	F519A8CA035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 4420;
-		rType = 0;
-		vrLen = 1426;
-		vrLoc = 1959;
-	};
-	F519A8CB035A4D4201F8C15E = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: PSAlarmsAllAlarms";
-		rLen = 1;
-		rLoc = 476;
-		rType = 0;
-		vrLen = 975;
-		vrLoc = 0;
-	};
-	F519A8CC035A4D4201F8C15E = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: timeRemainingString";
-		rLen = 0;
-		rLoc = 4857;
-		rType = 0;
-		vrLen = 1489;
-		vrLoc = 4238;
-	};
-	F519A8CD035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 4127;
-		rType = 0;
-		vrLen = 1567;
-		vrLoc = 1590;
-	};
-	F519A8CE035A4D4201F8C15E = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 19";
-		rLen = 0;
-		rLoc = 470;
-		rType = 0;
-		vrLen = 574;
-		vrLoc = 0;
-	};
-	F519A8CF035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: nextUpdate";
-		rLen = 0;
-		rLoc = 4128;
-		rType = 0;
-		vrLen = 1501;
-		vrLoc = 1590;
-	};
-	F519A8D0035A4D4201F8C15E = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 19";
-		rLen = 12;
-		rLoc = 457;
-		rType = 0;
-		vrLen = 574;
-		vrLoc = 0;
-	};
-	F519A8D1035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 2284;
-		rType = 0;
-		vrLen = 1733;
-		vrLoc = 1567;
-	};
-	F519A8D2035A4D4201F8C15E = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 19";
-		rLen = 12;
-		rLoc = 457;
-		rType = 0;
-		vrLen = 574;
-		vrLoc = 0;
-	};
-	F519A8D3035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 2284;
-		rType = 0;
-		vrLen = 1625;
-		vrLoc = 1339;
-	};
-	F519A8D4035A4D4201F8C15E = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: init";
-		rLen = 0;
-		rLoc = 1221;
-		rType = 0;
-		vrLen = 1379;
-		vrLoc = 0;
-	};
-	F519A8D5035A4D4201F8C15E = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: 23";
-		rLen = 0;
-		rLoc = 994;
-		rType = 0;
-		vrLen = 1976;
-		vrLoc = 0;
-	};
-	F519A8D6035A4D4201F8C15E = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: init";
-		rLen = 0;
-		rLoc = 821;
-		rType = 0;
-		vrLen = 1379;
-		vrLoc = 0;
-	};
-	F519A8D7035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: nextUpdate";
-		rLen = 0;
-		rLoc = 4407;
-		rType = 0;
-		vrLen = 1843;
-		vrLoc = 1592;
-	};
-	F519A8D8035A4D4201F8C15E = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: init";
-		rLen = 0;
-		rLoc = 821;
-		rType = 0;
-		vrLen = 1379;
-		vrLoc = 0;
-	};
-	F519A8D9035A4D4201F8C15E = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: _setIntervalFromDate";
-		rLen = 0;
-		rLoc = 1861;
-		rType = 0;
-		vrLen = 961;
-		vrLoc = 358;
-	};
-	F519A8DA035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: textSize";
-		rLen = 0;
-		rLoc = 2526;
-		rType = 0;
-		vrLen = 1844;
-		vrLoc = 1484;
-	};
-	F519A8DB035A4D4201F8C15E = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 19";
-		rLen = 12;
-		rLoc = 457;
-		rType = 0;
-		vrLen = 574;
-		vrLoc = 0;
-	};
-	F519A8DC035A4D4201F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: textSize";
-		rLen = 0;
-		rLoc = 2526;
-		rType = 0;
-		vrLen = 1807;
-		vrLoc = 1483;
-	};
-	F519A8DD035A4D4201F8C15E = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 19";
-		rLen = 12;
-		rLoc = 457;
-		rType = 0;
-		vrLen = 574;
-		vrLoc = 0;
-	};
-	F519A8E9035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSAttributedString.html;
-		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSAttributedString.html;
-		refType = 0;
-	};
-	F519A8EA035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = CGGeometry.h;
-		path = /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/CoreGraphics.framework/Versions/A/Headers/CGGeometry.h;
-		refType = 0;
-	};
-	F519A8EB035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSAttributedString.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSAttributedString.h;
-		refType = 0;
-	};
-	F519A8EC035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSDictionary.h;
-		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSDictionary.h;
-		refType = 0;
-	};
-	F519A8ED035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSStringDrawing.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSStringDrawing.h;
-		refType = 0;
-	};
-	F519A8EE035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSGeometry.h;
-		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSGeometry.h;
-		refType = 0;
-	};
-	F519A8EF035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSString.h;
-		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSString.h;
-		refType = 0;
-	};
-	F519A8F0035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSAttributedString.h;
-		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSAttributedString.h;
-		refType = 0;
-	};
-	F519A8F1035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSColor.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSColor.h;
-		refType = 0;
-	};
-	F519A8F2035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSGraphics.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSGraphics.h;
-		refType = 0;
-	};
-	F519A8F4035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSImage.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSImage.h;
-		refType = 0;
-	};
-	F519A8F5035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSFont.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSFont.h;
-		refType = 0;
-	};
-	F519A8F6035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = NSStringAdditions.html;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSStringAdditions.html;
-		refType = 0;
-	};
-	F519A8F7035A4D4201F8C15E = {
-		isa = PBXFileReference;
-		name = index.html;
-		path = /Developer/Documentation/Cocoa/TasksAndConcepts/ProgrammingTopics/AttributedStrings/index.html;
-		refType = 0;
-	};
-	F519A8FA035A4F7C01F8C15E = {
-		fRef = F59DD4500358ABF4017318D0;
-		isa = PBXTextBookmark;
-		name = "English: 2";
-		rLen = 0;
-		rLoc = 225;
-		rType = 0;
-		vrLen = 237;
-		vrLoc = 0;
-	};
-	F519A8FF035A4F7C01F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 3185;
-		rType = 0;
-		vrLen = 1786;
-		vrLoc = 2159;
-	};
-	F519A901035A4F7C01F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 2619;
-		rType = 0;
-		vrLen = 1786;
-		vrLoc = 2159;
-	};
-	F519A903035A4F7C01F8C15E = {
-		fRef = 089C165DFE840E0CC02AAC07;
-		isa = PBXTextBookmark;
-		name = "English: 5";
-		rLen = 0;
-		rLoc = 141;
-		rType = 0;
-		vrLen = 223;
-		vrLoc = 0;
-	};
-	F519A904035A4F7C01F8C15E = {
-		fRef = F59DD4500358ABF4017318D0;
-		isa = PBXTextBookmark;
-		name = "English: 2";
-		rLen = 0;
-		rLoc = 225;
-		rType = 0;
-		vrLen = 237;
-		vrLoc = 0;
-	};
-	F519A914035A890101F8C15E = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: _updateDockTile:";
-		rLen = 0;
-		rLoc = 2619;
-		rType = 0;
-		vrLen = 1786;
-		vrLoc = 2159;
 	};
 	F560E2F5035750C101A4E466 = {
 		fRef = F560E2F10357506401A4E466;
@@ -1994,370 +670,6 @@
 		rType = 0;
 		vrLen = 1085;
 		vrLoc = 0;
-	};
-	F589C9C8035AA4FF0155F4B2 = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: __OBJC__";
-		rLen = 0;
-		rLoc = 213;
-		rType = 0;
-		vrLen = 1976;
-		vrLoc = 0;
-	};
-	F589C9C9035AA4FF0155F4B2 = {
-		fRef = F589C9D0035AA4FF0155F4B2;
-		isa = PBXTextBookmark;
-		name = "NSHelpManager.h: 53";
-		rLen = 89;
-		rLoc = 1328;
-		rType = 0;
-		vrLen = 1039;
-		vrLoc = 638;
-	};
-	F589C9CA035AA4FF0155F4B2 = {
-		fRef = F589C9D1035AA4FF0155F4B2;
-		isa = PBXTextBookmark;
-		name = "NSBundle.h: 23";
-		rLen = 10;
-		rLoc = 548;
-		rType = 0;
-		vrLen = 1615;
-		vrLoc = 872;
-	};
-	F589C9CB035AA4FF0155F4B2 = {
-		fRef = F589C9D3035AA4FF0155F4B2;
-		isa = PBXTextBookmark;
-		name = "NSWorkspace.h: 29";
-		rLen = 0;
-		rLoc = 709;
-		rType = 0;
-		vrLen = 1124;
-		vrLoc = 0;
-	};
-	F589C9CD035AA4FF0155F4B2 = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: __OBJC__";
-		rLen = 0;
-		rLoc = 213;
-		rType = 0;
-		vrLen = 1976;
-		vrLoc = 0;
-	};
-	F589C9D0035AA4FF0155F4B2 = {
-		isa = PBXFileReference;
-		name = NSHelpManager.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSHelpManager.h;
-		refType = 0;
-	};
-	F589C9D1035AA4FF0155F4B2 = {
-		isa = PBXFileReference;
-		name = NSBundle.h;
-		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSBundle.h;
-		refType = 0;
-	};
-	F589C9D3035AA4FF0155F4B2 = {
-		isa = PBXFileReference;
-		name = NSWorkspace.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSWorkspace.h;
-		refType = 0;
-	};
-	F589C9D8035AAAAB0155F4B2 = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: 7";
-		rLen = 0;
-		rLoc = 149;
-		rType = 0;
-		vrLen = 1144;
-		vrLoc = 0;
-	};
-	F589C9D9035AAAAB0155F4B2 = {
-		fRef = 089C165DFE840E0CC02AAC07;
-		isa = PBXTextBookmark;
-		name = "English: 5";
-		rLen = 0;
-		rLoc = 141;
-		rType = 0;
-		vrLen = 219;
-		vrLoc = 0;
-	};
-	F589C9DA035AAAAB0155F4B2 = {
-		isa = PBXTargetBookmark;
-		trg = 29B97326FDCFA39411CA2CEA;
-		uiCtxt = {
-			buildPhasesExpandedSubviews = (
-				0,
-				1,
-				2,
-				3,
-				4,
-			);
-			buildPhasesVisRect = "{{0, 316}, {660, 507}}";
-			buildSettingsExpandedSubviews = (
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				8,
-			);
-			buildSettingsVisRect = "{{0, 0}, {660, 507}}";
-			expertProductSettingsVisRect = "{{0, 0}, {464, 403}}";
-			guiProductSettingsExpandedSubviews = (
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-			);
-			guiProductSettingsVisRect = "{{0, 0}, {2000, 1428}}";
-			productSettingsIsSimple = YES;
-			selectedTab = buildPhases;
-		};
-	};
-	F589C9DB035AAAAB0155F4B2 = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: 7";
-		rLen = 0;
-		rLoc = 149;
-		rType = 0;
-		vrLen = 1144;
-		vrLoc = 0;
-	};
-	F589C9DC035AAAAB0155F4B2 = {
-		isa = PBXTargetBookmark;
-		trg = 29B97326FDCFA39411CA2CEA;
-		uiCtxt = {
-			buildPhasesExpandedSubviews = (
-				0,
-				1,
-				2,
-				3,
-				4,
-			);
-			buildPhasesVisRect = "{{0, 316}, {660, 507}}";
-			buildSettingsExpandedSubviews = (
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				8,
-			);
-			buildSettingsVisRect = "{{0, 0}, {660, 507}}";
-			expertProductSettingsVisRect = "{{0, 0}, {464, 403}}";
-			guiProductSettingsExpandedSubviews = (
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-			);
-			guiProductSettingsVisRect = "{{0, 0}, {2000, 1428}}";
-			productSettingsIsSimple = YES;
-			selectedTab = buildPhases;
-		};
-	};
-	F589C9DD035AAAAB0155F4B2 = {
-		fRef = 089C165DFE840E0CC02AAC07;
-		isa = PBXTextBookmark;
-		name = "English: 5";
-		rLen = 0;
-		rLoc = 141;
-		rType = 0;
-		vrLen = 219;
-		vrLoc = 0;
-	};
-	F589C9DE035AAAAB0155F4B2 = {
-		isa = PBXTargetBookmark;
-		trg = 29B97326FDCFA39411CA2CEA;
-		uiCtxt = {
-			buildPhasesExpandedSubviews = (
-				0,
-				1,
-				2,
-				3,
-			);
-			buildPhasesVisRect = "{{0, 208}, {660, 507}}";
-			buildSettingsExpandedSubviews = (
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				8,
-			);
-			buildSettingsVisRect = "{{0, 0}, {660, 507}}";
-			expertProductSettingsVisRect = "{{0, 0}, {464, 403}}";
-			guiProductSettingsExpandedSubviews = (
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-			);
-			guiProductSettingsVisRect = "{{0, 797}, {660, 476}}";
-			productSettingsIsSimple = YES;
-			selectedTab = buildPhases;
-		};
-	};
-	F59163CE035A8E270118C656 = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: 163";
-		rLen = 4;
-		rLoc = 4607;
-		rType = 0;
-		vrLen = 1406;
-		vrLoc = 4117;
-	};
-	F59163CF035A8E270118C656 = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 19";
-		rLen = 12;
-		rLoc = 457;
-		rType = 0;
-		vrLen = 574;
-		vrLoc = 0;
-	};
-	F59163D1035A8E270118C656 = {
-		fRef = F59DC6DB0353DE5101AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmNotifierController.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 533;
-		vrLoc = 0;
-	};
-	F59163D2035A8E270118C656 = {
-		fRef = F59163DE035A8E270118C656;
-		isa = PBXTextBookmark;
-		name = "NSApplication.h: 127";
-		rLen = 49;
-		rLoc = 4000;
-		rType = 0;
-		vrLen = 1569;
-		vrLoc = 3308;
-	};
-	F59163D3035A8E270118C656 = {
-		fRef = F59DC6DC0353DE5101AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmNotifierController.m: initWithAlarm:";
-		rLen = 0;
-		rLoc = 781;
-		rType = 0;
-		vrLen = 1056;
-		vrLoc = 35;
-	};
-	F59163D4035A8E270118C656 = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: 163";
-		rLen = 4;
-		rLoc = 4607;
-		rType = 0;
-		vrLen = 1406;
-		vrLoc = 4117;
-	};
-	F59163D5035A8E270118C656 = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: 58";
-		rLen = 0;
-		rLoc = 2027;
-		rType = 0;
-		vrLen = 1584;
-		vrLoc = 1750;
-	};
-	F59163D6035A8E270118C656 = {
-		fRef = F59DC6DB0353DE5101AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmNotifierController.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 533;
-		vrLoc = 0;
-	};
-	F59163D7035A8E270118C656 = {
-		fRef = F59DC6DC0353DE5101AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmNotifierController.m: initWithAlarm:";
-		rLen = 0;
-		rLoc = 520;
-		rType = 0;
-		vrLen = 997;
-		vrLoc = 99;
-	};
-	F59163D8035A8E270118C656 = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: 176";
-		rLen = 0;
-		rLoc = 7027;
-		rType = 0;
-		vrLen = 1129;
-		vrLoc = 0;
-	};
-	F59163D9035A8E270118C656 = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 19";
-		rLen = 12;
-		rLoc = 457;
-		rType = 0;
-		vrLen = 574;
-		vrLoc = 0;
-	};
-	F59163DA035A8E270118C656 = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: applicationWillTerminate:";
-		rLen = 0;
-		rLoc = 6976;
-		rType = 0;
-		vrLen = 1522;
-		vrLoc = 5361;
-	};
-	F59163DB035A8E270118C656 = {
-		fRef = F59DC6DB0353DE5101AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmNotifierController.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 533;
-		vrLoc = 0;
-	};
-	F59163DC035A8E270118C656 = {
-		fRef = F59DC6DC0353DE5101AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmNotifierController.m: initWithAlarm:";
-		rLen = 0;
-		rLoc = 781;
-		rType = 0;
-		vrLen = 1056;
-		vrLoc = 35;
-	};
-	F59163DE035A8E270118C656 = {
-		isa = PBXFileReference;
-		name = NSApplication.h;
-		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSApplication.h;
-		refType = 0;
 	};
 	F596730D0355CFA301407038 = {
 		isa = PBXSymbolicBreakpoint;
@@ -2438,301 +750,5 @@
 		rType = 0;
 		vrLen = 826;
 		vrLoc = 0;
-	};
-	F5C8B260035A217B01935D7C = {
-		fRef = F517D6430356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.h: 15";
-		rLen = 0;
-		rLoc = 310;
-		rType = 0;
-		vrLen = 615;
-		vrLoc = 0;
-	};
-	F5C8B261035A217B01935D7C = {
-		fRef = F5C8B2A2035A217B01935D7C;
-		isa = PBXBookmark;
-	};
-	F5C8B263035A217B01935D7C = {
-		fRef = F5C8B2A1035A217B01935D7C;
-		isa = PBXTextBookmark;
-		name = "NSTimer.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 832;
-		vrLoc = 0;
-	};
-	F5C8B267035A217B01935D7C = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: 20";
-		rLen = 0;
-		rLoc = 484;
-		rType = 0;
-		vrLen = 1220;
-		vrLoc = 28;
-	};
-	F5C8B268035A217B01935D7C = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: 70";
-		rLen = 0;
-		rLoc = 4359;
-		rType = 0;
-		vrLen = 1514;
-		vrLoc = 1276;
-	};
-	F5C8B26A035A217B01935D7C = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: 70";
-		rLen = 0;
-		rLoc = 4359;
-		rType = 0;
-		vrLen = 1454;
-		vrLoc = 1276;
-	};
-	F5C8B26B035A217B01935D7C = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 508;
-		vrLoc = 0;
-	};
-	F5C8B26C035A217B01935D7C = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: finishLaunching";
-		rLen = 0;
-		rLoc = 746;
-		rType = 0;
-		vrLen = 1083;
-		vrLoc = 0;
-	};
-	F5C8B26D035A217B01935D7C = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: 21";
-		rLen = 0;
-		rLoc = 514;
-		rType = 0;
-		vrLen = 1245;
-		vrLoc = 3;
-	};
-	F5C8B26E035A217B01935D7C = {
-		fRef = F517D6430356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.h: 15";
-		rLen = 0;
-		rLoc = 310;
-		rType = 0;
-		vrLen = 615;
-		vrLoc = 0;
-	};
-	F5C8B26F035A217B01935D7C = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: init";
-		rLen = 0;
-		rLoc = 1653;
-		rType = 0;
-		vrLen = 1554;
-		vrLoc = 1019;
-	};
-	F5C8B270035A217B01935D7C = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: finishLaunching";
-		rLen = 0;
-		rLoc = 657;
-		rType = 0;
-		vrLen = 1086;
-		vrLoc = 0;
-	};
-	F5C8B271035A217B01935D7C = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: allAlarms";
-		rLen = 0;
-		rLoc = 823;
-		rType = 0;
-		vrLen = 1043;
-		vrLoc = 533;
-	};
-	F5C8B272035A217B01935D7C = {
-		fRef = F517D63E0356B80C016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarmsController.m: 21";
-		rLen = 0;
-		rLoc = 514;
-		rType = 0;
-		vrLen = 1244;
-		vrLoc = 3;
-	};
-	F5C8B273035A217B01935D7C = {
-		fRef = F59DC6DC0353DE5101AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmNotifierController.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 958;
-		vrLoc = 0;
-	};
-	F5C8B274035A217B01935D7C = {
-		fRef = F59DC6D40353C9E601AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarmSetController.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1895;
-		vrLoc = 0;
-	};
-	F5C8B275035A217B01935D7C = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: dealloc";
-		rLen = 7;
-		rLoc = 2745;
-		rType = 0;
-		vrLen = 1296;
-		vrLoc = 1986;
-	};
-	F5C8B276035A217B01935D7C = {
-		fRef = F517D6430356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.h: 15";
-		rLen = 0;
-		rLoc = 310;
-		rType = 0;
-		vrLen = 615;
-		vrLoc = 0;
-	};
-	F5C8B277035A217B01935D7C = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: dealloc";
-		rLen = 0;
-		rLoc = 2760;
-		rType = 0;
-		vrLen = 1270;
-		vrLoc = 1986;
-	};
-	F5C8B278035A217B01935D7C = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: 53";
-		rLen = 0;
-		rLoc = 1636;
-		rType = 0;
-		vrLen = 1086;
-		vrLoc = 0;
-	};
-	F5C8B279035A217B01935D7C = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: _changed";
-		rLen = 1;
-		rLoc = 3532;
-		rType = 0;
-		vrLen = 1018;
-		vrLoc = 2735;
-	};
-	F5C8B27A035A217B01935D7C = {
-		fRef = F5C8B2A0035A217B01935D7C;
-		isa = PBXBookmark;
-	};
-	F5C8B27B035A217B01935D7C = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: 58";
-		rLen = 0;
-		rLoc = 2026;
-		rType = 0;
-		vrLen = 1354;
-		vrLoc = 1276;
-	};
-	F5C8B27C035A217B01935D7C = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: _changed";
-		rLen = 1;
-		rLoc = 3532;
-		rType = 0;
-		vrLen = 1018;
-		vrLoc = 2735;
-	};
-	F5C8B27D035A217B01935D7C = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: interval";
-		rLen = 0;
-		rLoc = 5435;
-		rType = 0;
-		vrLen = 1660;
-		vrLoc = 4345;
-	};
-	F5C8B27E035A217B01935D7C = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: applicationDockMenu:";
-		rLen = 0;
-		rLoc = 6840;
-		rType = 0;
-		vrLen = 1520;
-		vrLoc = 3282;
-	};
-	F5C8B27F035A217B01935D7C = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: removeAlarmsAtIndices:";
-		rLen = 0;
-		rLoc = 4126;
-		rType = 0;
-		vrLen = 875;
-		vrLoc = 3751;
-	};
-	F5C8B280035A217B01935D7C = {
-		fRef = F560E2F10357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.m: __VERSION__";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1129;
-		vrLoc = 0;
-	};
-	F5C8B281035A217B01935D7C = {
-		fRef = F560E2F20357506401A4E466;
-		isa = PBXTextBookmark;
-		name = "PSApplication.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 508;
-		vrLoc = 0;
-	};
-	F5C8B2A0035A217B01935D7C = {
-		isa = PBXFileReference;
-		name = NSTimer.html;
-		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSTimer.html;
-		refType = 0;
-	};
-	F5C8B2A1035A217B01935D7C = {
-		isa = PBXFileReference;
-		name = NSTimer.h;
-		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSTimer.h;
-		refType = 0;
-	};
-	F5C8B2A2035A217B01935D7C = {
-		isa = PBXFileReference;
-		name = NSTimer.html;
-		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Resources/English.lproj/Documentation/Reference/ObjC_classic/Classes/NSTimer.html;
-		refType = 0;
 	};
 }
