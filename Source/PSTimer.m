@@ -216,6 +216,11 @@ NSMutableArray *PSTimerAllTimers = nil;
 
 @implementation PSTimer (PSPowerManagerDelegate)
 
++ (void)_runScheduledWakeErrorPanel:(NSString *)error;
+{
+    NSRunAlertPanel(NSLocalizedString(@"Can't schedule wake from sleep", "Wake timer set failure panel title"), NSLocalizedString(@"Pester is unable to set this computer to wake up at a later date (%@)", "Wake timer set failure panel message"), NSLocalizedString(@"Sleep", "Wake timer set failure panel button"), nil, nil, error);
+}
+
 + (BOOL)powerManagerShouldIdleSleep:(PSPowerManager *)powerManager;
 {
     [PSTimerCurrent invalidate];
@@ -224,7 +229,11 @@ NSMutableArray *PSTimerAllTimers = nil;
         // NSLog(@"%lf sec remain until alarm", [date timeIntervalSinceNow]);
         if ([date timeIntervalSinceNow] > 30) {
             // NSLog(@"going to sleep, setting timer %@", PSTimerOnWake);
-            [PSPowerManager setWakeTime: [[PSTimerOnWake fireDate] addTimeInterval: -15] overrideIfEarlier: NO];
+            NS_DURING
+                [PSPowerManager setWakeTime: [[PSTimerOnWake fireDate] addTimeInterval: -15] overrideIfEarlier: NO];
+            NS_HANDLER
+                [self performSelectorOnMainThread: @selector(_runScheduledWakeErrorPanel:) withObject: [localException description] waitUntilDone: YES];
+            NS_ENDHANDLER
             return YES;
         } else {
             // NSLog(@"not setting timer, will attempt to prevent idle sleep");
@@ -237,7 +246,6 @@ NSMutableArray *PSTimerAllTimers = nil;
 + (void)powerManagerWillDemandSleep:(PSPowerManager *)powerManager;
 {
     [self powerManagerShouldIdleSleep: powerManager];
-    return;
 }
 
 + (void)powerManagerDidWake:(PSPowerManager *)powerManager;

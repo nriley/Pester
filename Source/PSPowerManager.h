@@ -20,7 +20,6 @@ extern NSString * const PSPowerManagerException;
 - (id)initWithDelegate:(id)aDelegate;
 
 + (BOOL)autoWakeSupported;
-+ (void)authorize;
 + (NSDate *)wakeTime;
 + (void)setWakeInterval:(unsigned long)wakeInterval;
 + (void)setWakeTime:(NSDate *)time overrideIfEarlier:(BOOL)override;

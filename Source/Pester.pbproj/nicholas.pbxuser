@@ -5,7 +5,6 @@
 		activeExecutable = F59B967103538BE201154278;
 		activeTarget = 29B97326FDCFA39411CA2CEA;
 		addToTargets = (
-			E14A56EA041DD6B600050002,
 		);
 		breakpoints = (
 			F596730D0355CFA301407038,
@@ -17,17 +16,526 @@
 		);
 		executables = (
 			F59B967103538BE201154278,
-			E14A56EC041DD6B600050002,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 69196942;
+			PBXPerProjectTemplateStateSaveDate = 69216080;
+			"PBXTemplateGeometry-F5314676015831810DCA290F" = {
+				ContentSize = "{685, 434}";
+				LeftSlideOut = {
+					Collapsed = NO;
+					Frame = "{{0, 23}, {685, 411}}";
+					Split0 = {
+						ActiveTab = 2;
+						ActiveTabName = PBXBuildResultsModule;
+						Collapsed = NO;
+						Frame = "{{0, 0}, {685, 411}}";
+						Split0 = {
+							Frame = "{{0, 301}, {685, 110}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {952, 321}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {781, 452}}";
+								Split0 = {
+									Frame = "{{0, 24}, {781, 428}}";
+									Split0 = {
+										Frame = "{{0, 0}, {383, 428}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											155.123,
+										);
+										Frame = "{{392, 0}, {389, 428}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {781, 452}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {685, 215}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {685, 215}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {687, 262}}";
+							BuildTranscriptFrame = "{{0, 271}, {687, 2}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {685, 295}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {300, 533}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							267,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {280, 398}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							237,
+						);
+						Frame = "{{0, 0}, {278, 659}}";
+						MembersFrame = "{{0, 407}, {280, 252}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							236,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 100}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 100}}";
+					};
+					TabCount = 5;
+					TabsVisible = NO;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = YES;
+				Template = F5314676015831810DCA290F;
+				ToolbarVisible = YES;
+				WindowLocation = "{7, 336}";
+			};
+			"PBXTemplateGeometry-F5534CB2020F3F8A0DCA290F" = {
+				ContentSize = "{594, 303}";
+				LeftSlideOut = {
+					Collapsed = NO;
+					Frame = "{{0, 23}, {594, 280}}";
+					Split0 = {
+						ActiveTab = 1;
+						ActiveTabName = PBXRunSessionModule;
+						Collapsed = YES;
+						Frame = "{{0, 0}, {594, 280}}";
+						Split0 = {
+							Frame = "{{1e+06, 1e+06}, {594, 0}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {804, 321}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {594, 274}}";
+								Split0 = {
+									Frame = "{{0, 24}, {594, 250}}";
+									Split0 = {
+										Frame = "{{0, 0}, {290, 250}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											62.123,
+										);
+										Frame = "{{299, 0}, {295, 250}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {594, 274}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {594, 274}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {594, 274}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {614, 262}}";
+							BuildTranscriptFrame = "{{0, 271}, {614, 2}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {300, 533}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							267,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {280, 398}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							237,
+						);
+						Frame = "{{0, 0}, {278, 659}}";
+						MembersFrame = "{{0, 407}, {280, 252}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							236,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 386}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 386}}";
+					};
+					TabCount = 5;
+					TabsVisible = NO;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = YES;
+				Template = F5534CB2020F3F8A0DCA290F;
+				ToolbarVisible = YES;
+				WindowLocation = "{117, 67}";
+			};
+			"PBXTemplateGeometry-F5CA7EC9015C08ED0DCA290F" = {
+				ContentSize = "{665, 594}";
+				LeftSlideOut = {
+					Collapsed = NO;
+					Frame = "{{0, 0}, {665, 594}}";
+					Split0 = {
+						ActiveTab = 3;
+						ActiveTabName = PBXProjectFindModule;
+						Collapsed = NO;
+						Frame = "{{0, 0}, {665, 594}}";
+						Split0 = {
+							Frame = "{{0, 301}, {665, 293}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {484, 208}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {664, 208}}";
+								Split0 = {
+									Frame = "{{0, 24}, {664, 184}}";
+									Split0 = {
+										Frame = "{{0, 0}, {325, 184}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											96.123,
+										);
+										Frame = "{{334, 0}, {330, 184}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {664, 208}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {664, 50}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {664, 50}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {667, 265}}";
+							BuildTranscriptFrame = "{{0, 274}, {667, 2}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {665, 298}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {665, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {313, 531}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							280,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {280, 398}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							237,
+						);
+						Frame = "{{0, 0}, {278, 659}}";
+						MembersFrame = "{{0, 407}, {280, 252}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							236,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 557}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 100}}";
+					};
+					TabCount = 5;
+					TabsVisible = NO;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = NO;
+				Template = F5CA7EC9015C08ED0DCA290F;
+				ToolbarVisible = NO;
+				WindowLocation = "{69, 216}";
+			};
+			"PBXTemplateGeometry-F5CA7ECB015C094F0DCA290F" = {
+				ContentSize = "{668, 621}";
+				LeftSlideOut = {
+					Collapsed = NO;
+					Frame = "{{0, 0}, {668, 621}}";
+					Split0 = {
+						Collapsed = NO;
+						Frame = "{{0, 0}, {668, 621}}";
+						Split0 = {
+							Frame = "{{0, 0}, {668, 621}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {484, 208}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {664, 208}}";
+								Split0 = {
+									Frame = "{{0, 24}, {664, 184}}";
+									Split0 = {
+										Frame = "{{0, 0}, {325, 184}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											96.123,
+										);
+										Frame = "{{334, 0}, {330, 184}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {664, 208}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {664, 50}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {664, 50}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {614, 262}}";
+							BuildTranscriptFrame = "{{0, 271}, {614, 2}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {313, 531}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							280,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {280, 398}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							237,
+						);
+						Frame = "{{0, 0}, {278, 659}}";
+						MembersFrame = "{{0, 407}, {280, 252}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							236,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 557}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 100}}";
+					};
+					TabCount = 5;
+					TabsVisible = NO;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = NO;
+				Template = F5CA7ECB015C094F0DCA290F;
+				ToolbarVisible = NO;
+				WindowLocation = "{211, 111}";
+			};
 			PBXWorkspaceContents = (
 				{
 					LeftSlideOut = {
 						Split0 = {
 							Split0 = {
 								NavContent0 = {
-									bookmark = E14789AB041FCB3800050002;
+									bookmark = E113BE58042004B500050002;
 									history = (
 										E1D2937B03BD418200F9204E,
 										E1D2937C03BD418200F9204E,
@@ -60,7 +568,6 @@
 										E11CD2D203BF9B3300C49BEF,
 										E11CD2D303BF9B3300C49BEF,
 										E11CD2D603BF9B3300C49BEF,
-										E11CD2D803BF9B3300C49BEF,
 										E17AED7403C0F5D300B89ACF,
 										E17AED7503C0F5D300B89ACF,
 										E17AED7603C0F5D300B89ACF,
@@ -193,8 +700,6 @@
 										E1DC3E3B041F2CF600050002,
 										E14788F9041FC51900050002,
 										E14788FA041FC51900050002,
-										E14788FB041FC51900050002,
-										E14788FC041FC51900050002,
 										E14788FD041FC51900050002,
 										E14788FE041FC51900050002,
 										E14788FF041FC51900050002,
@@ -202,31 +707,26 @@
 										E1478901041FC51900050002,
 										E1478902041FC51900050002,
 										E1478903041FC51900050002,
-										E1478904041FC51900050002,
 										E1478905041FC51900050002,
 										E1478906041FC51900050002,
 										E1478907041FC51900050002,
 										E1478908041FC51900050002,
-										E1478909041FC51900050002,
-										E147890A041FC51900050002,
-										E147890B041FC51900050002,
-										E147890C041FC51900050002,
-										E147890D041FC51900050002,
-										E147890E041FC51900050002,
-										E147890F041FC51900050002,
-										E1478910041FC51900050002,
 										E1478911041FC51900050002,
 										E1478912041FC51900050002,
-										E1478913041FC51900050002,
-										E1478914041FC51900050002,
 										E1478915041FC51900050002,
-										E1478916041FC51900050002,
 										E1478917041FC51900050002,
 										E1478918041FC51900050002,
 										E1478919041FC51900050002,
-										E14789A7041FCB3800050002,
 										E14789A8041FCB3800050002,
-										E1F7C61F041C5B0000FEF34D,
+										E14789CE041FE12E00050002,
+										E14789CF041FE12E00050002,
+										E113BE4D042004B500050002,
+										E113BE4E042004B500050002,
+										E113BE4F042004B500050002,
+										E113BE50042004B500050002,
+									);
+									nextStack = (
+										E113BE57042004B500050002,
 									);
 									prevStack = (
 										E1D2939103BD418200F9204E,
@@ -246,7 +746,6 @@
 										E1D293BF03BD418200F9204E,
 										E1D293C003BD418200F9204E,
 										E1D293C103BD418200F9204E,
-										E1D293C203BD418200F9204E,
 										E1D293C403BD418200F9204E,
 										E1D293C503BD418200F9204E,
 										E1D293C603BD418200F9204E,
@@ -444,7 +943,6 @@
 										E19DCCDB03BE900300B934BF,
 										E1A9DEF703BF480F0089E8B2,
 										E1A9DEFB03BF480F0089E8B2,
-										E1A9DEFC03BF480F0089E8B2,
 										E1A9DEFD03BF480F0089E8B2,
 										E1A9DEFE03BF480F0089E8B2,
 										E1A9DF0203BF480F0089E8B2,
@@ -1369,7 +1867,6 @@
 										E1F7C65A041C623100FEF34D,
 										E14A56FF04E785DC00050002,
 										E14A570004E785DC00050002,
-										E14A570104E785DC00050002,
 										E14A570204E785DC00050002,
 										E14A570304E785DC00050002,
 										E14A570404E785DC00050002,
@@ -1386,64 +1883,14 @@
 										E14A571204E785DC00050002,
 										E1DC3E3E041F2CF600050002,
 										E1DC3E3F041F2CF600050002,
-										E1DC3E40041F2CF600050002,
-										E1DC3E41041F2CF600050002,
-										E1DC3E42041F2CF600050002,
-										E1DC3E43041F2CF600050002,
-										E1DC3E44041F2CF600050002,
-										E1DC3E45041F2CF600050002,
 										E147891B041FC51900050002,
-										E147891C041FC51900050002,
-										E147891D041FC51900050002,
 										E147891E041FC51900050002,
 										E147891F041FC51900050002,
 										E1478920041FC51900050002,
-										E1478921041FC51900050002,
 										E1478922041FC51900050002,
-										E1478923041FC51900050002,
-										E1478924041FC51900050002,
 										E1478925041FC51900050002,
-										E1478926041FC51900050002,
-										E1478927041FC51900050002,
-										E1478928041FC51900050002,
-										E1478929041FC51900050002,
-										E147892A041FC51900050002,
-										E147892B041FC51900050002,
-										E147892C041FC51900050002,
-										E147892D041FC51900050002,
-										E147892E041FC51900050002,
-										E147892F041FC51900050002,
-										E1478930041FC51900050002,
-										E1478931041FC51900050002,
-										E1478932041FC51900050002,
-										E1478933041FC51900050002,
-										E1478934041FC51900050002,
-										E1478935041FC51900050002,
-										E1478936041FC51900050002,
-										E1478937041FC51900050002,
-										E1478938041FC51900050002,
-										E1478939041FC51900050002,
-										E147893A041FC51900050002,
-										E147893B041FC51900050002,
-										E147893C041FC51900050002,
-										E147893D041FC51900050002,
-										E147893E041FC51900050002,
-										E147893F041FC51900050002,
-										E1478940041FC51900050002,
-										E1478941041FC51900050002,
-										E1478942041FC51900050002,
-										E1478943041FC51900050002,
-										E1478944041FC51900050002,
-										E1478945041FC51900050002,
-										E1478946041FC51900050002,
-										E1478947041FC51900050002,
-										E1478948041FC51900050002,
-										E1478949041FC51900050002,
-										E147894A041FC51900050002,
 										E147894B041FC51900050002,
 										E147894C041FC51900050002,
-										E147894D041FC51900050002,
-										E147894E041FC51900050002,
 										E147894F041FC51900050002,
 										E1478950041FC51900050002,
 										E1478951041FC51900050002,
@@ -1453,8 +1900,6 @@
 										E1478955041FC51900050002,
 										E1478956041FC51900050002,
 										E1478957041FC51900050002,
-										E1478958041FC51900050002,
-										E1478959041FC51900050002,
 										E147895A041FC51900050002,
 										E147895B041FC51900050002,
 										E147895C041FC51900050002,
@@ -1463,46 +1908,30 @@
 										E147895F041FC51900050002,
 										E1478960041FC51900050002,
 										E1478961041FC51900050002,
-										E1478962041FC51900050002,
-										E1478963041FC51900050002,
 										E1478964041FC51900050002,
-										E1478965041FC51900050002,
-										E1478966041FC51900050002,
-										E1478967041FC51900050002,
-										E1478968041FC51900050002,
-										E1478969041FC51900050002,
-										E147896A041FC51900050002,
-										E147896B041FC51900050002,
-										E147896C041FC51900050002,
-										E147896D041FC51900050002,
-										E147896E041FC51900050002,
-										E147896F041FC51900050002,
-										E1478970041FC51900050002,
-										E1478971041FC51900050002,
-										E1478972041FC51900050002,
-										E1478973041FC51900050002,
 										E1478974041FC51900050002,
-										E1478975041FC51900050002,
-										E1478976041FC51900050002,
-										E1478977041FC51900050002,
-										E1478978041FC51900050002,
 										E1478979041FC51900050002,
-										E147897A041FC51900050002,
 										E147897B041FC51900050002,
 										E147897C041FC51900050002,
-										E147897D041FC51900050002,
 										E147897E041FC51900050002,
 										E147897F041FC51900050002,
-										E1478980041FC51900050002,
-										E1478981041FC51900050002,
 										E1478982041FC51900050002,
-										E1478983041FC51900050002,
 										E1478984041FC51900050002,
-										E1478985041FC51900050002,
 										E1478986041FC51900050002,
-										E1478987041FC51900050002,
 										E14789A9041FCB3800050002,
 										E14789AA041FCB3800050002,
+										E14789D2041FE12E00050002,
+										E14789D3041FE12E00050002,
+										E14789D4041FE12E00050002,
+										E14789D5041FE12E00050002,
+										E14789D6041FE12E00050002,
+										E14789D7041FE12E00050002,
+										E113BE51042004B500050002,
+										E113BE52042004B500050002,
+										E113BE53042004B500050002,
+										E113BE54042004B500050002,
+										E113BE55042004B500050002,
+										E113BE56042004B500050002,
 									);
 								};
 								NavCount = 1;
@@ -1578,14 +2007,14 @@
 						Split0 = {
 							Split0 = {
 								NavContent0 = {
-									bookmark = E14789AC041FCB3800050002;
+									bookmark = E113BE5A042004B500050002;
 									history = (
-										E147898D041FC51900050002,
+										E113BE59042004B500050002,
 									);
 								};
 								NavCount = 1;
 								NavGeometry0 = {
-									Frame = "{{0, 0}, {685, 150}}";
+									Frame = "{{0, 0}, {668, 621}}";
 									NavBarVisible = YES;
 								};
 								NavSplitVertical = NO;
@@ -1619,15 +2048,9 @@
 					LeftSlideOut = {
 						Split0 = {
 							Split0 = {
-								NavContent0 = {
-									bookmark = E14789AD041FCB3800050002;
-									history = (
-										E147898F041FC51900050002,
-									);
-								};
 								NavCount = 1;
 								NavGeometry0 = {
-									Frame = "{{0, 0}, {668, 621}}";
+									Frame = "{{0, 0}, {685, 150}}";
 									NavBarVisible = YES;
 								};
 								NavSplitVertical = NO;
@@ -1916,134 +2339,6 @@
 					WindowLocation = "{117, 67}";
 				},
 				{
-					ContentSize = "{685, 434}";
-					LeftSlideOut = {
-						Collapsed = NO;
-						Frame = "{{0, 23}, {685, 411}}";
-						Split0 = {
-							ActiveTab = 2;
-							ActiveTabName = PBXBuildResultsModule;
-							Collapsed = NO;
-							Frame = "{{0, 0}, {685, 411}}";
-							Split0 = {
-								Frame = "{{0, 273}, {685, 138}}";
-							};
-							SplitCount = 1;
-							Tab0 = {
-								Frame = "{{0, 0}, {952, 321}}";
-							};
-							Tab1 = {
-								Debugger = {
-									Collapsed = NO;
-									Frame = "{{0, 0}, {781, 452}}";
-									Split0 = {
-										Frame = "{{0, 24}, {781, 428}}";
-										Split0 = {
-											Frame = "{{0, 0}, {383, 428}}";
-										};
-										Split1 = {
-											DebugVariablesTableConfiguration = (
-												Name,
-												123,
-												Value,
-												85,
-												Summary,
-												155.123,
-											);
-											Frame = "{{392, 0}, {389, 428}}";
-										};
-										SplitCount = 2;
-									};
-									SplitCount = 1;
-									Tab0 = {
-										Frame = "{{0, 0}, {100, 50}}";
-									};
-									Tab1 = {
-										Frame = "{{0, 0}, {100, 50}}";
-									};
-									TabCount = 2;
-									TabsVisible = YES;
-								};
-								Frame = "{{0, 0}, {781, 452}}";
-								LauncherConfigVersion = 7;
-							};
-							Tab2 = {
-								Frame = "{{0, 0}, {685, 215}}";
-								LauncherConfigVersion = 3;
-								Runner = {
-									Frame = "{{0, 0}, {685, 215}}";
-								};
-							};
-							Tab3 = {
-								BuildMessageFrame = "{{0, 0}, {687, 236}}";
-								BuildTranscriptFrame = "{{0, 245}, {687, 0}}";
-								BuildTranscriptFrameExpanded = YES;
-								Frame = "{{0, 0}, {685, 267}}";
-							};
-							Tab4 = {
-								Frame = "{{0, 0}, {612, 295}}";
-							};
-							TabCount = 5;
-							TabsVisible = NO;
-						};
-						SplitCount = 1;
-						Tab0 = {
-							Frame = "{{0, 0}, {300, 533}}";
-							GroupTreeTableConfiguration = (
-								TargetStatusColumn,
-								18,
-								MainColumn,
-								267,
-							);
-						};
-						Tab1 = {
-							ClassesFrame = "{{0, 0}, {280, 398}}";
-							ClassesTreeTableConfiguration = (
-								PBXBookColumnIdentifier,
-								20,
-								PBXClassColumnIdentifier,
-								237,
-							);
-							Frame = "{{0, 0}, {278, 659}}";
-							MembersFrame = "{{0, 407}, {280, 252}}";
-							MembersTreeTableConfiguration = (
-								PBXBookColumnIdentifier,
-								20,
-								PBXMethodColumnIdentifier,
-								236,
-							);
-						};
-						Tab2 = {
-							Frame = "{{0, 0}, {200, 100}}";
-						};
-						Tab3 = {
-							Frame = "{{0, 0}, {200, 100}}";
-							TargetTableConfiguration = (
-								ActiveObject,
-								16,
-								ObjectNames,
-								202.296,
-							);
-						};
-						Tab4 = {
-							BreakpointsTreeTableConfiguration = (
-								breakpointColumn,
-								197,
-								enabledColumn,
-								31,
-							);
-							Frame = "{{0, 0}, {250, 100}}";
-						};
-						TabCount = 5;
-						TabsVisible = NO;
-					};
-					NavBarShownByDefault = YES;
-					StatusViewVisible = YES;
-					Template = F5314676015831810DCA290F;
-					ToolbarVisible = YES;
-					WindowLocation = "{353, 75}";
-				},
-				{
 					ContentSize = "{668, 621}";
 					LeftSlideOut = {
 						Collapsed = NO;
@@ -2169,8 +2464,136 @@
 					ToolbarVisible = NO;
 					WindowLocation = "{23, 90}";
 				},
+				{
+					ContentSize = "{685, 434}";
+					LeftSlideOut = {
+						Collapsed = NO;
+						Frame = "{{0, 23}, {685, 411}}";
+						Split0 = {
+							ActiveTab = 2;
+							ActiveTabName = PBXBuildResultsModule;
+							Collapsed = NO;
+							Frame = "{{0, 0}, {685, 411}}";
+							Split0 = {
+								Frame = "{{0, 301}, {685, 110}}";
+							};
+							SplitCount = 1;
+							Tab0 = {
+								Frame = "{{0, 0}, {952, 321}}";
+							};
+							Tab1 = {
+								Debugger = {
+									Collapsed = NO;
+									Frame = "{{0, 0}, {781, 452}}";
+									Split0 = {
+										Frame = "{{0, 24}, {781, 428}}";
+										Split0 = {
+											Frame = "{{0, 0}, {383, 428}}";
+										};
+										Split1 = {
+											DebugVariablesTableConfiguration = (
+												Name,
+												123,
+												Value,
+												85,
+												Summary,
+												155.123,
+											);
+											Frame = "{{392, 0}, {389, 428}}";
+										};
+										SplitCount = 2;
+									};
+									SplitCount = 1;
+									Tab0 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									Tab1 = {
+										Frame = "{{0, 0}, {100, 50}}";
+									};
+									TabCount = 2;
+									TabsVisible = YES;
+								};
+								Frame = "{{0, 0}, {781, 452}}";
+								LauncherConfigVersion = 7;
+							};
+							Tab2 = {
+								Frame = "{{0, 0}, {685, 215}}";
+								LauncherConfigVersion = 3;
+								Runner = {
+									Frame = "{{0, 0}, {685, 215}}";
+								};
+							};
+							Tab3 = {
+								BuildMessageFrame = "{{0, 0}, {687, 262}}";
+								BuildTranscriptFrame = "{{0, 271}, {687, 2}}";
+								BuildTranscriptFrameExpanded = YES;
+								Frame = "{{0, 0}, {685, 295}}";
+							};
+							Tab4 = {
+								Frame = "{{0, 0}, {612, 295}}";
+							};
+							TabCount = 5;
+							TabsVisible = NO;
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {300, 533}}";
+							GroupTreeTableConfiguration = (
+								TargetStatusColumn,
+								18,
+								MainColumn,
+								267,
+							);
+						};
+						Tab1 = {
+							ClassesFrame = "{{0, 0}, {280, 398}}";
+							ClassesTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXClassColumnIdentifier,
+								237,
+							);
+							Frame = "{{0, 0}, {278, 659}}";
+							MembersFrame = "{{0, 407}, {280, 252}}";
+							MembersTreeTableConfiguration = (
+								PBXBookColumnIdentifier,
+								20,
+								PBXMethodColumnIdentifier,
+								236,
+							);
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {200, 100}}";
+						};
+						Tab3 = {
+							Frame = "{{0, 0}, {200, 100}}";
+							TargetTableConfiguration = (
+								ActiveObject,
+								16,
+								ObjectNames,
+								202.296,
+							);
+						};
+						Tab4 = {
+							BreakpointsTreeTableConfiguration = (
+								breakpointColumn,
+								197,
+								enabledColumn,
+								31,
+							);
+							Frame = "{{0, 0}, {250, 100}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					NavBarShownByDefault = YES;
+					StatusViewVisible = YES;
+					Template = F5314676015831810DCA290F;
+					ToolbarVisible = YES;
+					WindowLocation = "{7, 336}";
+				},
 			);
-			PBXWorkspaceStateSaveDate = 69196942;
+			PBXWorkspaceStateSaveDate = 69216080;
 		};
 		perUserProjectItems = {
 			E104866D04018CF400050002 = E104866D04018CF400050002;
@@ -2197,6 +2620,20 @@
 			E104868304018CF400050002 = E104868304018CF400050002;
 			E104868404018CF400050002 = E104868404018CF400050002;
 			E1096EB803C3EDB0009B92C1 = E1096EB803C3EDB0009B92C1;
+			E113BE4D042004B500050002 = E113BE4D042004B500050002;
+			E113BE4E042004B500050002 = E113BE4E042004B500050002;
+			E113BE4F042004B500050002 = E113BE4F042004B500050002;
+			E113BE50042004B500050002 = E113BE50042004B500050002;
+			E113BE51042004B500050002 = E113BE51042004B500050002;
+			E113BE52042004B500050002 = E113BE52042004B500050002;
+			E113BE53042004B500050002 = E113BE53042004B500050002;
+			E113BE54042004B500050002 = E113BE54042004B500050002;
+			E113BE55042004B500050002 = E113BE55042004B500050002;
+			E113BE56042004B500050002 = E113BE56042004B500050002;
+			E113BE57042004B500050002 = E113BE57042004B500050002;
+			E113BE58042004B500050002 = E113BE58042004B500050002;
+			E113BE59042004B500050002 = E113BE59042004B500050002;
+			E113BE5A042004B500050002 = E113BE5A042004B500050002;
 			E117A4AC03C3E9C600E10BA2 = E117A4AC03C3E9C600E10BA2;
 			E117A4B203C3E9C600E10BA2 = E117A4B203C3E9C600E10BA2;
 			E117A4B303C3E9C600E10BA2 = E117A4B303C3E9C600E10BA2;
@@ -2206,7 +2643,6 @@
 			E11CD2D203BF9B3300C49BEF = E11CD2D203BF9B3300C49BEF;
 			E11CD2D303BF9B3300C49BEF = E11CD2D303BF9B3300C49BEF;
 			E11CD2D603BF9B3300C49BEF = E11CD2D603BF9B3300C49BEF;
-			E11CD2D803BF9B3300C49BEF = E11CD2D803BF9B3300C49BEF;
 			E11CD2E303BF9B3300C49BEF = E11CD2E303BF9B3300C49BEF;
 			E11CD2E503BF9B3300C49BEF = E11CD2E503BF9B3300C49BEF;
 			E11CD2E603BF9B3300C49BEF = E11CD2E603BF9B3300C49BEF;
@@ -2246,8 +2682,6 @@
 			E14343C403DB52FA00050002 = E14343C403DB52FA00050002;
 			E14788F9041FC51900050002 = E14788F9041FC51900050002;
 			E14788FA041FC51900050002 = E14788FA041FC51900050002;
-			E14788FB041FC51900050002 = E14788FB041FC51900050002;
-			E14788FC041FC51900050002 = E14788FC041FC51900050002;
 			E14788FD041FC51900050002 = E14788FD041FC51900050002;
 			E14788FE041FC51900050002 = E14788FE041FC51900050002;
 			E14788FF041FC51900050002 = E14788FF041FC51900050002;
@@ -2255,80 +2689,24 @@
 			E1478901041FC51900050002 = E1478901041FC51900050002;
 			E1478902041FC51900050002 = E1478902041FC51900050002;
 			E1478903041FC51900050002 = E1478903041FC51900050002;
-			E1478904041FC51900050002 = E1478904041FC51900050002;
 			E1478905041FC51900050002 = E1478905041FC51900050002;
 			E1478906041FC51900050002 = E1478906041FC51900050002;
 			E1478907041FC51900050002 = E1478907041FC51900050002;
 			E1478908041FC51900050002 = E1478908041FC51900050002;
-			E1478909041FC51900050002 = E1478909041FC51900050002;
-			E147890A041FC51900050002 = E147890A041FC51900050002;
-			E147890B041FC51900050002 = E147890B041FC51900050002;
-			E147890C041FC51900050002 = E147890C041FC51900050002;
-			E147890D041FC51900050002 = E147890D041FC51900050002;
-			E147890E041FC51900050002 = E147890E041FC51900050002;
-			E147890F041FC51900050002 = E147890F041FC51900050002;
-			E1478910041FC51900050002 = E1478910041FC51900050002;
 			E1478911041FC51900050002 = E1478911041FC51900050002;
 			E1478912041FC51900050002 = E1478912041FC51900050002;
-			E1478913041FC51900050002 = E1478913041FC51900050002;
-			E1478914041FC51900050002 = E1478914041FC51900050002;
 			E1478915041FC51900050002 = E1478915041FC51900050002;
-			E1478916041FC51900050002 = E1478916041FC51900050002;
 			E1478917041FC51900050002 = E1478917041FC51900050002;
 			E1478918041FC51900050002 = E1478918041FC51900050002;
 			E1478919041FC51900050002 = E1478919041FC51900050002;
 			E147891B041FC51900050002 = E147891B041FC51900050002;
-			E147891C041FC51900050002 = E147891C041FC51900050002;
-			E147891D041FC51900050002 = E147891D041FC51900050002;
 			E147891E041FC51900050002 = E147891E041FC51900050002;
 			E147891F041FC51900050002 = E147891F041FC51900050002;
 			E1478920041FC51900050002 = E1478920041FC51900050002;
-			E1478921041FC51900050002 = E1478921041FC51900050002;
 			E1478922041FC51900050002 = E1478922041FC51900050002;
-			E1478923041FC51900050002 = E1478923041FC51900050002;
-			E1478924041FC51900050002 = E1478924041FC51900050002;
 			E1478925041FC51900050002 = E1478925041FC51900050002;
-			E1478926041FC51900050002 = E1478926041FC51900050002;
-			E1478927041FC51900050002 = E1478927041FC51900050002;
-			E1478928041FC51900050002 = E1478928041FC51900050002;
-			E1478929041FC51900050002 = E1478929041FC51900050002;
-			E147892A041FC51900050002 = E147892A041FC51900050002;
-			E147892B041FC51900050002 = E147892B041FC51900050002;
-			E147892C041FC51900050002 = E147892C041FC51900050002;
-			E147892D041FC51900050002 = E147892D041FC51900050002;
-			E147892E041FC51900050002 = E147892E041FC51900050002;
-			E147892F041FC51900050002 = E147892F041FC51900050002;
-			E1478930041FC51900050002 = E1478930041FC51900050002;
-			E1478931041FC51900050002 = E1478931041FC51900050002;
-			E1478932041FC51900050002 = E1478932041FC51900050002;
-			E1478933041FC51900050002 = E1478933041FC51900050002;
-			E1478934041FC51900050002 = E1478934041FC51900050002;
-			E1478935041FC51900050002 = E1478935041FC51900050002;
-			E1478936041FC51900050002 = E1478936041FC51900050002;
-			E1478937041FC51900050002 = E1478937041FC51900050002;
-			E1478938041FC51900050002 = E1478938041FC51900050002;
-			E1478939041FC51900050002 = E1478939041FC51900050002;
-			E147893A041FC51900050002 = E147893A041FC51900050002;
-			E147893B041FC51900050002 = E147893B041FC51900050002;
-			E147893C041FC51900050002 = E147893C041FC51900050002;
-			E147893D041FC51900050002 = E147893D041FC51900050002;
-			E147893E041FC51900050002 = E147893E041FC51900050002;
-			E147893F041FC51900050002 = E147893F041FC51900050002;
-			E1478940041FC51900050002 = E1478940041FC51900050002;
-			E1478941041FC51900050002 = E1478941041FC51900050002;
-			E1478942041FC51900050002 = E1478942041FC51900050002;
-			E1478943041FC51900050002 = E1478943041FC51900050002;
-			E1478944041FC51900050002 = E1478944041FC51900050002;
-			E1478945041FC51900050002 = E1478945041FC51900050002;
-			E1478946041FC51900050002 = E1478946041FC51900050002;
-			E1478947041FC51900050002 = E1478947041FC51900050002;
-			E1478948041FC51900050002 = E1478948041FC51900050002;
-			E1478949041FC51900050002 = E1478949041FC51900050002;
-			E147894A041FC51900050002 = E147894A041FC51900050002;
 			E147894B041FC51900050002 = E147894B041FC51900050002;
 			E147894C041FC51900050002 = E147894C041FC51900050002;
-			E147894D041FC51900050002 = E147894D041FC51900050002;
-			E147894E041FC51900050002 = E147894E041FC51900050002;
 			E147894F041FC51900050002 = E147894F041FC51900050002;
 			E1478950041FC51900050002 = E1478950041FC51900050002;
 			E1478951041FC51900050002 = E1478951041FC51900050002;
@@ -2338,8 +2716,6 @@
 			E1478955041FC51900050002 = E1478955041FC51900050002;
 			E1478956041FC51900050002 = E1478956041FC51900050002;
 			E1478957041FC51900050002 = E1478957041FC51900050002;
-			E1478958041FC51900050002 = E1478958041FC51900050002;
-			E1478959041FC51900050002 = E1478959041FC51900050002;
 			E147895A041FC51900050002 = E147895A041FC51900050002;
 			E147895B041FC51900050002 = E147895B041FC51900050002;
 			E147895C041FC51900050002 = E147895C041FC51900050002;
@@ -2348,53 +2724,27 @@
 			E147895F041FC51900050002 = E147895F041FC51900050002;
 			E1478960041FC51900050002 = E1478960041FC51900050002;
 			E1478961041FC51900050002 = E1478961041FC51900050002;
-			E1478962041FC51900050002 = E1478962041FC51900050002;
-			E1478963041FC51900050002 = E1478963041FC51900050002;
 			E1478964041FC51900050002 = E1478964041FC51900050002;
-			E1478965041FC51900050002 = E1478965041FC51900050002;
-			E1478966041FC51900050002 = E1478966041FC51900050002;
-			E1478967041FC51900050002 = E1478967041FC51900050002;
-			E1478968041FC51900050002 = E1478968041FC51900050002;
-			E1478969041FC51900050002 = E1478969041FC51900050002;
-			E147896A041FC51900050002 = E147896A041FC51900050002;
-			E147896B041FC51900050002 = E147896B041FC51900050002;
-			E147896C041FC51900050002 = E147896C041FC51900050002;
-			E147896D041FC51900050002 = E147896D041FC51900050002;
-			E147896E041FC51900050002 = E147896E041FC51900050002;
-			E147896F041FC51900050002 = E147896F041FC51900050002;
-			E1478970041FC51900050002 = E1478970041FC51900050002;
-			E1478971041FC51900050002 = E1478971041FC51900050002;
-			E1478972041FC51900050002 = E1478972041FC51900050002;
-			E1478973041FC51900050002 = E1478973041FC51900050002;
 			E1478974041FC51900050002 = E1478974041FC51900050002;
-			E1478975041FC51900050002 = E1478975041FC51900050002;
-			E1478976041FC51900050002 = E1478976041FC51900050002;
-			E1478977041FC51900050002 = E1478977041FC51900050002;
-			E1478978041FC51900050002 = E1478978041FC51900050002;
 			E1478979041FC51900050002 = E1478979041FC51900050002;
-			E147897A041FC51900050002 = E147897A041FC51900050002;
 			E147897B041FC51900050002 = E147897B041FC51900050002;
 			E147897C041FC51900050002 = E147897C041FC51900050002;
-			E147897D041FC51900050002 = E147897D041FC51900050002;
 			E147897E041FC51900050002 = E147897E041FC51900050002;
 			E147897F041FC51900050002 = E147897F041FC51900050002;
-			E1478980041FC51900050002 = E1478980041FC51900050002;
-			E1478981041FC51900050002 = E1478981041FC51900050002;
 			E1478982041FC51900050002 = E1478982041FC51900050002;
-			E1478983041FC51900050002 = E1478983041FC51900050002;
 			E1478984041FC51900050002 = E1478984041FC51900050002;
-			E1478985041FC51900050002 = E1478985041FC51900050002;
 			E1478986041FC51900050002 = E1478986041FC51900050002;
-			E1478987041FC51900050002 = E1478987041FC51900050002;
-			E147898D041FC51900050002 = E147898D041FC51900050002;
-			E147898F041FC51900050002 = E147898F041FC51900050002;
-			E14789A7041FCB3800050002 = E14789A7041FCB3800050002;
 			E14789A8041FCB3800050002 = E14789A8041FCB3800050002;
 			E14789A9041FCB3800050002 = E14789A9041FCB3800050002;
 			E14789AA041FCB3800050002 = E14789AA041FCB3800050002;
-			E14789AB041FCB3800050002 = E14789AB041FCB3800050002;
-			E14789AC041FCB3800050002 = E14789AC041FCB3800050002;
-			E14789AD041FCB3800050002 = E14789AD041FCB3800050002;
+			E14789CE041FE12E00050002 = E14789CE041FE12E00050002;
+			E14789CF041FE12E00050002 = E14789CF041FE12E00050002;
+			E14789D2041FE12E00050002 = E14789D2041FE12E00050002;
+			E14789D3041FE12E00050002 = E14789D3041FE12E00050002;
+			E14789D4041FE12E00050002 = E14789D4041FE12E00050002;
+			E14789D5041FE12E00050002 = E14789D5041FE12E00050002;
+			E14789D6041FE12E00050002 = E14789D6041FE12E00050002;
+			E14789D7041FE12E00050002 = E14789D7041FE12E00050002;
 			E14A56F104E785DC00050002 = E14A56F104E785DC00050002;
 			E14A56F304E785DC00050002 = E14A56F304E785DC00050002;
 			E14A56F404E785DC00050002 = E14A56F404E785DC00050002;
@@ -2407,7 +2757,6 @@
 			E14A56FD04E785DC00050002 = E14A56FD04E785DC00050002;
 			E14A56FF04E785DC00050002 = E14A56FF04E785DC00050002;
 			E14A570004E785DC00050002 = E14A570004E785DC00050002;
-			E14A570104E785DC00050002 = E14A570104E785DC00050002;
 			E14A570204E785DC00050002 = E14A570204E785DC00050002;
 			E14A570304E785DC00050002 = E14A570304E785DC00050002;
 			E14A570404E785DC00050002 = E14A570404E785DC00050002;
@@ -2778,7 +3127,6 @@
 			E1A9DEF203BF480F0089E8B2 = E1A9DEF203BF480F0089E8B2;
 			E1A9DEF703BF480F0089E8B2 = E1A9DEF703BF480F0089E8B2;
 			E1A9DEFB03BF480F0089E8B2 = E1A9DEFB03BF480F0089E8B2;
-			E1A9DEFC03BF480F0089E8B2 = E1A9DEFC03BF480F0089E8B2;
 			E1A9DEFD03BF480F0089E8B2 = E1A9DEFD03BF480F0089E8B2;
 			E1A9DEFE03BF480F0089E8B2 = E1A9DEFE03BF480F0089E8B2;
 			E1A9DF0203BF480F0089E8B2 = E1A9DF0203BF480F0089E8B2;
@@ -3104,7 +3452,6 @@
 			E1D293BF03BD418200F9204E = E1D293BF03BD418200F9204E;
 			E1D293C003BD418200F9204E = E1D293C003BD418200F9204E;
 			E1D293C103BD418200F9204E = E1D293C103BD418200F9204E;
-			E1D293C203BD418200F9204E = E1D293C203BD418200F9204E;
 			E1D293C403BD418200F9204E = E1D293C403BD418200F9204E;
 			E1D293C503BD418200F9204E = E1D293C503BD418200F9204E;
 			E1D293C603BD418200F9204E = E1D293C603BD418200F9204E;
@@ -3177,12 +3524,6 @@
 			E1DC3E3B041F2CF600050002 = E1DC3E3B041F2CF600050002;
 			E1DC3E3E041F2CF600050002 = E1DC3E3E041F2CF600050002;
 			E1DC3E3F041F2CF600050002 = E1DC3E3F041F2CF600050002;
-			E1DC3E40041F2CF600050002 = E1DC3E40041F2CF600050002;
-			E1DC3E41041F2CF600050002 = E1DC3E41041F2CF600050002;
-			E1DC3E42041F2CF600050002 = E1DC3E42041F2CF600050002;
-			E1DC3E43041F2CF600050002 = E1DC3E43041F2CF600050002;
-			E1DC3E44041F2CF600050002 = E1DC3E44041F2CF600050002;
-			E1DC3E45041F2CF600050002 = E1DC3E45041F2CF600050002;
 			E1DEF12A04003A5F00050002 = E1DEF12A04003A5F00050002;
 			E1DEF12B04003A5F00050002 = E1DEF12B04003A5F00050002;
 			E1DEF12C04003A5F00050002 = E1DEF12C04003A5F00050002;
@@ -3609,7 +3950,6 @@
 			E1F7C61C041C5B0000FEF34D = E1F7C61C041C5B0000FEF34D;
 			E1F7C61D041C5B0000FEF34D = E1F7C61D041C5B0000FEF34D;
 			E1F7C61E041C5B0000FEF34D = E1F7C61E041C5B0000FEF34D;
-			E1F7C61F041C5B0000FEF34D = E1F7C61F041C5B0000FEF34D;
 			E1F7C620041C5B0000FEF34D = E1F7C620041C5B0000FEF34D;
 			E1F7C622041C5B0000FEF34D = E1F7C622041C5B0000FEF34D;
 			E1F7C623041C5B0000FEF34D = E1F7C623041C5B0000FEF34D;
@@ -3919,6 +4259,140 @@
 		vrLen = 900;
 		vrLoc = 0;
 	};
+	E113BE4D042004B500050002 = {
+		fRef = E10E71F4040C335800050002;
+		isa = PBXTextBookmark;
+		name = "English: 99";
+		rLen = 0;
+		rLoc = 4924;
+		rType = 0;
+		vrLen = 1779;
+		vrLoc = 4227;
+	};
+	E113BE4E042004B500050002 = {
+		fRef = E1BF6E9103C928D200050002;
+		isa = PBXTextBookmark;
+		name = "PSTimer.m: 242";
+		rLen = 0;
+		rLoc = 7120;
+		rType = 0;
+		vrLen = 1527;
+		vrLoc = 6019;
+	};
+	E113BE4F042004B500050002 = {
+		fRef = E130B9AC03B7C59700000028;
+		isa = PBXTextBookmark;
+		name = "PSPowerManager.h: 16";
+		rLen = 28;
+		rLoc = 320;
+		rType = 0;
+		vrLen = 864;
+		vrLoc = 0;
+	};
+	E113BE50042004B500050002 = {
+		fRef = E130B9AD03B7C59700000028;
+		isa = PBXTextBookmark;
+		name = "PSPowerManager.m: 237";
+		rLen = 9;
+		rLoc = 7737;
+		rType = 0;
+		vrLen = 1430;
+		vrLoc = 7268;
+	};
+	E113BE51042004B500050002 = {
+		fRef = E130B9AD03B7C59700000028;
+		isa = PBXTextBookmark;
+		name = "PSPowerManager.m: 90";
+		rLen = 1;
+		rLoc = 3057;
+		rType = 0;
+		vrLen = 1261;
+		vrLoc = 1549;
+	};
+	E113BE52042004B500050002 = {
+		fRef = E1BF6E9103C928D200050002;
+		isa = PBXTextBookmark;
+		name = "PSTimer.m: alert";
+		rLen = 0;
+		rLoc = 7054;
+		rType = 0;
+		vrLen = 1464;
+		vrLoc = 5914;
+	};
+	E113BE53042004B500050002 = {
+		fRef = E10E71F4040C335800050002;
+		isa = PBXTextBookmark;
+		name = "English: 99";
+		rLen = 0;
+		rLoc = 4924;
+		rType = 0;
+		vrLen = 1779;
+		vrLoc = 4227;
+	};
+	E113BE54042004B500050002 = {
+		fRef = E1BF6E9103C928D200050002;
+		isa = PBXTextBookmark;
+		name = "PSTimer.m: 232";
+		rLen = 0;
+		rLoc = 6683;
+		rType = 0;
+		vrLen = 1535;
+		vrLoc = 5914;
+	};
+	E113BE55042004B500050002 = {
+		fRef = E130B9AD03B7C59700000028;
+		isa = PBXTextBookmark;
+		name = "PSPowerManager.m: 238";
+		rLen = 0;
+		rLoc = 7785;
+		rType = 0;
+		vrLen = 1430;
+		vrLoc = 7268;
+	};
+	E113BE56042004B500050002 = {
+		fRef = E1BF6E9103C928D200050002;
+		isa = PBXTextBookmark;
+		name = "PSTimer.m: 242";
+		rLen = 0;
+		rLoc = 7120;
+		rType = 0;
+		vrLen = 1527;
+		vrLoc = 6019;
+	};
+	E113BE57042004B500050002 = {
+		fRef = E130B9AC03B7C59700000028;
+		isa = PBXTextBookmark;
+		name = "PSPowerManager.h: 16";
+		rLen = 28;
+		rLoc = 320;
+		rType = 0;
+		vrLen = 864;
+		vrLoc = 0;
+	};
+	E113BE58042004B500050002 = {
+		fRef = E130B9AD03B7C59700000028;
+		isa = PBXTextBookmark;
+		name = "PSPowerManager.m: 237";
+		rLen = 18;
+		rLoc = 7718;
+		rType = 0;
+		vrLen = 1541;
+		vrLoc = 7484;
+	};
+	E113BE59042004B500050002 = {
+		fRef = E10E71F4040C335800050002;
+		isa = PBXBookmark;
+	};
+	E113BE5A042004B500050002 = {
+		fRef = E10E71F4040C335800050002;
+		isa = PBXTextBookmark;
+		name = "English: 113";
+		rLen = 0;
+		rLoc = 6024;
+		rType = 0;
+		vrLen = 1841;
+		vrLoc = 4183;
+	};
 	E1156C2D03C39718006717DC = {
 		fRef = E13919E303B9E4E100000028;
 		isa = PBXTextBookmark;
@@ -4015,16 +4489,6 @@
 		rType = 0;
 		vrLen = 491;
 		vrLoc = 0;
-	};
-	E11CD2D803BF9B3300C49BEF = {
-		fRef = F5F240CA036A869401FE7503;
-		isa = PBXTextBookmark;
-		name = "BDAlias.m: displayNameWithKindString:";
-		rLen = 0;
-		rLoc = 6212;
-		rType = 0;
-		vrLen = 987;
-		vrLoc = 5329;
 	};
 	E11CD2E303BF9B3300C49BEF = {
 		fRef = F5F1986C036B813101EB0372;
@@ -4478,9 +4942,9 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.h: setWakeInterval:";
 		rLen = 15;
-		rLoc = 492;
+		rLoc = 473;
 		rType = 0;
-		vrLen = 883;
+		vrLen = 864;
 		vrLoc = 0;
 	};
 	E14788F7041F659F00050002 = {
@@ -4506,20 +4970,6 @@
 	E14788FA041FC51900050002 = {
 		exec = E14A56EC041DD6B600050002;
 		isa = PBXExecutableBookmark;
-	};
-	E14788FB041FC51900050002 = {
-		isa = PBXTargetBookmark;
-		trg = E14A56EA041DD6B600050002;
-	};
-	E14788FC041FC51900050002 = {
-		fRef = E14788D9041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.h: 30";
-		rLen = 0;
-		rLoc = 1686;
-		rType = 0;
-		vrLen = 2285;
-		vrLoc = 0;
 	};
 	E14788FD041FC51900050002 = {
 		fRef = E1478990041FC51900050002;
@@ -4591,16 +5041,6 @@
 		vrLen = 1624;
 		vrLoc = 1808;
 	};
-	E1478904041FC51900050002 = {
-		fRef = E1BF6E9103C928D200050002;
-		isa = PBXTextBookmark;
-		name = "PSTimer.m: 227";
-		rLen = 0;
-		rLoc = 6460;
-		rType = 0;
-		vrLen = 1104;
-		vrLoc = 5535;
-	};
 	E1478905041FC51900050002 = {
 		fRef = E1BF6E9003C928D200050002;
 		isa = PBXTextBookmark;
@@ -4641,80 +5081,6 @@
 		vrLen = 727;
 		vrLoc = 0;
 	};
-	E1478909041FC51900050002 = {
-		isa = PBXTargetBookmark;
-		trg = 29B97326FDCFA39411CA2CEA;
-	};
-	E147890A041FC51900050002 = {
-		fRef = E14788D6041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.c: 105";
-		rLen = 13;
-		rLoc = 4015;
-		rType = 0;
-		vrLen = 603;
-		vrLoc = 3752;
-	};
-	E147890B041FC51900050002 = {
-		fRef = E14788DB041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSetup.h: 219";
-		rLen = 0;
-		rLoc = 9022;
-		rType = 0;
-		vrLen = 1306;
-		vrLoc = 8845;
-	};
-	E147890C041FC51900050002 = {
-		fRef = E14788D5041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.c: 15";
-		rLen = 0;
-		rLoc = 571;
-		rType = 0;
-		vrLen = 2286;
-		vrLoc = 0;
-	};
-	E147890D041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: kPesterWakeException";
-		rLen = 0;
-		rLoc = 180;
-		rType = 0;
-		vrLen = 225;
-		vrLoc = 0;
-	};
-	E147890E041FC51900050002 = {
-		fRef = E10E71F4040C335800050002;
-		isa = PBXTextBookmark;
-		name = "English: 115";
-		rLen = 0;
-		rLoc = 6392;
-		rType = 0;
-		vrLen = 2153;
-		vrLoc = 4660;
-	};
-	E147890F041FC51900050002 = {
-		fRef = E14788D7041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.h: OSStatusToEXXX";
-		rLen = 0;
-		rLoc = 3526;
-		rType = 0;
-		vrLen = 937;
-		vrLoc = 2991;
-	};
-	E1478910041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: MoreSecExecuteRequestInHelperTool";
-		rLen = 0;
-		rLoc = 50840;
-		rType = 0;
-		vrLen = 1260;
-		vrLoc = 50405;
-	};
 	E1478911041FC51900050002 = {
 		fRef = E147899A041FC51A00050002;
 		glyphRangeLength = 1796;
@@ -4732,42 +5098,12 @@
 		vrLen = 1686;
 		vrLoc = 2769;
 	};
-	E1478913041FC51900050002 = {
-		fRef = E130B9AC03B7C59700000028;
-		isa = PBXTextBookmark;
-		name = "PSPowerManager.h: setWakeInterval:";
-		rLen = 15;
-		rLoc = 492;
-		rType = 0;
-		vrLen = 883;
-		vrLoc = 0;
-	};
-	E1478914041FC51900050002 = {
-		fRef = E14788DA041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.h: MoreSecHelperToolCopyAuthRef";
-		rLen = 28;
-		rLoc = 14565;
-		rType = 0;
-		vrLen = 1584;
-		vrLoc = 13416;
-	};
 	E1478915041FC51900050002 = {
 		fRef = E1478991041FC51900050002;
 		glyphRangeLength = 1626;
 		glyphRangeLocation = 71;
 		isa = PBXDocBookmark;
 		name = "Creating_and_n_References.html: Creates a ne...";
-	};
-	E1478916041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: main";
-		rLen = 0;
-		rLoc = 2304;
-		rType = 0;
-		vrLen = 1112;
-		vrLoc = 1260;
 	};
 	E1478917041FC51900050002 = {
 		fRef = E147899B041FC51A00050002;
@@ -4804,30 +5140,10 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: pmuReference";
 		rLen = 0;
-		rLoc = 6334;
+		rLoc = 5499;
 		rType = 0;
 		vrLen = 909;
 		vrLoc = 5623;
-	};
-	E147891C041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: 12";
-		rLen = 0;
-		rLoc = 225;
-		rType = 0;
-		vrLen = 241;
-		vrLoc = 0;
-	};
-	E147891D041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: usage";
-		rLen = 0;
-		rLoc = 2372;
-		rType = 0;
-		vrLen = 833;
-		vrLoc = 0;
 	};
 	E147891E041FC51900050002 = {
 		exec = F59B967103538BE201154278;
@@ -4841,407 +5157,19 @@
 		exec = E14A56EC041DD6B600050002;
 		isa = PBXExecutableBookmark;
 	};
-	E1478921041FC51900050002 = {
-		isa = PBXTargetBookmark;
-		trg = E14A56EA041DD6B600050002;
-	};
 	E1478922041FC51900050002 = {
 		isa = PBXTargetBookmark;
 		trg = 29B97326FDCFA39411CA2CEA;
-	};
-	E1478923041FC51900050002 = {
-		isa = PBXTargetBookmark;
-		trg = E14A56EA041DD6B600050002;
-	};
-	E1478924041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: 13";
-		rLen = 0;
-		rLoc = 225;
-		rType = 0;
-		vrLen = 241;
-		vrLoc = 0;
 	};
 	E1478925041FC51900050002 = {
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: _pmuReference";
 		rLen = 0;
-		rLoc = 6334;
+		rLoc = 5499;
 		rType = 0;
 		vrLen = 1335;
 		vrLoc = 6384;
-	};
-	E1478926041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: usage";
-		rLen = 0;
-		rLoc = 2372;
-		rType = 0;
-		vrLen = 833;
-		vrLoc = 0;
-	};
-	E1478927041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: 8";
-		rLen = 0;
-		rLoc = 225;
-		rType = 0;
-		vrLen = 143;
-		vrLoc = 0;
-	};
-	E1478928041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: err";
-		rLen = 0;
-		rLoc = 373;
-		rType = 0;
-		vrLen = 956;
-		vrLoc = 0;
-	};
-	E1478929041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: 14";
-		rLen = 0;
-		rLoc = 225;
-		rType = 0;
-		vrLen = 439;
-		vrLoc = 0;
-	};
-	E147892A041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: DoGetUIDsCommand";
-		rLen = 0;
-		rLoc = 373;
-		rType = 0;
-		vrLen = 1398;
-		vrLoc = 956;
-	};
-	E147892B041FC51900050002 = {
-		fRef = E14788D5041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.c: 11";
-		rLen = 0;
-		rLoc = 258;
-		rType = 0;
-		vrLen = 1557;
-		vrLoc = 0;
-	};
-	E147892C041FC51900050002 = {
-		fRef = E14788D9041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 2285;
-		vrLoc = 0;
-	};
-	E147892D041FC51900050002 = {
-		fRef = E14788D5041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.c: 11";
-		rLen = 0;
-		rLoc = 258;
-		rType = 0;
-		vrLen = 2285;
-		vrLoc = 0;
-	};
-	E147892E041FC51900050002 = {
-		fRef = E14788D6041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.c: __VERSION__";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 1548;
-		vrLoc = 0;
-	};
-	E147892F041FC51900050002 = {
-		fRef = E14788D7041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.h: 10";
-		rLen = 0;
-		rLoc = 162;
-		rType = 0;
-		vrLen = 2276;
-		vrLoc = 0;
-	};
-	E1478930041FC51900050002 = {
-		fRef = E14788D9041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 2285;
-		vrLoc = 0;
-	};
-	E1478931041FC51900050002 = {
-		fRef = E14788D7041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.h: 10";
-		rLen = 0;
-		rLoc = 162;
-		rType = 0;
-		vrLen = 2276;
-		vrLoc = 0;
-	};
-	E1478932041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: __SIZE_TYPE__";
-		rLen = 0;
-		rLoc = 58;
-		rType = 0;
-		vrLen = 2276;
-		vrLoc = 0;
-	};
-	E1478933041FC51900050002 = {
-		fRef = E14788D9041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.h: 30";
-		rLen = 0;
-		rLoc = 1686;
-		rType = 0;
-		vrLen = 2285;
-		vrLoc = 0;
-	};
-	E1478934041FC51900050002 = {
-		fRef = E14788DA041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.h: 21";
-		rLen = 0;
-		rLoc = 1046;
-		rType = 0;
-		vrLen = 2276;
-		vrLoc = 0;
-	};
-	E1478935041FC51900050002 = {
-		fRef = E14788DB041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSetup.h: 15";
-		rLen = 0;
-		rLoc = 592;
-		rType = 0;
-		vrLen = 1306;
-		vrLoc = 8845;
-	};
-	E1478936041FC51900050002 = {
-		fRef = E14788DA041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.h: 21";
-		rLen = 0;
-		rLoc = 1046;
-		rType = 0;
-		vrLen = 2276;
-		vrLoc = 0;
-	};
-	E1478937041FC51900050002 = {
-		fRef = E14788DB041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSetup.h: 15";
-		rLen = 0;
-		rLoc = 592;
-		rType = 0;
-		vrLen = 1356;
-		vrLoc = 8795;
-	};
-	E1478938041FC51900050002 = {
-		fRef = E14788DA041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.h: 21";
-		rLen = 0;
-		rLoc = 1046;
-		rType = 0;
-		vrLen = 2276;
-		vrLoc = 0;
-	};
-	E1478939041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: __SIZE_TYPE__";
-		rLen = 0;
-		rLoc = 58;
-		rType = 0;
-		vrLen = 2276;
-		vrLoc = 0;
-	};
-	E147893A041FC51900050002 = {
-		fRef = E14788D9041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.h: 30";
-		rLen = 0;
-		rLoc = 1686;
-		rType = 0;
-		vrLen = 2285;
-		vrLoc = 0;
-	};
-	E147893B041FC51900050002 = {
-		fRef = E14788D5041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.c: 11";
-		rLen = 0;
-		rLoc = 258;
-		rType = 0;
-		vrLen = 2285;
-		vrLoc = 0;
-	};
-	E147893C041FC51900050002 = {
-		fRef = E14788D7041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.h: 10";
-		rLen = 0;
-		rLoc = 162;
-		rType = 0;
-		vrLen = 2276;
-		vrLoc = 0;
-	};
-	E147893D041FC51900050002 = {
-		fRef = E14788D6041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.c: MoreUNIXCopyFile";
-		rLen = 0;
-		rLoc = 11728;
-		rType = 0;
-		vrLen = 854;
-		vrLoc = 10891;
-	};
-	E147893E041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: DoGetUIDsCommand";
-		rLen = 0;
-		rLoc = 1541;
-		rType = 0;
-		vrLen = 1299;
-		vrLoc = 968;
-	};
-	E147893F041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: 9";
-		rLen = 15;
-		rLoc = 152;
-		rType = 0;
-		vrLen = 267;
-		vrLoc = 0;
-	};
-	E1478940041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: DoGetUIDsCommand";
-		rLen = 0;
-		rLoc = 1785;
-		rType = 0;
-		vrLen = 1556;
-		vrLoc = 236;
-	};
-	E1478941041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: kMoreSecurityTestGetUIDsResponseRUID";
-		rLen = 20;
-		rLoc = 188;
-		rType = 0;
-		vrLen = 267;
-		vrLoc = 0;
-	};
-	E1478942041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: DoGetUIDsCommand";
-		rLen = 0;
-		rLoc = 1880;
-		rType = 0;
-		vrLen = 1486;
-		vrLoc = 372;
-	};
-	E1478943041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: kMoreSecurityTestGetUIDsCommand";
-		rLen = 0;
-		rLoc = 180;
-		rType = 0;
-		vrLen = 267;
-		vrLoc = 0;
-	};
-	E1478944041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: DoGetUIDsCommand";
-		rLen = 0;
-		rLoc = 1880;
-		rType = 0;
-		vrLen = 1486;
-		vrLoc = 372;
-	};
-	E1478945041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: kMoreSecurityTestGetUIDsCommand";
-		rLen = 0;
-		rLoc = 180;
-		rType = 0;
-		vrLen = 225;
-		vrLoc = 0;
-	};
-	E1478946041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: DoGetUIDsCommand";
-		rLen = 0;
-		rLoc = 1880;
-		rType = 0;
-		vrLen = 1486;
-		vrLoc = 372;
-	};
-	E1478947041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: kMoreSecurityTestGetUIDsCommand";
-		rLen = 0;
-		rLoc = 180;
-		rType = 0;
-		vrLen = 267;
-		vrLoc = 0;
-	};
-	E1478948041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: auth";
-		rLen = 0;
-		rLoc = 1982;
-		rType = 0;
-		vrLen = 1261;
-		vrLoc = 1111;
-	};
-	E1478949041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: 129";
-		rLen = 0;
-		rLoc = 5111;
-		rType = 0;
-		vrLen = 855;
-		vrLoc = 4670;
-	};
-	E147894A041FC51900050002 = {
-		fRef = E14788DA041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.h: 549";
-		rLen = 0;
-		rLoc = 24721;
-		rType = 0;
-		vrLen = 1483;
-		vrLoc = 23128;
 	};
 	E147894B041FC51900050002 = {
 		fRef = F59DC6E90353F58B01AEEDB1;
@@ -5258,37 +5186,17 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: setWakeInterval:";
 		rLen = 0;
-		rLoc = 9937;
+		rLoc = 6447;
 		rType = 0;
 		vrLen = 1209;
 		vrLoc = 3938;
-	};
-	E147894D041FC51900050002 = {
-		fRef = E14788D6041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.c: MoreUNIXCopyFile";
-		rLen = 0;
-		rLoc = 11728;
-		rType = 0;
-		vrLen = 854;
-		vrLoc = 10891;
-	};
-	E147894E041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: rights";
-		rLen = 0;
-		rLoc = 967;
-		rType = 0;
-		vrLen = 1566;
-		vrLoc = 195;
 	};
 	E147894F041FC51900050002 = {
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: setWakeInterval:";
-		rLen = 5;
-		rLoc = 8414;
+		rLen = 0;
+		rLoc = 6447;
 		rType = 0;
 		vrLen = 1273;
 		vrLoc = 5905;
@@ -5298,7 +5206,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.h: 34";
 		rLen = 0;
-		rLoc = 883;
+		rLoc = 864;
 		rType = 0;
 		vrLen = 814;
 		vrLoc = 0;
@@ -5307,8 +5215,8 @@
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: setWakeInterval:";
-		rLen = 23;
-		rLoc = 8421;
+		rLen = 0;
+		rLoc = 6447;
 		rType = 0;
 		vrLen = 1297;
 		vrLoc = 5905;
@@ -5328,9 +5236,9 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: _execWakeToolWithRequestDictionary:";
 		rLen = 0;
-		rLoc = 9635;
+		rLoc = 6447;
 		rType = 0;
-		vrLen = 1903;
+		vrLen = 1808;
 		vrLoc = 7431;
 	};
 	E1478954041FC51900050002 = {
@@ -5338,7 +5246,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 227";
 		rLen = 113;
-		rLoc = 6348;
+		rLoc = 6739;
 		rType = 0;
 		vrLen = 1181;
 		vrLoc = 5697;
@@ -5357,10 +5265,10 @@
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: _execWakeToolWithRequestDictionary:";
-		rLen = 9;
-		rLoc = 9635;
+		rLen = 0;
+		rLoc = 6447;
 		rType = 0;
-		vrLen = 1865;
+		vrLen = 1808;
 		vrLoc = 7431;
 	};
 	E1478957041FC51900050002 = {
@@ -5372,26 +5280,6 @@
 		rType = 0;
 		vrLen = 864;
 		vrLoc = 0;
-	};
-	E1478958041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: kPesterWakeSuccess";
-		rLen = 0;
-		rLoc = 180;
-		rType = 0;
-		vrLen = 225;
-		vrLoc = 0;
-	};
-	E1478959041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: SetAutoWake";
-		rLen = 0;
-		rLoc = 1863;
-		rType = 0;
-		vrLen = 1494;
-		vrLoc = 644;
 	};
 	E147895A041FC51900050002 = {
 		fRef = E19FD39E03C98645001509F3;
@@ -5437,10 +5325,10 @@
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: authorize";
-		rLen = 19;
-		rLoc = 9843;
+		rLen = 0;
+		rLoc = 6447;
 		rType = 0;
-		vrLen = 1717;
+		vrLen = 1528;
 		vrLoc = 7711;
 	};
 	E147895F041FC51900050002 = {
@@ -5448,9 +5336,9 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.h: setWakeInterval:";
 		rLen = 0;
-		rLoc = 462;
+		rLoc = 443;
 		rType = 0;
-		vrLen = 883;
+		vrLen = 864;
 		vrLoc = 0;
 	};
 	E1478960041FC51900050002 = {
@@ -5468,263 +5356,43 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: tool";
 		rLen = 0;
-		rLoc = 8587;
+		rLoc = 6447;
 		rType = 0;
 		vrLen = 1815;
 		vrLoc = 6779;
 	};
-	E1478962041FC51900050002 = {
-		fRef = E14788D6041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.c: MoreUNIXWrite";
-		rLen = 10;
-		rLoc = 8684;
-		rType = 0;
-		vrLen = 1134;
-		vrLoc = 7738;
-	};
-	E1478963041FC51900050002 = {
-		fRef = E14788DB041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSetup.h: 196";
-		rLen = 0;
-		rLoc = 8460;
-		rType = 0;
-		vrLen = 1230;
-		vrLoc = 7615;
-	};
 	E1478964041FC51900050002 = {
 		isa = PBXTargetBookmark;
 		trg = 29B97326FDCFA39411CA2CEA;
-	};
-	E1478965041FC51900050002 = {
-		fRef = E14788D6041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.c: 105";
-		rLen = 13;
-		rLoc = 4015;
-		rType = 0;
-		vrLen = 603;
-		vrLoc = 3752;
-	};
-	E1478966041FC51900050002 = {
-		fRef = E14788D7041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.h: 10";
-		rLen = 0;
-		rLoc = 162;
-		rType = 0;
-		vrLen = 2276;
-		vrLoc = 0;
-	};
-	E1478967041FC51900050002 = {
-		fRef = E14788D6041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.c: 105";
-		rLen = 13;
-		rLoc = 4015;
-		rType = 0;
-		vrLen = 603;
-		vrLoc = 3752;
-	};
-	E1478968041FC51900050002 = {
-		fRef = E14788D7041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreUNIX.h: 93";
-		rLen = 0;
-		rLoc = 3756;
-		rType = 0;
-		vrLen = 986;
-		vrLoc = 3090;
-	};
-	E1478969041FC51900050002 = {
-		fRef = E14788D5041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.c: 24";
-		rLen = 0;
-		rLoc = 1238;
-		rType = 0;
-		vrLen = 2286;
-		vrLoc = 0;
-	};
-	E147896A041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: ExecuteSelfInPrivilegedSelfRepairMode";
-		rLen = 0;
-		rLoc = 24314;
-		rType = 0;
-		vrLen = 1141;
-		vrLoc = 23935;
-	};
-	E147896B041FC51900050002 = {
-		fRef = E14788DB041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSetup.h: 219";
-		rLen = 0;
-		rLoc = 9022;
-		rType = 0;
-		vrLen = 1306;
-		vrLoc = 8845;
-	};
-	E147896C041FC51900050002 = {
-		fRef = E14788D5041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreCFQ.c: 15";
-		rLen = 0;
-		rLoc = 571;
-		rType = 0;
-		vrLen = 2286;
-		vrLoc = 0;
-	};
-	E147896D041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: 1389";
-		rLen = 32;
-		rLoc = 44003;
-		rType = 0;
-		vrLen = 1329;
-		vrLoc = 42568;
-	};
-	E147896E041FC51900050002 = {
-		fRef = E14788DA041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.h: 472";
-		rLen = 0;
-		rLoc = 21166;
-		rType = 0;
-		vrLen = 1706;
-		vrLoc = 20884;
-	};
-	E147896F041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: MoreSecCopyHelperToolURLAndCheck";
-		rLen = 28;
-		rLoc = 46869;
-		rType = 0;
-		vrLen = 1136;
-		vrLoc = 46110;
-	};
-	E1478970041FC51900050002 = {
-		fRef = E14788DA041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.h: MoreSecDestroyInheritedEnvironment";
-		rLen = 34;
-		rLoc = 7072;
-		rType = 0;
-		vrLen = 1821;
-		vrLoc = 6333;
-	};
-	E1478971041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: 1389";
-		rLen = 196;
-		rLoc = 43987;
-		rType = 0;
-		vrLen = 941;
-		vrLoc = 43583;
-	};
-	E1478972041FC51900050002 = {
-		fRef = E14788DA041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.h: MoreSecCopyHelperToolURLAndCheck";
-		rLen = 0;
-		rLoc = 19010;
-		rType = 0;
-		vrLen = 2149;
-		vrLoc = 17605;
-	};
-	E1478973041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: MoreSecCopyHelperToolURLAndCheckBundled";
-		rLen = 0;
-		rLoc = 48068;
-		rType = 0;
-		vrLen = 1224;
-		vrLoc = 47128;
 	};
 	E1478974041FC51900050002 = {
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: _execWakeToolWithRequestDictionary:";
 		rLen = 0;
-		rLoc = 8183;
+		rLoc = 6447;
 		rType = 0;
 		vrLen = 1931;
 		vrLoc = 7238;
-	};
-	E1478975041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: SetAutoWake";
-		rLen = 0;
-		rLoc = 1863;
-		rType = 0;
-		vrLen = 1494;
-		vrLoc = 644;
-	};
-	E1478976041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: MoreSecExecuteRequestInHelperTool";
-		rLen = 0;
-		rLoc = 49682;
-		rType = 0;
-		vrLen = 1317;
-		vrLoc = 48607;
-	};
-	E1478977041FC51900050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: kPesterWakeException";
-		rLen = 0;
-		rLoc = 180;
-		rType = 0;
-		vrLen = 225;
-		vrLoc = 0;
-	};
-	E1478978041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: SetAutoWake";
-		rLen = 0;
-		rLoc = 1389;
-		rType = 0;
-		vrLen = 1517;
-		vrLoc = 476;
 	};
 	E1478979041FC51900050002 = {
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: setWakeInterval:";
 		rLen = 0;
-		rLoc = 10009;
+		rLoc = 6503;
 		rType = 0;
-		vrLen = 1616;
+		vrLen = 734;
 		vrLoc = 8505;
-	};
-	E147897A041FC51900050002 = {
-		fRef = E14788DA041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.h: MoreSecHelperToolCopyAuthRef";
-		rLen = 28;
-		rLoc = 14565;
-		rType = 0;
-		vrLen = 1657;
-		vrLoc = 13416;
 	};
 	E147897B041FC51900050002 = {
 		fRef = E130B9AC03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.h: wakeTime";
 		rLen = 0;
-		rLoc = 462;
+		rLoc = 443;
 		rType = 0;
-		vrLen = 883;
+		vrLen = 864;
 		vrLoc = 0;
 	};
 	E147897C041FC51900050002 = {
@@ -5732,29 +5400,19 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: _execWakeToolWithRequestDictionary:";
 		rLen = 0;
-		rLoc = 8183;
+		rLoc = 6447;
 		rType = 0;
-		vrLen = 1923;
+		vrLen = 1690;
 		vrLoc = 7549;
-	};
-	E147897D041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: SetAutoWake";
-		rLen = 0;
-		rLoc = 1182;
-		rType = 0;
-		vrLen = 1540;
-		vrLoc = 324;
 	};
 	E147897E041FC51900050002 = {
 		fRef = E130B9AC03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.h: setWakeInterval:";
 		rLen = 15;
-		rLoc = 492;
+		rLoc = 473;
 		rType = 0;
-		vrLen = 883;
+		vrLen = 864;
 		vrLoc = 0;
 	};
 	E147897F041FC51900050002 = {
@@ -5762,110 +5420,40 @@
 		isa = PBXTextBookmark;
 		name = "English: 115";
 		rLen = 0;
-		rLoc = 6392;
+		rLoc = 6024;
 		rType = 0;
-		vrLen = 2153;
+		vrLen = 1345;
 		vrLoc = 4660;
-	};
-	E1478980041FC51900050002 = {
-		fRef = E14788D8041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.c: MoreSecHelperToolMain";
-		rLen = 35;
-		rLoc = 33713;
-		rType = 0;
-		vrLen = 1380;
-		vrLoc = 33139;
-	};
-	E1478981041FC51900050002 = {
-		fRef = E14788DA041F2FF600050002;
-		isa = PBXTextBookmark;
-		name = "MoreSecurity.h: MoreSecHelperToolCopyAuthRef";
-		rLen = 28;
-		rLoc = 14565;
-		rType = 0;
-		vrLen = 1584;
-		vrLoc = 13416;
 	};
 	E1478982041FC51900050002 = {
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: _execWakeToolWithRequestDictionary:";
 		rLen = 0;
-		rLoc = 8182;
+		rLoc = 6447;
 		rType = 0;
 		vrLen = 1905;
 		vrLoc = 6815;
-	};
-	E1478983041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: SetAutoWake";
-		rLen = 0;
-		rLoc = 1140;
-		rType = 0;
-		vrLen = 1539;
-		vrLoc = 324;
 	};
 	E1478984041FC51900050002 = {
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: _execWakeToolWithRequestDictionary:";
 		rLen = 0;
-		rLoc = 7852;
+		rLoc = 6447;
 		rType = 0;
-		vrLen = 2197;
+		vrLen = 1915;
 		vrLoc = 7324;
-	};
-	E1478985041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: SetAutoWake";
-		rLen = 15;
-		rLoc = 1579;
-		rType = 0;
-		vrLen = 1390;
-		vrLoc = 644;
 	};
 	E1478986041FC51900050002 = {
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: setWakeInterval:";
 		rLen = 0;
-		rLoc = 10168;
+		rLoc = 6662;
 		rType = 0;
-		vrLen = 1192;
+		vrLen = 4;
 		vrLoc = 9235;
-	};
-	E1478987041FC51900050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: main";
-		rLen = 0;
-		rLoc = 2304;
-		rType = 0;
-		vrLen = 1112;
-		vrLoc = 1260;
-	};
-	E147898D041FC51900050002 = {
-		fRef = E130B9AD03B7C59700000028;
-		isa = PBXTextBookmark;
-		name = "PSPowerManager.m: _execWakeToolWithRequestDictionary:";
-		rLen = 0;
-		rLoc = 7353;
-		rType = 0;
-		vrLen = 494;
-		vrLoc = 6787;
-	};
-	E147898F041FC51900050002 = {
-		fRef = E10E71F4040C335800050002;
-		isa = PBXTextBookmark;
-		name = "English: 117";
-		rLen = 0;
-		rLoc = 6548;
-		rType = 0;
-		vrLen = 2232;
-		vrLoc = 4420;
 	};
 	E1478990041FC51900050002 = {
 		isa = PBXFileReference;
@@ -5939,16 +5527,6 @@
 		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSValue.h;
 		refType = 0;
 	};
-	E14789A7041FCB3800050002 = {
-		fRef = E130B9AD03B7C59700000028;
-		isa = PBXTextBookmark;
-		name = "PSPowerManager.m: wakeTime";
-		rLen = 31;
-		rLoc = 6818;
-		rType = 0;
-		vrLen = 1280;
-		vrLoc = 6073;
-	};
 	E14789A8041FCB3800050002 = {
 		fRef = F59DC6D40353C9E601AEEDB1;
 		isa = PBXTextBookmark;
@@ -5964,7 +5542,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: wakeTime";
 		rLen = 31;
-		rLoc = 6818;
+		rLoc = 5983;
 		rType = 0;
 		vrLen = 1280;
 		vrLoc = 6073;
@@ -5979,41 +5557,73 @@
 		vrLen = 1624;
 		vrLoc = 13315;
 	};
-	E14789AB041FCB3800050002 = {
+	E14789CE041FE12E00050002 = {
 		fRef = F59E47B4036AAD55016B311C;
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 71";
 		rLen = 38;
 		rLoc = 2800;
 		rType = 0;
-		vrLen = 1835;
-		vrLoc = 1269;
+		vrLen = 1774;
+		vrLoc = 1113;
 	};
-	E14789AC041FCB3800050002 = {
+	E14789CF041FE12E00050002 = {
+		isa = PBXTargetBookmark;
+		trg = 29B97326FDCFA39411CA2CEA;
+	};
+	E14789D2041FE12E00050002 = {
+		fRef = F59E47B4036AAD55016B311C;
+		isa = PBXTextBookmark;
+		name = "PSAlarmAlertController.m: 71";
+		rLen = 38;
+		rLoc = 2800;
+		rType = 0;
+		vrLen = 1774;
+		vrLoc = 1113;
+	};
+	E14789D3041FE12E00050002 = {
+		isa = PBXTargetBookmark;
+		trg = 29B97326FDCFA39411CA2CEA;
+	};
+	E14789D4041FE12E00050002 = {
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
-		name = "PSPowerManager.m: _localHandler";
+		name = "PSPowerManager.m: __OBJC__";
 		rLen = 0;
-		rLoc = 7353;
+		rLoc = 179;
 		rType = 0;
-		vrLen = 499;
-		vrLoc = 6781;
+		vrLen = 1340;
+		vrLoc = 0;
 	};
-	E14789AD041FCB3800050002 = {
-		fRef = E10E71F4040C335800050002;
+	E14789D5041FE12E00050002 = {
+		fRef = E130B9AC03B7C59700000028;
 		isa = PBXTextBookmark;
-		name = "English: 117";
-		rLen = 0;
-		rLoc = 6548;
+		name = "PSPowerManager.h: setWakeInterval:";
+		rLen = 15;
+		rLoc = 473;
 		rType = 0;
-		vrLen = 2232;
-		vrLoc = 4420;
+		vrLen = 864;
+		vrLoc = 0;
 	};
-	E14A56EA041DD6B600050002 = {
-		activeExec = 0;
-		executables = (
-			E14A56EC041DD6B600050002,
-		);
+	E14789D6041FE12E00050002 = {
+		fRef = E130B9AD03B7C59700000028;
+		isa = PBXTextBookmark;
+		name = "PSPowerManager.m: 15";
+		rLen = 0;
+		rLoc = 285;
+		rType = 0;
+		vrLen = 1364;
+		vrLoc = 0;
+	};
+	E14789D7041FE12E00050002 = {
+		fRef = E130B9AC03B7C59700000028;
+		isa = PBXTextBookmark;
+		name = "PSPowerManager.h: authorize";
+		rLen = 0;
+		rLoc = 443;
+		rType = 0;
+		vrLen = 864;
+		vrLoc = 0;
 	};
 	E14A56EC041DD6B600050002 = {
 		activeArgIndex = 2147483647;
@@ -6147,21 +5757,17 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 31";
 		rLen = 0;
-		rLoc = 1313;
+		rLoc = 1111;
 		rType = 0;
 		vrLen = 1592;
 		vrLoc = 214;
-	};
-	E14A570104E785DC00050002 = {
-		isa = PBXTargetBookmark;
-		trg = E14A56EA041DD6B600050002;
 	};
 	E14A570204E785DC00050002 = {
 		fRef = E130B9AD03B7C59700000028;
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 70";
 		rLen = 0;
-		rLoc = 2778;
+		rLoc = 2397;
 		rType = 0;
 		vrLen = 1314;
 		vrLoc = 1294;
@@ -6201,7 +5807,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 198";
 		rLen = 0;
-		rLoc = 7280;
+		rLoc = 6445;
 		rType = 0;
 		vrLen = 1289;
 		vrLoc = 5793;
@@ -6221,7 +5827,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 259";
 		rLen = 0;
-		rLoc = 12544;
+		rLoc = 8867;
 		rType = 0;
 		vrLen = 1158;
 		vrLoc = 8011;
@@ -6255,7 +5861,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 201";
 		rLen = 0;
-		rLoc = 10486;
+		rLoc = 6810;
 		rType = 0;
 		vrLen = 1124;
 		vrLoc = 6210;
@@ -6466,7 +6072,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 13";
 		rLen = 0;
-		rLoc = 288;
+		rLoc = 269;
 		rType = 0;
 		vrLen = 1364;
 		vrLoc = 0;
@@ -6616,7 +6222,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 224";
 		rLen = 0;
-		rLoc = 6327;
+		rLoc = 6718;
 		rType = 0;
 		vrLen = 1157;
 		vrLoc = 5605;
@@ -7582,7 +7188,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 237";
 		rLen = 0;
-		rLoc = 12054;
+		rLoc = 8377;
 		rType = 0;
 		vrLen = 1226;
 		vrLoc = 1179;
@@ -10061,16 +9667,6 @@
 		vrLen = 1353;
 		vrLoc = 8714;
 	};
-	E1A9DEFC03BF480F0089E8B2 = {
-		fRef = F5F240CA036A869401FE7503;
-		isa = PBXTextBookmark;
-		name = "BDAlias.m: __VERSION__";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 920;
-		vrLoc = 1697;
-	};
 	E1A9DEFD03BF480F0089E8B2 = {
 		fRef = F5F240CC036A877301FE7503;
 		isa = PBXTextBookmark;
@@ -10550,7 +10146,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: ";
 		rLen = 0;
-		rLoc = 6775;
+		rLoc = 7054;
 		rType = 0;
 		vrLen = 1086;
 		vrLoc = 5320;
@@ -10560,7 +10156,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 222";
 		rLen = 0;
-		rLoc = 11334;
+		rLoc = 7657;
 		rType = 0;
 		vrLen = 1665;
 		vrLoc = 6570;
@@ -10580,7 +10176,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 245";
 		rLen = 0;
-		rLoc = 11627;
+		rLoc = 7950;
 		rType = 0;
 		vrLen = 1673;
 		vrLoc = 7118;
@@ -10610,7 +10206,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.h: 29";
 		rLen = 68;
-		rLoc = 682;
+		rLoc = 663;
 		rType = 0;
 		vrLen = 718;
 		vrLoc = 0;
@@ -12903,7 +12499,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 35";
 		rLen = 0;
-		rLoc = 1418;
+		rLoc = 1216;
 		rType = 0;
 		vrLen = 1549;
 		vrLoc = 0;
@@ -12913,7 +12509,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 34";
 		rLen = 0;
-		rLoc = 1388;
+		rLoc = 1186;
 		rType = 0;
 		vrLen = 1548;
 		vrLoc = 24;
@@ -12923,7 +12519,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 270";
 		rLen = 0;
-		rLoc = 13021;
+		rLoc = 9238;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 7725;
@@ -12973,7 +12569,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: notificationPort";
 		rLen = 0;
-		rLoc = 11627;
+		rLoc = 7950;
 		rType = 0;
 		vrLen = 1717;
 		vrLoc = 7174;
@@ -13162,7 +12758,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.h: 29";
 		rLen = 136;
-		rLoc = 682;
+		rLoc = 663;
 		rType = 0;
 		vrLen = 728;
 		vrLoc = 0;
@@ -13172,7 +12768,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 195";
 		rLen = 69;
-		rLoc = 10487;
+		rLoc = 6811;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 5793;
@@ -13182,7 +12778,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.h: 29";
 		rLen = 136;
-		rLoc = 682;
+		rLoc = 663;
 		rType = 0;
 		vrLen = 728;
 		vrLoc = 0;
@@ -13192,7 +12788,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 229";
 		rLen = 0;
-		rLoc = 11588;
+		rLoc = 7911;
 		rType = 0;
 		vrLen = 1629;
 		vrLoc = 6863;
@@ -13202,7 +12798,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 217";
 		rLen = 0;
-		rLoc = 6051;
+		rLoc = 6442;
 		rType = 0;
 		vrLen = 1138;
 		vrLoc = 5369;
@@ -13222,7 +12818,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 217";
 		rLen = 0;
-		rLoc = 6051;
+		rLoc = 6442;
 		rType = 0;
 		vrLen = 1138;
 		vrLoc = 5369;
@@ -13242,7 +12838,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 224";
 		rLen = 0;
-		rLoc = 6481;
+		rLoc = 6872;
 		rType = 0;
 		vrLen = 1092;
 		vrLoc = 5369;
@@ -13252,7 +12848,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 223";
 		rLen = 27;
-		rLoc = 11450;
+		rLoc = 7773;
 		rType = 0;
 		vrLen = 1529;
 		vrLoc = 6863;
@@ -13262,7 +12858,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.h: 29";
 		rLen = 0;
-		rLoc = 717;
+		rLoc = 698;
 		rType = 0;
 		vrLen = 728;
 		vrLoc = 0;
@@ -13272,7 +12868,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 225";
 		rLen = 0;
-		rLoc = 11556;
+		rLoc = 7879;
 		rType = 0;
 		vrLen = 1591;
 		vrLoc = 6863;
@@ -13502,16 +13098,6 @@
 		rType = 0;
 		vrLen = 1562;
 		vrLoc = 474;
-	};
-	E1D293C203BD418200F9204E = {
-		fRef = F5F240CA036A869401FE7503;
-		isa = PBXTextBookmark;
-		name = "BDAlias.m: ret";
-		rLen = 0;
-		rLoc = 3776;
-		rType = 0;
-		vrLen = 779;
-		vrLoc = 3292;
 	};
 	E1D293C403BD418200F9204E = {
 		fRef = F59DC6DC0353DE5101AEEDB1;
@@ -14281,70 +13867,10 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: setWakeInterval:";
 		rLen = 0;
-		rLoc = 10486;
+		rLoc = 6810;
 		rType = 0;
 		vrLen = 1499;
 		vrLoc = 5994;
-	};
-	E1DC3E40041F2CF600050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: 10";
-		rLen = 0;
-		rLoc = 225;
-		rType = 0;
-		vrLen = 169;
-		vrLoc = 0;
-	};
-	E1DC3E41041F2CF600050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: __VERSION__";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 784;
-		vrLoc = 0;
-	};
-	E1DC3E42041F2CF600050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: 11";
-		rLen = 0;
-		rLoc = 225;
-		rType = 0;
-		vrLen = 241;
-		vrLoc = 0;
-	};
-	E1DC3E43041F2CF600050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: __OBJC__";
-		rLen = 0;
-		rLoc = 168;
-		rType = 0;
-		vrLen = 890;
-		vrLoc = 0;
-	};
-	E1DC3E44041F2CF600050002 = {
-		fRef = E1DC3E31041F27DA00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.h: 12";
-		rLen = 0;
-		rLoc = 225;
-		rType = 0;
-		vrLen = 241;
-		vrLoc = 0;
-	};
-	E1DC3E45041F2CF600050002 = {
-		fRef = E14A56ED041DD82F00050002;
-		isa = PBXTextBookmark;
-		name = "wakein.m: __OBJC__";
-		rLen = 0;
-		rLoc = 168;
-		rType = 0;
-		vrLen = 833;
-		vrLoc = 0;
 	};
 	E1DC3E47041F2CF600050002 = {
 		isa = PBXFileReference;
@@ -18793,16 +18319,6 @@
 		rType = 0;
 		vrLen = 1138;
 		vrLoc = 832;
-	};
-	E1F7C61F041C5B0000FEF34D = {
-		fRef = F59E47B4036AAD55016B311C;
-		isa = PBXTextBookmark;
-		name = "PSAlarmAlertController.m: 79";
-		rLen = 0;
-		rLoc = 3103;
-		rType = 0;
-		vrLen = 1416;
-		vrLoc = 1922;
 	};
 	E1F7C620041C5B0000FEF34D = {
 		fRef = F517D63E0356B80C016D68B9;
