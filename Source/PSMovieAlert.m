@@ -69,7 +69,6 @@
 
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
-    NSLog(@"%@", self);
     [PSMovieAlertController controllerWithAlarm: alarm movieAlert: self];
 }
 

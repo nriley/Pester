@@ -1,4 +1,4 @@
-{\rtf1\mac\ansicpg10000\cocoartf100
+{\rtf1\mac\ansicpg10000\cocoartf102
 {\fonttbl\f0\fnil\fcharset77 GillSans-Bold;\f1\fnil\fcharset77 GillSans;\f2\fnil\fcharset77 GillSans-BoldItalic;
 \f3\fnil\fcharset77 HoeflerText-Regular;\f4\fnil\fcharset77 HoeflerText-Black;\f5\fnil\fcharset77 Charcoal;
 \f6\fnil\fcharset77 HoeflerText-Italic;\f7\fnil\fcharset77 GillSans-Italic;\f8\fnil\fcharset77 AndaleMono;
@@ -7,11 +7,11 @@
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
 \f0\b\fs48 \cf0 Pester 
-\f1\b0 1.1a1 
+\f1\b0 1.1a2 
 \f2\i\b \cf2 [DO NOT REDISTRIBUTE]
 \f0\i0\fs26 \cf0 \
 
-\f1\b0 9 November 2002
+\f1\b0 10 November 2002
 \fs24 \
 \
 \pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
@@ -179,7 +179,7 @@ A.
 \'a5	Added 
 \f5 \U8679 \uc0 \u8679 \U8984 \u8984 
 \f3 T to switch between \'d2in\'d3 and \'d2at\'d3.\
-\'a5	Default to today\'d5s date.
+\'a5	Default to today\'d5s date in the \'d2at\'d3 section.
 \f0\b \
 \
 
@@ -188,17 +188,16 @@ A.
 \f3\b0 \'a5 The \'d2Repeat\'d3 check box doesn\'d5t do anything.\
 \'a5 Alert information is lost when you quit Pester.\
 \'a5 If no alarm message is specified, nothing is spoken when you select a voice.\
-\'a5 If you pick a movie or image which is tiny, the display window is incorrectly sized.\
-\'a5 The Enter times in 24-hour format as a temporary workaround.\
-\'a5 Alarm times are off by one second, so a 2-second alarm will take 3 seconds to go off.  (This may cause the \'d2Remaining:\'d3 dock indicator to appear to be wrong by a minute, because it doesn\'d5t show seconds until there is less than a minute remaining.)\
-\'a5 Selecting or typing a weekday with a hyphen in its name (e.g., Brazilian \'d2next sexta-feira\'d3) causes nothing to appear in the date field. I may not be able to fix the second problem without reimplementing the Cocoa date parser; an alternative would be to use US (or Portuguese?) date formats for input in Brazil.\
+\'a5 If you select a very small movie or image, the display window is incorrectly sized.\
+\'a5 Alarm times are off by one second, so a 2-second alarm will take 3 seconds to expire.  (This may cause the \'d2Remaining:\'d3 dock indicator to appear to be wrong by a minute, because it doesn\'d5t show seconds until there are fewer than 60 remaining.)\
+\'a5 Selecting or typing a weekday with a name containing a hyphen (e.g., Brazilian \'d2next sexta-feira\'d3) or a space (Gaelic \'d2next D\'8e C\'8eadaoin\'d3) causes the date field to be invalid. I may not be able to fix the second problem without reimplementing the Cocoa date parser; an alternative would be to use US (or Portuguese?) date formats for Brazilian input; any suggestions for Gaelic?\
 \'a5 Alarms will not go off after you put your Mac to sleep and wake it up again. Quit and reopen Pester as a workaround.
 \f0\b \
 
 \f3\b0 \'a5 After changing the date or time format in System Preferences, you must quit and reopen Pester for your changes to take effect.  As Apple\'d5s own iCal also exhibits this issue, I don\'d5t believe it is urgent, and  won\'d5t fix it until after 1.1 is released.\
-\'a5 The text \'d2Could not find sound type for directory\'d3 is logged when you select an item to play which isn\'d5t a system sound.  This is caused by Apple\'d5s code, so I\'d5m not sure what I can do to fix this.
+\'a5 The text \'d2Could not find sound type for directory\'d3 is logged when you select an item to play which isn\'d5t a system sound.  This is caused by Apple\'d5s code, so I\'d5m not sure what I can do to fix this.\
+
 \f0\b \
-\
 
 \f4 Additional features planned for 1.1:\
 

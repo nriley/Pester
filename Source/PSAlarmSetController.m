@@ -82,6 +82,7 @@
             } else itemIndex++;
         }
     }
+    [timeDate setObjectValue: [NSDate date]];
     [self inAtChanged: nil];
     [self playSoundChanged: nil];
     [self doScriptChanged: nil];
@@ -90,6 +91,10 @@
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(playSoundChanged:) name: NJRQTMediaPopUpButtonMovieChangedNotification object: sound];
     [voice setDelegate: self];
+    if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_1) {
+        // XXX workaround for 10.1.x bug which sets the first responder to the wrong field, but it works if I set the initial first responder to nil... go figure.
+        [[self window] setInitialFirstResponder: nil];
+    }
     [[self window] makeKeyAndOrderFront: nil];
 }
 
@@ -258,14 +263,7 @@
 
 - (IBAction)setAlarm:(NSButton *)sender;
 {
-    // set alarm
-    [self setAlarmDateAndInterval: sender];
-    [alarm setMessage: [messageField stringValue]];
-    if (![alarm setTimer]) {
-        [self setStatus: [@"Unable to set alarm.  " stringByAppendingString: [alarm invalidMessage]]];
-        return;
-    }
-
+    // set alerts before setting alarm...
     [alarm removeAlerts];
     // dock bounce alert
     if ([bounceDockIcon state] == NSOnState)
@@ -294,6 +292,14 @@
     // speech alert
     if ([doSpeak intValue])
         [alarm addAlert: [PSSpeechAlert alertWithVoice: [voice titleOfSelectedItem]]];
+
+    // set alarm
+    [self setAlarmDateAndInterval: sender];
+    [alarm setMessage: [messageField stringValue]];
+    if (![alarm setTimer]) {
+        [self setStatus: [@"Unable to set alarm.  " stringByAppendingString: [alarm invalidMessage]]];
+        return;
+    }
     
     [self setStatus: [[alarm date] descriptionWithCalendarFormat: @"Alarm set for %x at %X" timeZone: nil locale: nil]];
     [[self window] close];

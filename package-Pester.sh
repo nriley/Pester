@@ -8,7 +8,7 @@
 
 # also check out 'build' on mosxland.sf.net
 
-set -x -v
+# set -x -v
 
 PACKAGEDIR="$PWD"
 PRODUCT="Pester"
@@ -44,5 +44,5 @@ hdiutil eject $DISK && \
 # osascript -e "tell application \"Finder\" to eject disk \"$VOL\"" && \
 hdiutil convert "$DMG" -format UDZO -imagekey zlib-level=9 -o "z$DMG" && \
 mv "z$DMG" "$DMG" && \
-#scp "$DMG" ainaz:web/nriley/software/ && \
+scp "$DMG" ainaz:web/nriley/software/ && \
 :

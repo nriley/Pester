@@ -20,10 +20,15 @@ NSUserDefaults *locale;
 + (NSString *)format:(NSString *)format withoutComponent:(unichar)component;
 {
     NSScanner *scanner = [NSScanner scannerWithString: format];
+    int formatLength = [format length];
     NSRange range;
     [scanner setCharactersToBeSkipped: [NSCharacterSet characterSetWithCharactersInString: @""]];
+    // NSLog(@"format:withoutComponent: trying to excise %c from %@", component, format);
     while ([scanner scanUpToString: @"%" intoString: nil] || ![scanner isAtEnd]) {
         range.location = [scanner scanLocation];
+        // NSLog(@"location: %d/%d, remaining: %@%@", range.location, formatLength, [format substringFromIndex: range.location], [scanner isAtEnd] ? @", isAtEnd" : @"");
+        // XXX works fine without keeping track of length in 10.1.5; in 10.2, [scanner scanUptoString:intoString:] still returns YES even when scanner is at end and thereÕs nothing left to scan, and if you start accessing the string past the end... *boom*
+        if (range.location >= formatLength) break;
         [scanner scanUpToCharactersFromSet: [NSCharacterSet letterCharacterSet] intoString: nil];
         if ([format characterAtIndex: [scanner scanLocation]] == component) {
             if ([scanner scanUpToString: @"%" intoString: nil] && ![scanner isAtEnd]) {

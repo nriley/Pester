@@ -62,7 +62,7 @@
             [window setContentSize: movieSize];
             [window center];
             frame = [window frame];
-            frame.origin.y -= 250; // appear below notifier window
+            frame.origin.y -= 400; // appear below notifier window - XXX this is very inaccurate, fix
             if (frame.origin.y < screenRect.origin.y) frame.origin.y = screenRect.origin.y;
             [window setFrame: frame display: NO];
             [window setTitle: [alarm message]];

@@ -26,7 +26,6 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 // XXX handle refreshing sound list on resume
 // XXX don't add icons on Puma, they look like ass
 // XXX launch preview on a separate thread (if movies take too long to load, they inhibit the interface responsiveness)
-// XXX when dropping invalid JPEG file on button, it dies
 
 // Recent media layout:
 // Most recent media are at TOP of menu (smaller item numbers, starting at [self indexOfItem: otherItem] + 1)
@@ -298,7 +297,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
         int recentIndex = [recentMediaAliasData count] - index + otherIndex;
         NSMenuItem *item = [[self itemAtIndex: index] retain];
         NSData *data = [[recentMediaAliasData objectAtIndex: recentIndex] retain];
-        [self _validateRecentMedia];
+        // [self _validateRecentMedia];
         [self removeItemAtIndex: index];
         [[self menu] insertItem: item atIndex: otherIndex + 1];
         [self selectItem: item];
