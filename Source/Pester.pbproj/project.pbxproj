@@ -363,6 +363,7 @@
 				E127900E0442A92900050002,
 				E18DA40A0442C56D00050002,
 				E18DAAEC0442CC3E00050002,
+				E1CDEC3F0444053F00AEEDB1,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +463,7 @@
 				E127900F0442A92900050002,
 				E18DA40B0442C56D00050002,
 				E18DAAED0442CC3E00050002,
+				E1CDEC400444053F00AEEDB1,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1339,6 +1341,30 @@
 			settings = {
 			};
 		};
+		E1CDEC3D0444053F00AEEDB1 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRNonCenteringWindow.h;
+			refType = 4;
+		};
+		E1CDEC3E0444053F00AEEDB1 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRNonCenteringWindow.m;
+			refType = 4;
+		};
+		E1CDEC3F0444053F00AEEDB1 = {
+			fileRef = E1CDEC3D0444053F00AEEDB1;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1CDEC400444053F00AEEDB1 = {
+			fileRef = E1CDEC3E0444053F00AEEDB1;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		E1D358B903C60CE900C8A18E = {
 			fileEncoding = 4;
 			isa = PBXFileReference;
@@ -1896,6 +1922,8 @@
 				E145383F043A1DB200050002,
 				E18DAAEA0442CC3E00050002,
 				E18DAAEB0442CC3E00050002,
+				E1CDEC3D0444053F00AEEDB1,
+				E1CDEC3E0444053F00AEEDB1,
 			);
 			isa = PBXGroup;
 			name = Utilities;

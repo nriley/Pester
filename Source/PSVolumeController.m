@@ -8,6 +8,7 @@
 
 #import "PSVolumeController.h"
 #import "NJRSoundManager.h"
+#import "NJRNonCenteringWindow.h"
 
 @implementation PSVolumeController
 
@@ -20,10 +21,7 @@
 {
     if ( (self = [self initWithWindowNibName: @"Volume"]) != nil) {
         [self window]; // connect outlets
-        NSWindow *window = [[NSWindow alloc] initWithContentRect: [contentView bounds] styleMask: NSBorderlessWindowMask | NSTexturedBackgroundWindowMask backing: NSBackingStoreBuffered defer: NO];
-
-        NSModalSession session = [NSApp beginModalSessionForWindow: window];
-        [window orderOut: self];
+        NSWindow *window = [[NJRNonCenteringWindow alloc] initWithContentRect: [contentView bounds] styleMask: NSBorderlessWindowMask | NSTexturedBackgroundWindowMask backing: NSBackingStoreBuffered defer: NO];
 
         if ([NJRSoundManager volumeIsNotMutedOrInvalid: volume])
             [volumeSlider setFloatValue: volume];
@@ -49,8 +47,9 @@
                 [window setFrameOrigin: viewTopLeft];
             }
         }
-        [window makeKeyAndOrderFront: self];
 
+        // -[NSApplication beginModalSessionForWindow:] shows and centers the window; we use NJRNonCenteringWindow to prevent the repositioning from succeeding
+        NSModalSession session = [NSApp beginModalSessionForWindow: window];
         [volumeSlider mouseDown: [NSApp currentEvent]];
         [NSApp runModalSession: session];
         [NSApp endModalSession: session];
