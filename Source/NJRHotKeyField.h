@@ -8,17 +8,16 @@
 
 #import <AppKit/AppKit.h>
 
+@class NJRHotKey;
 
 @interface NJRHotKeyField : NSTextField {
-    NSString *hotKeyCharacters;
-    unsigned hotKeyModifierFlags;
-    unsigned short hotKeyCode;
+    NJRHotKey *hotKey;
 }
 
-- (IBAction)clear:(id)sender;
+- (NJRHotKey *)hotKey;
+- (void)setHotKey:(NJRHotKey *)aKey;
 
-- (NSDictionary *)propertyListRepresentation;
-- (void)setFromPropertyList:(NSDictionary *)dict;
+- (IBAction)clear:(id)sender;
 
 @end
 

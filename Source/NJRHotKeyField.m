@@ -8,12 +8,8 @@
 
 #import "NJRHotKeyField.h"
 #import "NJRHotKeyFieldCell.h"
+#import "NJRHotKey.h"
 #import "NSString-NJRExtensions.h"
-
-// property list keys
-static NSString * const PLCharacters = @"characters"; // NSString
-static NSString * const PLModifierFlags = @"modifierFlags"; // NSNumber
-static NSString * const PLKeyCode = @"keyCode"; // NSNumber
 
 static const NSRange zeroRange = {0, 0};
 static const unsigned int capturedModifierMask = (NSShiftKeyMask |
@@ -47,6 +43,8 @@ static NSDictionary *statusAttributes = nil;
     [self cell]->isa = [NJRHotKeyFieldCell class];
 }
 
+#pragma mark initialize-release
+
 - (id)initWithCoder:(NSCoder *)coder;
 {
     if ( (self = [super initWithCoder: coder]) != nil) {
@@ -62,6 +60,13 @@ static NSDictionary *statusAttributes = nil;
     }
     return self;
 }
+
+- (void)dealloc;
+{
+    [hotKey release];
+}
+
+#pragma mark interface updating
 
 // XXX still problems with command-A the first time
 
@@ -84,11 +89,11 @@ static NSDictionary *statusAttributes = nil;
 
 - (void)showKeyEquivalentAttributedStringFinalized:(BOOL)finalized;
 {
-    if (hotKeyCharacters == nil) {
+    if ([hotKey characters] == nil) {
         [self showStatus: @"none assigned"];
         return;
     }
-    NSMutableAttributedString *equivString = [[hotKeyCharacters keyEquivalentAttributedStringWithModifierFlags: hotKeyModifierFlags] mutableCopy];
+    NSMutableAttributedString *equivString = [[[hotKey characters] keyEquivalentAttributedStringWithModifierFlags: [hotKey modifierFlags]] mutableCopy];
     [equivString addAttribute: NSParagraphStyleAttributeName
                         value: (finalized ? centerAlignStyle : leftAlignStyle)
                         range: NSMakeRange(0, [equivString length])];
@@ -97,14 +102,7 @@ static NSDictionary *statusAttributes = nil;
     [equivString release];
 }
 
-- (void)clearHotKey;
-{
-    [hotKeyCharacters release];
-    hotKeyCharacters = nil;
-    hotKeyModifierFlags = 0;
-    hotKeyCode = 0;
-    [NSApp sendAction: [self action] to: [self target] from: self];
-}
+#pragma mark event handling
 
 - (void)keyUp:(NSEvent *)theEvent;
 {
@@ -121,10 +119,7 @@ static NSDictionary *statusAttributes = nil;
         if (delegate != nil && ![delegate hotKeyField: self shouldAcceptCharacter: [characters characterAtIndex: 0] modifierFlags: modifierFlags rejectionMessage: &message]) {
             [self showStatus: message != nil ? message : @"key is unavailable for use"];
         } else {
-            [hotKeyCharacters release];
-            hotKeyCharacters = [characters retain];
-            hotKeyModifierFlags = modifierFlags;
-            hotKeyCode = [theEvent keyCode];
+            [self setHotKey: [NJRHotKey hotKeyWithCharacters: characters modifierFlags: modifierFlags keyCode: [theEvent keyCode]]];
             [NSApp sendAction: [self action] to: [self target] from: self];
             [self showKeyEquivalentAttributedStringFinalized: ([theEvent modifierFlags] & capturedModifierMask) == 0];
         }
@@ -149,33 +144,29 @@ static NSDictionary *statusAttributes = nil;
     }
 }
 
+#pragma mark acccessing
+
+- (NJRHotKey *)hotKey;
+{
+    return hotKey;
+}
+
+- (void)setHotKey:(NJRHotKey *)aKey;
+{
+    if (aKey != hotKey) {
+        [hotKey release];
+        hotKey = [aKey retain];
+        [self showKeyEquivalentAttributedStringFinalized: ([[NSApp currentEvent] modifierFlags] & capturedModifierMask) == 0];
+    }
+}
+
+#pragma mark actions
+
 - (IBAction)clear:(id)sender;
 {
-    [self clearHotKey];
+    [self setHotKey: nil];
+    [NSApp sendAction: [self action] to: [self target] from: self];
     [self showKeyEquivalentAttributedStringFinalized: YES];
-}
-
-#pragma mark property list serialization (Pester 1.1)
-
-- (NSDictionary *)propertyListRepresentation;
-{
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-        hotKeyCharacters, PLCharacters,
-        [NSNumber numberWithUnsignedInt: hotKeyModifierFlags], PLModifierFlags,
-        [NSNumber numberWithUnsignedShort: hotKeyCode], PLKeyCode,
-        nil];
-}
-
-- (void)setFromPropertyList:(NSDictionary *)dict;
-{
-    NS_DURING
-        hotKeyCharacters = [[dict objectForKey: PLCharacters] retain];
-        hotKeyModifierFlags = [[dict objectForKey: PLModifierFlags] unsignedIntValue];
-        hotKeyCode = [[dict objectForKey: PLKeyCode] unsignedShortValue];
-        [self showKeyEquivalentAttributedStringFinalized: ([[NSApp currentEvent] modifierFlags] & capturedModifierMask) == 0];
-    NS_HANDLER
-        [self clear: nil];
-    NS_ENDHANDLER
 }
 
 @end

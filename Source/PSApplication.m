@@ -15,6 +15,9 @@
 #import "PSAlarm.h"
 #import "PSAlarms.h"
 #import "PSTimer.h"
+#import "NJRHotKey.h"
+
+#import <Carbon/Carbon.h>
 
 @implementation PSApplication
 
@@ -26,8 +29,11 @@
     // XXX exception handling
     [PSAlarms setUp];
     [self setDelegate: self];
+    [PSPreferencesController readPreferences];
     [super finishLaunching];
 }
+
+#pragma mark actions
 
 - (IBAction)showHelp:(id)sender;
 {
@@ -54,8 +60,6 @@
     [alarmsController showWindow: self];
 }
 
-#pragma mark preferences
-
 - (IBAction)orderFrontPreferencesPanel:(id)sender;
 {
     if (!preferencesController)  {
@@ -63,6 +67,8 @@
     }
     [preferencesController showWindow: self];
 }
+
+#pragma mark update timer
 
 - (void)_resetUpdateTimer;
 {
@@ -107,8 +113,7 @@
 
         textOrigin = NSMakePoint(imageSize.width / 2 - textSize.width / 2,
                                  imageSize.height / 2 - textSize.height / 2);
-        frameRect = NSInsetRect(NSMakeRect(textOrigin.x, textOrigin.y, textSize.width, textSize.height),
-                                -4, -2);
+        frameRect = NSInsetRect(NSMakeRect(textOrigin.x, textOrigin.y, textSize.width, textSize.height), -4, -2);
         
         [tile lockFocus];
         // draw the grayed-out app icon

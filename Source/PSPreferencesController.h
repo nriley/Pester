@@ -18,6 +18,8 @@
     NSCharacterSet *commandOptionRejectSet;
 }
 
++ (void)readPreferences;
+
 - (IBAction)hotKeySet:(NJRHotKeyField *)sender;
 
 @end

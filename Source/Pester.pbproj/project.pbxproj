@@ -359,6 +359,8 @@
 				E1F993C80436310F00050002,
 				E169592B0437A4A400050002,
 				E14DEC840438969400050002,
+				E11373160439FCC700050002,
+				E1453840043A1DB200050002,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +450,8 @@
 				E1F993C90436310F00050002,
 				E169592C0437A4A400050002,
 				E14DEC850438969400050002,
+				E11373170439FCC700050002,
+				E1453841043A1DB200050002,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +582,30 @@
 			settings = {
 			};
 		};
+		E11373140439FCC700050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRHotKey.h;
+			refType = 4;
+		};
+		E11373150439FCC700050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRHotKey.m;
+			refType = 4;
+		};
+		E11373160439FCC700050002 = {
+			fileRef = E11373140439FCC700050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E11373170439FCC700050002 = {
+			fileRef = E11373150439FCC700050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		E11C0975041F1BBD00050002 = {
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -665,6 +693,30 @@
 		};
 		E13919E503B9E4E100000028 = {
 			fileRef = E13919E303B9E4E100000028;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E145383E043A1DB200050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRHotKeyManager.h;
+			refType = 4;
+		};
+		E145383F043A1DB200050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRHotKeyManager.m;
+			refType = 4;
+		};
+		E1453840043A1DB200050002 = {
+			fileRef = E145383E043A1DB200050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1453841043A1DB200050002 = {
+			fileRef = E145383F043A1DB200050002;
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -1612,14 +1664,14 @@
 				F59E47C0036B1ADD016B311C,
 				E17F2F3203FDF2F000050002,
 				E17F2F3303FDF2F000050002,
+				E1F993C60436310F00050002,
+				E1F993C70436310F00050002,
 				E1DEF10203FF816300050002,
 				E1DEF10303FF816300050002,
 				E10F2A3E0402E71400050002,
 				E10F2A3F0402E71400050002,
 				F5F198D1036BE57401EB0372,
 				F5F198D0036BE57401EB0372,
-				E1F993C60436310F00050002,
-				E1F993C70436310F00050002,
 			);
 			isa = PBXGroup;
 			name = Controllers;
@@ -1653,6 +1705,10 @@
 				F59DC6E80353F58B01AEEDB1,
 				F59DC6FC0354188F01AEEDB1,
 				F59DC6FD0354188F01AEEDB1,
+				E11373140439FCC700050002,
+				E11373150439FCC700050002,
+				E145383E043A1DB200050002,
+				E145383F043A1DB200050002,
 			);
 			isa = PBXGroup;
 			name = Utilities;

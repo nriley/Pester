@@ -7,9 +7,39 @@
 //
 
 #import "PSPreferencesController.h"
+#import "PSApplication.h"
 #import "NJRHotKeyField.h"
+#import "NJRHotKey.h"
+#import "NJRHotKeyManager.h"
+
+// NSUserDefaults key
+static NSString * const PSSetAlarmHotKey = @"Pester set alarm system-wide keyboard shortcut";
+
+// NJRHotKeyManager shortcut identifier
+static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 
 @implementation PSPreferencesController
+
++ (void)readPreferences;
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NJRHotKeyManager *hotKeyManager = [NJRHotKeyManager sharedManager];
+    NJRHotKey *hotKey = [[[NJRHotKey alloc] initWithPropertyList: [defaults dictionaryForKey: PSSetAlarmHotKey]] autorelease];
+
+    if (hotKey == nil) {
+        [hotKeyManager removeShortcutWithIdentifier: PSSetAlarmHotKeyShortcut];
+    } else {
+        if (![hotKeyManager addShortcutWithIdentifier: PSSetAlarmHotKeyShortcut
+                                               hotKey: hotKey
+                                               target: NSApp
+                                               action: @selector(orderFrontSetAlarmPanel:)]) {
+            NSRunAlertPanel(NSLocalizedString(@"Can't reserve alarm key equivalent", "Hot key set failure"),
+                            NSLocalizedString(@"Pester was unable to reserve the key equivalent %@. Please select another in Pester's Preferences, or click Clear to remove it.", "Hot key set failure"), nil, nil, nil, [hotKey keyGlyphs]);
+            [defaults removeObjectForKey: PSSetAlarmHotKey];
+            [(PSApplication *)NSApp performSelector: @selector(orderFrontPreferencesPanel:) withObject: self afterDelay: 0.1];
+        }
+    }
+}
 
 #pragma mark interface updating
 
@@ -23,21 +53,24 @@
 - (void)readFromPrefs;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [setAlarmHotKey setFromPropertyList: [defaults dictionaryForKey: @"Pester set alarm system-wide keyboard shortcut"]];
+    NJRHotKey *hotKey = [[NJRHotKey alloc] initWithPropertyList: [defaults dictionaryForKey: PSSetAlarmHotKey]];
+    [setAlarmHotKey setHotKey: hotKey];
+    [hotKey release];
 }
 
 - (void)writeToPrefs;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: [setAlarmHotKey propertyListRepresentation] forKey: @"Pester set alarm system-wide keyboard shortcut"];
+    [defaults setObject: [[setAlarmHotKey hotKey] propertyListRepresentation] forKey: @"Pester set alarm system-wide keyboard shortcut"];
     [defaults synchronize];
+    [[self class] readPreferences];
 }
 
 #pragma mark initialize-release
 
 - (id)init {
     if ( (self = [super initWithWindowNibName: @"Preferences"]) != nil) {
-        [self window]; // connect outlets
+        [[self window] center]; // connect outlets
         [self readFromPrefs];
         [self update];
         // command
