@@ -1,17 +1,18 @@
-{\rtf1\mac\ansicpg10000\cocoartf102
+{\rtf1\mac\ansicpg10000\cocoartf100
 {\fonttbl\f0\fnil\fcharset77 GillSans-Bold;\f1\fnil\fcharset77 GillSans;\f2\fnil\fcharset77 GillSans-BoldItalic;
 \f3\fnil\fcharset77 HoeflerText-Regular;\f4\fnil\fcharset77 HoeflerText-Black;\f5\fnil\fcharset77 Charcoal;
 \f6\fnil\fcharset77 HoeflerText-Italic;\f7\fnil\fcharset77 GillSans-Italic;\f8\fnil\fcharset77 AndaleMono;
 }
 {\colortbl;\red255\green255\blue255;\red255\green15\blue0;\red0\green0\blue255;}
+\vieww9000\viewh9000\viewkind0
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
 \f0\b\fs48 \cf0 Pester 
-\f1\b0 1.1a3 
+\f1\b0 1.1a4 
 \f2\i\b \cf2 [DO NOT REDISTRIBUTE]
 \f0\i0\fs26 \cf0 \
 
-\f1\b0 11 November 2002
+\f1\b0 17 November 2002
 \fs24 \
 \
 \pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
@@ -171,30 +172,38 @@ A.
 \f4\i0\b \cf0 \
 \pard\tx180\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li180\fi-180\ql\qnatural
 
-\f3\b0\fs28 \cf0 \'a5	Fixed small memory leak on alarm creation.\
-\'a5	Worked around Cocoa bugs causing problems with British and US \'d2PM\'d3/\'d2pm\'d3 in some configurations: date formats wouldn\'d5t \'d2stick\'d3, and would be reset when you tabbed through that field.\
+\f3\b0\fs28 \cf0 \'a5	Fixed small memory leaks on alarm creation and with the \'d2Remove\'d3 button in the alarm list window.\
+\'a5	Fixed vertical resizing in the alarm list window.\
+\'a5	Added more keyboard navigation, type-selection and sorting to the alarm list window.\
+\'a5	Added Delete keyboard shortcut for removing alarms.
+\f0\b \
+
+\f3\b0 \'a5	Retain highlighted alarms in the alarm list window when alarms are added, removed or resorted.\
+\'a5	Removed horizontal scroll bar from the alarm list window because it wasn\'d5t ever available.\
+\'a5	Worked around Cocoa bugs with British and US \'d2PM\'d3/\'d2pm\'d3 in some configurations: date formats wouldn\'d5t \'d2stick\'d3, and would be reset when you tabbed through that field.\
 \'a5	Added customizable alerts: the previously-mandatory notification dialog box, alert sound and dock bouncing are now all optional, and AppleScript, speech, and playback of sounds, images and movies (anything QuickTime can handle) are new.\
 \'a5	Worked around many Cocoa bugs to provide support for non-US date and time formats.\
 \'a5	Added 
 \f5 \U8679 \uc0 \u8679 \U8984 \u8984 
-\f3 T to switch between \'d2in\'d3 and \'d2at\'d3.\
-\'a5	Default to today\'d5s date in the \'d2at\'d3 section.
+\f3 T shortcut to switch between \'d2in\'d3 and \'d2at\'d3.\
+\'a5	Default to today\'d5s date in the \'d2at\'d3 section.\
+
 \f0\b \
-\
 
 \f4 Known bugs in this version:\
 
 \f3\b0 \'a5 The \'d2Repeat\'d3 check box doesn\'d5t do anything.\
 \'a5 Alert information is lost when you quit Pester.\
+\'a5	The alarm list will sometimes become lost with a message such as \'d22002-11-18 00:31:24.461 Pester[8545] An error occurred while attempting to restore the alarm list: *** Incorrect archive: unexpected byte\'d3\
 \'a5 If no alarm message is specified, nothing is spoken when you select a voice.\
 \'a5 If you select a very small movie or image, the display window is incorrectly sized.\
-\'a5 Alarm times are off by one second, so a 2-second alarm will take 3 seconds to expire.  (This may cause the \'d2Remaining:\'d3 dock indicator to appear to be wrong by a minute, because it doesn\'d5t show seconds until there are fewer than 60 remaining.)\
-\'a5 Selecting or typing a weekday with a name containing a hyphen (e.g., Brazilian \'d2next sexta-feira\'d3) or a space (Gaelic \'d2next D\'8e C\'8eadaoin\'d3) causes the date field to be invalid. I may not be able to fix the second problem without reimplementing the Cocoa date parser; an alternative would be to use US (or Portuguese?) date formats for Brazilian input; any suggestions for Gaelic?\
+\'a5 Alarm times are off by one second, so a 2-second alarm will take 3 seconds to expire.  (This may cause the \'d2Remaining:\'d3 dock indicator to appear to be wrong by a minute, because it doesn\'d5t show seconds until fewer than 60 remain.)\
+\'a5 Selecting or typing a weekday with a name containing a hyphen (e.g., Brazilian \'d2next sexta-feira\'d3) or a space (Gaelic \'d2next D\'8e C\'8eadaoin\'d3) causes the date field to be invalid. I may not be able to fix this without reimplementing the Cocoa date parser; an alternative would be to use US (or Portuguese?) date formats for Brazilian input; any suggestions for Gaelic?\
 \'a5 Alarms will not go off after you put your Mac to sleep and wake it up again. Quit and reopen Pester as a workaround.
 \f0\b \
 
 \f3\b0 \'a5 After changing the date or time format in System Preferences, you must quit and reopen Pester for your changes to take effect.  As Apple\'d5s own iCal also exhibits this issue, I don\'d5t believe it is urgent, and  won\'d5t fix it until after 1.1 is released.\
-\'a5 The text \'d2Could not find sound type for directory\'d3 is logged when you select an item to play which isn\'d5t a system sound.  This is caused by Apple\'d5s code, so I\'d5m not sure what I can do to fix this.\
+\'a5 The text \'d2Could not find sound type for directory\'d3 is logged to console.log when you select an item to play which isn\'d5t a system sound.  This is caused by Apple\'d5s code, so I\'d5m not sure what I can do to fix this.\
 
 \f0\b \
 
@@ -202,7 +211,6 @@ A.
 
 \f3\b0 \'a5 Simple repeating alarms. The general idea is that you\'d5ll check \'d2Repeat\'d3, and each time the alarm goes off you will have the choice to stop it repeating. This works well for things like \'d2remind me every 15 minutes to take a break\'d3. An alarm won\'d5t start to repeat until the alerts have finished going off and you dismiss it, so you won\'d5t come back to several thousand alerts. :-)\
 \'a5 Some type of auto-saving/\'d2set default\'d3 for alert options, as you probably don\'d5t want to reconfigure them each time you launch Pester.\
-\'a5 Keyboard support for deleting alarms.\
 
 \f0\b \
 
@@ -254,6 +262,8 @@ A.
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
 \f3\b0 \cf0 \
+Pester uses code from Dan Wood\'d5s TableTester examples and Tony Arnold\'d5s iTableView.!\
+\
 Pester uses portions of Raphael Sebbe\'d5s excellent SpeechUtilities.  Thanks Raphael!\
 \
 Pester uses Nathan Day\'d5s NDAppleScriptObject and related classes, which he makes freely available. Thanks Nathan!\

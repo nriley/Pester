@@ -37,6 +37,7 @@ extern NSString * const PSAlarmTimerExpiredNotification;
 - (void)removeAlerts;
 
 - (NSCalendarDate *)date;
+- (NSCalendarDate *)time;
 - (NSTimeInterval)interval;
 - (NSString *)message;
 - (NSArray *)alerts;
@@ -49,9 +50,10 @@ extern NSString * const PSAlarmTimerExpiredNotification;
 - (BOOL)isValid;
 - (NSString *)invalidMessage;
 
-- (NSComparisonResult)compare:(PSAlarm *)otherAlarm;
+- (NSComparisonResult)compareDate:(PSAlarm *)otherAlarm;
+- (NSComparisonResult)compareMessage:(PSAlarm *)otherAlarm;
 
 - (BOOL)setTimer;
-- (void)cancel;
+- (void)cancelTimer;
 
 @end

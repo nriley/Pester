@@ -3,6 +3,19 @@
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {CLASS = NJRScrollView; LANGUAGE = ObjC; SUPERCLASS = NSScrollView; }, 
         {
+            CLASS = NJRTableDelegate; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {tableView = NSTableView; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = NJRTableView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {typeSelectDisplay = id; }; 
+            SUPERCLASS = NSTableView; 
+        }, 
+        {CLASS = NSObject; LANGUAGE = ObjC; }, 
+        {
             ACTIONS = {remove = id; }; 
             CLASS = PSAlarmsController; 
             LANGUAGE = ObjC; 

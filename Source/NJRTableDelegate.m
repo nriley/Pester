@@ -3,7 +3,7 @@
 //  Pester
 //
 //  Created by Nicholas Riley on Sun Oct 27 2002.
-//  Copyright (c) 2002 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2002 Nicholas Riley. All rights reserved.
 //
 
 #import "NJRTableDelegate.h"
@@ -13,7 +13,7 @@
 
 typedef struct { NSString *key; BOOL descending; } SortContext;
 
-// Sort array of itemNums, by looking up the itemNum in the dictionary of dictionaries.
+// Sort array of itemNums, by looking up the itemNum in the dictionary of objects.
 // based on code of Ondra Cada <ocs@ocs.cz> on cocoa-dev list
 
 int ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
@@ -24,11 +24,11 @@ int ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
         id first, second;	// the actual objects to compare
 
         if (context->descending) {
-            first  = [right objectForKey: key];
-            second = [left  objectForKey: key];
+            first  = [right valueForKey: key];
+            second = [left  valueForKey: key];
         } else {
-            first  = [left  objectForKey: key];
-            second = [right objectForKey: key];
+            first  = [left  valueForKey: key];
+            second = [right valueForKey: key];
         }
 
         if ([first respondsToSelector: @selector(caseInsensitiveCompare:)]) {
@@ -40,14 +40,28 @@ int ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
     return order;
 }
 
+@interface NJRTableDelegate (Private)
+
+- (void)_positionTypeSelectDisplay;
+- (void)_sortByColumn:(NSTableColumn *)inTableColumn;
+
+@end
+
 @implementation NJRTableDelegate
 
 #pragma mark initialize-release
 
+- (void)awakeFromNib;
+{
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_positionTypeSelectDisplay) name: NSViewFrameDidChangeNotification object: tableView];
+}
+
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
     [sortingColumn release];
     [sortingKey release];
+    [reorderedData release];
     [super dealloc];
 }
 
@@ -67,6 +81,114 @@ int ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
     sortingKey = inNewValue;
 }
 
+#pragma mark sorting
+
+- (NSString *)_sortContextDefaultKey;
+{
+    NSString *autosaveName = [tableView autosaveName];
+    if (autosaveName != nil)
+        return [NSString stringWithFormat: @"NJRTableDelegate SortContext %@", autosaveName];
+    else
+        return nil;
+}
+
+- (void)_sortData;
+{
+    SortContext ctxt = { sortingKey, sortDescending };
+    NSString *sortContextKey = [self _sortContextDefaultKey];
+
+    if (sortContextKey != nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:
+            [NSDictionary dictionaryWithObjectsAndKeys: sortingKey, @"sortingKey", [NSNumber numberWithBool: sortDescending], @"sortDescending", nil]
+                                                    forKey: [self _sortContextDefaultKey]];
+    }
+    
+    // sort the NSMutableArray
+    [reorderedData sortUsingFunction: ORDER_BY_CONTEXT context: &ctxt];
+    [tableView reloadData];
+}
+
+- (void)_sortByColumn:(NSTableColumn *)inTableColumn;
+{
+    NSSet *oldSelection = [self selectedItems];
+    if (sortingColumn == inTableColumn) {
+        // User clicked same column, change sort order
+        sortDescending = !sortDescending;
+        // Possible optimization: Don't actually re-sort if you just change the sorting direction; instead, just display either the nth item or the (count-1-n)th item depending on ascending/descending.)
+    } else {
+        // User clicked new column, change old/new column headers, save new sorting column, and re-sort the array.
+        if (sortingColumn != nil) {
+            [tableView setIndicatorImage: nil inTableColumn: sortingColumn];
+            sortDescending = NO; // on initial sort, preserve previous sort order
+        }
+        [self setSortingKey: [inTableColumn identifier]];
+        [self setSortingColumn: inTableColumn];
+        [tableView setHighlightedTableColumn: inTableColumn];
+    }
+    [tableView setIndicatorImage: (sortDescending ? [NSTableView descendingSortIndicator] : [NSTableView ascendingSortIndicator]) inTableColumn: inTableColumn];
+    [self _positionTypeSelectDisplay];
+    // Actually sort the data
+    [self _sortData];
+    [self selectItems: oldSelection];
+}
+
+- (void)_initialSortData;
+{
+    NSString *sortContextKey = [self _sortContextDefaultKey];
+    NSDictionary *sortContext;
+    NSString *key;
+    NSTableColumn *column;
+
+    if (sortContextKey == nil) goto noContext;
+    if ( (sortContext = [[NSUserDefaults standardUserDefaults] dictionaryForKey: sortContextKey]) == nil) goto noContext;
+    if ( (key = [sortContext objectForKey: @"sortingKey"]) == nil) goto noContext;
+    if ( (column = [tableView tableColumnWithIdentifier: key]) == nil) goto noContext;
+    sortDescending = [[sortContext objectForKey: @"sortDescending"] boolValue];
+    [self _sortByColumn: column];
+    return;
+    
+noContext:
+    sortDescending = NO;
+    [self _sortByColumn: [[tableView tableColumns] objectAtIndex: 0]];
+}
+
+- (NSMutableArray *)reorderedDataForData:(NSArray *)data;
+{
+    if (reorderedData == nil) {
+        reorderedData = [data mutableCopy];
+        [self _initialSortData];
+    } else {
+        NSSet *oldSelection = [self selectedItems];
+        [reorderedData release]; reorderedData = nil;
+        reorderedData = [data mutableCopy];
+        [self _sortData];
+        [self selectItems: oldSelection];
+    }
+    return reorderedData;
+}
+
+#pragma mark type selection
+
+- (void)_positionTypeSelectDisplay;
+{
+    [tableView resetTypeSelect]; // avoid extraneous matching
+    if ([tableView typeSelectDisplay] != nil && sortingColumn != nil) {
+        NSControl *typeSelectControl = [tableView typeSelectDisplay];
+        if ([typeSelectControl isKindOfClass: [NSControl class]]) {
+            NSView *superview = [typeSelectControl superview];
+            NSRect columnRect = [superview convertRect: [tableView rectOfColumn: [tableView columnWithIdentifier: sortingKey]] fromView: tableView];
+            // XXX support horizontal scroll bar/clipping (not for Pester, but eventually)
+            NSRect tableScrollFrame = [[tableView enclosingScrollView] frame];
+            NSRect selectFrame = [typeSelectControl frame];
+            [superview setNeedsDisplayInRect: selectFrame]; // fix artifacts caused by moving view
+            selectFrame.origin.x = columnRect.origin.x;
+            selectFrame.size.width = columnRect.size.width;
+            [typeSelectControl setAlignment: [[sortingColumn dataCell] alignment]];
+            [typeSelectControl setFrame: selectFrame];
+        }
+    }
+}
+
 #pragma mark saving/restoring selection
 
 - (NSSet *)selectedItems;
@@ -76,7 +198,7 @@ int ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
     NSNumber *rowNum;
 
     while ( (rowNum = [e nextObject]) != nil) {
-        id item = [oData objectAtIndex: [rowNum intValue]];
+        id item = [reorderedData objectAtIndex: [rowNum intValue]];
         [result addObject: item];
     }
     return result;
@@ -91,7 +213,7 @@ int ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
     [tableView deselectAll: nil];
 
     while ( (item = [e nextObject]) != nil ) {
-        int row = [oData indexOfObjectIdenticalTo: item];
+        int row = [reorderedData indexOfObjectIdenticalTo: item];
         if (row != NSNotFound) {
             [tableView selectRow: row byExtendingSelection: YES];
             savedLastRow = row;
@@ -100,77 +222,51 @@ int ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
     [tableView scrollRowToVisible: savedLastRow];
 }
 
-// ----------------------------------------------------------------------------------------
-// Sorting
-// ----------------------------------------------------------------------------------------
+@end
 
-- (void)sortData
+@implementation NJRTableDelegate (NJRTableViewDelegate)
+
+- (void)tableView:(NSTableView *)aTableView didClickTableColumn:(NSTableColumn *)inTableColumn
 {
-    SortContext ctxt = { sortingKey, sortDescending };
-    NSSet *oldSelection = [self selectedItems];
-
-    // sort the NSMutableArray
-    [oData sortUsingFunction: ORDER_BY_CONTEXT context: &ctxt];
-
-    [tableView reloadData];
-    [self selectItems: oldSelection];
+    [[tableView window] makeFirstResponder: aTableView];
+    [self _sortByColumn: inTableColumn];
 }
 
-- (void)sortByColumn:(NSTableColumn *)inTableColumn;
+- (void)tableViewColumnDidResize:(NSNotification *)notification;
 {
-    if (sortingColumn == inTableColumn) {
-        // User clicked same column, change sort order
-        sortDescending = !sortDescending;
-        // Possible optimization: Don't actually re-sort if you just change the sorting direction;
-        // instead, just display either the nth item or the (count-1-n)th item depending on ascending/descending.)
-    } else {
-        // User clicked new column, change old/new column headers,
-        // save new sorting column, and re-sort the array.
-        sortDescending = NO;
-        if (nil != sortingColumn) {
-            [tableView setIndicatorImage: nil inTableColumn: sortingColumn];
-        }
-        [self setSortingKey: [inTableColumn identifier]];
-        [self setSortingColumn: inTableColumn];
-        [tableView setHighlightedTableColumn: inTableColumn];
-    }
-    [tableView setIndicatorImage: (sortDescending ? [NSTableView descendingSortIndicator] : [NSTableView ascendingSortIndicator]) inTableColumn: inTableColumn];
-    // Actually sort the data
-    [self sortData];
+    [self _positionTypeSelectDisplay];
 }
 
-//	Sort by whatever column was clicked upon
-- (void)tableView:(NSTableView*)aTableView didClickTableColumn:(NSTableColumn *)inTableColumn
+- (void)tableViewColumnDidMove:(NSNotification *)notification;
 {
-    [[tableView window] makeFirstResponder: aTableView]; // help make this tableView be first responder
-    [self sortByColumn:inTableColumn];
+    [self _positionTypeSelectDisplay];
 }
 
-// ----------------------------------------------------------------------------------------
-// Alphabetic Type Ahead
-// ----------------------------------------------------------------------------------------
-
-- (void) typeAheadString:(NSString *)inString;
+- (void)tableView:(NSTableView *)aTableView selectRowMatchingString:(NSString *)matchString;
 {
-    // This general sample looks for a highlighted column, presuming that is that column we are sorted by, and uses that as the lookup key.
-    NSTableColumn *col = [tableView highlightedTableColumn];
-    if (nil != col) {
-        NSString *key = [col identifier];
-        int i;
-        for ( i = 0 ; i < [oData count] ; i++ ) {
-            NSDictionary *rowDict = [oData objectAtIndex:i];
-            NSString *compareTo = [rowDict objectForKey:key];
-            NSComparisonResult order = [inString caseInsensitiveCompare:compareTo];
+    // Look for a highlighted column, presuming we are sorted by that column, and search its values.
+    NSTableColumn *col = [aTableView highlightedTableColumn];
+    id dataSource = [aTableView dataSource];
+    int i, rowCount = [reorderedData count];
+    if (nil == col) return;
+    if (sortDescending) {
+        for ( i = rowCount - 1 ; i >= 0 ; i-- ) {
+            NSComparisonResult order = [matchString caseInsensitiveCompare:
+                [dataSource tableView: aTableView objectValueForTableColumn: col row: i]];
             if (order != NSOrderedDescending) break;
         }
-        // Make sure we're not overflowing the row count.
-        if (i >= [oData count]) {
-            i = [oData count] - 1;
+        if (i < 0) i = 0;
+    } else {
+        for ( i = 0 ; i < rowCount ; i++ ) {
+            NSComparisonResult order = [matchString caseInsensitiveCompare:
+                [dataSource tableView: aTableView objectValueForTableColumn: col row: i]];
+            if (order != NSOrderedDescending) break;
         }
-        // Now select row i -- either the one we found, or the last row if not found.
-        [tableView selectRow:i byExtendingSelection:NO];
-        [tableView scrollRowToVisible:i];
+        if (i >= rowCount) i = rowCount - 1;
     }
+    // Now select row i -- either the one we found, or the first/last row if not found.
+    [aTableView selectRow: i byExtendingSelection: NO];
+    [aTableView scrollRowToVisible: i];
 }
 
 @end

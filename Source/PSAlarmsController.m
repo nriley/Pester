@@ -9,9 +9,15 @@
 #import "PSAlarmsController.h"
 #import "PSAlarm.h"
 #import "NSTableView-NJRExtensions.h"
-
+#import "NJRTableView.h"
+#import "NJRTableDelegate.h"
 
 @implementation PSAlarmsController
+
+- (void)alarmsChanged;
+{
+    reorderedAlarms = [[tableView delegate] reorderedDataForData: [alarms alarms]];
+}
 
 - (id)init;
 {
@@ -22,27 +28,24 @@
         // Apple documents the NSUserDefaults key, so we can rely on it hopefully.
         if (nil == [[NSUserDefaults standardUserDefaults] objectForKey:
             [@"NSWindow Frame " stringByAppendingString: [[self window] frameAutosaveName]]])
-        {
+           {
             [[self window] center];
-        }
+           }
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(alarmsChanged) name: PSAlarmsDidChangeNotification object: alarms];
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(tableViewSelectionDidChange:) name: NSTableViewSelectionDidChangeNotification object: tableView];
         [tableView setAutosaveName: @"Alarm list"];
         [tableView setAutosaveTableColumns: YES];
-        [tableView noteNumberOfRowsChanged];
+        [self alarmsChanged];
         [[self window] makeFirstResponder: tableView];
+        [[self window] setResizeIncrements: NSMakeSize(1, [tableView cellHeight])];
     }
     return self;
 }
 
-- (void)alarmsChanged; // XXX fix autoselection to be more reasonable, see whatever I did in that _Learning Cocoa_ project I think
-{
-    [tableView reloadData];
-    [tableView deselectAll: self];
-}
 
 - (IBAction)remove:(id)sender;
 {
-    [alarms removeAlarmsAtIndices: [[tableView selectedRowEnumerator] allObjects]];
+    [alarms removeAlarms: [[tableView delegate] selectedItems]];
 }
 
 @end
@@ -56,7 +59,7 @@
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row;
 {
-    PSAlarm *alarm = [alarms alarmAtIndex: row];
+    PSAlarm *alarm = [reorderedAlarms objectAtIndex: row];
 
     if ([[tableColumn identifier] isEqualToString: @"message"]) return [alarm message];
     else {
@@ -69,6 +72,15 @@
     }
     return nil;
 }
+@end
+
+@implementation PSAlarmsController (NJRTableViewDataSource)
+
+- (void)removeSelectedRowsFromTableView:(NSTableView *)aTableView;
+{
+    [self remove: aTableView];
+}
+
 @end
 
 @implementation PSAlarmsController (NSTableViewNotifications)

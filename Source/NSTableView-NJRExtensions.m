@@ -27,22 +27,10 @@
 
 + (NSImage *)descendingSortIndicator;
 {
-    NSImage *result = [NSImage imageNamed:@"NSDescendingSortIndicator"];
-    if (result == nil && [[NSTableView class] respondsToSelector:@selector(_defaultTableHeaderReverseSortImage)])
+    NSImage *result = [NSImage imageNamed: @"NSDescendingSortIndicator"];
+    if (result == nil && [[NSTableView class] respondsToSelector: @selector(_defaultTableHeaderReverseSortImage)])
         result = [NSTableView _defaultTableHeaderReverseSortImage];
     return result;
-}
-
-- (NSArray *)selectedRowIndices;
-{
-    NSEnumerator *theEnum = [self selectedRowEnumerator];
-    NSNumber *rowNumber;
-    NSMutableArray *rowNumberArray = [NSMutableArray arrayWithCapacity: [self numberOfSelectedRows]];
-
-    while (nil != (rowNumber = [theEnum nextObject]) )
-        [rowNumberArray addObject: rowNumber];
-
-    return rowNumberArray;
 }
 
 - (float)cellHeight;

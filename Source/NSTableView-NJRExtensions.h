@@ -16,6 +16,4 @@
 
 - (float)cellHeight;
 
-- (NSArray *)selectedRowIndices;
-
 @end

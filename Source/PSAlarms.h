@@ -21,10 +21,12 @@ extern NSString * const PSAlarmsNextAlarmDidChangeNotification;
 + (void)setUp;
 + (PSAlarms *)allAlarms;
 
+- (NSArray *)alarms;
 - (PSAlarm *)nextAlarm;
 - (int)alarmCount;
 - (PSAlarm *)alarmAtIndex:(int)index;
 - (void)removeAlarmAtIndex:(int)index;
 - (void)removeAlarmsAtIndices:(NSArray *)indices;
+- (void)removeAlarms:(NSSet *)alarmsToRemove;
 
 @end

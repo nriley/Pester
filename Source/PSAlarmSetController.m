@@ -91,10 +91,11 @@
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(playSoundChanged:) name: NJRQTMediaPopUpButtonMovieChangedNotification object: sound];
     [voice setDelegate: self];
-    if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_1) {
+    // XXX still broken under 10.2, check 10.1 behavior and see if subclassing NSComboBox will help
+    // if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_1) {
         // XXX workaround for 10.1.x bug which sets the first responder to the wrong field, but it works if I set the initial first responder to nil... go figure.
         [[self window] setInitialFirstResponder: nil];
-    }
+    // }
     [[self window] makeKeyAndOrderFront: nil];
 }
 

@@ -45,7 +45,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     [nextAlarm release];
     nextAlarm = nil;
     // sort alarms so earliest is first
-    [alarms sortUsingSelector: @selector(compare:)];
+    [alarms sortUsingSelector: @selector(compareDate:)];
     // find first un-expired alarm
     e = [alarms objectEnumerator];
     while ( (alarm = [e nextObject]) != nil) {
@@ -125,6 +125,11 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     return nextAlarm;
 }
 
+- (NSArray *)alarms;
+{
+    return alarms;
+}
+
 - (int)alarmCount;
 {
     return [alarms count];
@@ -137,7 +142,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 
 - (void)removeAlarmAtIndex:(int)index;
 {
-    [(PSAlarm *)[alarms objectAtIndex: index] cancel];
+    [(PSAlarm *)[alarms objectAtIndex: index] cancelTimer];
     [alarms removeObjectAtIndex: index];
 }
 
@@ -150,17 +155,33 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     NS_DURING
         while ( (n = [e nextObject]) != nil) {
             alarmIndex = [n intValue];
-            [(PSAlarm *)[alarms objectAtIndex: alarmIndex] cancel];
+            [(PSAlarm *)[alarms objectAtIndex: alarmIndex] cancelTimer];
             indexArray[i] = alarmIndex;
             i++;
         }
         [alarms removeObjectsFromIndices: indexArray numIndices: indexCount];
+        free(indexArray); indexArray = NULL;
         [self _changed];
     NS_HANDLER
         free(indexArray);
         [self _changed];
         [localException raise];
     NS_ENDHANDLER
+}
+
+- (void)removeAlarms:(NSSet *)alarmsToRemove;
+{
+    NSEnumerator *e = [alarms objectEnumerator];
+    PSAlarm *alarm;
+    NSMutableArray *indices = [NSMutableArray arrayWithCapacity: [alarmsToRemove count]];
+    int alarmIndex = 0;
+
+    while ( (alarm = [e nextObject]) != nil) {
+        if ([alarmsToRemove containsObject: alarm])
+            [indices addObject: [NSNumber numberWithInt: alarmIndex]];
+        alarmIndex++;
+    }
+    [self removeAlarmsAtIndices: indices];
 }
 
 @end

@@ -240,8 +240,8 @@
 			productName = Pester;
 			productReference = 17587328FF379C6511CA2CBB;
 			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
-<plist version=\"1.0\">
+<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">
+<plist version=\"0.9\">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
@@ -311,9 +311,10 @@
 				F5F198D3036BE57401EB0372,
 				F5F19910036D3B3101EB0372,
 				F515C768037DFB56018DB5B3,
+				F5B79839035F64F80136A8DD,
+				F5B79868038865B30136A8DD,
 			);
 			isa = PBXHeadersBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B97328FDCFA39411CA2CEA = {
 			buildActionMask = 2147483647;
@@ -329,7 +330,6 @@
 				F5243DA50378681101AEEDB1,
 			);
 			isa = PBXResourcesBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B9732BFDCFA39411CA2CEA = {
 			buildActionMask = 2147483647;
@@ -368,9 +368,10 @@
 				F5F198D2036BE57401EB0372,
 				F5F198DB036BE75E01EB0372,
 				F5F1990F036D3B3101EB0372,
+				F5B79838035F64F80136A8DD,
+				F5B79867038865B30136A8DD,
 			);
 			isa = PBXSourcesBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B9732CFDCFA39411CA2CEA = {
 			fileRef = 29B97316FDCFA39411CA2CEA;
@@ -389,7 +390,6 @@
 				F59E4C0C036B33EC016B311C,
 			);
 			isa = PBXFrameworksBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 //290
 //291
@@ -630,10 +630,14 @@
 				F59DC6FC0354188F01AEEDB1,
 				F59DC6FD0354188F01AEEDB1,
 				F5F2418A036A910B01FE7503,
+				F5B79866038865B30136A8DD,
+				F5B79865038865B30136A8DD,
 				F5F1990E036D3B3101EB0372,
 				F5F1990D036D3B3101EB0372,
 				F59E4C0E036B43D2016B311C,
 				F59E4C0D036B43D2016B311C,
+				F560E30E035787BC01A4E466,
+				F560E30D035787BB01A4E466,
 				F5F198DA036BE75E01EB0372,
 				F5F198D9036BE75E01EB0372,
 			);
@@ -643,8 +647,8 @@
 		};
 		F560E314035787F901A4E466 = {
 			children = (
-				F560E30E035787BC01A4E466,
-				F560E30D035787BB01A4E466,
+				F5B79837035F64F80136A8DD,
+				F5B79836035F64F80136A8DD,
 				F552A8AB0358E8B201AEEDB1,
 				F552A8AC0358E8B201AEEDB1,
 				F560E3150357895001A4E466,
@@ -1236,6 +1240,50 @@
 		};
 		F59F6CB70354E7DA01AEEDB1 = {
 			fileRef = F59F6CB50354E7DA01AEEDB1;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5B79836035F64F80136A8DD = {
+			isa = PBXFileReference;
+			path = NJRTableView.m;
+			refType = 4;
+		};
+		F5B79837035F64F80136A8DD = {
+			isa = PBXFileReference;
+			path = NJRTableView.h;
+			refType = 4;
+		};
+		F5B79838035F64F80136A8DD = {
+			fileRef = F5B79836035F64F80136A8DD;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5B79839035F64F80136A8DD = {
+			fileRef = F5B79837035F64F80136A8DD;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5B79865038865B30136A8DD = {
+			isa = PBXFileReference;
+			path = "NSCharacterSet-NJRExtensions.m";
+			refType = 4;
+		};
+		F5B79866038865B30136A8DD = {
+			isa = PBXFileReference;
+			path = "NSCharacterSet-NJRExtensions.h";
+			refType = 4;
+		};
+		F5B79867038865B30136A8DD = {
+			fileRef = F5B79865038865B30136A8DD;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5B79868038865B30136A8DD = {
+			fileRef = F5B79866038865B30136A8DD;
 			isa = PBXBuildFile;
 			settings = {
 			};

@@ -13,6 +13,7 @@
     IBOutlet NSTableView *tableView;
     IBOutlet NSButton *removeButton;
     PSAlarms *alarms;
+    NSArray *reorderedAlarms;
 }
 
 - (IBAction)remove:(id)sender;
