@@ -10,6 +10,7 @@
 #import "PSAlarmSetController.h"
 #import "PSAlarmAlertController.h"
 #import "PSAlarmsController.h"
+#import "PSPreferencesController.h"
 #import "NJRReadMeController.h"
 #import "PSAlarm.h"
 #import "PSAlarms.h"
@@ -51,6 +52,16 @@
         alarmsController = [[PSAlarmsController alloc] init];
     }
     [alarmsController showWindow: self];
+}
+
+#pragma mark preferences
+
+- (IBAction)orderFrontPreferencesPanel:(id)sender;
+{
+    if (!preferencesController)  {
+        preferencesController = [[PSPreferencesController alloc] init];
+    }
+    [preferencesController showWindow: self];
 }
 
 - (void)_resetUpdateTimer;

@@ -17,6 +17,7 @@
 
 + (NSString *)ellipsisString;
 
+- (NSAttributedString *)keyEquivalentAttributedStringWithModifierMask:(unsigned int)modifierMask;
 
 @end
 

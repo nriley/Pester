@@ -11,10 +11,12 @@
 @class PSAlarmsController;
 @class PSAlarmSetController;
 @class PSTimer;
+@class PSPreferencesController;
 
 @interface PSApplication : NSApplication {
     PSAlarmsController *alarmsController;
     IBOutlet PSAlarmSetController *alarmSetController;
+    PSPreferencesController *preferencesController;
     PSTimer *dockUpdateTimer;
     NSTimeInterval dockUpdateInterval;
     NSImage *appIconImage;
@@ -22,6 +24,7 @@
 
 - (IBAction)orderFrontSetAlarmPanel:(id)sender;
 - (IBAction)orderFrontAlarmsPanel:(id)sender;
+- (IBAction)orderFrontPreferencesPanel:(id)sender;
 - (IBAction)stopAlerts:(id)sender;
 
 @end

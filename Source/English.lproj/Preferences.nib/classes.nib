@@ -1,0 +1,18 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {clear = id; }; 
+            CLASS = NJRHotKeyField; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSTextField; 
+        }, 
+        {
+            CLASS = PSPreferencesController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {setAlarmHotKey = NJRHotKeyField; }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

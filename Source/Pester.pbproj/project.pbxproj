@@ -180,6 +180,7 @@
 				E17F2F4D03FDFB3100050002,
 				E1DEF10603FF83AC00050002,
 				E10F2A3B0402E61C00050002,
+				E11CB6E0043025F500050002,
 				089C165CFE840E0CC02AAC07,
 				E10E71F3040C335800050002,
 				F59DD44F0358ABF4017318D0,
@@ -354,6 +355,10 @@
 				E1DEF118040014EB00050002,
 				E10F2A400402E71400050002,
 				E1B46FEA04057E3400050002,
+				E1F993C30436280200050002,
+				E1F993C80436310F00050002,
+				E169592B0437A4A400050002,
+				E14DEC840438969400050002,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +384,7 @@
 				E1DEF10803FF83AC00050002,
 				E10F2A3D0402E61C00050002,
 				E10E71F5040C335800050002,
+				E11CB6E2043025F600050002,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +444,10 @@
 				E1DEF119040014EB00050002,
 				E10F2A410402E71400050002,
 				E1B46FEB04057E3400050002,
+				E1F993C40436280200050002,
+				E1F993C90436310F00050002,
+				E169592C0437A4A400050002,
+				E14DEC850438969400050002,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +587,27 @@
 			isa = PBXCopyFilesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E11CB6E0043025F500050002 = {
+			children = (
+				E11CB6E1043025F500050002,
+			);
+			isa = PBXVariantGroup;
+			name = Preferences.nib;
+			path = "";
+			refType = 4;
+		};
+		E11CB6E1043025F500050002 = {
+			isa = PBXFileReference;
+			name = English;
+			path = English.lproj/Preferences.nib;
+			refType = 4;
+		};
+		E11CB6E2043025F600050002 = {
+			fileRef = E11CB6E0043025F500050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		E1271F040000012300000028 = {
 			fileRef = E130B9AD03B7C59700000028;
 			isa = PBXBuildFile;
@@ -656,6 +687,30 @@
 			settings = {
 			};
 		};
+		E14DEC820438969400050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRHotKeyFieldCell.h;
+			refType = 4;
+		};
+		E14DEC830438969400050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRHotKeyFieldCell.m;
+			refType = 4;
+		};
+		E14DEC840438969400050002 = {
+			fileRef = E14DEC820438969400050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E14DEC850438969400050002 = {
+			fileRef = E14DEC830438969400050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		E162698303B6189000000028 = {
 			fileEncoding = 30;
 			isa = PBXFileReference;
@@ -690,6 +745,8 @@
 				F5B79865038865B30136A8DD,
 				F5EE8DBA038A76AC0134BEAC,
 				F5EE8DB9038A76AC0134BEAC,
+				E16959290437A4A400050002,
+				E169592A0437A4A400050002,
 				F5F1990E036D3B3101EB0372,
 				F5F1990D036D3B3101EB0372,
 				F59E4C0E036B43D2016B311C,
@@ -728,6 +785,30 @@
 		};
 		E162698B03B6190B00000028 = {
 			fileRef = E162698903B6190B00000028;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E16959290437A4A400050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = "NSFont-NJRExtensions.h";
+			refType = 4;
+		};
+		E169592A0437A4A400050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = "NSFont-NJRExtensions.m";
+			refType = 4;
+		};
+		E169592B0437A4A400050002 = {
+			fileRef = E16959290437A4A400050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E169592C0437A4A400050002 = {
+			fileRef = E169592A0437A4A400050002;
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -1313,6 +1394,54 @@
 			settings = {
 			};
 		};
+		E1F993C10436280200050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRHotKeyField.h;
+			refType = 4;
+		};
+		E1F993C20436280200050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRHotKeyField.m;
+			refType = 4;
+		};
+		E1F993C30436280200050002 = {
+			fileRef = E1F993C10436280200050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1F993C40436280200050002 = {
+			fileRef = E1F993C20436280200050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1F993C60436310F00050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSPreferencesController.h;
+			refType = 4;
+		};
+		E1F993C70436310F00050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSPreferencesController.m;
+			refType = 4;
+		};
+		E1F993C80436310F00050002 = {
+			fileRef = E1F993C60436310F00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1F993C90436310F00050002 = {
+			fileRef = E1F993C70436310F00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 //E10
 //E11
 //E12
@@ -1489,6 +1618,8 @@
 				E10F2A3F0402E71400050002,
 				F5F198D1036BE57401EB0372,
 				F5F198D0036BE57401EB0372,
+				E1F993C60436310F00050002,
+				E1F993C70436310F00050002,
 			);
 			isa = PBXGroup;
 			name = Controllers;
@@ -1542,6 +1673,10 @@
 				E1B46FE904057E3400050002,
 				F560E3150357895001A4E466,
 				F560E3160357895001A4E466,
+				E1F993C10436280200050002,
+				E1F993C20436280200050002,
+				E14DEC820438969400050002,
+				E14DEC830438969400050002,
 				E13919E203B9E4E100000028,
 				E13919E303B9E4E100000028,
 				F5F240B6036A862101FE7503,

@@ -93,7 +93,12 @@
             SUPERCLASS = NSWindowController; 
         }, 
         {
-            ACTIONS = {orderFrontAlarmsPanel = id; orderFrontSetAlarmPanel = id; stopAlerts = id; }; 
+            ACTIONS = {
+                orderFrontAlarmsPanel = id; 
+                orderFrontPreferencesPanel = id; 
+                orderFrontSetAlarmPanel = id; 
+                stopAlerts = id; 
+            }; 
             CLASS = PSApplication; 
             LANGUAGE = ObjC; 
             OUTLETS = {alarmSetController = PSAlarmSetController; }; 
