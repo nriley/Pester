@@ -105,8 +105,10 @@ NSMutableArray *PSTimerAllTimers = nil;
 
 - (void)_invalidate;
 {
-    isValid = NO;
-    [[self class] _timerDeleted: self];
+    if (isValid) {
+        isValid = NO;
+        [[self class] _timerDeleted: self];
+    }
 }
 
 - (void)_timerExpired;
@@ -217,13 +219,13 @@ NSMutableArray *PSTimerAllTimers = nil;
     [PSTimerCurrent invalidate];
     if (PSTimerOnWake != nil) {
         NSDate *date = [PSTimerOnWake fireDate];
-        NSLog(@"%lf sec remain until alarm", [date timeIntervalSinceNow]);
+        // NSLog(@"%lf sec remain until alarm", [date timeIntervalSinceNow]);
         if ([date timeIntervalSinceNow] > 30) {
-            NSLog(@"going to sleep, setting timer %@", PSTimerOnWake);
+            // NSLog(@"going to sleep, setting timer %@", PSTimerOnWake);
             [PSPowerManager setWakeTime: [[PSTimerOnWake fireDate] addTimeInterval: -15]];
             return YES;
         } else {
-            NSLog(@"not setting timer, will attempt to prevent idle sleep");
+            // NSLog(@"not setting timer, will attempt to prevent idle sleep");
             return NO;
         }
     }

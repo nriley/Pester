@@ -36,6 +36,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 
 + (void)setUp;
 {
+    [PSTimer setUp];
     if (PSAlarmsAllAlarms == nil) {
         NSDictionary *plAlarms = [[NSUserDefaults standardUserDefaults] objectForKey: PSAllAlarms];
         if (plAlarms == nil) {
@@ -44,7 +45,6 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
             PSAlarmsAllAlarms = [[self alloc] initWithPropertyList: plAlarms];
         }
         [PSAlarmsAllAlarms _updateNextAlarm]; // only generate notifications after singleton established
-        [PSTimer setUp];
     }
 }
 

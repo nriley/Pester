@@ -4,16 +4,16 @@
 \f6\fnil\fcharset77 LucidaGrande;\f7\fnil\fcharset77 HoeflerText-Italic;\f8\fnil\fcharset77 GillSans-Italic;
 \f9\fswiss\fcharset77 Helvetica-Bold;\f10\fnil\fcharset77 Monaco;}
 {\colortbl;\red255\green255\blue255;\red255\green15\blue0;\red0\green0\blue255;\red255\green0\blue0;
-\red35\green110\blue37;}
+}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
 \f0\b\fs48 \cf0 Pester 
-\f1\b0 1.1b1 
+\f1\b0 1.1b2 
 \f2\i\b \cf2 [DO NOT REDISTRIBUTE]
 \f0\i0\fs26 \cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
-\f1\b0 \cf0 6 January 2003
+\f1\b0 \cf0 7 January 2003
 \fs24 \
 \
 \pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
@@ -227,9 +227,6 @@ Still to be fixed for 1.1:\
 
 \f3\b0 \'a5 Note somewhere in the app or readme that autowake can interfere with EyeTV, which resets the timer immediately before each sleep (so do we, so it\'d5s order-sensitive; Apple really needs to implement a systemwide scheduler service for this). Warn that Pester must be running in order to go off at the appointed time. Test interaction with screen savers.\
 \'a5	The dock icon still sometimes displays \'c7expired\'c8 briefly; this is an artifact of the new timer implementation.\
-\'a5	Figure out why 
-\f10\fs20 \cf5 \CocoaLigature0 powerManagerShouldSleep:
-\f3\fs28 \cf0 \CocoaLigature1  is not being triggered; test more with broken FaxSTF sleep responses as worst case.\
 \'a5	Alarm times can be off by up to one second in certain cases.\
 \'a5 Preference for dock display?\
 \'a5	Handle alarm restoration failure (finish implementing PSError, test cases).\

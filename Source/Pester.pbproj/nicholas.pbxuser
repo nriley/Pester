@@ -21,7 +21,135 @@
 			F59B967103538BE201154278,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 63613638;
+			PBXPerProjectTemplateStateSaveDate = 63616518;
+			"PBXTemplateGeometry-64ABBB4501FA494900185B06" = {
+				ContentSize = "{968, 658}";
+				LeftSlideOut = {
+					ActiveTab = 0;
+					ActiveTabName = PBXGroupTreeModule;
+					Collapsed = NO;
+					Frame = "{{0, 23}, {968, 635}}";
+					Split0 = {
+						Collapsed = NO;
+						Frame = "{{279, 0}, {689, 635}}";
+						Split0 = {
+							Frame = "{{0, 0}, {689, 635}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {681, 289}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {681, 150}}";
+								Split0 = {
+									Frame = "{{0, 24}, {681, 126}}";
+									Split0 = {
+										Frame = "{{0, 0}, {333, 126}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											105.123,
+										);
+										Frame = "{{342, 0}, {339, 126}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {681, 120}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {681, 234}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {681, 234}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {683, 205}}";
+							BuildTranscriptFrame = "{{0, 214}, {683, 2}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {681, 238}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {255, 635}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							222,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {235, 381}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							192,
+						);
+						Frame = "{{0, 0}, {233, 635}}";
+						MembersFrame = "{{0, 390}, {235, 245}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							191,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {217, 635}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {239, 554}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							206.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 635}}";
+					};
+					TabCount = 5;
+					TabsVisible = YES;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = YES;
+				Template = 64ABBB4501FA494900185B06;
+				ToolbarVisible = YES;
+				WindowLocation = "{12, 455}";
+			};
 			PBXWorkspaceContents = (
 				{
 					LeftSlideOut = {
@@ -817,7 +945,7 @@
 					WindowLocation = "{15, 0}";
 				},
 			);
-			PBXWorkspaceStateSaveDate = 63613638;
+			PBXWorkspaceStateSaveDate = 63616518;
 		};
 		perUserProjectItems = {
 			E1096EB803C3EDB0009B92C1 = E1096EB803C3EDB0009B92C1;
@@ -1545,7 +1673,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: ";
 		rLen = 0;
-		rLoc = 4481;
+		rLoc = 4477;
 		rType = 0;
 		vrLen = 1348;
 		vrLoc = 3368;
@@ -1595,7 +1723,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: 244";
 		rLen = 0;
-		rLoc = 7719;
+		rLoc = 7715;
 		rType = 0;
 		vrLen = 1412;
 		vrLoc = 6161;
@@ -2126,7 +2254,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: 205";
 		rLen = 0;
-		rLoc = 6053;
+		rLoc = 6049;
 		rType = 0;
 		vrLen = 1441;
 		vrLoc = 2048;
@@ -2536,7 +2664,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: allAlarms";
 		rLen = 0;
-		rLoc = 4481;
+		rLoc = 4477;
 		rType = 0;
 		vrLen = 1234;
 		vrLoc = 2975;
@@ -3003,7 +3131,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: 93";
 		rLen = 0;
-		rLoc = 2808;
+		rLoc = 2804;
 		rType = 0;
 		vrLen = 1387;
 		vrLoc = 2086;
@@ -3263,7 +3391,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: alarm";
 		rLen = 0;
-		rLoc = 4481;
+		rLoc = 4477;
 		rType = 0;
 		vrLen = 1292;
 		vrLoc = 2939;
@@ -3283,7 +3411,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: init";
 		rLen = 0;
-		rLoc = 4208;
+		rLoc = 4204;
 		rType = 0;
 		vrLen = 1554;
 		vrLoc = 2504;
@@ -3303,7 +3431,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: init";
 		rLen = 0;
-		rLoc = 4208;
+		rLoc = 4204;
 		rType = 0;
 		vrLen = 1554;
 		vrLoc = 2504;
@@ -3323,7 +3451,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: dealloc";
 		rLen = 0;
-		rLoc = 4392;
+		rLoc = 4388;
 		rType = 0;
 		vrLen = 1581;
 		vrLoc = 2504;
@@ -3353,7 +3481,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: _alarmDied:";
 		rLen = 0;
-		rLoc = 4481;
+		rLoc = 4477;
 		rType = 0;
 		vrLen = 1278;
 		vrLoc = 3171;
@@ -3522,7 +3650,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: alarm";
 		rLen = 0;
-		rLoc = 4481;
+		rLoc = 4477;
 		rType = 0;
 		vrLen = 1228;
 		vrLoc = 3171;
@@ -3542,7 +3670,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: 169";
 		rLen = 11;
-		rLoc = 4825;
+		rLoc = 4821;
 		rType = 0;
 		vrLen = 1022;
 		vrLoc = 4420;
@@ -3842,7 +3970,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: 169";
 		rLen = 11;
-		rLoc = 4825;
+		rLoc = 4821;
 		rType = 0;
 		vrLen = 1007;
 		vrLoc = 4420;
@@ -4237,7 +4365,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: 86";
 		rLen = 0;
-		rLoc = 2679;
+		rLoc = 2675;
 		rType = 0;
 		vrLen = 1369;
 		vrLoc = 1388;
@@ -4415,7 +4543,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 181";
 		rLen = 18;
-		rLoc = 5369;
+		rLoc = 5402;
 		rType = 0;
 		vrLen = 708;
 		vrLoc = 4844;
@@ -4435,7 +4563,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 186";
 		rLen = 32;
-		rLoc = 5413;
+		rLoc = 5446;
 		rType = 0;
 		vrLen = 682;
 		vrLoc = 4844;
@@ -4455,7 +4583,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: ";
 		rLen = 0;
-		rLoc = 5445;
+		rLoc = 5478;
 		rType = 0;
 		vrLen = 682;
 		vrLoc = 4844;
@@ -4615,7 +4743,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: 86";
 		rLen = 0;
-		rLoc = 2679;
+		rLoc = 2675;
 		rType = 0;
 		vrLen = 1369;
 		vrLoc = 1388;
@@ -4655,7 +4783,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: setWakeUp:";
 		rLen = 9;
-		rLoc = 5421;
+		rLoc = 5454;
 		rType = 0;
 		vrLen = 690;
 		vrLoc = 5148;
@@ -4695,7 +4823,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: ";
 		rLen = 0;
-		rLoc = 6624;
+		rLoc = 6666;
 		rType = 0;
 		vrLen = 1086;
 		vrLoc = 5320;
@@ -4715,7 +4843,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 147";
 		rLen = 0;
-		rLoc = 4576;
+		rLoc = 4609;
 		rType = 0;
 		vrLen = 1062;
 		vrLoc = 5442;
@@ -4745,7 +4873,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: powerManagerShouldSleep:";
 		rLen = 0;
-		rLoc = 5841;
+		rLoc = 5874;
 		rType = 0;
 		vrLen = 1062;
 		vrLoc = 5442;
@@ -4895,7 +5023,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: 206";
 		rLen = 0;
-		rLoc = 6053;
+		rLoc = 6049;
 		rType = 0;
 		vrLen = 1340;
 		vrLoc = 2041;
@@ -4925,7 +5053,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: 48";
 		rLen = 0;
-		rLoc = 1413;
+		rLoc = 1409;
 		rType = 0;
 		vrLen = 1406;
 		vrLoc = 146;
@@ -5103,7 +5231,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 217";
 		rLen = 0;
-		rLoc = 5931;
+		rLoc = 5964;
 		rType = 0;
 		vrLen = 1138;
 		vrLoc = 5369;
@@ -5123,7 +5251,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 217";
 		rLen = 0;
-		rLoc = 5931;
+		rLoc = 5964;
 		rType = 0;
 		vrLen = 1138;
 		vrLoc = 5369;
@@ -5143,7 +5271,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 224";
 		rLen = 0;
-		rLoc = 6333;
+		rLoc = 6372;
 		rType = 0;
 		vrLen = 1092;
 		vrLoc = 5369;
@@ -6042,7 +6170,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: setUp";
 		rLen = 0;
-		rLoc = 1190;
+		rLoc = 1211;
 		rType = 0;
 		vrLen = 1371;
 		vrLoc = 0;
@@ -6220,7 +6348,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 176";
 		rLen = 0;
-		rLoc = 5239;
+		rLoc = 5273;
 		rType = 0;
 		vrLen = 641;
 		vrLoc = 5143;
@@ -6234,7 +6362,7 @@
 		isa = PBXTextBookmark;
 		name = "PSTimer.m: 176";
 		rLen = 0;
-		rLoc = 5239;
+		rLoc = 5273;
 		rType = 0;
 		vrLen = 641;
 		vrLoc = 5143;
@@ -6266,20 +6394,6 @@
 	E1F4C96D03CAAF8F001509F3 = {
 		isa = PBXTargetBookmark;
 		trg = 29B97326FDCFA39411CA2CEA;
-		uiCtxt = {
-			TOCViewDetailVisibleRect = "{{0, 0}, {467, 581}}";
-			TOCViewExpandedItems = (
-				"com.apple.target-editor-pane.settings",
-				"com.apple.target-editor-pane.settings.simple",
-				"com.apple.target-editor-pane.info-plist",
-				"com.apple.target-editor-pane.info-plist.simple",
-				"com.apple.target-editor-pane.buildphases",
-			);
-			TOCViewMasterVisibleRect = "{{0, 0}, {183, 581}}";
-			TOCViewSelectedItems = (
-				"com.apple.target-editor-pane.info-plist",
-			);
-		};
 	};
 	E1FCECFD03C972CF001509F3 = {
 		fRef = E1FCED0803C972D0001509F3;
