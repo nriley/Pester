@@ -21,6 +21,7 @@ DSTROOT="$PACKAGEDIR/$VOL" && \
 sudo rm -fr "$DSTROOT" && \
 rm -rf build/ && \
 pbxbuild install "DSTROOT=$DSTROOT" && \
+rm -rf build/ && \
 ditto -rsrc "$PACKAGEDIR"/Source "$DSTROOT"/Source && \
 ditto -rsrc "${PACKAGEDIR}/Read Me" "$DSTROOT" && \
 rm -rf "$DSTROOT"/Source/build "${DSTROOT}/Source/Read Me.rtfd" && \
@@ -44,5 +45,6 @@ hdiutil eject $DISK && \
 # osascript -e "tell application \"Finder\" to eject disk \"$VOL\"" && \
 hdiutil convert "$DMG" -format UDZO -imagekey zlib-level=9 -o "z$DMG" && \
 mv "z$DMG" "$DMG" && \
+hdiutil internet-enable "$DMG" && \
 scp "$DMG" ainaz:web/nriley/software/ && \
 :
