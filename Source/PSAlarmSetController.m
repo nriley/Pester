@@ -63,6 +63,7 @@
     [self doSpeakChanged: nil];
     [script setFileTypes: [NSArray arrayWithObjects: @"applescript", @"script", NSFileTypeForHFSTypeCode(kOSAFileType), NSFileTypeForHFSTypeCode('TEXT'), nil]];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(playSoundChanged:) name: NJRQTMediaPopUpButtonMovieChangedNotification object: sound];
     [voice setDelegate: self];
     [[self window] makeKeyAndOrderFront: nil];
 }
@@ -160,12 +161,20 @@
 - (IBAction)playSoundChanged:(id)sender;
 {
     BOOL playSoundSelected = [playSound intValue];
+    BOOL canRepeat = playSoundSelected ? [sound canRepeat] : NO;
     [sound setEnabled: playSoundSelected];
-    [soundRepetitions setEnabled: playSoundSelected];
-    [soundRepetitionStepper setEnabled: playSoundSelected];
-    [soundRepetitionsLabel setTextColor: playSoundSelected ? [NSColor controlTextColor] : [NSColor disabledControlTextColor]];
+    [soundRepetitions setEnabled: canRepeat];
+    [soundRepetitionStepper setEnabled: canRepeat];
+    [soundRepetitionsLabel setTextColor: canRepeat ? [NSColor controlTextColor] : [NSColor disabledControlTextColor]];
     if (playSoundSelected && sender != nil)
         [[self window] makeFirstResponder: sound];
+}
+
+- (IBAction)setSoundRepetitionCount:(id)sender;
+{
+    int newReps = [sender intValue], oldReps = [soundRepetitions intValue];
+    if (newReps != oldReps)
+        [soundRepetitions setIntValue: newReps];
 }
 
 // XXX should check the 'Do script:' button when someone drops a script on the button

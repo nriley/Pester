@@ -9,8 +9,11 @@
 #import <AppKit/AppKit.h>
 #import "BDAlias.h"
 
+extern NSString * const NJRQTMediaPopUpButtonMovieChangedNotification;
+
 @interface NJRQTMediaPopUpButton : NSPopUpButton {
     IBOutlet NSMovieView *preview;
+    BOOL movieCanRepeat;
     NSMenuItem *otherItem;
     BDAlias *selectedAlias, *previousAlias;
     NSMutableArray *recentMediaAliasData;
@@ -18,6 +21,7 @@
 }
 
 - (BDAlias *)selectedAlias;
+- (BOOL)canRepeat;
 - (IBAction)stopSoundPreview:(id)sender;
 
 @end

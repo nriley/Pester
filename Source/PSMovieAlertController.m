@@ -9,6 +9,7 @@
 #import "PSAlarmAlertController.h"
 #import "PSMovieAlertController.h"
 #import "PSMovieAlert.h"
+#import "NSMovie-NJRExtensions.h"
 #import <QuickTime/Movies.h>
 
 @implementation PSMovieAlertController
@@ -68,7 +69,7 @@
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(close) name: PSAlarmAlertStopNotification object: nil];
         repetitions = [alert repetitions];
         repetitionsRemaining = repetitions;
-        [self play];
+        if (![movie isStatic]) [self play]; // if it's an image, don't close the window automatically
     }
     return self;
 }

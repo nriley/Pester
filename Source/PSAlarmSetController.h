@@ -49,6 +49,7 @@
 - (IBAction)doScriptChanged:(id)sender;
 - (IBAction)doSpeakChanged:(id)sender;
 - (IBAction)setAlarm:(NSButton *)sender;
+- (IBAction)setSoundRepetitionCount:(id)sender;
 
 - (IBAction)silence:(id)sender;
 

@@ -36,16 +36,24 @@
             if (([preferredRep size].width > imageSize.width ||
                     [preferredRep size].height > imageSize.height) ||
                 // (assuming that the previous preferred rep was smaller, too)
-                // XXX fix this in HostLauncher too
+                // XXX fix this in HostLauncher too - or is the FSA code better?
                 (repSize.width >= [preferredRep size].width ||
                     repSize.height >= [preferredRep size].height)) preferredRep = rep;
         }
     }
     // Begin workaround code for bug in OS X 10.1 (removeRepresentation: has no effect)
-    if (repCount > 1) {
-        NSImage *image = [[[NSImage alloc] initWithSize: [preferredRep size]] autorelease];
-        [image addRepresentation: preferredRep];
-        return image;
+    if ([preferredRep size].width > imageSize.width || [preferredRep size].height > imageSize.height) {
+        NSImage *scaledImage = [[NSImage alloc] initWithSize: imageSize];
+        NSRect rect = { NSZeroPoint, imageSize };
+        [scaledImage setFlipped: [self isFlipped]]; // XXX this works, but is correct?
+        [scaledImage lockFocus];
+        [preferredRep drawInRect: rect];
+        [scaledImage unlockFocus];
+        return scaledImage;
+    } else if (repCount > 1) {
+        NSImage *sizedImage = [[NSImage alloc] initWithSize: [preferredRep size]];
+        [sizedImage addRepresentation: preferredRep];
+        return sizedImage;
     } else {
         return self;
     }

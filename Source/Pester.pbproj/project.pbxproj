@@ -160,6 +160,7 @@
 		};
 		29B97317FDCFA39411CA2CEA = {
 			children = (
+				F5243DA40378681101AEEDB1,
 				29B97318FDCFA39411CA2CEA,
 				F560E2EE03574F8A01A4E466,
 				F59DC6DF0353DF5E01AEEDB1,
@@ -238,8 +239,8 @@
 			productName = Pester;
 			productReference = 17587328FF379C6511CA2CBB;
 			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">
-<plist version=\"0.9\">
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
@@ -312,6 +313,7 @@
 				F5F19910036D3B3101EB0372,
 			);
 			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B97328FDCFA39411CA2CEA = {
 			buildActionMask = 2147483647;
@@ -324,8 +326,10 @@
 				F59DD4510358ABF7017318D0,
 				F589C9C7035AA12E0155F4B2,
 				F59E4BE0036B1D94016B311C,
+				F5243DA50378681101AEEDB1,
 			);
 			isa = PBXResourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B9732BFDCFA39411CA2CEA = {
 			buildActionMask = 2147483647;
@@ -366,6 +370,7 @@
 				F5F1990F036D3B3101EB0372,
 			);
 			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B9732CFDCFA39411CA2CEA = {
 			fileRef = 29B97316FDCFA39411CA2CEA;
@@ -384,6 +389,7 @@
 				F59E4C0C036B33EC016B311C,
 			);
 			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 //290
 //291
@@ -464,6 +470,17 @@
 		};
 		F517D6450356B8CC016D68B9 = {
 			fileRef = F517D6430356B8CC016D68B9;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5243DA40378681101AEEDB1 = {
+			isa = PBXFileReference;
+			path = "Popup triangle.tiff";
+			refType = 4;
+		};
+		F5243DA50378681101AEEDB1 = {
+			fileRef = F5243DA40378681101AEEDB1;
 			isa = PBXBuildFile;
 			settings = {
 			};

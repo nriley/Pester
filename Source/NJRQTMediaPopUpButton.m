@@ -13,10 +13,12 @@
 
 static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 
+NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPopUpButtonMovieChangedNotification";
+
 @interface NJRQTMediaPopUpButton (Private)
 - (void)_setPath:(NSString *)path;
 - (NSMenuItem *)_itemForAlias:(BDAlias *)alias;
-- (BOOL)_validatePreview;
+- (BOOL)_validateWithPreview:(BOOL)doPreview;
 @end
 
 @implementation NJRQTMediaPopUpButton
@@ -24,10 +26,13 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 // XXX handle refreshing sound list on resume
 // XXX don't add icons on Puma, they look like ass
 // XXX launch preview on a separate thread (if movies take too long to load, they inhibit the interface responsiveness)
+// XXX when dropping invalid JPEG file on button, it dies
 
 // Recent media layout:
 // Most recent media are at TOP of menu (smaller item numbers, starting at [self indexOfItem: otherItem] + 1)
 // Most recent media are at END of array (larger indices)
+
+#pragma mark recently selected media tracking
 
 - (NSString *)_defaultKey;
 {
@@ -94,6 +99,8 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
     }
 }
 
+#pragma mark initialize-release
+
 - (void)awakeFromNib;
 {
     NSMenu *menu;
@@ -126,9 +133,11 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
     [item setTarget: self];
     otherItem = [item retain];
 
+    [self _validateWithPreview: NO];
+
     recentMediaAliasData = [[NSMutableArray alloc] initWithCapacity: NJRQTMediaPopUpButtonMaxRecentItems + 1];
     [self _addRecentMediaFromAliasesData: [[NSUserDefaults standardUserDefaults] arrayForKey: [self _defaultKey]]];
-    [self _validateRecentMedia];
+    // [self _validateRecentMedia];
 
     [self registerForDraggedTypes:
         [NSArray arrayWithObjects: NSFilenamesPboardType, NSURLPboardType, nil]];
@@ -141,6 +150,8 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
     [selectedAlias release]; [previousAlias release];
     [super dealloc];
 }
+
+#pragma mark accessing
 
 - (BDAlias *)selectedAlias;
 {
@@ -171,14 +182,14 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
         return [self itemAtIndex: 0];
     }
 
-    [self _validateRecentMedia];
+    // [self _validateRecentMedia];
     path = [alias fullPath];
     sf = [[SoundFileManager sharedSoundFileManager] soundFileFromPath: path];
-    NSLog(@"_itemForAlias: %@", path);
+    // NSLog(@"_itemForAlias: %@", path);
 
     // selected a system sound?
     if (sf != nil) {
-        NSLog(@"_itemForAlias: selected system sound");
+        // NSLog(@"_itemForAlias: selected system sound");
         return [self itemAtIndex: [self indexOfItemWithRepresentedObject: sf]];
     } else {
         NSEnumerator *e = [recentMediaAliasData reverseObjectEnumerator];
@@ -193,7 +204,7 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
                 int menuIndex = recentIndex + otherIndex;
                 if (menuIndex == otherIndex + 1) return [self itemAtIndex: menuIndex]; // already at top
                 // remove item, add (at top) later
-                NSLog(@"_itemForAlias removing item: idx %d + otherItemIdx %d + 1 = %d [%@]", recentIndex, otherIndex, menuIndex, [self itemAtIndex: menuIndex]);
+                // NSLog(@"_itemForAlias removing item: idx %d + otherItemIdx %d + 1 = %d [%@]", recentIndex, otherIndex, menuIndex, [self itemAtIndex: menuIndex]);
                 [self removeItemAtIndex: menuIndex];
                 [recentMediaAliasData removeObjectAtIndex: [recentMediaAliasData count] - recentIndex];
                 break;
@@ -208,20 +219,30 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
     }
 }
 
+- (BOOL)canRepeat;
+{
+    return movieCanRepeat;
+}
+
+#pragma mark selected media validation
+
 - (void)_invalidateSelection;
 {
     [self _setAlias: previousAlias];
     [self selectItem: [self _itemForAlias: [self selectedAlias]]];
+    [[NSNotificationCenter defaultCenter] postNotificationName: NJRQTMediaPopUpButtonMovieChangedNotification object: self];
 }
 
-- (BOOL)_validatePreview;
+- (BOOL)_validateWithPreview:(BOOL)doPreview;
 {
     [preview stop: self];
     if (selectedAlias == nil) {
         [preview setMovie: nil];
-        NSBeep();
+        movieCanRepeat = YES;
+        if (doPreview) NSBeep();
     } else {
         NSMovie *movie = [[NSMovie alloc] initWithURL: [NSURL fileURLWithPath: [selectedAlias fullPath]] byReference: YES];
+        movieCanRepeat = ![movie isStatic];
         if ([movie hasAudio])
             [preview setMovie: movie];
         else {
@@ -241,8 +262,11 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
         [movie release];
         [preview start: self];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName: NJRQTMediaPopUpButtonMovieChangedNotification object: self];
     return YES;
 }
+
+#pragma mark actions
 
 - (IBAction)stopSoundPreview:(id)sender;
 {
@@ -252,13 +276,13 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 - (void)_beepSelected:(NSMenuItem *)sender;
 {
     [self _setAlias: nil];
-    [self _validatePreview];
+    [self _validateWithPreview: YES];
 }
 
 - (void)_soundFileSelected:(NSMenuItem *)sender;
 {
     [self _setPath: [(SoundFile *)[sender representedObject] path]];
-    if (![self _validatePreview]) {
+    if (![self _validateWithPreview: YES]) {
         [[self menu] removeItem: sender];
     }
 }
@@ -268,7 +292,7 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
     BDAlias *alias = [sender representedObject];
     int index = [self indexOfItem: sender], otherIndex = [self indexOfItem: otherItem];
     [self _setAlias: alias];
-    if (![self _validatePreview]) {
+    if (![self _validateWithPreview: YES]) {
         [[self menu] removeItem: sender];
     } else if (index > otherIndex + 1) { // move "other" item to top of list
         int recentIndex = [recentMediaAliasData count] - index + otherIndex;
@@ -280,7 +304,7 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
         [self selectItem: item];
         [item release];
         NSAssert(recentIndex >= 0, @"Recent media index invalid");
-        NSLog(@"_aliasSelected removing item %d - %d + %d = %d of recentMediaAliasData", [recentMediaAliasData count], index, otherIndex, recentIndex);
+        // NSLog(@"_aliasSelected removing item %d - %d + %d = %d of recentMediaAliasData", [recentMediaAliasData count], index, otherIndex, recentIndex);
         [recentMediaAliasData removeObjectAtIndex: recentIndex];
         [recentMediaAliasData addObject: data];
         [self _validateRecentMedia];
@@ -312,7 +336,7 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
         NSArray *files = [sheet filenames];
         NSAssert1([files count] == 1, @"%d items returned, only one expected", [files count]);
         [self _setPath: [files objectAtIndex: 0]];
-        if ([self _validatePreview]) {
+        if ([self _validateWithPreview: YES]) {
             [self selectItem: [self _itemForAlias: selectedAlias]];
         }
     } else {
@@ -321,6 +345,25 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
         [self selectItem: [self _itemForAlias: selectedAlias]];
     }
     // [self _validateRecentMedia];
+}
+
+#pragma mark drag feedback
+
+- (void)drawRect:(NSRect)rect;
+{
+    if (dragAccepted) {
+        NSWindow *window = [self window];
+        NSRect boundsRect = [self bounds];
+        BOOL isFirstResponder = ([window firstResponder] == self);
+        // focus ring and drag feedback interfere with one another
+        if (isFirstResponder) [window makeFirstResponder: window];
+        [super drawRect: rect];
+        [[NSColor selectedControlColor] set];
+        NSFrameRectWithWidthUsingOperation(NSInsetRect(boundsRect, 2, 2), 3, NSCompositeSourceIn);
+        if (isFirstResponder) [window makeFirstResponder: self];
+    } else {
+        [super drawRect: rect];
+    }
 }
 
 @end
@@ -409,7 +452,7 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
         NSURL *url = [NSURL URLFromPasteboard: [sender draggingPasteboard]];
         if (url == nil) return NO;
         [self _setPath: [url path]];
-        if ([self _validatePreview]) {
+        if ([self _validateWithPreview: YES]) {
             [self selectItem: [self _itemForAlias: selectedAlias]];
         }
     }

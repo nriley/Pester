@@ -39,12 +39,13 @@
 
 - (void)drawRect:(NSRect)rect;
 {
+    NSRect boundsRect = [self bounds];
     [super drawRect: rect];
     if (dragAccepted) {
         [[NSColor selectedControlColor] set];
         [NSBezierPath setDefaultLineWidth: 2];
-        [NSBezierPath strokeRect: NSInsetRect(rect, 2, 2)];
-    } else {
+        [NSBezierPath strokeRect: NSInsetRect(boundsRect, 2, 2)];
+    } else if (selectedAlias != nil && [self isEnabled]) {
         static NSImage *popupTriangle = nil;
         static NSSize imageSize;
         if (popupTriangle == nil) {
@@ -52,7 +53,7 @@
             imageSize = [popupTriangle size];
         }
         // equivalent to popup triangle location for large bezel in Carbon
-        [popupTriangle compositeToPoint: NSMakePoint(NSMaxX(rect) - imageSize.width - 5, NSMaxY(rect) - 5) operation: NSCompositeCopy];
+        [popupTriangle compositeToPoint: NSMakePoint(NSMaxX(boundsRect) - imageSize.width - 5, NSMaxY(boundsRect) - 5) operation: NSCompositeSourceOver];
     }
 }
 
@@ -268,10 +269,10 @@ extern MenuRef _NSGetCarbonMenu(NSMenu *menu);
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender;
 {
     if ([self acceptsDragFrom: sender] && [sender draggingSourceOperationMask] &
-        NSDragOperationCopy) {
+        (NSDragOperationCopy | NSDragOperationLink)) {
         dragAccepted = YES;
         [self setNeedsDisplay: YES];
-        return NSDragOperationGeneric;
+        return NSDragOperationLink;
     }
     return NSDragOperationNone;
 }

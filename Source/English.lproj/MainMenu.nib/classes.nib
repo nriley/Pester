@@ -37,6 +37,7 @@
                 inAtChanged = id; 
                 playSoundChanged = id; 
                 setAlarm = id; 
+                setSoundRepetitionCount = id; 
                 silence = id; 
                 update = id; 
             }; 
@@ -53,7 +54,7 @@
                 script = NJRFSObjectSelector; 
                 scriptSelectButton = NSButton; 
                 setButton = NSButton; 
-                sound = NJRSoundPopUpButton; 
+                sound = NJRQTMediaPopUpButton; 
                 soundRepetitionStepper = NSStepper; 
                 soundRepetitions = NSTextField; 
                 soundRepetitionsLabel = NSTextField; 
