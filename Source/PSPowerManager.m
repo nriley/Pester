@@ -179,6 +179,7 @@ closePMUComPort(io_object_t pmuRef)
 {
     io_service_t pmuReference = openPMUComPort();
     NSAssert(pmuReference != NULL, NSLocalizedString(@"Couldn't find PMU in IORegistry. This computer may not support automatic wake from sleep.", "Assertion message: couldn't open ApplePMU"));
+    return pmuReference;
 }
 
 + (NSDate *)wakeTime;

@@ -214,6 +214,16 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     return [expiredAlarms count] != 0;
 }
 
+#pragma mark printing
+
+- (NSString *)description;
+{
+    return [NSString stringWithFormat: @"%@ pending %@\n%@\n",
+        [super description], alarms,
+        [expiredAlarms count] > 0 ? [NSString stringWithFormat: @"expired %@\n", expiredAlarms]
+                                  : @""];
+}
+
 #pragma mark property list serialization (Pester 1.1)
 
 - (NSDictionary *)propertyListRepresentation;
@@ -242,7 +252,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
         plPendingAlarms, PLAlarmsPending, plExpiredAlarms, PLAlarmsExpired, nil];
     [plPendingAlarms release];
     [plExpiredAlarms release];
-    
+
     return plAllAlarms;
 }
 

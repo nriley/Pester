@@ -21,7 +21,263 @@
 			F59B967103538BE201154278,
 		);
 		perUserDictionary = {
-			PBXPerProjectTemplateStateSaveDate = 67918447;
+			PBXPerProjectTemplateStateSaveDate = 68247977;
+			"PBXTemplateGeometry-F5314676015831810DCA290F" = {
+				ContentSize = "{685, 434}";
+				LeftSlideOut = {
+					Collapsed = NO;
+					Frame = "{{0, 23}, {685, 411}}";
+					Split0 = {
+						ActiveTab = 2;
+						ActiveTabName = PBXBuildResultsModule;
+						Collapsed = NO;
+						Frame = "{{0, 0}, {685, 411}}";
+						Split0 = {
+							Frame = "{{0, 301}, {685, 110}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {952, 321}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {781, 452}}";
+								Split0 = {
+									Frame = "{{0, 24}, {781, 428}}";
+									Split0 = {
+										Frame = "{{0, 0}, {383, 428}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											155.123,
+										);
+										Frame = "{{392, 0}, {389, 428}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {781, 452}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {685, 215}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {685, 215}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {687, 264}}";
+							BuildTranscriptFrame = "{{0, 273}, {687, 0}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {685, 295}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {300, 533}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							267,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {280, 398}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							237,
+						);
+						Frame = "{{0, 0}, {278, 659}}";
+						MembersFrame = "{{0, 407}, {280, 252}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							236,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 100}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 100}}";
+					};
+					TabCount = 5;
+					TabsVisible = NO;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = YES;
+				Template = F5314676015831810DCA290F;
+				ToolbarVisible = YES;
+				WindowLocation = "{433, 70}";
+			};
+			"PBXTemplateGeometry-F5534CB2020F3F8A0DCA290F" = {
+				ContentSize = "{684, 312}";
+				LeftSlideOut = {
+					Collapsed = NO;
+					Frame = "{{0, 23}, {684, 289}}";
+					Split0 = {
+						ActiveTab = 1;
+						ActiveTabName = PBXRunSessionModule;
+						Collapsed = YES;
+						Frame = "{{0, 0}, {684, 289}}";
+						Split0 = {
+							Frame = "{{1e+06, 1e+06}, {684, 0}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {804, 321}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {594, 274}}";
+								Split0 = {
+									Frame = "{{0, 24}, {594, 250}}";
+									Split0 = {
+										Frame = "{{0, 0}, {290, 250}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											62.123,
+										);
+										Frame = "{{299, 0}, {295, 250}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {594, 274}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {684, 283}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {684, 283}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {614, 262}}";
+							BuildTranscriptFrame = "{{0, 271}, {614, 2}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {300, 533}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							267,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {280, 398}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							237,
+						);
+						Frame = "{{0, 0}, {278, 659}}";
+						MembersFrame = "{{0, 407}, {280, 252}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							236,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 386}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 386}}";
+					};
+					TabCount = 5;
+					TabsVisible = NO;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = YES;
+				Template = F5534CB2020F3F8A0DCA290F;
+				ToolbarVisible = YES;
+				WindowLocation = "{13, 95}";
+			};
 			"PBXTemplateGeometry-F5CA7EC9015C08ED0DCA290F" = {
 				ContentSize = "{665, 594}";
 				LeftSlideOut = {
@@ -150,13 +406,139 @@
 				ToolbarVisible = NO;
 				WindowLocation = "{69, 216}";
 			};
+			"PBXTemplateGeometry-F5CA7ECB015C094F0DCA290F" = {
+				ContentSize = "{668, 621}";
+				LeftSlideOut = {
+					Collapsed = NO;
+					Frame = "{{0, 0}, {668, 621}}";
+					Split0 = {
+						Collapsed = NO;
+						Frame = "{{0, 0}, {668, 621}}";
+						Split0 = {
+							Frame = "{{0, 0}, {668, 621}}";
+						};
+						SplitCount = 1;
+						Tab0 = {
+							Frame = "{{0, 0}, {484, 208}}";
+						};
+						Tab1 = {
+							Debugger = {
+								Collapsed = NO;
+								Frame = "{{0, 0}, {664, 208}}";
+								Split0 = {
+									Frame = "{{0, 24}, {664, 184}}";
+									Split0 = {
+										Frame = "{{0, 0}, {325, 184}}";
+									};
+									Split1 = {
+										DebugVariablesTableConfiguration = (
+											Name,
+											123,
+											Value,
+											85,
+											Summary,
+											96.123,
+										);
+										Frame = "{{334, 0}, {330, 184}}";
+									};
+									SplitCount = 2;
+								};
+								SplitCount = 1;
+								Tab0 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								Tab1 = {
+									Frame = "{{0, 0}, {100, 50}}";
+								};
+								TabCount = 2;
+								TabsVisible = YES;
+							};
+							Frame = "{{0, 0}, {664, 208}}";
+							LauncherConfigVersion = 7;
+						};
+						Tab2 = {
+							Frame = "{{0, 0}, {664, 50}}";
+							LauncherConfigVersion = 3;
+							Runner = {
+								Frame = "{{0, 0}, {664, 50}}";
+							};
+						};
+						Tab3 = {
+							BuildMessageFrame = "{{0, 0}, {614, 262}}";
+							BuildTranscriptFrame = "{{0, 271}, {614, 2}}";
+							BuildTranscriptFrameExpanded = YES;
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						Tab4 = {
+							Frame = "{{0, 0}, {612, 295}}";
+						};
+						TabCount = 5;
+						TabsVisible = NO;
+					};
+					SplitCount = 1;
+					Tab0 = {
+						Frame = "{{0, 0}, {313, 531}}";
+						GroupTreeTableConfiguration = (
+							TargetStatusColumn,
+							18,
+							MainColumn,
+							280,
+						);
+					};
+					Tab1 = {
+						ClassesFrame = "{{0, 0}, {280, 398}}";
+						ClassesTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXClassColumnIdentifier,
+							237,
+						);
+						Frame = "{{0, 0}, {278, 659}}";
+						MembersFrame = "{{0, 407}, {280, 252}}";
+						MembersTreeTableConfiguration = (
+							PBXBookColumnIdentifier,
+							20,
+							PBXMethodColumnIdentifier,
+							236,
+						);
+					};
+					Tab2 = {
+						Frame = "{{0, 0}, {200, 100}}";
+					};
+					Tab3 = {
+						Frame = "{{0, 0}, {200, 557}}";
+						TargetTableConfiguration = (
+							ActiveObject,
+							16,
+							ObjectNames,
+							202.296,
+						);
+					};
+					Tab4 = {
+						BreakpointsTreeTableConfiguration = (
+							breakpointColumn,
+							197,
+							enabledColumn,
+							31,
+						);
+						Frame = "{{0, 0}, {250, 100}}";
+					};
+					TabCount = 5;
+					TabsVisible = NO;
+				};
+				NavBarShownByDefault = YES;
+				StatusViewVisible = NO;
+				Template = F5CA7ECB015C094F0DCA290F;
+				ToolbarVisible = NO;
+				WindowLocation = "{462, 79}";
+			};
 			PBXWorkspaceContents = (
 				{
 					LeftSlideOut = {
 						Split0 = {
 							Split0 = {
 								NavContent0 = {
-									bookmark = E1A60185040C8C6B00050002;
+									bookmark = E1669BD80412965E00050002;
 									history = (
 										E1D2937B03BD418200F9204E,
 										E1D2937C03BD418200F9204E,
@@ -202,14 +584,12 @@
 										E17AED8703C0F5D300B89ACF,
 										E17AED8803C0F5D300B89ACF,
 										E117A4AC03C3E9C600E10BA2,
-										E1BF6E9A03C95F4E00050002,
 										E1BF6E9D03C95F4E00050002,
 										E1BF6E9E03C95F4E00050002,
 										E1BF6E9F03C95F4E00050002,
 										E1BF6EA103C95F4E00050002,
 										E1BF6EA203C95F4E00050002,
 										E1FCECFD03C972CF001509F3,
-										E1AFB0D103C9A59C001509F3,
 										E1AFB0D903C9A59C001509F3,
 										E1AFB0DA03C9A59C001509F3,
 										E1AFB0DB03C9A59C001509F3,
@@ -218,12 +598,9 @@
 										E1C6408B03CF1DB600050002,
 										E143438703DB475300050002,
 										E143439503DB479900050002,
-										E14343C103DB52FA00050002,
 										E120347403EDEBC000000ABE,
-										E17F2F7003FE0DCC00050002,
 										E17F2F7403FE0DCC00050002,
 										E17F2F7803FE0DCC00050002,
-										E17F2F9F03FE193200050002,
 										E1DEF12A04003A5F00050002,
 										E1DEF12B04003A5F00050002,
 										E1DEF12C04003A5F00050002,
@@ -250,9 +627,6 @@
 										E1DEF15204003A5F00050002,
 										E1DEF15304003A5F00050002,
 										E1DEF15404003A5F00050002,
-										E1DEF15504003A5F00050002,
-										E1DEF15704003A5F00050002,
-										E1DEF15A04003A5F00050002,
 										E1DEF15B04003A5F00050002,
 										E1DEF15D04003A5F00050002,
 										E1DEF15E04003A5F00050002,
@@ -289,7 +663,6 @@
 										E1B46F6204053C4F00050002,
 										E1B46F6304053C4F00050002,
 										E1B46F6504053C4F00050002,
-										E1B46F6904053C4F00050002,
 										E1B46F6B04053C4F00050002,
 										E1B46F6C04053C4F00050002,
 										E1B46F6D04053C4F00050002,
@@ -317,13 +690,22 @@
 										E1B4701E04069E0B00050002,
 										E1EF85620406E47300050002,
 										E1EF85630406E47300050002,
-										E1A60176040C8C6B00050002,
 										E1A60177040C8C6B00050002,
 										E1A60178040C8C6B00050002,
-										E1A60179040C8C6B00050002,
 										E1A6017A040C8C6B00050002,
 										E1A6017B040C8C6B00050002,
-										E1A6017C040C8C6B00050002,
+										E1669BB60412965E00050002,
+										E1669BB70412965E00050002,
+										E1669BB80412965E00050002,
+										E1669BB90412965E00050002,
+										E1669BBA0412965E00050002,
+										E1669BBB0412965E00050002,
+										E1669BBC0412965E00050002,
+										E1669BBD0412965E00050002,
+										E1669BBE0412965E00050002,
+										E1669BBF0412965E00050002,
+										E1669BC00412965E00050002,
+										E1669BC10412965E00050002,
 									);
 									prevStack = (
 										E1D2939103BD418200F9204E,
@@ -1376,6 +1758,28 @@
 										E1A60182040C8C6B00050002,
 										E1A60183040C8C6B00050002,
 										E1A60184040C8C6B00050002,
+										E1669BC20412965E00050002,
+										E1669BC30412965E00050002,
+										E1669BC40412965E00050002,
+										E1669BC50412965E00050002,
+										E1669BC60412965E00050002,
+										E1669BC70412965E00050002,
+										E1669BC80412965E00050002,
+										E1669BC90412965E00050002,
+										E1669BCA0412965E00050002,
+										E1669BCB0412965E00050002,
+										E1669BCC0412965E00050002,
+										E1669BCD0412965E00050002,
+										E1669BCE0412965E00050002,
+										E1669BCF0412965E00050002,
+										E1669BD00412965E00050002,
+										E1669BD10412965E00050002,
+										E1669BD20412965E00050002,
+										E1669BD30412965E00050002,
+										E1669BD40412965E00050002,
+										E1669BD50412965E00050002,
+										E1669BD60412965E00050002,
+										E1669BD70412965E00050002,
 									);
 								};
 								NavCount = 1;
@@ -1416,48 +1820,6 @@
 							Split0 = {
 								NavCount = 1;
 								NavGeometry0 = {
-									Frame = "{{0, 0}, {594, 150}}";
-									NavBarVisible = YES;
-								};
-								NavSplitVertical = NO;
-							};
-							SplitCount = 1;
-							Tab1 = {
-								Debugger = {
-									Split0 = {
-										SplitCount = 2;
-									};
-									SplitCount = 1;
-									TabCount = 2;
-								};
-								LauncherConfigVersion = 7;
-							};
-							Tab2 = {
-								LauncherConfigVersion = 3;
-								Runner = {
-								};
-							};
-							TabCount = 5;
-						};
-						SplitCount = 1;
-						Tab1 = {
-							OptionsSetName = "Hierarchy, all classes";
-						};
-						TabCount = 5;
-					};
-				},
-				{
-					LeftSlideOut = {
-						Split0 = {
-							Split0 = {
-								NavContent0 = {
-									bookmark = E1A60187040C8C6B00050002;
-									history = (
-										E1A60186040C8C6B00050002,
-									);
-								};
-								NavCount = 1;
-								NavGeometry0 = {
 									Frame = "{{0, 0}, {685, 150}}";
 									NavBarVisible = YES;
 								};
@@ -1494,49 +1856,7 @@
 							Split0 = {
 								NavCount = 1;
 								NavGeometry0 = {
-									Frame = "{{0, 0}, {668, 621}}";
-									NavBarVisible = YES;
-								};
-								NavSplitVertical = NO;
-							};
-							SplitCount = 1;
-							Tab1 = {
-								Debugger = {
-									Split0 = {
-										SplitCount = 2;
-									};
-									SplitCount = 1;
-									TabCount = 2;
-								};
-								LauncherConfigVersion = 7;
-							};
-							Tab2 = {
-								LauncherConfigVersion = 3;
-								Runner = {
-								};
-							};
-							TabCount = 5;
-						};
-						SplitCount = 1;
-						Tab1 = {
-							OptionsSetName = "Hierarchy, all classes";
-						};
-						TabCount = 5;
-					};
-				},
-				{
-					LeftSlideOut = {
-						Split0 = {
-							Split0 = {
-								NavContent0 = {
-									bookmark = E1A60189040C8C6B00050002;
-									history = (
-										E1A60188040C8C6B00050002,
-									);
-								};
-								NavCount = 1;
-								NavGeometry0 = {
-									Frame = "{{0, 0}, {665, 293}}";
+									Frame = "{{0, 0}, {684, 150}}";
 									NavBarVisible = YES;
 								};
 								NavSplitVertical = NO;
@@ -1694,135 +2014,7 @@
 					StatusViewVisible = YES;
 					Template = 64ABBB4501FA494900185B06;
 					ToolbarVisible = YES;
-					WindowLocation = "{211, 120}";
-				},
-				{
-					ContentSize = "{684, 312}";
-					LeftSlideOut = {
-						Collapsed = NO;
-						Frame = "{{0, 23}, {684, 289}}";
-						Split0 = {
-							ActiveTab = 1;
-							ActiveTabName = PBXRunSessionModule;
-							Collapsed = YES;
-							Frame = "{{0, 0}, {684, 289}}";
-							Split0 = {
-								Frame = "{{1e+06, 1e+06}, {684, 0}}";
-							};
-							SplitCount = 1;
-							Tab0 = {
-								Frame = "{{0, 0}, {804, 321}}";
-							};
-							Tab1 = {
-								Debugger = {
-									Collapsed = NO;
-									Frame = "{{0, 0}, {594, 274}}";
-									Split0 = {
-										Frame = "{{0, 24}, {594, 250}}";
-										Split0 = {
-											Frame = "{{0, 0}, {290, 250}}";
-										};
-										Split1 = {
-											DebugVariablesTableConfiguration = (
-												Name,
-												123,
-												Value,
-												85,
-												Summary,
-												62.123,
-											);
-											Frame = "{{299, 0}, {295, 250}}";
-										};
-										SplitCount = 2;
-									};
-									SplitCount = 1;
-									Tab0 = {
-										Frame = "{{0, 0}, {100, 50}}";
-									};
-									Tab1 = {
-										Frame = "{{0, 0}, {100, 50}}";
-									};
-									TabCount = 2;
-									TabsVisible = YES;
-								};
-								Frame = "{{0, 0}, {594, 274}}";
-								LauncherConfigVersion = 7;
-							};
-							Tab2 = {
-								Frame = "{{0, 0}, {684, 283}}";
-								LauncherConfigVersion = 3;
-								Runner = {
-									Frame = "{{0, 0}, {684, 283}}";
-								};
-							};
-							Tab3 = {
-								BuildMessageFrame = "{{0, 0}, {614, 262}}";
-								BuildTranscriptFrame = "{{0, 271}, {614, 2}}";
-								BuildTranscriptFrameExpanded = YES;
-								Frame = "{{0, 0}, {612, 295}}";
-							};
-							Tab4 = {
-								Frame = "{{0, 0}, {612, 295}}";
-							};
-							TabCount = 5;
-							TabsVisible = NO;
-						};
-						SplitCount = 1;
-						Tab0 = {
-							Frame = "{{0, 0}, {300, 533}}";
-							GroupTreeTableConfiguration = (
-								TargetStatusColumn,
-								18,
-								MainColumn,
-								267,
-							);
-						};
-						Tab1 = {
-							ClassesFrame = "{{0, 0}, {280, 398}}";
-							ClassesTreeTableConfiguration = (
-								PBXBookColumnIdentifier,
-								20,
-								PBXClassColumnIdentifier,
-								237,
-							);
-							Frame = "{{0, 0}, {278, 659}}";
-							MembersFrame = "{{0, 407}, {280, 252}}";
-							MembersTreeTableConfiguration = (
-								PBXBookColumnIdentifier,
-								20,
-								PBXMethodColumnIdentifier,
-								236,
-							);
-						};
-						Tab2 = {
-							Frame = "{{0, 0}, {200, 100}}";
-						};
-						Tab3 = {
-							Frame = "{{0, 0}, {200, 386}}";
-							TargetTableConfiguration = (
-								ActiveObject,
-								16,
-								ObjectNames,
-								202.296,
-							);
-						};
-						Tab4 = {
-							BreakpointsTreeTableConfiguration = (
-								breakpointColumn,
-								197,
-								enabledColumn,
-								31,
-							);
-							Frame = "{{0, 0}, {250, 386}}";
-						};
-						TabCount = 5;
-						TabsVisible = NO;
-					};
-					NavBarShownByDefault = YES;
-					StatusViewVisible = YES;
-					Template = F5534CB2020F3F8A0DCA290F;
-					ToolbarVisible = YES;
-					WindowLocation = "{13, 95}";
+					WindowLocation = "{19, 177}";
 				},
 				{
 					ContentSize = "{685, 434}";
@@ -1953,28 +2145,30 @@
 					WindowLocation = "{433, 70}";
 				},
 				{
-					ContentSize = "{668, 621}";
+					ContentSize = "{684, 312}";
 					LeftSlideOut = {
 						Collapsed = NO;
-						Frame = "{{0, 0}, {668, 621}}";
+						Frame = "{{0, 23}, {684, 289}}";
 						Split0 = {
-							Collapsed = NO;
-							Frame = "{{0, 0}, {668, 621}}";
+							ActiveTab = 1;
+							ActiveTabName = PBXRunSessionModule;
+							Collapsed = YES;
+							Frame = "{{0, 0}, {684, 289}}";
 							Split0 = {
-								Frame = "{{0, 0}, {668, 621}}";
+								Frame = "{{1e+06, 1e+06}, {684, 0}}";
 							};
 							SplitCount = 1;
 							Tab0 = {
-								Frame = "{{0, 0}, {484, 208}}";
+								Frame = "{{0, 0}, {804, 321}}";
 							};
 							Tab1 = {
 								Debugger = {
 									Collapsed = NO;
-									Frame = "{{0, 0}, {664, 208}}";
+									Frame = "{{0, 0}, {594, 274}}";
 									Split0 = {
-										Frame = "{{0, 24}, {664, 184}}";
+										Frame = "{{0, 24}, {594, 250}}";
 										Split0 = {
-											Frame = "{{0, 0}, {325, 184}}";
+											Frame = "{{0, 0}, {290, 250}}";
 										};
 										Split1 = {
 											DebugVariablesTableConfiguration = (
@@ -1983,9 +2177,9 @@
 												Value,
 												85,
 												Summary,
-												96.123,
+												62.123,
 											);
-											Frame = "{{334, 0}, {330, 184}}";
+											Frame = "{{299, 0}, {295, 250}}";
 										};
 										SplitCount = 2;
 									};
@@ -1999,14 +2193,14 @@
 									TabCount = 2;
 									TabsVisible = YES;
 								};
-								Frame = "{{0, 0}, {664, 208}}";
+								Frame = "{{0, 0}, {594, 274}}";
 								LauncherConfigVersion = 7;
 							};
 							Tab2 = {
-								Frame = "{{0, 0}, {664, 50}}";
+								Frame = "{{0, 0}, {684, 283}}";
 								LauncherConfigVersion = 3;
 								Runner = {
-									Frame = "{{0, 0}, {664, 50}}";
+									Frame = "{{0, 0}, {684, 283}}";
 								};
 							};
 							Tab3 = {
@@ -2023,12 +2217,12 @@
 						};
 						SplitCount = 1;
 						Tab0 = {
-							Frame = "{{0, 0}, {313, 531}}";
+							Frame = "{{0, 0}, {300, 533}}";
 							GroupTreeTableConfiguration = (
 								TargetStatusColumn,
 								18,
 								MainColumn,
-								280,
+								267,
 							);
 						};
 						Tab1 = {
@@ -2052,7 +2246,7 @@
 							Frame = "{{0, 0}, {200, 100}}";
 						};
 						Tab3 = {
-							Frame = "{{0, 0}, {200, 557}}";
+							Frame = "{{0, 0}, {200, 386}}";
 							TargetTableConfiguration = (
 								ActiveObject,
 								16,
@@ -2067,147 +2261,19 @@
 								enabledColumn,
 								31,
 							);
-							Frame = "{{0, 0}, {250, 100}}";
+							Frame = "{{0, 0}, {250, 386}}";
 						};
 						TabCount = 5;
 						TabsVisible = NO;
 					};
 					NavBarShownByDefault = YES;
-					StatusViewVisible = NO;
-					Template = F5CA7ECB015C094F0DCA290F;
-					ToolbarVisible = NO;
-					WindowLocation = "{462, 79}";
-				},
-				{
-					ContentSize = "{665, 594}";
-					LeftSlideOut = {
-						Collapsed = NO;
-						Frame = "{{0, 0}, {665, 594}}";
-						Split0 = {
-							ActiveTab = 3;
-							ActiveTabName = PBXProjectFindModule;
-							Collapsed = NO;
-							Frame = "{{0, 0}, {665, 594}}";
-							Split0 = {
-								Frame = "{{0, 301}, {665, 293}}";
-							};
-							SplitCount = 1;
-							Tab0 = {
-								Frame = "{{0, 0}, {484, 208}}";
-							};
-							Tab1 = {
-								Debugger = {
-									Collapsed = NO;
-									Frame = "{{0, 0}, {664, 208}}";
-									Split0 = {
-										Frame = "{{0, 24}, {664, 184}}";
-										Split0 = {
-											Frame = "{{0, 0}, {325, 184}}";
-										};
-										Split1 = {
-											DebugVariablesTableConfiguration = (
-												Name,
-												123,
-												Value,
-												85,
-												Summary,
-												96.123,
-											);
-											Frame = "{{334, 0}, {330, 184}}";
-										};
-										SplitCount = 2;
-									};
-									SplitCount = 1;
-									Tab0 = {
-										Frame = "{{0, 0}, {100, 50}}";
-									};
-									Tab1 = {
-										Frame = "{{0, 0}, {100, 50}}";
-									};
-									TabCount = 2;
-									TabsVisible = YES;
-								};
-								Frame = "{{0, 0}, {664, 208}}";
-								LauncherConfigVersion = 7;
-							};
-							Tab2 = {
-								Frame = "{{0, 0}, {664, 50}}";
-								LauncherConfigVersion = 3;
-								Runner = {
-									Frame = "{{0, 0}, {664, 50}}";
-								};
-							};
-							Tab3 = {
-								BuildMessageFrame = "{{0, 0}, {667, 265}}";
-								BuildTranscriptFrame = "{{0, 274}, {667, 2}}";
-								BuildTranscriptFrameExpanded = YES;
-								Frame = "{{0, 0}, {665, 298}}";
-							};
-							Tab4 = {
-								Frame = "{{0, 0}, {665, 295}}";
-							};
-							TabCount = 5;
-							TabsVisible = NO;
-						};
-						SplitCount = 1;
-						Tab0 = {
-							Frame = "{{0, 0}, {313, 531}}";
-							GroupTreeTableConfiguration = (
-								TargetStatusColumn,
-								18,
-								MainColumn,
-								280,
-							);
-						};
-						Tab1 = {
-							ClassesFrame = "{{0, 0}, {280, 398}}";
-							ClassesTreeTableConfiguration = (
-								PBXBookColumnIdentifier,
-								20,
-								PBXClassColumnIdentifier,
-								237,
-							);
-							Frame = "{{0, 0}, {278, 659}}";
-							MembersFrame = "{{0, 407}, {280, 252}}";
-							MembersTreeTableConfiguration = (
-								PBXBookColumnIdentifier,
-								20,
-								PBXMethodColumnIdentifier,
-								236,
-							);
-						};
-						Tab2 = {
-							Frame = "{{0, 0}, {200, 100}}";
-						};
-						Tab3 = {
-							Frame = "{{0, 0}, {200, 557}}";
-							TargetTableConfiguration = (
-								ActiveObject,
-								16,
-								ObjectNames,
-								202.296,
-							);
-						};
-						Tab4 = {
-							BreakpointsTreeTableConfiguration = (
-								breakpointColumn,
-								197,
-								enabledColumn,
-								31,
-							);
-							Frame = "{{0, 0}, {250, 100}}";
-						};
-						TabCount = 5;
-						TabsVisible = NO;
-					};
-					NavBarShownByDefault = YES;
-					StatusViewVisible = NO;
-					Template = F5CA7EC9015C08ED0DCA290F;
-					ToolbarVisible = NO;
-					WindowLocation = "{69, 216}";
+					StatusViewVisible = YES;
+					Template = F5534CB2020F3F8A0DCA290F;
+					ToolbarVisible = YES;
+					WindowLocation = "{13, 95}";
 				},
 			);
-			PBXWorkspaceStateSaveDate = 67918447;
+			PBXWorkspaceStateSaveDate = 68247977;
 		};
 		perUserProjectItems = {
 			E104866604018CF400050002 = E104866604018CF400050002;
@@ -2266,13 +2332,47 @@
 			E143438903DB475300050002 = E143438903DB475300050002;
 			E143439503DB479900050002 = E143439503DB479900050002;
 			E143439603DB479900050002 = E143439603DB479900050002;
-			E14343C103DB52FA00050002 = E14343C103DB52FA00050002;
 			E14343C203DB52FA00050002 = E14343C203DB52FA00050002;
 			E14343C303DB52FA00050002 = E14343C303DB52FA00050002;
 			E14343C403DB52FA00050002 = E14343C403DB52FA00050002;
 			E157230B04009B8300050002 = E157230B04009B8300050002;
 			E157230C04009B8300050002 = E157230C04009B8300050002;
 			E157230D04009B8300050002 = E157230D04009B8300050002;
+			E1669BB60412965E00050002 = E1669BB60412965E00050002;
+			E1669BB70412965E00050002 = E1669BB70412965E00050002;
+			E1669BB80412965E00050002 = E1669BB80412965E00050002;
+			E1669BB90412965E00050002 = E1669BB90412965E00050002;
+			E1669BBA0412965E00050002 = E1669BBA0412965E00050002;
+			E1669BBB0412965E00050002 = E1669BBB0412965E00050002;
+			E1669BBC0412965E00050002 = E1669BBC0412965E00050002;
+			E1669BBD0412965E00050002 = E1669BBD0412965E00050002;
+			E1669BBE0412965E00050002 = E1669BBE0412965E00050002;
+			E1669BBF0412965E00050002 = E1669BBF0412965E00050002;
+			E1669BC00412965E00050002 = E1669BC00412965E00050002;
+			E1669BC10412965E00050002 = E1669BC10412965E00050002;
+			E1669BC20412965E00050002 = E1669BC20412965E00050002;
+			E1669BC30412965E00050002 = E1669BC30412965E00050002;
+			E1669BC40412965E00050002 = E1669BC40412965E00050002;
+			E1669BC50412965E00050002 = E1669BC50412965E00050002;
+			E1669BC60412965E00050002 = E1669BC60412965E00050002;
+			E1669BC70412965E00050002 = E1669BC70412965E00050002;
+			E1669BC80412965E00050002 = E1669BC80412965E00050002;
+			E1669BC90412965E00050002 = E1669BC90412965E00050002;
+			E1669BCA0412965E00050002 = E1669BCA0412965E00050002;
+			E1669BCB0412965E00050002 = E1669BCB0412965E00050002;
+			E1669BCC0412965E00050002 = E1669BCC0412965E00050002;
+			E1669BCD0412965E00050002 = E1669BCD0412965E00050002;
+			E1669BCE0412965E00050002 = E1669BCE0412965E00050002;
+			E1669BCF0412965E00050002 = E1669BCF0412965E00050002;
+			E1669BD00412965E00050002 = E1669BD00412965E00050002;
+			E1669BD10412965E00050002 = E1669BD10412965E00050002;
+			E1669BD20412965E00050002 = E1669BD20412965E00050002;
+			E1669BD30412965E00050002 = E1669BD30412965E00050002;
+			E1669BD40412965E00050002 = E1669BD40412965E00050002;
+			E1669BD50412965E00050002 = E1669BD50412965E00050002;
+			E1669BD60412965E00050002 = E1669BD60412965E00050002;
+			E1669BD70412965E00050002 = E1669BD70412965E00050002;
+			E1669BD80412965E00050002 = E1669BD80412965E00050002;
 			E16A0E6104005B0E00050002 = E16A0E6104005B0E00050002;
 			E16A0E6204005B0E00050002 = E16A0E6204005B0E00050002;
 			E16A0E6504005B0E00050002 = E16A0E6504005B0E00050002;
@@ -2358,7 +2458,6 @@
 			E17AEDC303C0F5D300B89ACF = E17AEDC303C0F5D300B89ACF;
 			E17AEDC603C0F5D300B89ACF = E17AEDC603C0F5D300B89ACF;
 			E17AEDC803C0F5D300B89ACF = E17AEDC803C0F5D300B89ACF;
-			E17F2F7003FE0DCC00050002 = E17F2F7003FE0DCC00050002;
 			E17F2F7403FE0DCC00050002 = E17F2F7403FE0DCC00050002;
 			E17F2F7803FE0DCC00050002 = E17F2F7803FE0DCC00050002;
 			E17F2F7D03FE0DCC00050002 = E17F2F7D03FE0DCC00050002;
@@ -2389,7 +2488,6 @@
 			E17F2F9603FE0DCC00050002 = E17F2F9603FE0DCC00050002;
 			E17F2F9703FE0DCC00050002 = E17F2F9703FE0DCC00050002;
 			E17F2F9803FE0DCC00050002 = E17F2F9803FE0DCC00050002;
-			E17F2F9F03FE193200050002 = E17F2F9F03FE193200050002;
 			E17F2FAA03FE193200050002 = E17F2FAA03FE193200050002;
 			E17F2FAB03FE193200050002 = E17F2FAB03FE193200050002;
 			E17F2FAC03FE193200050002 = E17F2FAC03FE193200050002;
@@ -2577,13 +2675,10 @@
 			E19FD3A803C9985C001509F3 = E19FD3A803C9985C001509F3;
 			E19FD3A903C9985C001509F3 = E19FD3A903C9985C001509F3;
 			E19FD3AA03C9985C001509F3 = E19FD3AA03C9985C001509F3;
-			E1A60176040C8C6B00050002 = E1A60176040C8C6B00050002;
 			E1A60177040C8C6B00050002 = E1A60177040C8C6B00050002;
 			E1A60178040C8C6B00050002 = E1A60178040C8C6B00050002;
-			E1A60179040C8C6B00050002 = E1A60179040C8C6B00050002;
 			E1A6017A040C8C6B00050002 = E1A6017A040C8C6B00050002;
 			E1A6017B040C8C6B00050002 = E1A6017B040C8C6B00050002;
-			E1A6017C040C8C6B00050002 = E1A6017C040C8C6B00050002;
 			E1A6017D040C8C6B00050002 = E1A6017D040C8C6B00050002;
 			E1A6017E040C8C6B00050002 = E1A6017E040C8C6B00050002;
 			E1A6017F040C8C6B00050002 = E1A6017F040C8C6B00050002;
@@ -2592,11 +2687,6 @@
 			E1A60182040C8C6B00050002 = E1A60182040C8C6B00050002;
 			E1A60183040C8C6B00050002 = E1A60183040C8C6B00050002;
 			E1A60184040C8C6B00050002 = E1A60184040C8C6B00050002;
-			E1A60185040C8C6B00050002 = E1A60185040C8C6B00050002;
-			E1A60186040C8C6B00050002 = E1A60186040C8C6B00050002;
-			E1A60187040C8C6B00050002 = E1A60187040C8C6B00050002;
-			E1A60188040C8C6B00050002 = E1A60188040C8C6B00050002;
-			E1A60189040C8C6B00050002 = E1A60189040C8C6B00050002;
 			E1A9DEEE03BF480F0089E8B2 = E1A9DEEE03BF480F0089E8B2;
 			E1A9DEF103BF480F0089E8B2 = E1A9DEF103BF480F0089E8B2;
 			E1A9DEF203BF480F0089E8B2 = E1A9DEF203BF480F0089E8B2;
@@ -2612,7 +2702,6 @@
 			E1A9DF0603BF480F0089E8B2 = E1A9DF0603BF480F0089E8B2;
 			E1A9DF0703BF480F0089E8B2 = E1A9DF0703BF480F0089E8B2;
 			E1A9DF0803BF480F0089E8B2 = E1A9DF0803BF480F0089E8B2;
-			E1AFB0D103C9A59C001509F3 = E1AFB0D103C9A59C001509F3;
 			E1AFB0D903C9A59C001509F3 = E1AFB0D903C9A59C001509F3;
 			E1AFB0DA03C9A59C001509F3 = E1AFB0DA03C9A59C001509F3;
 			E1AFB0DB03C9A59C001509F3 = E1AFB0DB03C9A59C001509F3;
@@ -2675,7 +2764,6 @@
 			E1B46F6204053C4F00050002 = E1B46F6204053C4F00050002;
 			E1B46F6304053C4F00050002 = E1B46F6304053C4F00050002;
 			E1B46F6504053C4F00050002 = E1B46F6504053C4F00050002;
-			E1B46F6904053C4F00050002 = E1B46F6904053C4F00050002;
 			E1B46F6B04053C4F00050002 = E1B46F6B04053C4F00050002;
 			E1B46F6C04053C4F00050002 = E1B46F6C04053C4F00050002;
 			E1B46F6D04053C4F00050002 = E1B46F6D04053C4F00050002;
@@ -2876,7 +2964,6 @@
 			E1B4706F04069E0C00050002 = E1B4706F04069E0C00050002;
 			E1B4707004069E0C00050002 = E1B4707004069E0C00050002;
 			E1B4707104069E0C00050002 = E1B4707104069E0C00050002;
-			E1BF6E9A03C95F4E00050002 = E1BF6E9A03C95F4E00050002;
 			E1BF6E9D03C95F4E00050002 = E1BF6E9D03C95F4E00050002;
 			E1BF6E9E03C95F4E00050002 = E1BF6E9E03C95F4E00050002;
 			E1BF6E9F03C95F4E00050002 = E1BF6E9F03C95F4E00050002;
@@ -3037,9 +3124,6 @@
 			E1DEF15204003A5F00050002 = E1DEF15204003A5F00050002;
 			E1DEF15304003A5F00050002 = E1DEF15304003A5F00050002;
 			E1DEF15404003A5F00050002 = E1DEF15404003A5F00050002;
-			E1DEF15504003A5F00050002 = E1DEF15504003A5F00050002;
-			E1DEF15704003A5F00050002 = E1DEF15704003A5F00050002;
-			E1DEF15A04003A5F00050002 = E1DEF15A04003A5F00050002;
 			E1DEF15B04003A5F00050002 = E1DEF15B04003A5F00050002;
 			E1DEF15D04003A5F00050002 = E1DEF15D04003A5F00050002;
 			E1DEF15E04003A5F00050002 = E1DEF15E04003A5F00050002;
@@ -3729,7 +3813,7 @@
 	E1156BFA03C148E2006717DC = {
 		fileReference = F59F6CB50354E7DA01AEEDB1;
 		isa = PBXFileBreakpoint;
-		lineNumber = 493;
+		lineNumber = 501;
 		state = 1;
 	};
 	E1156C2D03C39718006717DC = {
@@ -3924,7 +4008,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 38";
 		rLen = 0;
-		rLoc = 1558;
+		rLoc = 1552;
 		rType = 0;
 		vrLen = 1672;
 		vrLoc = 319;
@@ -3944,7 +4028,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarms.m: 244";
 		rLen = 0;
-		rLoc = 7715;
+		rLoc = 8004;
 		rType = 0;
 		vrLen = 1412;
 		vrLoc = 6161;
@@ -4120,16 +4204,6 @@
 		vrLen = 143;
 		vrLoc = 0;
 	};
-	E14343C103DB52FA00050002 = {
-		fRef = F59E47A8036AAA6D016B311C;
-		isa = PBXTextBookmark;
-		name = "PSAlert.h: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 823;
-		vrLoc = 0;
-	};
 	E14343C203DB52FA00050002 = {
 		fRef = 089C165DFE840E0CC02AAC07;
 		isa = PBXTextBookmark;
@@ -4189,6 +4263,356 @@
 		rType = 0;
 		vrLen = 1180;
 		vrLoc = 0;
+	};
+	E1669BB60412965E00050002 = {
+		fRef = E10E71F4040C335800050002;
+		isa = PBXTextBookmark;
+		name = "English: 2";
+		rLen = 0;
+		rLoc = 145;
+		rType = 0;
+		vrLen = 1962;
+		vrLoc = 0;
+	};
+	E1669BB70412965E00050002 = {
+		fRef = E130B9AD03B7C59700000028;
+		isa = PBXTextBookmark;
+		name = "PSPowerManager.m: 13";
+		rLen = 0;
+		rLoc = 269;
+		rType = 0;
+		vrLen = 1364;
+		vrLoc = 0;
+	};
+	E1669BB80412965E00050002 = {
+		fRef = F517D6430356B8CC016D68B9;
+		isa = PBXTextBookmark;
+		name = "PSAlarms.h: 25";
+		rLen = 0;
+		rLoc = 539;
+		rType = 0;
+		vrLen = 887;
+		vrLoc = 18;
+	};
+	E1669BB90412965E00050002 = {
+		fRef = F59F6CB40354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.h: PSAlarmTimerExpiredNotification";
+		rLen = 0;
+		rLoc = 638;
+		rType = 0;
+		vrLen = 1179;
+		vrLoc = 0;
+	};
+	E1669BBA0412965E00050002 = {
+		fRef = F59F6CB50354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.m: 561";
+		rLen = 0;
+		rLoc = 19558;
+		rType = 0;
+		vrLen = 1183;
+		vrLoc = 18375;
+	};
+	E1669BBB0412965E00050002 = {
+		fRef = E1BF6E9103C928D200050002;
+		isa = PBXTextBookmark;
+		name = "PSTimer.m: 224";
+		rLen = 0;
+		rLoc = 6240;
+		rType = 0;
+		vrLen = 1157;
+		vrLoc = 5605;
+	};
+	E1669BBC0412965E00050002 = {
+		fRef = F589C9C6035AA12B0155F4B2;
+		isa = PBXTextBookmark;
+		name = "Read Me.rtfd: 112";
+		rLen = 0;
+		rLoc = 9566;
+		rType = 0;
+		vrLen = 2740;
+		vrLoc = 5849;
+	};
+	E1669BBD0412965E00050002 = {
+		fRef = F59E47A8036AAA6D016B311C;
+		isa = PBXTextBookmark;
+		name = "PSAlert.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 823;
+		vrLoc = 0;
+	};
+	E1669BBE0412965E00050002 = {
+		fRef = E1A18CAC03B4344C00000028;
+		isa = PBXTextBookmark;
+		name = "PSAlerts.m: 71";
+		rLen = 0;
+		rLoc = 1327;
+		rType = 0;
+		vrLen = 739;
+		vrLoc = 554;
+	};
+	E1669BBF0412965E00050002 = {
+		fRef = F59E47B5036AAD55016B311C;
+		isa = PBXTextBookmark;
+		name = "PSAlarmAlertController.h: 17";
+		rLen = 23;
+		rLoc = 380;
+		rType = 0;
+		vrLen = 586;
+		vrLoc = 0;
+	};
+	E1669BC00412965E00050002 = {
+		fRef = F59E47B4036AAD55016B311C;
+		isa = PBXTextBookmark;
+		name = "PSAlarmAlertController.m: 44";
+		rLen = 0;
+		rLoc = 1355;
+		rType = 0;
+		vrLen = 1492;
+		vrLoc = 1590;
+	};
+	E1669BC10412965E00050002 = {
+		fRef = F517D6420356B8CC016D68B9;
+		isa = PBXTextBookmark;
+		name = "PSAlarms.m: alarm";
+		rLen = 0;
+		rLoc = 7869;
+		rType = 0;
+		vrLen = 1338;
+		vrLoc = 7560;
+	};
+	E1669BC20412965E00050002 = {
+		fRef = E10E71F4040C335800050002;
+		isa = PBXTextBookmark;
+		name = "English: 2";
+		rLen = 0;
+		rLoc = 145;
+		rType = 0;
+		vrLen = 1962;
+		vrLoc = 0;
+	};
+	E1669BC30412965E00050002 = {
+		fRef = E130B9AD03B7C59700000028;
+		isa = PBXTextBookmark;
+		name = "PSPowerManager.m: 13";
+		rLen = 0;
+		rLoc = 269;
+		rType = 0;
+		vrLen = 1364;
+		vrLoc = 0;
+	};
+	E1669BC40412965E00050002 = {
+		fRef = F517D6420356B8CC016D68B9;
+		isa = PBXTextBookmark;
+		name = "PSAlarms.m: 269";
+		rLen = 0;
+		rLoc = 8522;
+		rType = 0;
+		vrLen = 1151;
+		vrLoc = 5218;
+	};
+	E1669BC50412965E00050002 = {
+		fRef = F517D6430356B8CC016D68B9;
+		isa = PBXTextBookmark;
+		name = "PSAlarms.h: 25";
+		rLen = 0;
+		rLoc = 539;
+		rType = 0;
+		vrLen = 900;
+		vrLoc = 0;
+	};
+	E1669BC60412965E00050002 = {
+		fRef = F517D6420356B8CC016D68B9;
+		isa = PBXTextBookmark;
+		name = "PSAlarms.m: plPendingAlarms";
+		rLen = 0;
+		rLoc = 6458;
+		rType = 0;
+		vrLen = 976;
+		vrLoc = 5348;
+	};
+	E1669BC70412965E00050002 = {
+		fRef = F517D6430356B8CC016D68B9;
+		isa = PBXTextBookmark;
+		name = "PSAlarms.h: 25";
+		rLen = 0;
+		rLoc = 539;
+		rType = 0;
+		vrLen = 887;
+		vrLoc = 18;
+	};
+	E1669BC80412965E00050002 = {
+		fRef = F517D6420356B8CC016D68B9;
+		isa = PBXTextBookmark;
+		name = "PSAlarms.m: plExpiredAlarms";
+		rLen = 0;
+		rLoc = 6458;
+		rType = 0;
+		vrLen = 1009;
+		vrLoc = 5348;
+	};
+	E1669BC90412965E00050002 = {
+		fRef = F517D6430356B8CC016D68B9;
+		isa = PBXTextBookmark;
+		name = "PSAlarms.h: 25";
+		rLen = 0;
+		rLoc = 539;
+		rType = 0;
+		vrLen = 887;
+		vrLoc = 18;
+	};
+	E1669BCA0412965E00050002 = {
+		fRef = F517D6420356B8CC016D68B9;
+		isa = PBXTextBookmark;
+		name = "PSAlarms.m: alarm";
+		rLen = 0;
+		rLoc = 7869;
+		rType = 0;
+		vrLen = 1338;
+		vrLoc = 7560;
+	};
+	E1669BCB0412965E00050002 = {
+		fRef = F59F6CB50354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.m: 438";
+		rLen = 0;
+		rLoc = 14572;
+		rType = 0;
+		vrLen = 1557;
+		vrLoc = 13921;
+	};
+	E1669BCC0412965E00050002 = {
+		fRef = F59F6CB40354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.h: cancelTimer";
+		rLen = 0;
+		rLoc = 2407;
+		rType = 0;
+		vrLen = 1283;
+		vrLoc = 571;
+	};
+	E1669BCD0412965E00050002 = {
+		fRef = F59F6CB50354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.m: 440";
+		rLen = 0;
+		rLoc = 14573;
+		rType = 0;
+		vrLen = 1517;
+		vrLoc = 13921;
+	};
+	E1669BCE0412965E00050002 = {
+		fRef = F59F6CB40354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.h: cancelTimer";
+		rLen = 0;
+		rLoc = 2407;
+		rType = 0;
+		vrLen = 1298;
+		vrLoc = 556;
+	};
+	E1669BCF0412965E00050002 = {
+		fRef = F59F6CB50354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.m: __GNUC__";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1108;
+		vrLoc = 1504;
+	};
+	E1669BD00412965E00050002 = {
+		fRef = F59F6CB40354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.h: cancelTimer";
+		rLen = 0;
+		rLoc = 2407;
+		rType = 0;
+		vrLen = 1179;
+		vrLoc = 0;
+	};
+	E1669BD10412965E00050002 = {
+		fRef = F59F6CB50354E7DA01AEEDB1;
+		isa = PBXTextBookmark;
+		name = "PSAlarm.m: 561";
+		rLen = 0;
+		rLoc = 19558;
+		rType = 0;
+		vrLen = 1183;
+		vrLoc = 18375;
+	};
+	E1669BD20412965E00050002 = {
+		fRef = E1BF6E9103C928D200050002;
+		isa = PBXTextBookmark;
+		name = "PSTimer.m: 224";
+		rLen = 0;
+		rLoc = 6240;
+		rType = 0;
+		vrLen = 1157;
+		vrLoc = 5605;
+	};
+	E1669BD30412965E00050002 = {
+		fRef = F589C9C6035AA12B0155F4B2;
+		isa = PBXTextBookmark;
+		name = "Read Me.rtfd: 112";
+		rLen = 0;
+		rLoc = 9566;
+		rType = 0;
+		vrLen = 2740;
+		vrLoc = 5849;
+	};
+	E1669BD40412965E00050002 = {
+		fRef = F59E47A8036AAA6D016B311C;
+		isa = PBXTextBookmark;
+		name = "PSAlert.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 823;
+		vrLoc = 0;
+	};
+	E1669BD50412965E00050002 = {
+		fRef = E1A18CAC03B4344C00000028;
+		isa = PBXTextBookmark;
+		name = "PSAlerts.m: 71";
+		rLen = 0;
+		rLoc = 1327;
+		rType = 0;
+		vrLen = 739;
+		vrLoc = 554;
+	};
+	E1669BD60412965E00050002 = {
+		fRef = F59E47B5036AAD55016B311C;
+		isa = PBXTextBookmark;
+		name = "PSAlarmAlertController.h: 17";
+		rLen = 23;
+		rLoc = 380;
+		rType = 0;
+		vrLen = 586;
+		vrLoc = 0;
+	};
+	E1669BD70412965E00050002 = {
+		fRef = F59E47B4036AAD55016B311C;
+		isa = PBXTextBookmark;
+		name = "PSAlarmAlertController.m: 44";
+		rLen = 0;
+		rLoc = 1355;
+		rType = 0;
+		vrLen = 1492;
+		vrLoc = 1590;
+	};
+	E1669BD80412965E00050002 = {
+		fRef = F517D6420356B8CC016D68B9;
+		isa = PBXTextBookmark;
+		name = "PSAlarms.m: 255";
+		rLen = 0;
+		rLoc = 7508;
+		rType = 0;
+		vrLen = 1344;
+		vrLoc = 6192;
 	};
 	E16A0E6104005B0E00050002 = {
 		fRef = F59DC6DC0353DE5101AEEDB1;
@@ -4687,7 +5111,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 38";
 		rLen = 0;
-		rLoc = 1558;
+		rLoc = 1552;
 		rType = 0;
 		vrLen = 1406;
 		vrLoc = 96;
@@ -4877,7 +5301,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: ";
 		rLen = 0;
-		rLoc = 2750;
+		rLoc = 2744;
 		rType = 0;
 		vrLen = 1857;
 		vrLoc = 727;
@@ -4897,7 +5321,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 60";
 		rLen = 0;
-		rLoc = 2432;
+		rLoc = 2426;
 		rType = 0;
 		vrLen = 1856;
 		vrLoc = 727;
@@ -4977,7 +5401,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 67";
 		rLen = 0;
-		rLoc = 2598;
+		rLoc = 2592;
 		rType = 0;
 		vrLen = 1800;
 		vrLoc = 1111;
@@ -5017,7 +5441,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 78";
 		rLen = 0;
-		rLoc = 3032;
+		rLoc = 3026;
 		rType = 0;
 		vrLen = 1532;
 		vrLoc = 1387;
@@ -5037,7 +5461,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 78";
 		rLen = 32;
-		rLoc = 3004;
+		rLoc = 2998;
 		rType = 0;
 		vrLen = 1636;
 		vrLoc = 1287;
@@ -5057,7 +5481,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 62";
 		rLen = 14;
-		rLoc = 2155;
+		rLoc = 2149;
 		rType = 0;
 		vrLen = 1536;
 		vrLoc = 1552;
@@ -5096,16 +5520,6 @@
 		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSWorkspace.h;
 		refType = 0;
 	};
-	E17F2F7003FE0DCC00050002 = {
-		fRef = E130B9AD03B7C59700000028;
-		isa = PBXTextBookmark;
-		name = "PSPowerManager.m: 237";
-		rLen = 0;
-		rLoc = 8125;
-		rType = 0;
-		vrLen = 1226;
-		vrLoc = 1179;
-	};
 	E17F2F7403FE0DCC00050002 = {
 		fRef = F5F240B5036A862101FE7503;
 		isa = PBXTextBookmark;
@@ -5131,7 +5545,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 237";
 		rLen = 0;
-		rLoc = 8125;
+		rLoc = 8150;
 		rType = 0;
 		vrLen = 1226;
 		vrLoc = 1179;
@@ -5405,16 +5819,6 @@
 		rType = 0;
 		vrLen = 528;
 		vrLoc = 0;
-	};
-	E17F2F9F03FE193200050002 = {
-		fRef = F59F6CB40354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.h: cancelTimer";
-		rLen = 0;
-		rLoc = 2407;
-		rType = 0;
-		vrLen = 1231;
-		vrLoc = 1280;
 	};
 	E17F2FAA03FE193200050002 = {
 		fRef = E17F2F3303FDF2F000050002;
@@ -5891,7 +6295,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: stopAlerts:";
 		rLen = 0;
-		rLoc = 1681;
+		rLoc = 1675;
 		rType = 0;
 		vrLen = 945;
 		vrLoc = 0;
@@ -5961,7 +6365,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: initWithAlarm:";
 		rLen = 0;
-		rLoc = 1699;
+		rLoc = 1693;
 		rType = 0;
 		vrLen = 945;
 		vrLoc = 0;
@@ -5971,7 +6375,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: initWithAlarm:";
 		rLen = 0;
-		rLoc = 1948;
+		rLoc = 1942;
 		rType = 0;
 		vrLen = 945;
 		vrLoc = 0;
@@ -6031,7 +6435,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: initWithAlarm:";
 		rLen = 0;
-		rLoc = 2959;
+		rLoc = 2953;
 		rType = 0;
 		vrLen = 954;
 		vrLoc = 0;
@@ -6051,7 +6455,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: initWithAlarm:";
 		rLen = 0;
-		rLoc = 2352;
+		rLoc = 2346;
 		rType = 0;
 		vrLen = 1005;
 		vrLoc = 0;
@@ -6071,7 +6475,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: initWithAlarm:";
 		rLen = 0;
-		rLoc = 2033;
+		rLoc = 2027;
 		rType = 0;
 		vrLen = 1025;
 		vrLoc = 0;
@@ -6091,7 +6495,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: dealloc";
 		rLen = 0;
-		rLoc = 3033;
+		rLoc = 3027;
 		rType = 0;
 		vrLen = 1202;
 		vrLoc = 0;
@@ -6131,7 +6535,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: initWithAlarm:";
 		rLen = 0;
-		rLoc = 2985;
+		rLoc = 2979;
 		rType = 0;
 		vrLen = 1202;
 		vrLoc = 0;
@@ -6238,7 +6642,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: stopAlerts:";
 		rLen = 0;
-		rLoc = 1681;
+		rLoc = 1675;
 		rType = 0;
 		vrLen = 1238;
 		vrLoc = 0;
@@ -6298,7 +6702,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: _alertCompleted:";
 		rLen = 0;
-		rLoc = 1611;
+		rLoc = 1605;
 		rType = 0;
 		vrLen = 1435;
 		vrLoc = 538;
@@ -6638,7 +7042,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: initWithAlarm:";
 		rLen = 0;
-		rLoc = 2964;
+		rLoc = 2958;
 		rType = 0;
 		vrLen = 1561;
 		vrLoc = 460;
@@ -6698,7 +7102,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: initWithAlarm:";
 		rLen = 0;
-		rLoc = 2342;
+		rLoc = 2336;
 		rType = 0;
 		vrLen = 1622;
 		vrLoc = 460;
@@ -6728,7 +7132,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: _alertCompleted:";
 		rLen = 0;
-		rLoc = 1558;
+		rLoc = 1552;
 		rType = 0;
 		vrLen = 1440;
 		vrLoc = 0;
@@ -6818,7 +7222,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: _alertCompleted:";
 		rLen = 0;
-		rLoc = 1558;
+		rLoc = 1552;
 		rType = 0;
 		vrLen = 1440;
 		vrLoc = 0;
@@ -7050,7 +7454,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: _alertCompleted:";
 		rLen = 0;
-		rLoc = 1558;
+		rLoc = 1552;
 		rType = 0;
 		vrLen = 1267;
 		vrLoc = 0;
@@ -7421,16 +7825,6 @@
 		vrLen = 1835;
 		vrLoc = 622;
 	};
-	E1A60176040C8C6B00050002 = {
-		fRef = F589C9C6035AA12B0155F4B2;
-		isa = PBXTextBookmark;
-		name = "Read Me.rtfd: 85";
-		rLen = 0;
-		rLoc = 5706;
-		rType = 0;
-		vrLen = 2453;
-		vrLoc = 4870;
-	};
 	E1A60177040C8C6B00050002 = {
 		fRef = F5F240CC036A877301FE7503;
 		isa = PBXTextBookmark;
@@ -7451,16 +7845,6 @@
 		vrLen = 2074;
 		vrLoc = 11205;
 	};
-	E1A60179040C8C6B00050002 = {
-		fRef = F59F6CB50354E7DA01AEEDB1;
-		isa = PBXTextBookmark;
-		name = "PSAlarm.m: 199";
-		rLen = 0;
-		rLoc = 6886;
-		rType = 0;
-		vrLen = 794;
-		vrLoc = 6576;
-	};
 	E1A6017A040C8C6B00050002 = {
 		fRef = F59E47BC036AB228016B311C;
 		isa = PBXTextBookmark;
@@ -7480,16 +7864,6 @@
 		rType = 0;
 		vrLen = 1614;
 		vrLoc = 2791;
-	};
-	E1A6017C040C8C6B00050002 = {
-		fRef = E10E71F4040C335800050002;
-		isa = PBXTextBookmark;
-		name = "English: 3";
-		rLen = 0;
-		rLoc = 169;
-		rType = 0;
-		vrLen = 1963;
-		vrLoc = 0;
 	};
 	E1A6017D040C8C6B00050002 = {
 		fRef = F589C9C6035AA12B0155F4B2;
@@ -7536,7 +7910,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 209";
 		rLen = 0;
-		rLoc = 7013;
+		rLoc = 7021;
 		rType = 0;
 		vrLen = 855;
 		vrLoc = 6577;
@@ -7570,50 +7944,6 @@
 		rType = 0;
 		vrLen = 1614;
 		vrLoc = 2791;
-	};
-	E1A60185040C8C6B00050002 = {
-		fRef = E10E71F4040C335800050002;
-		isa = PBXTextBookmark;
-		name = "English: 26";
-		rLen = 0;
-		rLoc = 1395;
-		rType = 0;
-		vrLen = 1962;
-		vrLoc = 0;
-	};
-	E1A60186040C8C6B00050002 = {
-		fRef = F5F240CC036A877301FE7503;
-		isa = PBXTextBookmark;
-		rLen = 1;
-		rLoc = 109;
-		rType = 1;
-	};
-	E1A60187040C8C6B00050002 = {
-		fRef = F5F240CC036A877301FE7503;
-		isa = PBXTextBookmark;
-		name = "NJRQTMediaPopUpButton.m: 110";
-		rLen = 0;
-		rLoc = 4262;
-		rType = 0;
-		vrLen = 208;
-		vrLoc = 4055;
-	};
-	E1A60188040C8C6B00050002 = {
-		fRef = F59E4BE6036B2E5E016B311C;
-		isa = PBXTextBookmark;
-		rLen = 45;
-		rLoc = 963;
-		rType = 0;
-	};
-	E1A60189040C8C6B00050002 = {
-		fRef = F59E4BE6036B2E5E016B311C;
-		isa = PBXTextBookmark;
-		name = "PSScriptAlert.m: 41";
-		rLen = 0;
-		rLoc = 1089;
-		rType = 0;
-		vrLen = 941;
-		vrLoc = 678;
 	};
 	E1A9DEE703BF3C110089E8B2 = {
 		isa = PBXSymbolicBreakpoint;
@@ -7655,7 +7985,7 @@
 		isa = PBXTextBookmark;
 		name = "Read Me.rtfd: 167";
 		rLen = 0;
-		rLoc = 12371;
+		rLoc = 12252;
 		rType = 0;
 		vrLen = 2647;
 		vrLoc = 8836;
@@ -7695,7 +8025,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: _alertCompleted:";
 		rLen = 0;
-		rLoc = 1558;
+		rLoc = 1552;
 		rType = 0;
 		vrLen = 1267;
 		vrLoc = 0;
@@ -7776,16 +8106,6 @@
 		path = /System/Library/Frameworks/AppKit.framework/Versions/C/Headers/NSStepper.h;
 		refType = 0;
 	};
-	E1AFB0D103C9A59C001509F3 = {
-		fRef = E1A18CAC03B4344C00000028;
-		isa = PBXTextBookmark;
-		name = "PSAlerts.m: triggerForAlarm:";
-		rLen = 42;
-		rLoc = 1388;
-		rType = 0;
-		vrLen = 1007;
-		vrLoc = 1056;
-	};
 	E1AFB0D903C9A59C001509F3 = {
 		fRef = E1AFB11403C9A59C001509F3;
 		isa = PBXTextBookmark;
@@ -7839,7 +8159,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 205";
 		rLen = 0;
-		rLoc = 6956;
+		rLoc = 6964;
 		rType = 0;
 		vrLen = 895;
 		vrLoc = 6428;
@@ -7859,7 +8179,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 205";
 		rLen = 0;
-		rLoc = 6956;
+		rLoc = 6964;
 		rType = 0;
 		vrLen = 907;
 		vrLoc = 6428;
@@ -7879,7 +8199,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 205";
 		rLen = 0;
-		rLoc = 6976;
+		rLoc = 6984;
 		rType = 0;
 		vrLen = 944;
 		vrLoc = 6428;
@@ -7899,7 +8219,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: setWakeUp:";
 		rLen = 32;
-		rLoc = 6922;
+		rLoc = 6930;
 		rType = 0;
 		vrLen = 946;
 		vrLoc = 6428;
@@ -7989,7 +8309,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: setWakeUp:";
 		rLen = 32;
-		rLoc = 6922;
+		rLoc = 6930;
 		rType = 0;
 		vrLen = 946;
 		vrLoc = 6428;
@@ -8119,7 +8439,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 391";
 		rLen = 0;
-		rLoc = 12916;
+		rLoc = 12924;
 		rType = 0;
 		vrLen = 1574;
 		vrLoc = 11400;
@@ -8139,7 +8459,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 389";
 		rLen = 0;
-		rLoc = 12857;
+		rLoc = 12865;
 		rType = 0;
 		vrLen = 1653;
 		vrLoc = 15492;
@@ -8159,7 +8479,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: setWakeUp:";
 		rLen = 32;
-		rLoc = 6922;
+		rLoc = 6930;
 		rType = 0;
 		vrLen = 1179;
 		vrLoc = 5752;
@@ -8199,7 +8519,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 222";
 		rLen = 0;
-		rLoc = 7405;
+		rLoc = 7430;
 		rType = 0;
 		vrLen = 1665;
 		vrLoc = 6570;
@@ -8219,7 +8539,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 245";
 		rLen = 0;
-		rLoc = 7698;
+		rLoc = 7723;
 		rType = 0;
 		vrLen = 1673;
 		vrLoc = 7118;
@@ -8424,16 +8744,6 @@
 		rLoc = 0;
 		rType = 0;
 		vrLen = 969;
-		vrLoc = 0;
-	};
-	E1B46F6904053C4F00050002 = {
-		fRef = F59E47B5036AAD55016B311C;
-		isa = PBXTextBookmark;
-		name = "PSAlarmAlertController.h: 17";
-		rLen = 23;
-		rLoc = 380;
-		rType = 0;
-		vrLen = 586;
 		vrLoc = 0;
 	};
 	E1B46F6B04053C4F00050002 = {
@@ -10587,16 +10897,6 @@
 		fRef = F560E2F20357506401A4E466;
 		isa = PBXBookmark;
 	};
-	E1BF6E9A03C95F4E00050002 = {
-		fRef = F517D6430356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.h: setUp";
-		rLen = 15;
-		rLoc = 499;
-		rType = 0;
-		vrLen = 905;
-		vrLoc = 0;
-	};
 	E1BF6E9D03C95F4E00050002 = {
 		fRef = E1BF6F0403C95F4E00050002;
 		glyphRangeLength = 1986;
@@ -10670,7 +10970,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 270";
 		rLen = 0;
-		rLoc = 9093;
+		rLoc = 9118;
 		rType = 0;
 		vrLen = 1300;
 		vrLoc = 7725;
@@ -10720,7 +11020,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: notificationPort";
 		rLen = 0;
-		rLoc = 7698;
+		rLoc = 7723;
 		rType = 0;
 		vrLen = 1717;
 		vrLoc = 7174;
@@ -10750,7 +11050,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: ";
 		rLen = 0;
-		rLoc = 2948;
+		rLoc = 2942;
 		rType = 0;
 		vrLen = 1948;
 		vrLoc = 1054;
@@ -10822,7 +11122,7 @@
 		rLen = 0;
 		rLoc = 9315;
 		rType = 0;
-		vrLen = 2212;
+		vrLen = 2071;
 		vrLoc = 10181;
 	};
 	E1C6408B03CF1DB600050002 = {
@@ -10939,7 +11239,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 195";
 		rLen = 36;
-		rLoc = 6724;
+		rLoc = 6749;
 		rType = 0;
 		vrLen = 1382;
 		vrLoc = 5793;
@@ -10959,7 +11259,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 229";
 		rLen = 0;
-		rLoc = 7659;
+		rLoc = 7684;
 		rType = 0;
 		vrLen = 1629;
 		vrLoc = 6863;
@@ -11019,7 +11319,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 223";
 		rLen = 27;
-		rLoc = 7521;
+		rLoc = 7546;
 		rType = 0;
 		vrLen = 1529;
 		vrLoc = 6863;
@@ -11039,7 +11339,7 @@
 		isa = PBXTextBookmark;
 		name = "PSPowerManager.m: 225";
 		rLen = 0;
-		rLoc = 7627;
+		rLoc = 7652;
 		rType = 0;
 		vrLen = 1591;
 		vrLoc = 6863;
@@ -11938,7 +12238,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: stopAlerts:";
 		rLen = 0;
-		rLoc = 1681;
+		rLoc = 1675;
 		rType = 0;
 		vrLen = 945;
 		vrLoc = 0;
@@ -12285,36 +12585,6 @@
 		rType = 0;
 		vrLen = 846;
 		vrLoc = 0;
-	};
-	E1DEF15504003A5F00050002 = {
-		fRef = F59E47B4036AAD55016B311C;
-		isa = PBXTextBookmark;
-		name = "PSAlarmAlertController.m: 69";
-		rLen = 0;
-		rLoc = 2725;
-		rType = 0;
-		vrLen = 1113;
-		vrLoc = 0;
-	};
-	E1DEF15704003A5F00050002 = {
-		fRef = E1BF6E9103C928D200050002;
-		isa = PBXTextBookmark;
-		name = "PSTimer.m: 192";
-		rLen = 0;
-		rLoc = 5401;
-		rType = 0;
-		vrLen = 441;
-		vrLoc = 5115;
-	};
-	E1DEF15A04003A5F00050002 = {
-		fRef = F517D6420356B8CC016D68B9;
-		isa = PBXTextBookmark;
-		name = "PSAlarms.m: 80";
-		rLen = 0;
-		rLoc = 2427;
-		rType = 0;
-		vrLen = 1331;
-		vrLoc = 1304;
 	};
 	E1DEF15B04003A5F00050002 = {
 		fRef = E1BF6E9003C928D200050002;
@@ -14392,7 +14662,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 69";
 		rLen = 0;
-		rLoc = 2725;
+		rLoc = 2719;
 		rType = 0;
 		vrLen = 1113;
 		vrLoc = 0;
@@ -15715,7 +15985,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 198";
 		rLen = 0;
-		rLoc = 6720;
+		rLoc = 6728;
 		rType = 0;
 		vrLen = 1689;
 		vrLoc = 4065;
@@ -15775,7 +16045,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 69";
 		rLen = 0;
-		rLoc = 2725;
+		rLoc = 2719;
 		rType = 0;
 		vrLen = 1113;
 		vrLoc = 0;
@@ -15795,7 +16065,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarmAlertController.m: 69";
 		rLen = 0;
-		rLoc = 2725;
+		rLoc = 2719;
 		rType = 0;
 		vrLen = 1113;
 		vrLoc = 0;
@@ -15955,7 +16225,7 @@
 		isa = PBXTextBookmark;
 		name = "PSAlarm.m: 198";
 		rLen = 0;
-		rLoc = 6720;
+		rLoc = 6728;
 		rType = 0;
 		vrLen = 1687;
 		vrLoc = 4065;

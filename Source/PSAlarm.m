@@ -183,7 +183,7 @@ static NSDictionary *locale;
     // XXX if calTime's date is different from the default date, complain
     dateTime = [NSCalendarDate dateWithDate: date atTime: time];
     if (dateTime == nil) {
-        [self _beInvalid: @"Please specify a reasonable date and time."];
+        [self _beInvalid: @"Please specify a reasonable date and time."]; return;
     }
     [self setForDateAtTime: dateTime];
 }
@@ -417,8 +417,9 @@ static NSDictionary *locale;
 
 - (NSString *)description;
 {
-    return [NSString stringWithFormat: @"%@: type %@ date %@ interval %.1f%@",
+    return [NSString stringWithFormat: @"%@: type %@ date %@ interval %.1f%@%@",
         [super description], [self _alarmTypeString], alarmDate, alarmInterval,
+        (repeating ? @" repeating" : @""),
         (alarmType == PSAlarmInvalid ?
          [NSString stringWithFormat: @"\ninvalid message: %@", invalidMessage]
         : (alarmType == PSAlarmSet ?
@@ -436,16 +437,17 @@ static NSDictionary *locale;
         case PSAlarmDate:
         case PSAlarmSet:
             [dict setObject: [NSNumber numberWithDouble: [alarmDate timeIntervalSinceReferenceDate]] forKey: PLAlarmDate];
-            break;
         case PSAlarmSnooze:
         case PSAlarmInterval:
         case PSAlarmExpired:
-            [dict setObject: [NSNumber numberWithDouble: alarmInterval] forKey: PLAlarmInterval];
-            [dict setObject: [NSNumber numberWithBool: repeating] forKey: PLAlarmRepeating];
             break;
         default:
             NSAssert1(NO, NSLocalizedString(@"Can't save alarm type %@", "Assertion for invalid PSAlarm type on string; %@ replaced with alarm type string"), [self _alarmTypeString]);
             break;
+    }
+    if ((alarmType != PSAlarmSet || repeating) && alarmType != PSAlarmDate) {
+        [dict setObject: [NSNumber numberWithBool: repeating] forKey: PLAlarmRepeating];
+        [dict setObject: [NSNumber numberWithDouble: alarmInterval] forKey: PLAlarmInterval];
     }
     if (snoozeInterval != 0)
         [dict setObject: [NSNumber numberWithDouble: snoozeInterval] forKey: PLAlarmSnoozeInterval];
@@ -473,13 +475,14 @@ static NSDictionary *locale;
                 alarmType = PSAlarmExpired;
             case PSAlarmInterval:
             case PSAlarmExpired:
-                alarmInterval = [[dict objectForRequiredKey: PLAlarmInterval] doubleValue];
-                repeating = [[dict objectForRequiredKey: PLAlarmRepeating] boolValue];
                 break;
             default:
                 NSAssert1(NO, NSLocalizedString(@"Can't load alarm type %@", "Assertion for invalid PSAlarm type on load; %@ replaced with alarm type string"), [self _alarmTypeString]);
                 break;
         }
+        repeating = [[dict objectForKey: PLAlarmRepeating] boolValue];
+        if ((alarmType != PSAlarmSet || repeating) && alarmType != PSAlarmDate)
+            alarmInterval = [[dict objectForRequiredKey: PLAlarmInterval] doubleValue];
         snoozeInterval = [[dict objectForKey: PLAlarmSnoozeInterval] doubleValue];
         [self setMessage: [dict objectForRequiredKey: PLAlarmMessage]];
         alarmAlerts = [[PSAlerts alloc] initWithPropertyList: [dict objectForRequiredKey: PLAlarmAlerts]];
@@ -487,7 +490,12 @@ static NSDictionary *locale;
         [alarmAlerts release];
         if (alarmType == PSAlarmSet) {
             alarmType = PSAlarmDate;
-            [self setTimer];
+            // don't want to put this logic in setTimer or isValid because it can cause invalid alarms to be set (consider when someone clicks the "repeat" checkbox, then switches to a [nonrepeating, by design] date alarm, and enters a date that has passed: we do -not- want the alarm to magically morph into a repeating interval alarm)
+            if (![self setTimer] && [self isRepeating]) {
+                alarmType = PSAlarmInterval;
+                [self setInterval: [[dict objectForRequiredKey: PLAlarmInterval] doubleValue]];
+                [self setTimer];
+            }
         }
         if (alarmType == PSAlarmExpired) {
             [self setTimer];
