@@ -224,7 +224,7 @@ NSMutableArray *PSTimerAllTimers = nil;
         // NSLog(@"%lf sec remain until alarm", [date timeIntervalSinceNow]);
         if ([date timeIntervalSinceNow] > 30) {
             // NSLog(@"going to sleep, setting timer %@", PSTimerOnWake);
-            [PSPowerManager setWakeTime: [[PSTimerOnWake fireDate] addTimeInterval: -15]];
+            [PSPowerManager setWakeTime: [[PSTimerOnWake fireDate] addTimeInterval: -15] overrideIfEarlier: NO];
             return YES;
         } else {
             // NSLog(@"not setting timer, will attempt to prevent idle sleep");

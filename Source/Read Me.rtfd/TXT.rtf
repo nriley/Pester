@@ -219,7 +219,7 @@ A.
 \'a5	Only show set alarm window when Pester comes to the front if an alarm isn\'d5t in the process of expiring.\
 \'a5	Added customizable alerts: the previously-mandatory notification dialog box, alert sound and dock bouncing are now all optional, and AppleScript, speech, and playback of sounds, images and movies (anything QuickTime can handle) are new. View alerts for scheduled alarms as help tags in the alarm list window.\
 \'a5 Only bring Pester to the front if needed for the type of alert selected; if Pester was hidden or not in front before an alarm expired, it switches back and hides if necessary after the alarm is dismissed. (This means you can dismiss an alarm by clicking or pressing the return key and go right back to work.)\
-\'a5 Added simple repeating alarms. When \'d2Display Message and Time\'d3 is checked, each time the alarm expires you have the choice to stop it repeating; otherwise, remove the alarm from the alarm list between expirations. This works well for things like \'d2remind me every 15 minutes to take a break\'d3. An alarm won\'d5t start to repeat until the alerts have finished going off and you dismiss it, so you won\'d5t come back to several thousand alerts!\
+\'a5 Added simple repeating alarms. When the \'d2Display message and time\'d3 alert is selected, each time an alarm expires you have an opportunity to stop it repeating; otherwise, remove alarms from the alarm list between expirations to stop them from repeating. This works well for things like \'d2remind me every 15 minutes to take a break\'d3. An alarm won\'d5t start to repeat until the alerts have finished going off and you dismiss it, so you won\'d5t come back to several thousand alerts!\
 \'a5 Added a \'d2snooze\'d3 feature; works similarly to editing an alarm interval, with an additional \'d2until\'c9\'d3 option (\'d4u\'d5 shortcut).\
 \'a5	Added a popup calendar to the Set Alarm window and the \'d2snooze until\'d3 sheet.\
 \'a5	Added 
@@ -232,6 +232,7 @@ A.
 \f10\fs20 2002-11-18 00:31:24.461 Pester[8545] An error occurred while attempting to restore the alarm list: *** Incorrect archive: unexpected byte
 \f3\fs28 \'d3.\
 \'a5 Switched to apple-generic versioning (agvtool, etc.).  December 2002 or later Dev Tools are required to build Pester 1.1.\
+\'a5 Creator code is now 'Pest' instead of 'Pstr' (the latter was already registered).\
 
 \f5\b \
 Known bugs in this version (not to be fixed by 1.1):\

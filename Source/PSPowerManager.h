@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <IOKit/IOKitLib.h>
 
+extern NSString * const PSPowerManagerException;
+
 @interface PSPowerManager : NSObject {
     id delegate;
     io_connect_t root_port;
@@ -18,8 +20,10 @@
 - (id)initWithDelegate:(id)aDelegate;
 
 + (BOOL)autoWakeSupported;
++ (void)authorize;
 + (NSDate *)wakeTime;
-+ (void)setWakeTime:(NSDate *)time;
++ (void)setWakeInterval:(unsigned long)wakeInterval;
++ (void)setWakeTime:(NSDate *)time overrideIfEarlier:(BOOL)override;
 + (void)clearWakeTime;
 
 @end

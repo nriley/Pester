@@ -7,10 +7,19 @@
 //
 
 #import "PSPowerManager.h"
+#import "wakein.h"
 
 #import <IOKit/pwr_mgt/IOPMLib.h>
 #import <IOKit/IOMessage.h>
 #import <CoreFoundation/CoreFoundation.h>
+
+// MoreIsBetter interfaces
+#include "MoreUNIX.h"
+#include "MoreSecurity.h"
+#include "MoreCFQ.h"
+
+// exceptions
+NSString * const PSPowerManagerException = @"PSPowerManagerException";
 
 /*
  * Copyright (c) 2002 Apple Computer, Inc. All rights reserved.
@@ -51,7 +60,14 @@ This code shows how to set the wakeup timer within the PMU.
 // non-privileged users.  I have not determined which calls are only available
 // for superusers
 
-#define PMU_MAGIC_PASSWORD	0x0101FACE // BEEF
+// njr 2003.03.12: both seem to be interchangeable now, and the sleep time is
+// no longer settable as non-root.
+
+#ifdef WAKEIN
+#define PMU_MAGIC_PASSWORD	0x0101BEEF
+#else
+#define PMU_MAGIC_PASSWORD	0x0101FACE
+#endif
 
 /* ==========================================
 * Close a device user client
@@ -172,6 +188,11 @@ closePMUComPort(io_object_t pmuRef)
     io_service_t pmuReference = openPMUComPort();
     if (pmuReference == NULL) return NO;
     closePMUComPort(pmuReference);
+    NS_DURING
+        [self authorize];
+    NS_HANDLER
+        return NO; // XXX display error?
+    NS_ENDHANDLER
     return YES;
 }
 
@@ -195,27 +216,89 @@ closePMUComPort(io_object_t pmuRef)
     rawWakeTime = [autoWakeTime unsignedLongLongValue];
     if (rawWakeTime == 0) return nil;
     // XXX no idea what the epoch is supposed to be, but this works...
-    return [NSDate dateWithTimeIntervalSinceReferenceDate: rawWakeTime - 18446744072475718320LLU];
+    return [NSDate dateWithTimeIntervalSinceReferenceDate: rawWakeTime - [[NSTimeZone systemTimeZone] secondsFromGMT] - 18446744072475736320LLU];
 }
 
-+ (void)setWakeTime:(NSDate *)time;
++ (void)_execWakeToolWithRequestDictionary:(NSDictionary *)request;
 {
-    io_service_t pmuReference = [self _pmuReference];
-    unsigned long wakeTime;
+    AuthorizationRef auth = NULL;
+    NSException *exception = NULL;
 
-    if (time == nil) wakeTime = 0;
-    else {
-        wakeTime = [time timeIntervalSinceNow];
-        if (wakeTime == 0) wakeTime++; // 0 will disable
-    }
-    writePMUProperty(pmuReference, CFSTR("AutoWake"), (unsigned long *)&wakeTime, sizeof(wakeTime));
-    
+    NS_DURING
+        CFURLRef tool = NULL;
+        Boolean toolFound;
+        OSStatus err = MoreSecCopyHelperToolURLAndCheckBundled(
+                                                      CFBundleGetMainBundle(), CFSTR("wakeinTemplate"), kApplicationSupportFolderType, CFSTR("Pester"), CFSTR("wakein"), &tool, &toolFound);
+        if (err != noErr) [NSException raise: PSPowerManagerException format: NSLocalizedString(@"Can't set up timed wake from sleep: unable to copy helper tool to Application Support folder (error %u)", "MoreSecCopyHelperToolURLAndCheckBundled failure"), err];
+        [(NSURL *)tool autorelease];
+
+        // if we've found the tool (and it's setuid root), still get an AuthorizationRef, but don't bother to obtain additional rights
+        err = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, toolFound ? kAuthorizationFlagExtendRights | kAuthorizationFlagInteractionAllowed : kAuthorizationFlagDefaults, &auth);
+        if (err != noErr) [NSException raise: PSPowerManagerException format: NSLocalizedString(@"Can't set up timed wake from sleep: AuthorizationCreate failed (error %u)", "AuthorizationCreate failure"), err];
+
+        NSDictionary *response;
+        err = MoreSecExecuteRequestInHelperTool(tool, auth, (CFDictionaryRef)request, (CFDictionaryRef *)&response);
+        [response autorelease];
+        if (err != noErr) [NSException raise: PSPowerManagerException format: NSLocalizedString(@"Can't set up timed wake from sleep: can't obtain response from helper tool (error %u)", "MoreSecExecuteRequestInHelperTool failure"), err];
+
+        NSLog(@"%@", response);
+
+        NSString *wakeinException = [response objectForKey: kPesterWakeException];
+        if (wakeinException != nil) [NSException raise: PSPowerManagerException format: NSLocalizedString(@"Can't set up timed wake from sleep: helper tool reported the error '%@'", "kPesterWakeException"), wakeinException];
+
+        err = MoreSecGetErrorFromResponse((CFDictionaryRef)response);
+        if (err != noErr) [NSException raise: PSPowerManagerException format: NSLocalizedString(@"Can't set up timed wake from sleep: helper tool reported an error of type %u", "MoreSecGetErrorFromResponse"), err];
+        
+    NS_HANDLER
+        exception = localException;
+    NS_ENDHANDLER
+
+    if (auth != NULL) AuthorizationFree(auth, kAuthorizationFlagDestroyRights);
+    if (exception != NULL) [exception raise];
+}
+
++ (void)authorize;
+{
+    [self _execWakeToolWithRequestDictionary: [NSDictionary dictionary]];
+}
+
++ (void)setWakeInterval:(unsigned long)wakeInterval;
+{
+#ifdef WAKEIN
+    io_service_t pmuReference = [self _pmuReference];
+    NSLog(@"writePMUProperty[%u] 0x%lX AutoWake = %lu", pmuReference, PMU_MAGIC_PASSWORD, wakeInterval);
+    writePMUProperty(pmuReference, CFSTR("AutoWake"), (unsigned long *)&wakeInterval, sizeof(wakeInterval));
+
     closePMUComPort(pmuReference);
+#else
+    [self _execWakeToolWithRequestDictionary: [NSDictionary dictionaryWithObject: [NSNumber numberWithUnsignedLong: wakeInterval] forKey: kPesterWakeTime]];
+#endif
+}
+
++ (void)setWakeTime:(NSDate *)time overrideIfEarlier:(BOOL)override;
+{
+    unsigned long wakeInterval;
+
+    if (time == nil) {
+        wakeInterval = 0;
+        override = YES;
+    } else {
+        wakeInterval = [time timeIntervalSinceNow];
+        if (wakeInterval == 0) wakeInterval++; // 0 will disable
+        if (!override) {
+            NSDate *wakeTime = [self wakeTime];
+            override = (wakeTime == nil || [wakeTime compare: time] == NSOrderedDescending);
+        }
+    }
+
+    if (override) {
+        [self setWakeInterval: wakeInterval];
+    }
 }
 
 + (void)clearWakeTime;
 {
-    [self setWakeTime: nil];
+    [self setWakeTime: nil overrideIfEarlier: YES];
 }
 
 // modified from RegisterForSleep sample code

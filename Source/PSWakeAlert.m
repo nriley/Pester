@@ -7,6 +7,7 @@
 //
 
 #import "PSWakeAlert.h"
+#import "PSPowerManager.h"
 
 static PSWakeAlert *PSWakeAlertShared;
 
