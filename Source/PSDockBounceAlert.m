@@ -20,11 +20,15 @@ static PSDockBounceAlert *PSDockBounceAlertShared;
     return PSDockBounceAlertShared;
 }
 
++ (void)stopBouncing;
+{
+    [NSApp cancelUserAttentionRequest: NSInformationalRequest];
+}
+
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
     [NSApp requestUserAttention: NSInformationalRequest];
-    [NSApp activateIgnoringOtherApps: YES];
-    [NSApp cancelUserAttentionRequest: NSInformationalRequest];
+    [[self class] performSelector: @selector(stopBouncing) withObject: nil afterDelay: 1 inModes: [NSArray arrayWithObject: NSDefaultRunLoopMode]];
 }
 
 @end

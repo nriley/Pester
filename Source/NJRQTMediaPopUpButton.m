@@ -15,6 +15,7 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 
 @interface NJRQTMediaPopUpButton (Private)
 - (void)_setPath:(NSString *)path;
+- (NSMenuItem *)_itemForAlias:(BDAlias *)alias;
 - (BOOL)_validatePreview;
 @end
 
@@ -23,6 +24,10 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 // XXX handle refreshing sound list on resume
 // XXX don't add icons on Puma, they look like ass
 // XXX launch preview on a separate thread (if movies take too long to load, they inhibit the interface responsiveness)
+
+// Recent media layout:
+// Most recent media are at TOP of menu (smaller item numbers, starting at [self indexOfItem: otherItem] + 1)
+// Most recent media are at END of array (larger indices)
 
 - (NSString *)_defaultKey;
 {
@@ -68,7 +73,7 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 
 - (void)_validateRecentMedia;
 {
-    NSEnumerator *e = [recentMediaAliasData objectEnumerator];
+    NSEnumerator *e = [recentMediaAliasData reverseObjectEnumerator];
     NSData *aliasData;
     NSMenuItem *item;
     BDAlias *itemAlias;
@@ -78,11 +83,11 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
     int recentItemCount = lastItemIndex - otherIndex;
     int recentItemIndex = otherIndex;
     NSAssert2(recentItemCount == aliasDataCount, @"Counted %d recent menu items, %d of alias data", recentItemCount, aliasDataCount);
-    while ( (aliasData = [e nextObject]) != nil) {
+    while ( (aliasData = [e nextObject]) != nil) { // go BACKWARD through array while going DOWN menu
         recentItemIndex++;
         item = [self itemAtIndex: recentItemIndex];
         itemAlias = [item representedObject];
-        if (![itemAlias aliasDataIsEqual: aliasData])
+        if ([itemAlias aliasDataIsEqual: aliasData])
             NSLog(@"item %d %@: %@", recentItemIndex, [item title], [itemAlias fullPath]);
         else
             NSLog(@"ITEM %d %@: %@ != aliasData %@", recentItemIndex, [item title], [itemAlias fullPath], [[BDAlias aliasWithData: aliasData] fullPath]);
@@ -123,6 +128,7 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 
     recentMediaAliasData = [[NSMutableArray alloc] initWithCapacity: NJRQTMediaPopUpButtonMaxRecentItems + 1];
     [self _addRecentMediaFromAliasesData: [[NSUserDefaults standardUserDefaults] arrayForKey: [self _defaultKey]]];
+    [self _validateRecentMedia];
 
     [self registerForDraggedTypes:
         [NSArray arrayWithObjects: NSFilenamesPboardType, NSURLPboardType, nil]];
@@ -143,7 +149,6 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 
 - (void)_setAlias:(BDAlias *)alias;
 {
-    
     BDAlias *oldAlias = [selectedAlias retain];
     [previousAlias release];
     previousAlias = oldAlias;
@@ -166,7 +171,7 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
         return [self itemAtIndex: 0];
     }
 
-    // [self _validateRecentMedia];
+    [self _validateRecentMedia];
     path = [alias fullPath];
     sf = [[SoundFileManager sharedSoundFileManager] soundFileFromPath: path];
     NSLog(@"_itemForAlias: %@", path);
@@ -176,21 +181,21 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
         NSLog(@"_itemForAlias: selected system sound");
         return [self itemAtIndex: [self indexOfItemWithRepresentedObject: sf]];
     } else {
-        NSEnumerator *e = [recentMediaAliasData objectEnumerator];
+        NSEnumerator *e = [recentMediaAliasData reverseObjectEnumerator];
         NSData *aliasData;
         NSMenuItem *item;
-        int recentIndex = 0;
+        int recentIndex = 1;
 
         while ( (aliasData = [e nextObject]) != nil) {
             // selected a recently selected, non-system sound?
             if ([alias aliasDataIsEqual: aliasData]) {
                 int otherIndex = [self indexOfItem: otherItem];
-                int menuIndex = [recentMediaAliasData count] - recentIndex + otherIndex + 1;
+                int menuIndex = recentIndex + otherIndex;
                 if (menuIndex == otherIndex + 1) return [self itemAtIndex: menuIndex]; // already at top
                 // remove item, add (at top) later
-                NSLog(@"_itemForAlias removing item: count %d - idx %d + otherItemIndex %d + 1 = %d [%@]", [recentMediaAliasData count], recentIndex, otherIndex, menuIndex, [self itemAtIndex: menuIndex]);
+                NSLog(@"_itemForAlias removing item: idx %d + otherItemIdx %d + 1 = %d [%@]", recentIndex, otherIndex, menuIndex, [self itemAtIndex: menuIndex]);
                 [self removeItemAtIndex: menuIndex];
-                [recentMediaAliasData removeObjectAtIndex: recentIndex];
+                [recentMediaAliasData removeObjectAtIndex: [recentMediaAliasData count] - recentIndex];
                 break;
             }
             recentIndex++;
@@ -266,19 +271,21 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
     if (![self _validatePreview]) {
         [[self menu] removeItem: sender];
     } else if (index > otherIndex + 1) { // move "other" item to top of list
-        int recentIndex = [recentMediaAliasData count] - index + otherIndex + 1;
+        int recentIndex = [recentMediaAliasData count] - index + otherIndex;
         NSMenuItem *item = [[self itemAtIndex: index] retain];
         NSData *data = [[recentMediaAliasData objectAtIndex: recentIndex] retain];
+        [self _validateRecentMedia];
         [self removeItemAtIndex: index];
         [[self menu] insertItem: item atIndex: otherIndex + 1];
         [self selectItem: item];
         [item release];
         NSAssert(recentIndex >= 0, @"Recent media index invalid");
-        NSLog(@"_aliasSelected removing item %d - %d + %d + 1 = %d of recentMediaAliasData", [recentMediaAliasData count], index, otherIndex, recentIndex);
+        NSLog(@"_aliasSelected removing item %d - %d + %d = %d of recentMediaAliasData", [recentMediaAliasData count], index, otherIndex, recentIndex);
         [recentMediaAliasData removeObjectAtIndex: recentIndex];
         [recentMediaAliasData addObject: data];
+        [self _validateRecentMedia];
         [data release];
-    } else NSLog(@"_aliasSelected ...already at top");
+    } // else NSLog(@"_aliasSelected ...already at top");
 }
 
 - (IBAction)select:(id)sender;
@@ -323,18 +330,62 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 - (BOOL)acceptsDragFrom:(id <NSDraggingInfo>)sender;
 {
     NSURL *url = [NSURL URLFromPasteboard: [sender draggingPasteboard]];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    BOOL isDir;
 
     if (url == nil || ![url isFileURL]) return NO;
+
+    if (![fm fileExistsAtPath: [url path] isDirectory: &isDir]) return NO;
+
+    if (isDir) return NO;
+    
     return YES;
+}
+
+- (NSString *)_descriptionForDraggingInfo:(id <NSDraggingInfo>)sender;
+{
+    NSDragOperation mask = [sender draggingSourceOperationMask];
+    NSMutableString *s = [NSMutableString stringWithFormat: @"Drag seq %d source: %@",
+        [sender draggingSequenceNumber], [sender draggingSource]];
+    NSPasteboard *draggingPasteboard = [sender draggingPasteboard];
+    NSArray *types = [draggingPasteboard types];
+    NSEnumerator *e = [types objectEnumerator];
+    NSString *type;
+    [s appendString: @"\nDrag operations:"];
+    if (mask & NSDragOperationCopy) [s appendString: @" copy"];
+    if (mask & NSDragOperationLink) [s appendString: @" link"];
+    if (mask & NSDragOperationGeneric) [s appendString: @" generic"];
+    if (mask & NSDragOperationPrivate) [s appendString: @" private"];
+    if (mask & NSDragOperationMove) [s appendString: @" move"];
+    if (mask & NSDragOperationDelete) [s appendString: @" delete"];
+    if (mask & NSDragOperationEvery) [s appendString: @" every"];
+    if (mask & NSDragOperationNone) [s appendString: @" none"];
+    [s appendFormat: @"\nImage: %@ at %@", [sender draggedImage],
+        NSStringFromPoint([sender draggedImageLocation])];
+    [s appendFormat: @"\nDestination: %@ at %@", [sender draggingDestinationWindow],
+        NSStringFromPoint([sender draggingLocation])];
+    [s appendFormat: @"\nPasteboard: %@ types:", draggingPasteboard];
+    while ( (type = [e nextObject]) != nil) {
+        if ([type hasPrefix: @"CorePasteboardFlavorType 0x"]) {
+            const char *osTypeHex = [[type substringFromIndex: [type rangeOfString: @"0x" options: NSBackwardsSearch].location] lossyCString];
+            OSType osType;
+            sscanf(osTypeHex, "%lx", &osType);
+            [s appendFormat: @" '%4s'", &osType];
+        } else {
+            [s appendFormat: @" \"%@\"", type];
+        }
+    }
+    return s;
 }
 
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender;
 {
     if ([self acceptsDragFrom: sender] && [sender draggingSourceOperationMask] &
-        NSDragOperationCopy) {
+        (NSDragOperationCopy | NSDragOperationLink)) {
         dragAccepted = YES;
         [self setNeedsDisplay: YES];
-        return NSDragOperationGeneric;
+        // NSLog(@"draggingEntered accept:\n%@", [self _descriptionForDraggingInfo: sender]);
+        return NSDragOperationLink;
     }
     return NSDragOperationNone;
 }
@@ -358,7 +409,9 @@ static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
         NSURL *url = [NSURL URLFromPasteboard: [sender draggingPasteboard]];
         if (url == nil) return NO;
         [self _setPath: [url path]];
-        [self _validatePreview];
+        if ([self _validatePreview]) {
+            [self selectItem: [self _itemForAlias: selectedAlias]];
+        }
     }
     return YES;
 }

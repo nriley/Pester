@@ -50,6 +50,7 @@
             screenRect.size.height -= [window frame].size.height - [[window contentView] frame].size.height; // account for height of window frame
             while (1) {
                 movieSize = [movieView sizeForMagnification: magnification];
+                movieSize.height -= 16; // controller is hidden, but its size is included (documented, ergh)
                 if (movieSize.width > screenRect.size.width || movieSize.height > screenRect.size.height)
                     magnification /= 2;
                 else

@@ -25,9 +25,9 @@ NSString * const PSAlarmAlertStopNotification = @"PSAlarmAlertStopNotification";
 - (id)initWithAlarm:(PSAlarm *)alarm;
 {
     if ( (self = [super init]) != nil) {
-        [NSApp activateIgnoringOtherApps: YES];
         [[alarm alerts] makeObjectsPerformSelector: @selector(triggerForAlarm:)
                                         withObject: alarm];
+        [NSApp activateIgnoringOtherApps: YES];
     }
     return self;
 }
