@@ -15,6 +15,7 @@ PRODUCT="Pester"
 
 cd "$PACKAGEDIR"/Source && \
 find . -name \*~\* -exec rm -r '{}' \; && \
+rm -f .gdb_history && \
 VERSION=`cat VERSION` && \
 DMG="$PRODUCT-$VERSION.dmg" VOL="$PRODUCT $VERSION" MOUNTPOINT="/Volumes/$VOL" && \
 DSTROOT="$PACKAGEDIR/$VOL" && \
