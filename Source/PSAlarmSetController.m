@@ -38,6 +38,14 @@
     // [timeOfDay setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [defaults objectForKey: NSTimeFormatString] allowNaturalLanguage: YES]];
     // [timeDate setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [defaults objectForKey: NSShortDateFormatString] allowNaturalLanguage: YES]];
     [self inAtChanged: nil];
+    alarm = [[PSAlarm alloc] init];
+    [[self window] makeKeyAndOrderFront: nil];
+}
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag;
+{
+    if (!flag) [self showWindow: self];
+    return YES;
 }
 
 - (void)setStatus:(NSString *)aString;
@@ -65,49 +73,13 @@
 
 - (void)setAlarmDateAndInterval:(id)sender;
 {
-    [alarmDate release];
-    alarmDate = nil;
-    alarmInterval = 0;
     if (isIn) {
-        alarmInterval = [[self objectValueForTextField: timeInterval whileEditing: sender] intValue] * [timeIntervalUnits selectedTag];
-        if (alarmInterval == 0) {
-            [self setStatus: @"Please specify an alarm interval."]; return;
-        }
-        alarmDate = [NSCalendarDate dateWithTimeIntervalSinceNow: alarmInterval];
-        [alarmDate retain];
+        [alarm setInterval:
+            [[self objectValueForTextField: timeInterval whileEditing: sender] intValue] *
+                [timeIntervalUnits selectedTag]];
     } else {
-        NSDate *time = [self objectValueForTextField: timeOfDay whileEditing: sender];
-        NSDate *date = [self objectValueForTextField: timeDate whileEditing: sender];
-        NSCalendarDate *calTime, *calDate;
-        if (time == nil && date == nil) {
-            [self setStatus: @"Please specify an alarm date and time."]; return;
-        }
-        if (time == nil) {
-            [self setStatus: @"Please specify an alarm time."]; return;
-        }
-        if (date == nil) {
-            [self setStatus: @"Please specify an alarm date."]; return;
-        }
-        // XXX if calTime's date is different from the default date, complain
-        calTime = [NSCalendarDate dateWithTimeIntervalSinceReferenceDate: [time timeIntervalSinceReferenceDate]];
-        calDate = [NSCalendarDate dateWithTimeIntervalSinceReferenceDate: [date timeIntervalSinceReferenceDate]];
-        if (time == nil || date == nil) {
-            [self setStatus: @"Please specify a reasonable date and time."];
-        }
-        alarmDate = [[NSCalendarDate alloc] initWithYear: [calDate yearOfCommonEra]
-                                                   month: [calDate monthOfYear]
-                                                     day: [calDate dayOfMonth]
-                                                    hour: [calTime hourOfDay]
-                                                  minute: [calTime minuteOfHour]
-                                                  second: [calTime secondOfMinute]
-                                                timeZone: nil];
-        alarmInterval = [alarmDate timeIntervalSinceNow];
-        if (alarmInterval <= 0) {
-            [self setStatus: @"Please specify an alarm time in the future."];
-            [alarmDate release];
-            alarmDate = nil;
-            return;
-        }
+        [alarm setForDate: [self objectValueForTextField: timeDate whileEditing: sender]
+                   atTime: [self objectValueForTextField: timeOfDay whileEditing: sender]];
     }
 }
 
@@ -117,16 +89,21 @@
 
 // Be careful not to hook up any of the text fields' actions to update: because we handle them in controlTextDidChange: instead.  If we could get the active text field somehow via public API (guess we could use controlTextDidBegin/controlTextDidEndEditing) then we'd not need to overload the update sender for this purpose.  Or, I guess, we could use another method other than update.  It should not be this hard to implement what is essentially standard behavior.  Sigh.
 
-- (IBAction)update:(id)sender;
+- (IBAction)updateDateDisplay:(id)sender;
 {
-    // NSLog(@"update: %@", sender);
-    [self setAlarmDateAndInterval: sender];
-    if (alarmDate != nil) {
-        [self setStatus: [alarmDate descriptionWithCalendarFormat: @"Alarm will be set for %X on %x" timeZone: nil locale: nil]];
+    if ([alarm isValid]) {
+        [self setStatus: [[alarm date] descriptionWithCalendarFormat: @"Alarm will be set for %X on %x" timeZone: nil locale: nil]];
         [setButton setEnabled: YES];
     } else {
         [setButton setEnabled: NO];
     }
+}
+
+- (IBAction)update:(id)sender;
+{
+    // NSLog(@"update: %@", sender);
+    [self setAlarmDateAndInterval: sender];
+    [self updateDateDisplay: sender];
 }
 
 - (IBAction)inAtChanged:(id)sender;
@@ -182,18 +159,20 @@
 {
     PSAlarmNotifierController *notifier = [PSAlarmNotifierController alloc];
     NSTimer *timer;
+    NSTimeInterval interval;
     [self setAlarmDateAndInterval: sender];
-    if (notifier == nil || alarmDate == nil) {
+    if (notifier == nil || ( (interval = [alarm interval]) == 0)) {
         [self setStatus: @"Unable to set alarm (time just passed?)"];
         return;
     }
+    [alarm setMessage: [messageField stringValue]];
     // XXX should use alarm object instead for userInfo
-    timer = [NSTimer scheduledTimerWithTimeInterval: alarmInterval
+    timer = [NSTimer scheduledTimerWithTimeInterval: interval
                                              target: notifier
                                            selector: @selector(initWithTimer:)
-                                           userInfo: [messageField stringValue]
+                                           userInfo: alarm
                                             repeats: NO];
-    [self setStatus: [alarmDate descriptionWithCalendarFormat: @"Alarm set for %x at %X" timeZone: nil locale: nil]];
+    [self setStatus: [[alarm date] descriptionWithCalendarFormat: @"Alarm set for %x at %X" timeZone: nil locale: nil]];
     [[self window] close];
 }
 

@@ -7,19 +7,17 @@
 //
 
 #import "PSAlarmNotifierController.h"
-
+#import "PSAlarm.h"
 
 @implementation PSAlarmNotifierController
 
 - (id)initWithTimer:(NSTimer *)timer;
 {
     if ([self initWithWindowNibName: @"Notifier"]) {
-        NSString *message = [timer userInfo];
+        PSAlarm *alarm = [timer userInfo];
 
         [[self window] center];
-        if (message == nil || [message isEqualToString: @""])
-            message = @"Alarm!";
-        [messageField setStringValue: message];
+        [messageField setStringValue: [alarm message]];
         [dateField setObjectValue: [timer fireDate]];
         [NSApp activateIgnoringOtherApps: YES];
         [[self window] makeKeyAndOrderFront: nil];

@@ -21,6 +21,8 @@
 				F59DC6E80353F58B01AEEDB1,
 				F59DC6FC0354188F01AEEDB1,
 				F59DC6FD0354188F01AEEDB1,
+				F59F6CB40354E7DA01AEEDB1,
+				F59F6CB50354E7DA01AEEDB1,
 			);
 			isa = PBXGroup;
 			name = Classes;
@@ -230,9 +232,9 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = Pester;
 				SECTORDER_FLAGS = "";
+				USE_GCC3_PFE_SUPPORT = YES;
 				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
 				WRAPPER_EXTENSION = app;
 			};
@@ -252,7 +254,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Pester</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Pester 1.0d1, © 2002 Nicholas Riley</string>
+	<string>Pester 1.0d2, © 2002 Nicholas Riley</string>
 	<key>CFBundleIconFile</key>
 	<string>Application icon</string>
 	<key>CFBundleIdentifier</key>
@@ -268,7 +270,7 @@
 	<key>CFBundleSignature</key>
 	<string>Pstr</string>
 	<key>CFBundleVersion</key>
-	<string>1.0d1</string>
+	<string>1.0d2</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -285,6 +287,7 @@
 				F59DC6DD0353DE5101AEEDB1,
 				F59DC6EB0353F58B01AEEDB1,
 				F59DC6FE0354188F01AEEDB1,
+				F59F6CB60354E7DA01AEEDB1,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +311,7 @@
 				F59DC6DE0353DE5101AEEDB1,
 				F59DC6EA0353F58B01AEEDB1,
 				F59DC6FF0354188F01AEEDB1,
+				F59F6CB70354E7DA01AEEDB1,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +487,28 @@
 		};
 		F59DC6FF0354188F01AEEDB1 = {
 			fileRef = F59DC6FD0354188F01AEEDB1;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59F6CB40354E7DA01AEEDB1 = {
+			isa = PBXFileReference;
+			path = PSAlarm.h;
+			refType = 4;
+		};
+		F59F6CB50354E7DA01AEEDB1 = {
+			isa = PBXFileReference;
+			path = PSAlarm.m;
+			refType = 4;
+		};
+		F59F6CB60354E7DA01AEEDB1 = {
+			fileRef = F59F6CB40354E7DA01AEEDB1;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59F6CB70354E7DA01AEEDB1 = {
+			fileRef = F59F6CB50354E7DA01AEEDB1;
 			isa = PBXBuildFile;
 			settings = {
 			};
