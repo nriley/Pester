@@ -3,11 +3,12 @@
 //  Pester
 //
 //  Created by Nicholas Riley on Sat Oct 26 2002.
-//  Copyright (c) 2002 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2002 Nicholas Riley. All rights reserved.
 //
 
 #import "NJRVoicePopUpButton.h"
 
+// XXX says nothing instead of "Alarm!" any more if there's no alarm message specified
 
 @implementation NJRVoicePopUpButton
 

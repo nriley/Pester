@@ -12,6 +12,8 @@
 #import "NSMovie-NJRExtensions.h"
 #import <QuickTime/Movies.h>
 
+// XXX if you specify a truly tiny movie, obey the minimum window size to compensate
+
 @implementation PSMovieAlertController
 
 + (PSMovieAlertController *)controllerWithAlarm:(PSAlarm *)alarm movieAlert:(PSMovieAlert *)alert;
