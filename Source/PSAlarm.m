@@ -7,9 +7,12 @@
 //
 
 #import "PSAlarm.h"
+#import "PSAlert.h"
 
 NSString * const PSAlarmTimerSetNotification = @"PSAlarmTimerSetNotification";
 NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotification";
+
+// XXX need to reset pending alarms after sleep, they "freeze" and never expire.
 
 @implementation PSAlarm
 
@@ -21,6 +24,7 @@ NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotifica
     [alarmMessage release]; alarmMessage = nil;
     [invalidMessage release]; invalidMessage = nil;
     [timer invalidate]; [timer release]; timer = nil;
+    [alerts release]; alerts = nil;
     [super dealloc];
 }
 
@@ -223,6 +227,22 @@ NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotifica
 - (NSComparisonResult)compare:(PSAlarm *)otherAlarm;
 {
     return [[self date] compare: [otherAlarm date]];
+}
+
+- (void)addAlert:(PSAlert *)alert;
+{
+    if (alerts == nil) alerts = [[NSMutableArray alloc] initWithCapacity: 4];
+    [alerts addObject: alert];
+}
+
+- (void)removeAlerts;
+{
+    [alerts removeAllObjects];
+}
+
+- (NSArray *)alerts;
+{
+    return [[alerts copy] autorelease];
 }
 
 - (NSString *)description;

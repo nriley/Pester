@@ -7,16 +7,12 @@
 //
 
 #import "PSAlarmNotifierController.h"
+#import "PSAlarmAlertController.h"
 #import "PSAlarm.h"
 
 @implementation PSAlarmNotifierController
 
 // XXX should use NSNonactivatingPanelMask on 10.2
-
-+ (PSAlarmNotifierController *)controllerWithTimerExpiredNotification:(NSNotification *)notification;
-{
-    return [[self alloc] initWithAlarm: [notification object]];
-}
 
 - (id)initWithAlarm:(PSAlarm *)alarm;
 {
@@ -24,18 +20,15 @@
         [[self window] center];
         [messageField setStringValue: [alarm message]];
         [dateField setObjectValue: [alarm date]];
-        [NSApp requestUserAttention: NSInformationalRequest];
-        [NSApp activateIgnoringOtherApps: YES];
         [[self window] makeKeyAndOrderFront: nil];
         [[self window] orderFrontRegardless];
-        [NSApp cancelUserAttentionRequest: NSInformationalRequest];
-        NSBeep();
     }
     return self;
 }
 
 - (IBAction)close:(id)sender;
 {
+    [PSAlarmAlertController stopAlerts: sender];
     [self close];
 }
 

@@ -15,6 +15,10 @@ typedef enum {
 extern NSString * const PSAlarmTimerSetNotification;
 extern NSString * const PSAlarmTimerExpiredNotification;
 
+// XXX figure out how to support reading old alarms
+
+@class PSAlert;
+
 @interface PSAlarm : NSObject <NSCoding> {
     PSAlarmType alarmType;
     NSCalendarDate *alarmDate;
@@ -22,16 +26,20 @@ extern NSString * const PSAlarmTimerExpiredNotification;
     NSString *alarmMessage;
     NSString *invalidMessage;
     NSTimer *timer;
+    NSMutableArray *alerts;
 }
 
 - (void)setInterval:(NSTimeInterval)anInterval;
 - (void)setForDateAtTime:(NSCalendarDate *)dateTime;
 - (void)setForDate:(NSDate *)date atTime:(NSDate *)time;
 - (void)setMessage:(NSString *)aMessage;
+- (void)addAlert:(PSAlert *)alert;
+- (void)removeAlerts;
 
 - (NSCalendarDate *)date;
 - (NSTimeInterval)interval;
 - (NSString *)message;
+- (NSArray *)alerts;
 
 - (NSString *)shortDateString;
 - (NSString *)timeString;

@@ -1,0 +1,303 @@
+#import "NJRFSObjectSelector.h"
+#import "NSImage-NJRExtensions.h"
+#include <Carbon/Carbon.h>
+
+@implementation NJRFSObjectSelector
+
+- (void)_initSelector;
+{
+    canChooseFiles = YES; canChooseDirectories = NO;
+    [self setAlias: nil];
+    [[self cell] setHighlightsBy: NSChangeBackgroundCell];
+    [[self cell] setGradientType: NSGradientNone];
+    [self registerForDraggedTypes:
+        [NSArray arrayWithObjects: NSFilenamesPboardType, NSURLPboardType, nil]];
+}
+
+- (void)dealloc;
+{
+    [selectedAlias release];
+    [fileTypes release];
+    [super dealloc];
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    if ( (self = [super initWithCoder: coder]) != nil) {
+        [self _initSelector];
+    }
+    return self;
+}
+
+- (id)initWithFrame:(NSRect)frame;
+{
+    if ( (self = [super initWithFrame: frame]) != nil) {
+        [self _initSelector];
+    }
+    return self;
+}
+
+- (void)drawRect:(NSRect)rect;
+{
+    [super drawRect: rect];
+    if (dragAccepted) {
+        [[NSColor selectedControlColor] set];
+        [NSBezierPath setDefaultLineWidth: 2];
+        [NSBezierPath strokeRect: NSInsetRect(rect, 2, 2)];
+    } else {
+        static NSImage *popupTriangle = nil;
+        static NSSize imageSize;
+        if (popupTriangle == nil) {
+            popupTriangle = [[NSImage imageNamed: @"Popup triangle"] retain];
+            imageSize = [popupTriangle size];
+        }
+        // equivalent to popup triangle location for large bezel in Carbon
+        [popupTriangle compositeToPoint: NSMakePoint(NSMaxX(rect) - imageSize.width - 5, NSMaxY(rect) - 5) operation: NSCompositeCopy];
+    }
+}
+
+- (BOOL)acceptsPath:(NSString *)path;
+{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    BOOL isDir;
+
+    if (![fm fileExistsAtPath: path isDirectory: &isDir]) return NO;
+
+    if (isDir) return canChooseDirectories;
+    if (canChooseFiles) {
+        NSEnumerator *e = [fileTypes objectEnumerator];
+        NSString *extension = [path pathExtension];
+        NSString *hfsType = NSHFSTypeOfFile(path);
+        NSString *fileType;
+        
+        while ( (fileType = [e nextObject]) != nil) {
+            if ([fileType isEqualToString: extension] || [fileType isEqualToString: hfsType])
+                return YES;
+        }
+    }
+    return NO;
+}
+
+- (void)setImage:(NSImage *)image;
+{
+    [super setImage: [image bestFitImageForSize: [[self cell] cellSize]]];
+}
+
+- (IBAction)select:(id)sender;
+{
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    NSString *path = [selectedAlias fullPath];
+    [openPanel setAllowsMultipleSelection: NO];
+    [openPanel setCanChooseDirectories: canChooseDirectories];
+    [openPanel setCanChooseFiles: canChooseFiles];
+    [openPanel beginSheetForDirectory: [path stringByDeletingLastPathComponent]
+                                 file: [path lastPathComponent]
+                                types: fileTypes
+                       modalForWindow: [self window]
+                        modalDelegate: self
+                       didEndSelector: @selector(openPanelDidEnd:returnCode:contextInfo:)
+                          contextInfo: nil];
+}
+
+- (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
+{
+    [sheet close];
+
+    if (returnCode == NSOKButton) {
+        NSArray *files = [sheet filenames];
+        NSAssert1([files count] == 1, @"%d items returned, only one expected", [files count]);
+        [self setPath: [files objectAtIndex: 0]];
+        [[self target] tryToPerform: [self action] with: self];
+    }
+}
+
+- (void)revealInFinder:(id<NSMenuItem>)sender;
+{
+    NSString *path = [sender representedObject];
+    if (path == nil) return;
+    [[NSWorkspace sharedWorkspace] selectFile: path inFileViewerRootedAtPath: @""];
+}
+
+- (void)setAlias:(BDAlias *)alias;
+{
+    if (selectedAlias != alias) {
+        [selectedAlias release];
+        selectedAlias = [alias retain];
+    }
+
+    if (alias != nil) { // alias is set
+        NSString *path = [alias fullPath];
+        NSString *revealPath = nil;
+        NSString *targetName = [path lastPathComponent];
+        NSMenu *menu = [[NSMenu alloc] initWithTitle: @""];
+        NSFileManager *fmgr = [NSFileManager defaultManager];
+        NSMenuItem *item;
+        if (path != nil) { // can resolve alias
+            [self setImage: [[NSWorkspace sharedWorkspace] iconForFile: path]];
+            [self setTitle: targetName];
+            do {
+                item = [menu addItemWithTitle: [fmgr displayNameAtPath: path]
+                                       action: @selector(revealInFinder:)
+                                keyEquivalent: @""];
+                [item setTarget: self];
+                [item setRepresentedObject: revealPath];
+                [item setImage:
+                    [[[NSWorkspace sharedWorkspace] iconForFile: path] bestFitImageForSize: NSMakeSize(16, 16)]];
+                revealPath = path;
+                path = [path stringByDeletingLastPathComponent];
+                NSAssert1(![path isEqualToString: revealPath], @"Stuck on path |%@|", [alias fullPath]);
+            } while (![revealPath isEqualToString: @"/"] && ![path isEqualToString: @"/Volumes"]);
+            [[self cell] setMenu: menu];
+        } else {
+            [self setImage: nil];
+            [self setTitle: @"(not available)"];
+            [[self cell] setMenu: nil];
+        }
+    } else {
+        [self setImage: nil];
+        [self setTitle: @"(none selected)"];
+        [[self cell] setMenu: nil];
+    }
+    [self setEnabled: YES];
+}
+
+- (void)setEnabled:(BOOL)enabled;
+{
+    [super setEnabled: enabled ? selectedAlias != nil : NO];
+}
+
+- (void)rightMouseDown:(NSEvent *)theEvent;
+{
+    [self mouseDown: theEvent];
+}
+
+- (void)otherMouseDown:(NSEvent *)theEvent;
+{
+    [self mouseDown: theEvent];
+}
+
+extern MenuRef _NSGetCarbonMenu(NSMenu *menu);
+
+- (void)mouseDown:(NSEvent *)theEvent;
+{
+    NSMenu *menu = [[self cell] menu];
+    MenuRef mRef = _NSGetCarbonMenu(menu);
+
+    if (mRef == NULL) {
+        NSMenu *appMenu = [[[NSApp mainMenu] itemWithTitle: @""] submenu];
+        if (appMenu != nil) {
+            NSMenuItem *item = [appMenu addItemWithTitle: @"" action: NULL keyEquivalent: @""];
+            [appMenu setSubmenu: menu forItem: item];
+            [appMenu removeItem: item];
+        }
+        mRef = _NSGetCarbonMenu(menu);
+    }
+
+    ChangeMenuAttributes(mRef, kMenuAttrExcludesMarkColumn, 0);
+    theEvent = [NSEvent mouseEventWithType: [theEvent type]
+                                  location: [self convertPoint: NSMakePoint(-1, 1) toView: nil]
+                             modifierFlags: [theEvent modifierFlags]
+                                 timestamp: [theEvent timestamp]
+                              windowNumber: [theEvent windowNumber]
+                                   context: [theEvent context]
+                               eventNumber: [theEvent eventNumber]
+                                clickCount: [theEvent clickCount]
+                                  pressure: [theEvent pressure]];
+
+    // this undocumented API does not work any better; contextual menu items are still added:
+    // [menu _popUpMenuWithEvent: theEvent forView: self];
+    [NSMenu popUpContextMenu: menu withEvent: theEvent forView: self];
+}
+
+- (BDAlias *)alias;
+{
+    return selectedAlias;
+}
+
+- (void)setPath:(NSString *)path;
+{
+    [self setAlias: [BDAlias aliasWithPath: path]];
+}
+
+- (BOOL)canChooseDirectories;
+{
+    return canChooseDirectories;
+}
+
+- (BOOL)canChooseFiles;
+{
+    return canChooseFiles;
+}
+
+- (void)setCanChooseDirectories:(BOOL)flag;
+{
+    canChooseDirectories = flag;
+}
+
+- (void)setCanChooseFiles:(BOOL)flag;
+{
+    canChooseFiles = flag;
+}
+
+- (NSArray *)fileTypes;
+{
+    return fileTypes;
+}
+
+- (void)setFileTypes:(NSArray *)types;
+{
+    if (fileTypes == types) return;
+    
+    [fileTypes release];
+    fileTypes = [types retain];
+}
+
+@end
+
+
+@implementation NJRFSObjectSelector (NSDraggingDestination)
+
+- (BOOL)acceptsDragFrom:(id <NSDraggingInfo>)sender;
+{
+    NSURL *url = [NSURL URLFromPasteboard: [sender draggingPasteboard]];
+
+    if (url == nil || ![url isFileURL]) return NO;
+    return [self acceptsPath: [url path]];
+}
+
+- (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender;
+{
+    if ([self acceptsDragFrom: sender] && [sender draggingSourceOperationMask] &
+        NSDragOperationCopy) {
+        dragAccepted = YES;
+        [self setNeedsDisplay: YES];
+        return NSDragOperationGeneric;
+    }
+    return NSDragOperationNone;
+}
+
+- (void)draggingExited:(id <NSDraggingInfo>)sender;
+{
+    dragAccepted = NO;
+    [self setNeedsDisplay: YES];
+}
+
+- (BOOL)prepareForDragOperation:(id <NSDraggingInfo>)sender;
+{
+    dragAccepted = NO;
+    [self setNeedsDisplay: YES];
+    return [self acceptsDragFrom: sender];
+}
+
+- (BOOL)performDragOperation:(id <NSDraggingInfo>)sender;
+{
+    if ([sender draggingSource] != self) {
+        NSURL *url = [NSURL URLFromPasteboard: [sender draggingPasteboard]];
+        if (url == nil) return NO;
+        [self setPath: [url path]];
+        [[self target] tryToPerform: [self action] with: self];
+    }
+    return YES;
+}
+
+@end

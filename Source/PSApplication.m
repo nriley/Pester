@@ -8,7 +8,7 @@
 
 #import "PSApplication.h"
 #import "PSAlarmSetController.h"
-#import "PSAlarmNotifierController.h"
+#import "PSAlarmAlertController.h"
 #import "PSAlarmsController.h"
 #import "PSAlarm.h"
 #import "PSAlarms.h"
@@ -18,7 +18,7 @@
 - (void)finishLaunching;
 {
     appIconImage = [[NSImage imageNamed: @"NSApplicationIcon"] retain];
-    [[NSNotificationCenter defaultCenter] addObserver: [PSAlarmNotifierController class] selector: @selector(controllerWithTimerExpiredNotification:) name: PSAlarmTimerExpiredNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: [PSAlarmAlertController class] selector: @selector(controllerWithTimerExpiredNotification:) name: PSAlarmTimerExpiredNotification object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(nextAlarmDidChange:) name: PSAlarmsNextAlarmDidChangeNotification object: nil];
     [PSAlarms setUp];
     [self setDelegate: self];
@@ -29,6 +29,11 @@
 {
     [[NSWorkspace sharedWorkspace] openFile: [[NSBundle mainBundle] pathForResource: @"Read Me" ofType: @"rtfd"]];
 }
+
+- (IBAction)stopAlerts:(id)sender;
+{
+    [PSAlarmAlertController stopAlerts: sender];
+}	
 
 - (IBAction)orderFrontSetAlarmPanel:(id)sender;
 {

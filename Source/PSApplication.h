@@ -21,5 +21,6 @@
 
 - (IBAction)orderFrontSetAlarmPanel:(id)sender;
 - (IBAction)orderFrontAlarmsPanel:(id)sender;
+- (IBAction)stopAlerts:(id)sender;
 
 @end

@@ -7,8 +7,19 @@
 //
 
 #import "PSAlarmSetController.h"
-#import "PSAlarmNotifierController.h"
+#import "PSAlarmAlertController.h"
 #import "NJRDateFormatter.h"
+#import "NJRFSObjectSelector.h"
+#import "NJRSoundPopUpButton.h"
+#import "NJRVoicePopUpButton.h"
+#import <Carbon/Carbon.h>
+
+#import "PSDockBounceAlert.h"
+#import "PSScriptAlert.h"
+#import "PSNotifierAlert.h"
+#import "PSBeepAlert.h"
+#import "PSMovieAlert.h"
+#import "PSSpeechAlert.h"
 
 /* Bugs to file:
 
@@ -47,6 +58,12 @@
     alarm = [[PSAlarm alloc] init];
     [[self window] center];
     [self inAtChanged: nil];
+    [self playSoundChanged: nil];
+    [self doScriptChanged: nil];
+    [self doSpeakChanged: nil];
+    [script setFileTypes: [NSArray arrayWithObjects: @"applescript", @"script", NSFileTypeForHFSTypeCode(kOSAFileType), NSFileTypeForHFSTypeCode('TEXT'), nil]];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
+    [voice setDelegate: self];
     [[self window] makeKeyAndOrderFront: nil];
 }
 
@@ -130,6 +147,7 @@
     isInterval = ([inAtMatrix selectedTag] == 0);
     [timeInterval setEnabled: isInterval];
     [timeIntervalUnits setEnabled: isInterval];
+    [timeIntervalRepeats setEnabled: isInterval];
     [timeOfDay setEnabled: !isInterval];
     [timeDate setEnabled: !isInterval];
     [timeDateCompletions setEnabled: !isInterval];
@@ -137,6 +155,36 @@
         [[self window] makeFirstResponder: isInterval ? timeInterval : timeOfDay];
     // NSLog(@"UPDATING FROM inAtChanged");
     [self update: nil];
+}
+
+- (IBAction)playSoundChanged:(id)sender;
+{
+    BOOL playSoundSelected = [playSound intValue];
+    [sound setEnabled: playSoundSelected];
+    [soundRepetitions setEnabled: playSoundSelected];
+    [soundRepetitionStepper setEnabled: playSoundSelected];
+    [soundRepetitionsLabel setTextColor: playSoundSelected ? [NSColor controlTextColor] : [NSColor disabledControlTextColor]];
+    if (playSoundSelected && sender != nil)
+        [[self window] makeFirstResponder: sound];
+}
+
+// XXX should check the 'Do script:' button when someone drops a script on the button
+
+- (IBAction)doScriptChanged:(id)sender;
+{
+    BOOL doScriptSelected = [doScript intValue];
+    [script setEnabled: doScriptSelected];
+    [scriptSelectButton setEnabled: doScriptSelected];
+    if (doScriptSelected && sender != nil)
+        [[self window] makeFirstResponder: scriptSelectButton];
+}
+
+- (IBAction)doSpeakChanged:(id)sender;
+{
+    BOOL doSpeakSelected = [doSpeak intValue];
+    [voice setEnabled: doSpeakSelected];
+    if (doSpeakSelected && sender != nil)
+        [[self window] makeFirstResponder: voice];
 }
 
 - (IBAction)dateCompleted:(NSPopUpButton *)sender;
@@ -158,21 +206,53 @@
 
 - (IBAction)setAlarm:(NSButton *)sender;
 {
-    PSAlarmNotifierController *notifier = [PSAlarmNotifierController alloc];
-    if (notifier == nil) {
-        [self setStatus: @"Unable to set alarm."];
-        return;
-    }
+    // set alarm
     [self setAlarmDateAndInterval: sender];
     [alarm setMessage: [messageField stringValue]];
     if (![alarm setTimer]) {
         [self setStatus: [@"Unable to set alarm.  " stringByAppendingString: [alarm invalidMessage]]];
         return;
     }
+
+    [alarm removeAlerts];
+    // dock bounce alert
+    if ([bounceDockIcon state] == NSOnState)
+        [alarm addAlert: [PSDockBounceAlert alert]];
+    // script alert
+    if ([doScript intValue]) {
+        BDAlias *scriptFileAlias = [script alias];
+        if (scriptFileAlias == nil) {
+            [self setStatus: @"Unable to set script alert (no script specified?)"];
+            return;
+        }
+        [alarm addAlert: [PSScriptAlert alertWithScriptFileAlias: scriptFileAlias]];
+    }
+    // notifier alert
+    if ([displayMessage intValue])
+        [alarm addAlert: [PSNotifierAlert alert]];
+    // sound alerts
+    if ([playSound intValue]) {
+        BDAlias *soundAlias = [sound selectedAlias];
+        unsigned short numReps = [soundRepetitions intValue];
+        if (soundAlias == nil) // beep alert
+            [alarm addAlert: [PSBeepAlert alertWithRepetitions: numReps]];
+        else // movie alert
+            [alarm addAlert: [PSMovieAlert alertWithMovieFileAlias: soundAlias repetitions: numReps]];
+    }
+    // speech alert
+    if ([doSpeak intValue])
+        [alarm addAlert: [PSSpeechAlert alertWithVoice: [voice titleOfSelectedItem]]];
+    
     [self setStatus: [[alarm date] descriptionWithCalendarFormat: @"Alarm set for %x at %X" timeZone: nil locale: nil]];
     [[self window] close];
     [alarm release];
     alarm = [[PSAlarm alloc] init];
+}
+
+- (IBAction)silence:(id)sender;
+{
+    [sound stopSoundPreview: self];
+    [voice stopVoicePreview: self];
 }
 
 @end
@@ -205,6 +285,7 @@
 - (void)windowWillClose:(NSNotification *)notification;
 {
     // NSLog(@"stopping update timer");
+    [self silence: nil];
     [self _stopUpdateTimer];
 }
 
@@ -218,6 +299,15 @@
 {
     // NSLog(@"UPDATING FROM controlTextDidChange");
     [self update: [notification object]];
+}
+
+@end
+
+@implementation PSAlarmSetController (NJRVoicePopUpButtonDelegate)
+
+- (NSString *)voicePopUpButton:(NJRVoicePopUpButton *)sender previewStringForVoice:(NSString *)voice;
+{
+    return [messageField stringValue];
 }
 
 @end

@@ -3,7 +3,7 @@
 //  Pester
 //
 //  Created by Nicholas Riley on Fri Oct 11 2002.
-//  Copyright (c) 2002 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2002 Nicholas Riley. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

@@ -15,8 +15,6 @@
     IBOutlet NSTextField *dateField;
 }
 
-+ (PSAlarmNotifierController *)controllerWithTimerExpiredNotification:(NSNotification *)notification;
-
 - (id)initWithAlarm:(PSAlarm *)alarm;
 
 - (IBAction)close:(NSButton *)sender;
