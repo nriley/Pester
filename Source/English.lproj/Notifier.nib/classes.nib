@@ -1,0 +1,13 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {close = id; }; 
+            CLASS = PSAlarmNotifierController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {dateField = NSTextField; messageField = NSTextField; }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

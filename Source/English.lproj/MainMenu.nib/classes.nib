@@ -1,0 +1,25 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NJRDateFormatter; LANGUAGE = ObjC; SUPERCLASS = NSDateFormatter; }, 
+        {CLASS = NJRIntegerFilter; LANGUAGE = ObjC; SUPERCLASS = NSNumberFormatter; }, 
+        {
+            ACTIONS = {dateCompleted = id; inAtChanged = id; setAlarm = id; update = id; }; 
+            CLASS = PSAlarmSetController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                inAtMatrix = NSMatrix; 
+                messageField = NSTextField; 
+                setButton = NSButton; 
+                timeDate = NSTextField; 
+                timeDateCompletions = NSPopUpButton; 
+                timeInterval = NSTextField; 
+                timeIntervalUnits = NSPopUpButton; 
+                timeOfDay = NSTextField; 
+                timeSummary = NSTextField; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}
