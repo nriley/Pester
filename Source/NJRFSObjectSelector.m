@@ -1,11 +1,19 @@
 #import "NJRFSObjectSelector.h"
 #import "NSImage-NJRExtensions.h"
+#import "NSString-NJRExtensions.h"
 #include <Carbon/Carbon.h>
+
+static NSImage *PopupTriangleImage = nil;
+static NSSize PopupTriangleSize;
 
 @implementation NJRFSObjectSelector
 
 - (void)_initSelector;
 {
+    if (PopupTriangleImage == nil) {
+        PopupTriangleImage = [[NSImage imageNamed: @"Popup triangle"] retain];
+        PopupTriangleSize = [PopupTriangleImage size];
+    }
     canChooseFiles = YES; canChooseDirectories = NO;
     [self setAlias: nil];
     [[self cell] setHighlightsBy: NSChangeBackgroundCell];
@@ -46,14 +54,8 @@
         [NSBezierPath setDefaultLineWidth: 2];
         [NSBezierPath strokeRect: NSInsetRect(boundsRect, 2, 2)];
     } else if (selectedAlias != nil && [self isEnabled]) {
-        static NSImage *popupTriangle = nil;
-        static NSSize imageSize;
-        if (popupTriangle == nil) {
-            popupTriangle = [[NSImage imageNamed: @"Popup triangle"] retain];
-            imageSize = [popupTriangle size];
-        }
         // equivalent to popup triangle location for large bezel in Carbon
-        [popupTriangle compositeToPoint: NSMakePoint(NSMaxX(boundsRect) - imageSize.width - 5, NSMaxY(boundsRect) - 5) operation: NSCompositeSourceOver];
+        [PopupTriangleImage compositeToPoint: NSMakePoint(NSMaxX(boundsRect) - PopupTriangleSize.width - 5, NSMaxY(boundsRect) - 5) operation: NSCompositeSourceOver];
     }
 }
 
@@ -129,13 +131,18 @@
     if (alias != nil) { // alias is set
         NSString *path = [alias fullPath];
         NSString *revealPath = nil;
-        NSString *targetName = [path lastPathComponent];
         NSMenu *menu = [[NSMenu alloc] initWithTitle: @""];
         NSFileManager *fmgr = [NSFileManager defaultManager];
         NSMenuItem *item;
         if (path != nil) { // can resolve alias
             [self setImage: [[NSWorkspace sharedWorkspace] iconForFile: path]];
-            [self setTitle: targetName];
+            {	// set image first so titleRectForBounds: returns the correct value
+                NSMutableString *title = [[fmgr displayNameAtPath: path] mutableCopy];
+                NSDictionary *fontAttributes = [[self attributedTitle] fontAttributesInRange: NSMakeRange(0, 0)];
+                [title truncateToWidth: [[self cell] titleRectForBounds: [self bounds]].size.width - PopupTriangleSize.width by: NSLineBreakByTruncatingMiddle withAttributes: fontAttributes];
+                [self setTitle: title];
+                [title release];
+            }
             do {
                 item = [menu addItemWithTitle: [fmgr displayNameAtPath: path]
                                        action: @selector(revealInFinder:)

@@ -67,6 +67,16 @@
     [self selectItemAtIndex: 0];
 }
 
+- (void)setVoice:(NSString *)voice;
+{
+    int voiceIdx = [self indexOfItemWithTitle: voice];
+    if (voiceIdx == -1) {
+        [self _invalidateVoiceSelection];
+    } else {
+        [self selectItemAtIndex: voiceIdx];
+    }
+}
+
 - (void)_previewVoice;
 {
     NSString *voiceName = [self titleOfSelectedItem];
@@ -79,7 +89,7 @@
     [_speaker stopSpeaking];
 
     if ( (err = GetIndVoice(voiceIndex, &voice)) != noErr) {
-        NSBeginAlertSheet(@"Voice not available", @"OK", nil, nil, [self window], nil, nil, nil, nil, @"The voice Ò%@Ó you selected could not be used.  An error of type %ld occurred while attempting to retrieve voice information.", voiceName, err);
+        NSBeginAlertSheet(@"Voice not available", nil, nil, nil, [self window], nil, nil, nil, nil, @"The voice Ò%@Ó you selected could not be used.  An error of type %ld occurred while attempting to retrieve voice information.", voiceName, err);
         [self _invalidateVoiceSelection];
         return;
     }

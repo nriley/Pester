@@ -8,6 +8,7 @@
 
 #import "PSAlarmsController.h"
 #import "PSAlarm.h"
+#import "PSAlerts.h"
 #import "NSTableView-NJRExtensions.h"
 #import "NJRTableView.h"
 #import "NJRTableDelegate.h"
@@ -79,6 +80,13 @@
 - (void)removeSelectedRowsFromTableView:(NSTableView *)aTableView;
 {
     [self remove: aTableView];
+}
+
+- (NSString *)tableView:(NSTableView *)aTableView toolTipForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex;
+{
+    PSAlarm *alarm = [reorderedAlarms objectAtIndex: rowIndex];
+
+    return [[alarm prettyDescription] string];
 }
 
 @end

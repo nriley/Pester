@@ -16,9 +16,9 @@
 
 @implementation PSMovieAlertController
 
-+ (PSMovieAlertController *)controllerWithAlarm:(PSAlarm *)alarm movieAlert:(PSMovieAlert *)alert;
++ (PSMovieAlertController *)controllerWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
 {
-    return [[self alloc] initWithAlarm: alarm movieAlert: alert];
+    return [[self alloc] initWithAlarm: anAlarm movieAlert: anAlert];
 }
 
 - (void)play;
@@ -38,11 +38,13 @@
     [self performSelector: @selector(play) withObject: nil afterDelay: delay inModes: [NSArray arrayWithObject: NSDefaultRunLoopMode]];
 }
 
-- (id)initWithAlarm:(PSAlarm *)alarm movieAlert:(PSMovieAlert *)alert;
+- (id)initWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
 {
     if ([self initWithWindowNibName: @"Movie alert"]) {
-        NSMovie *movie = [alert movie];
+        NSMovie *movie = [anAlert movie];
         NSWindow *window = [self window]; // connect outlets
+        alarm = anAlarm;
+        alert = anAlert;
         [movieView setMovie: movie];
         theMovie = [movie QTMovie];
         if ([alert hasVideo]) {
@@ -66,6 +68,15 @@
             if (frame.origin.y < screenRect.origin.y) frame.origin.y = screenRect.origin.y;
             [window setFrame: frame display: NO];
             [window setTitle: [alarm message]];
+            {	// XXX workaround for (IMO) ugly appearance of Cocoa utility windows
+                NSView *miniButton = [window standardWindowButton: NSWindowMiniaturizeButton],
+                *zoomButton = [window standardWindowButton: NSWindowZoomButton];
+                // NOTE: this will not work if the window is resizable: when the frame is reset, the standard buttons reappear
+                [miniButton setFrameOrigin: NSMakePoint(-100, -100)];
+                [zoomButton setFrameOrigin: NSMakePoint(-100, -100)];
+                [[miniButton superview] setNeedsDisplay: YES];
+                [[zoomButton superview] setNeedsDisplay: YES];
+            }
             [[self window] orderFrontRegardless];
         }
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(close) name: PSAlarmAlertStopNotification object: nil];
@@ -90,7 +101,8 @@
 {
     repetitions = 0;
     [movieView stop: self];
-    [self release];
+    [alert completedForAlarm: alarm];
+    [self autorelease];
     // note: there may still be a retained copy of this object until the runloop timer has let go of us at the end of the current movie playback cycle; donÕt worry about it.
 }
 

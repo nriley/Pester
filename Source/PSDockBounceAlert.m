@@ -29,6 +29,20 @@ static PSDockBounceAlert *PSDockBounceAlertShared;
 {
     [NSApp requestUserAttention: NSInformationalRequest];
     [[self class] performSelector: @selector(stopBouncing) withObject: nil afterDelay: 1 inModes: [NSArray arrayWithObject: NSDefaultRunLoopMode]];
+    [self completedForAlarm: alarm];
 }
 
+- (NSAttributedString *)actionDescription;
+{
+    return [@"Bounce dock icon" small];
+}
+
+#pragma mark property list serialization (Pester 1.1)
+
+- (id)initWithPropertyList:(NSDictionary *)dict;
+{
+    [self release];
+    return [[PSDockBounceAlert alert] retain];
+}
+        
 @end

@@ -17,4 +17,6 @@
 + (PSScriptAlert *)alertWithScriptFileAlias:(BDAlias *)anAlias;
 - (id)initWithScriptFileAlias:(BDAlias *)anAlias;
 
+- (BDAlias *)scriptFileAlias;
+
 @end

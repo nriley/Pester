@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
-<plist version="0.9">
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
 <dict>
 	<key>IBDocumentLocation</key>
-	<string>424 83 356 240 0 0 1280 832 </string>
+	<string>122 13 356 240 0 0 1280 832 </string>
 	<key>IBFramework Version</key>
-	<string>263.2</string>
+	<string>291.0</string>
 	<key>IBOpenObjects</key>
 	<array>
 		<integer>5</integer>
 	</array>
 	<key>IBSystem Version</key>
-	<string>5S66</string>
+	<string>6G30</string>
+	<key>IBUserGuides</key>
+	<dict>
+		<key>5</key>
+		<dict>
+			<key>guideLocations</key>
+			<array>
+				<string>Horizontal:87.000000</string>
+				<string>Horizontal:108.000000</string>
+				<string>Horizontal:66.000000</string>
+				<string>Vertical:92.000000</string>
+				<string>Horizontal:133.000000</string>
+			</array>
+			<key>guidesLocked</key>
+			<false/>
+		</dict>
+	</dict>
 </dict>
 </plist>

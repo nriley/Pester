@@ -8,7 +8,11 @@
 
 #import "PSScriptAlert.h"
 #import "BDAlias.h"
-#import "NDAppleScriptObject.h"
+// XXX remove #import "NDAppleScriptObject.h"
+#import "NSDictionary-NJRExtensions.h"
+
+// property list keys
+static NSString * const PLAlertAlias = @"alias"; // NSData
 
 @implementation PSScriptAlert
 
@@ -25,12 +29,72 @@
     return self;
 }
 
+- (BDAlias *)scriptFileAlias;
+{
+    return alias;
+}
+
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
-    NDAppleScriptObject *as = [NDAppleScriptObject appleScriptObjectWithContentsOfFile: [alias fullPath]];
+    NSString *scriptPath = [alias fullPath];
 
-    if (as != nil) {
-        [as execute];
+    if (scriptPath == nil) {
+        NSRunAlertPanel(@"Can’t find script", @"Pester couldn’t find the script for the alarm “%@”.",
+                        nil, nil, nil, [alarm message]);
+    } else {
+        NSDictionary *errorInfo;
+        NSAppleScript *script = [[NSAppleScript alloc] initWithContentsOfURL: [NSURL fileURLWithPath: scriptPath] error: &errorInfo];
+        if (script == nil) {
+            NSString *errorMessage = [errorInfo objectForKey: NSAppleScriptErrorMessage];
+            NSNumber *errorNumber = [errorInfo objectForKey: NSAppleScriptErrorNumber];
+            NSString *appName = [errorInfo objectForKey: NSAppleScriptErrorAppName];
+            if (errorMessage == nil) errorMessage = [errorInfo objectForKey: NSAppleScriptErrorBriefMessage];
+            NSRunAlertPanel(@"Script loading error",
+                            @"Pester encountered an error while attempting to load “%@”%@ %@",
+                            nil, nil, nil,
+                            [[NSFileManager defaultManager] displayNameAtPath: scriptPath],
+                            errorMessage == nil ? @"" : [NSString stringWithFormat: @":\n\n%@%@", appName == nil ? @"" : @"“%@” reported an error: ", errorMessage],
+                            errorNumber == nil ? @"" : [NSString stringWithFormat: @"(%@)", errorNumber]);
+        } else {
+            NSAppleEventDescriptor *scriptResult = [script executeAndReturnError: &errorInfo];
+            if (scriptResult == nil) {
+                NSString *errorMessage = [errorInfo objectForKey: NSAppleScriptErrorMessage];
+                NSNumber *errorNumber = [errorInfo objectForKey: NSAppleScriptErrorNumber];
+                NSString *appName = [errorInfo objectForKey: NSAppleScriptErrorAppName];
+                if (errorMessage == nil) errorMessage = [errorInfo objectForKey: NSAppleScriptErrorBriefMessage];
+                NSRunAlertPanel(@"Script execution error",
+                                @"Pester encountered an error while attempting to execute the script “%@”%@ %@",
+                                nil, nil, nil,
+                                [[NSFileManager defaultManager] displayNameAtPath: scriptPath],
+                                errorMessage == nil ? @"" : [NSString stringWithFormat: @":\n\n%@%@", appName == nil ? @"" : @"“%@” reported an error: ", errorMessage],
+                                errorNumber == nil ? @"" : [NSString stringWithFormat: @"(%@)", errorNumber]);
+            }
+        }
     }
+    [self completedForAlarm: alarm];
 }
+
+- (NSAttributedString *)actionDescription;
+{
+    NSMutableAttributedString *string = [[@"Do script " small] mutableCopy];
+    NSString *scriptName = [alias displayNameWithKindString: NULL];
+    if (scriptName == nil) scriptName = @"«can’t locate script»";
+    [string appendAttributedString: [scriptName underlined]];
+    return [string autorelease];
+}
+
+#pragma mark property list serialization (Pester 1.1)
+
+- (NSDictionary *)propertyListRepresentation;
+{
+    NSMutableDictionary *plAlert = [[super propertyListRepresentation] mutableCopy];
+    [plAlert setObject: [alias aliasData] forKey: PLAlertAlias];
+    return [plAlert autorelease];
+}
+
+- (id)initWithPropertyList:(NSDictionary *)dict;
+{
+    return [self initWithScriptFileAlias: [BDAlias aliasWithData: [dict objectForRequiredKey: PLAlertAlias]]];
+}
+
 @end

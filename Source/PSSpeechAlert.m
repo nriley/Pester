@@ -3,11 +3,16 @@
 //  Pester
 //
 //  Created by Nicholas Riley on Sat Oct 26 2002.
-//  Copyright (c) 2002 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2002 Nicholas Riley. All rights reserved.
 //
 
 #import "PSSpeechAlert.h"
 #import "PSAlarmAlertController.h"
+#import "NSDictionary-NJRExtensions.h"
+#import "SUSpeaker.h"
+
+// property list keys
+static NSString * const PLAlertVoice = @"voice"; // NSString
 
 @implementation PSSpeechAlert
 
@@ -19,7 +24,7 @@
 - (id)initWithVoice:(NSString *)aVoice;
 {
     if ( (self = [super init]) != nil) {
-        voice = aVoice;
+        voice = [aVoice retain];
     }
     return self;
 }
@@ -32,31 +37,59 @@
     [super dealloc];
 }
 
-- (void)_stopSpeaking:(NSNotification *)notification;
+- (NSString *)voice;
 {
-    [speaker stopSpeaking];
-    // don't release here, we'll still get the didFinishSpeaking: message as a delegate
+    return voice;
 }
 
-- (void)triggerForAlarm:(PSAlarm *)alarm;
+- (void)_stopSpeaking:(NSNotification *)notification;
+{
+    [speaker stopSpeaking]; // triggers didFinishSpeaking:
+}
+
+- (void)triggerForAlarm:(PSAlarm *)anAlarm;
 {
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_stopSpeaking:) name: PSAlarmAlertStopNotification object: nil];
     
     if ( (speaker = [[SUSpeaker alloc] init]) == nil) return;
+    alarm = anAlarm;
     [speaker setDelegate: self];
     [speaker setVoice: [[SUSpeaker voiceNames] indexOfObject: voice] + 1];
     [speaker speakText: [alarm message]];
-    
-    [self retain];
+}
+
+- (NSAttributedString *)actionDescription;
+{
+    NSMutableAttributedString *string = [[@"Speak message with voice " small] mutableCopy];
+    [string appendAttributedString: [voice underlined]];
+    return [string autorelease];
+}
+
+#pragma mark property list serialization (Pester 1.1)
+
+- (NSDictionary *)propertyListRepresentation;
+{
+    NSMutableDictionary *plAlert = [[super propertyListRepresentation] mutableCopy];
+    [plAlert setObject: voice forKey: PLAlertVoice];
+    return [plAlert autorelease];
+}
+
+- (id)initWithPropertyList:(NSDictionary *)dict;
+{
+    if ( (self = [self init]) != nil) {
+        voice = [dict objectForRequiredKey: PLAlertVoice];
+    }
+    return self;
 }
 
 @end
 
 @implementation PSSpeechAlert (SUSpeakerDelegate)
 
-- (void)didFinishSpeaking:(SUSpeaker*)speaker;
+- (void)didFinishSpeaking:(SUSpeaker *)aSpeaker;
 {
-    [self release];
+    [self completedForAlarm: alarm];
+    [speaker release]; speaker = nil;
 }
 
 @end

@@ -244,6 +244,27 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
     [self setAlias:(AliasHandle) DataToHandle((CFDataRef) newAliasData)];
 }
 
+- (NSString *)displayNameWithKindString:(NSString **)outKindString;
+{
+    AliasHandle alias = [self alias];
+    FSRef ref;
+    Boolean wasChanged;
+    CFStringRef name;
+
+    if (alias == NULL) return nil;
+    if (FSResolveAlias(NULL, alias, &ref, &wasChanged) != noErr) return nil;
+
+    if (LSCopyDisplayNameForRef(&ref, &name) != noErr) return nil;
+    [(NSString *)name autorelease];
+
+    if (outKindString != NULL) {
+        if (LSCopyKindStringForRef(&ref, (CFStringRef *)outKindString) != noErr) return nil;
+        [*outKindString autorelease];
+    }
+
+    return (NSString *)name;
+}
+
 - (NSString *)fullPath
 {
     return [self fullPathRelativeToPath:nil];

@@ -9,6 +9,10 @@
 #import <AppKit/AppKit.h>
 #import "PSBeepAlert.h"
 #import "PSAlarmAlertController.h"
+#import "NSDictionary-NJRExtensions.h"
+
+// property list keys
+static NSString * const PLAlertRepetitions = @"times"; // NSNumber
 
 @implementation PSBeepAlert
 
@@ -31,11 +35,17 @@
     [super dealloc];
 }
 
+- (unsigned short)repetitions;
+{
+    return repetitions;
+}
+
 - (void)beep;
 {
     NSBeep();
     repetitionsRemaining--;
     if (repetitionsRemaining == 0) {
+        [self completedForAlarm: alarm];
         [self release];
         return;
     }
@@ -47,12 +57,33 @@
     repetitionsRemaining = 1;
 }
 
-- (void)triggerForAlarm:(PSAlarm *)alarm;
+- (void)triggerForAlarm:(PSAlarm *)anAlarm;
 {
+    alarm = anAlarm;
     repetitionsRemaining = repetitions;
     [self retain];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_stopBeeping:) name: PSAlarmAlertStopNotification object: nil];
     [self beep];
+}
+
+- (NSAttributedString *)actionDescription;
+{
+    return [[@"Play the system alert sound" stringByAppendingString:
+                                            repetitions == 1 ? @"" : [NSString stringWithFormat: @" %hu times", repetitions]] small];
+}
+
+#pragma mark property list serialization (Pester 1.1)
+
+- (NSDictionary *)propertyListRepresentation;
+{
+    NSMutableDictionary *plAlert = [[super propertyListRepresentation] mutableCopy];
+    [plAlert setObject: [NSNumber numberWithUnsignedShort: repetitions] forKey: PLAlertRepetitions];
+    return [plAlert autorelease];
+}
+
+- (id)initWithPropertyList:(NSDictionary *)dict;
+{
+    return [self initWithRepetitions: [[dict objectForRequiredKey: PLAlertRepetitions] unsignedShortValue]];
 }
 
 @end

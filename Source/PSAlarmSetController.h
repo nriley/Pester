@@ -10,18 +10,22 @@
 #import "PSAlarm.h"
 
 @class NJRFSObjectSelector;
+@class NJRIntervalField;
 @class NJRQTMediaPopUpButton;
 @class NJRVoicePopUpButton;
 
 @interface PSAlarmSetController : NSWindowController {
     IBOutlet NSTextField *messageField;
     IBOutlet NSMatrix *inAtMatrix;
-    IBOutlet NSTextField *timeInterval;
+    IBOutlet NJRIntervalField *timeInterval;
     IBOutlet NSPopUpButton *timeIntervalUnits;
     IBOutlet NSButton *timeIntervalRepeats;
     IBOutlet NSTextField *timeOfDay;
     IBOutlet NSTextField *timeDate;
     IBOutlet NSPopUpButton *timeDateCompletions; // XXX should go away when bug preventing both formatters and popup menus from existing is fixed
+    IBOutlet NSButtonCell *editAlert;
+    IBOutlet NSTextField *alertView;
+    IBOutlet NSTabView *alertTabs;
     IBOutlet NSButtonCell *displayMessage;
     IBOutlet NSButton *bounceDockIcon;
     IBOutlet NSButtonCell *playSound;
@@ -34,7 +38,9 @@
     IBOutlet NSButtonCell *doSpeak;
     IBOutlet NJRVoicePopUpButton *voice;
     IBOutlet NSButton *scriptSelectButton;
+    IBOutlet NSButtonCell *wakeUp;
     IBOutlet NSTextField *timeSummary;
+    IBOutlet NSButton *cancelButton;
     IBOutlet NSButton *setButton;
     NSString *status;
     NSTimer *updateTimer;
@@ -45,6 +51,7 @@
 - (IBAction)update:(id)sender;
 - (IBAction)dateCompleted:(NSPopUpButton *)sender;
 - (IBAction)inAtChanged:(id)sender;
+- (IBAction)editAlertChanged:(id)sender;
 - (IBAction)playSoundChanged:(id)sender;
 - (IBAction)doScriptChanged:(id)sender;
 - (IBAction)doSpeakChanged:(id)sender;

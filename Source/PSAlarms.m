@@ -8,11 +8,20 @@
 
 #import "PSAlarms.h"
 #import "PSAlarm.h"
+#import "NSDictionary-NJRExtensions.h"
+
+NSString * const PSAlarmImportException = @"PSAlarmImportException";
 
 NSString * const PSAlarmsDidChangeNotification = @"PSAlarmsDidChangeNotification";
 NSString * const PSAlarmsNextAlarmDidChangeNotification = @"PSAlarmsNextAlarmDidChangeNotification";
 
-static NSString * const PSPendingAlarms = @"Pester pending alarms"; // NSUserDefaults key
+// NSUserDefaults key
+static NSString * const PSPendingAlarms = @"Pester pending alarms"; // 1.0 Ð 1.1a3
+static NSString * const PSAllAlarms = @"Pester alarms"; // 1.1a4 Ð 
+
+// property list keys
+static NSString * const PLAlarmsPending = @"pending";
+static NSString * const PLAlarmsExpired = @"expired";
 
 static PSAlarms *PSAlarmsAllAlarms = nil;
 
@@ -27,7 +36,12 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 + (void)setUp;
 {
     if (PSAlarmsAllAlarms == nil) {
-        PSAlarmsAllAlarms = [[self alloc] init];
+        NSDictionary *plAlarms = [[NSUserDefaults standardUserDefaults] objectForKey: PSAllAlarms];
+        if (plAlarms == nil) {
+            PSAlarmsAllAlarms = [[self alloc] init];
+        } else {
+            PSAlarmsAllAlarms = [[self alloc] initWithPropertyList: plAlarms];
+        }
         [PSAlarmsAllAlarms _updateNextAlarm]; // only generate notifications after singleton established
     }
 }
@@ -36,6 +50,48 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 {
     NSAssert(PSAlarmsAllAlarms != nil, @"Attempt to use +[PSAlarms allAlarms] before setup complete");
     return PSAlarmsAllAlarms;
+}
+
+#pragma mark private
+
+- (void)_changed;
+{
+    NSMutableArray *alarmsData = [[NSMutableArray alloc] init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [self _updateNextAlarm];
+    // NSLog(@"PSAlarms _changed:\n%@", alarms);
+    [defaults setObject: [self propertyListRepresentation] forKey: PSAllAlarms];
+    [defaults synchronize];
+    [alarmsData release];
+    [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmsDidChangeNotification object: self];
+}
+
+- (void)_alarmTimerExpired:(NSNotification *)notification;
+{
+    PSAlarm *alarm = [notification object];
+    NSLog(@"timer expired: %@ retainCount %d", alarm, [alarm retainCount]);
+    [expiredAlarms addObject: alarm];
+    NSLog(@"expired alarms: %@", [expiredAlarms description]);
+    [alarms removeObject: alarm];
+    [self _changed];
+}
+
+- (void)_alarmTimerSet:(NSNotification *)notification;
+{
+    PSAlarm *alarm = [notification object];
+    NSLog(@"timer set: %@ retainCount %d", alarm, [alarm retainCount]);
+    [alarms addObject: alarm];
+    [expiredAlarms removeObject: alarm];
+    [self _changed];
+}
+
+- (void)_alarmDied:(NSNotification *)notification;
+{
+    PSAlarm *alarm = [notification object];
+    NSLog(@"alarm died: %@ retainCount %d", alarm, [alarm retainCount]);
+    [alarms removeObject: alarm];
+    [expiredAlarms removeObject: alarm];
+    [self _changed];
 }
 
 - (void)_updateNextAlarm;
@@ -58,26 +114,21 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
         [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmsNextAlarmDidChangeNotification object: nextAlarm];
 }
 
+- (void)_setUpNotifications;
+{
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_alarmTimerSet:) name: PSAlarmTimerSetNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_alarmTimerExpired:) name: PSAlarmTimerExpiredNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_alarmDied:) name: PSAlarmDiedNotification object: nil];
+}
+
+#pragma mark initialize-release
+
 - (id)init;
 {
     if ( (self = [super init]) != nil) {
         alarms = [[NSMutableArray alloc] init];
-        NS_DURING
-            NSArray *alarmsData = [[NSUserDefaults standardUserDefaults] arrayForKey: PSPendingAlarms];
-            NSEnumerator *e = [alarmsData objectEnumerator];
-            NSData *alarmData;
-            PSAlarm *alarm;
-            while ( (alarmData = [e nextObject]) != nil) {
-                alarm = [NSUnarchiver unarchiveObjectWithData: alarmData];
-                if (alarm != nil)
-                    [alarms addObject: alarm];
-            }
-        NS_HANDLER
-            // XXX need better error handling here, don't stomp on data
-            NSLog(@"An error occurred while attempting to restore the alarm list: %@", localException);
-        NS_ENDHANDLER
-        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_alarmTimerSet:) name: PSAlarmTimerSetNotification object: nil];
-        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_alarmTimerExpired:) name: PSAlarmTimerExpiredNotification object: nil];
+        expiredAlarms = [[NSMutableSet alloc] init];
+        [self _setUpNotifications];
     }
     return self;
 }
@@ -85,49 +136,21 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 - (void)dealloc;
 {
     [alarms release];
+    [expiredAlarms release];
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [super dealloc];
 }
 
-- (void)_changed;
-{
-    NSMutableArray *alarmsData = [[NSMutableArray alloc] init];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSEnumerator *e;
-    PSAlarm *alarm;
-    [self _updateNextAlarm];
-    // NSLog(@"PSAlarms _changed:\n%@", alarms);
-    // archive
-    e = [alarms objectEnumerator];
-    while ( (alarm = [e nextObject]) != nil) {
-        [alarmsData addObject: [NSArchiver archivedDataWithRootObject: alarm]];
-    }
-    [defaults setObject: alarmsData forKey: PSPendingAlarms];
-    [defaults synchronize];
-    [alarmsData release];
-    [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmsDidChangeNotification object: self];
-}
+#pragma mark accessing
 
-- (void)_alarmTimerExpired:(NSNotification *)notification;
+- (NSArray *)alarms;
 {
-    [alarms removeObject: [notification object]];
-    [self _changed];
-}
-
-- (void)_alarmTimerSet:(NSNotification *)notification;
-{
-    [alarms addObject: [notification object]];
-    [self _changed];
+    return alarms;
 }
 
 - (PSAlarm *)nextAlarm;
 {
     return nextAlarm;
-}
-
-- (NSArray *)alarms;
-{
-    return alarms;
 }
 
 - (int)alarmCount;
@@ -182,6 +205,98 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
         alarmIndex++;
     }
     [self removeAlarmsAtIndices: indices];
+}
+
+#pragma mark property list serialization (Pester 1.1)
+
+- (NSDictionary *)propertyListRepresentation;
+{
+    NSMutableArray *plPendingAlarms = [[NSMutableArray alloc] initWithCapacity: [alarms count]];
+    NSMutableArray *plExpiredAlarms = [[NSMutableArray alloc] initWithCapacity: [expiredAlarms count]];
+    NSDictionary *plAllAlarms, *plAlarm;
+    NSEnumerator *e;
+    PSAlarm *alarm;
+
+    e = [alarms objectEnumerator];
+    while ( (alarm = [e nextObject]) != nil) {
+        plAlarm = [alarm propertyListRepresentation];
+        if (plAlarm != nil)
+            [plPendingAlarms addObject: plAlarm];
+    }
+
+    e = [expiredAlarms objectEnumerator];
+    while ( (alarm = [e nextObject]) != nil) {
+        plAlarm = [alarm propertyListRepresentation];
+        if (plAlarm != nil)
+            [plExpiredAlarms addObject: plAlarm];
+    }
+    
+    plAllAlarms = [NSDictionary dictionaryWithObjectsAndKeys:
+        plPendingAlarms, PLAlarmsPending, plExpiredAlarms, PLAlarmsExpired, nil];
+    [plPendingAlarms release];
+    [plExpiredAlarms release];
+    
+    return plAllAlarms;
+}
+
+- (id)initWithPropertyList:(NSDictionary *)dict;
+{
+    if ( (self = [super init]) != nil) {
+        NSArray *plPendingAlarms = [dict objectForRequiredKey: PLAlarmsPending];
+        NSArray *plExpiredAlarms = [dict objectForRequiredKey: PLAlarmsExpired];
+        NSEnumerator *e;
+        NSDictionary *plAlarm;
+        PSAlarm *alarm;
+
+        alarms = [[NSMutableArray alloc] initWithCapacity: [plPendingAlarms count]];
+        e = [plPendingAlarms objectEnumerator];
+        while ( (plAlarm = [e nextObject]) != nil) {
+            [alarms addObject: [[PSAlarm alloc] initWithPropertyList: plAlarm]];
+        }
+
+        e = [plExpiredAlarms objectEnumerator];
+        while ( (plAlarm = [e nextObject]) != nil) {
+            // expired alarms may be just that, or they may have outstanding repeats - if the latter, PSAlarm will reschedule the alarm.
+            if ( (alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm]) != nil)
+                [alarms addObject: alarm];
+        }
+        expiredAlarms = [[NSMutableSet alloc] init];
+        
+        [self _setUpNotifications];
+    }
+    return self;
+}
+
+#pragma mark archiving (Pester 1.0)
+
+- (unsigned)countOfVersion1Alarms;
+{
+    return [[[NSUserDefaults standardUserDefaults] objectForKey: PSPendingAlarms] count];
+}
+
+- (void)discardVersion1Alarms;
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey: PSPendingAlarms];
+    [defaults synchronize];
+}
+
+- (void)importVersion1Alarms;
+{
+    NSArray *alarmsData = [[NSUserDefaults standardUserDefaults] arrayForKey: PSPendingAlarms];
+    NSEnumerator *e = [alarmsData objectEnumerator];
+    NSData *alarmData;
+    PSAlarm *alarm;
+    while ( (alarmData = [e nextObject]) != nil) {
+        NS_DURING
+            alarm = [NSUnarchiver unarchiveObjectWithData: alarmData];
+        NS_HANDLER
+            alarm = nil;
+            // XXX
+        NS_ENDHANDLER
+        if (alarm != nil)
+            [alarms addObject: alarm];
+    }
 }
 
 @end

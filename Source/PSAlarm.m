@@ -8,10 +8,24 @@
 
 #import "PSAlarm.h"
 #import "PSAlert.h"
+#import "PSAlerts.h"
 #import "NJRDateFormatter.h"
+#import "NSCalendarDate-NJRExtensions.h"
+#import "NSDictionary-NJRExtensions.h"
+#import "NSString-NJRExtensions.h"
 
 NSString * const PSAlarmTimerSetNotification = @"PSAlarmTimerSetNotification";
 NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotification";
+NSString * const PSAlarmDiedNotification = @"PSAlarmDiedNotification";
+
+// property list keys
+static NSString * const PLAlarmType = @"type"; // NSString
+static NSString * const PLAlarmDate = @"date"; // NSNumber
+static NSString * const PLAlarmInterval = @"interval"; // NSNumber
+static NSString * const PLAlarmSnoozeInterval = @"snooze interval"; // NSNumber
+static NSString * const PLAlarmMessage = @"message"; // NSString
+static NSString * const PLAlarmAlerts = @"alerts"; // NSDictionary
+static NSString * const PLAlarmRepeating = @"repeating"; // NSNumber
 
 static NSString *dateFormat, *shortDateFormat, *timeFormat;
 static NSDictionary *locale;
@@ -71,24 +85,35 @@ static NSDictionary *locale;
     [invalidMessage release];
     invalidMessage = nil;
     alarmType = type;
+    if (type != PSAlarmInterval) [self setRepeating: NO];
 }
 
 - (void)_setDateFromInterval;
 {
-    [alarmDate release]; alarmDate = nil;
-    alarmDate = [NSCalendarDate dateWithTimeIntervalSinceNow: alarmInterval];
-    [alarmDate retain];
+    [self _setAlarmDate: [NSCalendarDate dateWithTimeIntervalSinceNow: alarmInterval]];
     [self _beValidWithType: PSAlarmInterval];
 }
 
 - (void)_setIntervalFromDate;
 {
-    alarmInterval = [alarmDate timeIntervalSinceNow] + 1;
+    alarmInterval = [alarmDate timeIntervalSinceNow];
     if (alarmInterval <= 0) {
         [self _beInvalid: @"Please specify an alarm time in the future."];
         return;
     }
     [self _beValidWithType: PSAlarmDate];
+}
+
+- (PSAlarmType)_alarmTypeForString:(NSString *)string;
+{
+    if ([string isEqualToString: @"PSAlarmDate"]) return PSAlarmDate;
+    if ([string isEqualToString: @"PSAlarmInterval"]) return PSAlarmInterval;
+    if ([string isEqualToString: @"PSAlarmSet"]) return PSAlarmSet;
+    if ([string isEqualToString: @"PSAlarmInvalid"]) return PSAlarmInvalid;
+    if ([string isEqualToString: @"PSAlarmSnooze"]) return PSAlarmSnooze;
+    if ([string isEqualToString: @"PSAlarmExpired"]) return PSAlarmExpired;
+    NSLog(@"unknown alarm type string: %@", string);
+    return nil;
 }
 
 - (NSString *)_alarmTypeString;
@@ -98,12 +123,29 @@ static NSDictionary *locale;
         case PSAlarmInterval: return @"PSAlarmInterval";
         case PSAlarmSet: return @"PSAlarmSet";
         case PSAlarmInvalid: return @"PSAlarmInvalid";
+        case PSAlarmSnooze: return @"PSAlarmSnooze";
+        case PSAlarmExpired: return @"PSAlarmExpired";
         default: return [NSString stringWithFormat: @"<unknown: %u>", alarmType];
     }
 }
 
+- (NSString *)_stringForInterval:(unsigned long long)interval;
+{
+    const unsigned long long minute = 60, hour = minute * 60, day = hour * 24, year = day * 365.26;
+    // +[NSString stringWithFormat:] in 10.1 does not support long longs: work around it by converting to unsigned ints or longs for display
+    if (interval == 0) return nil;
+    if (interval < minute) return [NSString stringWithFormat: @"%us", (unsigned)interval];
+    if (interval < day) return [NSString stringWithFormat: @"%uh %um", (unsigned)(interval / hour), (unsigned)((interval % hour) / minute)];
+    if (interval < 2 * day) return @"One day";
+    if (interval < year) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
+    if (interval < 2 * year) return @"One year";
+    return [NSString stringWithFormat: @"%lu years", (unsigned long)(interval / year)];
+}
+
 - (void)_timerExpired:(NSTimer *)aTimer;
 {
+    NSLog(@"expired: %@; now %@", [[aTimer fireDate] description], [[NSDate date] description]);
+    alarmType = PSAlarmExpired;
     [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmTimerExpiredNotification object: self];
     [timer release]; timer = nil;
 }
@@ -127,7 +169,7 @@ static NSDictionary *locale;
 
 - (void)setForDate:(NSDate *)date atTime:(NSDate *)time;
 {
-    NSCalendarDate *calTime, *calDate;
+    NSCalendarDate *dateTime;
     if (time == nil && date == nil) {
         [self _beInvalid: @"Please specify an alarm date and time."]; return;
     }
@@ -138,19 +180,23 @@ static NSDictionary *locale;
         [self _beInvalid: @"Please specify an alarm date."]; return;
     }
     // XXX if calTime's date is different from the default date, complain
-    calTime = [NSCalendarDate dateWithTimeIntervalSinceReferenceDate: [time timeIntervalSinceReferenceDate]];
-    calDate = [NSCalendarDate dateWithTimeIntervalSinceReferenceDate: [date timeIntervalSinceReferenceDate]];
-    if (calTime == nil || calDate == nil) {
+    dateTime = [NSCalendarDate dateWithDate: date atTime: time];
+    if (dateTime == nil) {
         [self _beInvalid: @"Please specify a reasonable date and time."];
     }
-    [self setForDateAtTime:
-        [[[NSCalendarDate alloc] initWithYear: [calDate yearOfCommonEra]
-                                        month: [calDate monthOfYear]
-                                          day: [calDate dayOfMonth]
-                                         hour: [calTime hourOfDay]
-                                       minute: [calTime minuteOfHour]
-                                       second: [calTime secondOfMinute]
-                                     timeZone: nil] autorelease]];
+    [self setForDateAtTime: dateTime];
+}
+
+- (void)setRepeating:(BOOL)isRepeating;
+{
+    repeating = isRepeating;
+}
+
+- (void)setSnoozeInterval:(NSTimeInterval)anInterval;
+{
+    snoozeInterval = anInterval;
+    NSAssert(alarmType == PSAlarmExpired, @"CanÕt snooze an alarm that hasnÕt expired");
+    alarmType = PSAlarmSnooze;
 }
 
 #pragma mark accessing
@@ -174,7 +220,9 @@ static NSDictionary *locale;
 - (BOOL)isValid;
 {
     if (alarmType == PSAlarmDate) [self _setIntervalFromDate];
-    return (alarmType != PSAlarmInvalid);
+    if (alarmType == PSAlarmInvalid ||
+        (alarmType == PSAlarmExpired && ![self isRepeating])) return NO;
+    return YES;
 }
 
 - (NSString *)invalidMessage;
@@ -203,24 +251,36 @@ static NSDictionary *locale;
 
 - (NSTimeInterval)interval;
 {
-    if (alarmType == PSAlarmSet || alarmType == PSAlarmDate) [self _setIntervalFromDate];
+    if (alarmType == PSAlarmDate) [self _setIntervalFromDate];
     return alarmInterval;
 }
 
-- (void)addAlert:(PSAlert *)alert;
+- (NSTimeInterval)snoozeInterval;
 {
-    if (alerts == nil) alerts = [[NSMutableArray alloc] initWithCapacity: 4];
-    [alerts addObject: alert];
+    return snoozeInterval;
 }
 
-- (void)removeAlerts;
+- (NSTimeInterval)timeRemaining;
 {
-    [alerts removeAllObjects];
+    NSAssert1(alarmType == PSAlarmSet, @"CanÕt get time remaining on alarm with no timer set: %@", self);
+    return -[[NSDate date] timeIntervalSinceDate: alarmDate];
 }
 
-- (NSArray *)alerts;
+- (void)setAlerts:(PSAlerts *)theAlerts;
 {
-    return [[alerts copy] autorelease];
+    [alerts release]; alerts = nil;
+    alerts = [theAlerts retain];
+}
+
+- (PSAlerts *)alerts;
+{
+    if (alerts == nil) alerts = [[PSAlerts alloc] init];
+    return alerts;
+}
+
+- (BOOL)isRepeating;
+{
+    return repeating;
 }
 
 - (NSString *)dateString;
@@ -238,41 +298,99 @@ static NSDictionary *locale;
     return [[self date] descriptionWithCalendarFormat: timeFormat locale: locale];
 }
 
+- (NSString *)dateTimeString;
+{
+    return [NSString stringWithFormat: @"%@ at %@", [self dateString], [self timeString]];
+}
+
+- (NSString *)nextDateTimeString;
+{
+    if (![self isRepeating]) {
+        return nil;
+    } else {
+        NSCalendarDate *date = [[NSCalendarDate alloc] initWithTimeIntervalSinceNow: [self interval]];
+        NSString *nextDateTimeString = [NSString stringWithFormat: @"%@ at %@",
+            [date descriptionWithCalendarFormat: dateFormat locale: locale],
+            [date descriptionWithCalendarFormat: timeFormat locale: locale]];
+        [date release];
+        return nextDateTimeString;
+    }
+}
+
+- (NSString *)intervalString;
+{
+    const unsigned long long mval = 99, minute = 60, hour = minute * 60;
+    unsigned long long interval = [self interval];
+    if (interval == 0) return nil;
+    if (interval == 1) return @"One second";
+    if (interval == minute) return @"One minute";
+    if (interval % minute == 0) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
+    if (interval <= mval) return [NSString stringWithFormat: @"%u seconds", (unsigned)interval];
+    if (interval == hour) return @"One hour";
+    if (interval % hour == 0) return [NSString stringWithFormat: @"%u hours", (unsigned)(interval / hour)];
+    if (interval <= mval * minute) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
+    if (interval <= mval * hour) return [NSString stringWithFormat: @"%u hours", (unsigned)(interval / hour)];
+    return [self _stringForInterval: interval];
+}
+
 - (NSString *)timeRemainingString;
 {
-    static const unsigned long long minute = 60, hour = minute * 60, day = hour * 24, year = day * 365.26;
-    unsigned long long interval = [self interval];
-    // +[NSString stringWithFormat:] in 10.1 does not support long longs: work around it by converting to unsigned ints or longs for display
-    if (interval == 0) return @"ÇexpiredÈ";
-    if (interval < minute) return [NSString stringWithFormat: @"%us", (unsigned)interval];
-    if (interval < day) return [NSString stringWithFormat: @"%uh %um", (unsigned)(interval / hour), (unsigned)((interval % hour) / minute)];
-    if (interval < year) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
-    if (interval < 2 * year) return @"One year";
-    return [NSString stringWithFormat: @"%lu years", (unsigned long)(interval / year)];
+    NSString *timeRemainingString = [self _stringForInterval: llround([self timeRemaining])];
+    
+    if (timeRemainingString == nil) return @"ÇexpiredÈ";
+    return timeRemainingString;
+}
+
+- (NSAttributedString *)prettyDescription;
+{
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
+    NSAttributedString *alertList = [alerts prettyList];
+
+    [string appendAttributedString:
+        [[NSString stringWithFormat: @"At alarm time for Ò%@Ó:\n", [self message]] small]];
+    if (alertList != nil) {
+        [string appendAttributedString: alertList];
+    } else {
+        [string appendAttributedString: [@"Do nothing." small]];
+    }
+    if ([self isRepeating]) {
+        [string appendAttributedString:
+            [[NSString stringWithFormat: @"\nAlarm repeats every %@.", [[self intervalString] lowercaseString]] small]];
+    }
+    return [string autorelease];
 }
 
 #pragma mark actions
 
 - (BOOL)setTimer;
 {
-    switch (alarmType) {
-        case PSAlarmDate: if (![self isValid]) return NO;
-        case PSAlarmInterval:
-            timer = [NSTimer scheduledTimerWithTimeInterval: alarmInterval target: self selector: @selector(_timerExpired:) userInfo: nil repeats: NO];
-            if (timer != nil) {
-                [timer retain];
-                alarmType = PSAlarmSet;
-                [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmTimerSetNotification object: self];
-                return YES;
-            }
-        default:
+    if (alarmType == PSAlarmExpired) {
+        if ([self isRepeating]) {
+            [self _setDateFromInterval];
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmDiedNotification object: self];
             return NO;
+        }
+    } else if (alarmType == PSAlarmDate) {
+        if (![self isValid]) return NO;
+    } else if (alarmType == PSAlarmSnooze) {
+        [self _setAlarmDate: [NSCalendarDate dateWithTimeIntervalSinceNow: snoozeInterval]];
+    } else if (alarmType != PSAlarmInterval) {
+        return NO;
     }
+    timer = [NSTimer scheduledTimerWithTimeInterval: (alarmType == PSAlarmSnooze ? snoozeInterval : alarmInterval) target: self selector: @selector(_timerExpired:) userInfo: nil repeats: NO];
+    if (timer == nil) return NO;
+    [timer retain];
+    alarmType = PSAlarmSet;
+    [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmTimerSetNotification object: self];
+    // NSLog(@"set: %@; now %@; remaining %@", [[timer fireDate] description], [[NSDate date] description], [self timeRemainingString]);
+    return YES;
 }
 
 - (void)cancelTimer;
 {
     [timer invalidate]; [timer release]; timer = nil;
+    [self setRepeating: NO];
 }
 
 #pragma mark comparing
@@ -299,7 +417,82 @@ static NSDictionary *locale;
            [NSString stringWithFormat: @"\ntimer: %@", timer] : @""))];
 }
 
-#pragma mark archiving
+#pragma mark property list serialization (Pester 1.1)
+
+- (NSDictionary *)propertyListRepresentation;
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity: 5];
+    if (![self isValid]) return nil;
+    [dict setObject: [self _alarmTypeString] forKey: PLAlarmType];
+    switch (alarmType) {
+        case PSAlarmDate:
+        case PSAlarmSet:
+            [dict setObject: [NSNumber numberWithDouble: [alarmDate timeIntervalSinceReferenceDate]] forKey: PLAlarmDate];
+            break;
+        case PSAlarmSnooze:
+        case PSAlarmInterval:
+        case PSAlarmExpired:
+            [dict setObject: [NSNumber numberWithDouble: alarmInterval] forKey: PLAlarmInterval];
+            [dict setObject: [NSNumber numberWithBool: repeating] forKey: PLAlarmRepeating];
+            break;
+        default:
+            NSAssert1(NO, @"CanÕt save alarm type %@", [self _alarmTypeString]);
+            break;
+    }
+    if (snoozeInterval != 0)
+        [dict setObject: [NSNumber numberWithDouble: snoozeInterval] forKey: PLAlarmSnoozeInterval];
+    [dict setObject: alarmMessage forKey: PLAlarmMessage];
+    if (alerts != nil) {
+        [dict setObject: [alerts propertyListRepresentation] forKey: PLAlarmAlerts];
+    }
+    return dict;
+}
+
+- (id)initWithPropertyList:(NSDictionary *)dict;
+{
+    if ( (self = [self init]) != nil) {
+        PSAlerts *alarmAlerts;
+        alarmType = [self _alarmTypeForString: [dict objectForRequiredKey: PLAlarmType]];
+        switch (alarmType) {
+            case PSAlarmDate:
+            case PSAlarmSet:
+               { NSCalendarDate *date = [[NSCalendarDate alloc] initWithTimeIntervalSinceReferenceDate: [[dict objectForRequiredKey: PLAlarmDate] doubleValue]];
+                [self _setAlarmDate: date];
+                [date release];
+               }
+                break;
+            case PSAlarmSnooze: // snooze interval set but not confirmed; ignore
+                alarmType = PSAlarmExpired;
+            case PSAlarmInterval:
+            case PSAlarmExpired:
+                alarmInterval = [[dict objectForRequiredKey: PLAlarmInterval] doubleValue];
+                repeating = [[dict objectForRequiredKey: PLAlarmRepeating] boolValue];
+                break;
+            default:
+                NSAssert1(NO, @"CanÕt load alarm type %@", [self _alarmTypeString]);
+                break;
+        }
+        snoozeInterval = [[dict objectForKey: PLAlarmSnoozeInterval] doubleValue];
+        [self setMessage: [dict objectForRequiredKey: PLAlarmMessage]];
+        alarmAlerts = [[PSAlerts alloc] initWithPropertyList: [dict objectForRequiredKey: PLAlarmAlerts]];
+        [self setAlerts: alarmAlerts];
+        [alarmAlerts release];
+        if (alarmType == PSAlarmSet) {
+            alarmType = PSAlarmDate;
+            [self setTimer];
+        }
+        if (alarmType == PSAlarmExpired) {
+            [self setTimer];
+            if (alarmType == PSAlarmExpired) { // failed to restart
+                [self release];
+                self = nil;
+            }
+        }
+    }
+    return self;
+}
+
+#pragma mark archiving (Pester 1.0)
 
 - (void)encodeWithCoder:(NSCoder *)coder;
 {
@@ -323,7 +516,10 @@ static NSDictionary *locale;
 
 - (id)initWithCoder:(NSCoder *)coder;
 {
-    if ( (self = [super init]) != nil) {
+    if ( (self = [self init]) != nil) {
+        PSAlerts *legacyAlerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
+        [self setAlerts: legacyAlerts];
+        [legacyAlerts release];
         [coder decodeValueOfObjCType: @encode(PSAlarmType) at: &alarmType];
         switch (alarmType) {
             case PSAlarmDate:

@@ -59,6 +59,7 @@
 {
     NSString *newValue = [self stringValue];
     int oldIndex = [self indexOfItemWithObjectValue: newValue];
+    if ([newValue length] == 0) return YES; // don’t save empty entries
     [self removeItemWithObjectValue: newValue];
     [self insertItemWithObjectValue: newValue atIndex: 0];
     if (oldIndex == NSNotFound) {

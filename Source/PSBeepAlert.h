@@ -8,13 +8,15 @@
 
 #import "PSAlert.h"
 
-
 @interface PSBeepAlert : PSAlert {
+    PSAlarm *alarm;
     unsigned short repetitions;
-    unsigned short repetitionsRemaining;    
+    unsigned short repetitionsRemaining;
 }
 
 + (PSBeepAlert *)alertWithRepetitions:(unsigned short)numReps;
 - (id)initWithRepetitions:(unsigned short)numReps;
+
+- (unsigned short)repetitions;
 
 @end

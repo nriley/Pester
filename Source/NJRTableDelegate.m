@@ -178,7 +178,7 @@ noContext:
             NSView *superview = [typeSelectControl superview];
             NSRect columnRect = [superview convertRect: [tableView rectOfColumn: [tableView columnWithIdentifier: sortingKey]] fromView: tableView];
             // XXX support horizontal scroll bar/clipping (not for Pester, but eventually)
-            NSRect tableScrollFrame = [[tableView enclosingScrollView] frame];
+            // NSRect tableScrollFrame = [[tableView enclosingScrollView] frame];
             NSRect selectFrame = [typeSelectControl frame];
             [superview setNeedsDisplayInRect: selectFrame]; // fix artifacts caused by moving view
             selectFrame.origin.x = columnRect.origin.x;

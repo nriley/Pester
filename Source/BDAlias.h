@@ -62,6 +62,8 @@
 - (BOOL)aliasDataIsEqual:(NSData *)data;
 - (BOOL)isEqual:(id)object;
 
+- (NSString *)displayNameWithKindString:(NSString **)outKindString;
+
 - (NSString *)fullPath;
 - (NSString *)fullPathRelativeToPath:(NSString *)relPath;
 

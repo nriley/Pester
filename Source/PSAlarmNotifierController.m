@@ -9,28 +9,158 @@
 #import "PSAlarmNotifierController.h"
 #import "PSAlarmAlertController.h"
 #import "PSAlarm.h"
+#import "PSNotifierAlert.h"
+#import "NJRIntervalField.h"
+
+static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval"; // NSUserDefaults key
+
+@interface PSAlarmNotifierController (Private)
+
+- (void)update:(id)sender;
+- (void)updateNextDateDisplay:(id)sender;
+
+@end
 
 @implementation PSAlarmNotifierController
 
 // XXX should use NSNonactivatingPanelMask on 10.2
 
-- (id)initWithAlarm:(PSAlarm *)alarm;
+- (id)initWithAlarm:(PSAlarm *)anAlarm;
 {
     if ([self initWithWindowNibName: @"Notifier"]) {
-        [[self window] center];
+        NSWindow *window = [self window];
+        NSRect frameRect = [window frame];
+        alarm = [anAlarm retain];
         [messageField setStringValue: [alarm message]];
-        [dateField setStringValue:
-            [NSString stringWithFormat: @"%@ at %@", [alarm dateString], [alarm timeString]]];
-        [[self window] makeKeyAndOrderFront: nil];
-        [[self window] orderFrontRegardless];
+        [dateField setStringValue: [alarm dateTimeString]];
+        if (![snoozeIntervalField setInterval: [alarm snoozeInterval]] &&
+            ![snoozeIntervalField setInterval: [[[NSUserDefaults standardUserDefaults] objectForKey: PSAlarmSnoozeInterval] doubleValue]])
+            [snoozeIntervalField setInterval: 15 * 60]; // 15 minutes
+        if ([alarm isRepeating]) {
+            [intervalField setStringValue:
+                [NSString stringWithFormat: @"every %@", [[alarm intervalString] lowercaseString]]];
+            [self updateNextDateDisplay: nil];
+            updateTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(updateNextDateDisplay:) userInfo: nil repeats: YES];
+            frameRect.size = [window maxSize];
+        } else {
+            frameRect.size = [window minSize];
+        }
+        [window setFrame: frameRect display: NO];
+        [window center];
+        [window makeKeyAndOrderFront: nil];
+        [window orderFrontRegardless];
     }
     return self;
+}
+
+- (void)dealloc;
+{
+    [alarm release];
+    [updateTimer invalidate]; updateTimer = nil;
+    [super dealloc];
+}
+
+- (void)updateNextDateDisplay:(id)sender;
+{
+    if (!canSnooze) {
+        NSString *nextDateTimeString = [alarm nextDateTimeString];
+        if (nextDateTimeString == nil) { // no longer repeating
+            [updateTimer invalidate]; updateTimer = nil;
+        } else {
+            [nextDateField setStringValue: nextDateTimeString];
+        }
+    }
+}
+
+- (void)update:(id)sender;
+{
+    canSnooze = [snoozeIntervalField interval] != 0;
+    if (canSnooze) [nextDateField setStringValue: @"after snooze"];
+    [snoozeButton setEnabled: canSnooze];
+    [canSnooze ? snoozeButton : okButton setKeyEquivalent: @"\r"];
+    [canSnooze ? okButton : snoozeButton setKeyEquivalent: @""];
 }
 
 - (IBAction)close:(id)sender;
 {
     [PSAlarmAlertController stopAlerts: sender];
     [self close];
+    [[PSNotifierAlert alert] completedForAlarm: alarm];
+}
+
+- (IBAction)snooze:(NSButton *)sender;
+{
+    NSTimeInterval snoozeInterval = [snoozeIntervalField interval];
+    [alarm setSnoozeInterval: snoozeInterval];
+    [[NSUserDefaults standardUserDefaults] setObject: [NSNumber numberWithDouble: snoozeInterval] forKey: PSAlarmSnoozeInterval];
+    [self close: sender];
+}
+
+- (IBAction)stopRepeating:(NSButton *)sender;
+{
+    NSWindow *window = [self window];
+    NSRect frameRect = [window frame];
+    NSSize newSize = [window minSize];
+    
+    [alarm setRepeating: NO];
+    [sender setEnabled: NO];
+    frameRect.origin.y += frameRect.size.height - newSize.height;
+    frameRect.size = newSize;
+    [window setFrame: frameRect display: YES animate: YES];
+}
+
+@end
+
+@implementation PSAlarmNotifierController (NSControlSubclassDelegate)
+
+- (BOOL)control:(NSControl *)control didFailToFormatString:(NSString *)string errorDescription:(NSString *)error;
+{
+    if (control == snoozeIntervalField)
+        [snoozeIntervalField handleDidFailToFormatString: string errorDescription: error label: @"snooze interval"];
+    return NO;
+}
+
+- (void)control:(NSControl *)control didFailToValidatePartialString:(NSString *)string errorDescription:(NSString *)error;
+{
+    // NSLog(@"UPDATING FROM validation");
+    [self update: control]; // switch to snooze if someone types something weird...
+}
+
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector;
+{
+    // NSLog(@"UPDATING from textView: %@", NSStringFromSelector(commandSelector));
+    if (commandSelector == @selector(cancel:)) {
+        // if someone just wants the stupid thing to go away and presses escape, don’t hinder them
+        [self close: control];
+        return YES;
+    }
+    // if someone invokes the default button or switches fields, don’t override it
+    if (commandSelector == @selector(insertNewline:) ||
+        commandSelector == @selector(insertTab:) ||
+        commandSelector == @selector(insertBacktab:)) return NO;
+    [self update: control]; // ...or if they type a navigation key...
+    return NO; // we don’t handle it
+}
+
+@end
+
+@implementation PSAlarmNotifierController (NSControlSubclassNotifications)
+
+- (void)controlTextDidChange:(NSNotification *)notification;
+{
+    // NSLog(@"UPDATING FROM controlTextDidChange: %@", [notification object]);
+    [self update: [notification object]]; // ...or if they modify the snooze interval
+}
+
+@end
+
+@implementation PSAlarmNotifierController (NSWindowNotifications)
+
+- (void)windowWillClose:(NSNotification *)notification;
+{
+    // can’t rely on dealloc to invalidate the timer, because it retains this object
+    [updateTimer invalidate]; updateTimer = nil;
+    [self release]; // in non-document-based apps, this is needed; see docs
 }
 
 @end

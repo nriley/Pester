@@ -12,14 +12,16 @@
 @class PSMovieAlert;
 
 @interface PSMovieAlertController : NSWindowController {
+    PSAlarm *alarm;
+    PSMovieAlert *alert;
     IBOutlet NSMovieView *movieView;
     void *theMovie; /* Movie */
     unsigned short repetitions;
     unsigned short repetitionsRemaining;    
 }
 
-+ (PSMovieAlertController *)controllerWithAlarm:(PSAlarm *)alarm movieAlert:(PSMovieAlert *)alert;
++ (PSMovieAlertController *)controllerWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
 
-- (id)initWithAlarm:(PSAlarm *)alarm movieAlert:(PSMovieAlert *)alert;
+- (id)initWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
 
 @end

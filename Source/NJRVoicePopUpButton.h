@@ -14,8 +14,10 @@
     SUSpeaker *_speaker;
 }
 
-- (void)setDelegate:(id)delegate;
+- (void)setVoice:(NSString *)voice;
+
 - (id)delegate;
+- (void)setDelegate:(id)delegate;
 
 - (IBAction)stopVoicePreview:(id)sender;
 

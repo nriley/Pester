@@ -16,24 +16,33 @@
         }, 
         {CLASS = NJRIntegerFilter; LANGUAGE = ObjC; SUPERCLASS = NSNumberFormatter; }, 
         {
+            CLASS = NJRIntervalField; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {intervalUnits = NSPopUpButton; }; 
+            SUPERCLASS = NSTextField; 
+        }, 
+        {
             ACTIONS = {stopSoundPreview = id; }; 
             CLASS = NJRQTMediaPopUpButton; 
             LANGUAGE = ObjC; 
             OUTLETS = {preview = NSMovieView; }; 
             SUPERCLASS = NSPopUpButton; 
         }, 
+        {CLASS = NJRUnfocusableMovieView; LANGUAGE = ObjC; SUPERCLASS = NSMovieView; }, 
         {
             ACTIONS = {stopVoicePreview = id; }; 
             CLASS = NJRVoicePopUpButton; 
             LANGUAGE = ObjC; 
             SUPERCLASS = NSPopUpButton; 
         }, 
+        {CLASS = NSDisclosureButtonCell; LANGUAGE = ObjC; SUPERCLASS = NSButtonCell; }, 
         {CLASS = NSObject; LANGUAGE = ObjC; }, 
         {
             ACTIONS = {
                 dateCompleted = id; 
                 doScriptChanged = id; 
                 doSpeakChanged = id; 
+                editAlertChanged = id; 
                 inAtChanged = id; 
                 playSoundChanged = id; 
                 setAlarm = id; 
@@ -44,10 +53,14 @@
             CLASS = PSAlarmSetController; 
             LANGUAGE = ObjC; 
             OUTLETS = {
+                alertTabs = NSTabView; 
+                alertView = NSTextField; 
                 bounceDockIcon = NSButton; 
+                cancelButton = NSButton; 
                 displayMessage = NSButtonCell; 
                 doScript = NSButtonCell; 
                 doSpeak = NSButtonCell; 
+                editAlert = NSButtonCell; 
                 inAtMatrix = NSMatrix; 
                 messageField = NSTextField; 
                 playSound = NSButtonCell; 
@@ -66,6 +79,7 @@
                 timeOfDay = NSTextField; 
                 timeSummary = NSTextField; 
                 voice = NJRVoicePopUpButton; 
+                wakeUp = NSButtonCell; 
             }; 
             SUPERCLASS = NSWindowController; 
         }, 

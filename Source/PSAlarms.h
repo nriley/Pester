@@ -7,21 +7,28 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PSPropertyListSerialization.h"
 
 extern NSString * const PSAlarmsDidChangeNotification;
 extern NSString * const PSAlarmsNextAlarmDidChangeNotification;
 
 @class PSAlarm;
 
-@interface PSAlarms : NSObject {
+@interface PSAlarms : NSObject <PSPropertyListSerialization> {
     NSMutableArray *alarms;
+    NSMutableSet *expiredAlarms;
     PSAlarm *nextAlarm;
 }
 
 + (void)setUp;
 + (PSAlarms *)allAlarms;
 
+- (unsigned)countOfVersion1Alarms;
+- (void)importVersion1Alarms;
+- (void)discardVersion1Alarms;
+
 - (NSArray *)alarms;
+
 - (PSAlarm *)nextAlarm;
 - (int)alarmCount;
 - (PSAlarm *)alarmAtIndex:(int)index;

@@ -8,15 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import "PSAlarm.h"
+#import "PSPropertyListSerialization.h"
+#import "NSString-NJRExtensions.h"
 
-@interface PSAlert : NSObject {
+extern NSString * const PSAlertCreationException;
 
+extern NSString * const PSAlarmAlertCompletedNotification; // userInfo key: "alert" -> PSAlert
+
+@interface PSAlert : NSObject <PSPropertyListSerialization> {
+    
 }
-
-// XXX need archiving support
 
 // subclasses should implement these methods
 + (PSAlert *)alert;
 - (void)triggerForAlarm:(PSAlarm *)alarm;
+- (BOOL)requiresPesterFrontmost;
+
+- (NSAttributedString *)actionDescription;
+
+// after alert completes, invoke method of superclass
+- (void)completedForAlarm:(PSAlarm *)alarm;
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2001 Nicholas Riley. All rights reserved.
 //
 
-#import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
 
 
 @interface NJRIntegerFilter : NSNumberFormatter {

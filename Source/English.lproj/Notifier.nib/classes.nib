@@ -1,11 +1,26 @@
 {
     IBClasses = (
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NJRIntegerFilter; LANGUAGE = ObjC; SUPERCLASS = NSNumberFormatter; }, 
         {
-            ACTIONS = {close = id; }; 
+            CLASS = NJRIntervalField; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {intervalUnits = NSPopUpButton; }; 
+            SUPERCLASS = NSTextField; 
+        }, 
+        {
+            ACTIONS = {close = id; snooze = id; stopRepeating = id; }; 
             CLASS = PSAlarmNotifierController; 
             LANGUAGE = ObjC; 
-            OUTLETS = {dateField = NSTextField; messageField = NSTextField; }; 
+            OUTLETS = {
+                dateField = NSTextField; 
+                intervalField = NSTextField; 
+                messageField = NSTextField; 
+                nextDateField = NSTextField; 
+                okButton = NSButton; 
+                snoozeButton = NSButton; 
+                snoozeIntervalField = NJRIntervalField; 
+            }; 
             SUPERCLASS = NSWindowController; 
         }
     ); 

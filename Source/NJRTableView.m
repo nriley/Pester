@@ -17,6 +17,67 @@
 
 @implementation NJRTableView
 
+- (id)initWithCoder:(NSCoder *)aDecoder;
+{
+    if ( (self = [super initWithCoder: aDecoder]) != nil) {
+        toolTipRegionList = [[NSMutableDictionary alloc] initWithCapacity: 20];
+    }
+    return self;
+}
+
+- (void)dealloc;
+{
+    [toolTipRegionList release];
+    [super dealloc];
+}
+
+#pragma mark tool tips
+
+- (void)reloadData;
+{
+    [toolTipRegionList removeAllObjects];
+    [self removeAllToolTips];
+    [super reloadData];
+}
+
+- (void)noteNumberOfRowsChanged;
+{
+    [toolTipRegionList removeAllObjects];
+    [self removeAllToolTips];
+    [super noteNumberOfRowsChanged];
+}
+
+- (NSString *)_keyForColumn:(int)columnIndex row:(int)rowIndex;
+{
+    return [NSString stringWithFormat:@"%d,%d", rowIndex, columnIndex];
+}
+
+- (NSString *)view:(NSView *)view stringForToolTip:(NSToolTipTag)tag point:(NSPoint)point userData:(void *)data;
+{
+    // ask our data source for the tool tip
+    if ([[self dataSource] respondsToSelector: @selector(tableView:toolTipForTableColumn:row:)]) {
+        if ([self rowAtPoint: point] >= 0) return [[self dataSource] tableView: self toolTipForTableColumn: [[self tableColumns] objectAtIndex: [self columnAtPoint: point]] row: [self rowAtPoint: point]];
+    }
+    return nil;
+}
+
+- (NSRect)frameOfCellAtColumn:(int)columnIndex row:(int)rowIndex;
+{
+    // this cell is apparently displayed, so we need to add a region for it
+    NSNumber *toolTipTag;
+    NSRect result = [super frameOfCellAtColumn: columnIndex row: rowIndex];
+    // check if cell is already in the list
+    NSString *cellKey = [self _keyForColumn: columnIndex row: rowIndex];
+    // remove old region
+    if (toolTipTag = [toolTipRegionList objectForKey: cellKey])
+        [self removeToolTip: [toolTipTag intValue]];
+    // add new region
+    [toolTipRegionList setObject: [NSNumber numberWithInt: [self addToolTipRect: result owner: self userData: cellKey]] forKey: cellKey];
+    return [super frameOfCellAtColumn: columnIndex row: rowIndex];
+}
+
+#pragma mark type selection
+
 - (id)typeSelectDisplay;
 {
     return typeSelectDisplay;

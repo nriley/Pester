@@ -21,7 +21,10 @@ extern NSString * const NJRQTMediaPopUpButtonMovieChangedNotification;
 }
 
 - (BDAlias *)selectedAlias;
+- (void)setAlias:(BDAlias *)alias;
+
 - (BOOL)canRepeat;
+
 - (IBAction)stopSoundPreview:(id)sender;
 
 @end

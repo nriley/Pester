@@ -7,15 +7,19 @@
 //
 
 #import "PSAlert.h"
-#import "SUSpeaker.h"
+
+@class SUSpeaker;
 
 @interface PSSpeechAlert : PSAlert {
     SUSpeaker *speaker;
     NSString *voice;
+    PSAlarm *alarm;
 }
 
 + (PSSpeechAlert *)alertWithVoice:(NSString *)aVoice;
 
 - (id)initWithVoice:(NSString *)aVoice;
+
+- (NSString *)voice;
 
 @end

@@ -10,6 +10,7 @@
 
 
 @interface NJRTableView : NSTableView {
+    NSMutableDictionary *toolTipRegionList;
     NSMutableString *typed;
     IBOutlet id typeSelectDisplay;
 }
@@ -28,5 +29,6 @@
 @interface NSObject (NJRTableViewDataSource)
 
 - (void)removeSelectedRowsFromTableView:(NSTableView *)tableView;
+- (NSString *)tableView:(NSTableView *)aTableView toolTipForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex;
 
 @end

@@ -25,4 +25,22 @@ static PSNotifierAlert *PSNotifierAlertShared;
     [[PSAlarmNotifierController alloc] initWithAlarm: alarm];
 }
 
+- (BOOL)requiresPesterFrontmost;
+{
+    return YES;
+}
+
+- (NSAttributedString *)actionDescription;
+{
+    return [@"Display message and time" small];
+}
+
+#pragma mark property list serialization (Pester 1.1)
+
+- (id)initWithPropertyList:(NSDictionary *)dict;
+{
+    [self release];
+    return [[PSNotifierAlert alert] retain];
+}
+
 @end

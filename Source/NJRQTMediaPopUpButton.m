@@ -11,6 +11,12 @@
 #import "NSMovie-NJRExtensions.h"
 #import "NSImage-NJRExtensions.h"
 
+// XXX workaround for SoundFileManager log message in 10.2.3 and earlier
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+// XXX end workaround
+
 static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 
 NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPopUpButtonMovieChangedNotification";
@@ -102,7 +108,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 #pragma mark initialize-release
 
-- (void)awakeFromNib;
+- (void)_setUp;
 {
     NSMenu *menu;
     NSMenuItem *item;
@@ -144,6 +150,22 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
         [NSArray arrayWithObjects: NSFilenamesPboardType, NSURLPboardType, nil]];
 }
 
+- (id)initWithFrame:(NSRect)frame;
+{
+    if ( (self = [super initWithFrame: frame]) != nil) {
+        [self _setUp];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    if ( (self = [super initWithCoder: coder]) != nil) {
+        [self _setUp];
+    }
+    return self;
+}
+
 - (void)dealloc;
 {
     [recentMediaAliasData release]; recentMediaAliasData = nil;
@@ -170,6 +192,14 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     }
 }
 
+- (void)setAlias:(BDAlias *)alias;
+{
+    [self _setAlias: alias];
+    if ([self _validateWithPreview: NO]) {
+        [self selectItem: [self _itemForAlias: selectedAlias]];
+    }
+}
+
 - (void)_setPath:(NSString *)path;
 {
     [self _setAlias: [BDAlias aliasWithPath: path]];
@@ -185,7 +215,17 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
     // [self _validateRecentMedia];
     path = [alias fullPath];
-    sf = [[SoundFileManager sharedSoundFileManager] soundFileFromPath: path];
+    {   // XXX suppress log message from Apple's code:
+        // 2002-12-14 14:09:58.740 Pester[26529] Could not find sound type for directory /Users/nicholas/Desktop
+        int errfd = dup(STDERR_FILENO), nullfd = open("/dev/null", O_WRONLY, 0);
+        // need to have something open in STDERR_FILENO because if it isn't,
+        // NSLog will log to /dev/console
+        dup2(nullfd, STDERR_FILENO);
+        close(nullfd);
+        sf = [[SoundFileManager sharedSoundFileManager] soundFileFromPath: path];
+        dup2(errfd, STDERR_FILENO);
+        close(errfd);
+    }
     // NSLog(@"_itemForAlias: %@", path);
 
     // selected a system sound?
@@ -249,19 +289,19 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
         else {
             [preview setMovie: nil];
             if (movie == nil) {
-                NSBeginAlertSheet(@"Format not recognized", @"OK", nil, nil, [self window], nil, nil, nil, nil, @"The item you selected isn’t a sound or movie recognized by QuickTime.  Please select a different item.");
+                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, @"The item you selected isn’t a sound or movie recognized by QuickTime.  Please select a different item.");
                 [self _invalidateSelection];
                 return NO;
             }
             if (![movie hasAudio] && ![movie hasVideo]) {
-                NSBeginAlertSheet(@"No video or audio", @"OK", nil, nil, [self window], nil, nil, nil, nil, @"“%@” contains neither audio nor video content playable by QuickTime.  Please select a different item.", [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]);
+                NSBeginAlertSheet(@"No video or audio", nil, nil, nil, [self window], nil, nil, nil, nil, @"“%@” contains neither audio nor video content playable by QuickTime.  Please select a different item.", [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]);
                 [self _invalidateSelection];
                 [movie release];
                 return NO;
             }
         }
         [movie release];
-        [preview start: self];
+        if (doPreview) [preview start: self];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName: NJRQTMediaPopUpButtonMovieChangedNotification object: self];
     return YES;

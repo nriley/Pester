@@ -20,6 +20,7 @@
     appIconImage = [[NSImage imageNamed: @"NSApplicationIcon"] retain];
     [[NSNotificationCenter defaultCenter] addObserver: [PSAlarmAlertController class] selector: @selector(controllerWithTimerExpiredNotification:) name: PSAlarmTimerExpiredNotification object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(nextAlarmDidChange:) name: PSAlarmsNextAlarmDidChangeNotification object: nil];
+    // XXX exception handling
     [PSAlarms setUp];
     [self setDelegate: self];
     [super finishLaunching];
@@ -70,11 +71,12 @@
 - (void)_updateDockTile:(NSTimer *)timer;
 {
     PSAlarm *alarm = [timer userInfo];
-    NSTimeInterval alarmInterval;
+    NSTimeInterval timeRemaining;
     NSString *tileString;
     if (timer == nil) alarm = [[PSAlarms allAlarms] nextAlarm];
     if (alarm == nil) return;
     tileString = [alarm timeRemainingString];
+    timeRemaining = [alarm timeRemaining]; // want to err on the side of timeRemaining being smaller, otherwise «expired» can appear
     {
         NSMutableDictionary *atts = [NSMutableDictionary dictionary];
         NSSize imageSize = [appIconImage size];
@@ -116,19 +118,18 @@
         [NSApp setApplicationIconImage: tile];
         [tile release];
     }
-    alarmInterval = [alarm interval];
-    // NSLog(@"_updateDockTile > time remaining %@ (%.0lf), last time interval %.0lf", tileString, alarmInterval, dockUpdateInterval);
-    if (alarmInterval > 61) {
-        NSTimeInterval nextUpdate = ((unsigned long long)alarmInterval) % 60;
+    // NSLog(@"_updateDockTile > time remaining %@ (%.6lf), last time interval %.6lf", tileString, timeRemaining, dockUpdateInterval);
+    if (timeRemaining > 61) {
+        NSTimeInterval nextUpdate = ((unsigned long long)timeRemaining) % 60;
         if (nextUpdate <= 1) nextUpdate = 60;
         [self _resetUpdateTimer];
         [self _setUpdateTimerForInterval: nextUpdate alarm: alarm repeats: NO];
         // NSLog(@"_updateDockTile > set timer for %.0lf seconds", nextUpdate);
     } else if (timer == nil || dockUpdateInterval > 1) {
-        [self _resetUpdateTimer];
+        [self _resetUpdateTimer]; 
         [self _setUpdateTimerForInterval: 1 alarm: alarm repeats: YES];
         // NSLog(@"_updateDockTile > set timer for 1 second");
-    } else if (alarmInterval < 2) {
+    } else if (timeRemaining <= 1) {
         [self _resetUpdateTimer];
     }
 }
@@ -180,6 +181,34 @@
 @end
 
 @implementation PSApplication (NSApplicationNotifications)
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification;
+{
+    // XXX import panel will not be frontmost window if you switch to another app while Pester is launching; Mac OS X bug?
+    PSAlarms *allAlarms = [PSAlarms allAlarms];
+    unsigned version1AlarmCount = [allAlarms countOfVersion1Alarms];
+    if (version1AlarmCount > 0) {
+        int answer = NSRunAlertPanel(@"Import alarms from older Pester version?", @"Pester found %u alarm%@ created with an older version. These alarms must be converted for use with this version of Pester, and will be unavailable in previous versions after conversion. New alarms created with this version of Pester will not appear in Pester version 1.1a3 or earlier.",
+                                     @"Import", @"Discard", @"Don’t Import",
+                                     version1AlarmCount, version1AlarmCount == 1 ? @"" : @"s");
+        switch (answer) {
+            case NSAlertDefaultReturn:
+                NS_DURING
+                    [allAlarms importVersion1Alarms];
+                NS_HANDLER
+                    NSRunAlertPanel(@"Error occurred importing alarms", @"Pester was unable to convert some alarms created with an older version. Those alarms which could be read have been converted. The previous-format alarms have been retained; try using an older version of Pester to read them.\n\n%@", nil, nil, nil, [localException reason]);
+                    NS_VOIDRETURN;
+                NS_ENDHANDLER
+            case NSAlertAlternateReturn:
+                NSLog(@"discard");
+                // [allAlarms discardVersion1Alarms];
+                break;
+            case NSAlertOtherReturn:
+                NSLog(@"don’t import");
+                break;
+        }
+    }
+}
 
 - (void)applicationWillTerminate:(NSNotification *)notification;
 {

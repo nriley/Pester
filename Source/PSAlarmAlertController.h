@@ -12,7 +12,9 @@
 extern NSString * const PSAlarmAlertStopNotification;
 
 @interface PSAlarmAlertController : NSObject {
-
+    NSMutableSet *pendingAlerts;
+    ProcessSerialNumber frontmostApp;
+    BOOL appWasHidden;
 }
 
 + (PSAlarmAlertController *)controllerWithTimerExpiredNotification:(NSNotification *)notification;

@@ -8,8 +8,8 @@
 
 #import <AppKit/AppKit.h>
 #import "PSAlert.h"
-#import "BDAlias.h"
 
+@class BDAlias;
 
 @interface PSMovieAlert : PSAlert {
     BDAlias *alias;
@@ -21,10 +21,11 @@
 
 + (PSMovieAlert *)alertWithMovieFileAlias:(BDAlias *)anAlias repetitions:(unsigned short)numReps;
 
-- (id)initWithAlias:(BDAlias *)anAlias repetitions:(unsigned int) numReps;
+- (id)initWithMovieFileAlias:(BDAlias *)anAlias repetitions:(unsigned int) numReps;
 
 - (BOOL)hasVideo;
 - (NSMovie *)movie;
+- (BDAlias *)movieFileAlias;
 - (unsigned short)repetitions;
 
 @end

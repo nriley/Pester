@@ -8,12 +8,18 @@
 
 #import "PSAlarmSetController.h"
 #import "PSAlarmAlertController.h"
+#import "PSPowerManager.h"
 #import "NJRDateFormatter.h"
 #import "NJRFSObjectSelector.h"
+#import "NJRIntervalField.h"
 #import "NJRQTMediaPopUpButton.h"
 #import "NJRVoicePopUpButton.h"
+#import "NSString-NJRExtensions.h"
+#import "NSAttributedString-NJRExtensions.h"
+#import "NSCalendarDate-NJRExtensions.h"
 #import <Carbon/Carbon.h>
 
+#import "PSAlerts.h"
 #import "PSDockBounceAlert.h"
 #import "PSScriptAlert.h"
 #import "PSNotifierAlert.h"
@@ -37,14 +43,20 @@
 • none of many mentions of NSAMPMDesignation indicates that they include the leading spaces (" AM", " PM").  In "Setting the Format for Dates", needs to mention that the leading spaces are not included in %p with strftime.  But if you use the NSCalendarDate stuff, it appears %p doesn't include the space (because it doesn't use the locale dictionary).
 • If you feed NSCalendarDate dateWithNaturalLanguageString: an " AM"/" PM" locale, it doesn't accept that date format.
 • descriptions for %X and %x are reversed (time zone is in %X, not %x)
+• NSComboBox data source issues, can’t have it appear as “today” because the formatter doesn’t like that.  Should be able to enter text into the data source and have the formatter process it without altering it.
 • too hard to implement date-only or time-only formatters
 • should be able to specify that natural language favors date or time (10 = 10th of month, not 10am)
 • please expose the iCal controls!
 
 */
 
+static NSString * const PSAlertsSelected = @"Pester alerts selected"; // NSUserDefaults key
+static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDefaults key
+
 @interface PSAlarmSetController (Private)
 
+- (void)_readAlerts:(PSAlerts *)alerts;
+- (BOOL)_setAlerts;
 - (void)_stopUpdateTimer;
 
 @end
@@ -53,13 +65,14 @@
 
 - (void)awakeFromNib;
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     alarm = [[PSAlarm alloc] init];
     [[self window] center];
     // XXX excessive retention of formatters?  check later...
     [timeOfDay setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [NJRDateFormatter localizedTimeFormatIncludingSeconds: NO] allowNaturalLanguage: YES]];
     [timeDate setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [NJRDateFormatter localizedDateFormatIncludingWeekday: NO] allowNaturalLanguage: YES]];
     {
-        NSArray *dayNames = [[NSUserDefaults standardUserDefaults] arrayForKey:
+        NSArray *dayNames = [defaults arrayForKey:
             NSWeekDayNameArray];
         NSArray *completions = [timeDateCompletions itemTitles];
         NSEnumerator *e = [completions objectEnumerator];
@@ -82,20 +95,35 @@
             } else itemIndex++;
         }
     }
+    [editAlert setIntValue: [defaults boolForKey: PSAlertsEditing]];
+    {
+        NSDictionary *plAlerts = [defaults dictionaryForKey: PSAlertsSelected];
+        PSAlerts *alerts;
+        if (plAlerts == nil) {
+            alerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
+        } else {
+            NS_DURING
+                alerts = [[PSAlerts alloc] initWithPropertyList: plAlerts];
+            NS_HANDLER
+                NSRunAlertPanel(@"Unable to restore alerts", @"Pester could not restore recent alert information for one or more alerts in the Set Alarm window.  The default set of alerts will be used instead.\n\n%@", nil, nil, nil, [localException reason]);
+                alerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
+            NS_ENDHANDLER
+        }
+        [self _readAlerts: alerts];
+    }
     [timeDate setObjectValue: [NSDate date]];
-    [self inAtChanged: nil];
+    [self inAtChanged: nil]; // by convention, if sender is nil, we're initializing
     [self playSoundChanged: nil];
     [self doScriptChanged: nil];
     [self doSpeakChanged: nil];
+    [self editAlertChanged: nil];
     [script setFileTypes: [NSArray arrayWithObjects: @"applescript", @"script", NSFileTypeForHFSTypeCode(kOSAFileType), NSFileTypeForHFSTypeCode('TEXT'), nil]];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(playSoundChanged:) name: NJRQTMediaPopUpButtonMovieChangedNotification object: sound];
-    [voice setDelegate: self];
-    // XXX still broken under 10.2, check 10.1 behavior and see if subclassing NSComboBox will help
-    // if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_1) {
-        // XXX workaround for 10.1.x bug which sets the first responder to the wrong field, but it works if I set the initial first responder to nil... go figure.
-        [[self window] setInitialFirstResponder: nil];
-    // }
+    [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
+    [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
+    // XXX workaround for 10.1.x and 10.2.x bug which sets the first responder to the wrong field alternately, but it works if I set the initial first responder to nil... go figure.
+    [[self window] setInitialFirstResponder: nil];
     [[self window] makeKeyAndOrderFront: nil];
 }
 
@@ -109,6 +137,7 @@
     }
 }
 
+// XXX with -[NSControl currentEditor] don't need to compare?  Also check -[NSControl validateEditing]
 - (id)objectValueForTextField:(NSTextField *)field whileEditing:(id)sender;
 {
     if (sender == field) {
@@ -123,12 +152,12 @@
     }
 }
 
+#pragma mark date/interval setting
+
 - (void)setAlarmDateAndInterval:(id)sender;
 {
     if (isInterval) {
-        [alarm setInterval:
-            [[self objectValueForTextField: timeInterval whileEditing: sender] intValue] *
-                [timeIntervalUnits selectedTag]];
+        [alarm setInterval: [timeInterval interval]];
     } else {
         [alarm setForDate: [self objectValueForTextField: timeDate whileEditing: sender]
                    atTime: [self objectValueForTextField: timeOfDay whileEditing: sender]];
@@ -140,7 +169,7 @@
     [updateTimer invalidate]; [updateTimer release]; updateTimer = nil;
 }
 
-// XXX use OACalendar?
+// XXX use OACalendar in popup like Palm Desktop?
 
 - (IBAction)updateDateDisplay:(id)sender;
 {
@@ -192,10 +221,72 @@
     [timeDate setEnabled: !isInterval];
     [timeDateCompletions setEnabled: !isInterval];
     if (sender != nil)
-        [[self window] makeFirstResponder: isInterval ? timeInterval : timeOfDay];
+        [[self window] makeFirstResponder: isInterval ? (NSTextField *)timeInterval : timeOfDay];
     // NSLog(@"UPDATING FROM inAtChanged");
     [self update: nil];
 }
+
+- (IBAction)dateCompleted:(NSPopUpButton *)sender;
+{
+    [timeDate setStringValue: [sender titleOfSelectedItem]];
+    [self update: sender];
+}
+
+#pragma mark alert editing
+
+- (IBAction)editAlertChanged:(id)sender;
+{
+    BOOL editAlertSelected = [editAlert intValue];
+    NSView *editAlertControl = [editAlert controlView];
+    NSWindow *window = [self window];
+    NSRect frame = [window frame];
+    if (editAlertSelected) {
+        NSSize editWinSize = [window maxSize];
+        [editAlertControl setNextKeyView: [displayMessage controlView]];
+        frame.origin.y += frame.size.height - editWinSize.height;
+        frame.size = editWinSize;
+        [window setFrame: frame display: (sender != nil) animate: (sender != nil)];
+        [self updateDateDisplay: sender];
+        [alertTabs selectTabViewItemWithIdentifier: @"edit"];
+    } else {
+        NSSize viewWinSize = [window minSize];
+        NSRect textFrame = [alertView frame];
+        float textHeight;
+        if (![self _setAlerts]) {
+            [alertView setStringValue: [NSString stringWithFormat: @"Couldn’t process alert information.\n%@", status]];
+        } else {
+            NSAttributedString *string = [[alarm alerts] prettyList];
+            if (string == nil) {
+                [alertView setStringValue: @"Do nothing. Click the button labeled “Edit” to add an alert."];
+            } else {
+                [alertView setAttributedStringValue: string];
+                [self updateDateDisplay: sender];
+            }
+        }
+        if (sender != nil) { // nil == we're initializing, don't mess with focus
+            NSResponder *oldResponder = [window firstResponder];
+            // make sure focus doesn't get stuck in the edit tab: it is confusing and leaves behind artifacts
+            if (oldResponder == editAlertControl || [oldResponder isKindOfClass: [NSView class]] && [(NSView *)oldResponder isDescendantOf: alertTabs])
+                [window makeFirstResponder: messageField]; // would use editAlertControl, but can't get it to display anomaly-free.
+            [self silence: sender];
+        }
+        // allow height to expand, though not arbitrarily (should still fit on an 800x600 screen)
+        textHeight = [[alertView cell] cellSizeForBounds: NSMakeRect(0, 0, textFrame.size.width, 400)].height;
+        textFrame.origin.y += textFrame.size.height - textHeight;
+        textFrame.size.height = textHeight;
+        [alertView setFrame: textFrame];
+        viewWinSize.height += textHeight;
+        [alertTabs selectTabViewItemWithIdentifier: @"view"];
+        frame.origin.y += frame.size.height - viewWinSize.height;
+        frame.size = viewWinSize;
+        [window setFrame: frame display: (sender != nil) animate: (sender != nil)];
+        [editAlertControl setNextKeyView: cancelButton];
+    }
+    if (sender != nil) {
+        [[NSUserDefaults standardUserDefaults] setBool: editAlertSelected forKey: PSAlertsEditing];
+    }
+}
+
 
 - (IBAction)playSoundChanged:(id)sender;
 {
@@ -205,8 +296,9 @@
     [soundRepetitions setEnabled: canRepeat];
     [soundRepetitionStepper setEnabled: canRepeat];
     [soundRepetitionsLabel setTextColor: canRepeat ? [NSColor controlTextColor] : [NSColor disabledControlTextColor]];
-    if (playSoundSelected && sender != nil)
+    if (playSoundSelected && sender == playSound) {
         [[self window] makeFirstResponder: sound];
+    }
 }
 
 - (IBAction)setSoundRepetitionCount:(id)sender;
@@ -233,30 +325,114 @@
     BOOL doScriptSelected = [doScript intValue];
     [script setEnabled: doScriptSelected];
     [scriptSelectButton setEnabled: doScriptSelected];
-    if (doScriptSelected && sender != nil)
+    if (doScriptSelected && sender != nil) {
         [[self window] makeFirstResponder: scriptSelectButton];
+        if ([script alias] == nil) [scriptSelectButton performClick: sender];
+    }
 }
 
 - (IBAction)doSpeakChanged:(id)sender;
 {
-    BOOL doSpeakSelected = [doSpeak intValue];
+    BOOL doSpeakSelected = [doSpeak state] == NSOnState;
     [voice setEnabled: doSpeakSelected];
     if (doSpeakSelected && sender != nil)
         [[self window] makeFirstResponder: voice];
 }
 
-- (IBAction)dateCompleted:(NSPopUpButton *)sender;
+- (void)_readAlerts:(PSAlerts *)alerts;
 {
-    [timeDate setStringValue: [sender titleOfSelectedItem]];
-    [self update: sender];
+    NSEnumerator *e = [alerts alertEnumerator];
+    PSAlert *alert;
+    
+    [alarm setAlerts: alerts];
+
+    // turn off all alerts
+    [bounceDockIcon setState: NSOffState];
+    [doScript setIntValue: NO];
+    [displayMessage setIntValue: NO];
+    [playSound setIntValue: NO];
+    [doSpeak setIntValue: NO];
+
+    while ( (alert = [e nextObject]) != nil) {
+        if ([alert isKindOfClass: [PSDockBounceAlert class]]) {
+            [bounceDockIcon setState: NSOnState];
+        } else if ([alert isKindOfClass: [PSScriptAlert class]]) {
+            [doScript setIntValue: YES];
+            [script setAlias: [(PSScriptAlert *)alert scriptFileAlias]];
+        } else if ([alert isKindOfClass: [PSNotifierAlert class]]) {
+            [displayMessage setIntValue: YES];
+        } else if ([alert isKindOfClass: [PSBeepAlert class]]) {
+            unsigned int repetitions = [(PSBeepAlert *)alert repetitions];
+            [playSound setIntValue: YES];
+            [sound setAlias: nil];
+            [soundRepetitions setIntValue: repetitions];
+            [soundRepetitionStepper setIntValue: repetitions];
+        } else if ([alert isKindOfClass: [PSMovieAlert class]]) {
+            unsigned int repetitions = [(PSMovieAlert *)alert repetitions];
+            [playSound setIntValue: YES];
+            [sound setAlias: [(PSMovieAlert *)alert movieFileAlias]];
+            [soundRepetitions setIntValue: repetitions];
+            [soundRepetitionStepper setIntValue: repetitions];
+        } else if ([alert isKindOfClass: [PSSpeechAlert class]]) {
+            [doSpeak setIntValue: YES];
+            [voice setVoice: [(PSSpeechAlert *)alert voice]];
+        }
+    }
 }
+
+- (BOOL)_setAlerts;
+{
+    PSAlerts *alerts = [alarm alerts];
+    
+    [alerts removeAlerts];
+    NS_DURING
+        // dock bounce alert
+        if ([bounceDockIcon state] == NSOnState)
+            [alerts addAlert: [PSDockBounceAlert alert]];
+        // script alert
+        if ([doScript intValue]) {
+            BDAlias *scriptFileAlias = [script alias];
+            if (scriptFileAlias == nil) {
+                [self setStatus: @"Unable to set script alert (no script specified?)"];
+                return NO;
+            }
+            [alerts addAlert: [PSScriptAlert alertWithScriptFileAlias: scriptFileAlias]];
+        }
+        // notifier alert
+        if ([displayMessage intValue])
+            [alerts addAlert: [PSNotifierAlert alert]];
+        // sound alerts
+        if ([playSound intValue]) {
+            BDAlias *soundAlias = [sound selectedAlias];
+            unsigned short numReps = [soundRepetitions intValue];
+            if (soundAlias == nil) // beep alert
+                [alerts addAlert: [PSBeepAlert alertWithRepetitions: numReps]];
+            else // movie alert
+                [alerts addAlert: [PSMovieAlert alertWithMovieFileAlias: soundAlias repetitions: numReps]];
+        }
+        // speech alert
+        if ([doSpeak intValue])
+            [alerts addAlert: [PSSpeechAlert alertWithVoice: [voice titleOfSelectedItem]]];
+        [[NSUserDefaults standardUserDefaults] setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
+    NS_HANDLER
+        [self setStatus: [localException reason]];
+        NS_VALUERETURN(NO, BOOL);
+    NS_ENDHANDLER
+    return YES;
+}
+
+#pragma mark actions
 
 // to ensure proper updating of interval, this should be the only method by which the window is shown (e.g. from the Alarm menu)
 - (IBAction)showWindow:(id)sender;
 {
     if (![[self window] isVisible]) {
+        NSDate *today = [NSCalendarDate dateForDay: [NSDate date]];
+        if ([(NSDate *)[timeDate objectValue] compare: today] == NSOrderedAscending) {
+            [timeDate setObjectValue: today];
+        }
         [self update: self];
-        // XXX otherwise, first responder appears to alternate every time the window is shown?!  And if you set the initial first responder, you can't tab in the window. :(
+        // XXX bug workaround - otherwise, first responder appears to alternate every time the window is shown.  And if you set the initial first responder, you can't tab in the window. :(
         [[self window] makeFirstResponder: [[self window] initialFirstResponder]];
     }
     [super showWindow: sender];
@@ -265,37 +441,11 @@
 - (IBAction)setAlarm:(NSButton *)sender;
 {
     // set alerts before setting alarm...
-    [alarm removeAlerts];
-    // dock bounce alert
-    if ([bounceDockIcon state] == NSOnState)
-        [alarm addAlert: [PSDockBounceAlert alert]];
-    // script alert
-    if ([doScript intValue]) {
-        BDAlias *scriptFileAlias = [script alias];
-        if (scriptFileAlias == nil) {
-            [self setStatus: @"Unable to set script alert (no script specified?)"];
-            return;
-        }
-        [alarm addAlert: [PSScriptAlert alertWithScriptFileAlias: scriptFileAlias]];
-    }
-    // notifier alert
-    if ([displayMessage intValue])
-        [alarm addAlert: [PSNotifierAlert alert]];
-    // sound alerts
-    if ([playSound intValue]) {
-        BDAlias *soundAlias = [sound selectedAlias];
-        unsigned short numReps = [soundRepetitions intValue];
-        if (soundAlias == nil) // beep alert
-            [alarm addAlert: [PSBeepAlert alertWithRepetitions: numReps]];
-        else // movie alert
-            [alarm addAlert: [PSMovieAlert alertWithMovieFileAlias: soundAlias repetitions: numReps]];
-    }
-    // speech alert
-    if ([doSpeak intValue])
-        [alarm addAlert: [PSSpeechAlert alertWithVoice: [voice titleOfSelectedItem]]];
+    if (![self _setAlerts]) return;
 
     // set alarm
     [self setAlarmDateAndInterval: sender];
+    [alarm setRepeating: [timeIntervalRepeats state] == NSOnState];
     [alarm setMessage: [messageField stringValue]];
     if (![alarm setTimer]) {
         [self setStatus: [@"Unable to set alarm.  " stringByAppendingString: [alarm invalidMessage]]];
@@ -318,23 +468,17 @@
 
 @implementation PSAlarmSetController (NSControlSubclassDelegate)
 
+- (BOOL)control:(NSControl *)control didFailToFormatString:(NSString *)string errorDescription:(NSString *)error;
+{
+    if (control == timeInterval)
+        [timeInterval handleDidFailToFormatString: string errorDescription: error label: @"alarm interval"];
+    return NO;
+}
+
 - (void)control:(NSControl *)control didFailToValidatePartialString:(NSString *)string errorDescription:(NSString *)error;
 {
-    unichar c;
-    int tag;
-    unsigned length = [string length];
-    if (control != timeInterval || length == 0) return;
-    c = [string characterAtIndex: length - 1];
-    switch (c) {
-        case 's': case 'S': tag = 1; break;
-        case 'm': case 'M': tag = 60; break;
-        case 'h': case 'H': tag = 60 * 60; break;
-        default: return;
-    }
-    [timeIntervalUnits selectItemAtIndex:
-        [timeIntervalUnits indexOfItemWithTag: tag]];
     // NSLog(@"UPDATING FROM validation");
-    [self update: timeInterval]; // make sure we still examine the field editor, otherwise if the existing numeric string is invalid, it'll be cleared
+    if (control == timeInterval) [self update: timeInterval]; // make sure we still examine the field editor, otherwise if the existing numeric string is invalid, it'll be cleared
 }
 
 @end
@@ -346,6 +490,7 @@
     // NSLog(@"stopping update timer");
     [self silence: nil];
     [self _stopUpdateTimer];
+    [self _setAlerts];
 }
 
 @end
@@ -366,7 +511,10 @@
 
 - (NSString *)voicePopUpButton:(NJRVoicePopUpButton *)sender previewStringForVoice:(NSString *)voice;
 {
-    return [messageField stringValue];
+    NSString *message = [messageField stringValue];
+    if (message == nil || [message length] == 0)
+        message = [alarm message];
+    return message;
 }
 
 @end
