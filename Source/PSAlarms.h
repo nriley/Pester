@@ -9,16 +9,19 @@
 #import <Cocoa/Cocoa.h>
 
 extern NSString * const PSAlarmsDidChangeNotification;
+extern NSString * const PSAlarmsNextAlarmDidChangeNotification;
 
 @class PSAlarm;
 
 @interface PSAlarms : NSObject {
     NSMutableArray *alarms;
+    PSAlarm *nextAlarm;
 }
 
 + (void)setUp;
 + (PSAlarms *)allAlarms;
 
+- (PSAlarm *)nextAlarm;
 - (int)alarmCount;
 - (PSAlarm *)alarmAtIndex:(int)index;
 - (void)removeAlarmAtIndex:(int)index;

@@ -161,6 +161,7 @@
 				F59DC6DF0353DF5E01AEEDB1,
 				089C165CFE840E0CC02AAC07,
 				F59DD44F0358ABF4017318D0,
+				F589C9C6035AA12B0155F4B2,
 				F59DC6E30353ED1201AEEDB1,
 			);
 			isa = PBXGroup;
@@ -215,7 +216,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "";
-				INSTALL_PATH = "$(HOME)/Applications";
+				INSTALL_PATH = /;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = Pester;
@@ -228,7 +229,7 @@
 			);
 			isa = PBXApplicationTarget;
 			name = Pester;
-			productInstallPath = "$(HOME)/Applications";
+			productInstallPath = /;
 			productName = Pester;
 			productReference = 17587328FF379C6511CA2CBB;
 			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -240,7 +241,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Pester</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Pester 1.0b1, © 2002 Nicholas Riley</string>
+	<string>Pester 1.0, © 2002 Nicholas Riley</string>
 	<key>CFBundleIconFile</key>
 	<string>Application icon</string>
 	<key>CFBundleIdentifier</key>
@@ -252,11 +253,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0b1</string>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>Pstr</string>
 	<key>CFBundleVersion</key>
-	<string>1.0b1</string>
+	<string>1.0</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -279,7 +280,7 @@
 				F560E2F40357506501A4E466,
 				F560E310035787BC01A4E466,
 				F560E3170357895001A4E466,
-				F5DFBF010357FE8701661E33,
+				F552A8AD0358E8B201AEEDB1,
 			);
 			isa = PBXHeadersBuildPhase;
 		};
@@ -292,6 +293,7 @@
 				F560E2F6035766F101A4E466,
 				F560E2F7035766F201A4E466,
 				F59DD4510358ABF7017318D0,
+				F589C9C7035AA12E0155F4B2,
 			);
 			isa = PBXResourcesBuildPhase;
 		};
@@ -309,7 +311,7 @@
 				F560E2F30357506401A4E466,
 				F560E30F035787BC01A4E466,
 				F560E3180357895001A4E466,
-				F5DFBF000357FE8701661E33,
+				F552A8AE0358E8B201AEEDB1,
 			);
 			isa = PBXSourcesBuildPhase;
 		};
@@ -407,6 +409,28 @@
 		};
 		F517D6450356B8CC016D68B9 = {
 			fileRef = F517D6430356B8CC016D68B9;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F552A8AB0358E8B201AEEDB1 = {
+			isa = PBXFileReference;
+			path = NJRScrollView.h;
+			refType = 4;
+		};
+		F552A8AC0358E8B201AEEDB1 = {
+			isa = PBXFileReference;
+			path = NJRScrollView.m;
+			refType = 4;
+		};
+		F552A8AD0358E8B201AEEDB1 = {
+			fileRef = F552A8AB0358E8B201AEEDB1;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F552A8AE0358E8B201AEEDB1 = {
+			fileRef = F552A8AC0358E8B201AEEDB1;
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -527,8 +551,8 @@
 			children = (
 				F560E30E035787BC01A4E466,
 				F560E30D035787BB01A4E466,
-				F5DFBEFF0357FE8701661E33,
-				F5DFBEFE0357FE8701661E33,
+				F552A8AB0358E8B201AEEDB1,
+				F552A8AC0358E8B201AEEDB1,
 				F560E3150357895001A4E466,
 				F560E3160357895001A4E466,
 			);
@@ -555,6 +579,17 @@
 		};
 		F560E3180357895001A4E466 = {
 			fileRef = F560E3160357895001A4E466;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F589C9C6035AA12B0155F4B2 = {
+			isa = PBXFileReference;
+			path = "Read Me.rtfd";
+			refType = 4;
+		};
+		F589C9C7035AA12E0155F4B2 = {
+			fileRef = F589C9C6035AA12B0155F4B2;
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -718,30 +753,6 @@
 		};
 		F59F6CB70354E7DA01AEEDB1 = {
 			fileRef = F59F6CB50354E7DA01AEEDB1;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		F5DFBEFE0357FE8701661E33 = {
-			isa = PBXFileReference;
-			name = NJRScrollView.m;
-			path = "/Users/nicholas/Documents/Development/Cocoa/FSA-movedaside/Source/NJRScrollView.m";
-			refType = 0;
-		};
-		F5DFBEFF0357FE8701661E33 = {
-			isa = PBXFileReference;
-			name = NJRScrollView.h;
-			path = "/Users/nicholas/Documents/Development/Cocoa/FSA-movedaside/Source/NJRScrollView.h";
-			refType = 0;
-		};
-		F5DFBF000357FE8701661E33 = {
-			fileRef = F5DFBEFE0357FE8701661E33;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		F5DFBF010357FE8701661E33 = {
-			fileRef = F5DFBEFF0357FE8701661E33;
 			isa = PBXBuildFile;
 			settings = {
 			};

@@ -29,14 +29,20 @@ extern NSString * const PSAlarmTimerExpiredNotification;
 - (void)setForDate:(NSDate *)date atTime:(NSDate *)time;
 - (void)setMessage:(NSString *)aMessage;
 
-- (NSDate *)date;
+- (NSCalendarDate *)date;
 - (NSTimeInterval)interval;
 - (NSString *)message;
-- (NSComparisonResult)compare:(PSAlarm *)otherAlarm;
+
+- (NSString *)shortDateString;
+- (NSString *)timeString;
+- (NSString *)timeRemainingString;
 
 - (BOOL)isValid;
 - (NSString *)invalidMessage;
 
+- (NSComparisonResult)compare:(PSAlarm *)otherAlarm;
+
 - (BOOL)setTimer;
+- (void)cancel;
 
 @end

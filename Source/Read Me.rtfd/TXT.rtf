@@ -1,0 +1,184 @@
+{\rtf1\mac\ansicpg10000\cocoartf100
+{\fonttbl\f0\fnil\fcharset77 GillSans-Bold;\f1\fnil\fcharset77 GillSans;\f2\fnil\fcharset77 HoeflerText-Regular;
+\f3\fnil\fcharset77 HoeflerText-Black;\f4\fnil\fcharset77 Charcoal;\f5\fnil\fcharset77 HoeflerText-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;}
+\vieww9780\viewh9720\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f0\b\fs48 \cf0 Pester 
+\f1\b0 1.0
+\f0\b\fs26 \
+
+\f1\b0 14 October 2002
+\fs24 \
+\
+\pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
+
+\f2\fs28 \cf0 A simple alarm clock and timer for Mac OS X.\
+\
+
+\f3\b Written by 
+\f2\b0 Nicholas Riley <\cf2 \ul mailto:pester@sabi.net\cf0 \ulnone >.\
+Obtain updates from <\cf2 \ul http://web.sabi.net/nriley/software/\cf0 \ulnone >.\
+\
+
+\f0\b What is it?\
+
+\f2\b0 \
+Miss your bus or train?  Have a meeting coming up soon and want to be reminded of it?  Too much trouble to create an appointment in Palm Desktop, iCal or Entourage?  Pester can help.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+\cf0 {{\NeXTGraphic Pester001.png \width9320 \height4120
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2\fs28 \cf0 \
+\
+\pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
+
+\f0\b \cf0 Installation\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2\b0 \cf0 Pester should work on Mac OS X 10.1 or later; it has been tested on Mac OS X 10.1.5 and 10.2.1.\
+\
+To install Pester, simply drag the Pester icon to your Applications folder or another convenient location. If you use Pester often, drag it to the Dock or add it to your Login Items.\
+\
+If for some reason you find Pester not to your liking, remove it by dragging its icon to the Trash. Pester\'d5s preferences file is named \'d2net.sabi.Pester.plist\'d3 and is located in the Library: Preferences subfolder of your Home folder.\
+\
+\pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
+
+\f0\b \cf0 Usage\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2\b0 \cf0 Use Pester to set alarms for times in the future. Alarms that are scheduled to expire after you quit Pester are saved automatically. Pester must be running in order to notify you that an alarm has expired. If an alarm expires while Pester isn\'d5t running, you will not be notified, but the alarm\'d5s time will be \'d2\'c7expired\'c8\'d3 in Pester\'d5s alarm list.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f3\b \cf0 To set an alarm
+\f2\b0 , click the Pester icon, choose \'d2Set Alarm\'c9\'d3 from the Alarm menu, or press 
+\f4 \U8984 \uc0 \u8984 
+\f2 N, and the Set Alarm window (shown above) will appear.\
+\
+First type a message if you wish, otherwise the rather unimaginative \'d2Alarm!\'d3 will be used.  Recent messages you\'d5ve used appear in the menu; if you mistype or want to remove a message, click the \'d2\'d0\'d3 button.  To remove the all recent messages from the menu, click \'d2\'d0 All\'d3.\
+\
+To specify the alarm time in seconds, minutes or hours from now, click the \'d2in\'d3 radio button, then type a number and pick a unit from the popup menu.  To quickly pick one of the units from the keyboard, type S, M or H after typing a number.\
+\
+To specify an absolute time, click the \'d2at\'d3 radio button, type a time and date.  If you\'d5re outside the US, the time format may not be what you expect; I\'d5m sorry, but a multitude of date-related Cocoa bugs make supporting localization very difficult.  In addition to typing numbers, you can select a relative date from the menu to the right of the date field, or type words such as:\
+\
+
+\f5\i Time:
+\f2\i0  \'d2morning\'d3, \'d2noon\'d3, \'d2afternoon\'d3, \'d2dinner\'d3, \'d2midnight\'d3\
+
+\f5\i Date:
+\f2\i0  \'d2today\'d3, \'d2tomorrow\'d3, \'d2next Thursday\'d3, \'d2November\'d3\
+\
+The text at the bottom left corner of the window changes as you type to indicate whether the date and time you\'d5re typing is valid.\
+\
+
+\f3\b When an alarm expires
+\f2\b0 , Pester\'d5s dock icon bounces once, your Mac beeps, and Pester displays a dialog box:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+\cf0 {{\NeXTGraphic Pester003.png \width9200 \height3600
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2\fs28 \cf0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f3\b \cf0 To view or remove alarms
+\f2\b0 , choose \'d2All Alarms\'c9\'d3 from the Alarm menu or press 
+\f4 \U8984 \uc0 \u8984 
+\f2 L. \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+\cf0 {{\NeXTGraphic Pester004.png \width8760 \height4640
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2\fs28 \cf0 \
+Alarms shown as \'d2\'c7expired\'c8\'d3 expired while Pester was not running. As alarms are set, they appear in the list; alarms which expire while Pester is running are removed from the list. To remove one or more alarms, select them and click Remove.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f0\b \cf0 \
+More features\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2\b0 \cf0 Pester includes a Dock menu, which you can access by Control (
+\f4 \U8963 \uc0 \u8963 
+\f2 )-clicking Pester\'d5s icon.
+\f0\b \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+\cf0 {{\NeXTGraphic Pester002.png \width4960 \height6280
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f0\fs28 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2\b0 \cf0 From this menu, you can view information about the next alarm, open the Set Alarm window, or open the Alarms window.  The number of alarms is shown in parentheses.\
+\
+Pester\'d5s dock icon displays the time until the next alarm expires.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+\cf0 {{\NeXTGraphic TextEdit001.png \width2000 \height2540
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2\fs28 \cf0 \
+Pester is also fully Y3K-compliant. It can be comforting to know that even if you won\'d5t be around then, if your Mac still works, so will Pester. \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f0\b \cf0 Frequently asked questions\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f3 \cf0 Q.
+\f2\b0  Why isn\'d5t Pester a full-featured calendar/scheduling program? What use is it otherwise?\
+\
+
+\f3\b A.
+\f2\b0  I wrote and use Pester on my Mac for the same reason I use programs such as BigClock and TikTok on my Palm, the built-in clock on my Newton and the alarm on my cellular phone. Sometimes all you want is an alarm to go off in 5 minutes, not an \'d2appointment\'d3 or \'d2meeting\'d3 entry that survives in perpetuity and is synchronized with your phone, PDA and iPod. On the other hand, if you\'d5re happy with what you\'d5re using, stick with it.\
+\
+
+\f3\b Q.
+\f2\b0  OK, but why doesn\'d5t Pester have feature 
+\f5\i X
+\f2\i0 ?\
+
+\f3\b \
+A.
+\f2\b0  I didn\'d5t need it. I have looked at (and even registered) some similar programs such as Alarm Clock Pro, Alarm Clock S.E., CountDown and the like. None of them did what I wanted. Please check out those other programs first; if Pester comes closest to your ideal but is missing a key feature, let me know and I\'d5ll consider adding it.\
+\
+
+\f3\b Q.
+\f2\b0  Under what conditions is the source code licensed?\
+\
+
+\f3\b A.
+\f2\b0  Please see my Web page for details. Essentially: don\'d5t pass it off as your own, and give me credit if you use all or part of it in your own software.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f0\b \cf0 Version history\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\fs26 \cf0 1.0
+\f1\b0  
+\f0\b / 
+\f1\b0 14 October 2002
+\f3\b \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2\b0\fs28 \cf0 Added alarm list, saved alarms, dock icon/menu, live alarm time, other features.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f0\b\fs26 \cf0 1.0d1
+\f1\b0  
+\f0\b / 
+\f1\b0 9 October 2002
+\f3\b \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f2\b0\fs28 \cf0 First public release.}

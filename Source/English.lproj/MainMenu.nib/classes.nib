@@ -36,6 +36,7 @@
             ACTIONS = {orderFrontAlarmsPanel = id; }; 
             CLASS = PSApplication; 
             LANGUAGE = ObjC; 
+            OUTLETS = {alarmSetController = PSAlarmSetController; }; 
             SUPERCLASS = NSApplication; 
         }
     ); 

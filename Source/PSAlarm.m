@@ -20,7 +20,7 @@ NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotifica
     [alarmDate release]; alarmDate = nil;
     [alarmMessage release]; alarmMessage = nil;
     [invalidMessage release]; invalidMessage = nil;
-    [timer release]; timer = nil;
+    [timer invalidate]; [timer release]; timer = nil;
     [super dealloc];
 }
 
@@ -47,6 +47,7 @@ NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotifica
 
 - (void)_validateForType:(PSAlarmType)type;
 {
+    if (alarmType == PSAlarmSet) return; // already valid
     [invalidMessage release];
     invalidMessage = nil;
     alarmType = type;
@@ -71,7 +72,7 @@ NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotifica
 
 - (void)_setIntervalFromDate;
 {
-    alarmInterval = [alarmDate timeIntervalSinceNow];
+    alarmInterval = [alarmDate timeIntervalSinceNow] + 1;
     if (alarmInterval <= 0) {
         [self _invalidate: @"Please specify an alarm time in the future."];
         return;
@@ -141,16 +142,38 @@ NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotifica
     return invalidMessage;
 }
 
-- (NSDate *)date;
+- (NSCalendarDate *)date;
 {
     if (alarmType == PSAlarmInterval) [self _setDateFromInterval];
     return alarmDate;
 }
 
+- (NSString *)shortDateString;
+{
+    return [[self date] descriptionWithCalendarFormat: [[NSUserDefaults standardUserDefaults] stringForKey: NSShortDateFormatString]];
+}
+
+- (NSString *)timeString;
+{
+    return [[self date] descriptionWithCalendarFormat: @"%1I:%M:%S %p"]; // XXX regular format doesn't work
+}
+
+- (NSString *)timeRemainingString;
+{
+    static const unsigned long long minute = 60, hour = minute * 60, day = hour * 24, year = day * 365.26;
+    unsigned long long interval = [self interval];
+    // +[NSString stringWithFormat:] in 10.1 does not support long longs: work around it by converting to unsigned ints or longs for display
+    if (interval == 0) return @"ÇexpiredÈ";
+    if (interval < minute) return [NSString stringWithFormat: @"%us", (unsigned)interval];
+    if (interval < day) return [NSString stringWithFormat: @"%uh %um", (unsigned)(interval / hour), (unsigned)((interval % hour) / minute)];
+    if (interval < year) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
+    if (interval < 2 * year) return @"One year";
+    return [NSString stringWithFormat: @"%lu years", (unsigned long)(interval / year)];
+}
+
 - (NSTimeInterval)interval;
 {
-    if (alarmType == PSAlarmSet) return [timer timeInterval]; // XXX counts down?
-    if (alarmType == PSAlarmDate) [self _setIntervalFromDate];
+    if (alarmType == PSAlarmSet || alarmType == PSAlarmDate) [self _setIntervalFromDate];
     return alarmInterval;
 }
 
@@ -165,6 +188,7 @@ NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotifica
                                                    userInfo: nil
                                                     repeats: NO];
             if (timer != nil) {
+                [timer retain];
                 alarmType = PSAlarmSet;
                 [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmTimerSetNotification object: self];
                 return YES;
@@ -176,14 +200,13 @@ NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotifica
 
 - (void)cancel;
 {
-    [timer release]; timer = nil;
+    [timer invalidate]; [timer release]; timer = nil;
 }
 
 - (void)_timerExpired:(NSTimer *)aTimer;
 {
     [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmTimerExpiredNotification object: self];
-    timer = nil;
-    [timer release];
+    [timer release]; timer = nil;
 }
 
 - (NSString *)_alarmTypeString;
@@ -228,6 +251,7 @@ NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotifica
             break;
     }
     [coder encodeObject: alarmMessage];
+    // NSLog(@"encoded: %@", self); // XXX happening twice, gdb refuses to show proper backtrace, grr
     return;
 }
 

@@ -9,11 +9,17 @@
 #import <AppKit/AppKit.h>
 
 @class PSAlarmsController;
+@class PSAlarmSetController;
 
 @interface PSApplication : NSApplication {
     PSAlarmsController *alarmsController;
+    IBOutlet PSAlarmSetController *alarmSetController;
+    NSTimer *dockUpdateTimer;
+    NSTimeInterval dockUpdateInterval;
+    NSImage *appIconImage;
 }
 
+- (IBAction)orderFrontSetAlarmPanel:(id)sender;
 - (IBAction)orderFrontAlarmsPanel:(id)sender;
 
 @end

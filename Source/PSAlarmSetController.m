@@ -10,22 +10,25 @@
 #import "PSAlarmNotifierController.h"
 #import "NJRDateFormatter.h"
 
-// XXX Bugs to file:
-// XXX any trailing spaces: -> exception for +[NSCalendarDate dateWithNaturalLanguageString]:
-// > NSCalendarDate dateWithNaturalLanguageString: '12 '
-// format error: internal error
+/* Bugs to file:
 
-// XXX NSDate natural language stuff in NSCalendarDate (why?), misspelled category name
-// XXX NSCalendarDate natural language stuff behaves differently from NSDateFormatter (AM/PM has no effect, shouldn't they share code?)
-// XXX NSDateFormatter doc class description gives two examples for natural language that are incorrect, no link to NSDate doc that describes exactly how natural language dates are parsed
-// XXX NSTimeFormatString does not include %p when it should, meaning that AM/PM is stripped yet 12-hour time is still used
-// XXX NSNextDayDesignations, NSNextNextDayDesignations are noted as 'a string' in NSUserDefaults docs, but maybe they are actually an array, or either an array or a string, given their names?
-// XXX "Setting the Format for Dates" does not document how to get 1:15 AM, the answer is %1I - strftime has no exact equivalent; the closest is %l.  strftime does not permit numeric prefixes.  It also refers to "NSCalendar" when no such class exists.
-// XXX none of many mentions of NSAMPMDesignation indicates that they include the leading spaces (" AM", " PM").  In "Setting the Format for Dates", needs to mention that the leading spaces are not included in %p with strftime.
-// XXX descriptions for %X and %x are reversed (time zone is in %X, not %x)
-// XXX too hard to implement date-only or time-only formatters
-// XXX should be able to specify that natural language favors date or time (10 = 10th of month, not 10am)
-// XXX please expose the iCal controls!
+¥ any trailing spaces: -> exception for +[NSCalendarDate dateWithNaturalLanguageString]:
+ > NSCalendarDate dateWithNaturalLanguageString: '12 '
+  format error: internal error
+
+¥ NSDate natural language stuff in NSCalendarDate (why?), misspelled category name
+¥ NSCalendarDate natural language stuff behaves differently from NSDateFormatter (AM/PM has no effect, shouldn't they share code?)
+¥ NSDateFormatter doc class description gives two examples for natural language that are incorrect, no link to NSDate doc that describes exactly how natural language dates are parsed
+¥ NSTimeFormatString does not include %p when it should, meaning that AM/PM is stripped yet 12-hour time is still used
+¥ NSNextDayDesignations, NSNextNextDayDesignations are noted as 'a string' in NSUserDefaults docs, but maybe they are actually an array, or either an array or a string, given their names?
+¥ "Setting the Format for Dates" does not document how to get 1:15 AM, the answer is %1I - strftime has no exact equivalent; the closest is %l.  strftime does not permit numeric prefixes.  It also refers to "NSCalendar" when no such class exists.
+¥ none of many mentions of NSAMPMDesignation indicates that they include the leading spaces (" AM", " PM").  In "Setting the Format for Dates", needs to mention that the leading spaces are not included in %p with strftime.  But if you use the NSCalendarDate stuff, it appears %p doesn't include the space.
+¥ descriptions for %X and %x are reversed (time zone is in %X, not %x)
+¥ too hard to implement date-only or time-only formatters
+¥ should be able to specify that natural language favors date or time (10 = 10th of month, not 10am)
+¥ please expose the iCal controls!
+
+*/
 
 @interface PSAlarmSetController (Private)
 
@@ -85,8 +88,7 @@
 
 - (void)_stopUpdateTimer;
 {
-    if ([updateTimer isValid]) [updateTimer invalidate];
-    [updateTimer release]; updateTimer = nil;
+    [updateTimer invalidate]; [updateTimer release]; updateTimer = nil;
 }
 
 // XXX use OACalendar?
@@ -147,8 +149,9 @@
 - (IBAction)showWindow:(id)sender;
 {
     if (![[self window] isVisible]) {
-        // NSLog(@"UPDATING FROM showWindow");
         [self update: self];
+        // XXX otherwise, first responder appears to alternate every time the window is shown?!  And if you set the initial first responder, you can't tab in the window. :(
+        [[self window] makeFirstResponder: [[self window] initialFirstResponder]];
     }
     [super showWindow: sender];
 }
@@ -215,16 +218,6 @@
 {
     // NSLog(@"UPDATING FROM controlTextDidChange");
     [self update: [notification object]];
-}
-
-@end
-
-@implementation PSAlarmSetController (NSApplicationDelegate)
-
-- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag;
-{
-    if (!flag) [self showWindow: self];
-    return YES;
 }
 
 @end

@@ -24,9 +24,11 @@
         [[self window] center];
         [messageField setStringValue: [alarm message]];
         [dateField setObjectValue: [alarm date]];
+        [NSApp requestUserAttention: NSInformationalRequest];
         [NSApp activateIgnoringOtherApps: YES];
         [[self window] makeKeyAndOrderFront: nil];
         [[self window] orderFrontRegardless];
+        [NSApp cancelUserAttentionRequest: NSInformationalRequest];
         NSBeep();
     }
     return self;

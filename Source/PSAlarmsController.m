@@ -17,7 +17,14 @@
 {
     if ( (self = [super initWithWindowNibName: @"Alarms"]) != nil) {
         alarms = [PSAlarms allAlarms];
-        [[self window] center];
+        // XXX workaround for bug in 10.2.1, 10.1.5: autosave name set in IB doesn't show up
+        [self setWindowFrameAutosaveName: @"Pester alarm list"];
+        // Apple documents the NSUserDefaults key, so we can rely on it hopefully.
+        if (nil == [[NSUserDefaults standardUserDefaults] objectForKey:
+            [@"NSWindow Frame " stringByAppendingString: [[self window] frameAutosaveName]]])
+        {
+            [[self window] center];
+        }
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(alarmsChanged) name: PSAlarmsDidChangeNotification object: alarms];
         [tableView setAutosaveName: @"Alarm list"];
         [tableView setAutosaveTableColumns: YES];
@@ -54,10 +61,10 @@
     if ([[tableColumn identifier] isEqualToString: @"message"]) return [alarm message];
     else {
         NSCalendarDate *date = [alarm date];
-        if ([[tableColumn identifier] isEqualToString: @"date"]) return [date descriptionWithCalendarFormat: [[NSUserDefaults standardUserDefaults] stringForKey: NSShortDateFormatString]];
+        if ([[tableColumn identifier] isEqualToString: @"date"]) return [alarm shortDateString];
         if ([[tableColumn identifier] isEqualToString: @"time"]) {
             if (date == nil) return @"«expired»";
-            return [date descriptionWithCalendarFormat: @"%1I:%M:%S%p"]; // XXX regular format doesn't work
+            return [alarm timeString];
         }
     }
     return nil;
@@ -74,6 +81,16 @@
 @end
 
 @implementation PSAlarmsController (NSWindowDelegate)
+
+// XXX workaround for bug in 10.1.5, 10.2.1 (and earlier?): no autosave on window move
+- (void)windowDidMove:(NSNotification *)aNotification
+{
+    NSString *autosaveName = [[self window] frameAutosaveName];
+    // on initial display, we get a notification inside -[NSWindow setFrameAutosaveName]!
+    if (autosaveName != nil) {
+        [[self window] saveFrameUsingName: autosaveName];
+    }
+}
 
 - (NSRect)windowWillUseStandardFrame:(NSWindow *)sender defaultFrame:(NSRect)defaultFrame;
 {
