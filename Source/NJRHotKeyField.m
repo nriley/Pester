@@ -68,7 +68,15 @@ static NSDictionary *statusAttributes = nil;
 
 #pragma mark interface updating
 
-// XXX still problems with command-A the first time
+- (void)showStatus:(NSString *)error;
+{
+    [self setAttributedStringValue:
+        [[NSAttributedString alloc] initWithString: [NSString stringWithFormat: @"(%@)", error]
+                                        attributes: statusAttributes]];
+    [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(clearStatus) object: nil];
+    [self performSelector: @selector(clearStatus) withObject: nil afterDelay: 0.5];
+    [[self currentEditor] setSelectedRange: zeroRange];
+}
 
 - (void)previewKeyEquivalentAttributedString:(NSAttributedString *)equivString;
 {
@@ -77,14 +85,6 @@ static NSDictionary *statusAttributes = nil;
     [self setAttributedStringValue: previewString];
     [[self currentEditor] setSelectedRange: zeroRange];
     [previewString release];
-}
-
-- (void)showStatus:(NSString *)error;
-{
-    [self setAttributedStringValue:
-        [[NSAttributedString alloc] initWithString: [NSString stringWithFormat: @"(%@)", error]
-                                        attributes: statusAttributes]];
-    [[self currentEditor] setSelectedRange: zeroRange];
 }
 
 - (void)showKeyEquivalentAttributedStringFinalized:(BOOL)finalized;
@@ -100,6 +100,13 @@ static NSDictionary *statusAttributes = nil;
     [self setAttributedStringValue: equivString];
     [[self currentEditor] setSelectedRange: zeroRange];
     [equivString release];
+}
+
+- (void)clearStatus;
+{
+    if ([[[self attributedStringValue] attributesAtIndex: 0 effectiveRange: NULL] isEqualToDictionary: statusAttributes]) {
+        [self showKeyEquivalentAttributedStringFinalized: ([[NSApp currentEvent] modifierFlags] & capturedModifierMask) == 0];
+    }
 }
 
 #pragma mark event handling
