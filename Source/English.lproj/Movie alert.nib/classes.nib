@@ -1,6 +1,7 @@
 {
     IBClasses = (
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NJRCenteringMovieView; LANGUAGE = ObjC; SUPERCLASS = NSMovieView; }, 
         {
             ACTIONS = {close = id; }; 
             CLASS = PSMovieAlertController; 
