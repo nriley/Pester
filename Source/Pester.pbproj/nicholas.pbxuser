@@ -11,7 +11,7 @@
 			F596730D0355CFA301407038,
 			F500E5370359719B01AEEDB1,
 			F5B15F74037E42EB01AEEDB1,
-			F5B15F79037E45E301AEEDB1,
+			F562F810037E79EE01AEEDB1,
 		);
 		executables = (
 			F59B967103538BE201154278,
@@ -137,7 +137,7 @@
 				StatusViewVisible = NO;
 				Template = F5CA7ECB015C094F0DCA290F;
 				ToolbarVisible = NO;
-				WindowLocation = "{415, 482}";
+				WindowLocation = "{390, 201}";
 			};
 			PBXWorkspaceContents = (
 				{
@@ -869,6 +869,11 @@
 		vrLen = 2132;
 		vrLoc = 5663;
 	};
+	F562F810037E79EE01AEEDB1 = {
+		isa = PBXSymbolicBreakpoint;
+		state = 1;
+		symbolName = "-[PSAlarmSetController awakeFromNib]";
+	};
 	F596730D0355CFA301407038 = {
 		isa = PBXSymbolicBreakpoint;
 		state = 1;
@@ -957,11 +962,6 @@
 		isa = PBXSymbolicBreakpoint;
 		state = 1;
 		symbolName = "-[NSException raise]";
-	};
-	F5B15F79037E45E301AEEDB1 = {
-		isa = PBXSymbolicBreakpoint;
-		state = 1;
-		symbolName = "-[NSCFString characterAtIndex:]";
 	};
 	F5B163A5037E543A01AEEDB1 = {
 		fRef = F59DC6FD0354188F01AEEDB1;

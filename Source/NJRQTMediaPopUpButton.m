@@ -50,7 +50,9 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 {
     NSString *title = [[NSFileManager defaultManager] displayNameAtPath: path];
     NSMenu *menu = [self menu];
-    NSMenuItem *item = [menu insertItemWithTitle: title action: @selector(_aliasSelected:) keyEquivalent: @"" atIndex: [menu indexOfItem: otherItem] + 1];
+    NSMenuItem *item;
+    if (title == nil || path == nil) return nil;
+    item = [menu insertItemWithTitle: title action: @selector(_aliasSelected:) keyEquivalent: @"" atIndex: [menu indexOfItem: otherItem] + 1];
     [item setTarget: self];
     [item setRepresentedObject: alias];
     [item setImage: [[[NSWorkspace sharedWorkspace] iconForFile: path] bestFitImageForSize: NSMakeSize(16, 16)]];
