@@ -201,6 +201,11 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 // NSView overrides
 //
 
+- (BOOL)needsPanelToBecomeKey;
+{
+    return YES;
+}
+
 - (BOOL)isFlipped;
 {
     return YES;
@@ -241,6 +246,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     // draw a border around the whole thing. This ends up drawing over the top and right side borders of the header, but that's ok because we don't want their border, we want ours. Also, it ends up covering any overdraw from selected sundays and saturdays, since the selected day covers the bordering area where vertical grid lines would be (an aesthetic decision because we don't draw vertical grid lines, another aesthetic decision).
     [[NSColor gridColor] set];
     NSFrameRect(gridHeaderAndBodyRect);
+
 }
 
 - (void)mouseDown:(NSEvent *)mouseEvent;
@@ -637,6 +643,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     NSCalendarDate *thisDay;
     int index, row, column;
     NSSize cellSize;
+    BOOL isFirstResponder = ([[self window] firstResponder] == self);
 
     // the cell is actually one pixel shorter than the row height, because the row height includes the bottom grid line (or the top grid line, depending on which way you prefer to think of it)
     cellFrame.size.height = rowHeight - 1.0;
@@ -687,7 +694,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
                 }
                 
                 if (shouldHighlightThisDay) {
-                    [[NSColor selectedControlColor] set];
+                    [(isFirstResponder ? [NSColor selectedControlColor] : [NSColor secondarySelectedControlColor]) set];
                     NSRectFill(cellFrame);
                 }
             }
