@@ -28,6 +28,7 @@ ditto -rsrc "$DSTROOT" "$MOUNTPOINT" && \
 chmod -R a+rX,u+w "$MOUNTPOINT" && \
 openUp "$MOUNTPOINT" && \
 hdiutil detach $DISK && \
+hdiutil resize -sectors min "$DMG" && \
 hdiutil convert "$DMG" -format UDZO -imagekey zlib-level=9 -o "z$DMG" && \
 mv "z$DMG" "$DMG" && \
 hdiutil internet-enable "$DMG" && \
