@@ -3,7 +3,7 @@
 //  Pester
 //
 //  Created by Nicholas Riley on Mon Oct 28 2002.
-//  Copyright (c) 2002 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2002 Nicholas Riley. All rights reserved.
 //
 
 #import "NSImage-NJRExtensions.h"

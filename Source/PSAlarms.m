@@ -207,6 +207,11 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     [self removeAlarmsAtIndices: indices];
 }
 
+- (BOOL)alarmsExpiring;
+{
+    return [expiredAlarms count] != 0;
+}
+
 #pragma mark property list serialization (Pester 1.1)
 
 - (NSDictionary *)propertyListRepresentation;

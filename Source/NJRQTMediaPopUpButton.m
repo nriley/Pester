@@ -10,6 +10,7 @@
 #import "SoundFileManager.h"
 #import "NSMovie-NJRExtensions.h"
 #import "NSImage-NJRExtensions.h"
+#import <QuickTime/Movies.h>
 
 // XXX workaround for SoundFileManager log message in 10.2.3 and earlier
 #include <stdio.h>
@@ -274,6 +275,15 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [[NSNotificationCenter defaultCenter] postNotificationName: NJRQTMediaPopUpButtonMovieChangedNotification object: self];
 }
 
+void
+MovieStoppedCB(QTCallBack cb, long refCon)
+{
+    NSMovieView *preview = (NSMovieView *)refCon;
+    // if we don’t do this after the runloop has finished, then we crash in MCIdle because it’s expecting a movie and doesn’t have one any more
+    [preview performSelector: @selector(setMovie:) withObject: nil afterDelay: 0]; // otherwise we get an extra runloop timer which uses a lot of CPU from +[NSMovieView _idleMovies]
+    DisposeCallBack(cb);
+}
+
 - (BOOL)_validateWithPreview:(BOOL)doPreview;
 {
     [preview stop: self];
@@ -284,9 +294,9 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     } else {
         NSMovie *movie = [[NSMovie alloc] initWithURL: [NSURL fileURLWithPath: [selectedAlias fullPath]] byReference: YES];
         movieCanRepeat = ![movie isStatic];
-        if ([movie hasAudio])
-            [preview setMovie: movie];
-        else {
+        if ([movie hasAudio]) {
+            [preview setMovie: doPreview ? movie : nil];
+        } else {
             [preview setMovie: nil];
             if (movie == nil) {
                 NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, @"The item you selected isn’t a sound or movie recognized by QuickTime.  Please select a different item.");
@@ -300,8 +310,18 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
                 return NO;
             }
         }
+        if (doPreview) {
+            Movie qtMovie = [movie QTMovie];
+            QTCallBack cbStop = NewCallBack(GetMovieTimeBase(qtMovie), callBackAtExtremes);
+            QTCallBackUPP cbStopUPP = NewQTCallBackUPP(MovieStoppedCB);
+            OSErr err = CallMeWhen(cbStop, cbStopUPP, (long)preview, triggerAtStop, 0, 0);
+            if (err != noErr) {
+                NSLog(@"Can’t register QuickTime stop timebase callback for preview: %ld", err);
+                DisposeCallBack(cbStop);
+            }
+            [preview start: self];
+        }
         [movie release];
-        if (doPreview) [preview start: self];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName: NJRQTMediaPopUpButtonMovieChangedNotification object: self];
     return YES;
@@ -312,6 +332,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (IBAction)stopSoundPreview:(id)sender;
 {
     [preview stop: self];
+    [preview setMovie: nil]; // otherwise we get an extra runloop timer which uses a lot of CPU from +[NSMovieView _idleMovies]
 }
 
 - (void)_beepSelected:(NSMenuItem *)sender;

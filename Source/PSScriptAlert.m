@@ -8,7 +8,6 @@
 
 #import "PSScriptAlert.h"
 #import "BDAlias.h"
-// XXX remove #import "NDAppleScriptObject.h"
 #import "NSDictionary-NJRExtensions.h"
 
 // property list keys

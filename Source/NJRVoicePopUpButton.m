@@ -8,8 +8,6 @@
 
 #import "NJRVoicePopUpButton.h"
 
-// XXX says nothing instead of "Alarm!" any more if there's no alarm message specified
-
 @implementation NJRVoicePopUpButton
 
 - (void)_refreshVoiceList;

@@ -12,8 +12,6 @@
 #import "NSMovie-NJRExtensions.h"
 #import <QuickTime/Movies.h>
 
-// XXX if you specify a truly tiny movie, obey the minimum window size to compensate
-
 @implementation PSMovieAlertController
 
 + (PSMovieAlertController *)controllerWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
@@ -35,6 +33,7 @@
         [movieView start: self];
     }
     delay = (GetMovieDuration((Movie)theMovie) - GetMovieTime((Movie)theMovie, NULL)) / (double)GetMovieTimeScale((Movie)theMovie);
+    // XXX should use a timebase callback for this instead (see NJRQTMediaPopUpButton); also, use QuickTime’s built-in loop functionality instead of rolling our own?
     [self performSelector: @selector(play) withObject: nil afterDelay: delay inModes: [NSArray arrayWithObject: NSDefaultRunLoopMode]];
 }
 
@@ -51,8 +50,11 @@
             NSRect screenRect = [[window screen] visibleFrame];
             float magnification = 1.0;
             NSSize movieSize;
+            NSSize minSize = [window minSize];
+            float windowFrameHeight = [window frame].size.height - [[window contentView] frame].size.height;
             NSRect frame;
-            screenRect.size.height -= [window frame].size.height - [[window contentView] frame].size.height; // account for height of window frame
+            screenRect.size.height -= windowFrameHeight;
+            minSize.height -= windowFrameHeight;
             while (1) {
                 movieSize = [movieView sizeForMagnification: magnification];
                 movieSize.height -= 16; // controller is hidden, but its size is included (documented, ergh)
@@ -61,6 +63,8 @@
                 else
                     break;
             }
+            if (movieSize.width < minSize.width) movieSize.width = minSize.width;
+            if (movieSize.height < minSize.height) movieSize.width = minSize.height;
             [window setContentSize: movieSize];
             [window center];
             frame = [window frame];

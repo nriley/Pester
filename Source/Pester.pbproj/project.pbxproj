@@ -327,11 +327,12 @@
 				E1A18CB403B439CF00000028,
 				F59E4BE9036B2E5E016B311C,
 				F5F1986F036B813101EB0372,
-				F5F19868036B80AF01EB0372,
 				F5F2418B036A910B01FE7503,
 				E130B9AE03B7C59700000028,
 				E13919E403B9E4E100000028,
 				E1ECA00803C002B300F54C66,
+				E1D358BB03C60CE900C8A18E,
+				E1E9A33C03C8EF6700050002,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,10 +392,11 @@
 				E1271F040000012300000028,
 				F59E4BE8036B2E5E016B311C,
 				E1A18CB103B439AD00000028,
-				F5F19869036B80AF01EB0372,
 				29B9732CFDCFA39411CA2CEA,
 				E13919E503B9E4E100000028,
 				E1ECA00903C002B300F54C66,
+				E1D358BC03C60CE900C8A18E,
+				E1E9A33B03C8EF6700050002,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,6 +690,63 @@
 			settings = {
 			};
 		};
+		E1D358B903C60CE900C8A18E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRCenteringMovieView.h;
+			refType = 4;
+		};
+		E1D358BA03C60CE900C8A18E = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRCenteringMovieView.m;
+			refType = 4;
+		};
+		E1D358BB03C60CE900C8A18E = {
+			fileRef = E1D358B903C60CE900C8A18E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1D358BC03C60CE900C8A18E = {
+			fileRef = E1D358BA03C60CE900C8A18E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1E9A33903C8EF6700050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = SUSpeaker.m;
+			refType = 4;
+		};
+		E1E9A33A03C8EF6700050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = SUSpeaker.h;
+			refType = 4;
+		};
+		E1E9A33B03C8EF6700050002 = {
+			fileRef = E1E9A33903C8EF6700050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1E9A33C03C8EF6700050002 = {
+			fileRef = E1E9A33A03C8EF6700050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1E9A33D03C8EF6800050002 = {
+			children = (
+				E1E9A33903C8EF6700050002,
+				E1E9A33A03C8EF6700050002,
+			);
+			isa = PBXGroup;
+			name = SpeechUtilities;
+			refType = 4;
+		};
 		E1ECA00603C002B300F54C66 = {
 			fileEncoding = 4;
 			isa = PBXFileReference;
@@ -972,7 +1031,7 @@
 		};
 		F560E313035787ED01A4E466 = {
 			children = (
-				F5F19865036B806201EB0372,
+				E1E9A33D03C8EF6800050002,
 				F59E47A6036AA5FC016B311C,
 				E1ECA00603C002B300F54C66,
 				E1ECA00703C002B300F54C66,
@@ -990,6 +1049,8 @@
 		};
 		F560E314035787F901A4E466 = {
 			children = (
+				E1D358B903C60CE900C8A18E,
+				E1D358BA03C60CE900C8A18E,
 				E1F0B14A03AD8CEF00AEFBE0,
 				E1F0B14B03AD8CEF00AEFBE0,
 				F5B79837035F64F80136A8DD,
@@ -1578,40 +1639,6 @@
 		};
 		F5EE8DBC038A76AC0134BEAC = {
 			fileRef = F5EE8DBA038A76AC0134BEAC;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		F5F19865036B806201EB0372 = {
-			children = (
-				F5F19866036B80AF01EB0372,
-				F5F19867036B80AF01EB0372,
-			);
-			isa = PBXGroup;
-			name = SpeechUtilities;
-			path = NDAppleScript;
-			refType = 4;
-		};
-		F5F19866036B80AF01EB0372 = {
-			fileEncoding = 30;
-			isa = PBXFileReference;
-			path = SUSpeaker.h;
-			refType = 2;
-		};
-		F5F19867036B80AF01EB0372 = {
-			fileEncoding = 30;
-			isa = PBXFileReference;
-			path = SUSpeaker.m;
-			refType = 2;
-		};
-		F5F19868036B80AF01EB0372 = {
-			fileRef = F5F19866036B80AF01EB0372;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		F5F19869036B80AF01EB0372 = {
-			fileRef = F5F19867036B80AF01EB0372;
 			isa = PBXBuildFile;
 			settings = {
 			};

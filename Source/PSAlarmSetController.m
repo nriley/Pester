@@ -66,6 +66,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 - (void)awakeFromNib;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     alarm = [[PSAlarm alloc] init];
     [[self window] center];
     // XXX excessive retention of formatters?  check later...
@@ -118,8 +119,10 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [self doSpeakChanged: nil];
     [self editAlertChanged: nil];
     [script setFileTypes: [NSArray arrayWithObjects: @"applescript", @"script", NSFileTypeForHFSTypeCode(kOSAFileType), NSFileTypeForHFSTypeCode('TEXT'), nil]];
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(playSoundChanged:) name: NJRQTMediaPopUpButtonMovieChangedNotification object: sound];
+    [notificationCenter addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
+    [notificationCenter addObserver: self selector: @selector(playSoundChanged:) name: NJRQTMediaPopUpButtonMovieChangedNotification object: sound];
+    [notificationCenter addObserver: self selector: @selector(applicationWillHide:) name: NSApplicationWillHideNotification object: NSApp];
+    [notificationCenter addObserver: self selector: @selector(applicationDidUnhide:) name: NSApplicationDidUnhideNotification object: NSApp];
     [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
     [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
     // XXX workaround for 10.1.x and 10.2.x bug which sets the first responder to the wrong field alternately, but it works if I set the initial first responder to nil... go figure.
@@ -515,6 +518,27 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     if (message == nil || [message length] == 0)
         message = [alarm message];
     return message;
+}
+
+@end
+
+@implementation PSAlarmSetController (NSApplicationNotifications)
+
+- (void)applicationWillHide:(NSNotification *)notification;
+{
+    if ([[self window] isVisible]) {
+        NSLog(@"hide");
+        [self silence: nil];
+        [self _stopUpdateTimer];
+    }
+}
+
+- (void)applicationDidUnhide:(NSNotification *)notification;
+{
+    if ([[self window] isVisible]) {
+        NSLog(@"unhide");
+        [self update: self];
+    }
 }
 
 @end

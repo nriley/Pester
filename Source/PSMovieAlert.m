@@ -34,6 +34,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
         }
         alias = [anAlias retain];
         repetitions = numReps;
+        // XXX if we support remote movie URLs, need to call EnterMovies() ourselves at least in Jaguar (_MacTech_ December 2002, p. 64); also should do async movie loading (p. 73Ð74).
         movie = [[NSMovie alloc] initWithURL: [NSURL fileURLWithPath: path] byReference: YES];
         if (movie == nil) {
             [self release];

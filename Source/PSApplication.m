@@ -152,7 +152,7 @@
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag;
 {
-    if (!flag) [alarmSetController showWindow: self];
+    if (!flag && ![[PSAlarms allAlarms] alarmsExpiring]) [alarmSetController showWindow: self];
     return YES;
 }
 
