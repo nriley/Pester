@@ -11,14 +11,19 @@
 
 @implementation PSAlarmNotifierController
 
-- (id)initWithTimer:(NSTimer *)timer;
+// XXX should use NSNonactivatingPanelMask on 10.2
+
++ (PSAlarmNotifierController *)controllerWithTimerExpiredNotification:(NSNotification *)notification;
+{
+    return [[self alloc] initWithAlarm: [notification object]];
+}
+
+- (id)initWithAlarm:(PSAlarm *)alarm;
 {
     if ([self initWithWindowNibName: @"Notifier"]) {
-        PSAlarm *alarm = [timer userInfo];
-
         [[self window] center];
         [messageField setStringValue: [alarm message]];
-        [dateField setObjectValue: [timer fireDate]];
+        [dateField setObjectValue: [alarm date]];
         [NSApp activateIgnoringOtherApps: YES];
         [[self window] makeKeyAndOrderFront: nil];
         [[self window] orderFrontRegardless];

@@ -19,9 +19,10 @@
     IBOutlet NSPopUpButton *timeDateCompletions; // XXX should go away when bug preventing both formatters and popup menus from existing is fixed
     IBOutlet NSTextField *timeSummary;
     IBOutlet NSButton *setButton;
-    PSAlarm *alarm;
     NSString *status;
-    BOOL isIn;
+    NSTimer *updateTimer;
+    PSAlarm *alarm;
+    BOOL isInterval;
 }
 
 - (IBAction)update:(id)sender;

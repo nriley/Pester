@@ -2,6 +2,12 @@
     IBClasses = (
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {CLASS = NJRDateFormatter; LANGUAGE = ObjC; SUPERCLASS = NSDateFormatter; }, 
+        {
+            ACTIONS = {clearAllEntries = id; removeEntry = id; }; 
+            CLASS = NJRHistoryTrackingComboBox; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSComboBox; 
+        }, 
         {CLASS = NJRIntegerFilter; LANGUAGE = ObjC; SUPERCLASS = NSNumberFormatter; }, 
         {
             ACTIONS = {dateCompleted = id; inAtChanged = id; setAlarm = id; update = id; }; 
@@ -19,6 +25,18 @@
                 timeSummary = NSTextField; 
             }; 
             SUPERCLASS = NSWindowController; 
+        }, 
+        {
+            CLASS = PSAlarmsController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {tableView = NSTableView; }; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {
+            ACTIONS = {orderFrontAlarmsPanel = id; }; 
+            CLASS = PSApplication; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSApplication; 
         }
     ); 
     IBVersion = 1; 

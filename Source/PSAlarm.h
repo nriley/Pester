@@ -9,27 +9,34 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    PSAlarmInvalid, PSAlarmInterval, PSAlarmDate
+    PSAlarmInvalid, PSAlarmInterval, PSAlarmDate, PSAlarmSet
 } PSAlarmType;
 
-@interface PSAlarm : NSObject {
+extern NSString * const PSAlarmTimerSetNotification;
+extern NSString * const PSAlarmTimerExpiredNotification;
+
+@interface PSAlarm : NSObject <NSCoding> {
     PSAlarmType alarmType;
     NSCalendarDate *alarmDate;
     NSTimeInterval alarmInterval;
     NSString *alarmMessage;
     NSString *invalidMessage;
+    NSTimer *timer;
 }
 
 - (void)setInterval:(NSTimeInterval)anInterval;
-- (void)setForDateAtTime:(NSDate *)dateTime;
+- (void)setForDateAtTime:(NSCalendarDate *)dateTime;
 - (void)setForDate:(NSDate *)date atTime:(NSDate *)time;
 - (void)setMessage:(NSString *)aMessage;
 
 - (NSDate *)date;
 - (NSTimeInterval)interval;
+- (NSString *)message;
+- (NSComparisonResult)compare:(PSAlarm *)otherAlarm;
 
 - (BOOL)isValid;
-- (NSString *)message;
 - (NSString *)invalidMessage;
+
+- (BOOL)setTimer;
 
 @end

@@ -27,29 +27,29 @@
 // XXX should be able to specify that natural language favors date or time (10 = 10th of month, not 10am)
 // XXX please expose the iCal controls!
 
+@interface PSAlarmSetController (Private)
+
+- (void)_stopUpdateTimer;
+
+@end
 
 @implementation PSAlarmSetController
 
 - (void)awakeFromNib;
 {
-    // NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [[self window] center];
-    // XXX bugs prevent these from working (sigh...)
-    // [timeOfDay setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [defaults objectForKey: NSTimeFormatString] allowNaturalLanguage: YES]];
-    // [timeDate setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [defaults objectForKey: NSShortDateFormatString] allowNaturalLanguage: YES]];
-    [self inAtChanged: nil];
+    // XXX bugs prevent this code from working properly on Jaguar
+    /* NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [timeOfDay setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [defaults objectForKey: NSTimeFormatString] allowNaturalLanguage: YES]];
+    [timeDate setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [defaults objectForKey: NSShortDateFormatString] allowNaturalLanguage: YES]]; */
     alarm = [[PSAlarm alloc] init];
+    [[self window] center];
+    [self inAtChanged: nil];
     [[self window] makeKeyAndOrderFront: nil];
-}
-
-- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag;
-{
-    if (!flag) [self showWindow: self];
-    return YES;
 }
 
 - (void)setStatus:(NSString *)aString;
 {
+    // NSLog(@"%@", alarm);
     if (aString != status) {
         [status release]; status = nil;
         status = [aString retain];
@@ -73,7 +73,7 @@
 
 - (void)setAlarmDateAndInterval:(id)sender;
 {
-    if (isIn) {
+    if (isInterval) {
         [alarm setInterval:
             [[self objectValueForTextField: timeInterval whileEditing: sender] intValue] *
                 [timeIntervalUnits selectedTag]];
@@ -83,21 +83,38 @@
     }
 }
 
-// XXX should set timer to update status every second while configuration is valid, application is in front, and isIn
+- (void)_stopUpdateTimer;
+{
+    if ([updateTimer isValid]) [updateTimer invalidate];
+    [updateTimer release]; updateTimer = nil;
+}
 
 // XXX use OACalendar?
 
-// Be careful not to hook up any of the text fields' actions to update: because we handle them in controlTextDidChange: instead.  If we could get the active text field somehow via public API (guess we could use controlTextDidBegin/controlTextDidEndEditing) then we'd not need to overload the update sender for this purpose.  Or, I guess, we could use another method other than update.  It should not be this hard to implement what is essentially standard behavior.  Sigh.
-
 - (IBAction)updateDateDisplay:(id)sender;
 {
+    // NSLog(@"updateDateDisplay: %@", sender);
     if ([alarm isValid]) {
         [self setStatus: [[alarm date] descriptionWithCalendarFormat: @"Alarm will be set for %X on %x" timeZone: nil locale: nil]];
         [setButton setEnabled: YES];
+        if (updateTimer == nil || ![updateTimer isValid]) {
+            // XXX this logic (and the timer) should really go into PSAlarm, to send notifications for status updates instead.  Timer starts when people are watching, stops when people aren't.
+            // NSLog(@"setting timer");
+            if (isInterval) {
+                updateTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(updateDateDisplay:) userInfo: nil repeats: YES];
+            } else {
+                updateTimer = [NSTimer scheduledTimerWithTimeInterval: [alarm interval] target: self selector: @selector(updateDateDisplay:) userInfo: nil repeats: NO];
+            }
+            [updateTimer retain];
+        }
     } else {
         [setButton setEnabled: NO];
+        [self setStatus: [alarm invalidMessage]];
+        [self _stopUpdateTimer];
     }
 }
+
+// Be careful not to hook up any of the text fields' actions to update: because we handle them in controlTextDidChange: instead.  If we could get the active text field somehow via public API (guess we could use controlTextDidBegin/controlTextDidEndEditing) then we'd not need to overload the update sender for this purpose.  Or, I guess, we could use another method other than update.  It should not be this hard to implement what is essentially standard behavior.  Sigh.
 
 - (IBAction)update:(id)sender;
 {
@@ -108,17 +125,56 @@
 
 - (IBAction)inAtChanged:(id)sender;
 {
-    isIn = ([inAtMatrix selectedTag] == 0);
-    [timeInterval setEnabled: isIn];
-    [timeIntervalUnits setEnabled: isIn];
-    [timeOfDay setEnabled: !isIn];
-    [timeDate setEnabled: !isIn];
-    [timeDateCompletions setEnabled: !isIn];
+    isInterval = ([inAtMatrix selectedTag] == 0);
+    [timeInterval setEnabled: isInterval];
+    [timeIntervalUnits setEnabled: isInterval];
+    [timeOfDay setEnabled: !isInterval];
+    [timeDate setEnabled: !isInterval];
+    [timeDateCompletions setEnabled: !isInterval];
     if (sender != nil)
-        [[self window] makeFirstResponder: isIn ? timeInterval : timeOfDay];
+        [[self window] makeFirstResponder: isInterval ? timeInterval : timeOfDay];
     // NSLog(@"UPDATING FROM inAtChanged");
     [self update: nil];
 }
+
+- (IBAction)dateCompleted:(NSPopUpButton *)sender;
+{
+    [timeDate setStringValue: [sender titleOfSelectedItem]];
+    [self update: sender];
+}
+
+// to ensure proper updating of interval, this should be the only method by which the window is shown (e.g. from the Alarm menu)
+- (IBAction)showWindow:(id)sender;
+{
+    if (![[self window] isVisible]) {
+        // NSLog(@"UPDATING FROM showWindow");
+        [self update: self];
+    }
+    [super showWindow: sender];
+}
+
+- (IBAction)setAlarm:(NSButton *)sender;
+{
+    PSAlarmNotifierController *notifier = [PSAlarmNotifierController alloc];
+    if (notifier == nil) {
+        [self setStatus: @"Unable to set alarm."];
+        return;
+    }
+    [self setAlarmDateAndInterval: sender];
+    [alarm setMessage: [messageField stringValue]];
+    if (![alarm setTimer]) {
+        [self setStatus: [@"Unable to set alarm.  " stringByAppendingString: [alarm invalidMessage]]];
+        return;
+    }
+    [self setStatus: [[alarm date] descriptionWithCalendarFormat: @"Alarm set for %x at %X" timeZone: nil locale: nil]];
+    [[self window] close];
+    [alarm release];
+    alarm = [[PSAlarm alloc] init];
+}
+
+@end
+
+@implementation PSAlarmSetController (NSControlSubclassDelegate)
 
 - (void)control:(NSControl *)control didFailToValidatePartialString:(NSString *)string errorDescription:(NSString *)error;
 {
@@ -139,42 +195,19 @@
     [self update: timeInterval]; // make sure we still examine the field editor, otherwise if the existing numeric string is invalid, it'll be cleared
 }
 
-- (IBAction)dateCompleted:(NSPopUpButton *)sender;
+@end
+
+@implementation PSAlarmSetController (NSWindowNotifications)
+
+- (void)windowWillClose:(NSNotification *)notification;
 {
-    [timeDate setStringValue: [sender titleOfSelectedItem]];
+    // NSLog(@"stopping update timer");
+    [self _stopUpdateTimer];
 }
 
-// to ensure proper updating of interval, this should be the only method by which the window is shown (e.g. from the Alarm menu)
-- (IBAction)showWindow:(id)sender;
-{
-    if (![[self window] isVisible]) {
-        // NSLog(@"UPDATING FROM showWindow");
-        [self update: self];
-    }
-    [super showWindow: sender];
-    
-}
+@end
 
-- (IBAction)setAlarm:(NSButton *)sender;
-{
-    PSAlarmNotifierController *notifier = [PSAlarmNotifierController alloc];
-    NSTimer *timer;
-    NSTimeInterval interval;
-    [self setAlarmDateAndInterval: sender];
-    if (notifier == nil || ( (interval = [alarm interval]) == 0)) {
-        [self setStatus: @"Unable to set alarm (time just passed?)"];
-        return;
-    }
-    [alarm setMessage: [messageField stringValue]];
-    // XXX should use alarm object instead for userInfo
-    timer = [NSTimer scheduledTimerWithTimeInterval: interval
-                                             target: notifier
-                                           selector: @selector(initWithTimer:)
-                                           userInfo: alarm
-                                            repeats: NO];
-    [self setStatus: [[alarm date] descriptionWithCalendarFormat: @"Alarm set for %x at %X" timeZone: nil locale: nil]];
-    [[self window] close];
-}
+@implementation PSAlarmSetController (NSControlSubclassNotifications)
 
 // called because we're the delegate
 
@@ -182,6 +215,16 @@
 {
     // NSLog(@"UPDATING FROM controlTextDidChange");
     [self update: [notification object]];
+}
+
+@end
+
+@implementation PSAlarmSetController (NSApplicationDelegate)
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag;
+{
+    if (!flag) [self showWindow: self];
+    return YES;
 }
 
 @end

@@ -8,8 +8,21 @@
 
 #import "PSAlarm.h"
 
+NSString * const PSAlarmTimerSetNotification = @"PSAlarmTimerSetNotification";
+NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotification";
 
 @implementation PSAlarm
+
+- (void)dealloc;
+{
+    // NSLog(@"DEALLOC %@", self);
+    alarmType = PSAlarmInvalid;
+    [alarmDate release]; alarmDate = nil;
+    [alarmMessage release]; alarmMessage = nil;
+    [invalidMessage release]; invalidMessage = nil;
+    [timer release]; timer = nil;
+    [super dealloc];
+}
 
 - (void)_setAlarmDate:(NSCalendarDate *)aDate;
 {
@@ -53,6 +66,7 @@
     if (alarmInterval <= 0) {
         [self _invalidate: @"Please specify an alarm interval."]; return;
     }
+    [self _setDateFromInterval];
 }
 
 - (void)_setIntervalFromDate;
@@ -65,13 +79,9 @@
     [self _validateForType: PSAlarmDate];
 }
 
-- (void)setForDateAtTime:(NSDate *)dateTime;
+- (void)setForDateAtTime:(NSCalendarDate *)dateTime;
 {
-    if (dateTime != alarmDate) {
-        [alarmDate release];
-        alarmDate = nil;
-        alarmDate = [dateTime retain];
-    }
+    [self _setAlarmDate: dateTime];
     [self _setIntervalFromDate];
 }
 
@@ -105,7 +115,8 @@
 
 - (BOOL)isValid;
 {
-    return (alarmType == PSAlarmInvalid);
+    if (alarmType == PSAlarmDate) [self _setIntervalFromDate];
+    return (alarmType != PSAlarmInvalid);
 }
 
 - (void)setMessage:(NSString *)aMessage;
@@ -126,6 +137,7 @@
 
 - (NSString *)invalidMessage;
 {
+    if (invalidMessage == nil) return @"";
     return invalidMessage;
 }
 
@@ -137,8 +149,110 @@
 
 - (NSTimeInterval)interval;
 {
+    if (alarmType == PSAlarmSet) return [timer timeInterval]; // XXX counts down?
     if (alarmType == PSAlarmDate) [self _setIntervalFromDate];
     return alarmInterval;
+}
+
+- (BOOL)setTimer;
+{
+    switch (alarmType) {
+        case PSAlarmDate: if (![self isValid]) return NO;
+        case PSAlarmInterval:
+            timer = [NSTimer scheduledTimerWithTimeInterval: alarmInterval
+                                                     target: self
+                                                   selector: @selector(_timerExpired:)
+                                                   userInfo: nil
+                                                    repeats: NO];
+            if (timer != nil) {
+                alarmType = PSAlarmSet;
+                [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmTimerSetNotification object: self];
+                return YES;
+            }
+        default:
+            return NO;
+    }
+}
+
+- (void)cancel;
+{
+    [timer release]; timer = nil;
+}
+
+- (void)_timerExpired:(NSTimer *)aTimer;
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmTimerExpiredNotification object: self];
+    timer = nil;
+    [timer release];
+}
+
+- (NSString *)_alarmTypeString;
+{
+    switch (alarmType) {
+        case PSAlarmDate: return @"PSAlarmDate";
+        case PSAlarmInterval: return @"PSAlarmInterval";
+        case PSAlarmSet: return @"PSAlarmSet";
+        case PSAlarmInvalid: return @"PSAlarmInvalid";
+        default: return [NSString stringWithFormat: @"<unknown: %u>", alarmType];
+    }
+}
+
+- (NSComparisonResult)compare:(PSAlarm *)otherAlarm;
+{
+    return [[self date] compare: [otherAlarm date]];
+}
+
+- (NSString *)description;
+{
+    return [NSString stringWithFormat: @"%@: type %@ date %@ interval %.1f%@",
+        [super description], [self _alarmTypeString], alarmDate, alarmInterval,
+        (alarmType == PSAlarmInvalid ?
+         [NSString stringWithFormat: @"\ninvalid message: %@", invalidMessage]
+        : (alarmType == PSAlarmSet ?
+           [NSString stringWithFormat: @"\ntimer: %@", timer] : @""))];
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder;
+{
+    if (![self isValid]) return;
+    [coder encodeValueOfObjCType: @encode(PSAlarmType) at: &alarmType];
+    switch (alarmType) {
+        case PSAlarmDate:
+        case PSAlarmSet:
+            [coder encodeObject: alarmDate];
+            break;
+        case PSAlarmInterval:
+            [coder encodeValueOfObjCType: @encode(NSTimeInterval) at: &alarmInterval];
+            break;
+        default:
+            break;
+    }
+    [coder encodeObject: alarmMessage];
+    return;
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    if ( (self = [super init]) != nil) {
+        [coder decodeValueOfObjCType: @encode(PSAlarmType) at: &alarmType];
+        switch (alarmType) {
+            case PSAlarmDate:
+            case PSAlarmSet:
+                [self _setAlarmDate: [coder decodeObject]];
+                break;
+            case PSAlarmInterval:
+                [coder decodeValueOfObjCType: @encode(NSTimeInterval) at: &alarmInterval];
+                break;
+            default:
+                break;
+        }
+        [self setMessage: [coder decodeObject]];
+        if (alarmType == PSAlarmSet) {
+            alarmType = PSAlarmDate;
+            [self setTimer];
+        }
+    }
+    return self;
 }
 
 @end

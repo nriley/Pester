@@ -8,11 +8,16 @@
 
 #import <AppKit/AppKit.h>
 
+@class PSAlarm;
 
 @interface PSAlarmNotifierController : NSWindowController {
     IBOutlet NSTextField *messageField;
     IBOutlet NSTextField *dateField;
 }
+
++ (PSAlarmNotifierController *)controllerWithTimerExpiredNotification:(NSNotification *)notification;
+
+- (id)initWithAlarm:(PSAlarm *)alarm;
 
 - (IBAction)close:(NSButton *)sender;
 

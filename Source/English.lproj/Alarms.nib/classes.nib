@@ -1,0 +1,14 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NJRScrollView; LANGUAGE = ObjC; SUPERCLASS = NSScrollView; }, 
+        {
+            ACTIONS = {remove = id; }; 
+            CLASS = PSAlarmsController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {removeButton = NSButton; tableView = NSTableView; }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}
