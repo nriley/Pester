@@ -3,6 +3,12 @@
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {CLASS = NJRDateFormatter; LANGUAGE = ObjC; SUPERCLASS = NSDateFormatter; }, 
         {
+            ACTIONS = {select = id; }; 
+            CLASS = NJRFSObjectSelector; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSButton; 
+        }, 
+        {
             ACTIONS = {clearAllEntries = id; removeEntry = id; }; 
             CLASS = NJRHistoryTrackingComboBox; 
             LANGUAGE = ObjC; 
@@ -10,19 +16,54 @@
         }, 
         {CLASS = NJRIntegerFilter; LANGUAGE = ObjC; SUPERCLASS = NSNumberFormatter; }, 
         {
-            ACTIONS = {dateCompleted = id; inAtChanged = id; setAlarm = id; update = id; }; 
+            CLASS = NJRSoundPopUpButton; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {preview = NSMovieView; }; 
+            SUPERCLASS = NSPopUpButton; 
+        }, 
+        {
+            ACTIONS = {stopVoicePreview = id; }; 
+            CLASS = NJRVoicePopUpButton; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSPopUpButton; 
+        }, 
+        {CLASS = NSObject; LANGUAGE = ObjC; }, 
+        {
+            ACTIONS = {
+                dateCompleted = id; 
+                doScriptChanged = id; 
+                doSpeakChanged = id; 
+                inAtChanged = id; 
+                playSoundChanged = id; 
+                setAlarm = id; 
+                silence = id; 
+                update = id; 
+            }; 
             CLASS = PSAlarmSetController; 
             LANGUAGE = ObjC; 
             OUTLETS = {
+                bounceDockIcon = NSButton; 
+                displayMessage = NSButtonCell; 
+                doScript = NSButtonCell; 
+                doSpeak = NSButtonCell; 
                 inAtMatrix = NSMatrix; 
                 messageField = NSTextField; 
+                playSound = NSButtonCell; 
+                script = NJRFSObjectSelector; 
+                scriptSelectButton = NSButton; 
                 setButton = NSButton; 
+                sound = NJRSoundPopUpButton; 
+                soundRepetitionStepper = NSStepper; 
+                soundRepetitions = NSTextField; 
+                soundRepetitionsLabel = NSTextField; 
                 timeDate = NSTextField; 
                 timeDateCompletions = NSPopUpButton; 
                 timeInterval = NSTextField; 
+                timeIntervalRepeats = NSButton; 
                 timeIntervalUnits = NSPopUpButton; 
                 timeOfDay = NSTextField; 
                 timeSummary = NSTextField; 
+                voice = NJRVoicePopUpButton; 
             }; 
             SUPERCLASS = NSWindowController; 
         }, 
@@ -33,7 +74,7 @@
             SUPERCLASS = NSWindowController; 
         }, 
         {
-            ACTIONS = {orderFrontAlarmsPanel = id; }; 
+            ACTIONS = {orderFrontAlarmsPanel = id; orderFrontSetAlarmPanel = id; stopAlerts = id; }; 
             CLASS = PSApplication; 
             LANGUAGE = ObjC; 
             OUTLETS = {alarmSetController = PSAlarmSetController; }; 
