@@ -14,6 +14,13 @@
 #import "NJRTableView.h"
 #import "NJRTableDelegate.h"
 
+@interface PSAlarmsController (PrivateUndoSupport)
+
+- (void)_restoreAlarms:(NSSet *)selectedAlarms;
+- (void)_removeAlarms:(NSSet *)selectedAlarms;
+
+@end
+
 @implementation PSAlarmsController
 
 - (void)alarmsChanged;
@@ -52,9 +59,29 @@
     [super dealloc];
 }
 
+- (NSUndoManager *)undoManager;
+{
+    return [[self window] undoManager];
+}
+
+- (void)_restoreAlarms:(NSSet *)selectedAlarms;
+{
+    [alarms restoreAlarms: selectedAlarms];
+    [[alarmList delegate] selectItems: selectedAlarms];
+    [[self undoManager] setActionName: NSLocalizedString(@"Alarm Removal", "Undo action")];
+    [[[self undoManager] prepareWithInvocationTarget: self] _removeAlarms: selectedAlarms];
+}
+
+- (void)_removeAlarms:(NSSet *)selectedAlarms;
+{
+    [alarms removeAlarms: selectedAlarms];
+    [[self undoManager] setActionName: NSLocalizedString(@"Alarm Removal", "Undo action")];
+    [[[self undoManager] prepareWithInvocationTarget: self] _restoreAlarms: selectedAlarms];
+}
+
 - (IBAction)remove:(id)sender;
 {
-    [alarms removeAlarms: [[alarmList delegate] selectedItems]];
+    [self _removeAlarms: [[alarmList delegate] selectedItems]];
 }
 
 @end

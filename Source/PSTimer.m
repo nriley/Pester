@@ -143,7 +143,8 @@ NSMutableArray *PSTimerAllTimers = nil;
         userInfo = [anObject retain];
         repeats = yesOrNo;
         timeInterval = ti;
-        [invocation retainArguments]; // mimics retain behavior
+        // don't do this or we leak: [invocation retainArguments];
+        [aTarget retain]; // mimics retain behavior
         [self _setFireDateFromInterval];
         [[self class] _timerAdded: self]; // mimics runloop retention behavior
     }
@@ -162,6 +163,7 @@ NSMutableArray *PSTimerAllTimers = nil;
     // NSLog(@"DEALLOC %@", self);
     isValid = NO;
     [fireDate release]; fireDate = nil;
+    [[invocation target] release];
     [invocation release]; invocation = nil;
     [userInfo release]; userInfo = nil;
     [super dealloc];

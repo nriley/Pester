@@ -73,6 +73,7 @@ extern NSString * const PSAlarmDiedNotification;
 
 - (BOOL)setTimer; // or die, if expired and no snooze/repeat
 - (void)cancelTimer;
+- (void)resetTimer; // use after cancel, only effective on set alarms
 
 // 1.1 only, going away when we move to keyed archiving
 - (NSDictionary *)propertyListRepresentation;

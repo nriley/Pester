@@ -31,8 +31,6 @@ static NSString * const PLAlarmRepeating = @"repeating"; // NSNumber
 static NSString *dateFormat, *shortDateFormat, *timeFormat;
 static NSDictionary *locale;
 
-// XXX need to reset pending alarms after sleep, they "freeze" and never expire.
-
 @implementation PSAlarm
 
 #pragma mark initialize-release
@@ -136,6 +134,7 @@ static NSDictionary *locale;
     // +[NSString stringWithFormat:] in 10.1 does not support long longs: work around it by converting to unsigned ints or longs for display
     if (interval == 0) return nil;
     if (interval < minute) return [NSString stringWithFormat: @"%us", (unsigned)interval];
+    if (interval < hour) return [NSString stringWithFormat: @"%um", (unsigned)(interval / minute)];
     if (interval < day) return [NSString stringWithFormat: @"%uh %um", (unsigned)(interval / hour), (unsigned)((interval % hour) / minute)];
     if (interval < 2 * day) return @"One day";
     if (interval < year) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
@@ -398,7 +397,25 @@ static NSDictionary *locale;
 - (void)cancelTimer;
 {
     [timer invalidate]; [timer release]; timer = nil;
-    [self setRepeating: NO];
+}
+
+- (void)resetTimer;
+{
+    if (timer != nil || alarmType != PSAlarmSet)
+        return;
+
+    alarmType = PSAlarmDate;
+    if (![self isRepeating]) {
+        [self setTimer];
+    } else {
+        // don't want to put this logic in setTimer or isValid because it can cause invalid alarms to be set (consider when someone clicks the "repeat" checkbox, then switches to a [nonrepeating, by design] date alarm, and enters a date that has passed: we do -not- want the alarm to magically morph into a repeating interval alarm)
+        NSTimeInterval savedInterval = alarmInterval;
+        if (![self setTimer]) {
+            alarmType = PSAlarmInterval;
+            [self setInterval: savedInterval];
+            [self setTimer];
+        }
+    }
 }
 
 #pragma mark comparing
@@ -488,15 +505,7 @@ static NSDictionary *locale;
         alarmAlerts = [[PSAlerts alloc] initWithPropertyList: [dict objectForRequiredKey: PLAlarmAlerts]];
         [self setAlerts: alarmAlerts];
         [alarmAlerts release];
-        if (alarmType == PSAlarmSet) {
-            alarmType = PSAlarmDate;
-            // don't want to put this logic in setTimer or isValid because it can cause invalid alarms to be set (consider when someone clicks the "repeat" checkbox, then switches to a [nonrepeating, by design] date alarm, and enters a date that has passed: we do -not- want the alarm to magically morph into a repeating interval alarm)
-            if (![self setTimer] && [self isRepeating]) {
-                alarmType = PSAlarmInterval;
-                [self setInterval: [[dict objectForRequiredKey: PLAlarmInterval] doubleValue]];
-                [self setTimer];
-            }
-        }
+        [self resetTimer];
         if (alarmType == PSAlarmExpired) {
             [self setTimer];
             if (alarmType == PSAlarmExpired) { // failed to restart

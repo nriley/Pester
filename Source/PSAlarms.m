@@ -71,9 +71,9 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 - (void)_alarmTimerExpired:(NSNotification *)notification;
 {
     PSAlarm *alarm = [notification object];
-    // NSLog(@"timer expired: %@ retainCount %d", alarm, [alarm retainCount]);
+    NSLog(@"timer expired: %@ retainCount %d", alarm, [alarm retainCount]);
     [expiredAlarms addObject: alarm];
-    // NSLog(@"expired alarms: %@", [expiredAlarms description]);
+    NSLog(@"expired alarms: %@", [expiredAlarms description]);
     [alarms removeObject: alarm];
     [self _changed];
 }
@@ -81,7 +81,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 - (void)_alarmTimerSet:(NSNotification *)notification;
 {
     PSAlarm *alarm = [notification object];
-    // NSLog(@"timer set: %@ retainCount %d", alarm, [alarm retainCount]);
+    NSLog(@"timer set: %@ retainCount %d", alarm, [alarm retainCount]);
     [alarms addObject: alarm];
     [expiredAlarms removeObject: alarm];
     [self _changed];
@@ -209,6 +209,11 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     [self removeAlarmsAtIndices: indices];
 }
 
+- (void)restoreAlarms:(NSSet *)alarmsToRestore;
+{
+    [alarmsToRestore makeObjectsPerformSelector: @selector(resetTimer)];
+}
+
 - (BOOL)alarmsExpiring;
 {
     return [expiredAlarms count] != 0;
@@ -273,7 +278,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 
         e = [plExpiredAlarms objectEnumerator];
         while ( (plAlarm = [e nextObject]) != nil) {
-            // expired alarms may be just that, or they may have outstanding repeats - if the latter, PSAlarm will reschedule the alarm.
+            // expired alarms may be ready for deletion, or may repeat - if the latter, PSAlarm will reschedule the alarm so the repeat interval begins at restoration time. 
             if ( (alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm]) != nil)
                 [alarms addObject: alarm];
         }

@@ -49,28 +49,34 @@ NSString * const PSAlarmAlertStopNotification = @"PSAlarmAlertStopNotification";
     }
 }
 
+- (void)performAlertsForAlarm:(PSAlarm *)alarm;
+{
+    PSAlerts *alerts = [alarm alerts];
+    NSArray *allAlerts = [alerts allAlerts];
+    if ([allAlerts count] == 0) {
+        [self _resumeAlarm: alarm];
+    } else {
+        pendingAlerts = [[NSMutableSet alloc] init];
+        [pendingAlerts addObjectsFromArray: allAlerts];
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_alertCompleted:)
+                                                     name: PSAlarmAlertCompletedNotification object: alarm];
+        [self retain]; // release in _alertCompleted:
+    }
+    [alerts triggerForAlarm: alarm];
+    if ([alerts requirePesterFrontmost] && ![NSApp isActive]) { // restore frontmost process afterward
+        NSDictionary *activeProcessInfo = [[NSWorkspace sharedWorkspace] activeApplication];
+        frontmostApp.highLongOfPSN = [[activeProcessInfo objectForKey: @"NSApplicationProcessSerialNumberHigh"] longValue];
+        frontmostApp.lowLongOfPSN = [[activeProcessInfo objectForKey: @"NSApplicationProcessSerialNumberLow"] longValue];
+        appWasHidden = [NSApp isHidden];
+        [NSApp activateIgnoringOtherApps: YES];
+    }
+}
+
 - (id)initWithAlarm:(PSAlarm *)alarm;
 {
     if ( (self = [super init]) != nil) {
-        PSAlerts *alerts = [alarm alerts];
-        NSArray *allAlerts = [alerts allAlerts];
-        if ([allAlerts count] == 0) {
-            [self _resumeAlarm: alarm];
-        } else {
-            pendingAlerts = [[NSMutableSet alloc] init];
-            [pendingAlerts addObjectsFromArray: allAlerts];
-            [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_alertCompleted:)
-                                                         name: PSAlarmAlertCompletedNotification object: alarm];
-            [self retain]; // release in _alertCompleted:
-        }
-        [alerts triggerForAlarm: alarm];
-        if ([alerts requirePesterFrontmost] && ![NSApp isActive]) { // restore frontmost process afterward
-            NSDictionary *activeProcessInfo = [[NSWorkspace sharedWorkspace] activeApplication];
-            frontmostApp.highLongOfPSN = [[activeProcessInfo objectForKey: @"NSApplicationProcessSerialNumberHigh"] longValue];
-            frontmostApp.lowLongOfPSN = [[activeProcessInfo objectForKey: @"NSApplicationProcessSerialNumberLow"] longValue];
-            appWasHidden = [NSApp isHidden];
-            [NSApp activateIgnoringOtherApps: YES];
-        }
+        // because we're called within a notification, and alerts may deliver further notifications, make sure the rest of the notification clients are able to execute first
+        [self performSelector: @selector(performAlertsForAlarm:) withObject: alarm afterDelay: 0];
     }
     return self;
 }

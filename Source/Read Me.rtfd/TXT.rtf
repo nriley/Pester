@@ -30,10 +30,12 @@ Obtain updates from <\cf3 \ul http://web.sabi.net/nriley/software/\cf0 \ulnone >
 \cf4 Note: This documentation is not yet updated for version 1.1, though most of it should still apply; please read the release notes at the end for a listing of what has changed in this version.\
 \pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
 \cf0 \
+\pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
 
-\f0\b What is it?\
+\f0\b \cf0 What is it?\
+\pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
 
-\f4\b0 \
+\f4\b0 \cf0 \
 
 \f3 Miss your bus or train?  Have a meeting coming up soon and want to be reminded of it?  Too much trouble to create an appointment in Palm Desktop, iCal or Entourage?  Pester can help.\
 
@@ -47,8 +49,9 @@ Obtain updates from <\cf3 \ul http://web.sabi.net/nriley/software/\cf0 \ulnone >
 \pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
 
 \f0\b \cf0 Installation\
+\pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
 
-\f5 \
+\f5 \cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
 \f3\b0 \cf0 Pester should work on Mac OS X 10.1 or later; it has been tested on Mac OS X 10.1.5 and 10.2.1.\
@@ -197,12 +200,14 @@ A.
 \'a5	Fixed \'d4s\'d5, \'d4m\'d5, \'d4h\'d5 shortcuts for selecting alarm interval so they work regardless of the insertion point position.\
 \'a5 Fixed time remaining in the dock being wrong by one second, or showing \'c7expired\'c8.\
 \'a5 Fixed empty messages appearing in the alarm message combo box.\
+\'a5	Fixed display of time intervals between 1 and 59 minutes: now \'d2#m\'d3 instead of \'d20h #m\'d3.\
 \'a5	Fixed display of time intervals between 24 and 48 hours: now \'d2One day\'d3 instead of \'d21 days\'d3.\
 \'a5 Fixed alarms not expiring after you put your Mac to sleep and wake it up again.\
-\'a5 Added better indications when a duration value is out of range (okay, Nat? :)\
+\'a5 Better indicate when a duration is out of range (okay, Nat? :)\
 \'a5	Added more keyboard navigation, type-selection, sorting and iTunes-like row coloring to the alarm list window.\
 \'a5	Ellipsize long alarm messages in the alarm list window.\
 \'a5	Added Delete keyboard shortcut for removing alarms to the alarm list window.\
+\'a5	Alarm removal in the alarm list window is now undoable.\
 \'a5	Added in-application read me viewer with section navigation, instead of opening TextEdit.
 \f5\b \
 
@@ -210,7 +215,7 @@ A.
 \'a5	Removed horizontal scroll bar from the alarm list window because it wasn\'d5t ever available.\
 \'a5	Worked around many Cocoa bugs to provide support for non-US date and time formats.\
 \'a5	Worked around Cocoa bugs with British and US \'d2PM\'d3/\'d2pm\'d3 in some configurations: date formats wouldn\'d5t \'d2stick\'d3, and would be reset when you tabbed through that field.\
-\'a5	Fixed text display with non-Roman systems\
+\'a5	Fixed text display with non-Roman languages.\
 \'a5	Only show set alarm window when Pester comes to the front if an alarm isn\'d5t in the process of expiring.\
 \'a5	Added customizable alerts: the previously-mandatory notification dialog box, alert sound and dock bouncing are now all optional, and AppleScript, speech, and playback of sounds, images and movies (anything QuickTime can handle) are new. View alerts for scheduled alarms as help tags in the alarm list window.\
 \'a5 Only bring Pester to the front if needed for the type of alert selected; if Pester was hidden or not in front before an alarm expired, it switches back and hides if necessary after the alarm is dismissed. (This means you can dismiss an alarm by clicking or pressing the return key and go right back to work.)\
@@ -227,29 +232,23 @@ A.
 \f10\fs20 2002-11-18 00:31:24.461 Pester[8545] An error occurred while attempting to restore the alarm list: *** Incorrect archive: unexpected byte
 \f3\fs28 \'d3.\
 \'a5 Switched to apple-generic versioning (agvtool, etc.).  December 2002 or later Dev Tools are required to build Pester 1.1.\
-\pard\tx180\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li180\fi-180\ql\qnatural
 
-\f5\b \cf0 \
+\f5\b \
 Known bugs in this version (not to be fixed by 1.1):\
-\pard\tx180\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li180\fi-180\ql\qnatural
 
-\f3\b0 \cf0 \'a5 Selecting or typing a weekday with a name containing a hyphen (e.g., Brazilian \'d2next sexta-feira\'d3) or a space (Gaelic \'d2next D\'8e C\'8eadaoin\'d3) causes the date field to be invalid. I may not be able to fix this without reimplementing the Cocoa date parser; an alternative would be to use US (or Portuguese?) date formats for Brazilian input; any suggestions for Gaelic?\
+\f3\b0 \'a5 Selecting or typing a weekday with a name containing a hyphen (e.g., Brazilian \'d2next sexta-feira\'d3) or a space (Gaelic \'d2next D\'8e C\'8eadaoin\'d3) causes the date field to be invalid. I may not be able to fix this without reimplementing the Cocoa date parser; an alternative would be to use US (or Portuguese?) date formats for Brazilian input; any suggestions for Gaelic?\
 \'a5 Type-selection of alarms by their dates and times in the alarm list only works well when the items in the list are in approximate alphabetical order; this breaks with certain date and time formats.\
 \'a5 After changing the date or time format in System Preferences, you must quit and reopen Pester for your changes to take effect.  As Apple\'d5s own iCal also exhibits this issue, I don\'d5t believe it is urgent.\
-\pard\tx180\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li180\fi-180\ql\qnatural
 
-\f5\b \cf0 \
+\f5\b \
 Still to be fixed for 1.1:\
-\pard\tx180\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li180\fi-180\ql\qnatural
 
-\f3\b0 \cf0 \
+\f3\b0 \
 \
-\pard\tx180\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li180\fi-180\ql\qnatural
 
-\f5\b \cf0 Additional features planned for later versions:\
-\pard\tx180\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li180\fi-180\ql\qnatural
+\f5\b Additional features planned for later versions:\
 
-\f3\b0 \cf0 \'a5 Better repeating alarms, such as a \'d2real time\'d3 option so you can schedule an alarm to go off every hour, on the hour, for example.\
+\f3\b0 \'a5 Better repeating alarms, such as a \'d2real time\'d3 option so you can schedule an alarm to go off every hour, on the hour, for example.\
 \'a5 Better handling of non-repeating expired alarms\'d1offer the option to have the alarms go off when Pester is restarted?\
 \'a5	Alarms (unscheduled ones, at least) as documents.\
 \'a5 Notifications before an alarm goes off, as in 
