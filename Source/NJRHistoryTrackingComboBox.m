@@ -20,7 +20,6 @@
 
 - (void)awakeFromNib;
 {
-    NSAssert([self tag] != 0, @"Can’t track history for combo box with tag 0: please set a tag");
     [[NSNotificationCenter defaultCenter] addObserver: self
                                              selector: @selector(textDidEndEditing:)
                                                  name: NSTextDidEndEditingNotification

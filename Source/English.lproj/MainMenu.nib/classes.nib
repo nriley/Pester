@@ -16,7 +16,8 @@
         }, 
         {CLASS = NJRIntegerFilter; LANGUAGE = ObjC; SUPERCLASS = NSNumberFormatter; }, 
         {
-            CLASS = NJRSoundPopUpButton; 
+            ACTIONS = {stopSoundPreview = id; }; 
+            CLASS = NJRQTMediaPopUpButton; 
             LANGUAGE = ObjC; 
             OUTLETS = {preview = NSMovieView; }; 
             SUPERCLASS = NSPopUpButton; 

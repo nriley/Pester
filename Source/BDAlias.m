@@ -280,6 +280,40 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
     return [result autorelease];
 }
 
+- (BOOL)aliasIsEqual:(AliasHandle)otherAlias;
+{
+    AliasHandle alias = [self alias];
+    FSRef ref, otherRef;
+    Boolean wasChanged;
+
+    if (alias == otherAlias) return YES;
+    if (alias == NULL || otherAlias == NULL) return NO;
+    if (FSResolveAlias(NULL, alias, &ref, &wasChanged) != noErr) return NO;
+    if (FSResolveAlias(NULL, otherAlias, &otherRef, &wasChanged) != noErr) return NO;
+    return (FSCompareFSRefs(&ref, &otherRef) == noErr);
+}
+
+- (BOOL)aliasDataIsEqual:(NSData *)data;
+{
+    AliasHandle otherAlias;
+    const UInt8 *aliasPtr = CFDataGetBytePtr((CFDataRef)data);
+    BOOL result;
+    if (aliasPtr == NULL) {
+        otherAlias = (AliasHandle)DataToHandle((CFDataRef)data);
+    } else {
+        otherAlias = (AliasHandle)&aliasPtr;
+    }
+    result = [self aliasIsEqual: otherAlias];
+    if (aliasPtr == NULL) DisposeHandle((Handle)otherAlias);
+    return result;
+}
+
+- (BOOL)isEqual:(id)object;
+{
+    if (![object isKindOfClass: [BDAlias class]]) return NO;
+    return [self aliasIsEqual: [object alias]];
+}
+
 + (BDAlias *)aliasWithAliasHandle:(AliasHandle)alias
 {
     return [[[BDAlias alloc] initWithAliasHandle:alias] autorelease];

@@ -10,7 +10,7 @@
 #import "PSAlarm.h"
 
 @class NJRFSObjectSelector;
-@class NJRSoundPopUpButton;
+@class NJRQTMediaPopUpButton;
 @class NJRVoicePopUpButton;
 
 @interface PSAlarmSetController : NSWindowController {
@@ -25,7 +25,7 @@
     IBOutlet NSButtonCell *displayMessage;
     IBOutlet NSButton *bounceDockIcon;
     IBOutlet NSButtonCell *playSound;
-    IBOutlet NJRSoundPopUpButton *sound;
+    IBOutlet NJRQTMediaPopUpButton *sound;
     IBOutlet NSTextField *soundRepetitions;
     IBOutlet NSStepper *soundRepetitionStepper;
     IBOutlet NSTextField *soundRepetitionsLabel;

@@ -58,6 +58,10 @@
 - (NSData *)aliasData;
 - (void)setAliasData:(NSData *)newAliasData;
 
+- (BOOL)aliasIsEqual:(AliasHandle)otherAlias;
+- (BOOL)aliasDataIsEqual:(NSData *)data;
+- (BOOL)isEqual:(id)object;
+
 - (NSString *)fullPath;
 - (NSString *)fullPathRelativeToPath:(NSString *)relPath;
 

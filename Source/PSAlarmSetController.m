@@ -10,7 +10,7 @@
 #import "PSAlarmAlertController.h"
 #import "NJRDateFormatter.h"
 #import "NJRFSObjectSelector.h"
-#import "NJRSoundPopUpButton.h"
+#import "NJRQTMediaPopUpButton.h"
 #import "NJRVoicePopUpButton.h"
 #import <Carbon/Carbon.h>
 

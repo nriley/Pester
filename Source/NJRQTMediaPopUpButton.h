@@ -1,5 +1,5 @@
 //
-//  NJRSoundPopUpButton.h
+//  NJRQTMediaPopUpButton.h
 //  Pester
 //
 //  Created by Nicholas Riley on Sat Oct 26 2002.
@@ -9,9 +9,12 @@
 #import <AppKit/AppKit.h>
 #import "BDAlias.h"
 
-@interface NJRSoundPopUpButton : NSPopUpButton {
+@interface NJRQTMediaPopUpButton : NSPopUpButton {
     IBOutlet NSMovieView *preview;
-    BDAlias *selectedAlias;
+    NSMenuItem *otherItem;
+    BDAlias *selectedAlias, *previousAlias;
+    NSMutableArray *recentMediaAliasData;
+    BOOL dragAccepted;
 }
 
 - (BDAlias *)selectedAlias;
