@@ -168,10 +168,18 @@
 		29B97317FDCFA39411CA2CEA = {
 			children = (
 				F5243DA40378681101AEEDB1,
+				E17F2F6B03FDFE2C00050002,
+				E1DEF0EA03FE1BF100050002,
+				E1DEF0EB03FE1BF100050002,
+				E1DEF0EC03FE1BF100050002,
+				E1DEF0ED03FE1BF100050002,
 				29B97318FDCFA39411CA2CEA,
 				F560E2EE03574F8A01A4E466,
 				F59DC6DF0353DF5E01AEEDB1,
 				F59E4BDE036B1D94016B311C,
+				E17F2F4D03FDFB3100050002,
+				E1DEF10603FF83AC00050002,
+				E10F2A3B0402E61C00050002,
 				089C165CFE840E0CC02AAC07,
 				F59DD44F0358ABF4017318D0,
 				F59DC6E30353ED1201AEEDB1,
@@ -228,7 +236,7 @@
 				E130B9A903B7AEED00000028,
 			);
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = /;
@@ -261,7 +269,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Pester</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Pester 1.1b2, © 2002–03 Nicholas Riley</string>
+	<string>Pester 1.1b3, © 2002–03 Nicholas Riley</string>
 	<key>CFBundleIconFile</key>
 	<string>Application icon</string>
 	<key>CFBundleIdentifier</key>
@@ -273,11 +281,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1b2</string>
+	<string>1.1b3</string>
 	<key>CFBundleSignature</key>
 	<string>Pstr</string>
 	<key>CFBundleVersion</key>
-	<string>10</string>
+	<string>11</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -335,6 +343,15 @@
 				E1E9A33C03C8EF6700050002,
 				E1BF6E9203C928D200050002,
 				E19FD3A003C98645001509F3,
+				E17F2F3403FDF2F000050002,
+				E17F2F4603FDF67800050002,
+				E17F2F4803FDF67800050002,
+				E17F2F4A03FDF67800050002,
+				E1DEF0FB03FE9F2C00050002,
+				E1DEF10403FF816300050002,
+				E1DEF118040014EB00050002,
+				E10F2A400402E71400050002,
+				E1B46FEA04057E3400050002,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +368,14 @@
 				F589C9C7035AA12E0155F4B2,
 				F59E4BE0036B1D94016B311C,
 				F5243DA50378681101AEEDB1,
+				E17F2F4F03FDFB3100050002,
+				E17F2F6C03FDFE2C00050002,
+				E1DEF0EE03FE1BF100050002,
+				E1DEF0EF03FE1BF100050002,
+				E1DEF0F003FE1BF100050002,
+				E1DEF0F103FE1BF100050002,
+				E1DEF10803FF83AC00050002,
+				E10F2A3D0402E61C00050002,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +426,15 @@
 				E1E9A33B03C8EF6700050002,
 				E1BF6E9303C928D200050002,
 				E19FD3A103C98645001509F3,
+				E17F2F3503FDF2F000050002,
+				E17F2F4703FDF67800050002,
+				E17F2F4903FDF67800050002,
+				E17F2F4B03FDF67800050002,
+				E1DEF0FC03FE9F2C00050002,
+				E1DEF10503FF816300050002,
+				E1DEF119040014EB00050002,
+				E10F2A410402E71400050002,
+				E1B46FEB04057E3400050002,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +498,51 @@
 //E12
 //E13
 //E14
+		E10F2A3B0402E61C00050002 = {
+			children = (
+				E10F2A3C0402E61C00050002,
+			);
+			isa = PBXVariantGroup;
+			name = "Read Me.nib";
+			path = "";
+			refType = 4;
+		};
+		E10F2A3C0402E61C00050002 = {
+			isa = PBXFileReference;
+			name = English;
+			path = "English.lproj/Read Me.nib";
+			refType = 4;
+		};
+		E10F2A3D0402E61C00050002 = {
+			fileRef = E10F2A3B0402E61C00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E10F2A3E0402E71400050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRReadMeController.h;
+			refType = 4;
+		};
+		E10F2A3F0402E71400050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = NJRReadMeController.m;
+			refType = 4;
+		};
+		E10F2A400402E71400050002 = {
+			fileRef = E10F2A3E0402E71400050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E10F2A410402E71400050002 = {
+			fileRef = E10F2A3F0402E71400050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		E1271F040000012300000028 = {
 			fileRef = E130B9AD03B7C59700000028;
 			isa = PBXBuildFile;
@@ -619,6 +698,150 @@
 			settings = {
 			};
 		};
+		E17F2F3203FDF2F000050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSCalendarController.h;
+			refType = 4;
+		};
+		E17F2F3303FDF2F000050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSCalendarController.m;
+			refType = 4;
+		};
+		E17F2F3403FDF2F000050002 = {
+			fileRef = E17F2F3203FDF2F000050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E17F2F3503FDF2F000050002 = {
+			fileRef = E17F2F3303FDF2F000050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E17F2F4003FDF67700050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = "NSCalendarDate-OFExtensions.h";
+			refType = 4;
+		};
+		E17F2F4103FDF67700050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = OACalendarView.m;
+			refType = 4;
+		};
+		E17F2F4203FDF67700050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = OACalendarView.h;
+			refType = 4;
+		};
+		E17F2F4303FDF67700050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = "NSImage-OAExtensions.m";
+			refType = 4;
+		};
+		E17F2F4403FDF67800050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = "NSImage-OAExtensions.h";
+			refType = 4;
+		};
+		E17F2F4503FDF67800050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = "NSCalendarDate-OFExtensions.m";
+			refType = 4;
+		};
+		E17F2F4603FDF67800050002 = {
+			fileRef = E17F2F4003FDF67700050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E17F2F4703FDF67800050002 = {
+			fileRef = E17F2F4103FDF67700050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E17F2F4803FDF67800050002 = {
+			fileRef = E17F2F4203FDF67700050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E17F2F4903FDF67800050002 = {
+			fileRef = E17F2F4303FDF67700050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E17F2F4A03FDF67800050002 = {
+			fileRef = E17F2F4403FDF67800050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E17F2F4B03FDF67800050002 = {
+			fileRef = E17F2F4503FDF67800050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E17F2F4C03FDF67D00050002 = {
+			children = (
+				E17F2F4003FDF67700050002,
+				E17F2F4503FDF67800050002,
+				E17F2F4203FDF67700050002,
+				E17F2F4103FDF67700050002,
+				E17F2F4403FDF67800050002,
+				E17F2F4303FDF67700050002,
+				E1DEF0F903FE9F2C00050002,
+				E1DEF0FA03FE9F2C00050002,
+			);
+			isa = PBXGroup;
+			name = OACalendarView;
+			path = "";
+			refType = 4;
+		};
+		E17F2F4D03FDFB3100050002 = {
+			children = (
+				E17F2F4E03FDFB3100050002,
+			);
+			isa = PBXVariantGroup;
+			name = Calendar.nib;
+			path = "";
+			refType = 4;
+		};
+		E17F2F4E03FDFB3100050002 = {
+			isa = PBXFileReference;
+			name = English;
+			path = English.lproj/Calendar.nib;
+			refType = 4;
+		};
+		E17F2F4F03FDFB3100050002 = {
+			fileRef = E17F2F4D03FDFB3100050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E17F2F6B03FDFE2C00050002 = {
+			isa = PBXFileReference;
+			path = Calendar.tiff;
+			refType = 4;
+		};
+		E17F2F6C03FDFE2C00050002 = {
+			fileRef = E17F2F6B03FDFE2C00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		E191700B03AD24A600AEFBE0 = {
 			fileEncoding = 4;
 			isa = PBXFileReference;
@@ -718,6 +941,30 @@
 			settings = {
 			};
 		};
+		E1B46FE804057E3400050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRSplitView.h;
+			refType = 4;
+		};
+		E1B46FE904057E3400050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJRSplitView.m;
+			refType = 4;
+		};
+		E1B46FEA04057E3400050002 = {
+			fileRef = E1B46FE804057E3400050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1B46FEB04057E3400050002 = {
+			fileRef = E1B46FE904057E3400050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		E1BF6E9003C928D200050002 = {
 			fileEncoding = 4;
 			isa = PBXFileReference;
@@ -762,6 +1009,143 @@
 		};
 		E1D358BC03C60CE900C8A18E = {
 			fileRef = E1D358BA03C60CE900C8A18E;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF0EA03FE1BF100050002 = {
+			isa = PBXFileReference;
+			path = OARightArrowPressed.tiff;
+			refType = 4;
+		};
+		E1DEF0EB03FE1BF100050002 = {
+			isa = PBXFileReference;
+			path = OALeftArrow.tiff;
+			refType = 4;
+		};
+		E1DEF0EC03FE1BF100050002 = {
+			isa = PBXFileReference;
+			path = OARightArrow.tiff;
+			refType = 4;
+		};
+		E1DEF0ED03FE1BF100050002 = {
+			isa = PBXFileReference;
+			path = OALeftArrowPressed.tiff;
+			refType = 4;
+		};
+		E1DEF0EE03FE1BF100050002 = {
+			fileRef = E1DEF0EA03FE1BF100050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF0EF03FE1BF100050002 = {
+			fileRef = E1DEF0EB03FE1BF100050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF0F003FE1BF100050002 = {
+			fileRef = E1DEF0EC03FE1BF100050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF0F103FE1BF100050002 = {
+			fileRef = E1DEF0ED03FE1BF100050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF0F903FE9F2C00050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJROffCenterPanel.h;
+			refType = 4;
+		};
+		E1DEF0FA03FE9F2C00050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = NJROffCenterPanel.m;
+			refType = 4;
+		};
+		E1DEF0FB03FE9F2C00050002 = {
+			fileRef = E1DEF0F903FE9F2C00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF0FC03FE9F2C00050002 = {
+			fileRef = E1DEF0FA03FE9F2C00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF10203FF816300050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSSnoozeUntilController.h;
+			refType = 4;
+		};
+		E1DEF10303FF816300050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = PSSnoozeUntilController.m;
+			refType = 4;
+		};
+		E1DEF10403FF816300050002 = {
+			fileRef = E1DEF10203FF816300050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF10503FF816300050002 = {
+			fileRef = E1DEF10303FF816300050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF10603FF83AC00050002 = {
+			children = (
+				E1DEF10703FF83AC00050002,
+			);
+			isa = PBXVariantGroup;
+			name = "Snooze until.nib";
+			path = "";
+			refType = 4;
+		};
+		E1DEF10703FF83AC00050002 = {
+			isa = PBXFileReference;
+			name = English;
+			path = "English.lproj/Snooze until.nib";
+			refType = 4;
+		};
+		E1DEF10803FF83AC00050002 = {
+			fileRef = E1DEF10603FF83AC00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF116040014EB00050002 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = PSTimeDateEditor.h;
+			refType = 4;
+		};
+		E1DEF117040014EB00050002 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			path = PSTimeDateEditor.m;
+			refType = 4;
+		};
+		E1DEF118040014EB00050002 = {
+			fileRef = E1DEF116040014EB00050002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E1DEF119040014EB00050002 = {
+			fileRef = E1DEF117040014EB00050002;
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -1063,6 +1447,12 @@
 				F59DC6DC0353DE5101AEEDB1,
 				F59E47C1036B1ADD016B311C,
 				F59E47C0036B1ADD016B311C,
+				E17F2F3203FDF2F000050002,
+				E17F2F3303FDF2F000050002,
+				E1DEF10203FF816300050002,
+				E1DEF10303FF816300050002,
+				E10F2A3E0402E71400050002,
+				E10F2A3F0402E71400050002,
 				F5F198D1036BE57401EB0372,
 				F5F198D0036BE57401EB0372,
 			);
@@ -1087,6 +1477,8 @@
 			children = (
 				E1E9A33D03C8EF6800050002,
 				F59E47A6036AA5FC016B311C,
+				E1DEF116040014EB00050002,
+				E1DEF117040014EB00050002,
 				E1ECA00603C002B300F54C66,
 				E1ECA00703C002B300F54C66,
 				E1A18CB203B439CF00000028,
@@ -1103,6 +1495,7 @@
 		};
 		F560E314035787F901A4E466 = {
 			children = (
+				E17F2F4C03FDF67D00050002,
 				E1D358B903C60CE900C8A18E,
 				E1D358BA03C60CE900C8A18E,
 				E1F0B14A03AD8CEF00AEFBE0,
@@ -1111,6 +1504,8 @@
 				F5B79836035F64F80136A8DD,
 				F552A8AB0358E8B201AEEDB1,
 				F552A8AC0358E8B201AEEDB1,
+				E1B46FE804057E3400050002,
+				E1B46FE904057E3400050002,
 				F560E3150357895001A4E466,
 				F560E3160357895001A4E466,
 				E13919E203B9E4E100000028,

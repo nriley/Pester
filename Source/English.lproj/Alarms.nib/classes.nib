@@ -19,7 +19,7 @@
             ACTIONS = {remove = id; }; 
             CLASS = PSAlarmsController; 
             LANGUAGE = ObjC; 
-            OUTLETS = {removeButton = NSButton; tableView = NSTableView; }; 
+            OUTLETS = {alarmList = NSTableView; removeButton = NSButton; }; 
             SUPERCLASS = NSWindowController; 
         }
     ); 

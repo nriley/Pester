@@ -10,10 +10,11 @@
 #import "PSAlarms.h"
 
 @interface PSAlarmsController : NSWindowController {
-    IBOutlet NSTableView *tableView;
+    IBOutlet NSTableView *alarmList;
     IBOutlet NSButton *removeButton;
     PSAlarms *alarms;
     NSArray *reorderedAlarms;
+    NSDictionary *messageAttributes;
 }
 
 - (IBAction)remove:(id)sender;

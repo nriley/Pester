@@ -1,0 +1,22 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {contentsClicked = id; }; 
+            CLASS = NJRReadMeController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                body = NSTextView; 
+                bodyBox = NSBox; 
+                contents = NSTableView; 
+                contentsBox = NSBox; 
+                progress = NSProgressIndicator; 
+                progressTabs = NSTabView; 
+                splitter = NSSplitView; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {CLASS = NJRSplitView; LANGUAGE = ObjC; SUPERCLASS = NSSplitView; }
+    ); 
+    IBVersion = 1; 
+}

@@ -1,0 +1,20 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {close = id; dateCompleted = id; showCalendar = id; snooze = id; update = id; }; 
+            CLASS = PSSnoozeUntilController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                messageField = NSTextField; 
+                snoozeButton = NSButton; 
+                timeCalendarButton = NSButton; 
+                timeDate = NSTextField; 
+                timeDateCompletions = NSPopUpButton; 
+                timeOfDay = NSTextField; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

@@ -170,7 +170,7 @@
     // match iTunes’ grid color
     [[[NSColor gridColor] blendedColorWithFraction: 0.70 ofColor: [NSColor whiteColor]] set];
     for (i = columnRange.location ; i < NSMaxRange(columnRange) ; i++) {
-        NSRect colRect = [self rectOfColumn:i];
+        NSRect colRect = [self rectOfColumn: i];
         int rightEdge = (int) 0.5 + colRect.origin.x + colRect.size.width;
         [NSBezierPath strokeLineFromPoint: NSMakePoint(-0.5 + rightEdge, -0.5 + rect.origin.y)
                                   toPoint: NSMakePoint(-0.5 + rightEdge, -0.5 + rect.origin.y + rect.size.height)];

@@ -22,12 +22,19 @@
     NSTimer *updateTimer;
     PSAlarm *alarm;
     BOOL canSnooze;
+    NSTimeInterval snoozeInterval;
 }
 
 - (id)initWithAlarm:(PSAlarm *)anAlarm;
 
+- (NSTimeInterval)snoozeInterval;
+- (BOOL)setSnoozeInterval:(NSTimeInterval)interval;
+- (void)snoozeUntilDate:(NSCalendarDate *)date;
+
+- (IBAction)snoozeIntervalUnitsChanged:(NSPopUpButton *)sender;
 - (IBAction)close:(id)sender;
 - (IBAction)snooze:(NSButton *)sender;
+- (IBAction)snoozeUntil:(NSMenuItem *)sender;
 - (IBAction)stopRepeating:(NSButton *)sender;
 
 @end

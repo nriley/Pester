@@ -37,6 +37,7 @@
 
     while ( (i = [e nextObject]) != nil) {
         multiplierTag = [i tag];
+        if (multiplierTag <= 0) continue;
         if (((int)interval % multiplierTag) == 0) {
             NSFormatter *formatter = [self formatter];
             int intervalValue = interval / multiplierTag;
@@ -63,18 +64,26 @@
             case 's': case 'S': tag = 1; break;
             case 'm': case 'M': tag = 60; break;
             case 'h': case 'H': tag = 60 * 60; break;
+            case 'u': case 'U': tag = -2; break;
             default: break;
         }
-        if (tag != -1) [intervalUnits selectItemAtIndex: [intervalUnits indexOfItemWithTag: tag]];
+        if (tag != -1) {
+            int itemIndex = [intervalUnits indexOfItemWithTag: tag];
+            if (itemIndex != -1) {
+                [intervalUnits selectItemAtIndex: itemIndex];
+                [[intervalUnits menu] performActionForItemAtIndex: itemIndex];
+            }
+            if (tag < 0) return NO; // don't send update
+        }
     }
     return [super textView: textView shouldChangeTextInRange: range replacementString: string];
 }
 
 - (void)handleDidFailToFormatString:(NSString *)string errorDescription:(NSString *)error label:(NSString *)label;
 {
-    NSString *alertMessage;
-    NSString *alternateButtonString;
-    NSDecimalNumber *proposedValue;
+    NSString *alertMessage = nil;
+    NSString *alternateButtonString = nil;
+    NSDecimalNumber *proposedValue = nil;
     NSDictionary *contextInfo;
 
     NSString *alertInformation = [NSString localizedStringWithFormat:

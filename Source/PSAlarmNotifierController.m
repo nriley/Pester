@@ -10,6 +10,7 @@
 #import "PSAlarmAlertController.h"
 #import "PSAlarm.h"
 #import "PSNotifierAlert.h"
+#import "PSSnoozeUntilController.h"
 #import "NJRIntervalField.h"
 
 static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval"; // NSUserDefaults key
@@ -23,7 +24,7 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
 
 @implementation PSAlarmNotifierController
 
-// XXX should use NSNonactivatingPanelMask on 10.2
+// XXX should use NSNonactivatingPanelMask on 10.2?
 
 - (id)initWithAlarm:(PSAlarm *)anAlarm;
 {
@@ -33,9 +34,9 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
         alarm = [anAlarm retain];
         [messageField setStringValue: [alarm message]];
         [dateField setStringValue: [alarm dateTimeString]];
-        if (![snoozeIntervalField setInterval: [alarm snoozeInterval]] &&
-            ![snoozeIntervalField setInterval: [[[NSUserDefaults standardUserDefaults] objectForKey: PSAlarmSnoozeInterval] doubleValue]])
-            [snoozeIntervalField setInterval: 15 * 60]; // 15 minutes
+        if (![self setSnoozeInterval: [alarm snoozeInterval]] &&
+            ![self setSnoozeInterval: [[[NSUserDefaults standardUserDefaults] objectForKey: PSAlarmSnoozeInterval] doubleValue]])
+            [self setSnoozeInterval: 15 * 60]; // 15 minutes
         if ([alarm isRepeating]) {
             [intervalField setStringValue:
                 [NSString stringWithFormat: @"every %@", [[alarm intervalString] lowercaseString]]];
@@ -74,7 +75,8 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
 
 - (void)update:(id)sender;
 {
-    canSnooze = [snoozeIntervalField interval] != 0;
+    snoozeInterval = [snoozeIntervalField interval];
+    canSnooze = (snoozeInterval > 0);
     if (canSnooze) [nextDateField setStringValue: @"after snooze"];
     [snoozeButton setEnabled: canSnooze];
     [canSnooze ? snoozeButton : okButton setKeyEquivalent: @"\r"];
@@ -88,12 +90,39 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
     [[PSNotifierAlert alert] completedForAlarm: alarm];
 }
 
+- (IBAction)snoozeUntil:(NSMenuItem *)sender;
+{
+    [PSSnoozeUntilController snoozeUntilControllerWithNotifierController: self];
+}
+
+- (IBAction)snoozeIntervalUnitsChanged:(NSPopUpButton *)sender;
+{
+    if ([[sender selectedItem] tag] > 0) [self update: nil];
+}
+
+- (NSTimeInterval)snoozeInterval;
+{
+    return snoozeInterval;
+}
+
+- (BOOL)setSnoozeInterval:(NSTimeInterval)interval;
+{
+    snoozeInterval = interval;
+    return [snoozeIntervalField setInterval: interval];
+}
+
 - (IBAction)snooze:(NSButton *)sender;
 {
-    NSTimeInterval snoozeInterval = [snoozeIntervalField interval];
+    snoozeInterval = [snoozeIntervalField interval];
     [alarm setSnoozeInterval: snoozeInterval];
     [[NSUserDefaults standardUserDefaults] setObject: [NSNumber numberWithDouble: snoozeInterval] forKey: PSAlarmSnoozeInterval];
     [self close: sender];
+}
+
+- (void)snoozeUntilDate:(NSCalendarDate *)date;
+{
+    [alarm setSnoozeInterval: [date timeIntervalSinceNow]];
+    [self close: self];
 }
 
 - (IBAction)stopRepeating:(NSButton *)sender;

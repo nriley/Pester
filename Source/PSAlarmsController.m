@@ -9,6 +9,7 @@
 #import "PSAlarmsController.h"
 #import "PSAlarm.h"
 #import "PSAlerts.h"
+#import "NSString-NJRExtensions.h"
 #import "NSTableView-NJRExtensions.h"
 #import "NJRTableView.h"
 #import "NJRTableDelegate.h"
@@ -17,7 +18,7 @@
 
 - (void)alarmsChanged;
 {
-    reorderedAlarms = [[tableView delegate] reorderedDataForData: [alarms alarms]];
+    reorderedAlarms = [[alarmList delegate] reorderedDataForData: [alarms alarms]];
 }
 
 - (id)init;
@@ -33,20 +34,27 @@
             [[self window] center];
            }
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(alarmsChanged) name: PSAlarmsDidChangeNotification object: alarms];
-        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(tableViewSelectionDidChange:) name: NSTableViewSelectionDidChangeNotification object: tableView];
-        [tableView setAutosaveName: @"Alarm list"];
-        [tableView setAutosaveTableColumns: YES];
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(tableViewSelectionDidChange:) name: NSTableViewSelectionDidChangeNotification object: alarmList];
+        messageAttributes = [[NSDictionary alloc] initWithObjectsAndKeys: [[[alarmList tableColumnWithIdentifier: @"message"] dataCell] font], NSFontAttributeName, nil];
+        [alarmList setAutosaveName: @"Alarm list"];
+        [alarmList setAutosaveTableColumns: YES];
         [self alarmsChanged];
-        [[self window] makeFirstResponder: tableView];
-        [[self window] setResizeIncrements: NSMakeSize(1, [tableView cellHeight])];
+        [[self window] makeFirstResponder: alarmList];
+        [[self window] setResizeIncrements: NSMakeSize(1, [alarmList cellHeight])];
     }
     return self;
 }
 
+- (void)dealloc;
+{
+    [reorderedAlarms release];
+    [messageAttributes release];
+    [super dealloc];
+}
 
 - (IBAction)remove:(id)sender;
 {
-    [alarms removeAlarms: [[tableView delegate] selectedItems]];
+    [alarms removeAlarms: [[alarmList delegate] selectedItems]];
 }
 
 @end
@@ -62,8 +70,11 @@
 {
     PSAlarm *alarm = [reorderedAlarms objectAtIndex: row];
 
-    if ([[tableColumn identifier] isEqualToString: @"message"]) return [alarm message];
-    else {
+    if ([[tableColumn identifier] isEqualToString: @"message"]) {
+        NSMutableString *message = [[alarm message] mutableCopy];
+        [message truncateToWidth: [tableView frameOfCellAtColumn: 0 row: row].size.width by: NSLineBreakByTruncatingTail withAttributes: messageAttributes];
+        return [message autorelease];
+    } else {
         NSCalendarDate *date = [alarm date];
         if ([[tableColumn identifier] isEqualToString: @"date"]) return [alarm shortDateString];
         if ([[tableColumn identifier] isEqualToString: @"time"]) {
@@ -95,7 +106,7 @@
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification;
 {
-    [removeButton setEnabled: ([tableView numberOfSelectedRows] != 0)];
+    [removeButton setEnabled: ([alarmList numberOfSelectedRows] != 0)];
 }
 
 @end
@@ -114,17 +125,17 @@
 
 - (NSRect)windowWillUseStandardFrame:(NSWindow *)sender defaultFrame:(NSRect)defaultFrame;
 {
-    NSWindow *window = [tableView window];
+    NSWindow *window = [alarmList window];
     NSRect frame = [window frame];
-    NSScrollView *scrollView = [tableView enclosingScrollView];
+    NSScrollView *scrollView = [alarmList enclosingScrollView];
     float displayedHeight = [[scrollView contentView] bounds].size.height;
     float heightChange = [[scrollView documentView] bounds].size.height - displayedHeight;
     float heightExcess;
 
     if (heightChange >= 0 && heightChange <= 1) {
         // either the window is already optimal size, or it's too big
-        float rowHeight = [tableView cellHeight];
-        heightChange = (rowHeight * [tableView numberOfRows]) - displayedHeight;
+        float rowHeight = [alarmList cellHeight];
+        heightChange = (rowHeight * [alarmList numberOfRows]) - displayedHeight;
     }
 
     frame.size.height += heightChange;

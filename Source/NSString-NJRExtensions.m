@@ -69,7 +69,7 @@
 - (void)truncateToWidth:(float)maxWidth by:(NSLineBreakMode)method withAttributes:(NSDictionary *)attributes;
 {
     if ([self sizeWithAttributes: attributes].width > maxWidth) {
-        float width;
+        float width = maxWidth;
         int min = 0, max = [self length], avg;
         NSMutableString *original = [self mutableCopy];
         while (max >= min) {

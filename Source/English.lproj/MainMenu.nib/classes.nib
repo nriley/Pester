@@ -47,7 +47,9 @@
                 playSoundChanged = id; 
                 setAlarm = id; 
                 setSoundRepetitionCount = id; 
+                showCalendar = id; 
                 silence = id; 
+                toggleAlertEditor = id; 
                 update = id; 
             }; 
             CLASS = PSAlarmSetController; 
@@ -71,9 +73,10 @@
                 soundRepetitionStepper = NSStepper; 
                 soundRepetitions = NSTextField; 
                 soundRepetitionsLabel = NSTextField; 
+                timeCalendarButton = NSButton; 
                 timeDate = NSTextField; 
                 timeDateCompletions = NSPopUpButton; 
-                timeInterval = NSTextField; 
+                timeInterval = NJRIntervalField; 
                 timeIntervalRepeats = NSButton; 
                 timeIntervalUnits = NSPopUpButton; 
                 timeOfDay = NSTextField; 

@@ -54,7 +54,10 @@ static NSString * const PLAlertVoice = @"voice"; // NSString
     if ( (speaker = [[SUSpeaker alloc] init]) == nil) return;
     alarm = anAlarm;
     [speaker setDelegate: self];
-    [speaker setVoice: [[SUSpeaker voiceNames] indexOfObject: voice] + 1];
+    unsigned voiceIndex = [[SUSpeaker voiceNames] indexOfObject: voice];
+    if (voiceIndex == NSNotFound)
+        voiceIndex = [[SUSpeaker voiceNames] indexOfObject: [SUSpeaker defaultVoice]];
+    [speaker setVoice: voiceIndex + 1];
     [speaker speakText: [alarm message]];
 }
 
@@ -77,7 +80,7 @@ static NSString * const PLAlertVoice = @"voice"; // NSString
 - (id)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [self init]) != nil) {
-        voice = [dict objectForRequiredKey: PLAlertVoice];
+        voice = [[dict objectForRequiredKey: PLAlertVoice] retain];
     }
     return self;
 }

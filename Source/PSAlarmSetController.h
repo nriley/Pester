@@ -14,7 +14,7 @@
 @class NJRQTMediaPopUpButton;
 @class NJRVoicePopUpButton;
 
-@interface PSAlarmSetController : NSWindowController {
+@interface PSAlarmSetController : NSWindowController <NSUserInterfaceValidations> {
     IBOutlet NSTextField *messageField;
     IBOutlet NSMatrix *inAtMatrix;
     IBOutlet NJRIntervalField *timeInterval;
@@ -23,6 +23,7 @@
     IBOutlet NSTextField *timeOfDay;
     IBOutlet NSTextField *timeDate;
     IBOutlet NSPopUpButton *timeDateCompletions; // XXX should go away when bug preventing both formatters and popup menus from existing is fixed
+    IBOutlet NSButton *timeCalendarButton;
     IBOutlet NSButtonCell *editAlert;
     IBOutlet NSTextField *alertView;
     IBOutlet NSTabView *alertTabs;
@@ -50,7 +51,9 @@
 
 - (IBAction)update:(id)sender;
 - (IBAction)dateCompleted:(NSPopUpButton *)sender;
+- (IBAction)showCalendar:(NSButton *)sender;
 - (IBAction)inAtChanged:(id)sender;
+- (IBAction)toggleAlertEditor:(id)sender;
 - (IBAction)editAlertChanged:(id)sender;
 - (IBAction)playSoundChanged:(id)sender;
 - (IBAction)doScriptChanged:(id)sender;

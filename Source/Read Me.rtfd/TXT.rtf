@@ -8,12 +8,12 @@
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
 \f0\b\fs48 \cf0 Pester 
-\f1\b0 1.1b2 
+\f1\b0 1.1b3 
 \f2\i\b \cf2 [DO NOT REDISTRIBUTE]
 \f0\i0\fs26 \cf0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
-\f1\b0 \cf0 7 January 2003
+\f1\b0 \cf0 17 February 2003
 \fs24 \
 \
 \pard\tx1440\tx2880\tx4320\tx5760\tx7200\ql\qnatural
@@ -142,10 +142,12 @@ Pester is also fully Y3K-compliant. It can be comforting to know that even if yo
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
 \f0\b \cf0 Frequently asked questions\
-\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
-\f5 \cf0 Q.
+\f3\b0 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f5\b \cf0 Q.
 \f3\b0  Why isn\'d5t Pester a full-featured calendar/scheduling program? What use is it otherwise?\
 \
 
@@ -173,10 +175,12 @@ A.
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
 \f0\b \cf0 Version history\
-\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
-\fs26 \cf0 1.1
+\f3\b0 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\f0\b\fs26 \cf0 1.1
 \f1\b0  
 \f0\b / 
 \f8\i\b0 \cf2 forthcoming
@@ -187,12 +191,14 @@ A.
 \'a5	Fixed vertical resizing of the alarm list window.\
 \'a5	Fixed \'d4s\'d5, \'d4m\'d5, \'d4h\'d5 shortcuts for selecting alarm interval so they work regardless of the insertion point position.\
 \'a5 Fixed time remaining in the dock being wrong by one second, or showing \'c7expired\'c8.\
-\'a5 Fixed empty messages appearing in the combo box list.\
+\'a5 Fixed empty messages appearing in the alarm message combo box.\
 \'a5	Fixed display of time intervals between 24 and 48 hours: now \'d2One day\'d3 instead of \'d21 days\'d3.\
 \'a5 Fixed alarms not expiring after you put your Mac to sleep and wake it up again.\
 \'a5 Added better indications when a duration value is out of range (okay, Nat? :)\
 \'a5	Added more keyboard navigation, type-selection, sorting and iTunes-like row coloring to the alarm list window.\
-\'a5	Added Delete keyboard shortcut for removing alarms to the alarm list window.
+\'a5	Ellipsize long alarm messages in the alarm list window.\
+\'a5	Added Delete keyboard shortcut for removing alarms to the alarm list window.\
+\'a5	Added in-application read me viewer with section navigation, instead of opening TextEdit.
 \f5\b \
 
 \f3\b0 \'a5	Retain highlighted alarms in the alarm list window when alarms are added, removed or resorted.\
@@ -203,7 +209,8 @@ A.
 \'a5	Added customizable alerts: the previously-mandatory notification dialog box, alert sound and dock bouncing are now all optional, and AppleScript, speech, and playback of sounds, images and movies (anything QuickTime can handle) are new. View alerts for scheduled alarms as help tags in the alarm list window.\
 \'a5 Only bring Pester to the front if needed for the type of alert selected; if Pester was hidden or not in front before an alarm expired, it switches back and hides if necessary after the alarm is dismissed. (This means you can dismiss an alarm by clicking or pressing the return key and go right back to work.)\
 \'a5 Added simple repeating alarms. When \'d2Display Message and Time\'d3 is checked, each time the alarm expires you have the choice to stop it repeating; otherwise, remove the alarm from the alarm list between expirations. This works well for things like \'d2remind me every 15 minutes to take a break\'d3. An alarm won\'d5t start to repeat until the alerts have finished going off and you dismiss it, so you won\'d5t come back to several thousand alerts!\
-\'a5 Added a \'d2snooze\'d3 feature.\
+\'a5 Added a \'d2snooze\'d3 feature; works similarly to the with \'d4u\'d5 shortcut.\
+\'a5	Added a popup calendar to the Set Alarm window and the \'d2snooze until\'d3 sheet.\
 \'a5	Added 
 \f6 \U8679 \uc0 \u8679 \U8984 \u8984 
 \f3 T shortcut to switch between \'d2in\'d3 and \'d2at\'d3.\
@@ -219,7 +226,7 @@ A.
 Known bugs in this version (not to be fixed by 1.1):\
 
 \f3\b0 \'a5 Selecting or typing a weekday with a name containing a hyphen (e.g., Brazilian \'d2next sexta-feira\'d3) or a space (Gaelic \'d2next D\'8e C\'8eadaoin\'d3) causes the date field to be invalid. I may not be able to fix this without reimplementing the Cocoa date parser; an alternative would be to use US (or Portuguese?) date formats for Brazilian input; any suggestions for Gaelic?\
-\'a5 Type-selection alarms by their dates and times in the alarm list only works well when the items in the list are in approximate alphabetical order; this breaks with certain date and time formats.\
+\'a5 Type-selection of alarms by their dates and times in the alarm list only works well when the items in the list are in approximate alphabetical order; this breaks with certain date and time formats.\
 \'a5 After changing the date or time format in System Preferences, you must quit and reopen Pester for your changes to take effect.  As Apple\'d5s own iCal also exhibits this issue, I don\'d5t believe it is urgent.\
 
 \f5\b \
@@ -228,8 +235,9 @@ Still to be fixed for 1.1:\
 \f3\b0 \'a5 Note somewhere in the app or readme that autowake can interfere with EyeTV, which resets the timer immediately before each sleep (so do we, so it\'d5s order-sensitive; Apple really needs to implement a systemwide scheduler service for this). Warn that Pester must be running in order to go off at the appointed time. Test interaction with screen savers.\
 \'a5	The dock icon still sometimes displays \'c7expired\'c8 briefly; this is an artifact of the new timer implementation.\
 \'a5	Alarm times can be off by up to one second in certain cases.\
-\'a5 Preference for dock display?\
+\'a5 Preference for dock display and forced window reordering?\
 \'a5	Handle alarm restoration failure (finish implementing PSError, test cases).\
+\'a5	Figure out why, sometimes, alarms stay as expired, end up in the 'expired' section of the prefs, and never get removed\
 \
 
 \f5\b Additional features planned for later versions:\
@@ -302,4 +310,10 @@ Redistribution and use in source and binary forms, with or without modification,
 \'a5	Neither the name of bDistributed.com, Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 \cf0 \
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. }
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
+
+\fs28 \cf0 Pester includes software developed by The Omni Group. Unmodified versions of this software are available at 
+\f6\fs22 \cf3 \ul http://www.omnigroup.com/community/developer/sourcecode/
+\f3\fs28 \cf0 \ulnone .}

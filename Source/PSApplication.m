@@ -10,6 +10,7 @@
 #import "PSAlarmSetController.h"
 #import "PSAlarmAlertController.h"
 #import "PSAlarmsController.h"
+#import "NJRReadMeController.h"
 #import "PSAlarm.h"
 #import "PSAlarms.h"
 #import "PSTimer.h"
@@ -29,7 +30,7 @@
 
 - (IBAction)showHelp:(id)sender;
 {
-    [[NSWorkspace sharedWorkspace] openFile: [[NSBundle mainBundle] pathForResource: @"Read Me" ofType: @"rtfd"]];
+    [NJRReadMeController readMeControllerWithRTFDocument: [[NSBundle mainBundle] pathForResource: @"Read Me" ofType: @"rtfd"]];
 }
 
 - (IBAction)stopAlerts:(id)sender;
@@ -153,7 +154,9 @@
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag;
 {
-    if (!flag && ![[PSAlarms allAlarms] alarmsExpiring]) [alarmSetController showWindow: self];
+    // XXX sometimes alarmsExpiring is NO (?), and we display the alarm set controller on top of an expiring alarm, try to reproduce
+    if (!flag && ![[PSAlarms allAlarms] alarmsExpiring] && [NSApp modalWindow] == nil)
+        [alarmSetController showWindow: self];
     return YES;
 }
 
@@ -212,6 +215,19 @@
 - (void)applicationWillTerminate:(NSNotification *)notification;
 {
     [NSApp setApplicationIconImage: appIconImage];
+}
+
+// calendar window (running in modal session) will appear even when app is in background; shouldn't
+- (void)applicationWillBecomeActive:(NSNotification *)notification;
+{
+    NSWindow *modalWindow = [NSApp modalWindow];
+    if (modalWindow != nil) [modalWindow makeKeyAndOrderFront: nil];
+}
+
+- (void)applicationWillResignActive:(NSNotification *)notification;
+{
+    NSWindow *modalWindow = [NSApp modalWindow];
+    if (modalWindow != nil) [modalWindow orderOut: nil];
 }
 
 @end

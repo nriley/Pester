@@ -8,16 +8,17 @@
 	<dict>
 		<key>29</key>
 		<string>130 241 273 44 0 0 1280 832 </string>
+		<key>640</key>
+		<string>63 247 111 180 0 0 1280 832 </string>
 	</dict>
 	<key>IBFramework Version</key>
 	<string>291.0</string>
 	<key>IBOpenObjects</key>
 	<array>
 		<integer>29</integer>
-		<integer>21</integer>
 	</array>
 	<key>IBSystem Version</key>
-	<string>6G30</string>
+	<string>6I32</string>
 	<key>IBUserGuides</key>
 	<dict>
 		<key>21</key>
@@ -31,6 +32,7 @@
 				<string>Vertical:16.000000</string>
 				<string>Vertical:85.000000</string>
 				<string>Vertical:422.000000</string>
+				<string>Horizontal:151.000000</string>
 				<string>Horizontal:151.000000</string>
 			</array>
 			<key>guidesLocked</key>

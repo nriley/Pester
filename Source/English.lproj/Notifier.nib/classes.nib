@@ -9,7 +9,13 @@
             SUPERCLASS = NSTextField; 
         }, 
         {
-            ACTIONS = {close = id; snooze = id; stopRepeating = id; }; 
+            ACTIONS = {
+                close = id; 
+                snooze = id; 
+                snoozeIntervalUnitsChanged = id; 
+                snoozeUntil = id; 
+                stopRepeating = id; 
+            }; 
             CLASS = PSAlarmNotifierController; 
             LANGUAGE = ObjC; 
             OUTLETS = {

@@ -8,7 +8,9 @@
 
 #import "PSAlarmSetController.h"
 #import "PSAlarmAlertController.h"
+#import "PSCalendarController.h"
 #import "PSPowerManager.h"
+#import "PSTimeDateEditor.h"
 #import "NJRDateFormatter.h"
 #import "NJRFSObjectSelector.h"
 #import "NJRIntervalField.h"
@@ -70,33 +72,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     alarm = [[PSAlarm alloc] init];
     [[self window] center];
-    // XXX excessive retention of formatters?  check later...
-    [timeOfDay setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [NJRDateFormatter localizedTimeFormatIncludingSeconds: NO] allowNaturalLanguage: YES]];
-    [timeDate setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [NJRDateFormatter localizedDateFormatIncludingWeekday: NO] allowNaturalLanguage: YES]];
-    {
-        NSArray *dayNames = [defaults arrayForKey:
-            NSWeekDayNameArray];
-        NSArray *completions = [timeDateCompletions itemTitles];
-        NSEnumerator *e = [completions objectEnumerator];
-        NSString *title;
-        int itemIndex = 0;
-        NSRange matchingRange;
-        while ( (title = [e nextObject]) != nil) {
-            matchingRange = [title rangeOfString: @"«day»"];
-            if (matchingRange.location != NSNotFound) {
-                NSMutableString *format = [title mutableCopy];
-                NSEnumerator *we = [dayNames objectEnumerator];
-                NSString *dayName;
-                [format deleteCharactersInRange: matchingRange];
-                [format insertString: @"%@" atIndex: matchingRange.location];
-                [timeDateCompletions removeItemAtIndex: itemIndex];
-                while ( (dayName = [we nextObject]) != nil) {
-                    [timeDateCompletions insertItemWithTitle: [NSString stringWithFormat: format, dayName] atIndex: itemIndex];
-                    itemIndex++;
-                }
-            } else itemIndex++;
-        }
-    }
+    [PSTimeDateEditor setUpTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions];
     [editAlert setIntValue: [defaults boolForKey: PSAlertsEditing]];
     {
         NSDictionary *plAlerts = [defaults dictionaryForKey: PSAlertsSelected];
@@ -113,7 +89,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         }
         [self _readAlerts: alerts];
     }
-    [timeDate setObjectValue: [NSDate date]];
     [self inAtChanged: nil]; // by convention, if sender is nil, we're initializing
     [self playSoundChanged: nil];
     [self doScriptChanged: nil];
@@ -174,8 +149,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [updateTimer invalidate]; [updateTimer release]; updateTimer = nil;
 }
 
-// XXX use OACalendar in popup like Palm Desktop?
-
 - (IBAction)updateDateDisplay:(id)sender;
 {
     // NSLog(@"updateDateDisplay: %@", sender);
@@ -225,8 +198,12 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [timeOfDay setEnabled: !isInterval];
     [timeDate setEnabled: !isInterval];
     [timeDateCompletions setEnabled: !isInterval];
+    [timeCalendarButton setEnabled: !isInterval];
     if (sender != nil)
         [[self window] makeFirstResponder: isInterval ? (NSTextField *)timeInterval : timeOfDay];
+    if (!isInterval) { // need to do this every time the controls are enabled
+        [timeOfDay setNextKeyView: timeDate];
+    }
     // NSLog(@"UPDATING FROM inAtChanged");
     [self update: nil];
 }
@@ -237,7 +214,30 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [self update: sender];
 }
 
+#pragma mark calendar
+
+- (IBAction)showCalendar:(NSButton *)sender;
+{
+    [PSCalendarController controllerWithDate: [NSCalendarDate dateForDay: [timeDate objectValue]] delegate: self];
+}
+
+- (void)calendarController:(PSCalendarController *)calendar didSetDate:(NSCalendarDate *)date;
+{
+    [timeDate setObjectValue: date];
+    [self update: self];
+}
+
+- (NSView *)calendarControllerLaunchingView:(PSCalendarController *)controller;
+{
+    return timeCalendarButton;
+}
+
 #pragma mark alert editing
+
+- (IBAction)toggleAlertEditor:(id)sender;
+{
+    [editAlert performClick: self];
+}
 
 - (IBAction)editAlertChanged:(id)sender;
 {
@@ -291,7 +291,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         [[NSUserDefaults standardUserDefaults] setBool: editAlertSelected forKey: PSAlertsEditing];
     }
 }
-
 
 - (IBAction)playSoundChanged:(id)sender;
 {
@@ -458,7 +457,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [alarm setRepeating: [timeIntervalRepeats state] == NSOnState];
     [alarm setMessage: [messageField stringValue]];
     if (![alarm setTimer]) {
-        [self setStatus: [@"Unable to set alarm.  " stringByAppendingString: [alarm invalidMessage]]];
+        [self setStatus: [@"Unable to set alarm. " stringByAppendingString: [alarm invalidMessage]]];
         return;
     }
     
@@ -472,6 +471,16 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 {
     [sound stopSoundPreview: self];
     [voice stopVoicePreview: self];
+}
+
+- (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)anItem;
+{
+    if ([anItem action] == @selector(toggleAlertEditor:)) {
+        if ([NSApp keyWindow] != [self window])
+            return NO;
+        [(NSMenuItem *)anItem setState: [editAlert intValue] ? NSOnState : NSOffState];
+    }
+    return YES;
 }
 
 @end

@@ -1,0 +1,21 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NJROffCenterPanel; LANGUAGE = ObjC; SUPERCLASS = NSPanel; }, 
+        {CLASS = NSObject; LANGUAGE = ObjC; }, 
+        {
+            ACTIONS = {nextMonth = id; nextYear = id; previousMonth = id; previousYear = id; }; 
+            CLASS = OACalendarView; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSControl; 
+        }, 
+        {
+            ACTIONS = {cancel = id; close = id; today = id; }; 
+            CLASS = PSCalendarController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {calendarView = OACalendarView; delegate = id; okButton = NSButton; }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}
