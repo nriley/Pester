@@ -159,11 +159,17 @@
         [self setTitle: @"(none selected)"];
         [[self cell] setMenu: nil];
     }
-    [self setEnabled: YES];
+    [self setEnabled: isEnabled];
+}
+
+- (BOOL)isEnabled;
+{
+    return isEnabled;
 }
 
 - (void)setEnabled:(BOOL)enabled;
 {
+    isEnabled = enabled;
     [super setEnabled: enabled ? selectedAlias != nil : NO];
 }
 

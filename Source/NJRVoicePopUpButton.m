@@ -113,6 +113,13 @@
     [_speaker stopSpeaking];
 }
 
+- (void)setEnabled:(BOOL)flag;
+{
+    [super setEnabled: flag];
+    if (flag) ; // XXX [self stopVoicePreview: self]; // need to prohibit at startup
+    else [self stopVoicePreview: self];
+}
+
 - (void)setDelegate:(id)delegate;
 {
     _delegate = delegate;

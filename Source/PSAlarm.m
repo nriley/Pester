@@ -8,13 +8,25 @@
 
 #import "PSAlarm.h"
 #import "PSAlert.h"
+#import "NJRDateFormatter.h"
 
 NSString * const PSAlarmTimerSetNotification = @"PSAlarmTimerSetNotification";
 NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotification";
 
+static NSString *dateFormat, *shortDateFormat, *timeFormat;
+static NSDictionary *locale;
+
 // XXX need to reset pending alarms after sleep, they "freeze" and never expire.
 
 @implementation PSAlarm
+
++ (void)initialize; // XXX change on locale modification, subscribe to NSNotifications
+{
+    dateFormat = [[NJRDateFormatter localizedDateFormatIncludingWeekday: YES] retain];
+    shortDateFormat = [[NJRDateFormatter localizedShortDateFormatIncludingWeekday: NO] retain];
+    timeFormat = [[NJRDateFormatter localizedTimeFormatIncludingSeconds: YES] retain];
+    locale = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] retain];
+}
 
 - (void)dealloc;
 {
@@ -152,14 +164,19 @@ NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotifica
     return alarmDate;
 }
 
+- (NSString *)dateString;
+{
+    return [[self date] descriptionWithCalendarFormat: dateFormat locale: locale];
+}
+
 - (NSString *)shortDateString;
 {
-    return [[self date] descriptionWithCalendarFormat: [[NSUserDefaults standardUserDefaults] stringForKey: NSShortDateFormatString]];
+    return [[self date] descriptionWithCalendarFormat: shortDateFormat locale: locale];
 }
 
 - (NSString *)timeString;
 {
-    return [[self date] descriptionWithCalendarFormat: @"%1I:%M:%S %p"]; // XXX regular format doesn't work
+    return [[self date] descriptionWithCalendarFormat: timeFormat locale: locale];
 }
 
 - (NSString *)timeRemainingString;

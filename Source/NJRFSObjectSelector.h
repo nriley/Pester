@@ -10,6 +10,7 @@
     BOOL canChooseDirectories;
     BOOL canChooseFiles;
     BOOL dragAccepted;
+    BOOL isEnabled;
 }
 - (IBAction)select:(id)sender;
 - (void)setAlias:(BDAlias *)alias;

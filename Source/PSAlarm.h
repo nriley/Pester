@@ -41,6 +41,7 @@ extern NSString * const PSAlarmTimerExpiredNotification;
 - (NSString *)message;
 - (NSArray *)alerts;
 
+- (NSString *)dateString;
 - (NSString *)shortDateString;
 - (NSString *)timeString;
 - (NSString *)timeRemainingString;

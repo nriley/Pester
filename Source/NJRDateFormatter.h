@@ -10,7 +10,12 @@
 
 
 @interface NJRDateFormatter : NSDateFormatter {
-
+    NSDictionary *alteredLocale;
 }
+
++ (NSString *)format:(NSString *)format withoutComponent:(unichar)component;
++ (NSString *)localizedDateFormatIncludingWeekday:(BOOL)weekday;
++ (NSString *)localizedShortDateFormatIncludingWeekday:(BOOL)weekday;
++ (NSString *)localizedTimeFormatIncludingSeconds:(BOOL)seconds;
 
 @end

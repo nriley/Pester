@@ -347,6 +347,13 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     // [self _validateRecentMedia];
 }
 
+- (void)setEnabled:(BOOL)flag;
+{
+    [super setEnabled: flag];
+    if (flag) ; // XXX [self startSoundPreview: self]; // need to prohibit at startup
+    else [self stopSoundPreview: self];
+}
+
 #pragma mark drag feedback
 
 - (void)drawRect:(NSRect)rect;

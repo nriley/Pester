@@ -239,15 +239,15 @@
 			productName = Pester;
 			productReference = 17587328FF379C6511CA2CBB;
 			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
-<plist version=\"1.0\">
+<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">
+<plist version=\"0.9\">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>Pester</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Pester 1.1d1, © 2002 Nicholas Riley</string>
+	<string>Pester 1.1a1, © 2002 Nicholas Riley</string>
 	<key>CFBundleIconFile</key>
 	<string>Application icon</string>
 	<key>CFBundleIdentifier</key>
@@ -259,11 +259,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1d1</string>
+	<string>1.1a1</string>
 	<key>CFBundleSignature</key>
 	<string>Pstr</string>
 	<key>CFBundleVersion</key>
-	<string>1.1d1</string>
+	<string>1.1a1</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -289,7 +289,6 @@
 				F552A8AD0358E8B201AEEDB1,
 				F5F240B7036A862301FE7503,
 				F5F240BA036A867901FE7503,
-				F5F240CF036A877301FE7503,
 				F5F2418B036A910B01FE7503,
 				F59E479E036AA5E9016B311C,
 				F59E47A1036AA5E9016B311C,
@@ -309,11 +308,10 @@
 				F5F1986F036B813101EB0372,
 				F5F19873036B822E01EB0372,
 				F5F198D3036BE57401EB0372,
-				F5F198DC036BE75E01EB0372,
 				F5F19910036D3B3101EB0372,
+				F515C768037DFB56018DB5B3,
 			);
 			isa = PBXHeadersBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B97328FDCFA39411CA2CEA = {
 			buildActionMask = 2147483647;
@@ -329,7 +327,6 @@
 				F5243DA50378681101AEEDB1,
 			);
 			isa = PBXResourcesBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B9732BFDCFA39411CA2CEA = {
 			buildActionMask = 2147483647;
@@ -370,7 +367,6 @@
 				F5F1990F036D3B3101EB0372,
 			);
 			isa = PBXSourcesBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B9732CFDCFA39411CA2CEA = {
 			fileRef = 29B97316FDCFA39411CA2CEA;
@@ -389,7 +385,6 @@
 				F59E4C0C036B33EC016B311C,
 			);
 			isa = PBXFrameworksBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 //290
 //291
@@ -430,6 +425,12 @@
 //F52
 //F53
 //F54
+		F515C768037DFB56018DB5B3 = {
+			fileRef = F5F240CD036A877301FE7503;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		F517D63E0356B80C016D68B9 = {
 			isa = PBXFileReference;
 			path = PSAlarmsController.m;
@@ -1343,12 +1344,6 @@
 			settings = {
 			};
 		};
-		F5F198DC036BE75E01EB0372 = {
-			fileRef = F5F198DA036BE75E01EB0372;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
 		F5F1990D036D3B3101EB0372 = {
 			isa = PBXFileReference;
 			path = "NSImage-NJRExtensions.m";
@@ -1427,12 +1422,6 @@
 		};
 		F5F240CE036A877301FE7503 = {
 			fileRef = F5F240CC036A877301FE7503;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		F5F240CF036A877301FE7503 = {
-			fileRef = F5F240CD036A877301FE7503;
 			isa = PBXBuildFile;
 			settings = {
 			};

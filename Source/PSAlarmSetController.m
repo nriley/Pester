@@ -29,11 +29,13 @@
 
 • NSDate natural language stuff in NSCalendarDate (why?), misspelled category name
 • NSCalendarDate natural language stuff behaves differently from NSDateFormatter (AM/PM has no effect, shouldn't they share code?)
+• descriptionWithCalendarFormat:, dateWithNaturalLanguageString: does not default to current locale, instead it defaults to US unless you tell it otherwise
 • NSDateFormatter doc class description gives two examples for natural language that are incorrect, no link to NSDate doc that describes exactly how natural language dates are parsed
 • NSTimeFormatString does not include %p when it should, meaning that AM/PM is stripped yet 12-hour time is still used
 • NSNextDayDesignations, NSNextNextDayDesignations are noted as 'a string' in NSUserDefaults docs, but maybe they are actually an array, or either an array or a string, given their names?
 • "Setting the Format for Dates" does not document how to get 1:15 AM, the answer is %1I - strftime has no exact equivalent; the closest is %l.  strftime does not permit numeric prefixes.  It also refers to "NSCalendar" when no such class exists.
-• none of many mentions of NSAMPMDesignation indicates that they include the leading spaces (" AM", " PM").  In "Setting the Format for Dates", needs to mention that the leading spaces are not included in %p with strftime.  But if you use the NSCalendarDate stuff, it appears %p doesn't include the space.
+• none of many mentions of NSAMPMDesignation indicates that they include the leading spaces (" AM", " PM").  In "Setting the Format for Dates", needs to mention that the leading spaces are not included in %p with strftime.  But if you use the NSCalendarDate stuff, it appears %p doesn't include the space (because it doesn't use the locale dictionary).
+• If you feed NSCalendarDate dateWithNaturalLanguageString: an " AM"/" PM" locale, it doesn't accept that date format.
 • descriptions for %X and %x are reversed (time zone is in %X, not %x)
 • too hard to implement date-only or time-only formatters
 • should be able to specify that natural language favors date or time (10 = 10th of month, not 10am)
@@ -51,12 +53,35 @@
 
 - (void)awakeFromNib;
 {
-    // XXX bugs prevent this code from working properly on Jaguar
-    /* NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [timeOfDay setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [defaults objectForKey: NSTimeFormatString] allowNaturalLanguage: YES]];
-    [timeDate setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [defaults objectForKey: NSShortDateFormatString] allowNaturalLanguage: YES]]; */
     alarm = [[PSAlarm alloc] init];
     [[self window] center];
+    // XXX excessive retention of formatters?  check later...
+    [timeOfDay setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [NJRDateFormatter localizedTimeFormatIncludingSeconds: NO] allowNaturalLanguage: YES]];
+    [timeDate setFormatter: [[NJRDateFormatter alloc] initWithDateFormat: [NJRDateFormatter localizedDateFormatIncludingWeekday: NO] allowNaturalLanguage: YES]];
+    {
+        NSArray *dayNames = [[NSUserDefaults standardUserDefaults] arrayForKey:
+            NSWeekDayNameArray];
+        NSArray *completions = [timeDateCompletions itemTitles];
+        NSEnumerator *e = [completions objectEnumerator];
+        NSString *title;
+        int itemIndex = 0;
+        NSRange matchingRange;
+        while ( (title = [e nextObject]) != nil) {
+            matchingRange = [title rangeOfString: @"«day»"];
+            if (matchingRange.location != NSNotFound) {
+                NSMutableString *format = [title mutableCopy];
+                NSEnumerator *we = [dayNames objectEnumerator];
+                NSString *dayName;
+                [format deleteCharactersInRange: matchingRange];
+                [format insertString: @"%@" atIndex: matchingRange.location];
+                [timeDateCompletions removeItemAtIndex: itemIndex];
+                while ( (dayName = [we nextObject]) != nil) {
+                    [timeDateCompletions insertItemWithTitle: [NSString stringWithFormat: format, dayName] atIndex: itemIndex];
+                    itemIndex++;
+                }
+            } else itemIndex++;
+        }
+    }
     [self inAtChanged: nil];
     [self playSoundChanged: nil];
     [self doScriptChanged: nil];
@@ -115,7 +140,7 @@
 {
     // NSLog(@"updateDateDisplay: %@", sender);
     if ([alarm isValid]) {
-        [self setStatus: [[alarm date] descriptionWithCalendarFormat: @"Alarm will be set for %X on %x" timeZone: nil locale: nil]];
+        [self setStatus: [NSString stringWithFormat: @"Alarm will be set for %@ on %@", [alarm timeString], [alarm dateString]]];
         [setButton setEnabled: YES];
         if (updateTimer == nil || ![updateTimer isValid]) {
             // XXX this logic (and the timer) should really go into PSAlarm, to send notifications for status updates instead.  Timer starts when people are watching, stops when people aren't.
@@ -135,6 +160,7 @@
 }
 
 // Be careful not to hook up any of the text fields' actions to update: because we handle them in controlTextDidChange: instead.  If we could get the active text field somehow via public API (guess we could use controlTextDidBegin/controlTextDidEndEditing) then we'd not need to overload the update sender for this purpose.  Or, I guess, we could use another method other than update.  It should not be this hard to implement what is essentially standard behavior.  Sigh.
+// Note: finding out whether a given control is editing is easier.  See: <http://cocoa.mamasam.com/COCOADEV/2002/03/2/28501.php>.
 
 - (IBAction)update:(id)sender;
 {
@@ -145,7 +171,14 @@
 
 - (IBAction)inAtChanged:(id)sender;
 {
+    NSButtonCell *new = [inAtMatrix selectedCell], *old;
     isInterval = ([inAtMatrix selectedTag] == 0);
+    old = [inAtMatrix cellWithTag: isInterval];
+    NSAssert(new != old, @"in and at buttons should be distinct!");
+    [old setKeyEquivalent: [new keyEquivalent]];
+    [old setKeyEquivalentModifierMask: [new keyEquivalentModifierMask]];
+    [new setKeyEquivalent: @""];
+    [new setKeyEquivalentModifierMask: 0];
     [timeInterval setEnabled: isInterval];
     [timeIntervalUnits setEnabled: isInterval];
     [timeIntervalRepeats setEnabled: isInterval];
@@ -172,9 +205,19 @@
 
 - (IBAction)setSoundRepetitionCount:(id)sender;
 {
-    int newReps = [sender intValue], oldReps = [soundRepetitions intValue];
-    if (newReps != oldReps)
+    NSTextView *fieldEditor = (NSTextView *)[soundRepetitions currentEditor];
+    BOOL isEditing = (fieldEditor != nil);
+    int newReps = [sender intValue], oldReps;
+    if (isEditing) {
+        // XXX work around bug where if you ask soundRepetitions for its intValue too often while it's editing, the field begins to flash
+        oldReps = [[[fieldEditor textStorage] string] intValue];
+    } else oldReps = [soundRepetitions intValue];
+    if (newReps != oldReps) {
         [soundRepetitions setIntValue: newReps];
+        // NSLog(@"updating: new value %d, old value %d%@", newReps, oldReps, isEditing ? @", is editing" : @"");
+        // XXX work around 10.1 bug, otherwise field only displays every second value
+        if (isEditing) [soundRepetitions selectText: self];
+    }
 }
 
 // XXX should check the 'Do script:' button when someone drops a script on the button
@@ -306,7 +349,7 @@
 
 - (void)controlTextDidChange:(NSNotification *)notification;
 {
-    // NSLog(@"UPDATING FROM controlTextDidChange");
+    // NSLog(@"UPDATING FROM controlTextDidChange: %@", [notification object]);
     [self update: [notification object]];
 }
 

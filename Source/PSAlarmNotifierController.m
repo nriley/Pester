@@ -19,7 +19,8 @@
     if ([self initWithWindowNibName: @"Notifier"]) {
         [[self window] center];
         [messageField setStringValue: [alarm message]];
-        [dateField setObjectValue: [alarm date]];
+        [dateField setStringValue:
+            [NSString stringWithFormat: @"%@ at %@", [alarm dateString], [alarm timeString]]];
         [[self window] makeKeyAndOrderFront: nil];
         [[self window] orderFrontRegardless];
     }
