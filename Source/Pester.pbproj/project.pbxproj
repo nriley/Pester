@@ -11,6 +11,7 @@
 				F560E2F10357506401A4E466,
 				F560E311035787D501A4E466,
 				F560E314035787F901A4E466,
+				F59E47AF036AAC31016B311C,
 				F560E312035787E001A4E466,
 				F560E313035787ED01A4E466,
 			);
@@ -46,6 +47,9 @@
 		1058C7A0FEA54F0111CA2CBB = {
 			children = (
 				1058C7A1FEA54F0111CA2CBB,
+				F5F240D0036A87E301FE7503,
+				F5F24187036A90D901FE7503,
+				F59E4BEA036B33EC016B311C,
 			);
 			isa = PBXGroup;
 			name = "Linked Frameworks";
@@ -159,6 +163,7 @@
 				29B97318FDCFA39411CA2CEA,
 				F560E2EE03574F8A01A4E466,
 				F59DC6DF0353DF5E01AEEDB1,
+				F59E4BDE036B1D94016B311C,
 				089C165CFE840E0CC02AAC07,
 				F59DD44F0358ABF4017318D0,
 				F589C9C6035AA12B0155F4B2,
@@ -214,7 +219,7 @@
 				29B9732DFDCFA39411CA2CEA,
 			);
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				HEADER_SEARCH_PATHS = "";
 				INSTALL_PATH = /;
 				LIBRARY_SEARCH_PATHS = "";
@@ -233,15 +238,15 @@
 			productName = Pester;
 			productReference = 17587328FF379C6511CA2CBB;
 			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
-<plist version=\"1.0\">
+<!DOCTYPE plist SYSTEM \"file://localhost/System/Library/DTDs/PropertyList.dtd\">
+<plist version=\"0.9\">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>Pester</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Pester 1.0.1, © 2002 Nicholas Riley</string>
+	<string>Pester 1.1d1, © 2002 Nicholas Riley</string>
 	<key>CFBundleIconFile</key>
 	<string>Application icon</string>
 	<key>CFBundleIdentifier</key>
@@ -253,11 +258,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>1.1d1</string>
 	<key>CFBundleSignature</key>
 	<string>Pstr</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
+	<string>1.1d1</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -281,9 +286,32 @@
 				F560E310035787BC01A4E466,
 				F560E3170357895001A4E466,
 				F552A8AD0358E8B201AEEDB1,
+				F5F240B7036A862301FE7503,
+				F5F240BA036A867901FE7503,
+				F5F240CF036A877301FE7503,
+				F5F2418B036A910B01FE7503,
+				F59E479E036AA5E9016B311C,
+				F59E47A1036AA5E9016B311C,
+				F59E47A2036AA5E9016B311C,
+				F59E47A3036AA5E9016B311C,
+				F59E47A4036AA5E9016B311C,
+				F59E47AA036AAA6D016B311C,
+				F59E47AE036AAC1E016B311C,
+				F59E47B3036AACD1016B311C,
+				F59E47B7036AAD55016B311C,
+				F59E47BB036AB217016B311C,
+				F59E47BF036AB228016B311C,
+				F59E47C3036B1ADD016B311C,
+				F59E4BE9036B2E5E016B311C,
+				F59E4C10036B43D2016B311C,
+				F5F19868036B80AF01EB0372,
+				F5F1986F036B813101EB0372,
+				F5F19873036B822E01EB0372,
+				F5F198D3036BE57401EB0372,
+				F5F198DC036BE75E01EB0372,
+				F5F19910036D3B3101EB0372,
 			);
 			isa = PBXHeadersBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B97328FDCFA39411CA2CEA = {
 			buildActionMask = 2147483647;
@@ -295,9 +323,9 @@
 				F560E2F7035766F201A4E466,
 				F59DD4510358ABF7017318D0,
 				F589C9C7035AA12E0155F4B2,
+				F59E4BE0036B1D94016B311C,
 			);
 			isa = PBXResourcesBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B9732BFDCFA39411CA2CEA = {
 			buildActionMask = 2147483647;
@@ -314,9 +342,30 @@
 				F560E30F035787BC01A4E466,
 				F560E3180357895001A4E466,
 				F552A8AE0358E8B201AEEDB1,
+				F5F240B8036A862301FE7503,
+				F5F240CB036A869401FE7503,
+				F5F240CE036A877301FE7503,
+				F59E479C036AA5E9016B311C,
+				F59E479D036AA5E9016B311C,
+				F59E479F036AA5E9016B311C,
+				F59E47A0036AA5E9016B311C,
+				F59E47A9036AAA6D016B311C,
+				F59E47AD036AAC1E016B311C,
+				F59E47B2036AACD1016B311C,
+				F59E47B6036AAD55016B311C,
+				F59E47BA036AB217016B311C,
+				F59E47BE036AB228016B311C,
+				F59E47C2036B1ADD016B311C,
+				F59E4BE8036B2E5E016B311C,
+				F59E4C0F036B43D2016B311C,
+				F5F19869036B80AF01EB0372,
+				F5F1986E036B813101EB0372,
+				F5F19872036B822E01EB0372,
+				F5F198D2036BE57401EB0372,
+				F5F198DB036BE75E01EB0372,
+				F5F1990F036D3B3101EB0372,
 			);
 			isa = PBXSourcesBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		29B9732CFDCFA39411CA2CEA = {
 			fileRef = 29B97316FDCFA39411CA2CEA;
@@ -330,9 +379,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1058C7A3FEA54F0111CA2CBB,
+				F5F24166036A87E401FE7503,
+				F5F24189036A90D901FE7503,
+				F59E4C0C036B33EC016B311C,
 			);
 			isa = PBXFrameworksBuildPhase;
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 //290
 //291
@@ -522,8 +573,14 @@
 				F517D63E0356B80C016D68B9,
 				F59DC6D30353C9E601AEEDB1,
 				F59DC6D40353C9E601AEEDB1,
+				F59E47B5036AAD55016B311C,
+				F59E47B4036AAD55016B311C,
 				F59DC6DB0353DE5101AEEDB1,
 				F59DC6DC0353DE5101AEEDB1,
+				F59E47C1036B1ADD016B311C,
+				F59E47C0036B1ADD016B311C,
+				F5F198D1036BE57401EB0372,
+				F5F198D0036BE57401EB0372,
 			);
 			isa = PBXGroup;
 			name = Controllers;
@@ -542,10 +599,20 @@
 		};
 		F560E313035787ED01A4E466 = {
 			children = (
+				F5F19865036B806201EB0372,
+				F59E47A6036AA5FC016B311C,
+				F59E47A5036AA5F2016B311C,
 				F59DC6E90353F58B01AEEDB1,
 				F59DC6E80353F58B01AEEDB1,
 				F59DC6FC0354188F01AEEDB1,
 				F59DC6FD0354188F01AEEDB1,
+				F5F2418A036A910B01FE7503,
+				F5F1990E036D3B3101EB0372,
+				F5F1990D036D3B3101EB0372,
+				F59E4C0E036B43D2016B311C,
+				F59E4C0D036B43D2016B311C,
+				F5F198DA036BE75E01EB0372,
+				F5F198D9036BE75E01EB0372,
 			);
 			isa = PBXGroup;
 			name = Utilities;
@@ -559,6 +626,12 @@
 				F552A8AC0358E8B201AEEDB1,
 				F560E3150357895001A4E466,
 				F560E3160357895001A4E466,
+				F5F240B6036A862101FE7503,
+				F5F240B5036A862101FE7503,
+				F5F240CD036A877301FE7503,
+				F5F240CC036A877301FE7503,
+				F5F19871036B822E01EB0372,
+				F5F19870036B822E01EB0372,
 			);
 			isa = PBXGroup;
 			name = Views;
@@ -739,6 +812,384 @@
 			settings = {
 			};
 		};
+		F59E4793036AA5E9016B311C = {
+			isa = PBXFileReference;
+			path = NDResourceFork.m;
+			refType = 4;
+		};
+		F59E4794036AA5E9016B311C = {
+			isa = PBXFileReference;
+			path = "NSURL+NDCarbonUtilities.m";
+			refType = 4;
+		};
+		F59E4795036AA5E9016B311C = {
+			isa = PBXFileReference;
+			path = NDAppleScriptObject.h;
+			refType = 4;
+		};
+		F59E4796036AA5E9016B311C = {
+			isa = PBXFileReference;
+			path = "NSAppleEventDescriptor+NDAppleScriptObject.m";
+			refType = 4;
+		};
+		F59E4797036AA5E9016B311C = {
+			isa = PBXFileReference;
+			path = NDAppleScriptObject.m;
+			refType = 4;
+		};
+		F59E4798036AA5E9016B311C = {
+			isa = PBXFileReference;
+			path = "NSAppleEventDescriptor+NDAppleScriptObject.h";
+			refType = 4;
+		};
+		F59E4799036AA5E9016B311C = {
+			isa = PBXFileReference;
+			path = NDResourceFork.h;
+			refType = 4;
+		};
+		F59E479A036AA5E9016B311C = {
+			isa = PBXFileReference;
+			path = NDAppleScriptObject_Protocols.h;
+			refType = 4;
+		};
+		F59E479B036AA5E9016B311C = {
+			isa = PBXFileReference;
+			path = "NSURL+NDCarbonUtilities.h";
+			refType = 4;
+		};
+		F59E479C036AA5E9016B311C = {
+			fileRef = F59E4793036AA5E9016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E479D036AA5E9016B311C = {
+			fileRef = F59E4794036AA5E9016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E479E036AA5E9016B311C = {
+			fileRef = F59E4795036AA5E9016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E479F036AA5E9016B311C = {
+			fileRef = F59E4796036AA5E9016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47A0036AA5E9016B311C = {
+			fileRef = F59E4797036AA5E9016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47A1036AA5E9016B311C = {
+			fileRef = F59E4798036AA5E9016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47A2036AA5E9016B311C = {
+			fileRef = F59E4799036AA5E9016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47A3036AA5E9016B311C = {
+			fileRef = F59E479A036AA5E9016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47A4036AA5E9016B311C = {
+			fileRef = F59E479B036AA5E9016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47A5036AA5F2016B311C = {
+			children = (
+				F59E4799036AA5E9016B311C,
+				F59E4793036AA5E9016B311C,
+				F59E479B036AA5E9016B311C,
+				F59E4794036AA5E9016B311C,
+				F59E4798036AA5E9016B311C,
+				F59E4796036AA5E9016B311C,
+				F59E4795036AA5E9016B311C,
+				F59E479A036AA5E9016B311C,
+				F59E4797036AA5E9016B311C,
+			);
+			isa = PBXGroup;
+			path = NDAppleScript;
+			refType = 4;
+		};
+		F59E47A6036AA5FC016B311C = {
+			children = (
+				F5F240B9036A867901FE7503,
+				F5F240CA036A869401FE7503,
+			);
+			isa = PBXGroup;
+			name = BDAlias;
+			path = "";
+			refType = 4;
+		};
+		F59E47A7036AAA6D016B311C = {
+			isa = PBXFileReference;
+			path = PSAlert.m;
+			refType = 4;
+		};
+		F59E47A8036AAA6D016B311C = {
+			isa = PBXFileReference;
+			path = PSAlert.h;
+			refType = 4;
+		};
+		F59E47A9036AAA6D016B311C = {
+			fileRef = F59E47A7036AAA6D016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47AA036AAA6D016B311C = {
+			fileRef = F59E47A8036AAA6D016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47AB036AAC1E016B311C = {
+			isa = PBXFileReference;
+			path = PSBeepAlert.m;
+			refType = 4;
+		};
+		F59E47AC036AAC1E016B311C = {
+			isa = PBXFileReference;
+			path = PSBeepAlert.h;
+			refType = 4;
+		};
+		F59E47AD036AAC1E016B311C = {
+			fileRef = F59E47AB036AAC1E016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47AE036AAC1E016B311C = {
+			fileRef = F59E47AC036AAC1E016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47AF036AAC31016B311C = {
+			children = (
+				F59E47A8036AAA6D016B311C,
+				F59E47A7036AAA6D016B311C,
+				F59E47B9036AB217016B311C,
+				F59E47B8036AB217016B311C,
+				F59E4BE7036B2E5E016B311C,
+				F59E4BE6036B2E5E016B311C,
+				F59E47B1036AACD1016B311C,
+				F59E47B0036AACD1016B311C,
+				F59E47AC036AAC1E016B311C,
+				F59E47AB036AAC1E016B311C,
+				F59E47BD036AB228016B311C,
+				F59E47BC036AB228016B311C,
+				F5F1986D036B813101EB0372,
+				F5F1986C036B813101EB0372,
+			);
+			isa = PBXGroup;
+			name = Alerts;
+			path = "";
+			refType = 4;
+		};
+		F59E47B0036AACD1016B311C = {
+			isa = PBXFileReference;
+			path = PSNotifierAlert.m;
+			refType = 4;
+		};
+		F59E47B1036AACD1016B311C = {
+			isa = PBXFileReference;
+			path = PSNotifierAlert.h;
+			refType = 4;
+		};
+		F59E47B2036AACD1016B311C = {
+			fileRef = F59E47B0036AACD1016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47B3036AACD1016B311C = {
+			fileRef = F59E47B1036AACD1016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47B4036AAD55016B311C = {
+			isa = PBXFileReference;
+			path = PSAlarmAlertController.m;
+			refType = 4;
+		};
+		F59E47B5036AAD55016B311C = {
+			isa = PBXFileReference;
+			path = PSAlarmAlertController.h;
+			refType = 4;
+		};
+		F59E47B6036AAD55016B311C = {
+			fileRef = F59E47B4036AAD55016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47B7036AAD55016B311C = {
+			fileRef = F59E47B5036AAD55016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47B8036AB217016B311C = {
+			isa = PBXFileReference;
+			path = PSDockBounceAlert.m;
+			refType = 4;
+		};
+		F59E47B9036AB217016B311C = {
+			isa = PBXFileReference;
+			path = PSDockBounceAlert.h;
+			refType = 4;
+		};
+		F59E47BA036AB217016B311C = {
+			fileRef = F59E47B8036AB217016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47BB036AB217016B311C = {
+			fileRef = F59E47B9036AB217016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47BC036AB228016B311C = {
+			isa = PBXFileReference;
+			path = PSMovieAlert.m;
+			refType = 4;
+		};
+		F59E47BD036AB228016B311C = {
+			isa = PBXFileReference;
+			path = PSMovieAlert.h;
+			refType = 4;
+		};
+		F59E47BE036AB228016B311C = {
+			fileRef = F59E47BC036AB228016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47BF036AB228016B311C = {
+			fileRef = F59E47BD036AB228016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47C0036B1ADD016B311C = {
+			isa = PBXFileReference;
+			path = PSMovieAlertController.m;
+			refType = 4;
+		};
+		F59E47C1036B1ADD016B311C = {
+			isa = PBXFileReference;
+			path = PSMovieAlertController.h;
+			refType = 4;
+		};
+		F59E47C2036B1ADD016B311C = {
+			fileRef = F59E47C0036B1ADD016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E47C3036B1ADD016B311C = {
+			fileRef = F59E47C1036B1ADD016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E4BDE036B1D94016B311C = {
+			children = (
+				F59E4BDF036B1D94016B311C,
+			);
+			isa = PBXVariantGroup;
+			name = "Movie alert.nib";
+			path = "";
+			refType = 4;
+		};
+		F59E4BDF036B1D94016B311C = {
+			isa = PBXFileReference;
+			name = English;
+			path = "English.lproj/Movie alert.nib";
+			refType = 4;
+		};
+		F59E4BE0036B1D94016B311C = {
+			fileRef = F59E4BDE036B1D94016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E4BE6036B2E5E016B311C = {
+			isa = PBXFileReference;
+			path = PSScriptAlert.m;
+			refType = 4;
+		};
+		F59E4BE7036B2E5E016B311C = {
+			isa = PBXFileReference;
+			path = PSScriptAlert.h;
+			refType = 4;
+		};
+		F59E4BE8036B2E5E016B311C = {
+			fileRef = F59E4BE6036B2E5E016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E4BE9036B2E5E016B311C = {
+			fileRef = F59E4BE7036B2E5E016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E4BEA036B33EC016B311C = {
+			isa = PBXFrameworkReference;
+			name = QuickTime.framework;
+			path = /System/Library/Frameworks/QuickTime.framework;
+			refType = 0;
+		};
+		F59E4C0C036B33EC016B311C = {
+			fileRef = F59E4BEA036B33EC016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E4C0D036B43D2016B311C = {
+			isa = PBXFileReference;
+			path = "NSMovie-NJRExtensions.m";
+			refType = 4;
+		};
+		F59E4C0E036B43D2016B311C = {
+			isa = PBXFileReference;
+			path = "NSMovie-NJRExtensions.h";
+			refType = 4;
+		};
+		F59E4C0F036B43D2016B311C = {
+			fileRef = F59E4C0D036B43D2016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F59E4C10036B43D2016B311C = {
+			fileRef = F59E4C0E036B43D2016B311C;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		F59F6CB40354E7DA01AEEDB1 = {
 			isa = PBXFileReference;
 			path = PSAlarm.h;
@@ -757,6 +1208,249 @@
 		};
 		F59F6CB70354E7DA01AEEDB1 = {
 			fileRef = F59F6CB50354E7DA01AEEDB1;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F19865036B806201EB0372 = {
+			children = (
+				F5F19866036B80AF01EB0372,
+				F5F19867036B80AF01EB0372,
+			);
+			isa = PBXGroup;
+			name = SpeechUtilities;
+			path = NDAppleScript;
+			refType = 4;
+		};
+		F5F19866036B80AF01EB0372 = {
+			isa = PBXFileReference;
+			path = SUSpeaker.h;
+			refType = 4;
+		};
+		F5F19867036B80AF01EB0372 = {
+			isa = PBXFileReference;
+			path = SUSpeaker.m;
+			refType = 4;
+		};
+		F5F19868036B80AF01EB0372 = {
+			fileRef = F5F19866036B80AF01EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F19869036B80AF01EB0372 = {
+			fileRef = F5F19867036B80AF01EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F1986C036B813101EB0372 = {
+			isa = PBXFileReference;
+			path = PSSpeechAlert.m;
+			refType = 4;
+		};
+		F5F1986D036B813101EB0372 = {
+			isa = PBXFileReference;
+			path = PSSpeechAlert.h;
+			refType = 4;
+		};
+		F5F1986E036B813101EB0372 = {
+			fileRef = F5F1986C036B813101EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F1986F036B813101EB0372 = {
+			fileRef = F5F1986D036B813101EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F19870036B822E01EB0372 = {
+			isa = PBXFileReference;
+			path = NJRVoicePopUpButton.m;
+			refType = 4;
+		};
+		F5F19871036B822E01EB0372 = {
+			isa = PBXFileReference;
+			path = NJRVoicePopUpButton.h;
+			refType = 4;
+		};
+		F5F19872036B822E01EB0372 = {
+			fileRef = F5F19870036B822E01EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F19873036B822E01EB0372 = {
+			fileRef = F5F19871036B822E01EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F198D0036BE57401EB0372 = {
+			isa = PBXFileReference;
+			path = NJRTableDelegate.m;
+			refType = 4;
+		};
+		F5F198D1036BE57401EB0372 = {
+			isa = PBXFileReference;
+			path = NJRTableDelegate.h;
+			refType = 4;
+		};
+		F5F198D2036BE57401EB0372 = {
+			fileRef = F5F198D0036BE57401EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F198D3036BE57401EB0372 = {
+			fileRef = F5F198D1036BE57401EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F198D9036BE75E01EB0372 = {
+			isa = PBXFileReference;
+			path = "NSTableView-NJRExtensions.m";
+			refType = 4;
+		};
+		F5F198DA036BE75E01EB0372 = {
+			isa = PBXFileReference;
+			path = "NSTableView-NJRExtensions.h";
+			refType = 4;
+		};
+		F5F198DB036BE75E01EB0372 = {
+			fileRef = F5F198D9036BE75E01EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F198DC036BE75E01EB0372 = {
+			fileRef = F5F198DA036BE75E01EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F1990D036D3B3101EB0372 = {
+			isa = PBXFileReference;
+			path = "NSImage-NJRExtensions.m";
+			refType = 4;
+		};
+		F5F1990E036D3B3101EB0372 = {
+			isa = PBXFileReference;
+			path = "NSImage-NJRExtensions.h";
+			refType = 4;
+		};
+		F5F1990F036D3B3101EB0372 = {
+			fileRef = F5F1990D036D3B3101EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F19910036D3B3101EB0372 = {
+			fileRef = F5F1990E036D3B3101EB0372;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F240B5036A862101FE7503 = {
+			isa = PBXFileReference;
+			path = NJRFSObjectSelector.m;
+			refType = 4;
+		};
+		F5F240B6036A862101FE7503 = {
+			isa = PBXFileReference;
+			path = NJRFSObjectSelector.h;
+			refType = 4;
+		};
+		F5F240B7036A862301FE7503 = {
+			fileRef = F5F240B6036A862101FE7503;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F240B8036A862301FE7503 = {
+			fileRef = F5F240B5036A862101FE7503;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F240B9036A867901FE7503 = {
+			isa = PBXFileReference;
+			path = BDAlias.h;
+			refType = 4;
+		};
+		F5F240BA036A867901FE7503 = {
+			fileRef = F5F240B9036A867901FE7503;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F240CA036A869401FE7503 = {
+			isa = PBXFileReference;
+			path = BDAlias.m;
+			refType = 4;
+		};
+		F5F240CB036A869401FE7503 = {
+			fileRef = F5F240CA036A869401FE7503;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F240CC036A877301FE7503 = {
+			isa = PBXFileReference;
+			path = NJRSoundPopUpButton.m;
+			refType = 4;
+		};
+		F5F240CD036A877301FE7503 = {
+			isa = PBXFileReference;
+			path = NJRSoundPopUpButton.h;
+			refType = 4;
+		};
+		F5F240CE036A877301FE7503 = {
+			fileRef = F5F240CC036A877301FE7503;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F240CF036A877301FE7503 = {
+			fileRef = F5F240CD036A877301FE7503;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F240D0036A87E301FE7503 = {
+			isa = PBXFrameworkReference;
+			name = Carbon.framework;
+			path = /System/Library/Frameworks/Carbon.framework;
+			refType = 0;
+		};
+		F5F24166036A87E401FE7503 = {
+			fileRef = F5F240D0036A87E301FE7503;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F24187036A90D901FE7503 = {
+			isa = PBXFrameworkReference;
+			name = MachineSettings.framework;
+			path = /System/Library/PrivateFrameworks/MachineSettings.framework;
+			refType = 0;
+		};
+		F5F24189036A90D901FE7503 = {
+			fileRef = F5F24187036A90D901FE7503;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5F2418A036A910B01FE7503 = {
+			isa = PBXFileReference;
+			path = SoundFileManager.h;
+			refType = 4;
+		};
+		F5F2418B036A910B01FE7503 = {
+			fileRef = F5F2418A036A910B01FE7503;
 			isa = PBXBuildFile;
 			settings = {
 			};
