@@ -33,7 +33,7 @@ static float savedChannelVolume[2] = {-1, -1};
     if (err != noErr) return NO;
 
     propertySize = sizeof(stereoChannels);
-    err = AudioDeviceGetProperty(deviceID, NULL, false, kAudioDevicePropertyPreferredChannelsForStereo, &propertySize, &stereoChannels);
+    err = AudioDeviceGetProperty(deviceID, 0, false, kAudioDevicePropertyPreferredChannelsForStereo, &propertySize, &stereoChannels);
     if (err != noErr) return NO;
     return YES;
 }

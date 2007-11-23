@@ -1,4 +1,5 @@
 #import "NJRFSObjectSelector.h"
+#import "NSMenuItem-NJRExtensions.h"
 #import "NSImage-NJRExtensions.h"
 #import "NSString-NJRExtensions.h"
 #include <Carbon/Carbon.h>
@@ -83,6 +84,7 @@ static NSSize PopupTriangleSize;
 
 - (void)setImage:(NSImage *)image;
 {
+    // XXX change to use IconRef; see ICeCoffEELabeledIconCell and Google
     [super setImage: [image bestFitImageForSize: [[self cell] cellSize]]];
 }
 
@@ -110,7 +112,8 @@ static NSSize PopupTriangleSize;
         NSArray *files = [sheet filenames];
         NSAssert1([files count] == 1, @"%d items returned, only one expected", [files count]);
         [self setPath: [files objectAtIndex: 0]];
-        [[self target] tryToPerform: [self action] with: self];
+		if ([self target] != nil && [[self target] respondsToSelector:[self action]])
+			[[self target] performSelector: [self action] withObject: self];
     }
 }
 
@@ -144,16 +147,15 @@ static NSSize PopupTriangleSize;
                 [title release];
             }
             do {
+                NSAssert1(![path isEqualToString: revealPath], @"Stuck on path |%@|", [alias fullPath]);
                 item = [menu addItemWithTitle: [fmgr displayNameAtPath: path]
                                        action: @selector(revealInFinder:)
                                 keyEquivalent: @""];
                 [item setTarget: self];
                 [item setRepresentedObject: revealPath];
-                [item setImage:
-                    [[[NSWorkspace sharedWorkspace] iconForFile: path] bestFitImageForSize: NSMakeSize(16, 16)]];
+                [item setImageFromPath: path];
                 revealPath = path;
                 path = [path stringByDeletingLastPathComponent];
-                NSAssert1(![path isEqualToString: revealPath], @"Stuck on path |%@|", [alias fullPath]);
             } while (![revealPath isEqualToString: @"/"] && ![path isEqualToString: @"/Volumes"]);
             [[self cell] setMenu: menu];
         } else {
@@ -194,6 +196,8 @@ extern MenuRef _NSGetCarbonMenu(NSMenu *menu);
 
 - (void)mouseDown:(NSEvent *)theEvent;
 {
+    if (![self isEnabled]) return;
+    
     NSMenu *menu = [[self cell] menu];
     MenuRef mRef = _NSGetCarbonMenu(menu);
 
@@ -218,9 +222,10 @@ extern MenuRef _NSGetCarbonMenu(NSMenu *menu);
                                 clickCount: [theEvent clickCount]
                                   pressure: [theEvent pressure]];
 
-    // this undocumented API does not work any better; contextual menu items are still added:
-    // [menu _popUpMenuWithEvent: theEvent forView: self];
-    [NSMenu popUpContextMenu: menu withEvent: theEvent forView: self];
+    // XXX otherwise Cocoa thoughtfully doesn't give me the font I want
+    NSFont *font = [[self cell] font];
+    [NSMenu popUpContextMenu: menu withEvent: theEvent forView: self withFont: 
+     [NSFont fontWithName: [font fontName] size: [font pointSize] - 0.001]];
 }
 
 - (BDAlias *)alias;
@@ -309,7 +314,8 @@ extern MenuRef _NSGetCarbonMenu(NSMenu *menu);
         NSURL *url = [NSURL URLFromPasteboard: [sender draggingPasteboard]];
         if (url == nil) return NO;
         [self setPath: [url path]];
-        [[self target] tryToPerform: [self action] with: self];
+		if ([self target] != nil && [[self target] respondsToSelector:[self action]])
+			[[self target] performSelector: [self action] withObject: self];
     }
     return YES;
 }

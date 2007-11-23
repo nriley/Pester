@@ -101,6 +101,7 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
     [commandRejectSet release];
     [commandShiftRejectSet release];
     [commandOptionRejectSet release];
+    [super dealloc];
 }
 
 #pragma mark actions

@@ -63,7 +63,7 @@
 
     unsigned i;
     for (i = 0 ; i < level ; i++) {
-        [s appendString: @"ÊÊ"];
+        [s appendString: @"Â Â "];
     }
     [s appendString: description];
     return [s autorelease];
@@ -100,7 +100,7 @@ static NJRReadMeController *sharedController = nil;
         [NSThread detachNewThreadSelector: @selector(readRTF:) toTarget: self withObject: aPath];
         NSString *frameAutosaveName;
         if ( (frameAutosaveName = [window frameAutosaveName]) == nil) {
-            // XXX workaround for bug in 10.1.5Ð10.2.4 (at least): autosave name set in IB doesn't show up
+            // XXX workaround for bug in 10.1.5â€“10.2.4 (at least): autosave name set in IB doesn't show up
             [self setWindowFrameAutosaveName: @"Read Me"];
             frameAutosaveName = [window frameAutosaveName];
         }

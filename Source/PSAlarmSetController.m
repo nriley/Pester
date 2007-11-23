@@ -372,6 +372,8 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     if (doScriptSelected && sender != nil) {
         [[self window] makeFirstResponder: scriptSelectButton];
         if ([script alias] == nil) [scriptSelectButton performClick: sender];
+    } else {
+	[[self window] makeFirstResponder: sender];
     }
 }
 
@@ -381,6 +383,8 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [voice setEnabled: doSpeakSelected];
     if (doSpeakSelected && sender != nil)
         [[self window] makeFirstResponder: voice];
+    else
+	[[self window] makeFirstResponder: sender];	
 }
 
 - (void)_readAlerts:(PSAlerts *)alerts;

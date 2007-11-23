@@ -31,7 +31,7 @@
     int itemIndex = 0;
     NSRange matchingRange;
     while ( (title = [e nextObject]) != nil) {
-        matchingRange = [title rangeOfString: @"ÇdayÈ"];
+        matchingRange = [title rangeOfString: @"Â«dayÂ»"];
         if (matchingRange.location != NSNotFound) {
             NSMutableString *format = [title mutableCopy];
             NSEnumerator *we = [dayNames objectEnumerator];
@@ -43,6 +43,7 @@
                 [timeDateCompletions insertItemWithTitle: [NSString stringWithFormat: format, dayName] atIndex: itemIndex];
                 itemIndex++;
             }
+	    [format release];
         } else itemIndex++;
     }
 }

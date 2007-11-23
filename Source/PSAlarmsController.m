@@ -105,7 +105,7 @@
         NSCalendarDate *date = [alarm date];
         if ([[tableColumn identifier] isEqualToString: @"date"]) return [alarm shortDateString];
         if ([[tableColumn identifier] isEqualToString: @"time"]) {
-            if (date == nil) return @"ÇexpiredÈ";
+            if (date == nil) return @"Â«expiredÂ»";
             return [alarm timeString];
         }
     }

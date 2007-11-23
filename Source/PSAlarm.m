@@ -342,7 +342,7 @@ static NSDictionary *locale;
 {
     NSString *timeRemainingString = [self _stringForInterval: llround([self timeRemaining])];
     
-    if (timeRemainingString == nil) return @"ÇexpiredÈ";
+    if (timeRemainingString == nil) return @"Â«expiredÂ»";
     return timeRemainingString;
 }
 

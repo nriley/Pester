@@ -40,6 +40,7 @@ static NSString * const PLAlerts = @"alerts"; // NSString
 - (void)dealloc;
 {
     [alerts release]; alerts = nil;
+    [super dealloc];
 }
 
 #pragma mark accessing
@@ -120,7 +121,9 @@ static NSString * const PLAlerts = @"alerts"; // NSString
     while ( (alert = [e nextObject]) != nil) {
         [plAlerts addObject: [alert propertyListRepresentation]];
     }
-    return [NSDictionary dictionaryWithObject: plAlerts forKey: PLAlerts];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject: plAlerts forKey: PLAlerts];
+    [plAlerts release];
+    return dict;
 }
 
 - (id)initWithPropertyList:(NSDictionary *)dict;

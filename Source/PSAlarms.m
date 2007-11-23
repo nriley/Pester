@@ -175,8 +175,8 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 {
     NSEnumerator *e = [indices objectEnumerator];
     NSNumber *n;
-    int indexCount = [indices count], i = 0, alarmIndex;
-    int *indexArray = (int *)malloc(indexCount * sizeof(int));
+    unsigned indexCount = [indices count], i = 0, alarmIndex;
+    unsigned *indexArray = (unsigned *)malloc(indexCount * sizeof(unsigned));
     NS_DURING
         while ( (n = [e nextObject]) != nil) {
             alarmIndex = [n intValue];

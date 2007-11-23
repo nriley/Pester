@@ -7,17 +7,14 @@
 //
 
 #import "NJRQTMediaPopUpButton.h"
-#import "SoundFileManager.h"
 #import "NJRSoundManager.h"
 #import "NSMovie-NJRExtensions.h"
-#import "NSImage-NJRExtensions.h"
-#import <QuickTime/Movies.h>
+#import "NSMenuItem-NJRExtensions.h"
 
-// XXX workaround for SoundFileManager log message in 10.2.3 and earlier
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-// XXX end workaround
+#import <QTKit/QTKit.h>
+
+#include <QuickTime/Movies.h>
+#include <limits.h>
 
 static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
 
@@ -65,7 +62,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     item = [menu insertItemWithTitle: title action: @selector(_aliasSelected:) keyEquivalent: @"" atIndex: [menu indexOfItem: otherItem] + 1];
     [item setTarget: self];
     [item setRepresentedObject: alias];
-    [item setImage: [[[NSWorkspace sharedWorkspace] iconForFile: path] bestFitImageForSize: NSMakeSize(16, 16)]];
+    [item setImageFromPath: path];
     [recentMediaAliasData addObject: [alias aliasData]];
     if ([recentMediaAliasData count] > NJRQTMediaPopUpButtonMaxRecentItems) {
         [menu removeItemAtIndex: [menu numberOfItems] - 1];
@@ -114,31 +111,65 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (void)_setUp;
 {
-    NSMenu *menu;
-    NSMenuItem *item;
-    SoundFileManager *sfm = [SoundFileManager sharedSoundFileManager];
-    int soundCount = [sfm count];
-
+    NSMenu *menu = [self menu];
     [self removeAllItems];
-    menu = [self menu];
-    item = [menu addItemWithTitle: @"Alert sound" action: @selector(_beepSelected:) keyEquivalent: @""];
+    [menu setAutoenablesItems: NO];
+
+    NSMenuItem *item = [menu addItemWithTitle: @"Alert sound" action: @selector(_beepSelected:) keyEquivalent: @""];
     [item setTarget: self];
     [menu addItem: [NSMenuItem separatorItem]];
-    if (soundCount == 0) {
-        item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate alert sounds", "QuickTime media popup menu item surrogate for alert sound list if no sounds are found") action: nil keyEquivalent: @""];
-        [item setEnabled: NO];
-    } else {
-        SoundFile *sf;
-        int i;
-        [sfm sortByName];
-        for (i = 0 ; i < soundCount ; i++) {
-            sf = [sfm soundFileAtIndex: i];
-            item = [menu addItemWithTitle: [sf name] action: @selector(_soundFileSelected:) keyEquivalent: @""];
+
+    NSMutableArray *soundFolderPaths = [[NSMutableArray alloc] initWithCapacity: kLastDomainConstant - kSystemDomain + 1];
+    for (FSVolumeRefNum domain = kSystemDomain ; domain <= kLastDomainConstant ; domain++) {
+	OSStatus err;
+	FSRef fsr;
+	err = FSFindFolder(domain, kSystemSoundsFolderType, false, &fsr);
+	if (err != noErr) continue;
+
+	UInt8 path[PATH_MAX];
+	err = FSRefMakePath(&fsr, path, PATH_MAX);
+	if (err != noErr) continue;
+
+	CFStringRef pathString = CFStringCreateWithFileSystemRepresentation(NULL, (const char *)path);
+	if (pathString == NULL) continue;
+
+	[soundFolderPaths addObject: (NSString *)pathString];
+	CFRelease(pathString);
+    }
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSEnumerator *e = [soundFolderPaths objectEnumerator];
+    NSString *folderPath;
+    while ( (folderPath = [e nextObject]) != nil) {
+	if (![fm changeCurrentDirectoryPath: folderPath]) continue;
+
+	NSDirectoryEnumerator *de = [fm enumeratorAtPath: folderPath];
+	NSString *path;
+	while ( (path = [de nextObject]) != nil) {
+	    BOOL isDir;
+	    if (![fm fileExistsAtPath: path isDirectory: &isDir] || isDir) {
+		[de skipDescendents];
+		continue;
+	    }
+
+	    if (![QTMovie canInitWithFile: path]) continue;
+	    
+	    item = [menu addItemWithTitle: [fm displayNameAtPath: path]
+				   action: @selector(_systemSoundSelected:)
+			    keyEquivalent: @""];
             [item setTarget: self];
-            [item setRepresentedObject: sf];
-            [item setImage: [[[NSWorkspace sharedWorkspace] iconForFile: [sf path]] bestFitImageForSize: NSMakeSize(16, 16)]];
+            [item setImageFromPath: path];
+	    path = [folderPath stringByAppendingPathComponent: path];
+            [item setRepresentedObject: path];
+	    [item setToolTip: path];
         }
     }
+    [soundFolderPaths release];
+    
+    if ([menu numberOfItems] == 2) {
+        item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate alert sounds", "QuickTime media popup menu item surrogate for alert sound list if no sounds are found") action: nil keyEquivalent: @""];
+        [item setEnabled: NO];
+    }
+	 
     [menu addItem: [NSMenuItem separatorItem]];
     item = [menu addItemWithTitle: NSLocalizedString(@"Other...", "Media popup item to select another sound/movie/image") action: @selector(select:) keyEquivalent: @""];
     [item setTarget: self];
@@ -211,31 +242,16 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (NSMenuItem *)_itemForAlias:(BDAlias *)alias;
 {
-    NSString *path;
-    SoundFile *sf;
-    if (alias == nil) {
-        return [self itemAtIndex: 0];
-    }
+    if (alias == nil) return [self itemAtIndex: 0];
 
     // [self _validateRecentMedia];
-    path = [alias fullPath];
-    {   // XXX suppress log message from Apple's code:
-        // 2002-12-14 14:09:58.740 Pester[26529] Could not find sound type for directory /Users/nicholas/Desktop
-        int errfd = dup(STDERR_FILENO), nullfd = open("/dev/null", O_WRONLY, 0);
-        // need to have something open in STDERR_FILENO because if it isn't,
-        // NSLog will log to /dev/console
-        dup2(nullfd, STDERR_FILENO);
-        close(nullfd);
-        sf = [[SoundFileManager sharedSoundFileManager] soundFileFromPath: path];
-        dup2(errfd, STDERR_FILENO);
-        close(errfd);
-    }
-    // NSLog(@"_itemForAlias: %@", path);
+    NSString *path = [alias fullPath];
 
     // selected a system sound?
-    if (sf != nil) {
+    int itemIndex = [[self menu] indexOfItemWithRepresentedObject: path];
+    if (itemIndex != -1) {
         // NSLog(@"_itemForAlias: selected system sound");
-        return [self itemAtIndex: [self indexOfItemWithRepresentedObject: sf]];
+        return [self itemAtIndex: itemIndex];
     } else {
         NSEnumerator *e = [recentMediaAliasData reverseObjectEnumerator];
         NSData *aliasData;
@@ -405,9 +421,9 @@ MovieStoppedCB(QTCallBack cb, long refCon)
     [self _validateWithPreview: YES];
 }
 
-- (void)_soundFileSelected:(NSMenuItem *)sender;
+- (void)_systemSoundSelected:(NSMenuItem *)sender;
 {
-    [self _setPath: [(SoundFile *)[sender representedObject] path]];
+    [self _setPath: [sender representedObject]];
     if (![self _validateWithPreview: YES]) {
         [[self menu] removeItem: sender];
     }

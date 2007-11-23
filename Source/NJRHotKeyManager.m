@@ -31,6 +31,7 @@ const OSType kHotKeyManagerSignature = 'NHKM';
 {
     [hotKey release];
     [target release];
+    [super dealloc];
 }
 
 @end

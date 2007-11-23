@@ -49,10 +49,10 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
             NSString *appName = [errorInfo objectForKey: NSAppleScriptErrorAppName];
             if (errorMessage == nil) errorMessage = [errorInfo objectForKey: NSAppleScriptErrorBriefMessage];
             NSRunAlertPanel(@"Script loading error",
-                            @"Pester encountered an error while attempting to load “%@”%@ %@",
+                            @"Pester encountered an error while attempting to load ‚Äú%@‚Äù%@ %@",
                             nil, nil, nil,
                             [[NSFileManager defaultManager] displayNameAtPath: scriptPath],
-                            errorMessage == nil ? @"" : [NSString stringWithFormat: @":\n\n%@%@", appName == nil ? @"" : @"“%@” reported an error: ", errorMessage],
+                            errorMessage == nil ? @"" : [NSString stringWithFormat: @":\n\n%@%@", appName == nil ? @"" : @"‚Äú%@‚Äù reported an error: ", errorMessage],
                             errorNumber == nil ? @"" : [NSString stringWithFormat: @"(%@)", errorNumber]);
         } else {
             NSAppleEventDescriptor *scriptResult = [script executeAndReturnError: &errorInfo];
@@ -62,10 +62,10 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
                 NSString *appName = [errorInfo objectForKey: NSAppleScriptErrorAppName];
                 if (errorMessage == nil) errorMessage = [errorInfo objectForKey: NSAppleScriptErrorBriefMessage];
                 NSRunAlertPanel(@"Script execution error",
-                                @"Pester encountered an error while attempting to execute the script “%@”%@ %@",
+                                @"Pester encountered an error while attempting to execute the script ‚Äú%@‚Äù%@ %@",
                                 nil, nil, nil,
                                 [[NSFileManager defaultManager] displayNameAtPath: scriptPath],
-                                errorMessage == nil ? @"" : [NSString stringWithFormat: @":\n\n%@%@", appName == nil ? @"" : @"“%@” reported an error: ", errorMessage],
+                                errorMessage == nil ? @"" : [NSString stringWithFormat: @":\n\n%@%@", appName == nil ? @"" : @"‚Äú%@‚Äù reported an error: ", errorMessage],
                                 errorNumber == nil ? @"" : [NSString stringWithFormat: @"(%@)", errorNumber]);
             }
         }

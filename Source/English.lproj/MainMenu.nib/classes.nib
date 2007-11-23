@@ -1,111 +1,251 @@
-{
-    IBClasses = (
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = NJRDateFormatter; LANGUAGE = ObjC; SUPERCLASS = NSDateFormatter; }, 
-        {
-            ACTIONS = {select = id; }; 
-            CLASS = NJRFSObjectSelector; 
-            LANGUAGE = ObjC; 
-            SUPERCLASS = NSButton; 
-        }, 
-        {
-            ACTIONS = {clearAllEntries = id; removeEntry = id; }; 
-            CLASS = NJRHistoryTrackingComboBox; 
-            LANGUAGE = ObjC; 
-            SUPERCLASS = NSComboBox; 
-        }, 
-        {CLASS = NJRIntegerFilter; LANGUAGE = ObjC; SUPERCLASS = NSNumberFormatter; }, 
-        {
-            CLASS = NJRIntervalField; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {intervalUnits = NSPopUpButton; }; 
-            SUPERCLASS = NSTextField; 
-        }, 
-        {
-            ACTIONS = {stopSoundPreview = id; }; 
-            CLASS = NJRQTMediaPopUpButton; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {preview = NSMovieView; }; 
-            SUPERCLASS = NSPopUpButton; 
-        }, 
-        {CLASS = NJRUnfocusableMovieView; LANGUAGE = ObjC; SUPERCLASS = NSMovieView; }, 
-        {
-            ACTIONS = {stopVoicePreview = id; }; 
-            CLASS = NJRVoicePopUpButton; 
-            LANGUAGE = ObjC; 
-            SUPERCLASS = NSPopUpButton; 
-        }, 
-        {CLASS = NSDisclosureButtonCell; LANGUAGE = ObjC; SUPERCLASS = NSButtonCell; }, 
-        {CLASS = NSObject; LANGUAGE = ObjC; }, 
-        {
-            ACTIONS = {
-                dateCompleted = id; 
-                doScriptChanged = id; 
-                doSpeakChanged = id; 
-                editAlertChanged = id; 
-                inAtChanged = id; 
-                playSoundChanged = id; 
-                setAlarm = id; 
-                setSoundRepetitionCount = id; 
-                showCalendar = id; 
-                showVolume = id; 
-                silence = id; 
-                toggleAlertEditor = id; 
-                update = id; 
-            }; 
-            CLASS = PSAlarmSetController; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                alertTabs = NSTabView; 
-                alertView = NSTextField; 
-                bounceDockIcon = NSButton; 
-                cancelButton = NSButton; 
-                displayMessage = NSButtonCell; 
-                doScript = NSButtonCell; 
-                doSpeak = NSButtonCell; 
-                editAlert = NSButtonCell; 
-                inAtMatrix = NSMatrix; 
-                messageField = NSTextField; 
-                playSound = NSButtonCell; 
-                script = NJRFSObjectSelector; 
-                scriptSelectButton = NSButton; 
-                setButton = NSButton; 
-                sound = NJRQTMediaPopUpButton; 
-                soundRepetitionStepper = NSStepper; 
-                soundRepetitions = NSTextField; 
-                soundRepetitionsLabel = NSTextField; 
-                soundVolumeButton = NSButton; 
-                timeCalendarButton = NSButton; 
-                timeDate = NSTextField; 
-                timeDateCompletions = NSPopUpButton; 
-                timeInterval = NJRIntervalField; 
-                timeIntervalRepeats = NSButton; 
-                timeIntervalUnits = NSPopUpButton; 
-                timeOfDay = NSTextField; 
-                timeSummary = NSTextField; 
-                voice = NJRVoicePopUpButton; 
-                wakeUp = NSButtonCell; 
-            }; 
-            SUPERCLASS = NSWindowController; 
-        }, 
-        {
-            CLASS = PSAlarmsController; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {tableView = NSTableView; }; 
-            SUPERCLASS = NSWindowController; 
-        }, 
-        {
-            ACTIONS = {
-                orderFrontAlarmsPanel = id; 
-                orderFrontPreferencesPanel = id; 
-                orderFrontSetAlarmPanel = id; 
-                stopAlerts = id; 
-            }; 
-            CLASS = PSApplication; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {alarmSetController = PSAlarmSetController; }; 
-            SUPERCLASS = NSApplication; 
-        }
-    ); 
-    IBVersion = 1; 
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>stopVoicePreview</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>NJRVoicePopUpButton</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSPopUpButton</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>dateCompleted</key>
+				<string>NSPopUpButton</string>
+				<key>doScriptChanged</key>
+				<string>id</string>
+				<key>doSpeakChanged</key>
+				<string>id</string>
+				<key>editAlertChanged</key>
+				<string>id</string>
+				<key>inAtChanged</key>
+				<string>id</string>
+				<key>playSoundChanged</key>
+				<string>id</string>
+				<key>setAlarm</key>
+				<string>NSButton</string>
+				<key>setSoundRepetitionCount</key>
+				<string>id</string>
+				<key>showCalendar</key>
+				<string>NSButton</string>
+				<key>showVolume</key>
+				<string>NSButton</string>
+				<key>silence</key>
+				<string>id</string>
+				<key>toggleAlertEditor</key>
+				<string>id</string>
+				<key>update</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PSAlarmSetController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>alertTabs</key>
+				<string>NSTabView</string>
+				<key>alertView</key>
+				<string>NSTextField</string>
+				<key>bounceDockIcon</key>
+				<string>NSButton</string>
+				<key>cancelButton</key>
+				<string>NSButton</string>
+				<key>displayMessage</key>
+				<string>NSButtonCell</string>
+				<key>doScript</key>
+				<string>NSButtonCell</string>
+				<key>doSpeak</key>
+				<string>NSButtonCell</string>
+				<key>editAlert</key>
+				<string>NSButtonCell</string>
+				<key>inAtMatrix</key>
+				<string>NSMatrix</string>
+				<key>messageField</key>
+				<string>NSTextField</string>
+				<key>playSound</key>
+				<string>NSButtonCell</string>
+				<key>script</key>
+				<string>NJRFSObjectSelector</string>
+				<key>scriptSelectButton</key>
+				<string>NSButton</string>
+				<key>setButton</key>
+				<string>NSButton</string>
+				<key>sound</key>
+				<string>NJRQTMediaPopUpButton</string>
+				<key>soundRepetitionStepper</key>
+				<string>NSStepper</string>
+				<key>soundRepetitions</key>
+				<string>NSTextField</string>
+				<key>soundRepetitionsLabel</key>
+				<string>NSTextField</string>
+				<key>soundVolumeButton</key>
+				<string>NSButton</string>
+				<key>timeCalendarButton</key>
+				<string>NSButton</string>
+				<key>timeDate</key>
+				<string>NSTextField</string>
+				<key>timeDateCompletions</key>
+				<string>NSPopUpButton</string>
+				<key>timeInterval</key>
+				<string>NJRIntervalField</string>
+				<key>timeIntervalRepeats</key>
+				<string>NSButton</string>
+				<key>timeIntervalUnits</key>
+				<string>NSPopUpButton</string>
+				<key>timeOfDay</key>
+				<string>NSTextField</string>
+				<key>timeSummary</key>
+				<string>NSTextField</string>
+				<key>voice</key>
+				<string>NJRVoicePopUpButton</string>
+				<key>wakeUp</key>
+				<string>NSButtonCell</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSWindowController</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSDisclosureButtonCell</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSButtonCell</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>clearAllEntries</key>
+				<string>id</string>
+				<key>removeEntry</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>NJRHistoryTrackingComboBox</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSComboBox</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSMenuItem</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>stopSoundPreview</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>NJRQTMediaPopUpButton</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>preview</key>
+				<string>NSMovieView</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSPopUpButton</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NJRUnfocusableMovieView</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSMovieView</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSObject</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NJRIntervalField</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>intervalUnits</key>
+				<string>NSPopUpButton</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSTextField</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>orderFrontAlarmsPanel</key>
+				<string>id</string>
+				<key>orderFrontPreferencesPanel</key>
+				<string>id</string>
+				<key>orderFrontSetAlarmPanel</key>
+				<string>id</string>
+				<key>stopAlerts</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PSApplication</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>alarmSetController</key>
+				<string>PSAlarmSetController</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSApplication</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NJRIntegerFilter</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSNumberFormatter</string>
+		</dict>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>select</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>NJRFSObjectSelector</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSButton</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>

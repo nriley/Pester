@@ -64,6 +64,7 @@ static NSDictionary *statusAttributes = nil;
 - (void)dealloc;
 {
     [hotKey release];
+    [super dealloc];
 }
 
 #pragma mark interface updating

@@ -83,7 +83,7 @@
 {
     NSString *alertMessage = nil;
     NSString *alternateButtonString = nil;
-    NSDecimalNumber *proposedValue = nil;
+    NSNumber *proposedValue = nil;
     NSDictionary *contextInfo;
 
     NSString *alertInformation = [NSString localizedStringWithFormat:

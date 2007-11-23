@@ -26,7 +26,6 @@
                                                object: self];
     [self removeAllItems];
     [self addItemsWithObjectValues: [[NSUserDefaults standardUserDefaults] stringArrayForKey: [self _defaultKey]]];
-    [self setItemHeight: [self itemHeight] + 2];
 }
 
 - (void)_writeHistory;

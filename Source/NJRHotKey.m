@@ -38,6 +38,7 @@ static NSString * const PLKeyCode = @"keyCode"; // NSNumber
 - (void)dealloc;
 {
     [hotKeyCharacters release];
+    [super dealloc];
 }
 
 #pragma mark accessing

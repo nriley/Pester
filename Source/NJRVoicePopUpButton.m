@@ -20,7 +20,7 @@
     menu = [self menu];
     [menu setAutoenablesItems: NO];
     // XXX would be more elegant with surrogate support like my font popup menu
-    item = [menu addItemWithTitle: @"ÇunknownÈ" action: nil keyEquivalent: @""];
+    item = [menu addItemWithTitle: @"Â«unknownÂ»" action: nil keyEquivalent: @""];
     [item setEnabled: NO];
     [menu addItem: [NSMenuItem separatorItem]];
     if (voiceNames == nil || [voiceNames count] == 0) {
