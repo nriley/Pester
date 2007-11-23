@@ -56,7 +56,7 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
 
 - (void)dealloc;
 {
-    [alarm release];
+    [alarm release]; alarm = nil;
     [updateTimer invalidate]; updateTimer = nil;
     [super dealloc];
 }
@@ -86,8 +86,10 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
 - (IBAction)close:(id)sender;
 {
     [PSAlarmAlertController stopAlerts: sender];
-    [self close];
+    [self retain];
+    [self close]; // releases self in windowWillClose:
     [[PSNotifierAlert alert] completedForAlarm: alarm];
+    [self release];
 }
 
 - (IBAction)snoozeUntil:(NSMenuItem *)sender;
