@@ -273,14 +273,18 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
         alarms = [[NSMutableArray alloc] initWithCapacity: [plPendingAlarms count]];
         e = [plPendingAlarms objectEnumerator];
         while ( (plAlarm = [e nextObject]) != nil) {
-            [alarms addObject: [[PSAlarm alloc] initWithPropertyList: plAlarm]];
+	    alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm];
+            [alarms addObject: alarm];
+	    [alarm release];
         }
 
         e = [plExpiredAlarms objectEnumerator];
         while ( (plAlarm = [e nextObject]) != nil) {
             // expired alarms may be ready for deletion, or may repeat - if the latter, PSAlarm will reschedule the alarm so the repeat interval begins at restoration time. 
-            if ( (alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm]) != nil)
+            if ( (alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm]) != nil) {
                 [alarms addObject: alarm];
+		[alarm release];
+	    }
         }
         expiredAlarms = [[NSMutableSet alloc] init];
         
