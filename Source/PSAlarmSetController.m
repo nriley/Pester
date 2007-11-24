@@ -161,7 +161,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 {
     // NSLog(@"updateDateDisplay: %@", sender);
     if ([alarm isValid]) {
-        [self setStatus: [NSString stringWithFormat: @"Alarm will be set for %@ on %@", [alarm timeString], [alarm dateString]]];
+        [self setStatus: [NSString stringWithFormat: @"Alarm will be set for %@ on %@.", [alarm timeString], [alarm dateString]]];
         [setButton setEnabled: YES];
         if (updateTimer == nil || ![updateTimer isValid]) {
             // XXX this logic (and the timer) should really go into PSAlarm, to send notifications for status updates instead.  Timer starts when people are watching, stops when people aren't.
