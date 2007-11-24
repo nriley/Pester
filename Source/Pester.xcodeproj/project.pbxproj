@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E17CA7BB0CF7D08C00018B34 /* DynaLoader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CA7BA0CF7D08C00018B34 /* DynaLoader.a */; };
+		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in CopyFiles */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
 		E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6DF0353DF5E01AEEDB1 /* Notifier.nib */; };
 		E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6E30353ED1201AEEDB1 /* Application icon.icns */; };
 		E1B11F290CF5F30F004975AA /* Alarms.nib in Resources */ = {isa = PBXBuildFile; fileRef = F560E2EE03574F8A01A4E466 /* Alarms.nib */; };
@@ -32,7 +34,7 @@
 		E1B11F3D0CF5F30F004975AA /* Volume 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E127900404429F9300050002 /* Volume 1.png */; };
 		E1B11F3E0CF5F30F004975AA /* Volume.nib in Resources */ = {isa = PBXBuildFile; fileRef = E12790090442A5B100050002 /* Volume.nib */; };
 		E1B11F400CF5F30F004975AA /* BDAlias.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F240CA036A869401FE7503 /* BDAlias.m */; };
-		E1B11F410CF5F30F004975AA /* NJRDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F59DC6FD0354188F01AEEDB1 /* NJRDateFormatter.m */; };
+		E1B11F410CF5F30F004975AA /* NJRDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F59DC6FD0354188F01AEEDB1 /* NJRDateFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-unused-function"; }; };
 		E1B11F420CF5F30F004975AA /* NJRFSObjectSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F240B5036A862101FE7503 /* NJRFSObjectSelector.m */; };
 		E1B11F430CF5F30F004975AA /* NJRHistoryTrackingComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F560E3160357895001A4E466 /* NJRHistoryTrackingComboBox.m */; };
 		E1B11F440CF5F30F004975AA /* NJRIntegerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F59DC6E80353F58B01AEEDB1 /* NJRIntegerFilter.m */; };
@@ -102,6 +104,19 @@
 		E1B121B40CF639A1004975AA /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B121B30CF639A1004975AA /* QTKit.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E17CA9A80CF7F89900018B34 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Date;
+			dstSubfolderSpec = 7;
+			files = (
+				E17CA9AB0CF7F8CB00018B34 /* Manip.pm in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -138,6 +153,8 @@
 		E162698A03B6190B00000028 /* NSCalendarDate-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendarDate-NJRExtensions.m"; sourceTree = "<group>"; };
 		E16959290437A4A400050002 /* NSFont-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFont-NJRExtensions.h"; sourceTree = "<group>"; };
 		E169592A0437A4A400050002 /* NSFont-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFont-NJRExtensions.m"; sourceTree = "<group>"; };
+		E17CA7BA0CF7D08C00018B34 /* DynaLoader.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = DynaLoader.a; sourceTree = "<group>"; };
+		E17CA9A90CF7F8C200018B34 /* Manip.pm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = Manip.pm; sourceTree = SOURCE_ROOT; };
 		E17F2F3203FDF2F000050002 /* PSCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCalendarController.h; sourceTree = "<group>"; };
 		E17F2F3303FDF2F000050002 /* PSCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCalendarController.m; sourceTree = "<group>"; };
 		E17F2F4003FDF67700050002 /* NSCalendarDate-OFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSCalendarDate-OFExtensions.h"; sourceTree = "<group>"; };
@@ -266,7 +283,6 @@
 		F5F240CC036A877301FE7503 /* NJRQTMediaPopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NJRQTMediaPopUpButton.m; sourceTree = "<group>"; };
 		F5F240CD036A877301FE7503 /* NJRQTMediaPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = NJRQTMediaPopUpButton.h; sourceTree = "<group>"; };
 		F5F240D0036A87E301FE7503 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		F5F2418A036A910B01FE7503 /* SoundFileManager.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SoundFileManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +296,7 @@
 				E1B11F830CF5F30F004975AA /* IOKit.framework in Frameworks */,
 				E1B11F840CF5F30F004975AA /* CoreAudio.framework in Frameworks */,
 				E1B121B40CF639A1004975AA /* QTKit.framework in Frameworks */,
+				E17CA7BB0CF7D08C00018B34 /* DynaLoader.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +358,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				E1B11F8B0CF5F30F004975AA /* Info-Pester.plist */,
 			);
 			name = Pester;
 			sourceTree = "<group>";
@@ -370,6 +386,7 @@
 				E1DEF10603FF83AC00050002 /* Snooze until.nib */,
 				E10F2A3B0402E61C00050002 /* Read Me.nib */,
 				E11CB6E0043025F500050002 /* Preferences.nib */,
+				E1B11F8B0CF5F30F004975AA /* Info-Pester.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				E10E71F3040C335800050002 /* Localizable.strings */,
 				F59DD44F0358ABF4017318D0 /* Credits.html */,
@@ -384,6 +401,7 @@
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 				E162698803B618BD00000028 /* Private Headers */,
+				E17CA7B60CF7D07400018B34 /* Perl */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -418,10 +436,18 @@
 		E162698803B618BD00000028 /* Private Headers */ = {
 			isa = PBXGroup;
 			children = (
-				F5F2418A036A910B01FE7503 /* SoundFileManager.h */,
 				E191700B03AD24A600AEFBE0 /* NSDisclosureButtonCell.h */,
 			);
 			name = "Private Headers";
+			sourceTree = "<group>";
+		};
+		E17CA7B60CF7D07400018B34 /* Perl */ = {
+			isa = PBXGroup;
+			children = (
+				E17CA9A90CF7F8C200018B34 /* Manip.pm */,
+				E17CA7BA0CF7D08C00018B34 /* DynaLoader.a */,
+			);
+			name = Perl;
 			sourceTree = "<group>";
 		};
 		E17F2F4C03FDF67D00050002 /* OACalendarView */ = {
@@ -625,8 +651,9 @@
 			buildConfigurationList = E1B11F870CF5F30F004975AA /* Build configuration list for PBXNativeTarget "Pester" */;
 			buildPhases = (
 				E1B11F3F0CF5F30F004975AA /* Sources */,
-				E1B11F260CF5F30F004975AA /* Resources */,
 				E1B11F7E0CF5F30F004975AA /* Frameworks */,
+				E1B11F260CF5F30F004975AA /* Resources */,
+				E17CA9A80CF7F89900018B34 /* CopyFiles */,
 				E1B11F860CF5F30F004975AA /* ShellScript */,
 			);
 			buildRules = (
@@ -879,6 +906,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = c99;
+				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE";
+				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE";
+				OTHER_LDFLAGS = "-lperl";
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Development;
@@ -886,7 +916,14 @@
 		E1B11ED50CF5F2EB004975AA /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
+				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE";
+				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE";
+				OTHER_LDFLAGS = "-lperl";
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Deployment;
@@ -908,6 +945,11 @@
 				GCC_USE_GCC3_PFE_SUPPORT = YES;
 				INFOPLIST_FILE = "Info-Pester.plist";
 				INSTALL_PATH = /;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_LIBRARY_DIR)/Perl/5.8.8/darwin-thread-multi-2level/auto/DynaLoader\"";
 				PRODUCT_NAME = Pester;
 				PRODUCT_VERSION = 1.1a4;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -933,6 +975,11 @@
 				GCC_USE_GCC3_PFE_SUPPORT = YES;
 				INFOPLIST_FILE = "Info-Pester.plist";
 				INSTALL_PATH = /;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_LIBRARY_DIR)/Perl/5.8.8/darwin-thread-multi-2level/auto/DynaLoader\"";
 				PRODUCT_NAME = Pester;
 				PRODUCT_VERSION = 1.1a4;
 				VERSIONING_SYSTEM = "apple-generic";

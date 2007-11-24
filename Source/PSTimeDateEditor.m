@@ -13,18 +13,25 @@
 
 + (void)setUpTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions;
 {
-    static NJRDateFormatter *timeFormatter = nil, *dateFormatter = nil;
+    [[NJRDateFormatter alloc] init]; // XXX testing
+    [NSDateFormatter setDefaultFormatterBehavior: NSDateFormatterBehavior10_4];
+    static NSDateFormatter *timeFormatter = nil, *dateFormatter = nil;
     if (timeFormatter == nil) {
-        timeFormatter = [[NJRDateFormatter alloc] initWithDateFormat: [NJRDateFormatter localizedTimeFormatIncludingSeconds: NO] allowNaturalLanguage: YES];
-        dateFormatter = [[NJRDateFormatter alloc] initWithDateFormat: [NJRDateFormatter localizedDateFormatIncludingWeekday: NO] allowNaturalLanguage: YES];
+        timeFormatter = [[NJRDateFormatter timeFormatter] retain];
+	[timeFormatter setLenient: YES];
+	[timeFormatter setDateStyle: NSDateFormatterNoStyle];
+	[timeFormatter setTimeStyle: NSDateFormatterShortStyle];
+	dateFormatter = [[NJRDateFormatter dateFormatter] retain];
+	[dateFormatter setLenient: YES];
+	[dateFormatter setDateStyle: NSDateFormatterLongStyle];
+	[dateFormatter setTimeStyle: NSDateFormatterNoStyle];
     }
     [timeOfDay setFormatter: timeFormatter];
     [timeDate setFormatter: dateFormatter];
     [timeDate setObjectValue: [NSDate date]];
 
     // add completions
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *dayNames = [defaults arrayForKey: NSWeekDayNameArray];
+    NSArray *dayNames = [dateFormatter weekdaySymbols];
     NSArray *completions = [timeDateCompletions itemTitles];
     NSEnumerator *e = [completions objectEnumerator];
     NSString *title;
