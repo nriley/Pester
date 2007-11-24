@@ -10,7 +10,6 @@
 #import "PSAlert.h"
 #import "PSAlerts.h"
 #import "PSTimer.h"
-#import "NJRDateFormatter.h"
 #import "NSCalendarDate-NJRExtensions.h"
 #import "NSDictionary-NJRExtensions.h"
 #import "NSString-NJRExtensions.h"
@@ -28,19 +27,24 @@ static NSString * const PLAlarmMessage = @"message"; // NSString
 static NSString * const PLAlarmAlerts = @"alerts"; // NSDictionary
 static NSString * const PLAlarmRepeating = @"repeating"; // NSNumber
 
-static NSString *dateFormat, *shortDateFormat, *timeFormat;
-static NSDictionary *locale;
+static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
 
 @implementation PSAlarm
 
 #pragma mark initialize-release
 
-+ (void)initialize; // XXX change on locale modification, subscribe to NSNotifications
++ (void)initialize;
 {
-    dateFormat = [[NJRDateFormatter localizedDateFormatIncludingWeekday: YES] retain];
-    shortDateFormat = [[NJRDateFormatter localizedShortDateFormatIncludingWeekday: NO] retain];
-    timeFormat = [[NJRDateFormatter localizedTimeFormatIncludingSeconds: YES] retain];
-    locale = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] retain];
+    [NSDateFormatter setDefaultFormatterBehavior: NSDateFormatterBehavior10_4];
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle: NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle: NSDateFormatterFullStyle];
+    shortDateFormatter = [[NSDateFormatter alloc] init];
+    [shortDateFormatter setTimeStyle: NSDateFormatterNoStyle];
+    [shortDateFormatter setDateStyle: NSDateFormatterShortStyle];
+    timeFormatter = [[NSDateFormatter alloc] init];
+    [timeFormatter setTimeStyle: NSDateFormatterMediumStyle];
+    [timeFormatter setDateStyle: NSDateFormatterNoStyle];
 }
 
 - (void)dealloc;
@@ -290,17 +294,17 @@ static NSDictionary *locale;
 
 - (NSString *)dateString;
 {
-    return [[self date] descriptionWithCalendarFormat: dateFormat locale: locale];
+    return [dateFormatter stringFromDate: [self date]];
 }
 
 - (NSString *)shortDateString;
 {
-    return [[self date] descriptionWithCalendarFormat: shortDateFormat locale: locale];
+    return [shortDateFormatter stringFromDate: [self date]];
 }
 
 - (NSString *)timeString;
 {
-    return [[self date] descriptionWithCalendarFormat: timeFormat locale: locale];
+    return [timeFormatter stringFromDate: [self date]];
 }
 
 - (NSString *)dateTimeString;
@@ -315,8 +319,8 @@ static NSDictionary *locale;
     } else {
         NSCalendarDate *date = [[NSCalendarDate alloc] initWithTimeIntervalSinceNow: [self interval]];
         NSString *nextDateTimeString = [NSString stringWithFormat: @"%@ at %@",
-            [date descriptionWithCalendarFormat: dateFormat locale: locale],
-            [date descriptionWithCalendarFormat: timeFormat locale: locale]];
+					[dateFormatter stringFromDate: date],
+					[timeFormatter stringFromDate: date]];
         [date release];
         return nextDateTimeString;
     }
