@@ -74,7 +74,7 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 217651110;
+			PBXPerProjectTemplateStateSaveDate = 217708774;
 			"PBXTemplateGeometry-F5314676015831810DCA290F" = {
 				ContentSize = "{618, 257}";
 				LeftSlideOut = {
@@ -793,11 +793,7 @@
 					WindowLocation = "{357, 379}";
 				},
 			);
-			PBXWorkspaceStateSaveDate = 217651110;
-		};
-		perUserProjectItems = {
-			E17563F00CF91CBE00FC5057 /* XCDiffFileBookmark */ = E17563F00CF91CBE00FC5057 /* XCDiffFileBookmark */;
-			E17563F10CF91CBE00FC5057 /* PBXBookmark */ = E17563F10CF91CBE00FC5057 /* PBXBookmark */;
+			PBXWorkspaceStateSaveDate = 217708774;
 		};
 		sourceControlManager = E1B11EDC0CF5F2EB004975AA /* Source Control */;
 		userBookmarkGroup = E130B91603B69C6300000028 /* PBXBookmarkGroup */;
@@ -857,9 +853,9 @@
 	};
 	E130B9AD03B7C59700000028 /* PSPowerManager.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {830, 946}}";
-			sepNavSelRange = "{371, 0}";
-			sepNavVisRange = "{0, 1745}";
+			sepNavIntBoundsRect = "{{0, 0}, {817, 1045}}";
+			sepNavSelRange = "{386, 27}";
+			sepNavVisRange = "{24, 683}";
 			sepNavWindowFrame = "{{153, 349}, {889, 698}}";
 		};
 	};
@@ -933,18 +929,13 @@
 			sepNavWindowFrame = "{{15, 249}, {795, 924}}";
 		};
 	};
-	E17563F00CF91CBE00FC5057 /* XCDiffFileBookmark */ = {
-		isa = XCDiffFileBookmark;
-		id = "D9676918-B97A-407A-AED6-5D30E0CD9744-40821-00010A860D9876AB";
-	};
-	E17563F10CF91CBE00FC5057 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = E17563F20CF91CBE00FC5057 /* VERSION - SCM */;
-	};
-	E17563F20CF91CBE00FC5057 /* VERSION - SCM */ = {
-		isa = PBXFileReference;
-		path = "VERSION - SCM";
-		sourceTree = "<group>";
+	E17562BE0CF8E7D000FC5057 /* release-notes.html */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 897}}";
+			sepNavSelRange = "{419, 0}";
+			sepNavVisRange = "{0, 471}";
+			sepNavWindowFrame = "{{222, 51}, {1052, 933}}";
+		};
 	};
 	E17CA6640CF697FE00018B34 /* SetPortRGBForeColor */ = {
 		isa = PBXSymbolicBreakpoint;
@@ -1060,6 +1051,21 @@
 		autoAttachOnCrash = 1;
 		breakpointsEnabled = 0;
 		configStateDict = {
+			"PBXLSLaunchAction-0" = {
+				PBXLSLaunchAction = 0;
+				PBXLSLaunchStartAction = 1;
+				PBXLSLaunchStdioStyle = 2;
+				PBXLSLaunchStyle = 0;
+				class = PBXLSRunLaunchConfig;
+				commandLineArgs = (
+				);
+				displayName = "Executable Runner";
+				environment = {
+				};
+				identifier = com.apple.Xcode.launch.runConfig;
+				remoteHostInfo = "";
+				startActionInfo = "";
+			};
 		};
 		customDataFormattersEnabled = 1;
 		debuggerPlugin = GDBDebugging;
@@ -1285,17 +1291,17 @@
 	F59DC6D30353C9E601AEEDB1 /* PSAlarmSetController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {940, 1092}}";
-			sepNavSelRange = "{484, 0}";
+			sepNavSelRange = "{945, 9}";
 			sepNavVisRange = "{0, 2347}";
 			sepNavWindowFrame = "{{23, 50}, {999, 1128}}";
 		};
 	};
 	F59DC6D40353C9E601AEEDB1 /* PSAlarmSetController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {940, 6517}}";
-			sepNavSelRange = "{3828, 6}";
-			sepNavVisRange = "{883, 5392}";
-			sepNavWindowFrame = "{{868, 50}, {999, 1128}}";
+			sepNavIntBoundsRect = "{{0, 0}, {940, 6539}}";
+			sepNavSelRange = "{4235, 0}";
+			sepNavVisRange = "{2184, 4891}";
+			sepNavWindowFrame = "{{507, 50}, {999, 1128}}";
 		};
 	};
 	F59DC6DC0353DE5101AEEDB1 /* PSAlarmNotifierController.m */ = {
