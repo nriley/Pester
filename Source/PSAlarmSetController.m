@@ -75,6 +75,8 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     alarm = [[PSAlarm alloc] init];
     [[self window] center];
+    if ([[removeMessageButton image] size].width != 0)
+	[removeMessageButton setTitle: @""];
     [PSTimeDateEditor setUpTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions];
     { // volume defaults, usually overridden by restored alert info
         float volume = 0.5;
@@ -205,7 +207,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [timeIntervalRepeats setEnabled: isInterval];
     [timeOfDay setEnabled: !isInterval];
     [timeDate setEnabled: !isInterval];
-    [timeDateCompletions setEnabled: !isInterval];
+    [timeDateCompletions setEnabled: !isInterval && [NJRDateFormatter naturalLanguageParsingAvailable]];
     [timeCalendarButton setEnabled: !isInterval];
     if (sender != nil)
         [[self window] makeFirstResponder: isInterval ? (NSTextField *)timeInterval : timeOfDay];
@@ -335,7 +337,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 {
     BOOL playSoundSelected = [playSound intValue];
     BOOL canRepeat = playSoundSelected ? [sound canRepeat] : NO;
-    [sound setEnabled: playSoundSelected];
+    [sound setEnabled: NO]; //playSoundSelected]; // XXX temporary for 1.1b5
     [soundRepetitions setEnabled: canRepeat];
     [soundVolumeButton setEnabled: canRepeat && [sound hasAudio]];
     [soundRepetitionStepper setEnabled: canRepeat];

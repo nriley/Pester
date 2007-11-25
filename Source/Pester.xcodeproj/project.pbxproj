@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E17562620CF8C50B00FC5057 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
+		E17562720CF8C53F00FC5057 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17CA7BB0CF7D08C00018B34 /* DynaLoader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CA7BA0CF7D08C00018B34 /* DynaLoader.a */; };
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in CopyFiles */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
 		E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6DF0353DF5E01AEEDB1 /* Notifier.nib */; };
@@ -105,6 +107,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E17562730CF8C55D00FC5057 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E17562720CF8C53F00FC5057 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E17CA9A80CF7F89900018B34 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,6 +165,11 @@
 		E162698A03B6190B00000028 /* NSCalendarDate-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendarDate-NJRExtensions.m"; sourceTree = "<group>"; };
 		E16959290437A4A400050002 /* NSFont-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFont-NJRExtensions.h"; sourceTree = "<group>"; };
 		E169592A0437A4A400050002 /* NSFont-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFont-NJRExtensions.m"; sourceTree = "<group>"; };
+		E17562610CF8C50B00FC5057 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Sparkle/build/Release/Sparkle.framework; sourceTree = "<group>"; };
+		E17562BD0CF8E7D000FC5057 /* updates.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = updates.xml; path = ../Updates/updates.xml; sourceTree = SOURCE_ROOT; };
+		E17562BE0CF8E7D000FC5057 /* release-notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "release-notes.html"; path = "../Updates/release-notes.html"; sourceTree = SOURCE_ROOT; };
+		E17562BF0CF8E7D000FC5057 /* release-notes.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = "release-notes.css"; path = "../Updates/release-notes.css"; sourceTree = SOURCE_ROOT; };
+		E17562C00CF8E7D000FC5057 /* Application icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Application icon.png"; path = "../Updates/Application icon.png"; sourceTree = SOURCE_ROOT; };
 		E17CA7BA0CF7D08C00018B34 /* DynaLoader.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = DynaLoader.a; sourceTree = "<group>"; };
 		E17CA9A90CF7F8C200018B34 /* Manip.pm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = Manip.pm; sourceTree = SOURCE_ROOT; };
 		E17F2F3203FDF2F000050002 /* PSCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCalendarController.h; sourceTree = "<group>"; };
@@ -297,6 +314,7 @@
 				E1B11F840CF5F30F004975AA /* CoreAudio.framework in Frameworks */,
 				E1B121B40CF639A1004975AA /* QTKit.framework in Frameworks */,
 				E17CA7BB0CF7D08C00018B34 /* DynaLoader.a in Frameworks */,
+				E17562620CF8C50B00FC5057 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +339,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E17562610CF8C50B00FC5057 /* Sparkle.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				F5F240D0036A87E301FE7503 /* Carbon.framework */,
 				E18DAAEE0442D02500050002 /* CoreAudio.framework */,
@@ -354,9 +373,10 @@
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
-				E19DCBE503BE516000B934BF /* Documentation */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				E19DCBE503BE516000B934BF /* Documentation */,
+				E17562BC0CF8E7A800FC5057 /* Sparkle */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = Pester;
@@ -439,6 +459,17 @@
 				E191700B03AD24A600AEFBE0 /* NSDisclosureButtonCell.h */,
 			);
 			name = "Private Headers";
+			sourceTree = "<group>";
+		};
+		E17562BC0CF8E7A800FC5057 /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+				E17562BD0CF8E7D000FC5057 /* updates.xml */,
+				E17562BE0CF8E7D000FC5057 /* release-notes.html */,
+				E17562BF0CF8E7D000FC5057 /* release-notes.css */,
+				E17562C00CF8E7D000FC5057 /* Application icon.png */,
+			);
+			name = Sparkle;
 			sourceTree = "<group>";
 		};
 		E17CA7B60CF7D07400018B34 /* Perl */ = {
@@ -654,6 +685,7 @@
 				E1B11F7E0CF5F30F004975AA /* Frameworks */,
 				E1B11F260CF5F30F004975AA /* Resources */,
 				E17CA9A80CF7F89900018B34 /* CopyFiles */,
+				E17562730CF8C55D00FC5057 /* CopyFiles */,
 				E1B11F860CF5F30F004975AA /* ShellScript */,
 			);
 			buildRules = (
@@ -902,7 +934,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E1B11ED40CF5F2EB004975AA /* Development */ = {
+		E1B11ED40CF5F2EB004975AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -911,9 +943,9 @@
 				OTHER_LDFLAGS = "-lperl";
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
-			name = Development;
+			name = Debug;
 		};
-		E1B11ED50CF5F2EB004975AA /* Deployment */ = {
+		E1B11ED50CF5F2EB004975AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
@@ -925,15 +957,21 @@
 				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE";
 				OTHER_LDFLAGS = "-lperl";
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
-			name = Deployment;
+			name = Release;
 		};
-		E1B11F880CF5F30F004975AA /* Development */ = {
+		E1B11F880CF5F30F004975AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 17;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				CURRENT_PROJECT_VERSION = 20;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/Sparkle/build/Release\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -959,14 +997,19 @@
 					"-Wno-unknown-pragmas",
 				);
 			};
-			name = Development;
+			name = Debug;
 		};
-		E1B11F890CF5F30F004975AA /* Deployment */ = {
+		E1B11F890CF5F30F004975AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 17;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				CURRENT_PROJECT_VERSION = 20;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/Sparkle/build/Release\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pester_Prefix.h;
@@ -989,7 +1032,7 @@
 					"-Wno-unknown-pragmas",
 				);
 			};
-			name = Deployment;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -997,20 +1040,20 @@
 		E1B11EDA0CF5F2EB004975AA /* Build configuration list for PBXProject "Pester" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E1B11ED40CF5F2EB004975AA /* Development */,
-				E1B11ED50CF5F2EB004975AA /* Deployment */,
+				E1B11ED40CF5F2EB004975AA /* Debug */,
+				E1B11ED50CF5F2EB004975AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Development;
+			defaultConfigurationName = Debug;
 		};
 		E1B11F870CF5F30F004975AA /* Build configuration list for PBXNativeTarget "Pester" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E1B11F880CF5F30F004975AA /* Development */,
-				E1B11F890CF5F30F004975AA /* Deployment */,
+				E1B11F880CF5F30F004975AA /* Debug */,
+				E1B11F890CF5F30F004975AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Development;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

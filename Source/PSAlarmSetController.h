@@ -16,6 +16,7 @@
 
 @interface PSAlarmSetController : NSWindowController <NSUserInterfaceValidations> {
     IBOutlet NSTextField *messageField;
+    IBOutlet NSButton *removeMessageButton;
     IBOutlet NSMatrix *inAtMatrix;
     IBOutlet NJRIntervalField *timeInterval;
     IBOutlet NSPopUpButton *timeIntervalUnits;

@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Pester</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Pester 1.1b4, © 2002–07 Nicholas Riley</string>
+	<string>Pester 1.1b5, © 2002–07 Nicholas Riley</string>
 	<key>CFBundleIconFile</key>
 	<string>Application icon</string>
 	<key>CFBundleIdentifier</key>
@@ -19,14 +19,39 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1b4</string>
+	<string>1.1b5</string>
 	<key>CFBundleSignature</key>
 	<string>Pest</string>
 	<key>CFBundleVersion</key>
-	<string>17</string>
+	<string>20</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>PSApplication</string>
+	<key>SUFeedURL</key>
+	<string>http://web.sabi.net/nriley/software/Pester/updates.xml</string>
+	<key>SUExpectsDSASignature</key>
+	<true/>
+	<key>SUPublicDSAKey</key>
+	<string>-----BEGIN PUBLIC KEY-----
+MIIDOjCCAi0GByqGSM44BAEwggIgAoIBAQCz8OxP7pTvOJ5Q2yW0b12P8hozumkQ
+Nw02JzlIwCL4XbCNyQ6d/cSTnGANeD4XVR6YGDm/jwEizzsLVfrp48NJQY19vVRR
+ZA+lFkuIOr9dkXfIB679h/t/O/wlvv9GclQibdhYEJ5Ggq0HPWEX0n+FYX8Ee92Z
+oKzDm3Wn18kOpDXIRin3jW09lXPWXTDNETZrc/6u3S5V4Hc4xtS4bFVbfQ5MDg40
+FsdebcX3FA5kx6lKd5SuaMOU1Wgxj8L+hk3AlQ2imZOak4YVYPq8vgy5i5FxPmk/
+mW7PVWONU7xRpF5jb9WolNQjPDskHa4yPeV65Gzu86yDz+/FTBZAtqsDAhUAphtw
+rgzaIAvJe5zkkbfymsQFVAUCggEAOaufvAzV0L4FUNtyeZW+zC11poHYB9bBGKQN
+MoKiDRHkysL6Pu7QGTiiaLllVjZVyzFm7EvjUsVr1iwtRq7Th/KHrUtrQsNKzE72
+JFGtWINPe+sNH/Yu7qp/uVW6NmCPJiyfg3uDf/QdIzoiya1iqqiz9Tx62Nio0oN9
+DaY5ofKQ0W0QY+1MlAqwWk0OJoyVoQPtpYGRLJ2bd1UbtxPjVmq5a7KwVr8TueyB
+SMbnLZnBYLrOebnQQROiJvXSuydGsGj63dmvYR9YakBTy8CeI4WITFR8oD4VTfzo
+ii6hJuIb9rl87fTUHOCKUxJ1GTWFNBwggZs2IMSS2XMaEFlfrQOCAQUAAoIBAC15
+92bN3oQiZVy49E1VVFt69TLjUVi2bQWIEaM529QQEYJQ7yRN2rmuSa48O/8MbUGD
+b2H5VoN9v42uzm5+rFDDq4AwltsxlHHzoKGV9rCbo07dIqosmtIpwg/uETY1o6EF
+wl25FfzK7r8uG9e0lbz1mJuuhJfS0HnIrgmHdo+Vuv18HRAO1Q1NRPvGK2CsC2uX
+0xRIhLqHS+/W9ibe2Q0m+TRKBWRB3lWoKjCWbv8BztdeccKiPT2xEiRKIBl/fxLQ
+YSz77RTaBpnV48SKS36fulgcQNKHllEG/MtdHn66TLLHplNai8XvAvCC6H/0yKHF
+ncNZEp14qWoKVKn3CXk=
+-----END PUBLIC KEY-----</string>
 </dict>
 </plist>

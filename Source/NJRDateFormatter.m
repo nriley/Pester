@@ -42,7 +42,7 @@ static NSDate *parse_natural_language_date(NSString *input) {
     }
     
     NSString *temp = [[NSString alloc] initWithFormat: @"UnixDate(q|%@|, '%%q')", input];
-    NSLog(@"%@", temp);
+    // NSLog(@"%@", temp);
     SV *d = eval_pv([temp UTF8String], TRUE);
     [temp release];
     if (d == NULL) return nil;
@@ -52,7 +52,7 @@ static NSDate *parse_natural_language_date(NSString *input) {
     if (s == NULL || s_len == 0) return nil;
     
     NSDate *date = [dateManipFormatter dateFromString: [NSString stringWithUTF8String: s]];
-    NSLog(@"%@", date);
+    // NSLog(@"%@", date);
     
     return date;
 }

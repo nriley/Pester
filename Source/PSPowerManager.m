@@ -16,7 +16,7 @@
 + (BOOL)autoWakeSupported;
 {
     // XXX imagine it's supported on all machines that support 10.4
-    return YES;
+    return NO; // XXX temporary for 1.1b5
 }
 
 + (void)setWakeTime:(NSDate *)time;

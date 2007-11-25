@@ -1,0 +1,129 @@
+body  {
+	margin: 12px;
+}
+
+table {
+	border: dotted 1px #ccc;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+h1, h2, h3, th {
+	font-family: "Gill Sans", "Lucida Grande", sans-serif;
+}
+
+th {
+	background-color: #e6edff;
+	text-align: left;
+	padding-left: 6px;
+	padding-top: 2px;
+	padding-bottom: 2px
+}
+
+tr {
+	vertical-align: top;
+}
+
+td.icon {
+	width: 150px;
+	height: 128px;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-image: url('Application icon.png');
+	background-attachment: scroll;
+}
+
+h3, th {
+	font-size: 11pt;
+	font-weight: bold;
+	}
+	
+h3 {
+	margin-top: -4px;
+	margin-bottom: -4px
+}
+
+p, td, ol {
+	font-family: "Hoefler Text", serif;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+p {
+	text-decoration: none
+	}
+
+
+ol {
+	list-style-position: outside;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	margin-left: -18px;
+	padding-left: 40px
+	}
+
+
+ol li {
+	margin-top: 6px;
+	margin-bottom: 6px
+	}
+
+
+ol p {
+	margin-top: 6px;
+	margin-bottom: 6px
+	}
+
+
+ul {
+	font-size: 9pt;
+	font-family: "Lucida Grande", Arial, sans-serif;
+	line-height: 12pt;
+	list-style-type: square;
+	list-style-position: outside;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	margin-left: -24px;
+	padding-left: 40px
+	}
+
+
+ul li {
+	margin-top: 6px;
+	margin-bottom: 6px
+	}
+
+
+ul p {
+	margin-top: 6px;
+	margin-bottom: 6px
+	}
+
+
+a {
+	color: #00f;
+	font-size: 9pt;
+	font-family: "Lucida Grande", Arial, sans-serif;
+	line-height: 12pt;
+	text-decoration: none
+	}
+
+
+a:hover {
+	color: #00f;
+	font-family: "Lucida Grande", Arial, sans-serif;
+	text-decoration: underline
+	}
+
+hr {
+	text-decoration: none;
+	border: solid 1px #bfbfbf
+	}
+
+td {
+	padding: 6px
+	}
+
+.mult  {
+	margin-top: -8px
+	}

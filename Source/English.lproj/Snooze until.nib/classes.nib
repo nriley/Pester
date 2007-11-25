@@ -1,20 +1,69 @@
-{
-    IBClasses = (
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {
-            ACTIONS = {close = id; dateCompleted = id; showCalendar = id; snooze = id; update = id; }; 
-            CLASS = PSSnoozeUntilController; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                messageField = NSTextField; 
-                snoozeButton = NSButton; 
-                timeCalendarButton = NSButton; 
-                timeDate = NSTextField; 
-                timeDateCompletions = NSPopUpButton; 
-                timeOfDay = NSTextField; 
-            }; 
-            SUPERCLASS = NSWindowController; 
-        }
-    ); 
-    IBVersion = 1; 
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>close</key>
+				<string>id</string>
+				<key>dateCompleted</key>
+				<string>NSPopUpButton</string>
+				<key>showCalendar</key>
+				<string>NSButton</string>
+				<key>snooze</key>
+				<string>NSButton</string>
+				<key>update</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PSSnoozeUntilController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>messageField</key>
+				<string>NSTextField</string>
+				<key>snoozeButton</key>
+				<string>NSButton</string>
+				<key>timeCalendarButton</key>
+				<string>NSButton</string>
+				<key>timeDate</key>
+				<string>NSTextField</string>
+				<key>timeDateCompletions</key>
+				<string>NSPopUpButton</string>
+				<key>timeOfDay</key>
+				<string>NSTextField</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSWindowController</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSMenuItem</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSObject</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>

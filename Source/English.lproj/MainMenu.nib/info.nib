@@ -7,10 +7,12 @@
 	<key>IBLastKnownRelativeProjectPath</key>
 	<string>../../Pester.xcodeproj</string>
 	<key>IBOldestOS</key>
-	<integer>5</integer>
+	<integer>4</integer>
 	<key>IBOpenObjects</key>
 	<array>
 		<integer>640</integer>
+		<integer>2</integer>
+		<integer>29</integer>
 	</array>
 	<key>IBSystem Version</key>
 	<string>9B18</string>
