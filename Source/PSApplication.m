@@ -214,12 +214,12 @@
                                      version1AlarmCount, version1AlarmCount == 1 ? @"" : @"s");
         switch (answer) {
             case NSAlertDefaultReturn:
-                NS_DURING
+                @try {
                     [allAlarms importVersion1Alarms];
-                NS_HANDLER
-                    NSRunAlertPanel(@"Error occurred importing alarms", @"Pester was unable to convert some alarms created with an older version. Those alarms which could be read have been converted. The previous-format alarms have been retained; try using an older version of Pester to read them.\n\n%@", nil, nil, nil, [localException reason]);
-                    NS_VOIDRETURN;
-                NS_ENDHANDLER
+                } @catch (NSException *exception) {
+                    NSRunAlertPanel(@"Error occurred importing alarms", @"Pester was unable to convert some alarms created with an older version. Those alarms which could be read have been converted. The previous-format alarms have been retained; try using an older version of Pester to read them.\n\n%@", nil, nil, nil, [exception reason]);
+                    return;
+                }
             case NSAlertAlternateReturn:
                 [allAlarms discardVersion1Alarms];
                 break;

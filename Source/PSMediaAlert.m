@@ -22,7 +22,12 @@ static NSString * const PLAlertOutputVolume = @"volume"; // NSNumber
 - (id)initWithRepetitions:(unsigned short)numReps;
 {
     if ( (self = [super init]) != nil) {
-        repetitions = numReps;
+	// XXX not DRY, but can't think of a more sensible way
+ 	if (numReps < 1)
+	    numReps = 1;
+	else if (numReps > 99)
+	    numReps = 99;
+       repetitions = numReps;
     }
     return self;
 }

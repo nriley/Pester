@@ -229,11 +229,12 @@ NSMutableArray *PSTimerAllTimers = nil;
         // NSLog(@"%lf sec remain until alarm", [date timeIntervalSinceNow]);
         if ([date timeIntervalSinceNow] > 30) {
             // NSLog(@"going to sleep, setting timer %@", PSTimerOnWake);
-            NS_DURING
+	    @try {
                 [PSPowerManager setWakeTime: [[PSTimerOnWake fireDate] addTimeInterval: -15]];
-            NS_HANDLER
-                [self performSelectorOnMainThread: @selector(_runScheduledWakeErrorPanel:) withObject: [localException description] waitUntilDone: YES];
-            NS_ENDHANDLER
+            } @catch (NSException *exception) {
+                [self performSelectorOnMainThread: @selector(_runScheduledWakeErrorPanel:)
+				       withObject: [exception description] waitUntilDone: YES];
+            }
             return YES;
         } else {
             // NSLog(@"not setting timer, will attempt to prevent idle sleep");

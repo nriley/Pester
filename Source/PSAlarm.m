@@ -356,7 +356,7 @@ static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
     NSAttributedString *alertList = [alerts prettyList];
 
     [string appendAttributedString:
-        [[NSString stringWithFormat: NSLocalizedString(@"At alarm time for %@:\n", "Alert list title in pretty description, %@ replaced with message"), [self message]] small]];
+        [[NSString stringWithFormat: NSLocalizedString(@"At alarm time for '%@':\n", "Alert list title in pretty description, %@ replaced with message"), [self message]] small]];
     if (alertList != nil) {
         [string appendAttributedString: alertList];
     } else {
@@ -414,7 +414,13 @@ static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
     } else {
         // don't want to put this logic in setTimer or isValid because it can cause invalid alarms to be set (consider when someone clicks the "repeat" checkbox, then switches to a [nonrepeating, by design] date alarm, and enters a date that has passed: we do -not- want the alarm to magically morph into a repeating interval alarm)
         NSTimeInterval savedInterval = alarmInterval;
-        if (![self setTimer]) {
+        if ([self setTimer]) {
+	    // alarm is set, but not repeating - and the interval is wrong because it was computed from the date
+	    alarmInterval = savedInterval;
+	    [self setRepeating: YES];
+	} else {
+	    // alarm is now invalid: expired in the past, so we start the timer over again
+	    // We could potentially start counting from the expiration date (or expiration date + n * interval), but this doesn't match our existing behavior.
             alarmType = PSAlarmInterval;
             [self setInterval: savedInterval];
             [self setTimer];
@@ -562,10 +568,10 @@ static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
                 break;
         }
         [self setMessage: [coder decodeObject]];
-        if (alarmType == PSAlarmSet) {
+        if (alarmType == PSAlarmSet)
             alarmType = PSAlarmDate;
-            [self setTimer];
-        }
+	// Note: the timer is not set here, so these alarms are inert.
+	// This helps make importing atomic (see -[PSAlarms importVersion1Alarms])
     }
     return self;
 }

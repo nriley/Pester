@@ -1,27 +1,87 @@
-{
-    IBClasses = (
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = NJRScrollView; LANGUAGE = ObjC; SUPERCLASS = NSScrollView; }, 
-        {
-            CLASS = NJRTableDelegate; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {tableView = NSTableView; }; 
-            SUPERCLASS = NSObject; 
-        }, 
-        {
-            CLASS = NJRTableView; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {typeSelectDisplay = id; }; 
-            SUPERCLASS = NSTableView; 
-        }, 
-        {CLASS = NSObject; LANGUAGE = ObjC; }, 
-        {
-            ACTIONS = {remove = id; }; 
-            CLASS = PSAlarmsController; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {alarmList = NSTableView; removeButton = NSButton; }; 
-            SUPERCLASS = NSWindowController; 
-        }
-    ); 
-    IBVersion = 1; 
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>remove</key>
+				<string>id</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PSAlarmsController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>alarmList</key>
+				<string>NSTableView</string>
+				<key>removeButton</key>
+				<string>NSButton</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSWindowController</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NJRTableDelegate</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>tableView</key>
+				<string>NJRTableView</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSObject</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NJRScrollView</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSScrollView</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NJRTableView</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>typeSelectDisplay</key>
+				<string>id</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSTableView</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSTableView</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSControl</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>

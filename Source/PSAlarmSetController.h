@@ -12,6 +12,7 @@
 @class NJRFSObjectSelector;
 @class NJRIntervalField;
 @class NJRQTMediaPopUpButton;
+@class NJRValidatingField;
 @class NJRVoicePopUpButton;
 
 @interface PSAlarmSetController : NSWindowController <NSUserInterfaceValidations> {
@@ -33,7 +34,7 @@
     IBOutlet NSButtonCell *playSound;
     IBOutlet NJRQTMediaPopUpButton *sound;
     IBOutlet NSButton *soundVolumeButton;
-    IBOutlet NSTextField *soundRepetitions;
+    IBOutlet NJRValidatingField *soundRepetitions;
     IBOutlet NSStepper *soundRepetitionStepper;
     IBOutlet NSTextField *soundRepetitionsLabel;
     IBOutlet NSButtonCell *doScript;

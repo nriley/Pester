@@ -120,10 +120,10 @@
     [self remove: aTableView];
 }
 
-- (NSString *)tableView:(NSTableView *)aTableView toolTipForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex;
+- (NSString *)toolTipForRow:(int)rowIndex;
 {
     PSAlarm *alarm = [reorderedAlarms objectAtIndex: rowIndex];
-
+    
     return [[alarm prettyDescription] string];
 }
 

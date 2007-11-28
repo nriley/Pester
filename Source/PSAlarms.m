@@ -177,7 +177,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     NSNumber *n;
     unsigned indexCount = [indices count], i = 0, alarmIndex;
     unsigned *indexArray = (unsigned *)malloc(indexCount * sizeof(unsigned));
-    NS_DURING
+    @try {
         while ( (n = [e nextObject]) != nil) {
             alarmIndex = [n intValue];
             [(PSAlarm *)[alarms objectAtIndex: alarmIndex] cancelTimer];
@@ -185,13 +185,10 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
             i++;
         }
         [alarms removeObjectsFromIndices: indexArray numIndices: indexCount];
+    } @finally {
         free(indexArray); indexArray = NULL;
         [self _changed];
-    NS_HANDLER
-        free(indexArray);
-        [self _changed];
-        [localException raise];
-    NS_ENDHANDLER
+    }
 }
 
 - (void)removeAlarms:(NSSet *)alarmsToRemove;
@@ -313,15 +310,21 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     NSEnumerator *e = [alarmsData objectEnumerator];
     NSData *alarmData;
     PSAlarm *alarm;
-    while ( (alarmData = [e nextObject]) != nil) {
-        NS_DURING
-            alarm = [NSUnarchiver unarchiveObjectWithData: alarmData];
-        NS_HANDLER
-            alarm = nil;
-            // XXX
-        NS_ENDHANDLER
-        if (alarm != nil)
-            [alarms addObject: alarm];
+    NSMutableArray *importedAlarms = [[NSMutableArray alloc] initWithCapacity: [alarmsData count]];
+    @try {
+	while ( (alarmData = [e nextObject]) != nil) {
+	    alarm = [NSUnarchiver unarchiveObjectWithData: alarmData];
+	    if (alarm == nil)
+		@throw [NSException exceptionWithName: NSInternalInconsistencyException reason: @"Failed to decode Pester 1.0 alarm." userInfo: nil];
+	    [importedAlarms addObject: alarm];
+	    if (![alarm setTimer]) // expired
+		[alarms addObject: alarm];
+	}
+    } @catch (NSException *exception) {
+	[self removeAlarms: [NSSet setWithArray: importedAlarms]];
+	@throw;
+    } @finally {
+	[importedAlarms release];
     }
 }
 

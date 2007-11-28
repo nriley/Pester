@@ -7,7 +7,7 @@ PRODUCT="Pester"
 
 # gather information
 cd "$PACKAGEDIR"/Source
-VERSION=`cat VERSION`
+VERSION=`agvtool mvers -terse1`
 BUILD=`agvtool vers -terse`
 DMG="$PRODUCT-$VERSION.dmg" VOL="$PRODUCT $VERSION"
 DSTROOT="$PACKAGEDIR/$VOL"
@@ -45,9 +45,10 @@ SIZE=$(stat -L +size $DMG)
 # update Web presence
 DIGEST=`openssl dgst -sha1 -binary < $DMG | openssl dgst -dss1 -sign ~/Documents/Development/DSA/dsa_priv.pem | openssl enc -base64`
 perl -pi -e 's|(<enclosure url=".+'$DMG'").+/>|\1 length="'$SIZE'" type="application/x-apple-diskimage" sparkle:version="'$BUILD'" sparkle:shortVersionString="'$VERSION'" sparkle:dsaSignature="'$DIGEST'"/>|' Updates/updates.xml
-scp $DMG ainaz:web/nriley/software/
-ssh ainaz chmod go+r web/nriley/software/$DMG
+scp $DMG ainaz:web/nriley/software/$DMG.new
+ssh ainaz chmod go+r web/nriley/software/$DMG.new
+ssh ainaz mv web/nriley/software/$DMG{.new,}
 rsync -avz --exclude='.*' Updates/ ainaz:web/nriley/software/$PRODUCT/
-cd "$PACKAGEDIR"/Source
+# cd "$PACKAGEDIR"/Source
 # agvtool bump -all
 

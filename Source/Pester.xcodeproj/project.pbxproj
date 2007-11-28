@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */; };
 		E17562620CF8C50B00FC5057 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
-		E17562720CF8C53F00FC5057 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
+		E17562720CF8C53F00FC5057 /* Sparkle.framework in Copy Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17CA7BB0CF7D08C00018B34 /* DynaLoader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CA7BA0CF7D08C00018B34 /* DynaLoader.a */; };
-		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in CopyFiles */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
+		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
 		E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6DF0353DF5E01AEEDB1 /* Notifier.nib */; };
 		E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6E30353ED1201AEEDB1 /* Application icon.icns */; };
 		E1B11F290CF5F30F004975AA /* Alarms.nib in Resources */ = {isa = PBXBuildFile; fileRef = F560E2EE03574F8A01A4E466 /* Alarms.nib */; };
@@ -74,7 +75,6 @@
 		E1B11F650CF5F30F004975AA /* NJRIntervalField.m in Sources */ = {isa = PBXBuildFile; fileRef = E13919E303B9E4E100000028 /* NJRIntervalField.m */; };
 		E1B11F660CF5F30F004975AA /* PSError.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ECA00703C002B300F54C66 /* PSError.m */; };
 		E1B11F670CF5F30F004975AA /* NJRCenteringMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D358BA03C60CE900C8A18E /* NJRCenteringMovieView.m */; };
-		E1B11F680CF5F30F004975AA /* SUSpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E9A33903C8EF6700050002 /* SUSpeaker.m */; };
 		E1B11F690CF5F30F004975AA /* PSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF6E9103C928D200050002 /* PSTimer.m */; };
 		E1B11F6A0CF5F30F004975AA /* PSWakeAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E19FD39F03C98645001509F3 /* PSWakeAlert.m */; };
 		E1B11F6B0CF5F30F004975AA /* PSCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17F2F3303FDF2F000050002 /* PSCalendarController.m */; };
@@ -107,24 +107,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E17562730CF8C55D00FC5057 /* CopyFiles */ = {
+		E17562730CF8C55D00FC5057 /* Copy Sparkle.framework */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E17562720CF8C53F00FC5057 /* Sparkle.framework in CopyFiles */,
+				E17562720CF8C53F00FC5057 /* Sparkle.framework in Copy Sparkle.framework */,
 			);
+			name = "Copy Sparkle.framework";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E17CA9A80CF7F89900018B34 /* CopyFiles */ = {
+		E17CA9A80CF7F89900018B34 /* Copy Perl Modules */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Date;
 			dstSubfolderSpec = 7;
 			files = (
-				E17CA9AB0CF7F8CB00018B34 /* Manip.pm in CopyFiles */,
+				E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */,
 			);
+			name = "Copy Perl Modules";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -159,6 +161,8 @@
 		E14DB31203B8038300000028 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		E14DEC820438969400050002 /* NJRHotKeyFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRHotKeyFieldCell.h; sourceTree = "<group>"; };
 		E14DEC830438969400050002 /* NJRHotKeyFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRHotKeyFieldCell.m; sourceTree = "<group>"; };
+		E15044650CFCDC7E00DE47E9 /* NJRValidatingField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRValidatingField.h; sourceTree = "<group>"; };
+		E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NJRValidatingField.m; sourceTree = "<group>"; };
 		E162698303B6189000000028 /* NSTableView-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSTableView-NJRExtensions.m"; sourceTree = "<group>"; };
 		E162698403B6189000000028 /* NSTableView-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSTableView-NJRExtensions.h"; sourceTree = "<group>"; };
 		E162698903B6190B00000028 /* NSCalendarDate-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendarDate-NJRExtensions.h"; sourceTree = "<group>"; };
@@ -220,8 +224,6 @@
 		E1DEF10703FF83AC00050002 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = "English.lproj/Snooze until.nib"; sourceTree = "<group>"; };
 		E1DEF116040014EB00050002 /* PSTimeDateEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTimeDateEditor.h; sourceTree = "<group>"; };
 		E1DEF117040014EB00050002 /* PSTimeDateEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTimeDateEditor.m; sourceTree = "<group>"; };
-		E1E9A33903C8EF6700050002 /* SUSpeaker.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SUSpeaker.m; sourceTree = "<group>"; };
-		E1E9A33A03C8EF6700050002 /* SUSpeaker.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SUSpeaker.h; sourceTree = "<group>"; };
 		E1ECA00603C002B300F54C66 /* PSError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSError.h; sourceTree = SOURCE_ROOT; };
 		E1ECA00703C002B300F54C66 /* PSError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSError.m; sourceTree = SOURCE_ROOT; };
 		E1F0B14A03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRUnfocusableMovieView.h; sourceTree = "<group>"; };
@@ -394,9 +396,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F5243DA40378681101AEEDB1 /* Popup triangle.tiff */,
 				E18830410442B5FC00050002 /* Calendar icons */,
 				E18830420442B60000050002 /* Volume icons */,
+				F5243DA40378681101AEEDB1 /* Popup triangle.tiff */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 				F560E2EE03574F8A01A4E466 /* Alarms.nib */,
 				F59DC6DF0353DF5E01AEEDB1 /* Notifier.nib */,
@@ -527,15 +529,6 @@
 			name = Documentation;
 			sourceTree = "<group>";
 		};
-		E1E9A33D03C8EF6800050002 /* SpeechUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				E1E9A33903C8EF6700050002 /* SUSpeaker.m */,
-				E1E9A33A03C8EF6700050002 /* SUSpeaker.h */,
-			);
-			name = SpeechUtilities;
-			sourceTree = "<group>";
-		};
 		F560E311035787D501A4E466 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,7 +574,6 @@
 		F560E313035787ED01A4E466 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				E1E9A33D03C8EF6800050002 /* SpeechUtilities */,
 				F59E47A6036AA5FC016B311C /* BDAlias */,
 				E1DEF116040014EB00050002 /* PSTimeDateEditor.h */,
 				E1DEF117040014EB00050002 /* PSTimeDateEditor.m */,
@@ -632,6 +624,8 @@
 				F5F240B5036A862101FE7503 /* NJRFSObjectSelector.m */,
 				F5F240CD036A877301FE7503 /* NJRQTMediaPopUpButton.h */,
 				F5F240CC036A877301FE7503 /* NJRQTMediaPopUpButton.m */,
+				E15044650CFCDC7E00DE47E9 /* NJRValidatingField.h */,
+				E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */,
 				F5F19871036B822E01EB0372 /* NJRVoicePopUpButton.h */,
 				F5F19870036B822E01EB0372 /* NJRVoicePopUpButton.m */,
 			);
@@ -684,9 +678,8 @@
 				E1B11F3F0CF5F30F004975AA /* Sources */,
 				E1B11F7E0CF5F30F004975AA /* Frameworks */,
 				E1B11F260CF5F30F004975AA /* Resources */,
-				E17CA9A80CF7F89900018B34 /* CopyFiles */,
-				E17562730CF8C55D00FC5057 /* CopyFiles */,
-				E1B11F860CF5F30F004975AA /* ShellScript */,
+				E17CA9A80CF7F89900018B34 /* Copy Perl Modules */,
+				E17562730CF8C55D00FC5057 /* Copy Sparkle.framework */,
 			);
 			buildRules = (
 			);
@@ -749,18 +742,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		E1B11F860CF5F30F004975AA /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/bin/agvtool mvers -terse1 >| ${SRCROOT}/VERSION";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E1B11F3F0CF5F30F004975AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -805,7 +786,6 @@
 				E1B11F650CF5F30F004975AA /* NJRIntervalField.m in Sources */,
 				E1B11F660CF5F30F004975AA /* PSError.m in Sources */,
 				E1B11F670CF5F30F004975AA /* NJRCenteringMovieView.m in Sources */,
-				E1B11F680CF5F30F004975AA /* SUSpeaker.m in Sources */,
 				E1B11F690CF5F30F004975AA /* PSTimer.m in Sources */,
 				E1B11F6A0CF5F30F004975AA /* PSWakeAlert.m in Sources */,
 				E1B11F6B0CF5F30F004975AA /* PSCalendarController.m in Sources */,
@@ -829,6 +809,7 @@
 				E1B11F7D0CF5F30F004975AA /* NJRNonCenteringWindow.m in Sources */,
 				E1B121970CF62FD1004975AA /* NSMenuItem-NJRExtensions.m in Sources */,
 				E1B1219E0CF63858004975AA /* NSImage-NJRExtensions.m in Sources */,
+				E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,7 +946,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
@@ -1003,7 +984,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",

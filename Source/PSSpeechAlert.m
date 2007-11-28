@@ -9,7 +9,6 @@
 #import "PSSpeechAlert.h"
 #import "PSAlarmAlertController.h"
 #import "NSDictionary-NJRExtensions.h"
-#import "SUSpeaker.h"
 
 // property list keys
 static NSString * const PLAlertVoice = @"voice"; // NSString
@@ -51,14 +50,10 @@ static NSString * const PLAlertVoice = @"voice"; // NSString
 {
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_stopSpeaking:) name: PSAlarmAlertStopNotification object: nil];
     
-    if ( (speaker = [[SUSpeaker alloc] init]) == nil) return;
+    if ( (speaker = [[NSSpeechSynthesizer alloc] initWithVoice: voice]) == nil) return;
     alarm = anAlarm;
     [speaker setDelegate: self];
-    unsigned voiceIndex = [[SUSpeaker voiceNames] indexOfObject: voice];
-    if (voiceIndex == NSNotFound)
-        voiceIndex = [[SUSpeaker voiceNames] indexOfObject: [SUSpeaker defaultVoice]];
-    [speaker setVoice: voiceIndex + 1];
-    [speaker speakText: [alarm message]];
+    [speaker startSpeakingString: [alarm message]];
 }
 
 - (NSAttributedString *)actionDescription;
@@ -73,6 +68,9 @@ static NSString * const PLAlertVoice = @"voice"; // NSString
 - (NSDictionary *)propertyListRepresentation;
 {
     NSMutableDictionary *plAlert = [[super propertyListRepresentation] mutableCopy];
+    if (voice == nil)
+	@throw [NSException exceptionWithName: NSInvalidArgumentException
+				       reason: @"The selected voice is not available." userInfo: nil];
     [plAlert setObject: voice forKey: PLAlertVoice];
     return [plAlert autorelease];
 }
@@ -87,9 +85,9 @@ static NSString * const PLAlertVoice = @"voice"; // NSString
 
 @end
 
-@implementation PSSpeechAlert (SUSpeakerDelegate)
+@implementation PSSpeechAlert (NSSpeechSynthesizerDelegate)
 
-- (void)didFinishSpeaking:(SUSpeaker *)aSpeaker;
+- (void)speechSynthesizer:(NSSpeechSynthesizer *)sender didFinishSpeaking:(BOOL)finishedSpeaking;
 {
     [self completedForAlarm: alarm];
     [speaker release]; speaker = nil;

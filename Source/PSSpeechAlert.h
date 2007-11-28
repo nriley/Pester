@@ -8,10 +8,8 @@
 
 #import "PSAlert.h"
 
-@class SUSpeaker;
-
 @interface PSSpeechAlert : PSAlert {
-    SUSpeaker *speaker;
+    NSSpeechSynthesizer *speaker;
     NSString *voice;
     PSAlarm *alarm;
 }

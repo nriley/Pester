@@ -131,12 +131,17 @@ static NSString * const PLAlerts = @"alerts"; // NSString
 - (id)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [self init]) != nil) {
-        NSArray *plAlerts = [dict objectForKey: PLAlerts];
-        NSEnumerator *e = [plAlerts objectEnumerator];
-        NSDictionary *alertDict;
-        while ( (alertDict = [e nextObject]) != nil) {
-            [self addAlert: [[PSAlert alloc] initWithPropertyList: alertDict]];
-        }
+	@try {
+	    NSArray *plAlerts = [dict objectForKey: PLAlerts];
+	    NSEnumerator *e = [plAlerts objectEnumerator];
+	    NSDictionary *alertDict;
+	    while ( (alertDict = [e nextObject]) != nil) {
+		[self addAlert: [[PSAlert alloc] initWithPropertyList: alertDict]];
+	    }
+	} @catch (NSException *e) {
+	    [self release];
+	    @throw;
+	}
     }
     return self;
 }

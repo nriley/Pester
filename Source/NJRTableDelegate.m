@@ -224,7 +224,7 @@ noContext:
 
 @end
 
-@implementation NJRTableDelegate (NJRTableViewDelegate)
+@implementation NJRTableDelegate (NSTableViewDelegate)
 
 - (void)tableView:(NSTableView *)aTableView didClickTableColumn:(NSTableColumn *)inTableColumn
 {
@@ -241,6 +241,20 @@ noContext:
 {
     [self _positionTypeSelectDisplay];
 }
+
+- (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)tc row:(int)rowIndex mouseLocation:(NSPoint)mouseLocation;
+{
+    id dataSource = [aTableView dataSource];
+    
+    if ([dataSource respondsToSelector: @selector(toolTipForRow:)])
+	return [dataSource toolTipForRow: rowIndex];
+    
+    return nil;
+}
+
+@end
+
+@implementation NJRTableDelegate (NJRTableViewDelegate)
 
 - (void)tableView:(NSTableView *)aTableView selectRowMatchingString:(NSString *)matchString;
 {

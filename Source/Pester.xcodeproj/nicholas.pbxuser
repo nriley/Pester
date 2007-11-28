@@ -2,8 +2,8 @@
 {
 	089C165DFE840E0CC02AAC07 /* English */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {813, 876}}";
-			sepNavSelRange = "{145, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {813, 899}}";
+			sepNavSelRange = "{105, 0}";
 			sepNavVisRange = "{0, 229}";
 			sepNavWindowFrame = "{{15, 238}, {872, 935}}";
 		};
@@ -18,10 +18,9 @@
 		breakpoints = (
 			F596730D0355CFA301407038 /* -[_NSZombie methodSignatureForSelector:] */,
 			F500E5370359719B01AEEDB1 /* szone_error */,
-			F5B15F74037E42EB01AEEDB1 /* -[NSException raise] */,
 			E1A9DEE703BF3C110089E8B2 /* -[_NSZombie release] */,
-			E145384C043A31D900050002 /* NJRHotKeyManager.m:158 */,
 			E17CA6640CF697FE00018B34 /* SetPortRGBForeColor */,
+			E15043CF0CFCC41500DE47E9 /* objc_exception_throw */,
 		);
 		codeSenseManager = E1B11EDD0CF5F2EB004975AA /* Code sense */;
 		executables = (
@@ -59,7 +58,7 @@
 					20,
 					315,
 					20,
-					48.16259765625,
+					48,
 					43,
 					43,
 					20,
@@ -74,7 +73,7 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 217708774;
+			PBXPerProjectTemplateStateSaveDate = 217904241;
 			"PBXTemplateGeometry-F5314676015831810DCA290F" = {
 				ContentSize = "{618, 257}";
 				LeftSlideOut = {
@@ -793,7 +792,7 @@
 					WindowLocation = "{357, 379}";
 				},
 			);
-			PBXWorkspaceStateSaveDate = 217708774;
+			PBXWorkspaceStateSaveDate = 217904241;
 		};
 		sourceControlManager = E1B11EDC0CF5F2EB004975AA /* Source Control */;
 		userBookmarkGroup = E130B91603B69C6300000028 /* PBXBookmarkGroup */;
@@ -807,6 +806,14 @@
 			sepNavVisRange = "{0, 252}";
 		};
 	};
+	E10E71F4040C335800050002 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 1503}}";
+			sepNavSelRange = "{1411, 0}";
+			sepNavVisRange = "{0, 3709}";
+			sepNavWindowFrame = "{{61, 198}, {1052, 933}}";
+		};
+	};
 	E10F2A3F0402E71400050002 /* NJRReadMeController.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {830, 3366}}";
@@ -817,9 +824,9 @@
 	};
 	E11373150439FCC700050002 /* NJRHotKey.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {830, 1287}}";
-			sepNavSelRange = "{1856, 46}";
-			sepNavVisRange = "{1263, 1577}";
+			sepNavIntBoundsRect = "{{0, 0}, {830, 1298}}";
+			sepNavSelRange = "{2509, 35}";
+			sepNavVisRange = "{1321, 1515}";
 			sepNavWindowFrame = "{{199, 307}, {889, 698}}";
 		};
 	};
@@ -853,18 +860,26 @@
 	};
 	E130B9AD03B7C59700000028 /* PSPowerManager.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {817, 1045}}";
-			sepNavSelRange = "{386, 27}";
-			sepNavVisRange = "{24, 683}";
+			sepNavIntBoundsRect = "{{0, 0}, {817, 1078}}";
+			sepNavSelRange = "{387, 16}";
+			sepNavVisRange = "{180, 425}";
 			sepNavWindowFrame = "{{153, 349}, {889, 698}}";
+		};
+	};
+	E13919E203B9E4E100000028 /* NJRIntervalField.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {761, 780}}";
+			sepNavSelRange = "{419, 0}";
+			sepNavVisRange = "{0, 425}";
+			sepNavWindowFrame = "{{15, 49}, {834, 1124}}";
 		};
 	};
 	E13919E303B9E4E100000028 /* NJRIntervalField.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {761, 1980}}";
-			sepNavSelRange = "{3944, 0}";
-			sepNavVisRange = "{2218, 3841}";
-			sepNavWindowFrame = "{{15, 334}, {820, 839}}";
+			sepNavIntBoundsRect = "{{0, 0}, {761, 946}}";
+			sepNavSelRange = "{2674, 0}";
+			sepNavVisRange = "{329, 2345}";
+			sepNavWindowFrame = "{{364, 159}, {820, 839}}";
 		};
 	};
 	E145383F043A1DB200050002 /* NJRHotKeyManager.m */ = {
@@ -875,21 +890,35 @@
 			sepNavWindowFrame = "{{176, 328}, {889, 698}}";
 		};
 	};
-	E145384C043A31D900050002 /* NJRHotKeyManager.m:158 */ = {
-		isa = PBXFileBreakpoint;
+	E15043CF0CFCC41500DE47E9 /* objc_exception_throw */ = {
+		isa = PBXSymbolicBreakpoint;
 		actions = (
 		);
-		breakpointStyle = 0;
+		breakpointStyle = 1;
 		continueAfterActions = 0;
 		countType = 0;
 		delayBeforeContinue = 0;
-		fileReference = E145383F043A1DB200050002 /* NJRHotKeyManager.m */;
-		hitCount = 0;
+		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 158;
-		location = Pester;
-		modificationTime = 217621338.571945;
-		state = 1;
+		location = libobjc.A.dylib;
+		modificationTime = 217892071.677906;
+		state = 2;
+		symbolName = objc_exception_throw;
+	};
+	E15044650CFCDC7E00DE47E9 /* NJRValidatingField.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {869, 213}}";
+			sepNavSelRange = "{170, 0}";
+			sepNavVisRange = "{0, 344}";
+		};
+	};
+	E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {775, 1122}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 4696}";
+			sepNavWindowFrame = "{{15, 49}, {834, 1124}}";
+		};
 	};
 	E162698303B6189000000028 /* NSTableView-NJRExtensions.m */ = {
 		uiCtxt = {
@@ -932,9 +961,9 @@
 	E17562BE0CF8E7D000FC5057 /* release-notes.html */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {993, 897}}";
-			sepNavSelRange = "{419, 0}";
-			sepNavVisRange = "{0, 471}";
-			sepNavWindowFrame = "{{222, 51}, {1052, 933}}";
+			sepNavSelRange = "{369, 87}";
+			sepNavVisRange = "{0, 952}";
+			sepNavWindowFrame = "{{560, 24}, {1052, 933}}";
 		};
 	};
 	E17CA6640CF697FE00018B34 /* SetPortRGBForeColor */ = {
@@ -948,8 +977,8 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		location = "";
-		modificationTime = 217621338.896014;
-		state = 0;
+		modificationTime = 217892051.042254;
+		state = 2;
 		symbolName = SetPortRGBForeColor;
 	};
 	E17F2F4303FDF67700050002 /* NSImage-OAExtensions.m */ = {
@@ -961,17 +990,17 @@
 	};
 	E18DA4090442C56D00050002 /* PSMediaAlert.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {761, 792}}";
-			sepNavSelRange = "{618, 0}";
-			sepNavVisRange = "{3, 1720}";
+			sepNavIntBoundsRect = "{{0, 0}, {761, 847}}";
+			sepNavSelRange = "{643, 0}";
+			sepNavVisRange = "{0, 1827}";
 			sepNavWindowFrame = "{{153, 208}, {820, 839}}";
 		};
 	};
 	E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {761, 1254}}";
-			sepNavSelRange = "{846, 134}";
-			sepNavVisRange = "{0, 2251}";
+			sepNavIntBoundsRect = "{{0, 0}, {761, 1210}}";
+			sepNavSelRange = "{576, 0}";
+			sepNavVisRange = "{0, 2216}";
 			sepNavWindowFrame = "{{61, 292}, {820, 839}}";
 		};
 	};
@@ -995,9 +1024,9 @@
 	};
 	E1A18CAC03B4344C00000028 /* PSAlerts.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {830, 1617}}";
-			sepNavSelRange = "{2194, 0}";
-			sepNavVisRange = "{1314, 2197}";
+			sepNavIntBoundsRect = "{{0, 0}, {830, 1672}}";
+			sepNavSelRange = "{3864, 7}";
+			sepNavVisRange = "{1868, 2150}";
 			sepNavWindowFrame = "{{528, 47}, {889, 698}}";
 		};
 	};
@@ -1012,8 +1041,8 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		location = "";
-		modificationTime = 217621338.880709;
-		state = 0;
+		modificationTime = 217892051.041767;
+		state = 2;
 		symbolName = "-[_NSZombie release]";
 	};
 	E1B11EDC0CF5F2EB004975AA /* Source Control */ = {
@@ -1036,8 +1065,8 @@
 	};
 	E1B11F8B0CF5F30F004975AA /* Info-Pester.plist */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {736, 865}}";
-			sepNavSelRange = "{981, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {736, 888}}";
+			sepNavSelRange = "{346, 0}";
 			sepNavVisRange = "{0, 2337}";
 			sepNavWindowFrame = "{{549, 47}, {795, 924}}";
 		};
@@ -1112,10 +1141,26 @@
 	};
 	E1BF6E9103C928D200050002 /* PSTimer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {940, 2908}}";
-			sepNavSelRange = "{5491, 0}";
-			sepNavVisRange = "{0, 3062}";
+			sepNavIntBoundsRect = "{{0, 0}, {920, 2842}}";
+			sepNavSelRange = "{4580, 0}";
+			sepNavVisRange = "{409, 1359}";
 			sepNavWindowFrame = "{{38, 50}, {999, 1128}}";
+		};
+	};
+	E1CDEC3D0444053F00AEEDB1 /* NJRNonCenteringWindow.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 874}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 242}";
+			sepNavWindowFrame = "{{176, 93}, {1052, 933}}";
+		};
+	};
+	E1CDEC3E0444053F00AEEDB1 /* NJRNonCenteringWindow.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 874}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 261}";
+			sepNavWindowFrame = "{{153, 114}, {1052, 933}}";
 		};
 	};
 	E1DEF10303FF816300050002 /* PSSnoozeUntilController.m */ = {
@@ -1141,12 +1186,12 @@
 			sepNavWindowFrame = "{{835, 4}, {889, 698}}";
 		};
 	};
-	E1E9A33903C8EF6700050002 /* SUSpeaker.m */ = {
+	E1ECA00703C002B300F54C66 /* PSError.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {869, 3234}}";
-			sepNavSelRange = "{1839, 122}";
-			sepNavVisRange = "{1660, 639}";
-			sepNavWindowFrame = "{{314, 202}, {889, 698}}";
+			sepNavIntBoundsRect = "{{0, 0}, {993, 874}}";
+			sepNavSelRange = "{254, 0}";
+			sepNavVisRange = "{0, 1270}";
+			sepNavWindowFrame = "{{153, 114}, {1052, 933}}";
 		};
 	};
 	E1F0B14F03ADBE3800AEFBE0 /* NSString-NJRExtensions.m */ = {
@@ -1214,31 +1259,45 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		location = libSystem.B.dylib;
-		modificationTime = 217621338.572037;
-		state = 1;
+		modificationTime = 217892051.041262;
+		state = 2;
 		symbolName = szone_error;
 	};
 	F517D63E0356B80C016D68B9 /* PSAlarmsController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {830, 2057}}";
-			sepNavSelRange = "{3828, 50}";
-			sepNavVisRange = "{2755, 1818}";
-			sepNavWindowFrame = "{{360, 160}, {889, 698}}";
+			sepNavIntBoundsRect = "{{0, 0}, {817, 2123}}";
+			sepNavSelRange = "{2816, 14}";
+			sepNavVisRange = "{2384, 686}";
+			sepNavWindowFrame = "{{744, 79}, {889, 698}}";
+		};
+	};
+	F517D63F0356B80C016D68B9 /* PSAlarmsController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {830, 639}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 460}";
 		};
 	};
 	F517D6420356B8CC016D68B9 /* PSAlarms.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {920, 3619}}";
-			sepNavSelRange = "{8316, 0}";
-			sepNavVisRange = "{7670, 1218}";
-			sepNavWindowFrame = "{{176, 187}, {820, 839}}";
+			sepNavIntBoundsRect = "{{0, 0}, {761, 3737}}";
+			sepNavSelRange = "{9736, 0}";
+			sepNavVisRange = "{7626, 2401}";
+			sepNavWindowFrame = "{{938, 170}, {820, 839}}";
+		};
+	};
+	F517D6430356B8CC016D68B9 /* PSAlarms.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {761, 780}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 953}";
 		};
 	};
 	F560E2F10357506401A4E466 /* PSApplication.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {761, 3157}}";
-			sepNavSelRange = "{1549, 0}";
-			sepNavVisRange = "{0, 1956}";
+			sepNavIntBoundsRect = "{{0, 0}, {817, 2772}}";
+			sepNavSelRange = "{9502, 21}";
+			sepNavVisRange = "{8732, 887}";
 			sepNavWindowFrame = "{{586, 75}, {820, 839}}";
 		};
 	};
@@ -1267,9 +1326,9 @@
 	};
 	F589C9C6035AA12B0155F4B2 /* Read Me.rtfd */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {960, 4459}}";
-			sepNavSelRange = "{14260, 0}";
-			sepNavVisRect = "{{0, 2212}, {960, 1091}}";
+			sepNavIntBoundsRect = "{{0, 0}, {960, 4408}}";
+			sepNavSelRange = "{16, 0}";
+			sepNavVisRect = "{{0, 199}, {960, 1091}}";
 			sepNavWindowFrame = "{{15, 50}, {999, 1128}}";
 		};
 	};
@@ -1284,31 +1343,31 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		location = "";
-		modificationTime = 217621338.862668;
-		state = 0;
+		modificationTime = 217892051.040556;
+		state = 2;
 		symbolName = "-[_NSZombie methodSignatureForSelector:]";
 	};
 	F59DC6D30353C9E601AEEDB1 /* PSAlarmSetController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {940, 1092}}";
-			sepNavSelRange = "{945, 9}";
-			sepNavVisRange = "{0, 2347}";
+			sepNavIntBoundsRect = "{{0, 0}, {775, 1065}}";
+			sepNavSelRange = "{1563, 0}";
+			sepNavVisRange = "{0, 2381}";
 			sepNavWindowFrame = "{{23, 50}, {999, 1128}}";
 		};
 	};
 	F59DC6D40353C9E601AEEDB1 /* PSAlarmSetController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {940, 6539}}";
-			sepNavSelRange = "{4235, 0}";
-			sepNavVisRange = "{2184, 4891}";
-			sepNavWindowFrame = "{{507, 50}, {999, 1128}}";
+			sepNavIntBoundsRect = "{{0, 0}, {775, 7139}}";
+			sepNavSelRange = "{21486, 11}";
+			sepNavVisRange = "{18453, 3820}";
+			sepNavWindowFrame = "{{561, 54}, {834, 1124}}";
 		};
 	};
 	F59DC6DC0353DE5101AEEDB1 /* PSAlarmNotifierController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {920, 2233}}";
-			sepNavSelRange = "{2975, 17}";
-			sepNavVisRange = "{2072, 999}";
+			sepNavIntBoundsRect = "{{0, 0}, {817, 2391}}";
+			sepNavSelRange = "{4583, 27}";
+			sepNavVisRange = "{4327, 730}";
 			sepNavWindowFrame = "{{613, 82}, {820, 839}}";
 		};
 	};
@@ -1343,10 +1402,10 @@
 	};
 	F59E47A7036AAA6D016B311C /* PSAlert.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {761, 869}}";
-			sepNavSelRange = "{1016, 17}";
-			sepNavVisRange = "{0, 1813}";
-			sepNavWindowFrame = "{{469, -22}, {820, 839}}";
+			sepNavIntBoundsRect = "{{0, 0}, {761, 891}}";
+			sepNavSelRange = "{1898, 0}";
+			sepNavVisRange = "{145, 1875}";
+			sepNavWindowFrame = "{{641, 165}, {820, 839}}";
 		};
 	};
 	F59E47A8036AAA6D016B311C /* PSAlert.h */ = {
@@ -1359,8 +1418,16 @@
 	F59E47AB036AAC1E016B311C /* PSBeepAlert.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1297, 781}}";
-			sepNavSelRange = "{872, 0}";
-			sepNavVisRange = "{32, 1931}";
+			sepNavSelRange = "{1311, 0}";
+			sepNavVisRange = "{0, 1940}";
+			sepNavWindowFrame = "{{360, 78}, {1356, 780}}";
+		};
+	};
+	F59E47AC036AAC1E016B311C /* PSBeepAlert.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1297, 721}}";
+			sepNavSelRange = "{200, 12}";
+			sepNavVisRange = "{0, 370}";
 			sepNavWindowFrame = "{{360, 78}, {1356, 780}}";
 		};
 	};
@@ -1395,6 +1462,21 @@
 			sepNavWindowFrame = "{{130, 229}, {820, 839}}";
 		};
 	};
+	F59E47BC036AB228016B311C /* PSMovieAlert.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 1522}}";
+			sepNavSelRange = "{1930, 0}";
+			sepNavVisRange = "{1829, 2467}";
+			sepNavWindowFrame = "{{84, 177}, {1052, 933}}";
+		};
+	};
+	F59E47BD036AB228016B311C /* PSMovieAlert.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 874}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 598}";
+		};
+	};
 	F59E4BE6036B2E5E016B311C /* PSScriptAlert.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {830, 1251}}";
@@ -1413,48 +1495,79 @@
 	};
 	F59F6CB40354E7DA01AEEDB1 /* PSAlarm.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {830, 924}}";
+			sepNavIntBoundsRect = "{{0, 0}, {993, 913}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1854}";
+			sepNavVisRange = "{0, 2636}";
+			sepNavWindowFrame = "{{15, 240}, {1052, 933}}";
 		};
 	};
 	F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {828, 6292}}";
-			sepNavSelRange = "{823, 0}";
-			sepNavVisRange = "{0, 2454}";
-			sepNavWindowFrame = "{{214, 23}, {887, 884}}";
+			sepNavIntBoundsRect = "{{0, 0}, {993, 6490}}";
+			sepNavSelRange = "{20070, 0}";
+			sepNavVisRange = "{17193, 2959}";
+			sepNavWindowFrame = "{{466, 241}, {1052, 933}}";
 		};
 	};
-	F5B15F74037E42EB01AEEDB1 /* -[NSException raise] */ = {
-		isa = PBXSymbolicBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		hitCount = 0;
-		ignoreCount = 0;
-		location = CoreFoundation;
-		modificationTime = 217621338.572041;
-		state = 1;
-		symbolName = "-[NSException raise]";
+	F5B79836035F64F80136A8DD /* NJRTableView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 1210}}";
+			sepNavSelRange = "{899, 0}";
+			sepNavVisRange = "{0, 2747}";
+		};
+	};
+	F5B79837035F64F80136A8DD /* NJRTableView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 897}}";
+			sepNavSelRange = "{646, 0}";
+			sepNavVisRange = "{0, 646}";
+			sepNavWindowFrame = "{{835, 245}, {1052, 933}}";
+		};
 	};
 	F5F1986C036B813101EB0372 /* PSSpeechAlert.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {761, 1078}}";
-			sepNavSelRange = "{932, 0}";
-			sepNavVisRange = "{177, 1917}";
-			sepNavWindowFrame = "{{533, 79}, {820, 839}}";
+			sepNavIntBoundsRect = "{{0, 0}, {920, 1056}}";
+			sepNavSelRange = "{1881, 0}";
+			sepNavVisRange = "{1560, 905}";
+			sepNavWindowFrame = "{{454, 61}, {1052, 933}}";
+		};
+	};
+	F5F1986D036B813101EB0372 /* PSSpeechAlert.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {817, 264}}";
+			sepNavSelRange = "{172, 0}";
+			sepNavVisRange = "{0, 264}";
 		};
 	};
 	F5F19870036B822E01EB0372 /* NJRVoicePopUpButton.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {869, 1496}}";
-			sepNavSelRange = "{514, 81}";
-			sepNavVisRange = "{226, 979}";
-			sepNavWindowFrame = "{{61, 433}, {889, 698}}";
+			sepNavIntBoundsRect = "{{0, 0}, {830, 1441}}";
+			sepNavSelRange = "{976, 0}";
+			sepNavVisRange = "{0, 1846}";
+			sepNavWindowFrame = "{{981, 73}, {889, 698}}";
+		};
+	};
+	F5F19871036B822E01EB0372 /* NJRVoicePopUpButton.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {830, 662}}";
+			sepNavSelRange = "{250, 0}";
+			sepNavVisRange = "{0, 583}";
+		};
+	};
+	F5F198D0036BE57401EB0372 /* NJRTableDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 2970}}";
+			sepNavSelRange = "{8161, 0}";
+			sepNavVisRange = "{6950, 2655}";
+			sepNavWindowFrame = "{{236, 118}, {1052, 933}}";
+		};
+	};
+	F5F198D1036BE57401EB0372 /* NJRTableDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {993, 897}}";
+			sepNavSelRange = "{495, 46}";
+			sepNavVisRange = "{0, 546}";
+			sepNavWindowFrame = "{{130, 135}, {1052, 933}}";
 		};
 	};
 	F5F240B5036A862101FE7503 /* NJRFSObjectSelector.m */ = {

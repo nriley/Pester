@@ -96,7 +96,7 @@
 				<key>soundRepetitionStepper</key>
 				<string>NSStepper</string>
 				<key>soundRepetitions</key>
-				<string>NSTextField</string>
+				<string>NJRValidatingField</string>
 				<key>soundRepetitionsLabel</key>
 				<string>NSTextField</string>
 				<key>soundVolumeButton</key>
@@ -141,6 +141,14 @@
 			<string>NSComboBox</string>
 		</dict>
 		<dict>
+			<key>CLASS</key>
+			<string>NSMenuItem</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
 			<key>ACTIONS</key>
 			<dict>
 				<key>stopSoundPreview</key>
@@ -157,14 +165,6 @@
 			</dict>
 			<key>SUPERCLASS</key>
 			<string>NSPopUpButton</string>
-		</dict>
-		<dict>
-			<key>CLASS</key>
-			<string>NSMenuItem</string>
-			<key>LANGUAGE</key>
-			<string>ObjC</string>
-			<key>SUPERCLASS</key>
-			<string>NSObject</string>
 		</dict>
 		<dict>
 			<key>CLASS</key>
@@ -198,6 +198,14 @@
 				<key>intervalUnits</key>
 				<string>NSPopUpButton</string>
 			</dict>
+			<key>SUPERCLASS</key>
+			<string>NJRValidatingField</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NJRValidatingField</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
 			<key>SUPERCLASS</key>
 			<string>NSTextField</string>
 		</dict>

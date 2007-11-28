@@ -17,6 +17,7 @@
 #import "NJRIntervalField.h"
 #import "NJRQTMediaPopUpButton.h"
 #import "NJRSoundManager.h"
+#import "NJRValidatingField.h"
 #import "NJRVoicePopUpButton.h"
 #import "NSString-NJRExtensions.h"
 #import "NSAttributedString-NJRExtensions.h"
@@ -86,16 +87,16 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [editAlert setIntValue: 1]; // XXX temporary for 1.1b5
     {
         NSDictionary *plAlerts = [defaults dictionaryForKey: PSAlertsSelected];
-        PSAlerts *alerts;
+        PSAlerts *alerts = nil;
         if (plAlerts == nil) {
             alerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
         } else {
-            NS_DURING
+            @try {
                 alerts = [[PSAlerts alloc] initWithPropertyList: plAlerts];
-            NS_HANDLER
-                NSRunAlertPanel(@"Unable to restore alerts", @"Pester could not restore recent alert information for one or more alerts in the Set Alarm window.  The default set of alerts will be used instead.\n\n%@", nil, nil, nil, [localException reason]);
+	    } @catch (NSException *exception) {
+                NSRunAlertPanel(@"Unable to restore alerts", @"Pester could not restore recent alert information for one or more alerts in the Set Alarm window.  The default set of alerts will be used instead.\n\n%@", nil, nil, nil, [exception reason]);
                 alerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
-            NS_ENDHANDLER
+            }
         }
         [self _readAlerts: alerts];
     }
@@ -198,6 +199,22 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     isInterval = ([inAtMatrix selectedTag] == 0);
     old = [inAtMatrix cellWithTag: isInterval];
     NSAssert(new != old, @"in and at buttons should be distinct!");
+    
+    if (sender != nil) {
+	// XXX validation doesn't work properly for date/time, so we just universally cancel editing now
+        if (![[self window] makeFirstResponder: nil] && !isInterval) {
+	    // This works fine synchronously only if you're using the keyboard shortcut to switch in/at.  Directly activating the button, a delayed invocation is necessary.
+	    NSInvocation *i = [NSInvocation invocationWithMethodSignature:
+			       [inAtMatrix methodSignatureForSelector: @selector(selectCellWithTag:)]];
+	    int tag = [old tag];
+	    [i setSelector: @selector(selectCellWithTag:)];
+	    [i setTarget: inAtMatrix];
+	    [i setArgument: &tag atIndex: 2];
+	    [NSTimer scheduledTimerWithTimeInterval: 0 invocation: i repeats: NO];
+	    return;
+	}
+    }
+    
     [old setKeyEquivalent: [new keyEquivalent]];
     [old setKeyEquivalentModifierMask: [new keyEquivalentModifierMask]];
     [new setKeyEquivalent: @""];
@@ -210,10 +227,9 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [timeDateCompletions setEnabled: !isInterval && [NJRDateFormatter naturalLanguageParsingAvailable]];
     [timeCalendarButton setEnabled: !isInterval];
     if (sender != nil)
-        [[self window] makeFirstResponder: isInterval ? (NSTextField *)timeInterval : timeOfDay];
-    if (!isInterval) { // need to do this every time the controls are enabled
+	[[self window] makeFirstResponder: isInterval ? (NSTextField *)timeInterval : timeOfDay];
+    if (!isInterval) // need to do this every time the controls are enabled
         [timeOfDay setNextKeyView: timeDate];
-    }
     // NSLog(@"UPDATING FROM inAtChanged");
     [self update: nil];
 }
@@ -336,14 +352,14 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 - (IBAction)playSoundChanged:(id)sender;
 {
     BOOL playSoundSelected = [playSound intValue];
-    BOOL canRepeat = playSoundSelected ? [sound canRepeat] : NO;
-    [sound setEnabled: NO]; //playSoundSelected]; // XXX temporary for 1.1b5
+    BOOL canRepeat = playSoundSelected; // ? [sound canRepeat] : NO; // XXX temporary for 1.1b6
+    [sound setEnabled: playSoundSelected];
     [soundRepetitions setEnabled: canRepeat];
     [soundVolumeButton setEnabled: canRepeat && [sound hasAudio]];
     [soundRepetitionStepper setEnabled: canRepeat];
     [soundRepetitionsLabel setTextColor: canRepeat ? [NSColor controlTextColor] : [NSColor disabledControlTextColor]];
     if (playSoundSelected && sender == playSound) {
-        [[self window] makeFirstResponder: sound];
+        [[self window] makeFirstResponder: soundRepetitions]; // sound]; // XXX temporary for 1.1b6
     }
 }
 
@@ -436,7 +452,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     PSAlerts *alerts = [alarm alerts];
     
     [alerts removeAlerts];
-    NS_DURING
+    @try {
         // dock bounce alert
         if ([bounceDockIcon state] == NSOnState)
             [alerts addAlert: [PSDockBounceAlert alert]];
@@ -466,15 +482,15 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         }
         // speech alert
         if ([doSpeak intValue])
-            [alerts addAlert: [PSSpeechAlert alertWithVoice: [voice titleOfSelectedItem]]];
+            [alerts addAlert: [PSSpeechAlert alertWithVoice: [[voice selectedItem] representedObject]]];
         // wake alert
         if ([wakeUp intValue])
             [alerts addAlert: [PSWakeAlert alert]];
         [[NSUserDefaults standardUserDefaults] setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
-    NS_HANDLER
-        [self setStatus: [localException reason]];
-        NS_VALUERETURN(NO, BOOL);
-    NS_ENDHANDLER
+    } @catch (NSException *exception) {
+	[self setStatus: [exception reason]];
+        return NO;
+    }
     return YES;
 }
 
@@ -539,6 +555,8 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 {
     if (control == timeInterval)
         [timeInterval handleDidFailToFormatString: string errorDescription: error label: @"alarm interval"];
+    else if (control == soundRepetitions)
+	[soundRepetitions handleDidFailToFormatString: string errorDescription: error label: @"alert repetitions"];
     return NO;
 }
 

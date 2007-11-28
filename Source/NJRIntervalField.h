@@ -9,13 +9,14 @@
 #import <AppKit/AppKit.h>
 
 
-@interface NJRIntervalField : NSTextField {
+#import "NJRValidatingField.h"
+
+@interface NJRIntervalField : NJRValidatingField {
     IBOutlet NSPopUpButton *intervalUnits;
 }
 
 - (NSTimeInterval)interval;
 - (BOOL)setInterval:(NSTimeInterval)interval; // returns false if out of range
 
-- (void)handleDidFailToFormatString:(NSString *)string errorDescription:(NSString *)error label:(NSString *)label;
 
 @end

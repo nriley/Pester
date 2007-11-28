@@ -92,12 +92,13 @@ static NSString * const PLKeyCode = @"keyCode"; // NSNumber
 - (id)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [self init]) != nil) {
-        NS_DURING
+	@try {
             hotKeyCharacters = [[dict objectForKey: PLCharacters] retain];
             hotKeyModifierFlags = [[dict objectForKey: PLModifierFlags] unsignedIntValue];
             hotKeyCode = [[dict objectForKey: PLKeyCode] unsignedShortValue];
-        NS_HANDLER
-        NS_ENDHANDLER
+	}
+	@catch (NSException *exception) {
+	}
         if (hotKeyCharacters == nil || hotKeyCode == 0) {
             [self release];
             self = nil;

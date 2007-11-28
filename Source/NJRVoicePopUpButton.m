@@ -14,7 +14,7 @@
 {
     NSMenu *menu;
     NSMenuItem *item;
-    NSArray *voiceNames = [SUSpeaker voiceNames];
+    NSArray *voices = [NSSpeechSynthesizer availableVoices];
 
     [self removeAllItems];
     menu = [self menu];
@@ -23,18 +23,22 @@
     item = [menu addItemWithTitle: @"«unknown»" action: nil keyEquivalent: @""];
     [item setEnabled: NO];
     [menu addItem: [NSMenuItem separatorItem]];
-    if (voiceNames == nil || [voiceNames count] == 0) {
+    if (voices == nil || [voices count] == 0) {
         item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate voices", "Voice popup menu item surrogate for voice list if no voices are found") action: nil keyEquivalent: @""];
         [item setEnabled: NO];
     } else {
-        NSEnumerator *e = [voiceNames objectEnumerator];
-        NSString *voiceName;
-        while ( (voiceName = [e nextObject]) != nil) {
-            item = [menu addItemWithTitle: voiceName action: @selector(_previewVoice) keyEquivalent: @""];
+        NSEnumerator *e = [voices objectEnumerator];
+        NSString *voice;
+        while ( (voice = [e nextObject]) != nil) {
+            item = [menu addItemWithTitle:
+		    [[NSSpeechSynthesizer attributesForVoice: voice] objectForKey: NSVoiceName]
+				   action: @selector(_previewVoice) keyEquivalent: @""];
+	    [item setRepresentedObject: voice];
             [item setTarget: self];
         }
     }
-    if (_speaker == nil) [self selectItemWithTitle: [SUSpeaker defaultVoice]];
+    if (_speaker == nil)
+	[self selectItemAtIndex: [menu indexOfItemWithRepresentedObject: [NSSpeechSynthesizer defaultVoice]]];
 }
 
 - (id)initWithFrame:(NSRect)frame;
@@ -53,9 +57,9 @@
     return self;
 }
 
-- (SUSpeaker *)_speaker;
+- (NSSpeechSynthesizer *)_speaker;
 {
-    if (_speaker == nil) _speaker = [[SUSpeaker alloc] init];
+    if (_speaker == nil) _speaker = [[NSSpeechSynthesizer alloc] initWithVoice: nil];
     return _speaker;
 }
 
@@ -67,7 +71,7 @@
 
 - (void)setVoice:(NSString *)voice;
 {
-    int voiceIdx = [self indexOfItemWithTitle: voice];
+    int voiceIdx = [self indexOfItemWithRepresentedObject: voice];
     if (voiceIdx == -1) {
         [self _invalidateVoiceSelection];
     } else {
@@ -77,37 +81,26 @@
 
 - (void)_previewVoice;
 {
-    NSString *voiceName = [self titleOfSelectedItem];
+    NSString *voice = [[self selectedItem] representedObject];
     NSString *previewString = nil;
-    VoiceSpec voice;
-    OSStatus err = noErr;
-    VoiceDescription info;
-    short voiceIndex = [[SUSpeaker voiceNames] indexOfObject: voiceName] + 1;
 
     [_speaker stopSpeaking];
 
-    if ( (err = GetIndVoice(voiceIndex, &voice)) != noErr) {
-        NSBeginAlertSheet(@"Voice not available", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The voice '%@' you selected could not be used.  An error of type %ld occurred while attempting to retrieve voice information.", "Message displayed in alert sheet when GetIndVoice returns an error"), voiceName, err);
+    if (![[self _speaker] setVoice: voice]) {
+	// XXX localize title
+        NSBeginAlertSheet(@"Voice not available", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The voice '%@' you selected could not be used.", "Message displayed in alert sheet when -[NSSpeechSynthesizer setVoice:] returns an error"), [self titleOfSelectedItem]);
         [self _invalidateVoiceSelection];
         return;
     }
 
     if (_delegate != nil && [_delegate respondsToSelector: @selector(voicePopUpButton:previewStringForVoice:)]) {
-        previewString = [_delegate voicePopUpButton: self previewStringForVoice: voiceName];
+        previewString = [_delegate voicePopUpButton: self previewStringForVoice: voice];
     }
 
-    if (previewString == nil) {
-        err = GetVoiceDescription(&voice, &info, sizeof(info));
-        if (err != noErr || info.comment[0] == 0)
-            previewString = voiceName;
-        else {
-            previewString = (NSString *)CFStringCreateWithPascalString(NULL, info.comment, kCFStringEncodingMacRoman);
-            [previewString autorelease];
-        }
-    }
+    if (previewString == nil)
+        previewString = [[NSSpeechSynthesizer attributesForVoice: voice] objectForKey: NSVoiceDemoText];
 
-    [[self _speaker] setVoice: voiceIndex];
-    [_speaker speakText: previewString];
+    [_speaker startSpeakingString: previewString];
 }
 
 - (void)dealloc;
