@@ -59,7 +59,10 @@ static NSString * const PLAlertVoice = @"voice"; // NSString
 - (NSAttributedString *)actionDescription;
 {
     NSMutableAttributedString *string = [[@"Speak message with voice " small] mutableCopy];
-    [string appendAttributedString: [voice underlined]];
+    NSString *voiceName = [[NSSpeechSynthesizer attributesForVoice: voice] objectForKey: NSVoiceName];
+    if (voiceName == nil)
+	voiceName = voice;
+    [string appendAttributedString: [voiceName underlined]];
     return [string autorelease];
 }
 

@@ -96,8 +96,7 @@ static NSString * const PLKeyCode = @"keyCode"; // NSNumber
             hotKeyCharacters = [[dict objectForKey: PLCharacters] retain];
             hotKeyModifierFlags = [[dict objectForKey: PLModifierFlags] unsignedIntValue];
             hotKeyCode = [[dict objectForKey: PLKeyCode] unsignedShortValue];
-	}
-	@catch (NSException *exception) {
+	} @catch (NSException *exception) {
 	}
         if (hotKeyCharacters == nil || hotKeyCode == 0) {
             [self release];

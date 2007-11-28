@@ -28,7 +28,8 @@
         [alarm setInterval: snoozeInterval];
         [PSTimeDateEditor setUpTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions];
         if ([alarm isValid]) {
-            [timeOfDay setObjectValue: [alarm time]];
+	    // [alarm time] works fine for display, but we can't use it overall until we've moved off NSCalendarDate
+            [timeOfDay setObjectValue: [alarm date]];
             [timeDate setObjectValue: [alarm date]];
         }
         [self update: self];

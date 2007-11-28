@@ -47,7 +47,7 @@ extern NSString * const PSAlarmDiedNotification;
 - (void)setWakeUp:(BOOL)doWake;
 
 - (NSCalendarDate *)date;
-- (NSCalendarDate *)time;
+- (NSDate *)time;
 - (NSTimeInterval)interval;
 - (NSTimeInterval)timeRemaining;
 - (NSString *)message;
@@ -75,7 +75,7 @@ extern NSString * const PSAlarmDiedNotification;
 - (void)cancelTimer;
 - (void)resetTimer; // use after cancel, only effective on set alarms
 
-// 1.1 only, going away when we move to keyed archiving
+// 1.1 only, going away when we move to keyed archiving (or Core Data)
 - (NSDictionary *)propertyListRepresentation;
 - (id)initWithPropertyList:(NSDictionary *)dict;
 

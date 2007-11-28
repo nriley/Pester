@@ -246,16 +246,15 @@ static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
     return alarmDate;
 }
 
-- (NSCalendarDate *)time;
+- (NSDate *)time;
 {
+    // XXX this works, but the result is unlikely to be useful until we move away from NSCalendarDate elsewhere
     if (alarmType == PSAlarmInterval) [self _setDateFromInterval];
-    return [[NSCalendarDate alloc] initWithYear: 0
-                                          month: 1
-                                            day: 1
-                                           hour: [alarmDate hourOfDay]
-                                         minute: [alarmDate minuteOfHour]
-                                         second: [alarmDate secondOfMinute]
-                                       timeZone: nil];
+
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+
+    return [calendar dateFromComponents: 
+	    [calendar components: NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate: alarmDate]];
 }
 
 - (NSTimeInterval)interval;
