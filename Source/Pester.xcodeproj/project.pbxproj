@@ -10,8 +10,15 @@
 		E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */; };
 		E17562620CF8C50B00FC5057 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17562720CF8C53F00FC5057 /* Sparkle.framework in Copy Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
-		E17CA7BB0CF7D08C00018B34 /* DynaLoader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17CA7BA0CF7D08C00018B34 /* DynaLoader.a */; };
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
+		E19CC5310CFDE3DE0079DCFC /* DynaLoader-10.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E19CC5270CFDE3C70079DCFC /* DynaLoader-10.4.a */; };
+		E19CC53F0CFDE48C0079DCFC /* ParseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CC53E0CFDE48C0079DCFC /* ParseDate.m */; };
+		E19CC57D0CFDEB440079DCFC /* ParseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CC53E0CFDE48C0079DCFC /* ParseDate.m */; };
+		E19CC5840CFDEB520079DCFC /* DynaLoader-10.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E19CC5260CFDE3C70079DCFC /* DynaLoader-10.5.a */; };
+		E19CC5A20CFDEC170079DCFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
+		E19CC5A30CFDEC1C0079DCFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
+		E19CC5F50CFDEFDB0079DCFC /* libParseDate-10.4.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E19CC5220CFDE3350079DCFC /* libParseDate-10.4.dylib */; };
+		E19CC5F60CFDEFDB0079DCFC /* libParseDate-10.5.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E19CC5830CFDEB440079DCFC /* libParseDate-10.5.dylib */; };
 		E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6DF0353DF5E01AEEDB1 /* Notifier.nib */; };
 		E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6E30353ED1201AEEDB1 /* Application icon.icns */; };
 		E1B11F290CF5F30F004975AA /* Alarms.nib in Resources */ = {isa = PBXBuildFile; fileRef = F560E2EE03574F8A01A4E466 /* Alarms.nib */; };
@@ -106,6 +113,23 @@
 		E1B121B40CF639A1004975AA /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B121B30CF639A1004975AA /* QTKit.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E19CC5790CFDEB3C0079DCFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E19CC5210CFDE3350079DCFC;
+			remoteInfo = "ParseDate-10.4";
+		};
+		E19CC5870CFDEB5E0079DCFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E19CC57B0CFDEB440079DCFC;
+			remoteInfo = "ParseDate-10.5";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		E17562730CF8C55D00FC5057 /* Copy Sparkle.framework */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -174,7 +198,6 @@
 		E17562BE0CF8E7D000FC5057 /* release-notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "release-notes.html"; path = "../Updates/release-notes.html"; sourceTree = SOURCE_ROOT; };
 		E17562BF0CF8E7D000FC5057 /* release-notes.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = "release-notes.css"; path = "../Updates/release-notes.css"; sourceTree = SOURCE_ROOT; };
 		E17562C00CF8E7D000FC5057 /* Application icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Application icon.png"; path = "../Updates/Application icon.png"; sourceTree = SOURCE_ROOT; };
-		E17CA7BA0CF7D08C00018B34 /* DynaLoader.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = DynaLoader.a; sourceTree = "<group>"; };
 		E17CA9A90CF7F8C200018B34 /* Manip.pm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = Manip.pm; sourceTree = SOURCE_ROOT; };
 		E17F2F3203FDF2F000050002 /* PSCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCalendarController.h; sourceTree = "<group>"; };
 		E17F2F3303FDF2F000050002 /* PSCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCalendarController.m; sourceTree = "<group>"; };
@@ -192,6 +215,12 @@
 		E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRSoundManager.m; sourceTree = "<group>"; };
 		E18DAAEE0442D02500050002 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
 		E191700B03AD24A600AEFBE0 /* NSDisclosureButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDisclosureButtonCell.h; sourceTree = "<group>"; };
+		E19CC5220CFDE3350079DCFC /* libParseDate-10.4.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.4.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19CC5260CFDE3C70079DCFC /* DynaLoader-10.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "DynaLoader-10.5.a"; sourceTree = "<group>"; };
+		E19CC5270CFDE3C70079DCFC /* DynaLoader-10.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "DynaLoader-10.4.a"; sourceTree = "<group>"; };
+		E19CC53D0CFDE48C0079DCFC /* ParseDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseDate.h; sourceTree = "<group>"; };
+		E19CC53E0CFDE48C0079DCFC /* ParseDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDate.m; sourceTree = "<group>"; };
+		E19CC5830CFDEB440079DCFC /* libParseDate-10.5.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.5.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19DCBD203BE4AA200B934BF /* Pester_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Pester_Prefix.h; sourceTree = "<group>"; };
 		E19FD39E03C98645001509F3 /* PSWakeAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWakeAlert.h; sourceTree = "<group>"; };
 		E19FD39F03C98645001509F3 /* PSWakeAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWakeAlert.m; sourceTree = "<group>"; };
@@ -248,7 +277,6 @@
 		F560E2F20357506401A4E466 /* PSApplication.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSApplication.h; sourceTree = "<group>"; };
 		F560E3150357895001A4E466 /* NJRHistoryTrackingComboBox.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = NJRHistoryTrackingComboBox.h; sourceTree = "<group>"; };
 		F560E3160357895001A4E466 /* NJRHistoryTrackingComboBox.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NJRHistoryTrackingComboBox.m; sourceTree = "<group>"; };
-		F562F809037E5D0101AEEDB1 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		F589C9C6035AA12B0155F4B2 /* Read Me.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "Read Me.rtfd"; sourceTree = "<group>"; };
 		F59DC6D30353C9E601AEEDB1 /* PSAlarmSetController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSAlarmSetController.h; sourceTree = "<group>"; };
 		F59DC6D40353C9E601AEEDB1 /* PSAlarmSetController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PSAlarmSetController.m; sourceTree = "<group>"; };
@@ -305,6 +333,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E19CC5200CFDE3350079DCFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19CC5A20CFDEC170079DCFC /* Foundation.framework in Frameworks */,
+				E19CC5310CFDE3DE0079DCFC /* DynaLoader-10.4.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19CC57E0CFDEB440079DCFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19CC5A30CFDEC1C0079DCFC /* Foundation.framework in Frameworks */,
+				E19CC5840CFDEB520079DCFC /* DynaLoader-10.5.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1B11F7E0CF5F30F004975AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -315,7 +361,6 @@
 				E1B11F830CF5F30F004975AA /* IOKit.framework in Frameworks */,
 				E1B11F840CF5F30F004975AA /* CoreAudio.framework in Frameworks */,
 				E1B121B40CF639A1004975AA /* QTKit.framework in Frameworks */,
-				E17CA7BB0CF7D08C00018B34 /* DynaLoader.a in Frameworks */,
 				E17562620CF8C50B00FC5057 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,8 +409,9 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F562F809037E5D0101AEEDB1 /* VERSION */,
 				E1B11F8C0CF5F30F004975AA /* Pester.app */,
+				E19CC5220CFDE3350079DCFC /* libParseDate-10.4.dylib */,
+				E19CC5830CFDEB440079DCFC /* libParseDate-10.5.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -478,7 +524,10 @@
 			isa = PBXGroup;
 			children = (
 				E17CA9A90CF7F8C200018B34 /* Manip.pm */,
-				E17CA7BA0CF7D08C00018B34 /* DynaLoader.a */,
+				E19CC53D0CFDE48C0079DCFC /* ParseDate.h */,
+				E19CC53E0CFDE48C0079DCFC /* ParseDate.m */,
+				E19CC5270CFDE3C70079DCFC /* DynaLoader-10.4.a */,
+				E19CC5260CFDE3C70079DCFC /* DynaLoader-10.5.a */,
 			);
 			name = Perl;
 			sourceTree = "<group>";
@@ -671,6 +720,38 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E19CC5210CFDE3350079DCFC /* ParseDate-10.4 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E19CC5250CFDE34A0079DCFC /* Build configuration list for PBXNativeTarget "ParseDate-10.4" */;
+			buildPhases = (
+				E19CC51F0CFDE3350079DCFC /* Sources */,
+				E19CC5200CFDE3350079DCFC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ParseDate-10.4";
+			productName = "xsinit-10.4";
+			productReference = E19CC5220CFDE3350079DCFC /* libParseDate-10.4.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		E19CC57B0CFDEB440079DCFC /* ParseDate-10.5 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E19CC5800CFDEB440079DCFC /* Build configuration list for PBXNativeTarget "ParseDate-10.5" */;
+			buildPhases = (
+				E19CC57C0CFDEB440079DCFC /* Sources */,
+				E19CC57E0CFDEB440079DCFC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ParseDate-10.5";
+			productName = "xsinit-10.4";
+			productReference = E19CC5830CFDEB440079DCFC /* libParseDate-10.5.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 		E1B11EE30CF5F30F004975AA /* Pester */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1B11F870CF5F30F004975AA /* Build configuration list for PBXNativeTarget "Pester" */;
@@ -684,6 +765,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				E19CC57A0CFDEB3C0079DCFC /* PBXTargetDependency */,
+				E19CC5880CFDEB5E0079DCFC /* PBXTargetDependency */,
 			);
 			name = Pester;
 			productInstallPath = /;
@@ -704,6 +787,8 @@
 			projectRoot = "";
 			targets = (
 				E1B11EE30CF5F30F004975AA /* Pester */,
+				E19CC5210CFDE3350079DCFC /* ParseDate-10.4 */,
+				E19CC57B0CFDEB440079DCFC /* ParseDate-10.5 */,
 			);
 		};
 /* End PBXProject section */
@@ -713,6 +798,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E19CC5F50CFDEFDB0079DCFC /* libParseDate-10.4.dylib in Resources */,
+				E19CC5F60CFDEFDB0079DCFC /* libParseDate-10.5.dylib in Resources */,
 				E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */,
 				E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */,
 				E1B11F290CF5F30F004975AA /* Alarms.nib in Resources */,
@@ -743,6 +830,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E19CC51F0CFDE3350079DCFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19CC53F0CFDE48C0079DCFC /* ParseDate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E19CC57C0CFDEB440079DCFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19CC57D0CFDEB440079DCFC /* ParseDate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1B11F3F0CF5F30F004975AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -814,6 +917,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E19CC57A0CFDEB3C0079DCFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E19CC5210CFDE3350079DCFC /* ParseDate-10.4 */;
+			targetProxy = E19CC5790CFDEB3C0079DCFC /* PBXContainerItemProxy */;
+		};
+		E19CC5880CFDEB5E0079DCFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E19CC57B0CFDEB440079DCFC /* ParseDate-10.5 */;
+			targetProxy = E19CC5870CFDEB5E0079DCFC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -915,6 +1031,92 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E19CC5230CFDE3350079DCFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
+				PREBINDING = NO;
+				PRODUCT_NAME = "ParseDate-10.4";
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		E19CC5240CFDE3350079DCFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
+				PREBINDING = NO;
+				PRODUCT_NAME = "ParseDate-10.4";
+				SKIP_INSTALL = YES;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		E19CC5810CFDEB440079DCFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				PREBINDING = NO;
+				PRODUCT_NAME = "ParseDate-10.5";
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		E19CC5820CFDEB440079DCFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				PREBINDING = NO;
+				PRODUCT_NAME = "ParseDate-10.5";
+				SKIP_INSTALL = YES;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		E1B11ED40CF5F2EB004975AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -946,7 +1148,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
@@ -967,8 +1169,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_LIBRARY_DIR)/Perl/5.8.8/darwin-thread-multi-2level/auto/DynaLoader\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Pester;
 				PRODUCT_VERSION = 1.1a4;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -984,7 +1188,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
@@ -1002,8 +1206,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SYSTEM_LIBRARY_DIR)/Perl/5.8.8/darwin-thread-multi-2level/auto/DynaLoader\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				PRODUCT_NAME = Pester;
 				PRODUCT_VERSION = 1.1a4;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1018,6 +1224,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E19CC5250CFDE34A0079DCFC /* Build configuration list for PBXNativeTarget "ParseDate-10.4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19CC5230CFDE3350079DCFC /* Debug */,
+				E19CC5240CFDE3350079DCFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E19CC5800CFDEB440079DCFC /* Build configuration list for PBXNativeTarget "ParseDate-10.5" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E19CC5810CFDEB440079DCFC /* Debug */,
+				E19CC5820CFDEB440079DCFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		E1B11EDA0CF5F2EB004975AA /* Build configuration list for PBXProject "Pester" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
