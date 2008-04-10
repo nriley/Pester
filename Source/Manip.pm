@@ -567,6 +567,7 @@ sub Date_Init {
       "act    -0500 ".  # Brazil, Acre
       "pet    -0500 ".  # Peruvian time
       "sat    -0400 ".  # Chile
+      "clt    -0400 ".  # Chile
       "clst   -0400 ".  # Chile Standard
       "bot    -0400 ".  # Bolivia
       "amt    -0400 ".  # Brazil, Amazon
