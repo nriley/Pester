@@ -1,0 +1,3 @@
+This is just a test text to work out our manual git->svn system.
+Send money soon...
+s
