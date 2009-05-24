@@ -64,6 +64,8 @@
             case 's': case 'S': tag = 1; break;
             case 'm': case 'M': tag = 60; break;
             case 'h': case 'H': tag = 60 * 60; break;
+	    case 'd': case 'D': tag = 60 * 60 * 24; break;
+	    case 'w': case 'W': tag = 60 * 60 * 24 * 7; break;
             case 'u': case 'U': tag = -2; break;
             default: break;
         }

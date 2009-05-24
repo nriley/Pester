@@ -2,14 +2,13 @@
 {
 	089C165DFE840E0CC02AAC07 /* English */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {813, 899}}";
-			sepNavSelRange = "{145, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {813, 838}}";
+			sepNavSelRange = "{156, 0}";
 			sepNavVisRange = "{0, 229}";
-			sepNavWindowFrame = "{{15, 238}, {872, 935}}";
+			sepNavWindowFrame = "{{15, 4}, {872, 874}}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeArchitecture = i386;
 		activeBuildConfigurationName = Release;
 		activeExecutable = E1B11F8D0CF5F30F004975AA /* Pester */;
 		activeTarget = E1B11EE30CF5F30F004975AA /* Pester */;
@@ -74,7 +73,7 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 218257959;
+			PBXPerProjectTemplateStateSaveDate = 264888602;
 			"PBXTemplateGeometry-F5314676015831810DCA290F" = {
 				ContentSize = "{618, 257}";
 				LeftSlideOut = {
@@ -793,13 +792,11 @@
 					WindowLocation = "{357, 379}";
 				},
 			);
-			PBXWorkspaceStateSaveDate = 218257959;
+			PBXWorkspaceStateSaveDate = 264888602;
 		};
 		perUserProjectItems = {
-			E126D5B00D0003070024B2EA = E126D5B00D0003070024B2EA /* PBXBookmark */;
-			E126D5B10D0003070024B2EA = E126D5B10D0003070024B2EA /* PBXTextBookmark */;
-			E16E5C100D025BD2003C85BE /* PBXBookmark */ = E16E5C100D025BD2003C85BE /* PBXBookmark */;
-			E16E5C110D025BD2003C85BE /* PBXTextBookmark */ = E16E5C110D025BD2003C85BE /* PBXTextBookmark */;
+			E17C12440EF9CEE0002885BE = E17C12440EF9CEE0002885BE /* PBXBookmark */;
+			E17C125E0EF9D4AD002885BE = E17C125E0EF9D4AD002885BE /* PBXTextBookmark */;
 		};
 		sourceControlManager = E1B11EDC0CF5F2EB004975AA /* Source Control */;
 		userBookmarkGroup = E130B91603B69C6300000028 /* PBXBookmarkGroup */;
@@ -847,20 +844,6 @@
 		vrLen = 1001;
 		vrLoc = 30;
 	};
-	E126D5B00D0003070024B2EA /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */;
-	};
-	E126D5B10D0003070024B2EA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */;
-		name = "PSAlarm.m: 220";
-		rLen = 0;
-		rLoc = 7368;
-		rType = 0;
-		vrLen = 1989;
-		vrLoc = 7123;
-	};
 	E130B91603B69C6300000028 /* PBXBookmarkGroup */ = {
 		isa = PBXBookmarkGroup;
 		children = (
@@ -897,10 +880,10 @@
 	};
 	E13919E303B9E4E100000028 /* NJRIntervalField.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {761, 946}}";
-			sepNavSelRange = "{2674, 0}";
-			sepNavVisRange = "{329, 2345}";
-			sepNavWindowFrame = "{{364, 159}, {820, 839}}";
+			sepNavIntBoundsRect = "{{0, 0}, {761, 1190}}";
+			sepNavSelRange = "{1198, 0}";
+			sepNavVisRange = "{655, 2028}";
+			sepNavWindowFrame = "{{364, 39}, {820, 839}}";
 		};
 	};
 	E145383F043A1DB200050002 /* NJRHotKeyManager.m */ = {
@@ -971,20 +954,6 @@
 			sepNavVisRange = "{0, 1070}";
 		};
 	};
-	E16E5C100D025BD2003C85BE /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = E1A18CAC03B4344C00000028 /* PSAlerts.m */;
-	};
-	E16E5C110D025BD2003C85BE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = E1A18CAC03B4344C00000028 /* PSAlerts.m */;
-		name = "PSAlerts.m: 139";
-		rLen = 7;
-		rLoc = 3864;
-		rType = 0;
-		vrLen = 463;
-		vrLoc = 3555;
-	};
 	E17562BD0CF8E7D000FC5057 /* updates.xml */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {817, 583}}";
@@ -1008,6 +977,20 @@
 			sepNavVisRange = "{253, 1186}";
 			sepNavWindowFrame = "{{368, 43}, {1032, 1071}}";
 		};
+	};
+	E17C12440EF9CEE0002885BE /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = E13919E303B9E4E100000028 /* NJRIntervalField.m */;
+	};
+	E17C125E0EF9D4AD002885BE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E13919E303B9E4E100000028 /* NJRIntervalField.m */;
+		name = "NJRIntervalField.m: 42";
+		rLen = 0;
+		rLoc = 1198;
+		rType = 0;
+		vrLen = 2028;
+		vrLoc = 655;
 	};
 	E17CA6640CF697FE00018B34 /* SetPortRGBForeColor */ = {
 		isa = PBXSymbolicBreakpoint;
@@ -1391,9 +1374,9 @@
 	F589C9C6035AA12B0155F4B2 /* Read Me.rtfd */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {960, 4408}}";
-			sepNavSelRange = "{13, 0}";
-			sepNavVisRect = "{{0, 0}, {960, 1091}}";
-			sepNavWindowFrame = "{{14, 48}, {999, 1128}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {960, 814}}";
+			sepNavWindowFrame = "{{14, 4}, {999, 874}}";
 		};
 	};
 	F596730D0355CFA301407038 /* -[_NSZombie methodSignatureForSelector:] */ = {
@@ -1567,10 +1550,10 @@
 	};
 	F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {993, 6776}}";
+			sepNavIntBoundsRect = "{{0, 0}, {993, 8344}}";
 			sepNavSelRange = "{7368, 0}";
-			sepNavVisRange = "{7123, 1965}";
-			sepNavWindowFrame = "{{840, 106}, {1052, 933}}";
+			sepNavVisRange = "{7123, 1405}";
+			sepNavWindowFrame = "{{375, 4}, {1052, 874}}";
 		};
 	};
 	F5B79836035F64F80136A8DD /* NJRTableView.m */ = {

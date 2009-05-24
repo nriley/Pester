@@ -1,34 +1,100 @@
-{
-    IBClasses = (
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = NJRIntegerFilter; LANGUAGE = ObjC; SUPERCLASS = NSNumberFormatter; }, 
-        {
-            CLASS = NJRIntervalField; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {intervalUnits = NSPopUpButton; }; 
-            SUPERCLASS = NSTextField; 
-        }, 
-        {
-            ACTIONS = {
-                close = id; 
-                snooze = id; 
-                snoozeIntervalUnitsChanged = id; 
-                snoozeUntil = id; 
-                stopRepeating = id; 
-            }; 
-            CLASS = PSAlarmNotifierController; 
-            LANGUAGE = ObjC; 
-            OUTLETS = {
-                dateField = NSTextField; 
-                intervalField = NSTextField; 
-                messageField = NSTextField; 
-                nextDateField = NSTextField; 
-                okButton = NSButton; 
-                snoozeButton = NSButton; 
-                snoozeIntervalField = NJRIntervalField; 
-            }; 
-            SUPERCLASS = NSWindowController; 
-        }
-    ); 
-    IBVersion = 1; 
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IBClasses</key>
+	<array>
+		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>close</key>
+				<string>id</string>
+				<key>snooze</key>
+				<string>NSButton</string>
+				<key>snoozeIntervalUnitsChanged</key>
+				<string>NSPopUpButton</string>
+				<key>snoozeUntil</key>
+				<string>NSMenuItem</string>
+				<key>stopRepeating</key>
+				<string>NSButton</string>
+			</dict>
+			<key>CLASS</key>
+			<string>PSAlarmNotifierController</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>dateField</key>
+				<string>NSTextField</string>
+				<key>intervalField</key>
+				<string>NSTextField</string>
+				<key>messageField</key>
+				<string>NSTextField</string>
+				<key>nextDateField</key>
+				<string>NSTextField</string>
+				<key>okButton</key>
+				<string>NSButton</string>
+				<key>snoozeButton</key>
+				<string>NSButton</string>
+				<key>snoozeIntervalField</key>
+				<string>NJRIntervalField</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSWindowController</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSMenuItem</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSObject</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>FirstResponder</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NJRIntervalField</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>intervalUnits</key>
+				<string>NSPopUpButton</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NJRValidatingField</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NJRValidatingField</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSTextField</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NJRIntegerFilter</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSNumberFormatter</string>
+		</dict>
+	</array>
+	<key>IBVersion</key>
+	<string>1</string>
+</dict>
+</plist>
