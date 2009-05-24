@@ -1,3 +1,7 @@
 This is just a test text to work out our manual git->svn system.
+
+Seems to work now, though we need to be careful.  Information at
+<http://www.kernel.org/pub/software/scm/git/docs/git-svn.html>
+
 Send money soon...
 s
