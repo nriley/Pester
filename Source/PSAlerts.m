@@ -94,8 +94,6 @@ static NSString * const PLAlerts = @"alerts"; // NSString
     PSAlert *alert;
     unsigned int length;
     while ( (alert = [e nextObject]) != nil) {
-	if ([alert isKindOfClass: [PSDockBounceAlert class]]) // XXX temporary for 1.1b5
-	    continue;
         [string appendAttributedString: [NSLocalizedString(@"* ", "Unordered list label (usually a bullet followed by a space)") small]];
         [string appendAttributedString: [alert actionDescription]];
         [string appendAttributedString: [@"\n" small]];
