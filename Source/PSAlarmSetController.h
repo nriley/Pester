@@ -30,7 +30,7 @@
     IBOutlet NSTextField *alertView;
     IBOutlet NSTabView *alertTabs;
     IBOutlet NSButtonCell *displayMessage;
-    IBOutlet NSButton *bounceDockIcon;
+    IBOutlet NSButtonCell *bounceDockIcon;
     IBOutlet NSButtonCell *playSound;
     IBOutlet NJRQTMediaPopUpButton *sound;
     IBOutlet NSButton *soundVolumeButton;

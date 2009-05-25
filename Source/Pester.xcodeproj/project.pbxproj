@@ -169,6 +169,7 @@
 		E11373140439FCC700050002 /* NJRHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRHotKey.h; sourceTree = "<group>"; };
 		E11373150439FCC700050002 /* NJRHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRHotKey.m; sourceTree = "<group>"; };
 		E11CB6E1043025F500050002 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Preferences.nib; sourceTree = "<group>"; };
+		E11DC3FF0D0A9A6D00CE8CCD /* NSWindowCollectionBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSWindowCollectionBehavior.h; sourceTree = "<group>"; };
 		E127900104429F9300050002 /* Volume 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Volume 2.png"; sourceTree = "<group>"; };
 		E127900204429F9300050002 /* Volume 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Volume 0.png"; sourceTree = "<group>"; };
 		E127900304429F9300050002 /* Volume 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Volume 3.png"; sourceTree = "<group>"; };
@@ -497,6 +498,7 @@
 				E162698403B6189000000028 /* NSTableView-NJRExtensions.h */,
 				E1B121950CF62FD1004975AA /* NSMenuItem-NJRExtensions.h */,
 				E1B121960CF62FD1004975AA /* NSMenuItem-NJRExtensions.m */,
+				E11DC3FF0D0A9A6D00CE8CCD /* NSWindowCollectionBehavior.h */,
 			);
 			name = Categories;
 			sourceTree = "<group>";

@@ -9,6 +9,7 @@
 #import "PSAlarmNotifierController.h"
 #import "PSAlarmAlertController.h"
 #import "PSAlarm.h"
+#import "PSApplication.h"
 #import "PSNotifierAlert.h"
 #import "PSSnoozeUntilController.h"
 #import "NJRIntervalField.h"
@@ -48,8 +49,9 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
         }
         [window setFrame: frameRect display: NO];
         [window center];
-        [window makeKeyAndOrderFront: nil];
+	[window makeKeyAndOrderFront: nil];
         [window orderFrontRegardless];
+	[(PSApplication *)NSApp orderOutSetAlarmPanelIfHidden];
     }
     return self;
 }

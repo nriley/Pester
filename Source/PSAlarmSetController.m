@@ -113,9 +113,11 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [notificationCenter addObserver: self selector: @selector(applicationWillTerminate:) name: NSApplicationWillTerminateNotification object: NSApp];
     [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
     [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
+    
     // XXX workaround for 10.1.x and 10.2.x bug which sets the first responder to the wrong field alternately, but it works if I set the initial first responder to nil... go figure.
-    [[self window] setInitialFirstResponder: nil];
-    [[self window] makeKeyAndOrderFront: nil];
+    NSWindow *window = [self window];
+    [window setInitialFirstResponder: nil];
+    [window makeKeyAndOrderFront: nil];
 }
 
 - (void)setStatus:(NSString *)aString;
@@ -421,7 +423,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
     while ( (alert = [e nextObject]) != nil) {
         if ([alert isKindOfClass: [PSDockBounceAlert class]]) {
-            [bounceDockIcon setState: NSOnState];
+            [bounceDockIcon setIntValue: YES]; // temporary for 1.1b8
         } else if ([alert isKindOfClass: [PSScriptAlert class]]) {
             [doScript setIntValue: YES];
             [script setAlias: [(PSScriptAlert *)alert scriptFileAlias]];
@@ -454,7 +456,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [alerts removeAlerts];
     @try {
         // dock bounce alert
-        if ([bounceDockIcon state] == NSOnState)
+        if ([bounceDockIcon intValue]) // temporary for 1.1b8
             [alerts addAlert: [PSDockBounceAlert alert]];
         // script alert
         if ([doScript intValue]) {
@@ -499,15 +501,18 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 // to ensure proper updating of interval, this should be the only method by which the window is shown (e.g. from the Alarm menu)
 - (IBAction)showWindow:(id)sender;
 {
-    if (![[self window] isVisible]) {
+    NSWindow *window = [self window];
+    
+    if (![window isVisible]) {
         NSDate *today = [NSCalendarDate dateForDay: [NSDate date]];
         if ([(NSDate *)[timeDate objectValue] compare: today] == NSOrderedAscending) {
             [timeDate setObjectValue: today];
         }
         [self update: self];
         // XXX bug workaround - otherwise, first responder appears to alternate every time the window is shown.  And if you set the initial first responder, you can't tab in the window. :(
-        [[self window] makeFirstResponder: [[self window] initialFirstResponder]];
+        [window makeFirstResponder: [window initialFirstResponder]];
     }
+    
     [super showWindow: sender];
 }
 

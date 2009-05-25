@@ -17,6 +17,7 @@
 #import "PSAlarms.h"
 #import "PSTimer.h"
 #import "NJRHotKey.h"
+#import "NSWindowCollectionBehavior.h"
 
 #import <Carbon/Carbon.h>
 
@@ -48,6 +49,16 @@
 
 - (IBAction)orderFrontSetAlarmPanel:(id)sender;
 {
+    NSWindow *window = [alarmSetController window];
+    if ([window respondsToSelector: @selector(setCollectionBehavior:)]) { // 10.5-only
+	// XXX bug workaround - NSWindowCollectionBehaviorMoveToActiveSpace is what we want, but it doesn't work correctly, probably because we have a "chicken and egg" problem as the panel isn't visible when the app is hidden
+	[window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
+	[alarmSetController showWindow: self];
+    	[window performSelector: @selector(setCollectionBehavior:) withObject:
+	 (id)NSWindowCollectionBehaviorDefault afterDelay: 0];
+	[NSApp activateIgnoringOtherApps: YES]; // XXX causes title bar to flash
+	return;
+    }
     [NSApp activateIgnoringOtherApps: YES];
     [alarmSetController showWindow: self];
 }
@@ -67,6 +78,21 @@
         preferencesController = [[PSPreferencesController alloc] init];
     }
     [preferencesController showWindow: self];
+}
+
+#pragma mark Spaces interaction
+
+- (void)orderOutSetAlarmPanelIfHidden;
+{
+    // prevent set alarm panel from "yanking" focus from an alarm notification, thereby obscuring the notification
+    if ([NSApp isActive])
+	return;
+    
+    NSWindow *window = [alarmSetController window];
+    if (![window isVisible])
+	return;
+
+    [window orderOut: self];
 }
 
 #pragma mark update timer
