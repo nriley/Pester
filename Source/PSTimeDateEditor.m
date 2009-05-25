@@ -53,6 +53,8 @@
 	    [format release];
         } else itemIndex++;
     }
+    if ([timeDateCompletions pullsDown]) // add a dummy first item, which gets consumed for the (obscured) title
+	[timeDateCompletions insertItemWithTitle: @"" atIndex: 0];
 }
 
 @end
