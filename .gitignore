@@ -2,7 +2,8 @@ build
 .DS_Store
 *.pbxuser
 *.perspectivev3
-*.mode1v3
+*.mode?v3
 *~
 #*
 authors-file
+.OABK
