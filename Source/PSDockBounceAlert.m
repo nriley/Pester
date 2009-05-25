@@ -8,33 +8,52 @@
 
 #import <AppKit/AppKit.h>
 #import "PSDockBounceAlert.h"
+#import "PSAlarmAlertController.h"
+
+#include <Carbon/Carbon.h>
 
 static PSDockBounceAlert *PSDockBounceAlertShared;
+static NMRec nmr;
 
 @implementation PSDockBounceAlert
 
 + (PSAlert *)alert;
 {
-    if (PSDockBounceAlertShared == nil)
+    if (PSDockBounceAlertShared == nil) {
         PSDockBounceAlertShared = [[PSDockBounceAlert alloc] init];
+	
+	[[NSNotificationCenter defaultCenter] addObserver: PSDockBounceAlertShared selector: @selector(_stopBouncing) name: PSAlarmAlertStopNotification object: nil];
+	
+	bzero(&nmr, sizeof(nmr));
+	nmr.nmMark = 1;
+	nmr.qType = nmType;
+    }
+    
     return PSDockBounceAlertShared;
 }
 
-+ (void)stopBouncing;
+- (void)_stopBouncing;
 {
-    [NSApp cancelUserAttentionRequest: NSInformationalRequest];
+    if ((void *)nmr.nmRefCon != self)
+	return;
+    
+    nmr.nmRefCon = 0;
+    NMRemove(&nmr);
 }
 
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
-    [NSApp requestUserAttention: NSInformationalRequest];
-    [[self class] performSelector: @selector(stopBouncing) withObject: nil afterDelay: 1 inModes: [NSArray arrayWithObject: NSDefaultRunLoopMode]];
+    if (nmr.nmRefCon == 0) {
+	nmr.nmRefCon = (long)self;
+	NMInstall(&nmr);
+    }
+
     [self completedForAlarm: alarm];
 }
 
 - (NSAttributedString *)actionDescription;
 {
-    return [@"Bounce dock icon" small];
+    return [@"Bounce Dock icon" small];
 }
 
 #pragma mark property list serialization (Pester 1.1)
