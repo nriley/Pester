@@ -35,6 +35,14 @@
     [defaults synchronize];
 }
 
+- (void)_clearEntry;
+{
+    [self setStringValue: @""];
+    // force bindings to update
+    [self textDidChange: [NSNotification notificationWithName: NSControlTextDidChangeNotification
+						       object: [[self window] fieldEditor: NO forObject: self]]];
+}
+
 - (IBAction)removeEntry:(id)sender;
 {
     int idx = [self indexOfSelectedItem];
@@ -43,7 +51,7 @@
         idx = [self indexOfSelectedItem];
     }
     if (idx != -1) [self removeItemAtIndex: idx];
-    [self setStringValue: @""];
+    [self _clearEntry];
     [self _writeHistory];
 }
 
@@ -51,6 +59,7 @@
 {
     [self removeAllItems];
     [self setStringValue: @""];
+    [self _clearEntry];
     [self _writeHistory];
 }
 
