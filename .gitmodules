@@ -1,0 +1,3 @@
+[submodule "Source/Sparkle"]
+	path = Source/Sparkle
+	url = git://github.com/nriley/Sparkle.git
