@@ -1,27 +1,48 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<title>What's new in Pester</title>
-	<meta name="robots" content="anchors">
-	<link href="release-notes.css" type="text/css" rel="stylesheet" media="all">
+	<meta name="robots" content="anchors" />
+	<link href="release-notes.css" type="text/css" rel="stylesheet" media="all" />
 </head>
 
 <body>
 <table>
-	<tr><th colspan="2">Pester 1.1 beta 6 (23)</th></tr>
-	<tr><td class="icon"></td>
-		<td>
-			<ul>
-			    <li>Repeating alarms continue to repeat if they didn’t expire while Pester was not running.</li>
-			    <li>(Re-)added speech alerts.</li>
-			    <li>Alert help tags in the alarm list appear correctly in Leopard.</li>
-			    <li>Changes to the field you’re editing are saved when switching between “in” and “at”.</li>
-			    <li>Corrected validation of the alert repetition field which allowed you to specify zero (blank) or over 99 repetitions.</li>
-			    <li>Pester 1.0 alarms no longer create duplicates of themselves on import.</li>
-			    <li>Fixed “Snooze until” times being an hour late in some time zones.</li>
-			</ul>
-		</td>
-	</tr>
+	<tr><th>Pester 1.1 beta 8 (25)</th></tr>
+	<tr><td><ul>
+	    <li>Open the Set Alarm window in the current Space when triggered with a keyboard equivalent or the Dock menu.</li>
+	    <li>If the Set Alarm window was visible when Pester was last active, prevent it from switching Spaces and obscuring a notification alert.</li>
+	    <li>(Re-)added optional dock icon bouncing, which works more reliably.</li>
+	    <li>Restored “today” item to date completion menus.</li>
+	    <li>Fixed horizontal resizing glitches in the Alarms window.</li>
+	    <li>Save the most recent alarm message across runs of Pester.</li>
+	    <li>Disable the “–” button when it would do nothing.</li>
+            <li>Handle Chilean time zone CLT.</li>
+            <li>Added “days” and “weeks” alarm interval units.</li>
+	</ul></td></tr>
+</table>
+<p />
+<table>
+	<tr><th>Pester 1.1 beta 7 (24)</th></tr>
+	<tr><td><ul>
+	    <li>Fixed “Snooze until” times being an hour late in some time zones.</li>
+	    <li>Fixed speech voices displaying as dotted identifiers instead of names.</li>
+	    <li>Fixed crash on launch on PowerPC Macs running Leopard.</li>
+	</ul></td></tr>
+</table>
+<p />
+<table>
+	<tr><th>Pester 1.1 beta 6 (22)</th></tr>
+	<tr><td><ul>
+	    <li>Repeating alarms continue to repeat if they didn’t expire while Pester was not running.</li>
+	    <li>(Re-)added speech alerts.</li>
+	    <li>Alert help tags in the alarm list appear correctly in Leopard.</li>
+	    <li>Changes to the field you’re editing are saved when switching between “in” and “at”.</li>
+	    <li>Corrected validation of the alert repetition field which allowed you to specify zero (blank) or over 99 repetitions.</li>
+	    <li>Pester 1.0 alarms no longer create duplicates of themselves on import.</li>
+	</ul></td></tr>
 </table>
 </body>
 </html>
