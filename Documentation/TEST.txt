@@ -4,4 +4,10 @@ Seems to work now, though we need to be careful.  Information at
 <http://www.kernel.org/pub/software/scm/git/docs/git-svn.html>
 
 Send money soon...
+
+Tuesday, May 26, 2009 -- Quick change to test roundtrip after busted github
+extravaganza.
+
+S
+
 s
