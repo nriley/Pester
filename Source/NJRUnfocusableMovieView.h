@@ -7,9 +7,9 @@
 //
 
 #import <AppKit/AppKit.h>
+#import <QTKit/QTKit.h>
 
-
-@interface NJRUnfocusableMovieView : NSMovieView {
+@interface NJRUnfocusableMovieView : QTMovieView {
 
 }
 

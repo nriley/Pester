@@ -174,7 +174,7 @@
 			<key>OUTLETS</key>
 			<dict>
 				<key>preview</key>
-				<string>NSMovieView</string>
+				<string>QTMovieView</string>
 			</dict>
 			<key>SUPERCLASS</key>
 			<string>NSPopUpButton</string>
@@ -199,7 +199,7 @@
 			<key>LANGUAGE</key>
 			<string>ObjC</string>
 			<key>SUPERCLASS</key>
-			<string>NSMovieView</string>
+			<string>QTMovieView</string>
 		</dict>
 		<dict>
 			<key>CLASS</key>

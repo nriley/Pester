@@ -7,12 +7,13 @@
 //
 
 #import <AppKit/AppKit.h>
+#import <QTKit/QTKit.h>
 #import "BDAlias.h"
 
 extern NSString * const NJRQTMediaPopUpButtonMovieChangedNotification;
 
 @interface NJRQTMediaPopUpButton : NSPopUpButton {
-    IBOutlet NSMovieView *preview;
+    IBOutlet QTMovieView *preview;
     BOOL movieCanRepeat, movieHasAudio;
     NSMenuItem *otherItem;
     BDAlias *selectedAlias, *previousAlias;
