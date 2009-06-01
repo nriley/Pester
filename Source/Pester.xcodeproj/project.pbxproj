@@ -578,6 +578,7 @@
 				F589C9C6035AA12B0155F4B2 /* Read Me.rtfd */,
 			);
 			name = Documentation;
+			path = ../Documentation;
 			sourceTree = "<group>";
 		};
 		F560E311035787D501A4E466 /* Controllers */ = {
