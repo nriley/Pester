@@ -453,9 +453,10 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [openPanel setAllowsMultipleSelection: NO];
     [openPanel setCanChooseDirectories: NO];
     [openPanel setCanChooseFiles: YES];
+    [openPanel setDelegate: self];
     [openPanel beginSheetForDirectory: [path stringByDeletingLastPathComponent]
                                  file: [path lastPathComponent]
-                                types: nil // XXX fix for QuickTime!
+                                types: nil
                        modalForWindow: [self window]
                         modalDelegate: self
                        didEndSelector: @selector(openPanelDidEnd:returnCode:contextInfo:)
@@ -505,6 +506,21 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     } else {
         [super drawRect: rect];
     }
+}
+
+@end
+
+@implementation NJRQTMediaPopUpButton (NSSavePanelDelegate)
+
+- (BOOL)panel:(id)sender shouldShowFilename:(NSString *)filename;
+{
+    BOOL isDir = NO;
+    [[NSFileManager defaultManager] fileExistsAtPath: filename isDirectory: &isDir];
+
+    if (isDir)
+	return YES;
+
+    return [QTMovie canInitWithFile: filename];
 }
 
 @end
