@@ -356,6 +356,10 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (BOOL)_validateWithPreview:(BOOL)doPreview;
 {
+    // prevent _resetPreview from triggering afterward (crashes)
+    [[NSNotificationCenter defaultCenter] removeObserver: self
+						    name: QTMovieDidEndNotification
+						  object: [preview movie]];
     [preview pause: self];
     if (selectedAlias == nil) {
         [preview setMovie: nil];
