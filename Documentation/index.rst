@@ -6,7 +6,9 @@
 Welcome to Pester's documentation!
 ==================================
 
+=============
 Pester  1.1b8
+=============
 UNRELEASED—do not distribute
 
 A simple alarm clock and timer for Mac OS X.
@@ -20,7 +22,9 @@ what has changed in this version. This beta version of Pester 1.1 is not yet
 feature-complete; some user interface elements from earlier betas are missing
 because they don’t work yet.
 
+-----------
 What is it?
+-----------
 
 Don’t want to miss the bus or train? Have a meeting coming up soon and want to
 be reminded of it? Too much trouble to create an appointment in Palm Desktop,
@@ -28,7 +32,9 @@ iCal or Entourage? Pester can help.
 
 
 
+------------
 Installation
+------------
 
 Pester should work on Mac OS X 10.4 or later; it has been tested on Mac OS X
 10.4.11 and 10.5.1.
@@ -42,7 +48,9 @@ its icon to the Trash. Pester’s preferences file is named
 “net.sabi.Pester.plist” and is located in the Library/Preferences subfolder of
 your Home folder.
 
+------------
 Usage
+------------
 
 Use Pester to set alarms for times in the future. Alarms that are scheduled to
 expire after you quit Pester are saved automatically. Pester must be running
@@ -88,7 +96,9 @@ are set, they appear in the list; alarms which expire while Pester is running
 are removed from the list. To remove one or more alarms, select them and click
 Remove.
 
+-------------
 More features
+-------------
 
 Pester includes a Dock menu, which you can access by Control (⌃)-clicking
 Pester’s icon.
@@ -99,7 +109,9 @@ Pester’s Dock icon displays the time until the next alarm expires.
 
 Pester is also fully Y3K-compliant. It can be comforting to know that even if you won’t be around then, if your Mac still works, so will Pester.
 
+--------------------------
 Frequently asked questions
+--------------------------
 
 Q. Why isn’t Pester a full-featured calendar/scheduling program? What use is it otherwise?
 
@@ -113,9 +125,12 @@ Q. Under what conditions is the source code licensed?
 
 A. Please see my Web page for details. Essentially: don’t pass it off as your own, and give me credit if you use all or part of it in your own software.
 
+--------------------------
 Version history
+--------------------------
 
 1.1 / forthcoming
+-----------------
 •	Requires Mac OS X 10.4 or later (Universal Binary).
 •	Fixed small memory leaks on alarm creation and with the “Remove” button in the alarm list window.
 •	Fixed vertical resizing of the alarm list window.
@@ -148,12 +163,15 @@ Version history
 •	Added ⇧⌘T shortcut to switch between “in” and “at”.
 •	Default to today’s date in the “at” section.
 •	Reduced Pester’s processor usage while alarms are pending, and while the “Set Alarm” window is open but hidden.
-•	Changed alarm storage to be more reliable, expandable and human-readable, if a bit slower. Conversion occurs at startup and is one-way (if you really need it to be two-way, the feature would not be hard to add).  The alarm list should no longer become lost with a message such as “2002-11-18 00:31:24.461 Pester[8545] An error occurred while attempting to restore the alarm list: *** Incorrect archive: unexpected byte”.
+•	Changed alarm storage to be more reliable, expandable and human-readable, if a bit slower. Conversion occurs at startup and is one-way (if you really need it to be two-way, the feature would not be hard to add).  The alarm list should no longer become lost with a message such as “2002-11-18 00:31:24.461 Pester[8545] An error occurred while attempting to restore the alarm list: \*\*\* Incorrect archive: unexpected byte”.
 •	Switched to apple-generic versioning (agvtool, etc.).  Xcode 2.4 or later is required to build Pester 1.1.
 •	Incorporated Sparkle for automatic updates.
 •	Creator code is now Pest instead of Pstr (the latter was already registered).
 
+--------------------------
 Still to be fixed for 1.1:
+--------------------------
+
 •	Dock bouncing doesn’t work when Pester is frontmost.
 •	Customizable alerts: AppleScript, playback of sounds, images and movies (anything QuickTime can handle).
 •	Sometimes Pester will not open the Set Alarm window when you bring it to the front and no other window is open.
@@ -164,10 +182,14 @@ Still to be fixed for 1.1:
 •	Alarm times can be off by up to one second in certain cases.
 •	Extremely delayed alarm times can be huge (4....... years)
 
+----------------------------------------------------
 Known bugs in this version (not to be fixed by 1.1):
+----------------------------------------------------
 •	Type-selection of alarms by their dates and times in the alarm list only works well when the items in the list are in approximate alphabetical order; this breaks with certain date and time formats.
 
+-----------------------------------------------
 Additional features planned for later versions:
+-----------------------------------------------
 •	Better repeating alarms, such as a “real time” option so you can schedule an alarm to go off every hour, on the hour, for example.
 •	Better handling of non-repeating expired alarms—offer the option to have the alarms go off when Pester is restarted?
 •	Alarms (unscheduled ones, at least) as documents.
@@ -178,12 +200,16 @@ Additional features planned for later versions:
 [Two rereleases of 1.0 had no changes in the Pester application itself; they fixed problems with double-clicking the Read Me, so the version number was not changed.]
 
 1.0 / 14 October 2002
+---------------------
 Added alarm list, saved alarms, Dock icon/menu, live alarm time, other features.
 
 1.0d1 / 9 October 2002
+----------------------
 First public release.
 
+---------------------
 Acknowledgments
+---------------------
 
 Pester uses Andy Matuschak’s Sparkle, for which the following conditions apply:
 
