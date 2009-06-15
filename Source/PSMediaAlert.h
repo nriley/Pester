@@ -8,6 +8,7 @@
 
 #import "PSAlert.h"
 
+extern const float PSMediaAlertNoVolume;
 
 @interface PSMediaAlert : PSAlert {
     unsigned short repetitions;

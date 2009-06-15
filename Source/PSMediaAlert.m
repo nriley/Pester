@@ -14,7 +14,7 @@
 static NSString * const PLAlertRepetitions = @"times"; // NSString
 static NSString * const PLAlertOutputVolume = @"volume"; // NSNumber
 
-static const float PSMediaAlertNoVolume = 0;
+const float PSMediaAlertNoVolume = 0;
 
 @implementation PSMediaAlert
 

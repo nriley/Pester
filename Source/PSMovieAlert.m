@@ -6,6 +6,7 @@
 //  Copyright (c) 2002 Nicholas Riley. All rights reserved.
 //
 
+#import <QTKit/QTKit.h>
 #import <QuickTime/Movies.h>
 #import "PSMovieAlert.h"
 #import "PSMovieAlertController.h"
@@ -34,8 +35,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
         }
         alias = [anAlias retain];
         repetitions = numReps;
-        // XXX if we support remote movie URLs, need to call EnterMovies() ourselves at least in Jaguar (_MacTech_ December 2002, p. 64); also should do async movie loading (p. 73Ð74).
-	movie = [[QTMovie alloc] initWithFile: path error: NULL];
+	QTMovie *movie = [[QTMovie alloc] initWithFile: path error: NULL];
         if (movie == nil) {
             [self release];
             self = nil;
@@ -47,6 +47,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
                 [self release]; self = nil;
             }
         }
+	[movie release];
     }
     
     return self;
@@ -64,7 +65,11 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 
 - (QTMovie *)movie;
 {
-    return movie;
+    NSString *path = [alias fullPath];
+    if (path == nil)
+	return nil;
+    
+    return [[[QTMovie alloc] initWithFile: path error: NULL] autorelease];
 }
 
 - (BDAlias *)movieFileAlias;
@@ -80,13 +85,14 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 - (void)dealloc;
 {
     [alias release];
-    [movie release];
+
+    NSLog(@"PSMovieAlert dealloc: %@", self);
     [super dealloc];
 }
 
 - (NSString *)description;
 {
-    return [NSString stringWithFormat: @"PSMovieAlert (%@%@): %@, repeats %hu times%@", hasAudio ? @"A" : @"", hasVideo ? @"V" : @"", [alias fullPath], repetitions, hasAudio && outputVolume != kNoVolume ? [NSString stringWithFormat: @" at %.0f%% volume", outputVolume * 100] : @""];
+    return [NSString stringWithFormat: @"PSMovieAlert (%@%@): %@, repeats %hu times%@", hasAudio ? @"A" : @"", hasVideo ? @"V" : @"", [alias fullPath], repetitions, hasAudio && outputVolume != PSMediaAlertNoVolume ? [NSString stringWithFormat: @" at %.0f%% volume", outputVolume * 100] : @""];
 }
 
 - (void)triggerForAlarm:(PSAlarm *)alarm;
@@ -96,7 +102,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 
 - (NSAttributedString *)actionDescription;
 {
-    BOOL isStatic = [movie NJR_isStatic];
+    BOOL isStatic = [[self movie] NJR_isStatic];
     NSMutableAttributedString *string = [[(isStatic ? @"Show " : @"Play ") small] mutableCopy];
     NSString *kindString = nil, *name = [alias displayNameWithKindString: &kindString];
     if (name == nil) name = NSLocalizedString(@"<<can't locate media file>>", "Movie alert description surrogate for media display name when alias doesn't resolve");

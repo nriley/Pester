@@ -7,14 +7,13 @@
 //
 
 #import <AppKit/AppKit.h>
-#import <QTKit/QTKit.h>
 #import "PSMediaAlert.h"
 
 @class BDAlias;
+@class QTMovie;
 
 @interface PSMovieAlert : PSMediaAlert {
     BDAlias *alias;
-    QTMovie *movie;
     BOOL hasAudio;
     BOOL hasVideo;
 }
