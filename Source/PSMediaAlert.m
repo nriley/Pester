@@ -9,11 +9,12 @@
 #import "PSMediaAlert.h"
 #import "NSDictionary-NJRExtensions.h"
 #import "NJRSoundManager.h"
-#import <QuickTime/Movies.h>
 
 // property list keys
 static NSString * const PLAlertRepetitions = @"times"; // NSString
 static NSString * const PLAlertOutputVolume = @"volume"; // NSNumber
+
+static const float PSMediaAlertNoVolume = 0;
 
 @implementation PSMediaAlert
 
@@ -49,7 +50,7 @@ static NSString * const PLAlertOutputVolume = @"volume"; // NSNumber
     if ([NJRSoundManager volumeIsNotMutedOrInvalid: volume])
         outputVolume = volume;
     else
-        outputVolume = kNoVolume;
+        outputVolume = PSMediaAlertNoVolume;
 }
 
 #pragma mark property list serialization (Pester 1.1)
@@ -58,7 +59,7 @@ static NSString * const PLAlertOutputVolume = @"volume"; // NSNumber
 {
     NSMutableDictionary *plAlert = [[super propertyListRepresentation] mutableCopy];
     [plAlert setObject: [NSNumber numberWithUnsignedShort: repetitions] forKey: PLAlertRepetitions];
-    if (outputVolume != kNoVolume) {
+    if (outputVolume != PSMediaAlertNoVolume) {
         [plAlert setObject: [NSNumber numberWithFloat: outputVolume] forKey: PLAlertOutputVolume];
     }
     return [plAlert autorelease];

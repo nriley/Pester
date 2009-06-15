@@ -81,7 +81,6 @@
 		E1B11F640CF5F30F004975AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		E1B11F650CF5F30F004975AA /* NJRIntervalField.m in Sources */ = {isa = PBXBuildFile; fileRef = E13919E303B9E4E100000028 /* NJRIntervalField.m */; };
 		E1B11F660CF5F30F004975AA /* PSError.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ECA00703C002B300F54C66 /* PSError.m */; };
-		E1B11F670CF5F30F004975AA /* NJRCenteringMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D358BA03C60CE900C8A18E /* NJRCenteringMovieView.m */; };
 		E1B11F690CF5F30F004975AA /* PSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF6E9103C928D200050002 /* PSTimer.m */; };
 		E1B11F6A0CF5F30F004975AA /* PSWakeAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E19FD39F03C98645001509F3 /* PSWakeAlert.m */; };
 		E1B11F6B0CF5F30F004975AA /* PSCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17F2F3303FDF2F000050002 /* PSCalendarController.m */; };
@@ -241,8 +240,6 @@
 		E1BF6E9103C928D200050002 /* PSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTimer.m; sourceTree = "<group>"; };
 		E1CDEC3D0444053F00AEEDB1 /* NJRNonCenteringWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRNonCenteringWindow.h; sourceTree = "<group>"; };
 		E1CDEC3E0444053F00AEEDB1 /* NJRNonCenteringWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRNonCenteringWindow.m; sourceTree = "<group>"; };
-		E1D358B903C60CE900C8A18E /* NJRCenteringMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRCenteringMovieView.h; sourceTree = "<group>"; };
-		E1D358BA03C60CE900C8A18E /* NJRCenteringMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRCenteringMovieView.m; sourceTree = "<group>"; };
 		E1DEF0EA03FE1BF100050002 /* OARightArrowPressed.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OARightArrowPressed.tiff; sourceTree = "<group>"; };
 		E1DEF0EB03FE1BF100050002 /* OALeftArrow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OALeftArrow.tiff; sourceTree = "<group>"; };
 		E1DEF0EC03FE1BF100050002 /* OARightArrow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OARightArrow.tiff; sourceTree = "<group>"; };
@@ -654,8 +651,6 @@
 			isa = PBXGroup;
 			children = (
 				E17F2F4C03FDF67D00050002 /* OACalendarView */,
-				E1D358B903C60CE900C8A18E /* NJRCenteringMovieView.h */,
-				E1D358BA03C60CE900C8A18E /* NJRCenteringMovieView.m */,
 				E1F0B14A03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.h */,
 				E1F0B14B03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.m */,
 				F5B79837035F64F80136A8DD /* NJRTableView.h */,
@@ -891,7 +886,6 @@
 				E1B11F640CF5F30F004975AA /* main.m in Sources */,
 				E1B11F650CF5F30F004975AA /* NJRIntervalField.m in Sources */,
 				E1B11F660CF5F30F004975AA /* PSError.m in Sources */,
-				E1B11F670CF5F30F004975AA /* NJRCenteringMovieView.m in Sources */,
 				E1B11F690CF5F30F004975AA /* PSTimer.m in Sources */,
 				E1B11F6A0CF5F30F004975AA /* PSWakeAlert.m in Sources */,
 				E1B11F6B0CF5F30F004975AA /* PSCalendarController.m in Sources */,

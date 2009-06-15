@@ -9,7 +9,7 @@
 #import "PSAlarmAlertController.h"
 #import "PSMovieAlertController.h"
 #import "PSMovieAlert.h"
-#import "NSMovie-NJRExtensions.h"
+#import "QTMovie-NJRExtensions.h"
 #import "NJRSoundManager.h"
 #import <QuickTime/Movies.h>
 
@@ -37,7 +37,7 @@
         }
         repetitionsRemaining--;
         [movieView gotoBeginning: self];
-        [movieView start: self];
+        [movieView play: self];
     }
     delay = (GetMovieDuration((Movie)theMovie) - GetMovieTime((Movie)theMovie, NULL)) / (double)GetMovieTimeScale((Movie)theMovie);
     // XXX should use a timebase callback for this instead (see NJRQTMediaPopUpButton); also, use QuickTimeÕs built-in loop functionality instead of rolling our own?
@@ -47,28 +47,23 @@
 - (id)initWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
 {
     if ([self initWithWindowNibName: @"Movie alert"]) {
-        NSMovie *movie = [anAlert movie];
+        QTMovie *movie = [anAlert movie];
         NSWindow *window = [self window]; // connect outlets
         alarm = anAlarm;
         alert = anAlert;
+        theMovie = [movie quickTimeMovie];
         [movieView setMovie: movie];
-        theMovie = [movie QTMovie];
         if ([alert hasVideo]) {
             NSRect screenRect = [[window screen] visibleFrame];
-            float magnification = 1.0;
-            NSSize movieSize;
+            NSSize movieSize = [[movie attributeForKey: QTMovieNaturalSizeAttribute] sizeValue];
             NSSize minSize = [window minSize];
             float windowFrameHeight = [window frame].size.height - [[window contentView] frame].size.height;
             NSRect frame;
             screenRect.size.height -= windowFrameHeight;
             minSize.height -= windowFrameHeight;
-            while (1) {
-                movieSize = [movieView sizeForMagnification: magnification];
-                movieSize.height -= 16; // controller is hidden, but its size is included (documented, ergh)
-                if (movieSize.width > screenRect.size.width || movieSize.height > screenRect.size.height)
-                    magnification /= 2;
-                else
-                    break;
+            while (movieSize.width > screenRect.size.width || movieSize.height > screenRect.size.height) {
+                movieSize.width /= 2;
+		movieSize.height /= 2;
             }
             if (movieSize.width < minSize.width) movieSize.width = minSize.width;
             if (movieSize.height < minSize.height) movieSize.width = minSize.height;
@@ -93,10 +88,10 @@
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(close) name: PSAlarmAlertStopNotification object: nil];
         repetitions = [alert repetitions];
         repetitionsRemaining = repetitions;
-        if ([movie hasAudio] && [NJRSoundManager volumeIsNotMutedOrInvalid: [alert outputVolume]] && [NJRSoundManager saveDefaultOutputVolume]) {
+        if ([movie NJR_hasAudio] && [NJRSoundManager volumeIsNotMutedOrInvalid: [alert outputVolume]] && [NJRSoundManager saveDefaultOutputVolume]) {
             [NJRSoundManager setDefaultOutputVolume: [alert outputVolume]];
         }
-        if (![movie isStatic]) [self play]; // if it's an image, don't close the window automatically
+        if (![movie NJR_isStatic]) [self play]; // if it's an image, don't close the window automatically
     }
     return self;
 }
@@ -114,7 +109,7 @@
 - (void)windowWillClose:(NSNotification *)notification;
 {
     repetitions = 0;
-    [movieView stop: self];
+    [movieView pause: self];
     [alert completedForAlarm: alarm];
     [self autorelease];
     // note: there may still be a retained copy of this object until the runloop timer has let go of us at the end of the current movie playback cycle; donÕt worry about it.

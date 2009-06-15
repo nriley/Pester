@@ -10,11 +10,12 @@
 
 @class PSAlarm;
 @class PSMovieAlert;
+@class QTMovieView;
 
 @interface PSMovieAlertController : NSWindowController {
     PSAlarm *alarm;
     PSMovieAlert *alert;
-    IBOutlet NSMovieView *movieView;
+    IBOutlet QTMovieView *movieView;
     void *theMovie; /* Movie */
     unsigned short repetitions;
     unsigned short repetitionsRemaining;

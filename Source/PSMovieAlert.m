@@ -10,7 +10,7 @@
 #import "PSMovieAlert.h"
 #import "PSMovieAlertController.h"
 #import "NSDictionary-NJRExtensions.h"
-#import "NSMovie-NJRExtensions.h"
+#import "QTMovie-NJRExtensions.h"
 #import "BDAlias.h"
 
 // property list keys
@@ -35,13 +35,13 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
         alias = [anAlias retain];
         repetitions = numReps;
         // XXX if we support remote movie URLs, need to call EnterMovies() ourselves at least in Jaguar (_MacTech_ December 2002, p. 64); also should do async movie loading (p. 73Ð74).
-        movie = [[NSMovie alloc] initWithURL: [NSURL fileURLWithPath: path] byReference: YES];
+	movie = [[QTMovie alloc] initWithFile: path error: NULL];
         if (movie == nil) {
             [self release];
             self = nil;
         } else {
-            hasAudio = [movie hasAudio];
-            hasVideo = [movie hasVideo];
+            hasAudio = [movie NJR_hasAudio];
+            hasVideo = [movie NJR_hasVideo];
             
             if (!hasAudio && !hasVideo) {
                 [self release]; self = nil;
@@ -62,7 +62,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     return hasVideo;
 }
 
-- (NSMovie *)movie;
+- (QTMovie *)movie;
 {
     return movie;
 }
@@ -96,7 +96,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 
 - (NSAttributedString *)actionDescription;
 {
-    BOOL isStatic = [movie isStatic];
+    BOOL isStatic = [movie NJR_isStatic];
     NSMutableAttributedString *string = [[(isStatic ? @"Show " : @"Play ") small] mutableCopy];
     NSString *kindString = nil, *name = [alias displayNameWithKindString: &kindString];
     if (name == nil) name = NSLocalizedString(@"<<can't locate media file>>", "Movie alert description surrogate for media display name when alias doesn't resolve");
