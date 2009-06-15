@@ -8,10 +8,8 @@
 
 #import "NJRQTMediaPopUpButton.h"
 #import "NJRSoundManager.h"
-#import "NSMovie-NJRExtensions.h"
+#import "QTMovie-NJRExtensions.h"
 #import "NSMenuItem-NJRExtensions.h"
-
-#import <QTKit/QTKit.h>
 
 #include <limits.h>
 
@@ -371,20 +369,21 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
             // XXX [self _resetOutputVolume];
         }
     } else {
-        NSMovie *movie = [[NSMovie alloc] initWithURL: [NSURL fileURLWithPath: [selectedAlias fullPath]] byReference: YES];
-        movieCanRepeat = ![movie isStatic];
-        if (movieHasAudio = [movie hasAudio]) {
-            [preview setMovie: doPreview ? [QTMovie movieWithURL: [NSURL fileURLWithPath: [selectedAlias fullPath]] error: NULL] : nil]; // XXX handle errors; fix
+	NSError *error;
+	QTMovie *movie = [[QTMovie alloc] initWithFile: [selectedAlias fullPath] error: &error];
+        movieCanRepeat = ![movie NJR_isStatic];
+        if (movieHasAudio = [movie NJR_hasAudio]) {
+            [preview setMovie: doPreview ? movie : nil];
         } else {
             [self _resetPreview];
             doPreview = NO;
             if (movie == nil) {
-                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The item you selected isn't a sound or movie recognized by QuickTime.  Please select a different item.", "Message displayed in alert sheet when media document is not recognized by QuickTime"));
+                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, [NSString stringWithFormat: NSLocalizedString(@"The item you selected isn't an image, sound or movie recognized by QuickTime. (%@)\n\nPlease select a different item.", "Message displayed in alert sheet when media document is not recognized by QuickTime"), [error localizedDescription]]);
                 [self _invalidateSelection];
                 return NO;
             }
-            if (![movie hasAudio] && ![movie hasVideo]) {
-                NSBeginAlertSheet(@"No video or audio", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"'%@' contains neither audio nor video content playable by QuickTime.  Please select a different item.", "Message displayed in alert sheet when media document is readable, but has neither audio nor video tracks"), [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]);
+            if (![movie NJR_hasAudio] && ![movie NJR_hasVideo]) {
+                NSBeginAlertSheet(@"No video or audio", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"'%@' contains neither audio nor video content playable by QuickTime.\n\nPlease select a different item.", "Message displayed in alert sheet when media document is readable, but has neither audio nor video tracks"), [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]);
                 [self _invalidateSelection];
                 [movie release];
                 return NO;

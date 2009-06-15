@@ -58,7 +58,7 @@
 		E1B11F4C0CF5F30F004975AA /* NSCalendarDate-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E162698A03B6190B00000028 /* NSCalendarDate-NJRExtensions.m */; };
 		E1B11F4D0CF5F30F004975AA /* NSCharacterSet-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B79865038865B30136A8DD /* NSCharacterSet-NJRExtensions.m */; };
 		E1B11F4E0CF5F30F004975AA /* NSDictionary-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EE8DB9038A76AC0134BEAC /* NSDictionary-NJRExtensions.m */; };
-		E1B11F500CF5F30F004975AA /* NSMovie-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E4C0D036B43D2016B311C /* NSMovie-NJRExtensions.m */; };
+		E1B11F500CF5F30F004975AA /* QTMovie-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E4C0D036B43D2016B311C /* QTMovie-NJRExtensions.m */; };
 		E1B11F510CF5F30F004975AA /* NSString-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0B14F03ADBE3800AEFBE0 /* NSString-NJRExtensions.m */; };
 		E1B11F520CF5F30F004975AA /* NSTableView-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E162698303B6189000000028 /* NSTableView-NJRExtensions.m */; };
 		E1B11F530CF5F30F004975AA /* PSAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */; };
@@ -308,8 +308,8 @@
 		F59E4BE6036B2E5E016B311C /* PSScriptAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSScriptAlert.m; sourceTree = "<group>"; };
 		F59E4BE7036B2E5E016B311C /* PSScriptAlert.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSScriptAlert.h; sourceTree = "<group>"; };
 		F59E4BEA036B33EC016B311C /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
-		F59E4C0D036B43D2016B311C /* NSMovie-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSMovie-NJRExtensions.m"; sourceTree = "<group>"; };
-		F59E4C0E036B43D2016B311C /* NSMovie-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSMovie-NJRExtensions.h"; sourceTree = "<group>"; };
+		F59E4C0D036B43D2016B311C /* QTMovie-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "QTMovie-NJRExtensions.m"; sourceTree = "<group>"; };
+		F59E4C0E036B43D2016B311C /* QTMovie-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "QTMovie-NJRExtensions.h"; sourceTree = "<group>"; };
 		F59F6CB40354E7DA01AEEDB1 /* PSAlarm.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSAlarm.h; sourceTree = "<group>"; };
 		F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAlarm.m; sourceTree = "<group>"; };
 		F5B79836035F64F80136A8DD /* NJRTableView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NJRTableView.m; sourceTree = "<group>"; };
@@ -490,8 +490,8 @@
 				E169592A0437A4A400050002 /* NSFont-NJRExtensions.m */,
 				E1B1219C0CF63858004975AA /* NSImage-NJRExtensions.m */,
 				E1B1219D0CF63858004975AA /* NSImage-NJRExtensions.h */,
-				F59E4C0E036B43D2016B311C /* NSMovie-NJRExtensions.h */,
-				F59E4C0D036B43D2016B311C /* NSMovie-NJRExtensions.m */,
+				F59E4C0E036B43D2016B311C /* QTMovie-NJRExtensions.h */,
+				F59E4C0D036B43D2016B311C /* QTMovie-NJRExtensions.m */,
 				E1F0B14E03ADBE3800AEFBE0 /* NSString-NJRExtensions.h */,
 				E1F0B14F03ADBE3800AEFBE0 /* NSString-NJRExtensions.m */,
 				E162698303B6189000000028 /* NSTableView-NJRExtensions.m */,
@@ -868,7 +868,7 @@
 				E1B11F4C0CF5F30F004975AA /* NSCalendarDate-NJRExtensions.m in Sources */,
 				E1B11F4D0CF5F30F004975AA /* NSCharacterSet-NJRExtensions.m in Sources */,
 				E1B11F4E0CF5F30F004975AA /* NSDictionary-NJRExtensions.m in Sources */,
-				E1B11F500CF5F30F004975AA /* NSMovie-NJRExtensions.m in Sources */,
+				E1B11F500CF5F30F004975AA /* QTMovie-NJRExtensions.m in Sources */,
 				E1B11F510CF5F30F004975AA /* NSString-NJRExtensions.m in Sources */,
 				E1B11F520CF5F30F004975AA /* NSTableView-NJRExtensions.m in Sources */,
 				E1B11F530CF5F30F004975AA /* PSAlarm.m in Sources */,
