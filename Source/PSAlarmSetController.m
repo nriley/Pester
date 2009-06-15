@@ -354,14 +354,14 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 - (IBAction)playSoundChanged:(id)sender;
 {
     BOOL playSoundSelected = [playSound intValue];
-    BOOL canRepeat = playSoundSelected; // ? [sound canRepeat] : NO; // XXX temporary for 1.1b6
+    BOOL canRepeat = playSoundSelected ? [sound canRepeat] : NO;
     [sound setEnabled: playSoundSelected];
     [soundRepetitions setEnabled: canRepeat];
     [soundVolumeButton setEnabled: canRepeat && [sound hasAudio]];
     [soundRepetitionStepper setEnabled: canRepeat];
     [soundRepetitionsLabel setTextColor: canRepeat ? [NSColor controlTextColor] : [NSColor disabledControlTextColor]];
     if (playSoundSelected && sender == playSound) {
-        [[self window] makeFirstResponder: soundRepetitions]; // sound]; // XXX temporary for 1.1b6
+        [[self window] makeFirstResponder: sound];
     }
 }
 
