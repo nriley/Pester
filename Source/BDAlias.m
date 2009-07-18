@@ -316,16 +316,10 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
 
 - (BOOL)aliasDataIsEqual:(NSData *)data;
 {
-    AliasHandle otherAlias;
-    const UInt8 *aliasPtr = CFDataGetBytePtr((CFDataRef)data);
     BOOL result;
-    if (aliasPtr == NULL) {
-        otherAlias = (AliasHandle)DataToHandle((CFDataRef)data);
-    } else {
-        otherAlias = (AliasHandle)&aliasPtr;
-    }
+    AliasHandle otherAlias = (AliasHandle)DataToHandle((CFDataRef)data);
     result = [self aliasIsEqual: otherAlias];
-    if (aliasPtr == NULL) DisposeHandle((Handle)otherAlias);
+    DisposeHandle((Handle)otherAlias);
     return result;
 }
 
