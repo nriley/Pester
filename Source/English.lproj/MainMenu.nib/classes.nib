@@ -18,6 +18,14 @@
 			<string>NSPopUpButton</string>
 		</dict>
 		<dict>
+			<key>CLASS</key>
+			<string>NSDisclosureButtonCell</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSButtonCell</string>
+		</dict>
+		<dict>
 			<key>ACTIONS</key>
 			<dict>
 				<key>dateCompleted</key>
@@ -116,14 +124,6 @@
 			</dict>
 			<key>SUPERCLASS</key>
 			<string>NSWindowController</string>
-		</dict>
-		<dict>
-			<key>CLASS</key>
-			<string>NSDisclosureButtonCell</string>
-			<key>LANGUAGE</key>
-			<string>ObjC</string>
-			<key>SUPERCLASS</key>
-			<string>NSButtonCell</string>
 		</dict>
 		<dict>
 			<key>ACTIONS</key>

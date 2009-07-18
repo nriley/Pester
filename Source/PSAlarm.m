@@ -327,17 +327,27 @@ static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
 
 - (NSString *)intervalString;
 {
-    const unsigned long long mval = 99, minute = 60, hour = minute * 60;
+    const unsigned long long mval = 999, minute = 60, hour = minute * 60, day = hour * 24, week = day * 7;
     unsigned long long interval = [self interval];
     if (interval == 0) return nil;
+
     if (interval == 1) return @"One second";
     if (interval == minute) return @"One minute";
-    if (interval % minute == 0) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
-    if (interval <= mval) return [NSString stringWithFormat: @"%u seconds", (unsigned)interval];
     if (interval == hour) return @"One hour";
+    if (interval == day) return @"One day";
+    if (interval == week) return @"One week";
+
+    if (interval % week == 0) return [NSString stringWithFormat: @"%u weeks", (unsigned)(interval / week)];
+    if (interval % day == 0) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
     if (interval % hour == 0) return [NSString stringWithFormat: @"%u hours", (unsigned)(interval / hour)];
+    if (interval % minute == 0) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
+    
+    if (interval <= mval) return [NSString stringWithFormat: @"%u seconds", (unsigned)interval];
     if (interval <= mval * minute) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
     if (interval <= mval * hour) return [NSString stringWithFormat: @"%u hours", (unsigned)(interval / hour)];
+    if (interval <= mval * day) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
+    return [NSString stringWithFormat: @"%u weeks", (unsigned)(interval / week)];
+
     return [self _stringForInterval: interval];
 }
 
