@@ -71,9 +71,12 @@ static NSString * const PLAlertVoice = @"voice"; // NSString
 - (NSDictionary *)propertyListRepresentation;
 {
     NSMutableDictionary *plAlert = [[super propertyListRepresentation] mutableCopy];
-    if (voice == nil)
+    if (voice == nil) {
+	// XXX should pick a different voice, not destroy the alert
+	[plAlert release];
 	@throw [NSException exceptionWithName: NSInvalidArgumentException
 				       reason: @"The selected voice is not available." userInfo: nil];
+    }
     [plAlert setObject: voice forKey: PLAlertVoice];
     return [plAlert autorelease];
 }
