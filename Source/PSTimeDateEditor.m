@@ -13,7 +13,6 @@
 
 + (void)setUpTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions;
 {
-    [[NJRDateFormatter alloc] init]; // XXX testing
     [NSDateFormatter setDefaultFormatterBehavior: NSDateFormatterBehavior10_4];
     static NSDateFormatter *timeFormatter = nil, *dateFormatter = nil;
     if (timeFormatter == nil) {
