@@ -98,10 +98,6 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
         recentItemIndex++;
         item = [self itemAtIndex: recentItemIndex];
         itemAlias = [item representedObject];
-        if ([itemAlias aliasDataIsEqual: aliasData])
-            NSLog(@"item %d %@: %@", recentItemIndex, [item title], [itemAlias fullPath]);
-        else
-            NSLog(@"ITEM %d %@: %@ != aliasData %@", recentItemIndex, [item title], [itemAlias fullPath], [[BDAlias aliasWithData: aliasData] fullPath]);
     }
 }
 
