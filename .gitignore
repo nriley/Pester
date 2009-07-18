@@ -5,6 +5,7 @@ _build
 *.perspectivev3
 *.mode?v3
 *~
+*~.nib
 #*
 authors-file
 .OABK
