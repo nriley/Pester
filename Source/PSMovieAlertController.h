@@ -21,7 +21,8 @@
     unsigned short repetitionsRemaining;
 }
 
-+ (PSMovieAlertController *)controllerWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
+// note: retains itself until the alert completes
++ (PSMovieAlertController *)newControllerWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
 
 - (id)initWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
 

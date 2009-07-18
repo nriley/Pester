@@ -15,8 +15,9 @@
 
 @implementation PSMovieAlertController
 
-+ (PSMovieAlertController *)controllerWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
++ (PSMovieAlertController *)newControllerWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
 {
+    // retained until the alert completes
     return [[self alloc] initWithAlarm: anAlarm movieAlert: anAlert];
 }
 

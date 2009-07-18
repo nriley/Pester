@@ -97,7 +97,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
-    [PSMovieAlertController controllerWithAlarm: alarm movieAlert: self];
+    [PSMovieAlertController newControllerWithAlarm: alarm movieAlert: self];
 }
 
 - (NSAttributedString *)actionDescription;
