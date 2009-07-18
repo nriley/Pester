@@ -34,7 +34,7 @@
     image = [[NSImage alloc] initWithContentsOfFile:path];
     [image setName:imageName];
 
-    return image;
+    return [image autorelease];
 }
 
 + (NSImage *)imageForFileType:(NSString *)fileType;
