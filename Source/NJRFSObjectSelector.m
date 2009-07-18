@@ -1,6 +1,5 @@
 #import "NJRFSObjectSelector.h"
 #import "NSMenuItem-NJRExtensions.h"
-#import "NSImage-NJRExtensions.h"
 #import "NSString-NJRExtensions.h"
 #include <Carbon/Carbon.h>
 
@@ -82,12 +81,6 @@ static NSSize PopupTriangleSize;
     return NO;
 }
 
-- (void)setImage:(NSImage *)image;
-{
-    // XXX change to use IconRef; see ICeCoffEELabeledIconCell and Google
-    [super setImage: [image bestFitImageForSize: [[self cell] cellSize]]];
-}
-
 - (IBAction)select:(id)sender;
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
@@ -138,7 +131,7 @@ static NSSize PopupTriangleSize;
         NSFileManager *fmgr = [NSFileManager defaultManager];
         NSMenuItem *item;
         if (path != nil) { // can resolve alias
-            [self setImage: [[NSWorkspace sharedWorkspace] iconForFile: path]];
+	    [self setImage: [[NSWorkspace sharedWorkspace] iconForFile: path]];
             {	// set image first so titleRectForBounds: returns the correct value
                 NSMutableString *title = [[fmgr displayNameAtPath: path] mutableCopy];
                 NSDictionary *fontAttributes = [[self attributedTitle] fontAttributesInRange: NSMakeRange(0, 0)];
