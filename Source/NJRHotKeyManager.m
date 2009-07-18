@@ -196,11 +196,10 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
 
     if (shortcutsEnabled && !(shortcut->isRegistered)) {
         EventHotKeyID keyID;
-        OSStatus err;
 
         keyID.signature = kHotKeyManagerSignature;
         keyID.id = (unsigned long)shortcut;
-        if ( (err = RegisterEventHotKey([hotKey keyCode], [hotKey modifiers], keyID, GetEventDispatcherTarget(), 0, &shortcut->hotKeyRef)) != noErr)
+        if (RegisterEventHotKey([hotKey keyCode], [hotKey modifiers], keyID, GetEventDispatcherTarget(), 0, &shortcut->hotKeyRef) != noErr)
             return NO;
 
         shortcut->isRegistered = YES;
