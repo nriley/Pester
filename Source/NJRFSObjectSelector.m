@@ -156,6 +156,7 @@ static NSSize PopupTriangleSize;
             [self setTitle: @"(not available)"];
             [[self cell] setMenu: nil];
         }
+	[menu release];
     } else {
         [self setImage: nil];
         [self setTitle: @"(none selected)"];
