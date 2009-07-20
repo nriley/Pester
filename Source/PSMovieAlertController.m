@@ -33,11 +33,7 @@
     if (newRate != 0)
 	return;
     
-    if (repetitions == 0 || repetitionsRemaining == 0) {
-	[[NSNotificationCenter defaultCenter] removeObserver: self
-							name: QTMovieRateDidChangeNotification
-						      object: [movieView movie]];
-    
+    if (repetitions == 0 || repetitionsRemaining == 0) {    
 	[self close];
 	return;
     }
@@ -120,6 +116,9 @@
 - (void)windowWillClose:(NSNotification *)notification;
 {
     repetitions = 0;
+    [[NSNotificationCenter defaultCenter] removeObserver: self
+						    name: QTMovieRateDidChangeNotification
+						  object: [movieView movie]];
     [movieView pause: self];
     [alert completedForAlarm: alarm];
     [self autorelease];
