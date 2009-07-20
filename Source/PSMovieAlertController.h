@@ -16,7 +16,6 @@
     PSAlarm *alarm;
     PSMovieAlert *alert;
     IBOutlet QTMovieView *movieView;
-    void *theMovie; /* Movie */
     unsigned short repetitions;
     unsigned short repetitionsRemaining;
 }

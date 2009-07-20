@@ -104,7 +104,6 @@
 		E1B11F7D0CF5F30F004975AA /* NJRNonCenteringWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CDEC3E0444053F00AEEDB1 /* NJRNonCenteringWindow.m */; };
 		E1B11F7F0CF5F30F004975AA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		E1B11F800CF5F30F004975AA /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F240D0036A87E301FE7503 /* Carbon.framework */; };
-		E1B11F820CF5F30F004975AA /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59E4BEA036B33EC016B311C /* QuickTime.framework */; };
 		E1B11F830CF5F30F004975AA /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14DB31203B8038300000028 /* IOKit.framework */; };
 		E1B11F840CF5F30F004975AA /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18DAAEE0442D02500050002 /* CoreAudio.framework */; };
 		E1B121970CF62FD1004975AA /* NSMenuItem-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B121960CF62FD1004975AA /* NSMenuItem-NJRExtensions.m */; };
@@ -301,7 +300,6 @@
 		F59E4BDF036B1D94016B311C /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = "English.lproj/Movie alert.nib"; sourceTree = "<group>"; };
 		F59E4BE6036B2E5E016B311C /* PSScriptAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSScriptAlert.m; sourceTree = "<group>"; };
 		F59E4BE7036B2E5E016B311C /* PSScriptAlert.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSScriptAlert.h; sourceTree = "<group>"; };
-		F59E4BEA036B33EC016B311C /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		F59E4C0D036B43D2016B311C /* QTMovie-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "QTMovie-NJRExtensions.m"; sourceTree = "<group>"; };
 		F59E4C0E036B43D2016B311C /* QTMovie-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "QTMovie-NJRExtensions.h"; sourceTree = "<group>"; };
 		F59F6CB40354E7DA01AEEDB1 /* PSAlarm.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSAlarm.h; sourceTree = "<group>"; };
@@ -352,7 +350,6 @@
 			files = (
 				E1B11F7F0CF5F30F004975AA /* Cocoa.framework in Frameworks */,
 				E1B11F800CF5F30F004975AA /* Carbon.framework in Frameworks */,
-				E1B11F820CF5F30F004975AA /* QuickTime.framework in Frameworks */,
 				E1B11F830CF5F30F004975AA /* IOKit.framework in Frameworks */,
 				E1B11F840CF5F30F004975AA /* CoreAudio.framework in Frameworks */,
 				E1B121B40CF639A1004975AA /* QTKit.framework in Frameworks */,
@@ -386,7 +383,6 @@
 				F5F240D0036A87E301FE7503 /* Carbon.framework */,
 				E18DAAEE0442D02500050002 /* CoreAudio.framework */,
 				E1B121B30CF639A1004975AA /* QTKit.framework */,
-				F59E4BEA036B33EC016B311C /* QuickTime.framework */,
 				E14DB31203B8038300000028 /* IOKit.framework */,
 			);
 			name = "Linked Frameworks";

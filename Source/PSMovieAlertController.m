@@ -11,7 +11,6 @@
 #import "PSMovieAlert.h"
 #import "QTMovie-NJRExtensions.h"
 #import "NJRSoundManager.h"
-#import <QuickTime/Movies.h>
 
 @implementation PSMovieAlertController
 
@@ -27,22 +26,35 @@
     [NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: [alert outputVolume]];
 }
 
+- (void)_movieRateDidChange:(NSNotification *)notification;
+{
+    float newRate = [[[notification userInfo] objectForKey: QTMovieRateDidChangeNotificationParameter]
+		     floatValue];
+    if (newRate != 0)
+	return;
+    
+    if (repetitions == 0 || repetitionsRemaining == 0) {
+	[[NSNotificationCenter defaultCenter] removeObserver: self
+							name: QTMovieRateDidChangeNotification
+						      object: [movieView movie]];
+    
+	[self close];
+	return;
+    }
+    repetitionsRemaining--;
+    [movieView gotoBeginning: self];
+    [movieView play: self];
+}
+
 - (void)play;
 {
-    NSTimeInterval delay;
-    if (repetitions == 0) return;
-    if (IsMovieDone((Movie)theMovie) || repetitionsRemaining == repetitions) {
-        if (repetitionsRemaining == 0) {
-            [self close];
-            return;
-        }
-        repetitionsRemaining--;
-        [movieView gotoBeginning: self];
-        [movieView play: self];
-    }
-    delay = (GetMovieDuration((Movie)theMovie) - GetMovieTime((Movie)theMovie, NULL)) / (double)GetMovieTimeScale((Movie)theMovie);
-    // XXX should use a timebase callback for this instead (see NJRQTMediaPopUpButton); also, use QuickTime’s built-in loop functionality instead of rolling our own?
-    [self performSelector: @selector(play) withObject: nil afterDelay: delay inModes: [NSArray arrayWithObject: NSDefaultRunLoopMode]];
+    repetitionsRemaining = repetitions - 1;
+
+    [[NSNotificationCenter defaultCenter] addObserver: self
+					     selector: @selector(_movieRateDidChange:)
+						 name: QTMovieRateDidChangeNotification
+					       object: [movieView movie]];
+    [movieView play: self];
 }
 
 - (id)initWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
@@ -52,7 +64,6 @@
         NSWindow *window = [self window]; // connect outlets
         alarm = anAlarm;
         alert = anAlert;
-        theMovie = [movie quickTimeMovie];
         [movieView setMovie: movie];
         if ([alert hasVideo]) {
             NSRect screenRect = [[window screen] visibleFrame];
@@ -88,7 +99,6 @@
         }
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(close) name: PSAlarmAlertStopNotification object: nil];
         repetitions = [alert repetitions];
-        repetitionsRemaining = repetitions;
         if ([movie NJR_hasAudio] && [NJRSoundManager volumeIsNotMutedOrInvalid: [alert outputVolume]] && [NJRSoundManager saveDefaultOutputVolume]) {
             [NJRSoundManager setDefaultOutputVolume: [alert outputVolume]];
         }
