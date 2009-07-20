@@ -113,17 +113,17 @@ Pester is also fully Y3K-compliant. It can be comforting to know that even if yo
 Frequently asked questions
 --------------------------
 
-Q. Why isn’t Pester a full-featured calendar/scheduling program? What use is it otherwise?
+Q: Why isn’t Pester a full-featured calendar/scheduling program? What use is it otherwise?
 
-A. I wrote and use Pester on my Mac for the same reason I use programs such as BigClock and TikTok on my Palm, the built-in clock on my Newton and the alarm on my cellular phone. Sometimes all you want is an alarm to go off in 5 minutes, not an “appointment” or “meeting” entry that survives in perpetuity and is synchronized with your phone, PDA and iPod. On the other hand, if you’re happy with what you’re using, stick with it.
+A: I wrote and use Pester on my Mac for the same reason I use programs such as BigClock and TikTok on my Palm, the built-in clock on my Newton and the alarm on my cellular phone. Sometimes all you want is an alarm to go off in 5 minutes, not an “appointment” or “meeting” entry that survives in perpetuity and is synchronized with your phone, PDA and iPod. On the other hand, if you’re happy with what you’re using, stick with it.
 
 Q. OK, but why doesn’t Pester have feature X?
 
 A. I didn’t need it. I have looked at (and even registered) some similar programs such as Alarm Clock Pro, Alarm Clock S.E., CountDown, Tea Timer and the like. None of them did what I wanted. Please check out those other programs first; if Pester comes closest to your ideal but is missing a key feature, let me know and I’ll consider adding it.
 
-Q. Under what conditions is the source code licensed?
+Q: Under what conditions is the source code licensed?
 
-A. Please see my Web page for details. Essentially: don’t pass it off as your own, and give me credit if you use all or part of it in your own software.
+A: Please see my Web page for details. Essentially: don’t pass it off as your own, and give me credit if you use all or part of it in your own software.
 
 --------------------------
 Version history
