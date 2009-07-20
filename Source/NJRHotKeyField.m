@@ -110,6 +110,12 @@ static NSDictionary *statusAttributes = nil;
     }
 }
 
+- (void)textDidEndEditing:(NSNotification *)notification;
+{
+    [self showKeyEquivalentAttributedStringFinalized: YES];
+    [super textDidEndEditing: notification];
+}
+
 #pragma mark event handling
 
 - (void)keyUp:(NSEvent *)theEvent;
@@ -124,7 +130,10 @@ static NSDictionary *statusAttributes = nil;
         unsigned modifierFlags = ([theEvent modifierFlags] & capturedModifierMask);
         id delegate = [self delegate];
         NSString *message = nil;
-        if (delegate != nil && ![delegate hotKeyField: self shouldAcceptCharacter: [characters characterAtIndex: 0] modifierFlags: modifierFlags rejectionMessage: &message]) {
+	unichar character = [characters characterAtIndex: 0];
+	if (character == NSTabCharacter || character == NSBackTabCharacter)
+	    return;
+        if (delegate != nil && ![delegate hotKeyField: self shouldAcceptCharacter: character modifierFlags: modifierFlags rejectionMessage: &message]) {
             [self showStatus: message != nil ? message : @"key is unavailable for use"];
         } else {
             [self setHotKey: [NJRHotKey hotKeyWithCharacters: characters modifierFlags: modifierFlags keyCode: [theEvent keyCode]]];
@@ -136,7 +145,8 @@ static NSDictionary *statusAttributes = nil;
 
 - (BOOL)performKeyEquivalent:(NSEvent *)theEvent;
 {
-    [self keyUp: theEvent];
+    if ([[self window] firstResponder] == self)
+	[self keyUp: theEvent];
     return [super performKeyEquivalent: theEvent];
 }
 
