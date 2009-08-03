@@ -138,6 +138,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 	NSDirectoryEnumerator *de = [fm enumeratorAtPath: folderPath];
 	NSString *path;
+	NSString *displayName;
 	while ( (path = [de nextObject]) != nil) {
 	    BOOL isDir;
 	    if (![fm fileExistsAtPath: path isDirectory: &isDir] || isDir) {
@@ -147,7 +148,11 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 	    if (![QTMovie canInitWithFile: path]) continue;
 	    
-	    item = [menu addItemWithTitle: [fm displayNameAtPath: path]
+	    displayName = [fm displayNameAtPath: path];
+	    if ([[NSNumber numberWithBool: NO] isEqualTo: [[de fileAttributes] objectForKey: NSFileExtensionHidden]])
+		displayName = [displayName stringByDeletingPathExtension];
+
+	    item = [menu addItemWithTitle: displayName
 				   action: @selector(_systemSoundSelected:)
 			    keyEquivalent: @""];
             [item setTarget: self];
