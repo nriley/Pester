@@ -10,25 +10,31 @@
 #import "ParseDate.h"
 #include <dlfcn.h>
 
-// workaround for bug in Jaguar (and earlier?) NSCalendarDate dateWithNaturalLanguageString:
-NSString *stringByRemovingSurroundingWhitespace(NSString *string) {
-    static NSCharacterSet *nonWhitespace = nil;
-    NSRange firstValidCharacter, lastValidCharacter;
-    
-    if (!nonWhitespace) {
-        nonWhitespace = [[[NSCharacterSet characterSetWithCharactersInString:
-			   @" \t\r\n"] invertedSet] retain];
-    }
-    
-    firstValidCharacter = [string rangeOfCharacterFromSet:nonWhitespace];
-    if (firstValidCharacter.length == 0)
-        return @"";
-    lastValidCharacter = [string rangeOfCharacterFromSet:nonWhitespace options: NSBackwardsSearch];
-    
-    if (firstValidCharacter.location == 0 && lastValidCharacter.location == [string length] - 1)
-        return string;
-    else
-        return [string substringWithRange: NSUnionRange(firstValidCharacter, lastValidCharacter)];
+static NSDateFormatter *protoFormatter() {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLenient: YES];
+    return formatter;
+}
+
+static NSDateFormatter *dateFormatterWithStyle(NSDateFormatterStyle style) {
+    NSDateFormatter *formatter = protoFormatter();
+    [formatter setTimeStyle: NSDateFormatterNoStyle];
+    [formatter setDateStyle: style];
+    return formatter;
+}
+
+static NSDateFormatter *timeFormatterWithStyle(NSDateFormatterStyle style) {
+    NSDateFormatter *formatter = protoFormatter();
+    [formatter setTimeStyle: style];
+    [formatter setDateStyle: NSDateFormatterNoStyle];
+    return formatter;
+}
+
+static NSDateFormatter *timeFormatterWithFormat(NSString *format) {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat: format];
+    [formatter setLenient: NO];
+    return formatter;
 }
 
 static const NSDateFormatterStyle formatterStyles[] = {
@@ -37,6 +43,16 @@ static const NSDateFormatterStyle formatterStyles[] = {
     NSDateFormatterLongStyle,
     NSDateFormatterFullStyle,
     NSDateFormatterNoStyle
+};
+
+// note: these formats must be 0-padded where appropriate and contain no spaces
+// or attempts to force them into strict interpretation will fail
+static const NSString *timeFormats[] = {
+    @"hha",
+    @"HHmmss",
+    @"HHmm",
+    @"HH",
+    nil
 };
 
 @implementation NJRDateFormatter
@@ -84,11 +100,8 @@ static const NSDateFormatterStyle formatterStyles[] = {
     NJRDateFormatter *formatter = [[self alloc] init];
     NSMutableArray *tryFormatters = [[NSMutableArray alloc] init];
     
-    for (const NSDateFormatterStyle *s = formatterStyles ; *s < NSDateFormatterNoStyle ; *s++) {
-	NSDateFormatter *tryFormatter = [[NSDateFormatter alloc] init];
-	[tryFormatter setLenient: YES];
-	[tryFormatter setTimeStyle: NSDateFormatterNoStyle];
-	[tryFormatter setDateStyle: *s];
+    for (const NSDateFormatterStyle *s = formatterStyles ; *s != NSDateFormatterNoStyle ; *s++) {
+	NSDateFormatter *tryFormatter = dateFormatterWithStyle(*s);
 	[tryFormatters addObject: tryFormatter];
 	[tryFormatter release];
     }
@@ -102,12 +115,15 @@ static const NSDateFormatterStyle formatterStyles[] = {
 {
     NJRDateFormatter *formatter = [[self alloc] init];
     NSMutableArray *tryFormatters = [[NSMutableArray alloc] init];
+    NSDateFormatter *tryFormatter;
     
-    for (const NSDateFormatterStyle *s = formatterStyles ; *s < NSDateFormatterNoStyle ; *s++) {
-	NSDateFormatter *tryFormatter = [[NSDateFormatter alloc] init];
-	[tryFormatter setLenient: YES];
-	[tryFormatter setTimeStyle: *s];
-	[tryFormatter setDateStyle: NSDateFormatterNoStyle];
+    for (const NSDateFormatterStyle *s = formatterStyles ; *s != NSDateFormatterNoStyle ; *s++) {
+	tryFormatter = timeFormatterWithStyle(*s);
+	[tryFormatters addObject: tryFormatter];
+	[tryFormatter release];
+    }
+    for (NSString **s = timeFormats ; *s != nil ; *s++) {
+	tryFormatter = timeFormatterWithFormat(*s);
 	[tryFormatters addObject: tryFormatter];
 	[tryFormatter release];
     }
@@ -143,14 +159,56 @@ static const NSDateFormatterStyle formatterStyles[] = {
     NSDate *date;
     NSEnumerator *e = [tryFormatters objectEnumerator];
     NSDateFormatter *tryFormatter;
-    
-    // XXX untested; does this work?
-    while ( (tryFormatter = [e nextObject]) != nil) {
-	date = [tryFormatter dateFromString: string];
-	if (date != nil) goto success;
+    NSString *cleaned = nil;
+
+    // don't let time specifications ending in "a" or "p" trigger Date::Manip
+    if ([self timeStyle] != NSDateFormatterNoStyle &&
+	[string length] > 1 &&
+	![[NSCharacterSet letterCharacterSet]
+	   characterIsMember: [string characterAtIndex: [string length] - 2]]) {
+
+	NSString *am = [self AMSymbol], *pm = [self PMSymbol];
+	if (am != nil && [am length] > 1 && pm != nil && [pm length] > 1) {
+
+	    NSString *a = [am substringToIndex: 1], *p = [pm substringToIndex: 1];
+	    if (![a isCaseInsensitiveLike: p]) {
+
+		NSString *last = [string substringFromIndex: [string length] - 1];
+		if ([last isCaseInsensitiveLike: a])
+		    string = [string stringByAppendingString: [am substringFromIndex: 1]];
+		if ([last isCaseInsensitiveLike: p])
+		    string = [string stringByAppendingString: [pm substringFromIndex: 1]];
+	    }
+	}
     }
     
-    if (parse_natural_language_date == NULL) return nil;
+    while ( (tryFormatter = [e nextObject]) != nil) {
+	date = [tryFormatter dateFromString: string];
+
+	if (date == nil)
+	    continue;
+
+	if (([tryFormatter dateStyle] != NSDateFormatterNoStyle) ||
+	    ([tryFormatter timeStyle] != NSDateFormatterNoStyle))
+	    goto success;
+
+	// XXX ICU-based "format" formatters return 0 instead of nil
+	if ([date timeIntervalSince1970] == 0)
+	    continue;
+
+	// even non-lenient ICU-based "format" formatters are insufficiently strict,
+	// permitting arbitrary characters before and after the parsed string
+	NSString *formatted = [tryFormatter stringFromDate: date];
+	if (cleaned == nil)
+	    cleaned = [[string componentsSeparatedByString: @" "] componentsJoinedByString: @""];
+	if ([cleaned characterAtIndex: 0] != '0' && [formatted characterAtIndex: 0] == '0')
+	    formatted = [formatted substringFromIndex: 1];
+
+	if ([formatted isCaseInsensitiveLike: cleaned])
+	    goto success;
+    }
+    
+    if (parse_natural_language_date == NULL) return NO;
 
     date = parse_natural_language_date(string);
     if (date != nil) goto success;
