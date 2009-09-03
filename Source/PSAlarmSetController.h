@@ -26,7 +26,7 @@
     IBOutlet NSTextField *timeDate;
     IBOutlet NSPopUpButton *timeDateCompletions; // XXX should go away when bug preventing both formatters and popup menus from existing is fixed
     IBOutlet NSButton *timeCalendarButton;
-    IBOutlet NSButtonCell *editAlert;
+    IBOutlet NSButton *editAlert;
     IBOutlet NSTextField *alertView;
     IBOutlet NSTabView *alertTabs;
     IBOutlet NSButtonCell *displayMessage;

@@ -84,7 +84,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         [NJRSoundManager getDefaultOutputVolume: &volume];
         [self _setVolume: volume withPreview: NO];
     }
-    [editAlert setIntValue: 1]; // XXX temporary for 1.1b5
+    [editAlert setState: NSOnState]; // XXX temporary for 1.1b5
     {
         NSDictionary *plAlerts = [defaults dictionaryForKey: PSAlertsSelected];
         PSAlerts *alerts = nil;
@@ -300,13 +300,12 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
 - (IBAction)editAlertChanged:(id)sender;
 {
-    BOOL editAlertSelected = [editAlert intValue];
-    NSView *editAlertControl = [editAlert controlView];
+    BOOL editAlertSelected = [editAlert state] == NSOnState;
     NSWindow *window = [self window];
     NSRect frame = [window frame];
     if (editAlertSelected) {
         NSSize editWinSize = [window maxSize];
-        [editAlertControl setNextKeyView: [displayMessage controlView]];
+        [editAlert setNextKeyView: [displayMessage controlView]];
         frame.origin.y += frame.size.height - editWinSize.height;
         frame.size = editWinSize;
         [window setFrame: frame display: (sender != nil) animate: (sender != nil)];
@@ -330,8 +329,8 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         if (sender != nil) { // nil == we're initializing, don't mess with focus
             NSResponder *oldResponder = [window firstResponder];
             // make sure focus doesn't get stuck in the edit tab: it is confusing and leaves behind artifacts
-            if (oldResponder == editAlertControl || [oldResponder isKindOfClass: [NSView class]] && [(NSView *)oldResponder isDescendantOf: alertTabs])
-                [window makeFirstResponder: messageField]; // would use editAlertControl, but can't get it to display anomaly-free.
+            if (oldResponder == editAlert || [oldResponder isKindOfClass: [NSView class]] && [(NSView *)oldResponder isDescendantOf: alertTabs])
+                [window makeFirstResponder: messageField]; // would use editAlert, but can't get it to display anomaly-free.
             [self silence: sender];
         }
         // allow height to expand, though not arbitrarily (should still fit on an 800x600 screen)
@@ -344,7 +343,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         frame.origin.y += frame.size.height - viewWinSize.height;
         frame.size = viewWinSize;
         [window setFrame: frame display: (sender != nil) animate: (sender != nil)];
-        [editAlertControl setNextKeyView: cancelButton];
+        [editAlert setNextKeyView: cancelButton];
     }
     if (sender != nil) {
         [[NSUserDefaults standardUserDefaults] setBool: editAlertSelected forKey: PSAlertsEditing];

@@ -212,7 +212,6 @@
 		E18DAAEA0442CC3E00050002 /* NJRSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRSoundManager.h; sourceTree = "<group>"; };
 		E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRSoundManager.m; sourceTree = "<group>"; };
 		E18DAAEE0442D02500050002 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
-		E191700B03AD24A600AEFBE0 /* NSDisclosureButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDisclosureButtonCell.h; sourceTree = "<group>"; };
 		E19CC5220CFDE3350079DCFC /* libParseDate-10.4.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.4.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19CC5260CFDE3C70079DCFC /* DynaLoader-10.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "DynaLoader-10.5.a"; sourceTree = "<group>"; };
 		E19CC5270CFDE3C70079DCFC /* DynaLoader-10.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "DynaLoader-10.4.a"; sourceTree = "<group>"; };
@@ -459,7 +458,6 @@
 			children = (
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
-				E162698803B618BD00000028 /* Private Headers */,
 				E17CA7B60CF7D07400018B34 /* Perl */,
 			);
 			name = Frameworks;
@@ -489,14 +487,6 @@
 				E11DC3FF0D0A9A6D00CE8CCD /* NSWindowCollectionBehavior.h */,
 			);
 			name = Categories;
-			sourceTree = "<group>";
-		};
-		E162698803B618BD00000028 /* Private Headers */ = {
-			isa = PBXGroup;
-			children = (
-				E191700B03AD24A600AEFBE0 /* NSDisclosureButtonCell.h */,
-			);
-			name = "Private Headers";
 			sourceTree = "<group>";
 		};
 		E17562BC0CF8E7A800FC5057 /* Sparkle */ = {

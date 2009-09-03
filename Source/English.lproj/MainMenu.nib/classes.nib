@@ -18,14 +18,6 @@
 			<string>NSPopUpButton</string>
 		</dict>
 		<dict>
-			<key>CLASS</key>
-			<string>NSDisclosureButtonCell</string>
-			<key>LANGUAGE</key>
-			<string>ObjC</string>
-			<key>SUPERCLASS</key>
-			<string>NSButtonCell</string>
-		</dict>
-		<dict>
 			<key>ACTIONS</key>
 			<dict>
 				<key>dateCompleted</key>
@@ -76,7 +68,7 @@
 				<key>doSpeak</key>
 				<string>NSButtonCell</string>
 				<key>editAlert</key>
-				<string>NSButtonCell</string>
+				<string>NSButton</string>
 				<key>inAtMatrix</key>
 				<string>NSMatrix</string>
 				<key>messageField</key>
@@ -154,14 +146,6 @@
 			<string>NSComboBox</string>
 		</dict>
 		<dict>
-			<key>CLASS</key>
-			<string>NSMenuItem</string>
-			<key>LANGUAGE</key>
-			<string>ObjC</string>
-			<key>SUPERCLASS</key>
-			<string>NSObject</string>
-		</dict>
-		<dict>
 			<key>ACTIONS</key>
 			<dict>
 				<key>stopSoundPreview</key>
@@ -178,6 +162,14 @@
 			</dict>
 			<key>SUPERCLASS</key>
 			<string>NSPopUpButton</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>NSMenuItem</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
 		</dict>
 		<dict>
 			<key>CLASS</key>
