@@ -587,6 +587,26 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
 // called because we're the delegate
 
+- (void)controlTextDidEndEditing:(NSNotification *)notification;
+{
+    if ([notification object] != timeOfDay)
+	return;
+
+    // if date is today and we've picked a time before now, set the date for tomorrow
+    NSDate *dateTime = [NSCalendarDate dateWithDate: [timeDate objectValue] atTime: [timeOfDay objectValue]];
+    if (dateTime == nil)
+	return;
+
+    NSDate *now = [NSDate date];
+    NSCalendarDate *today = [NSCalendarDate dateForDay: now];
+    NSCalendarDate *date = [NSCalendarDate dateForDay: [timeDate objectValue]];
+    if (![date isEqualToDate: today] || [dateTime compare: now] != NSOrderedAscending)
+	return;
+
+    [timeDate setObjectValue: [today dateByAddingYears: 0 months: 0 days: 1 hours: 0 minutes: 0 seconds: 0]];
+    [self update: timeOfDay];
+}
+
 - (void)controlTextDidChange:(NSNotification *)notification;
 {
     // NSLog(@"UPDATING FROM controlTextDidChange: %@", [notification object]);
