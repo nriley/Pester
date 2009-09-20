@@ -13,6 +13,7 @@
     id delegate;
     IBOutlet NSView *contentView;
     IBOutlet NSSlider *volumeSlider;
+    NSMenu *menu;
 }
 
 + (PSVolumeController *)controllerWithVolume:(float)volume delegate:(id)aDelegate;
