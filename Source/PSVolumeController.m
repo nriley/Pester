@@ -21,7 +21,7 @@
 {
     if ( (self = [self initWithWindowNibName: @"Volume"]) != nil) {
         [self window]; // connect outlets
-        NSWindow *window = [[NJRNonCenteringWindow alloc] initWithContentRect: [contentView bounds] styleMask: NSBorderlessWindowMask | NSTexturedBackgroundWindowMask backing: NSBackingStoreBuffered defer: NO];
+        NSWindow *window = [[NJRNonCenteringWindow alloc] initWithContentRect: [contentView bounds] styleMask: NSBorderlessWindowMask backing: NSBackingStoreBuffered defer: NO];
 
         if ([NJRSoundManager volumeIsNotMutedOrInvalid: volume])
             [volumeSlider setFloatValue: volume];
@@ -29,6 +29,8 @@
         delegate = [aDelegate retain];
 
         [window setContentView: contentView];
+	[window setInitialFirstResponder: volumeSlider];
+	[window makeFirstResponder: volumeSlider];
         [window setOpaque: NO];
         [window setBackgroundColor: [NSColor colorWithCalibratedWhite: 0.81f alpha: 0.9f]];
         [window setHasShadow: YES];
@@ -50,8 +52,25 @@
 
         // -[NSApplication beginModalSessionForWindow:] shows and centers the window; we use NJRNonCenteringWindow to prevent the repositioning from succeeding
         NSModalSession session = [NSApp beginModalSessionForWindow: window];
-        [volumeSlider mouseDown: [NSApp currentEvent]];
-        [NSApp runModalSession: session];
+	// In 10.6, we can no longer force the modal session to work by "seeding" the slider with a mouse-down event.
+	// Instead, we stop the modal session on a volume change.
+	while ([NSApp runModalSession: session] == NSRunContinuesResponse) {
+	    // Any mouse click events that do not change the slider value should abort.
+	    NSEvent *event = [NSApp currentEvent];
+	    unsigned int eventTypeMask = NSEventMaskFromType([event type]);
+	    if (eventTypeMask & (NSLeftMouseDownMask | NSRightMouseDownMask | NSOtherMouseDownMask)) {
+		[NSApp preventWindowOrdering];
+		[NSApp discardEventsMatchingMask: NSAnyEventMask beforeEvent: event];
+		break;
+	    }
+	    if (eventTypeMask & (NSKeyDownMask | NSKeyUpMask)) {
+		unsigned short keyCode = [event keyCode];
+		if (keyCode == 53 || keyCode == 36 || keyCode == 76) { // escape, return, enter
+		    [NSApp discardEventsMatchingMask: NSAnyEventMask beforeEvent: event];
+		    break;
+		}
+	    }
+	}
         [NSApp endModalSession: session];
         [window close];
         [self autorelease];
@@ -69,6 +88,7 @@
 - (IBAction)volumeSet:(NSSlider *)sender;
 {
     [delegate volumeController: self didSetVolume: [sender floatValue]];
+    [NSApp stopModal];
 }
 
 @end
