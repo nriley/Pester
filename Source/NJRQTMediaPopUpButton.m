@@ -29,7 +29,6 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 @implementation NJRQTMediaPopUpButton
 
 // XXX handle refreshing sound list on resume
-// XXX don't add icons on Puma, they look like ass
 // XXX launch preview on a separate thread (if movies take too long to load, they inhibit the interface responsiveness)
 
 // Recent media layout:
