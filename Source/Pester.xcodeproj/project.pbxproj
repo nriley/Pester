@@ -11,6 +11,9 @@
 		E17562620CF8C50B00FC5057 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17562720CF8C53F00FC5057 /* Sparkle.framework in Copy Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
+		E1985796104F68EC0082AC3E /* ParseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CC53E0CFDE48C0079DCFC /* ParseDate.m */; };
+		E1985798104F68EC0082AC3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
+		E19857B6104F697D0082AC3E /* libParseDate-10.6.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E198579D104F68EC0082AC3E /* libParseDate-10.6.dylib */; };
 		E19CC5310CFDE3DE0079DCFC /* DynaLoader-10.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E19CC5270CFDE3C70079DCFC /* DynaLoader-10.4.a */; };
 		E19CC53F0CFDE48C0079DCFC /* ParseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CC53E0CFDE48C0079DCFC /* ParseDate.m */; };
 		E19CC57D0CFDEB440079DCFC /* ParseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CC53E0CFDE48C0079DCFC /* ParseDate.m */; };
@@ -111,6 +114,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E19857A0104F69150082AC3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1985794104F68EC0082AC3E /* ParseDate-10.6 */;
+			remoteInfo = "ParseDate-10.6";
+		};
 		E19CC5790CFDEB3C0079DCFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -212,6 +222,7 @@
 		E18DAAEA0442CC3E00050002 /* NJRSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRSoundManager.h; sourceTree = "<group>"; };
 		E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRSoundManager.m; sourceTree = "<group>"; };
 		E18DAAEE0442D02500050002 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
+		E198579D104F68EC0082AC3E /* libParseDate-10.6.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.6.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19CC5220CFDE3350079DCFC /* libParseDate-10.4.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.4.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19CC5260CFDE3C70079DCFC /* DynaLoader-10.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "DynaLoader-10.5.a"; sourceTree = "<group>"; };
 		E19CC5270CFDE3C70079DCFC /* DynaLoader-10.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "DynaLoader-10.4.a"; sourceTree = "<group>"; };
@@ -325,6 +336,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E1985797104F68EC0082AC3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1985798104F68EC0082AC3E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E19CC5200CFDE3350079DCFC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -402,6 +421,7 @@
 				E1B11F8C0CF5F30F004975AA /* Pester.app */,
 				E19CC5220CFDE3350079DCFC /* libParseDate-10.4.dylib */,
 				E19CC5830CFDEB440079DCFC /* libParseDate-10.5.dylib */,
+				E198579D104F68EC0082AC3E /* libParseDate-10.6.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -699,6 +719,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E1985794104F68EC0082AC3E /* ParseDate-10.6 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E198579A104F68EC0082AC3E /* Build configuration list for PBXNativeTarget "ParseDate-10.6" */;
+			buildPhases = (
+				E1985795104F68EC0082AC3E /* Sources */,
+				E1985797104F68EC0082AC3E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ParseDate-10.6";
+			productName = "xsinit-10.4";
+			productReference = E198579D104F68EC0082AC3E /* libParseDate-10.6.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 		E19CC5210CFDE3350079DCFC /* ParseDate-10.4 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E19CC5250CFDE34A0079DCFC /* Build configuration list for PBXNativeTarget "ParseDate-10.4" */;
@@ -746,6 +782,7 @@
 			dependencies = (
 				E19CC57A0CFDEB3C0079DCFC /* PBXTargetDependency */,
 				E19CC5880CFDEB5E0079DCFC /* PBXTargetDependency */,
+				E19857A1104F69150082AC3E /* PBXTargetDependency */,
 			);
 			name = Pester;
 			productInstallPath = /;
@@ -768,6 +805,7 @@
 				E1B11EE30CF5F30F004975AA /* Pester */,
 				E19CC5210CFDE3350079DCFC /* ParseDate-10.4 */,
 				E19CC57B0CFDEB440079DCFC /* ParseDate-10.5 */,
+				E1985794104F68EC0082AC3E /* ParseDate-10.6 */,
 			);
 		};
 /* End PBXProject section */
@@ -779,6 +817,7 @@
 			files = (
 				E19CC5F50CFDEFDB0079DCFC /* libParseDate-10.4.dylib in Resources */,
 				E19CC5F60CFDEFDB0079DCFC /* libParseDate-10.5.dylib in Resources */,
+				E19857B6104F697D0082AC3E /* libParseDate-10.6.dylib in Resources */,
 				E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */,
 				E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */,
 				E1B11F290CF5F30F004975AA /* Alarms.nib in Resources */,
@@ -809,6 +848,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E1985795104F68EC0082AC3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1985796104F68EC0082AC3E /* ParseDate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E19CC51F0CFDE3350079DCFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -896,6 +943,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E19857A1104F69150082AC3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1985794104F68EC0082AC3E /* ParseDate-10.6 */;
+			targetProxy = E19857A0104F69150082AC3E /* PBXContainerItemProxy */;
+		};
 		E19CC57A0CFDEB3C0079DCFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E19CC5210CFDE3350079DCFC /* ParseDate-10.4 */;
@@ -1008,6 +1060,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E198579B104F68EC0082AC3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				PREBINDING = NO;
+				PRODUCT_NAME = "ParseDate-10.6";
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		E198579C104F68EC0082AC3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
+				PREBINDING = NO;
+				PRODUCT_NAME = "ParseDate-10.6";
+				SKIP_INSTALL = YES;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		E19CC5230CFDE3350079DCFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1098,8 +1195,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = c99;
-				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE";
-				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"/System/Library/Perl/5.8.9/darwin-thread-multi-2level/CORE",
+					"/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/System/Library/Perl/5.8.9/darwin-thread-multi-2level/CORE",
+					"/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE",
+				);
 				OTHER_LDFLAGS = "-lperl";
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
@@ -1113,8 +1217,15 @@
 					ppc,
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
-				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE";
-				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"/System/Library/Perl/5.8.9/darwin-thread-multi-2level/CORE",
+					"/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/System/Library/Perl/5.8.9/darwin-thread-multi-2level/CORE",
+					"/System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE",
+				);
 				OTHER_LDFLAGS = "-lperl";
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -1201,6 +1312,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E198579A104F68EC0082AC3E /* Build configuration list for PBXNativeTarget "ParseDate-10.6" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E198579B104F68EC0082AC3E /* Debug */,
+				E198579C104F68EC0082AC3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		E19CC5250CFDE34A0079DCFC /* Build configuration list for PBXNativeTarget "ParseDate-10.4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

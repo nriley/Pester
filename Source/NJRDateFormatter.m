@@ -37,7 +37,7 @@ static NSDateFormatter *timeFormatterWithFormat(NSString *format) {
     return formatter;
 }
 
-static const NSDateFormatterStyle formatterStyles[] = {
+static NSDateFormatterStyle formatterStyles[] = {
     NSDateFormatterShortStyle,
     NSDateFormatterMediumStyle,
     NSDateFormatterLongStyle,
@@ -47,7 +47,7 @@ static const NSDateFormatterStyle formatterStyles[] = {
 
 // note: these formats must be 0-padded where appropriate and contain no spaces
 // or attempts to force them into strict interpretation will fail
-static const NSString *timeFormats[] = {
+static NSString *timeFormats[] = {
     @"hha",
     @"HHmmss",
     @"HHmm",
@@ -72,6 +72,8 @@ static const NSString *timeFormats[] = {
 	libName = @"libParseDate-10.4";
     } else if (minorVersion == 5) {
 	libName = @"libParseDate-10.5";
+    } else if (minorVersion == 6) {
+	libName = @"libParseDate-10.6";
     } else {
 	return;
     }
