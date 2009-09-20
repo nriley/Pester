@@ -230,6 +230,7 @@ NSMutableArray *PSTimerAllTimers = nil;
         if ([date timeIntervalSinceNow] > 30) {
             // NSLog(@"going to sleep, setting timer %@", PSTimerOnWake);
 	    @try {
+		// XXX replaced by dateByAddingTimeInterval: in 10.5 and later
                 [PSPowerManager setWakeTime: [[PSTimerOnWake fireDate] addTimeInterval: -15]];
             } @catch (NSException *exception) {
                 [self performSelectorOnMainThread: @selector(_runScheduledWakeErrorPanel:)

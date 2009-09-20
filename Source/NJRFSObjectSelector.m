@@ -110,7 +110,7 @@ static NSSize PopupTriangleSize;
     }
 }
 
-- (void)revealInFinder:(id<NSMenuItem>)sender;
+- (void)revealInFinder:(NSMenuItem *)sender;
 {
     NSString *path = [sender representedObject];
     if (path == nil) return;

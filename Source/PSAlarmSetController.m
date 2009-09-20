@@ -22,7 +22,6 @@
 #import "NSString-NJRExtensions.h"
 #import "NSAttributedString-NJRExtensions.h"
 #import "NSCalendarDate-NJRExtensions.h"
-#import <Carbon/Carbon.h>
 
 #import "PSAlerts.h"
 #import "PSDockBounceAlert.h"

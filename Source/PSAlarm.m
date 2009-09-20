@@ -115,8 +115,7 @@ static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
     if ([string isEqualToString: @"PSAlarmInvalid"]) return PSAlarmInvalid;
     if ([string isEqualToString: @"PSAlarmSnooze"]) return PSAlarmSnooze;
     if ([string isEqualToString: @"PSAlarmExpired"]) return PSAlarmExpired;
-    NSLog(@"unknown alarm type string: %@", string);
-    return nil;
+    return PSAlarmInvalid;
 }
 
 - (NSString *)_alarmTypeString;

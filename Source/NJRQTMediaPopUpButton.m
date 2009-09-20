@@ -567,7 +567,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [s appendFormat: @"\nPasteboard: %@ types:", draggingPasteboard];
     while ( (type = [e nextObject]) != nil) {
         if ([type hasPrefix: @"CorePasteboardFlavorType 0x"]) {
-            const char *osTypeHex = [[type substringFromIndex: [type rangeOfString: @"0x" options: NSBackwardsSearch].location] lossyCString];
+            const char *osTypeHex = [[type substringFromIndex: [type rangeOfString: @"0x" options: NSBackwardsSearch].location] UTF8String];
             OSType osType;
             sscanf(osTypeHex, "%lx", &osType);
             [s appendFormat: @" '%4s'", &osType];

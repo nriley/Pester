@@ -19,8 +19,6 @@
 #import "NJRHotKey.h"
 #import "NSWindowCollectionBehavior.h"
 
-#import <Carbon/Carbon.h>
-
 @implementation PSApplication
 
 - (void)finishLaunching;
