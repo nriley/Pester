@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E12CBFD210CC310800159E88 /* NJRMenuSlider.m */; };
 		E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */; };
 		E17562620CF8C50B00FC5057 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17562720CF8C53F00FC5057 /* Sparkle.framework in Copy Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
@@ -184,6 +185,8 @@
 		E127900A0442A5B100050002 /* Volume.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Volume.nib; path = English.lproj/Volume.nib; sourceTree = "<group>"; };
 		E127900C0442A92900050002 /* PSVolumeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSVolumeController.h; sourceTree = "<group>"; };
 		E127900D0442A92900050002 /* PSVolumeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSVolumeController.m; sourceTree = "<group>"; };
+		E12CBFD110CC310800159E88 /* NJRMenuSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRMenuSlider.h; sourceTree = "<group>"; };
+		E12CBFD210CC310800159E88 /* NJRMenuSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRMenuSlider.m; sourceTree = "<group>"; };
 		E130B9AC03B7C59700000028 /* PSPowerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPowerManager.h; sourceTree = "<group>"; };
 		E130B9AD03B7C59700000028 /* PSPowerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPowerManager.m; sourceTree = "<group>"; };
 		E13919E203B9E4E100000028 /* NJRIntervalField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRIntervalField.h; sourceTree = "<group>"; };
@@ -670,6 +673,8 @@
 				E13919E303B9E4E100000028 /* NJRIntervalField.m */,
 				F5F240B6036A862101FE7503 /* NJRFSObjectSelector.h */,
 				F5F240B5036A862101FE7503 /* NJRFSObjectSelector.m */,
+				E12CBFD110CC310800159E88 /* NJRMenuSlider.h */,
+				E12CBFD210CC310800159E88 /* NJRMenuSlider.m */,
 				F5F240CD036A877301FE7503 /* NJRQTMediaPopUpButton.h */,
 				F5F240CC036A877301FE7503 /* NJRQTMediaPopUpButton.m */,
 				E15044650CFCDC7E00DE47E9 /* NJRValidatingField.h */,
@@ -937,6 +942,7 @@
 				E1B11F7D0CF5F30F004975AA /* NJRNonCenteringWindow.m in Sources */,
 				E1B121970CF62FD1004975AA /* NSMenuItem-NJRExtensions.m in Sources */,
 				E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */,
+				E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

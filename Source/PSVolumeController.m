@@ -9,6 +9,7 @@
 #import "PSVolumeController.h"
 #import "NJRSoundManager.h"
 #import "NJRNonCenteringWindow.h"
+#include <Carbon/Carbon.h>
 
 @interface NSMenu (SnowLeopardAdditions)
 - (BOOL)popUpMenuPositioningItem:(NSMenuItem *)item atLocation:(NSPoint)location inView:(NSView *)view;
@@ -55,6 +56,7 @@
 		point = [NSEvent mouseLocation];
 	    }
 	    [menu setAllowsContextMenuPlugIns: NO];
+	    // replace with http://waffle.wootest.net/2007/08/07/popping-up-a-menu-in-cocoa/
 	    [menu popUpMenuPositioningItem: nil atLocation: point inView: view];
 	    [menu release];
 	} else {
@@ -99,8 +101,18 @@
 
 - (IBAction)volumeSet:(NSSlider *)sender;
 {
+    // XXX don't delay preview for keyboard adjustment
     [delegate volumeController: self didSetVolume: [sender floatValue]];
-    if (NSEventMaskFromType([[NSApp currentEvent] type]) & (NSLeftMouseUpMask | NSRightMouseUpMask | NSOtherMouseUpMask))
+    NSLog(@"%@", [NSApp currentEvent]);
+    unsigned eventMask = NSEventMaskFromType([[NSApp currentEvent] type]);
+    // The event may simply be a mouse-up: close the menu.
+    if (eventMask & (NSLeftMouseUpMask | NSRightMouseDownMask | NSOtherMouseDownMask))
+	[menu cancelTracking];
+    // On a quick click, the event may be a mouse down but the mouse button is no longer down.
+    if (!(eventMask & (NSLeftMouseDownMask | NSRightMouseDownMask | NSOtherMouseDownMask)))
+	return;
+    // 10.6+: use [NSEvent pressedMouseButtons] instead
+    if (GetCurrentButtonState() == 0)
 	[menu cancelTracking];
 }
 
