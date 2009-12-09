@@ -79,7 +79,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 	[removeMessageButton setTitle: @""];
     [PSTimeDateEditor setUpTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions];
     { // volume defaults, usually overridden by restored alert info
-        float volume = 0.5;
+        float volume = 0.5f;
         [NJRSoundManager getDefaultOutputVolume: &volume];
         [self _setVolume: volume withPreview: NO];
     }
