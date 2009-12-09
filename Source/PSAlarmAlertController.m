@@ -29,7 +29,7 @@ NSString * const PSAlarmAlertStopNotification = @"PSAlarmAlertStopNotification";
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [alarm setTimer]; // if snooze not set and not repeating, alarm will die
     if (frontmostApp.highLongOfPSN != 0 || frontmostApp.lowLongOfPSN != 0) {
-        SetFrontProcess(&frontmostApp);
+        SetFrontProcessWithOptions(&frontmostApp, kSetFrontProcessFrontWindowOnly);
         if (appWasHidden)
             [NSApp hide: self];
     }
