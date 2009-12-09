@@ -83,7 +83,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         [NJRSoundManager getDefaultOutputVolume: &volume];
         [self _setVolume: volume withPreview: NO];
     }
-    [editAlert setState: NSOnState]; // XXX temporary for 1.1b5
+    [editAlert setState: [defaults boolForKey: PSAlertsEditing]];
     {
         NSDictionary *plAlerts = [defaults dictionaryForKey: PSAlertsSelected];
         PSAlerts *alerts = nil;
