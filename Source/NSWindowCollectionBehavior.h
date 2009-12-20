@@ -6,6 +6,8 @@
 //  Copyright 2007 Nicholas Riley. All rights reserved.
 //
 
+#if MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_5
+
 #import <AppKit/AppKit.h>
 
 enum {
@@ -18,3 +20,5 @@ typedef unsigned NSWindowCollectionBehavior;
 @interface NSWindow (NSWindowCollectionBehavior)
 - (void)setCollectionBehavior:(NSWindowCollectionBehavior)behavior;
 @end
+
+#endif
