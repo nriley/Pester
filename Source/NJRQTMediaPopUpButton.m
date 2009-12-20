@@ -7,6 +7,7 @@
 //
 
 #import "NJRQTMediaPopUpButton.h"
+#import "NJRFSObjectSelector.h"
 #import "NJRSoundManager.h"
 #import "QTMovie-NJRExtensions.h"
 #import "NSMenuItem-NJRExtensions.h"
@@ -22,8 +23,16 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (NSMenuItem *)_itemForAlias:(BDAlias *)alias;
 - (BOOL)_validateWithPreview:(BOOL)doPreview;
 - (void)_startSoundPreview;
+- (void)_soundPreviewDidEnd:(NSNotification *)notification;
 - (void)_resetPreview;
 - (void)_resetOutputVolume;
+- (void)_aliasSelected:(NSMenuItem *)sender;
+- (void)_beepSelected:(NSMenuItem *)sender;
+- (void)_systemSoundSelected:(NSMenuItem *)sender;
+@end
+
+@interface NJRQTMediaPopUpButton (NSOpenPanelRuntime)
+- (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 @end
 
 @implementation NJRQTMediaPopUpButton

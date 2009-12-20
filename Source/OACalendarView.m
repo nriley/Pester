@@ -47,6 +47,12 @@
 
 @end
 
+@interface OACalendarView (PrivateActions)
+
+- (IBAction)previous:(id)sender;
+- (IBAction)next:(id)sender;
+
+@end
 
 @implementation OACalendarView
 

@@ -7,6 +7,7 @@
 //
 
 #import "NJRReadMeController.h"
+#import "NJRSplitView.h"
 #import "NSString-NJRExtensions.h"
 
 @interface NJRHelpContentsEntry : NSObject {
@@ -74,6 +75,7 @@
 @interface NJRReadMeController (Private)
 - (void)_saveSplit;
 - (void)_restoreSplit;
+- (void)readRTF:(NSString *)aPath;
 @end
 
 @implementation NJRReadMeController

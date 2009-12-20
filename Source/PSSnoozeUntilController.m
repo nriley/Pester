@@ -12,6 +12,10 @@
 #import "PSTimeDateEditor.h"
 #import "NSCalendarDate-NJRExtensions.h"
 
+@interface PSSnoozeUntilController (PSSnoozeUntilControllerRuntime)
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(PSAlarmNotifierController *)aController;
+@end
+
 @implementation PSSnoozeUntilController
 
 + (PSSnoozeUntilController *)snoozeUntilControllerWithNotifierController:(PSAlarmNotifierController *)aController;

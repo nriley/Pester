@@ -16,6 +16,7 @@ NSMutableArray *PSTimerAllTimers = nil;
 
 @interface PSTimer (Private)
 + (void)_schedule;
+- (void)_timerExpired;
 @end
 
 @implementation PSTimer

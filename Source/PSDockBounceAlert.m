@@ -15,6 +15,10 @@
 static PSDockBounceAlert *PSDockBounceAlertShared;
 static NMRec nmr;
 
+@interface PSDockBounceAlert (Private)
+- (void)_stopBouncing;
+@end
+
 @implementation PSDockBounceAlert
 
 + (PSAlert *)alert;

@@ -20,6 +20,10 @@ static const unsigned int capturedModifierMask = (NSShiftKeyMask |
 static NSParagraphStyle *leftAlignStyle = nil, *centerAlignStyle = nil;
 static NSDictionary *statusAttributes = nil;
 
+@interface NJRHotKeyField (Private)
+- (void)clearStatus;
+@end
+
 @implementation NJRHotKeyField
 
 + (void)initialize;

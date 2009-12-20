@@ -40,3 +40,7 @@ extern NSString * const PSAlarmsNextAlarmDidChangeNotification;
 - (BOOL)alarmsExpiring;
 
 @end
+
+@interface NSObject (PSAlarmsNotifications)
+- (void)nextAlarmDidChange:(NSNotification *)notification;
+@end

@@ -8,6 +8,10 @@
 
 #import "NJRVoicePopUpButton.h"
 
+@interface NJRVoicePopUpButton (Private)
+- (void)_previewVoice;
+@end
+
 @implementation NJRVoicePopUpButton
 
 - (void)_refreshVoiceList;

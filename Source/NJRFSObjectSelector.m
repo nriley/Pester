@@ -6,6 +6,10 @@
 static NSImage *PopupTriangleImage = nil;
 static NSSize PopupTriangleSize;
 
+@interface NJRFSObjectSelector (NSOpenPanelRuntime)
+- (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
+@end
+
 @implementation NJRFSObjectSelector
 
 - (void)_initSelector;

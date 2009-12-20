@@ -19,6 +19,10 @@
 #import "NJRHotKey.h"
 #import "NSWindowCollectionBehavior.h"
 
+@interface PSApplication (Private)
+- (void)_updateDockTile:(PSTimer *)timer;
+@end
+
 @implementation PSApplication
 
 - (void)finishLaunching;
