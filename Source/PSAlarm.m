@@ -170,20 +170,20 @@ static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
     [self _setIntervalFromDate];
 }
 
-- (void)setForDate:(NSDate *)date atTime:(NSDate *)time;
+- (void)setForDate:(NSDate *)aDate atTime:(NSDate *)aTime;
 {
     NSCalendarDate *dateTime;
-    if (time == nil && date == nil) {
+    if (aTime == nil && aDate == nil) {
         [self _beInvalid: @"Please specify an alarm date and time."]; return;
     }
-    if (time == nil) {
+    if (aTime == nil) {
         [self _beInvalid: @"Please specify an alarm time."]; return;
     }
-    if (date == nil) {
+    if (aDate == nil) {
         [self _beInvalid: @"Please specify an alarm date."]; return;
     }
     // XXX if calTime's date is different from the default date, complain
-    dateTime = [NSCalendarDate dateWithDate: date atTime: time];
+    dateTime = [NSCalendarDate dateWithDate: aDate atTime: aTime];
     if (dateTime == nil) {
         [self _beInvalid: @"Please specify a reasonable date and time."]; return;
     }

@@ -19,9 +19,9 @@
     return NO; // XXX temporary for 1.1b5
 }
 
-+ (void)setWakeTime:(NSDate *)time;
++ (void)setWakeTime:(NSDate *)wakeTime;
 {
-    IOPMSchedulePowerEvent((CFDateRef)time, (CFStringRef)[[NSBundle mainBundle] bundleIdentifier], CFSTR(kIOPMAutoWake));
+    IOPMSchedulePowerEvent((CFDateRef)wakeTime, (CFStringRef)[[NSBundle mainBundle] bundleIdentifier], CFSTR(kIOPMAutoWake));
 }
 
 + (void)clearWakeTime;

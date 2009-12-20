@@ -432,16 +432,16 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (void)_aliasSelected:(NSMenuItem *)sender;
 {
     BDAlias *alias = [sender representedObject];
-    int index = [self indexOfItem: sender], otherIndex = [self indexOfItem: otherItem];
+    int itemIndex = [self indexOfItem: sender], otherIndex = [self indexOfItem: otherItem];
     [self _setAlias: alias];
     if (![self _validateWithPreview: YES]) {
         [[self menu] removeItem: sender];
-    } else if (index > otherIndex + 1) { // move "other" item to top of list
-        int recentIndex = [recentMediaAliasData count] - index + otherIndex;
-        NSMenuItem *item = [[self itemAtIndex: index] retain];
+    } else if (itemIndex > otherIndex + 1) { // move "other" item to top of list
+        int recentIndex = [recentMediaAliasData count] - itemIndex + otherIndex;
+        NSMenuItem *item = [[self itemAtIndex: itemIndex] retain];
         NSData *data = [[recentMediaAliasData objectAtIndex: recentIndex] retain];
         // [self _validateRecentMedia];
-        [self removeItemAtIndex: index];
+        [self removeItemAtIndex: itemIndex];
         [[self menu] insertItem: item atIndex: otherIndex + 1];
         [self selectItem: item];
         [item release];

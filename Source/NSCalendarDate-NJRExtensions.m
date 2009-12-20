@@ -30,12 +30,12 @@
                                timeZone: nil];
 }
 
-+ (NSCalendarDate *)dateWithDate:(NSDate *)date atTime:(NSDate *)time;
++ (NSCalendarDate *)dateWithDate:(NSDate *)aDate atTime:(NSDate *)aTime;
 {
     NSCalendarDate *calTime, *calDate;
-    if (time == nil || date == nil) return nil;
-    calTime = [NSCalendarDate dateWithDate: time];
-    calDate = [NSCalendarDate dateWithDate: date];
+    if (aTime == nil || aDate == nil) return nil;
+    calTime = [NSCalendarDate dateWithDate: aTime];
+    calDate = [NSCalendarDate dateWithDate: aDate];
     if (calTime == nil || calDate == nil) return nil;
     return [NSCalendarDate dateWithYear: [calDate yearOfCommonEra]
                                   month: [calDate monthOfYear]

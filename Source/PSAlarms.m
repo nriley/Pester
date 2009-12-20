@@ -160,15 +160,15 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     return [alarms count];
 }
 
-- (PSAlarm *)alarmAtIndex:(int)index;
+- (PSAlarm *)alarmAtIndex:(int)alarmIndex;
 {
-    return [alarms objectAtIndex: index];
+    return [alarms objectAtIndex: alarmIndex];
 }
 
-- (void)removeAlarmAtIndex:(int)index;
+- (void)removeAlarmAtIndex:(int)alarmIndex;
 {
-    [(PSAlarm *)[alarms objectAtIndex: index] cancelTimer];
-    [alarms removeObjectAtIndex: index];
+    [(PSAlarm *)[alarms objectAtIndex: alarmIndex] cancelTimer];
+    [alarms removeObjectAtIndex: alarmIndex];
 }
 
 - (void)removeAlarmsAtIndices:(NSArray *)indices;

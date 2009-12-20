@@ -78,7 +78,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     // These sizes will need to be adjusted if the font changes, grid or border widths change, etc. We use the controlContentFontOfSize:11.0 for the  - if the control content font is changed our calculations will change and the above sizes will be incorrect. Similarly, we use the default NSTextFieldCell font/size for the month/year header, and the default NSTableHeaderCell font/size for the day of week headers; if either of those change, the aove sizes will be incorrect.
 
     NSDateFormatter *monthAndYearFormatter;
-    int index;
+    int dayOfWeek;
     NSUserDefaults *defaults;
     NSArray *shortWeekDays;
     NSRect buttonFrame;
@@ -97,10 +97,10 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
     defaults = [NSUserDefaults standardUserDefaults];
     shortWeekDays = [defaults objectForKey:NSShortWeekDayNameArray];
-    for (index = 0; index < OACalendarViewNumDaysPerWeek; index++) {
-        dayOfWeekCell[index] = [[NSTableHeaderCell alloc] init];
-        [dayOfWeekCell[index] setAlignment:NSCenterTextAlignment];
-        [dayOfWeekCell[index] setStringValue:[[shortWeekDays objectAtIndex:index] substringToIndex:1]];
+    for (dayOfWeek = 0; dayOfWeek < OACalendarViewNumDaysPerWeek; dayOfWeek++) {
+        dayOfWeekCell[dayOfWeek] = [[NSTableHeaderCell alloc] init];
+        [dayOfWeekCell[dayOfWeek] setAlignment:NSCenterTextAlignment];
+        [dayOfWeekCell[dayOfWeek] setStringValue:[[shortWeekDays objectAtIndex:dayOfWeek] substringToIndex:1]];
     }
 
     dayOfMonthCell = [[NSTextFieldCell alloc] init];
@@ -144,12 +144,12 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
 - (void)dealloc;
 {
-    int index;
+    int dayOfWeek;
 
     [dayOfMonthCell release];
 
-    for (index = 0; index < OACalendarViewNumDaysPerWeek; index++)
-        [dayOfWeekCell[index] release];
+    for (dayOfWeek = 0; dayOfWeek < OACalendarViewNumDaysPerWeek; dayOfWeek++)
+        [dayOfWeekCell[dayOfWeek] release];
 
     [monthAndYearTextFieldCell release];
     [buttons release];
@@ -394,14 +394,14 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
             {
                 NSMutableArray *days;
                 NSCalendarDate *day;
-                int index;
+                int dayOfWeek;
                 
                 days = [NSMutableArray arrayWithCapacity:OACalendarViewNumDaysPerWeek];
                 day = [selectedDay dateByAddingYears:0 months:0 days:-[selectedDay dayOfWeek] hours:0 minutes:0 seconds:0];
-                for (index = 0; index < OACalendarViewNumDaysPerWeek; index++) {
+                for (dayOfWeek = 0; dayOfWeek < OACalendarViewNumDaysPerWeek; dayOfWeek++) {
                     NSCalendarDate *nextDay;
 
-                    nextDay = [day dateByAddingYears:0 months:0 days:index hours:0 minutes:0 seconds:0];
+                    nextDay = [day dateByAddingYears:0 months:0 days:dayOfWeek hours:0 minutes:0 seconds:0];
                     if (flags.showsDaysForOtherMonths || [nextDay monthOfYear] == [selectedDay monthOfYear])
                         [days addObject:nextDay];                    
                 }
@@ -414,14 +414,14 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
             {
                 NSMutableArray *days;
                 NSCalendarDate *day;
-                int index;
+                int dayOfWeek;
                 
                 days = [NSMutableArray arrayWithCapacity:OACalendarViewMaxNumWeeksIntersectedByMonth];
                 day = [selectedDay dateByAddingYears:0 months:0 days:-(([selectedDay weekOfMonth] - 1) * OACalendarViewNumDaysPerWeek) hours:0 minutes:0 seconds:0];
-                for (index = 0; index < OACalendarViewMaxNumWeeksIntersectedByMonth; index++) {
+                for (dayOfWeek = 0; dayOfWeek < OACalendarViewMaxNumWeeksIntersectedByMonth; dayOfWeek++) {
                     NSCalendarDate *nextDay;
 
-                    nextDay = [day dateByAddingYears:0 months:0 days:(index * OACalendarViewNumDaysPerWeek) hours:0 minutes:0 seconds:0];
+                    nextDay = [day dateByAddingYears:0 months:0 days:(dayOfWeek * OACalendarViewNumDaysPerWeek) hours:0 minutes:0 seconds:0];
                     if (flags.showsDaysForOtherMonths || [nextDay monthOfYear] == [selectedDay monthOfYear])
                         [days addObject:nextDay];
                 }
@@ -647,7 +647,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     NSRect discardRect;
     int visibleMonthIndex;
     NSCalendarDate *thisDay;
-    int index, row, column;
+    int cellIndex, row, column;
     NSSize cellSize;
     BOOL isFirstResponder = ([[self window] firstResponder] == self);
 
@@ -662,7 +662,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
     thisDay = [visibleMonth dateByAddingYears:0 months:0 days:-[visibleMonth dayOfWeek] hours:0 minutes:0 seconds:0];
 
-    for (row = column = index = 0; index < OACalendarViewMaxNumWeeksIntersectedByMonth * OACalendarViewNumDaysPerWeek; index++) {
+    for (row = column = cellIndex = 0; cellIndex < OACalendarViewMaxNumWeeksIntersectedByMonth * OACalendarViewNumDaysPerWeek; cellIndex++) {
         NSColor *textColor;
         BOOL isVisibleMonth;
 
@@ -708,7 +708,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
             if (flags.targetWatchesCellDisplay) {
                 [[self target] calendarView:self willDisplayCell:dayOfMonthCell forDate:thisDay];
             } else {
-                if ((dayHighlightMask & (1 << index)) == 0) {
+                if ((dayHighlightMask & (1 << cellIndex)) == 0) {
                     textColor = (isVisibleMonth ? [NSColor blackColor] : [NSColor grayColor]);
                 } else {
                     textColor = [NSColor blueColor];
@@ -768,13 +768,13 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 - (float)_maximumDayOfWeekWidth;
 {
     float maxWidth;
-    int index;
+    int dayOfWeek;
 
     maxWidth = 0;
-    for (index = 0; index < OACalendarViewNumDaysPerWeek; index++) {
+    for (dayOfWeek = 0; dayOfWeek < OACalendarViewNumDaysPerWeek; dayOfWeek++) {
         NSSize cellSize;
 
-        cellSize = [dayOfWeekCell[index] cellSize];
+        cellSize = [dayOfWeekCell[dayOfWeek] cellSize];
         if (maxWidth < cellSize.width)
             maxWidth = cellSize.width;
     }
@@ -784,27 +784,27 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
 - (NSSize)_maximumDayOfMonthSize;
 {
-    NSSize maxSize;
-    int index;
+    NSSize maximumSize;
+    int dayOfMonth;
 
-    maxSize = NSZeroSize; // I'm sure the height doesn't change, but I need to know the height anyway.
-    for (index = 1; index <= 31; index++) {
+    maximumSize = NSZeroSize; // I'm sure the height doesn't change, but I need to know the height anyway.
+    for (dayOfMonth = 1; dayOfMonth <= 31; dayOfMonth++) {
         NSString *str;
         NSSize cellSize;
 
-        str = [NSString stringWithFormat:@"%d", index];
+        str = [NSString stringWithFormat:@"%d", dayOfMonth];
         [dayOfMonthCell setStringValue:str];
         cellSize = [dayOfMonthCell cellSize];
-        if (maxSize.width < cellSize.width)
-            maxSize.width = cellSize.width;
-        if (maxSize.height < cellSize.height)
-            maxSize.height = cellSize.height;
+        if (maximumSize.width < cellSize.width)
+            maximumSize.width = cellSize.width;
+        if (maximumSize.height < cellSize.height)
+            maximumSize.height = cellSize.height;
     }
 
-    maxSize.width = ceil(maxSize.width);
-    maxSize.height = ceil(maxSize.height);
+    maximumSize.width = ceilf(maximumSize.width);
+    maximumSize.height = ceilf(maximumSize.height);
 
-    return maxSize;
+    return maximumSize;
 }
 
 - (float)_minimumColumnWidth;
