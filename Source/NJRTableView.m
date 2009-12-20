@@ -10,9 +10,8 @@
 #import "NSTableView-NJRExtensions.h"
 #import "NSCharacterSet-NJRExtensions.h"
 
-/* only defined in 10.2, but we want to be able to compile without warnings on 10.1.x */
-@interface NSColor (JaguarExtras)
-+ (NSColor *)alternateSelectedControlColor;
+@interface NJRTableView (Private)
+- (void)_resetTypeSelect;
 @end
 
 @implementation NJRTableView
