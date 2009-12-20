@@ -328,7 +328,8 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         if (sender != nil) { // nil == we're initializing, don't mess with focus
             NSResponder *oldResponder = [window firstResponder];
             // make sure focus doesn't get stuck in the edit tab: it is confusing and leaves behind artifacts
-            if (oldResponder == editAlert || [oldResponder isKindOfClass: [NSView class]] && [(NSView *)oldResponder isDescendantOf: alertTabs])
+            if (oldResponder == editAlert ||
+		([oldResponder isKindOfClass: [NSView class]] && [(NSView *)oldResponder isDescendantOf: alertTabs]))
                 [window makeFirstResponder: messageField]; // would use editAlert, but can't get it to display anomaly-free.
             [self silence: sender];
         }

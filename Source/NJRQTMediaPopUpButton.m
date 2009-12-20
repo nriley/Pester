@@ -381,7 +381,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 	NSError *error;
 	QTMovie *movie = [[QTMovie alloc] initWithFile: [selectedAlias fullPath] error: &error];
         movieCanRepeat = ![movie NJR_isStatic];
-        if (movieHasAudio = [movie NJR_hasAudio]) {
+        if ((movieHasAudio = [movie NJR_hasAudio])) {
             [preview setMovie: doPreview ? movie : nil];
         } else {
             [self _resetPreview];
