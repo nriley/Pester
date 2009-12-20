@@ -223,7 +223,7 @@ extern MenuRef _NSGetCarbonMenu(NSMenu *menu);
     // XXX otherwise Cocoa thoughtfully doesn't give me the font I want
     NSFont *font = [[self cell] font];
     [NSMenu popUpContextMenu: menu withEvent: theEvent forView: self withFont: 
-     [NSFont fontWithName: [font fontName] size: [font pointSize] - 0.001]];
+     [NSFont fontWithName: [font fontName] size: [font pointSize] - 0.001f]];
 }
 
 - (BDAlias *)alias;

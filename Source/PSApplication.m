@@ -146,9 +146,9 @@
         
         [tile lockFocus];
         // draw the grayed-out app icon
-        [appIconImage dissolveToPoint: NSZeroPoint fraction: 0.5];
+        [appIconImage dissolveToPoint: NSZeroPoint fraction: 0.5f];
         // draw the frame
-        [[NSColor colorWithCalibratedWhite: 0.1 alpha: 0.5] set];
+        [[NSColor colorWithCalibratedWhite: 0.1f alpha: 0.5f] set];
         NSRectFill(frameRect);
         // draw a gray two-pixel text shadow
         [atts setObject: [NSColor grayColor] forKey: NSForegroundColorAttributeName];

@@ -56,9 +56,9 @@
 
 @implementation OACalendarView
 
-const float OACalendarViewButtonWidth = 15.0;
-const float OACalendarViewButtonHeight = 15.0;
-const float OACalendarViewSpaceBetweenMonthYearAndGrid = 6.0;
+const float OACalendarViewButtonWidth = 15.0f;
+const float OACalendarViewButtonHeight = 15.0f;
+const float OACalendarViewSpaceBetweenMonthYearAndGrid = 6.0f;
 const int OACalendarViewNumDaysPerWeek = 7;
 const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
@@ -105,16 +105,16 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
     dayOfMonthCell = [[NSTextFieldCell alloc] init];
     [dayOfMonthCell setAlignment:NSCenterTextAlignment];
-    [dayOfMonthCell setFont:[NSFont controlContentFontOfSize:11.0]];
+    [dayOfMonthCell setFont:[NSFont controlContentFontOfSize:11.0f]];
 
     buttons = [[NSMutableArray alloc] initWithCapacity:2];
 
-    monthAndYearView = [[NSView alloc] initWithFrame:NSMakeRect(0.0, 0.0, frameRect.size.width, OACalendarViewButtonHeight + 2)];
+    monthAndYearView = [[NSView alloc] initWithFrame:NSMakeRect(0.0f, 0.0f, frameRect.size.width, OACalendarViewButtonHeight + 2)];
     [monthAndYearView setAutoresizingMask:NSViewWidthSizable];
 
     // Add left/right buttons
 
-    buttonFrame = NSMakeRect(0.0, 0.0, OACalendarViewButtonWidth, OACalendarViewButtonHeight);
+    buttonFrame = NSMakeRect(0.0f, 0.0f, OACalendarViewButtonWidth, OACalendarViewButtonHeight);
     button = [self _createButtonWithFrame:buttonFrame];
     [button setImage:[NSImage imageNamed:@"OALeftArrow" inBundle:thisBundle]];
     [button setAlternateImage:[NSImage imageNamed:@"OALeftArrowPressed" inBundle:thisBundle]];
@@ -122,7 +122,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     [button setAutoresizingMask:NSViewMaxXMargin];
     [monthAndYearView addSubview:button];
 
-    buttonFrame = NSMakeRect(frameRect.size.width - OACalendarViewButtonWidth, 0.0, OACalendarViewButtonWidth, OACalendarViewButtonHeight);
+    buttonFrame = NSMakeRect(frameRect.size.width - OACalendarViewButtonWidth, 0.0f, OACalendarViewButtonWidth, OACalendarViewButtonHeight);
     button = [self _createButtonWithFrame:buttonFrame];
     [button setImage:[NSImage imageNamed:@"OARightArrow" inBundle:thisBundle]];
     [button setAlternateImage:[NSImage imageNamed:@"OARightArrowPressed" inBundle:thisBundle]];
@@ -196,7 +196,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
     minimumSize.height = monthAndYearRect.size.height + gridHeaderRect.size.height + ((OACalendarViewMaxNumWeeksIntersectedByMonth * [self _minimumRowHeight]));
     // This should really check the lengths of the months, and include space for the buttons.
-    minimumSize.width = ([self _minimumColumnWidth] * OACalendarViewNumDaysPerWeek) + 1.0;
+    minimumSize.width = ([self _minimumColumnWidth] * OACalendarViewNumDaysPerWeek) + 1.0f;
 
     [self setFrameSize:minimumSize];
     [self setNeedsDisplay:YES];
@@ -607,37 +607,37 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     viewBounds = [self bounds];
     
     // get the grid cell width (subtract 1.0 from the bounds width to allow for the border)
-    columnWidth = floor((viewBounds.size.width - 1.0) / OACalendarViewNumDaysPerWeek);
-    viewBounds.size.width = (columnWidth * OACalendarViewNumDaysPerWeek) + 1.0;
+    columnWidth = floorf((viewBounds.size.width - 1.0f) / OACalendarViewNumDaysPerWeek);
+    viewBounds.size.width = (columnWidth * OACalendarViewNumDaysPerWeek) + 1.0f;
     
     // resize the month & year view to be the same width as the grid
     [monthAndYearView setFrameSize:NSMakeSize(viewBounds.size.width, [monthAndYearView frame].size.height)];
 
     // get the rect for the month and year text field cell
     cellSize = [monthAndYearTextFieldCell cellSize];
-    NSDivideRect(viewBounds, &topRect, &gridHeaderAndBodyRect, ceil(cellSize.height + OACalendarViewSpaceBetweenMonthYearAndGrid), NSMinYEdge);
-    NSDivideRect(topRect, &discardRect, &monthAndYearRect, floor((viewBounds.size.width - cellSize.width) / 2), NSMinXEdge);
+    NSDivideRect(viewBounds, &topRect, &gridHeaderAndBodyRect, ceilf(cellSize.height + OACalendarViewSpaceBetweenMonthYearAndGrid), NSMinYEdge);
+    NSDivideRect(topRect, &discardRect, &monthAndYearRect, floorf((viewBounds.size.width - cellSize.width) / 2), NSMinXEdge);
     monthAndYearRect.size.width = cellSize.width;
     
     tempRect = gridHeaderAndBodyRect;
     // leave space for a one-pixel border on each side
-    tempRect.size.width -= 2.0;
-    tempRect.origin.x += 1.0;
+    tempRect.size.width -= 2.0f;
+    tempRect.origin.x += 1.0f;
     // leave space for a one-pixel border at the bottom (the top already looks fine)
-    tempRect.size.height -= 1.0;
+    tempRect.size.height -= 1.0f;
 
     // get the grid header rect
     cellSize = [dayOfWeekCell[0] cellSize];
-    NSDivideRect(tempRect, &gridHeaderRect, &gridBodyRect, ceil(cellSize.height), NSMinYEdge);
+    NSDivideRect(tempRect, &gridHeaderRect, &gridBodyRect, ceilf(cellSize.height), NSMinYEdge);
     
     // get the grid row height (add 1.0 to the body height because while we can't actually draw on that extra pixel, our bottom row doesn't have to draw a bottom grid line as there's a border right below us, so we need to account for that, which we do by pretending that next pixel actually does belong to us)
-    rowHeight = floor((gridBodyRect.size.height + 1.0) / OACalendarViewMaxNumWeeksIntersectedByMonth);
+    rowHeight = floorf((gridBodyRect.size.height + 1.0f) / OACalendarViewMaxNumWeeksIntersectedByMonth);
     
     // get the grid body rect
-    gridBodyRect.size.height = (rowHeight * OACalendarViewMaxNumWeeksIntersectedByMonth) - 1.0;
+    gridBodyRect.size.height = (rowHeight * OACalendarViewMaxNumWeeksIntersectedByMonth) - 1.0f;
     
     // adjust the header and body rect to account for any adjustment made while calculating even row heights
-    gridHeaderAndBodyRect.size.height = NSMaxY(gridBodyRect) - NSMinY(gridHeaderAndBodyRect) + 1.0;
+    gridHeaderAndBodyRect.size.height = NSMaxY(gridBodyRect) - NSMinY(gridHeaderAndBodyRect) + 1.0f;
 }
 
 - (void)_drawDaysOfMonthInRect:(NSRect)rect;
@@ -652,9 +652,9 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     BOOL isFirstResponder = ([[self window] firstResponder] == self);
 
     // the cell is actually one pixel shorter than the row height, because the row height includes the bottom grid line (or the top grid line, depending on which way you prefer to think of it)
-    cellFrame.size.height = rowHeight - 1.0;
+    cellFrame.size.height = rowHeight - 1.0f;
     // the cell would actually be one pixel narrower than the column width but we don't draw vertical grid lines. instead, we want to include the area that would be grid line (were we drawing it) in our cell, because that looks a bit better under the header, which _does_ draw column separators. actually, we want to include the grid line area on _both sides_ or it looks unbalanced, so we actually _add_ one pixel, to cover that. below, our x position as we draw will have to take that into account. note that this means that sunday and saturday overwrite the outside borders, but the outside border is drawn last, so it ends up ok. (if we ever start drawing vertical grid lines, change this to be - 1.0, and adjust the origin appropriately below.)
-    cellFrame.size.width = columnWidth + 1.0;
+    cellFrame.size.width = columnWidth + 1.0f;
 
     cellSize = [dayOfMonthCell cellSize];
     
@@ -667,7 +667,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
         BOOL isVisibleMonth;
 
         // subtract 1.0 from the origin because we're including the area where vertical grid lines would be were we drawing them
-        cellFrame.origin.x = rect.origin.x + (column * columnWidth) - 1.0;
+        cellFrame.origin.x = rect.origin.x + (column * columnWidth) - 1.0f;
         cellFrame.origin.y = rect.origin.y + (row * rowHeight);
 
         [dayOfMonthCell setIntValue:[thisDay dayOfMonth]];
@@ -715,7 +715,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
                 }
                 [dayOfMonthCell setTextColor:textColor];
             }
-            NSDivideRect(cellFrame, &discardRect, &dayOfMonthFrame, floor((cellFrame.size.height - cellSize.height) / 2.0), NSMinYEdge);
+            NSDivideRect(cellFrame, &discardRect, &dayOfMonthFrame, floorf((cellFrame.size.height - cellSize.height) / 2.0f), NSMinYEdge);
             [dayOfMonthCell drawWithFrame:dayOfMonthFrame inView:self];
         }
         
@@ -737,8 +737,8 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     // we will be adding the row height each time, so subtract 1.0 (the grid thickness) from the starting y position (for example, if starting y = 0 and row height = 10, then starting y + row height = 10, so we would draw at pixel 10... which is the 11th pixel. Basically, we subtract 1.0 to make the result zero-based, so that we draw at pixel 10 - 1 = 9, which is the 10th pixel)
     // add 0.5 to move to the center of the pixel before drawing a line 1.0 pixels thick, centered around 0.0 (which would mean half a pixel above the starting point and half a pixel below - not what we want)
     // we could just subtract 0.5, but I think this is clearer, and the compiler will optimize it to the appropriate value for us
-    pointA = NSMakePoint(NSMinX(rect), NSMinY(rect) - 1.0 + 0.5);
-    pointB = NSMakePoint(NSMaxX(rect), NSMinY(rect) - 1.0 + 0.5);
+    pointA = NSMakePoint(NSMinX(rect), NSMinY(rect) - 1.0f + 0.5f);
+    pointB = NSMakePoint(NSMaxX(rect), NSMinY(rect) - 1.0f + 0.5f);
     
     [[NSColor controlHighlightColor] set];
     for (weekIndex = 1; weekIndex < OACalendarViewMaxNumWeeksIntersectedByMonth; weekIndex++) {
@@ -779,7 +779,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
             maxWidth = cellSize.width;
     }
 
-    return ceil(maxWidth);
+    return ceilf(maxWidth);
 }
 
 - (NSSize)_maximumDayOfMonthSize;
@@ -813,13 +813,13 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     float dayOfMonthWidth;
     
     dayOfWeekWidth = [self _maximumDayOfWeekWidth];	// we don't have to add 1.0 because the day of week cell whose width is returned here includes it's own border
-    dayOfMonthWidth = [self _maximumDayOfMonthSize].width + 1.0;	// add 1.0 to allow for the grid. We don't actually draw the vertical grid, but we treat it as if there was one (don't respond to clicks "on" the grid, we have a vertical separator in the header, etc.) 
+    dayOfMonthWidth = [self _maximumDayOfMonthSize].width + 1.0f;	// add 1.0 to allow for the grid. We don't actually draw the vertical grid, but we treat it as if there was one (don't respond to clicks "on" the grid, we have a vertical separator in the header, etc.) 
     return (dayOfMonthWidth > dayOfWeekWidth) ? dayOfMonthWidth : dayOfWeekWidth;
 }
 
 - (float)_minimumRowHeight;
 {
-    return [self _maximumDayOfMonthSize].height + 1.0;	// add 1.0 to allow for a bordering grid line
+    return [self _maximumDayOfMonthSize].height + 1.0f;	// add 1.0 to allow for a bordering grid line
 }
 
 - (NSCalendarDate *)_hitDateWithLocation:(NSPoint)targetPoint;

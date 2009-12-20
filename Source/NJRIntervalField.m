@@ -40,7 +40,7 @@
         if (multiplierTag <= 0) continue;
         if (((int)interval % multiplierTag) == 0) {
             NSFormatter *formatter = [self formatter];
-            int intervalValue = interval / multiplierTag;
+            int intervalValue = (int)interval / multiplierTag;
             if (formatter != nil) {
                 id ignored;
                 if (![formatter getObjectValue: &ignored forString: [formatter stringForObjectValue: [NSNumber numberWithInt: intervalValue]] errorDescription: NULL]) return NO;
