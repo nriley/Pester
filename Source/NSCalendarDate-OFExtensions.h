@@ -12,7 +12,6 @@
 @interface NSCalendarDate (OFExtensions)
 + (NSCalendarDate *)unixReferenceDate;
 - (void)setToUnixDateFormat;
-- initWithTime_t:(int)time;
 
 - (NSCalendarDate *)safeReferenceDate;
 - (NSCalendarDate *)firstDayOfMonth;

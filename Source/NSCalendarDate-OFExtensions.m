@@ -32,15 +32,6 @@
 	[self setCalendarFormat:@"%b %d %Y"];
 }
 
-- initWithTime_t:(int)time;
-{
-    NSCalendarDate *date;
-
-    date = (id)[self initWithTimeInterval:time sinceDate:[isa unixReferenceDate]];
-    [date setToUnixDateFormat];
-    return date;
-}
-
 // We're going with Noon instead of midnight, since it's a bit more tolerant of
 // time zone switching. (When you're adding days.)
 
