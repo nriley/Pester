@@ -29,6 +29,13 @@ static NSString * const PLAlarmRepeating = @"repeating"; // NSNumber
 
 static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
 
+static NSCalendar *gregorianCalendar;
+
+static NSDate *midnightOnDate(NSDate *date) {
+    return [gregorianCalendar dateFromComponents: 
+	    [gregorianCalendar components: NSMonthCalendarUnit|NSDayCalendarUnit|NSYearCalendarUnit fromDate: date]];
+}
+
 @implementation PSAlarm
 
 #pragma mark initialize-release
@@ -45,6 +52,7 @@ static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
     timeFormatter = [[NSDateFormatter alloc] init];
     [timeFormatter setTimeStyle: NSDateFormatterMediumStyle];
     [timeFormatter setDateStyle: NSDateFormatterNoStyle];
+    gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
 }
 
 - (void)dealloc;
@@ -245,15 +253,27 @@ static NSDateFormatter *dateFormatter, *shortDateFormatter, *timeFormatter;
     return alarmDate;
 }
 
+- (NSDate *)midnightOnDate;
+{
+    if (alarmType == PSAlarmInterval) [self _setDateFromInterval];
+    
+    return midnightOnDate(alarmDate);
+}
+
 - (NSDate *)time;
 {
     // XXX this works, but the result is unlikely to be useful until we move away from NSCalendarDate elsewhere
     if (alarmType == PSAlarmInterval) [self _setDateFromInterval];
 
-    NSCalendar *calendar = [NSCalendar currentCalendar];
+    return [gregorianCalendar dateFromComponents: 
+	    [gregorianCalendar components: NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate: alarmDate]];
+}
 
-    return [calendar dateFromComponents: 
-	    [calendar components: NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate: alarmDate]];
+- (int)daysFromToday;
+{
+    if (alarmType == PSAlarmInterval) [self _setDateFromInterval];
+    
+    return [[gregorianCalendar components: NSDayCalendarUnit fromDate: midnightOnDate([NSDate date]) toDate: alarmDate options: 0] day];
 }
 
 - (NSTimeInterval)interval;

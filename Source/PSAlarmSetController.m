@@ -164,23 +164,37 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 - (IBAction)updateDateDisplay:(id)sender;
 {
     // NSLog(@"updateDateDisplay: %@", sender);
-    if ([alarm isValid]) {
-        [self setStatus: [NSString stringWithFormat: @"Alarm will be set for %@\non %@.", [alarm timeString], [alarm dateString]]];
-        [setButton setEnabled: YES];
-        if (updateTimer == nil || ![updateTimer isValid]) {
-            // XXX this logic (and the timer) should really go into PSAlarm, to send notifications for status updates instead.  Timer starts when people are watching, stops when people aren't.
-            // NSLog(@"setting timer");
-            if (isInterval) {
-                updateTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(updateDateDisplay:) userInfo: nil repeats: YES];
-            } else {
-                updateTimer = [NSTimer scheduledTimerWithTimeInterval: [alarm interval] target: self selector: @selector(updateDateDisplay:) userInfo: nil repeats: NO];
-            }
-            [updateTimer retain];
-        }
-    } else {
-        [setButton setEnabled: NO];
-        [self setStatus: [alarm invalidMessage]];
-        [self _stopUpdateTimer];
+    if (![alarm isValid]) {
+	[setButton setEnabled: NO];
+	[self setStatus: [alarm invalidMessage]];
+	[self _stopUpdateTimer];
+	return;
+    }
+    
+    const int day = 60 * 60 * 24;
+    int daysUntilAlarm = [alarm daysFromToday];
+    NSString *onString;
+    switch (daysUntilAlarm) {
+	case 0: onString = @"today,"; break;
+	case 1: onString = @"tomorrow,"; break;
+	default: onString = @"on";
+    }
+    
+    [self setStatus: [NSString stringWithFormat: @"Alarm will be set for %@\n%@ %@.", [alarm timeString], onString, [alarm dateString]]];
+    [setButton setEnabled: YES];
+    if (updateTimer == nil || ![updateTimer isValid]) {
+	// XXX this logic (and the timer) should really go into PSAlarm, to send notifications for status updates instead.  Timer starts when people are watching, stops when people aren't.
+	// NSLog(@"setting timer");
+	if (isInterval) {
+	    updateTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(updateDateDisplay:) userInfo: nil repeats: YES];
+	} else {
+	    // XXX time/time zone change
+	    NSTimeInterval interval = [alarm interval];
+	    if (daysUntilAlarm < 2 && interval > day)
+		interval = [[alarm midnightOnDate] timeIntervalSinceNow];
+	    updateTimer = [NSTimer scheduledTimerWithTimeInterval: interval target: self selector: @selector(updateDateDisplay:) userInfo: nil repeats: NO];
+	}
+	[updateTimer retain];
     }
 }
 

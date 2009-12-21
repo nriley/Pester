@@ -47,7 +47,9 @@ extern NSString * const PSAlarmDiedNotification;
 - (void)setWakeUp:(BOOL)doWake;
 
 - (NSCalendarDate *)date;
+- (NSDate *)midnightOnDate;
 - (NSDate *)time;
+- (int)daysFromToday;
 - (NSTimeInterval)interval;
 - (NSTimeInterval)timeRemaining;
 - (NSString *)message;
