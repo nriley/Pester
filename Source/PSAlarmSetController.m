@@ -318,7 +318,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     NSRect frame = [window frame];
     if (editAlertSelected) {
         NSSize editWinSize = [window maxSize];
-        [editAlert setNextKeyView: [displayMessage controlView]];
         frame.origin.y += frame.size.height - editWinSize.height;
         frame.size = editWinSize;
         [window setFrame: frame display: (sender != nil) animate: (sender != nil)];
@@ -357,7 +356,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         frame.origin.y += frame.size.height - viewWinSize.height;
         frame.size = viewWinSize;
         [window setFrame: frame display: (sender != nil) animate: (sender != nil)];
-        [editAlert setNextKeyView: cancelButton];
     }
     if (sender != nil) {
         [[NSUserDefaults standardUserDefaults] setBool: editAlertSelected forKey: PSAlertsEditing];
