@@ -8,7 +8,7 @@
 
 #import "NJRHistoryTrackingComboBox.h"
 
-#define NJRHistoryTrackingComboBoxMaxItems 10
+#define NJRHistoryTrackingComboBoxMaxItems 100
 
 @implementation NJRHistoryTrackingComboBox
 
