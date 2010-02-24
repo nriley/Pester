@@ -41,9 +41,9 @@ NSDate *parse_natural_language_date(NSString *input) {
 	input = sanitized;
     }
     
-    NSString *temp = [[NSString alloc] initWithFormat: @"UnixDate(q|%@|, '%%q')", input];
+    NSString *temp = [[NSString alloc] initWithFormat: @"my $s = eval {UnixDate(q|%@|, '%%q')}; warn $@ if $@; $s", input];
     // NSLog(@"%@", temp);
-    SV *d = eval_pv([temp UTF8String], TRUE);
+    SV *d = eval_pv([temp UTF8String], FALSE);
     [temp release];
     if (d == NULL) return nil;
     
