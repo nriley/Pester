@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E12CBFD210CC310800159E88 /* NJRMenuSlider.m */; };
+		E14AFF2F11357B6100DC7922 /* Manip in Resources */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
+		E14AFF3011357B6500DC7922 /* Manip in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
 		E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */; };
 		E17562620CF8C50B00FC5057 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17562720CF8C53F00FC5057 /* Sparkle.framework in Copy Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
@@ -157,6 +159,7 @@
 			dstSubfolderSpec = 7;
 			files = (
 				E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */,
+				E14AFF3011357B6500DC7922 /* Manip in Copy Perl Modules */,
 			);
 			name = "Copy Perl Modules";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +196,7 @@
 		E13919E303B9E4E100000028 /* NJRIntervalField.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NJRIntervalField.m; sourceTree = "<group>"; };
 		E145383E043A1DB200050002 /* NJRHotKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRHotKeyManager.h; sourceTree = "<group>"; };
 		E145383F043A1DB200050002 /* NJRHotKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRHotKeyManager.m; sourceTree = "<group>"; };
+		E14AFF2C11357B6100DC7922 /* Manip */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Manip; sourceTree = "<group>"; };
 		E14DB31203B8038300000028 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		E14DEC820438969400050002 /* NJRHotKeyFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRHotKeyFieldCell.h; sourceTree = "<group>"; };
 		E14DEC830438969400050002 /* NJRHotKeyFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRHotKeyFieldCell.m; sourceTree = "<group>"; };
@@ -527,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				E17CA9A90CF7F8C200018B34 /* Manip.pm */,
+				E14AFF2C11357B6100DC7922 /* Manip */,
 				E19CC53D0CFDE48C0079DCFC /* ParseDate.h */,
 				E19CC53E0CFDE48C0079DCFC /* ParseDate.m */,
 				E19CC5270CFDE3C70079DCFC /* DynaLoader-10.4.a */,
@@ -847,6 +852,7 @@
 				E1B11F3C0CF5F30F004975AA /* Volume 3.png in Resources */,
 				E1B11F3D0CF5F30F004975AA /* Volume 1.png in Resources */,
 				E1B11F3E0CF5F30F004975AA /* Volume.nib in Resources */,
+				E14AFF2F11357B6100DC7922 /* Manip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
