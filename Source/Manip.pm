@@ -3644,7 +3644,7 @@ sub Date_TimeZone {
     }
   }
 
-  confess "ERROR: Date::Manip unable to determine Time Zone.\n";
+  confess "ERROR: Date::Manip unable to determine Time Zone from @tz.\n";
 }
 
 # Returns 1 if $date is a work day.  If $time is non-zero, the time is
