@@ -14,6 +14,7 @@
 @class NJRQTMediaPopUpButton;
 @class NJRValidatingField;
 @class NJRVoicePopUpButton;
+@class PSDateFieldEditor;
 
 @interface PSAlarmSetController : NSWindowController <NSUserInterfaceValidations> {
     IBOutlet NSTextField *messageField;
@@ -49,6 +50,7 @@
     NSString *status;
     NSTimer *updateTimer;
     PSAlarm *alarm;
+    PSDateFieldEditor *dateFieldEditor;
     BOOL isInterval;
 }
 

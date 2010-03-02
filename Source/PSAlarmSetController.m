@@ -24,6 +24,7 @@
 #import "NSCalendarDate-NJRExtensions.h"
 
 #import "PSAlerts.h"
+#import "PSDateFieldEditor.h"
 #import "PSDockBounceAlert.h"
 #import "PSScriptAlert.h"
 #import "PSNotifierAlert.h"
@@ -112,6 +113,10 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [notificationCenter addObserver: self selector: @selector(applicationWillTerminate:) name: NSApplicationWillTerminateNotification object: NSApp];
     [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
     [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
+    
+    dateFieldEditor = [[PSDateFieldEditor alloc] init];
+    [dateFieldEditor setFieldEditor: YES];
+    [dateFieldEditor setDelegate: timeDate];
     
     // XXX workaround for 10.1.x and 10.2.x bug which sets the first responder to the wrong field alternately, but it works if I set the initial first responder to nil... go figure.
     NSWindow *window = [self window];
@@ -604,11 +609,23 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 	
 	[completions removeObjectAtIndex: i];
     }
-    NSLog(@"%@ %d %@", partialMatch, partialLength, completions);
     return [completions autorelease];
 }
 
 @end
+
+@implementation PSAlarmSetController (NSWindowDelegate)
+
+- (id)windowWillReturnFieldEditor:(NSWindow *)sender toObject:(id)client;
+{
+    if (client == timeDate)
+	return dateFieldEditor;
+
+    return nil;
+}
+
+@end
+
 
 @implementation PSAlarmSetController (NSWindowNotifications)
 
@@ -628,9 +645,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
 - (void)controlTextDidEndEditing:(NSNotification *)notification;
 {
-    NSControl *control = [notification object];
-
-    if (control != timeOfDay)
+    if ([notification object] != timeOfDay)
 	return;
     
     // if date is today and we've picked a time before now, set the date for tomorrow
@@ -682,7 +697,6 @@ static NSString *lastTimeDateString = nil;
     [self update: [notification object]];
 }
 
-// XXX need to override NSTextView; when completing with space or tab, we don't get a selector, which causes usability problems with tab and bugs with space
 - (BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector;
 {
     if (control != timeDate)

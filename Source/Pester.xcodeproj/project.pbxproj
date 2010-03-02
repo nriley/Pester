@@ -14,6 +14,7 @@
 		E17562620CF8C50B00FC5057 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17562720CF8C53F00FC5057 /* Sparkle.framework in Copy Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
+		E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E18E822F113CC5C300687310 /* PSDateFieldEditor.m */; };
 		E1985796104F68EC0082AC3E /* ParseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CC53E0CFDE48C0079DCFC /* ParseDate.m */; };
 		E1985798104F68EC0082AC3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
 		E19857B6104F697D0082AC3E /* libParseDate-10.6.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E198579D104F68EC0082AC3E /* libParseDate-10.6.dylib */; };
@@ -229,6 +230,8 @@
 		E18DAAEA0442CC3E00050002 /* NJRSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRSoundManager.h; sourceTree = "<group>"; };
 		E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRSoundManager.m; sourceTree = "<group>"; };
 		E18DAAEE0442D02500050002 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
+		E18E822E113CC5C300687310 /* PSDateFieldEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDateFieldEditor.h; sourceTree = "<group>"; };
+		E18E822F113CC5C300687310 /* PSDateFieldEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDateFieldEditor.m; sourceTree = "<group>"; };
 		E198579D104F68EC0082AC3E /* libParseDate-10.6.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.6.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19CC5220CFDE3350079DCFC /* libParseDate-10.4.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.4.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19CC5260CFDE3C70079DCFC /* DynaLoader-10.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "DynaLoader-10.5.a"; sourceTree = "<group>"; };
@@ -686,6 +689,8 @@
 				E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */,
 				F5F19871036B822E01EB0372 /* NJRVoicePopUpButton.h */,
 				F5F19870036B822E01EB0372 /* NJRVoicePopUpButton.m */,
+				E18E822E113CC5C300687310 /* PSDateFieldEditor.h */,
+				E18E822F113CC5C300687310 /* PSDateFieldEditor.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -949,6 +954,7 @@
 				E1B121970CF62FD1004975AA /* NSMenuItem-NJRExtensions.m in Sources */,
 				E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */,
 				E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */,
+				E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
