@@ -24,7 +24,6 @@
 #import "NSCalendarDate-NJRExtensions.h"
 
 #import "PSAlerts.h"
-#import "PSDateFieldEditor.h"
 #import "PSDockBounceAlert.h"
 #import "PSScriptAlert.h"
 #import "PSNotifierAlert.h"
@@ -55,7 +54,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [[self window] center];
     if ([[removeMessageButton image] size].width != 0)
 	[removeMessageButton setTitle: @""];
-    [PSTimeDateEditor setUpTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions];
+    [PSTimeDateEditor setUpTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions dateFieldEditor: &dateFieldEditor];
     { // volume defaults, usually overridden by restored alert info
         float volume = 0.5f;
         [NJRSoundManager getDefaultOutputVolume: &volume];
@@ -90,10 +89,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [notificationCenter addObserver: self selector: @selector(applicationWillTerminate:) name: NSApplicationWillTerminateNotification object: NSApp];
     [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
     [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
-    
-    dateFieldEditor = [[PSDateFieldEditor alloc] init];
-    [dateFieldEditor setFieldEditor: YES];
-    [dateFieldEditor setDelegate: timeDate];
     
     // XXX workaround for 10.1.x and 10.2.x bug which sets the first responder to the wrong field alternately, but it works if I set the initial first responder to nil... go figure.
     NSWindow *window = [self window];
@@ -562,31 +557,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 {
     // NSLog(@"UPDATING FROM validation");
     if (control == timeInterval) [self update: timeInterval]; // make sure we still examine the field editor, otherwise if the existing numeric string is invalid, it'll be cleared
-}
-
-- (NSArray *)control:(NSControl *)control textView:(NSTextView *)textView completions:(NSArray *)words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(int *)idx;
-{
-    if (control != timeDate)
-	return nil;
-
-    NSString *partialMatch = [textView string];
-    unsigned partialLength = [partialMatch length];
-    NSMutableArray *completions = [[timeDateCompletions itemTitles] mutableCopy];
-    for (int i = [completions count] - 1 ; i >= 0 ; i--) {
-	NSString *completion = [completions objectAtIndex: i];
-	unsigned length = [completion length];
-	if (partialLength == 0) {
-	    if (length > 0)
-		continue;
-	} else if (length >= partialLength &&
-	    [partialMatch compare:
-	     [completion substringToIndex: partialLength] options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-	    continue;
-	}
-	
-	[completions removeObjectAtIndex: i];
-    }
-    return [completions autorelease];
 }
 
 @end

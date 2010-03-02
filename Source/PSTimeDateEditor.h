@@ -8,11 +8,12 @@
 
 #import <AppKit/AppKit.h>
 
+@class PSDateFieldEditor;
 
 @interface PSTimeDateEditor : NSObject {
 
 }
 
-+ (void)setUpTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions;
++ (void)setUpTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions dateFieldEditor:(PSDateFieldEditor **)dateFieldEditor;
 
 @end

@@ -10,7 +10,9 @@
 
 
 @interface PSDateFieldEditor : NSTextView {
-
+    NSArray *allCompletions;
 }
+
+- (id)initWithCompletions:(NSArray *)dateCompletions;
 
 @end

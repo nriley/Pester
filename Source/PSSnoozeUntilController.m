@@ -30,7 +30,7 @@
         alarm = [[PSAlarm alloc] init];
         snoozeInterval = [aController snoozeInterval];
         [alarm setInterval: snoozeInterval];
-        [PSTimeDateEditor setUpTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions];
+        [PSTimeDateEditor setUpTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions dateFieldEditor: &dateFieldEditor];
         if ([alarm isValid]) {
 	    // [alarm time] works fine for display, but we can't use it overall until we've moved off NSCalendarDate
             [timeOfDay setObjectValue: [alarm date]];
@@ -49,6 +49,7 @@
 - (void)dealloc;
 {
     [alarm release];
+    [dateFieldEditor release];
     [super dealloc];
 }
 
@@ -153,6 +154,18 @@
 - (void)controlTextDidChange:(NSNotification *)notification;
 {
     [self update: [notification object]];
+}
+
+@end
+
+@implementation PSSnoozeUntilController (NSWindowDelegate)
+
+- (id)windowWillReturnFieldEditor:(NSWindow *)sender toObject:(id)client;
+{
+    if (client == timeDate)
+	return dateFieldEditor;
+    
+    return nil;
 }
 
 @end

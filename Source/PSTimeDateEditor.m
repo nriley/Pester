@@ -8,10 +8,11 @@
 
 #import "PSTimeDateEditor.h"
 #import "NJRDateFormatter.h"
+#import "PSDateFieldEditor.h"
 
 @implementation PSTimeDateEditor
 
-+ (void)setUpTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions;
++ (void)setUpTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions dateFieldEditor:(PSDateFieldEditor **)dateFieldEditor;
 {
     [NSDateFormatter setDefaultFormatterBehavior: NSDateFormatterBehavior10_4];
     static NSDateFormatter *timeFormatter = nil, *dateFormatter = nil;
@@ -54,6 +55,11 @@
     }
     if ([timeDateCompletions pullsDown]) // add a dummy first item, which gets consumed for the (obscured) title
 	[timeDateCompletions insertItemWithTitle: @"" atIndex: 0];
+    
+    // set up completing field editor for date field
+    *dateFieldEditor = [[PSDateFieldEditor alloc] initWithCompletions: [timeDateCompletions itemTitles]];
+    [*dateFieldEditor setFieldEditor: YES];
+    [*dateFieldEditor setDelegate: timeDate];
 }
 
 @end

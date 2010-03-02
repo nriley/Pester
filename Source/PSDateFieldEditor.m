@@ -11,6 +11,22 @@
 
 @implementation PSDateFieldEditor
 
+- (id)initWithCompletions:(NSArray *)dateCompletions;
+{
+    if ( (self = [super init]) == nil)
+	return nil;
+    
+    allCompletions = [dateCompletions copy];
+    
+    return self;
+}
+
+- (void)dealloc;
+{
+    [allCompletions release];
+    [super dealloc];
+}
+
 - (void)insertText:(id)insertString;
 {
     [super insertText: insertString];
@@ -36,6 +52,28 @@
     range.location = 0;
     
     return range;
+}
+
+- (NSArray *)completionsForPartialWordRange:(NSRange)charRange indexOfSelectedItem:(int *)idx;
+{
+    NSString *partialMatch = [self string];
+    unsigned partialLength = [partialMatch length];
+    NSMutableArray *completions = [allCompletions mutableCopy];
+    for (int i = [completions count] - 1 ; i >= 0 ; i--) {
+	NSString *completion = [completions objectAtIndex: i];
+	unsigned length = [completion length];
+	if (partialLength == 0) {
+	    if (length > 0)
+		continue;
+	} else if (length >= partialLength &&
+		   [partialMatch compare:
+		    [completion substringToIndex: partialLength] options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+	   continue;
+        }
+	
+	[completions removeObjectAtIndex: i];
+    }
+    return [completions autorelease];
 }
 
 - (void)insertCompletion:(NSString *)word forPartialWordRange:(NSRange)charRange movement:(int)movement isFinal:(BOOL)flag;

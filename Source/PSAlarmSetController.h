@@ -47,10 +47,10 @@
     IBOutlet NSTextField *timeSummary;
     IBOutlet NSButton *cancelButton;
     IBOutlet NSButton *setButton;
+    PSDateFieldEditor *dateFieldEditor;
     NSString *status;
     NSTimer *updateTimer;
     PSAlarm *alarm;
-    PSDateFieldEditor *dateFieldEditor;
     BOOL isInterval;
 }
 
