@@ -33,29 +33,6 @@
 #import "PSSpeechAlert.h"
 #import "PSWakeAlert.h"
 
-/* Bugs to file:
-
-• any trailing spaces: -> exception for +[NSCalendarDate dateWithNaturalLanguageString]:
- > NSCalendarDate dateWithNaturalLanguageString: '12 '
-  format error: internal error
-
-• NSDate natural language stuff in NSCalendarDate (why?), misspelled category name
-• NSCalendarDate natural language stuff behaves differently from NSDateFormatter (AM/PM has no effect, shouldn't they share code?)
-• descriptionWithCalendarFormat:, dateWithNaturalLanguageString: does not default to current locale, instead it defaults to US unless you tell it otherwise
-• NSDateFormatter doc class description gives two examples for natural language that are incorrect, no link to NSDate doc that describes exactly how natural language dates are parsed
-• NSTimeFormatString does not include %p when it should, meaning that AM/PM is stripped yet 12-hour time is still used
-• NSNextDayDesignations, NSNextNextDayDesignations are noted as 'a string' in NSUserDefaults docs, but maybe they are actually an array, or either an array or a string, given their names?
-• "Setting the Format for Dates" does not document how to get 1:15 AM, the answer is %1I - strftime has no exact equivalent; the closest is %l.  strftime does not permit numeric prefixes.  It also refers to "NSCalendar" when no such class exists.
-• none of many mentions of NSAMPMDesignation indicates that they include the leading spaces (" AM", " PM").  In "Setting the Format for Dates", needs to mention that the leading spaces are not included in %p with strftime.  But if you use the NSCalendarDate stuff, it appears %p doesn't include the space (because it doesn't use the locale dictionary).
-• If you feed NSCalendarDate dateWithNaturalLanguageString: an " AM"/" PM" locale, it doesn't accept that date format.
-• descriptions for %X and %x are reversed (time zone is in %X, not %x)
-• NSComboBox data source issues, can’t have it appear as “today” because the formatter doesn’t like that.  Should be able to enter text into the data source and have the formatter process it without altering it.
-• too hard to implement date-only or time-only formatters
-• should be able to specify that natural language favors date or time (10 = 10th of month, not 10am)
-• please expose the iCal controls!
-
-*/
-
 static NSString * const PSAlertsSelected = @"Pester alerts selected"; // NSUserDefaults key
 static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDefaults key
 
