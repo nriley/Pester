@@ -582,6 +582,32 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     if (control == timeInterval) [self update: timeInterval]; // make sure we still examine the field editor, otherwise if the existing numeric string is invalid, it'll be cleared
 }
 
+- (NSArray *)control:(NSControl *)control textView:(NSTextView *)textView completions:(NSArray *)words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(int *)idx;
+{
+    if (control != timeDate)
+	return nil;
+
+    NSString *partialMatch = [textView string];
+    unsigned partialLength = [partialMatch length];
+    NSMutableArray *completions = [[timeDateCompletions itemTitles] mutableCopy];
+    for (int i = [completions count] - 1 ; i >= 0 ; i--) {
+	NSString *completion = [completions objectAtIndex: i];
+	unsigned length = [completion length];
+	if (partialLength == 0) {
+	    if (length > 0)
+		continue;
+	} else if (length >= partialLength &&
+	    [partialMatch compare:
+	     [completion substringToIndex: partialLength] options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+	    continue;
+	}
+	
+	[completions removeObjectAtIndex: i];
+    }
+    NSLog(@"%@ %d %@", partialMatch, partialLength, completions);
+    return [completions autorelease];
+}
+
 @end
 
 @implementation PSAlarmSetController (NSWindowNotifications)
@@ -602,9 +628,11 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
 - (void)controlTextDidEndEditing:(NSNotification *)notification;
 {
-    if ([notification object] != timeOfDay)
-	return;
+    NSControl *control = [notification object];
 
+    if (control != timeOfDay)
+	return;
+    
     // if date is today and we've picked a time before now, set the date for tomorrow
     NSDate *dateTime = [NSCalendarDate dateWithDate: [timeDate objectValue] atTime: [timeOfDay objectValue]];
     if (dateTime == nil)
@@ -620,10 +648,54 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [self update: timeOfDay];
 }
 
+static BOOL completingTimeDate = NO;
+static NSString *lastTimeDateString = nil;
+
+- (void)controlTextDidBeginEditing:(NSNotification *)notification;
+{
+    NSControl *control = [notification object];
+    
+    if (control != timeOfDay)
+	return;
+    
+    [lastTimeDateString release];
+    lastTimeDateString = [[[[notification userInfo] objectForKey:@"NSFieldEditor"] string] copy];
+}
+
 - (void)controlTextDidChange:(NSNotification *)notification;
 {
     // NSLog(@"UPDATING FROM controlTextDidChange: %@", [notification object]);
+    if ([notification object] == timeDate) {
+	if (!completingTimeDate) {
+	    NSText *fieldEditor = [[notification userInfo] objectForKey:@"NSFieldEditor"];
+	    NSString *editingString = [fieldEditor string];
+	    if ([editingString length] > [lastTimeDateString length])
+		completingTimeDate = YES;
+	    [lastTimeDateString release];
+	    lastTimeDateString = [editingString copy];
+	    if (completingTimeDate) {
+		[fieldEditor complete: nil];
+		completingTimeDate = NO;
+	    }
+	}
+    }
     [self update: [notification object]];
+}
+
+// XXX need to override NSTextView; when completing with space or tab, we don't get a selector, which causes usability problems with tab and bugs with space
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector;
+{
+    if (control != timeDate)
+	return NO;
+    
+    if (commandSelector == @selector(moveDown:)) {
+	completingTimeDate = YES;
+	[textView complete: nil];
+	completingTimeDate = NO;
+	return YES;
+    }
+    
+    return NO;
 }
 
 @end
