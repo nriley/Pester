@@ -626,7 +626,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
 @end
 
-
 @implementation PSAlarmSetController (NSWindowNotifications)
 
 - (void)windowWillClose:(NSNotification *)notification;
@@ -663,53 +662,10 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [self update: timeOfDay];
 }
 
-static BOOL completingTimeDate = NO;
-static NSString *lastTimeDateString = nil;
-
-- (void)controlTextDidBeginEditing:(NSNotification *)notification;
-{
-    NSControl *control = [notification object];
-    
-    if (control != timeOfDay)
-	return;
-    
-    [lastTimeDateString release];
-    lastTimeDateString = [[[[notification userInfo] objectForKey:@"NSFieldEditor"] string] copy];
-}
-
 - (void)controlTextDidChange:(NSNotification *)notification;
 {
     // NSLog(@"UPDATING FROM controlTextDidChange: %@", [notification object]);
-    if ([notification object] == timeDate) {
-	if (!completingTimeDate) {
-	    NSText *fieldEditor = [[notification userInfo] objectForKey:@"NSFieldEditor"];
-	    NSString *editingString = [fieldEditor string];
-	    if ([editingString length] > [lastTimeDateString length])
-		completingTimeDate = YES;
-	    [lastTimeDateString release];
-	    lastTimeDateString = [editingString copy];
-	    if (completingTimeDate) {
-		[fieldEditor complete: nil];
-		completingTimeDate = NO;
-	    }
-	}
-    }
     [self update: [notification object]];
-}
-
-- (BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector;
-{
-    if (control != timeDate)
-	return NO;
-    
-    if (commandSelector == @selector(moveDown:)) {
-	completingTimeDate = YES;
-	[textView complete: nil];
-	completingTimeDate = NO;
-	return YES;
-    }
-    
-    return NO;
 }
 
 @end

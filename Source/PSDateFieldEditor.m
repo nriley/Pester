@@ -11,6 +11,24 @@
 
 @implementation PSDateFieldEditor
 
+- (void)insertText:(id)insertString;
+{
+    [super insertText: insertString];
+    [self complete: nil];
+    // XXX if we *do* successfully complete, need to delete remainder
+    // XXX example: in "today", select "t" then retype it
+}
+
+- (void)moveDown:(id)sender;
+{
+    [self deleteToEndOfLine: sender];
+    [self complete: sender];
+}
+
+@end
+
+@implementation PSDateFieldEditor (NSCompletion)
+
 - (NSRange)rangeForUserCompletion;
 {
     NSRange range = [super rangeForUserCompletion];
