@@ -53,13 +53,15 @@
 	    [format release];
         } else itemIndex++;
     }
-    if ([timeDateCompletions pullsDown]) // add a dummy first item, which gets consumed for the (obscured) title
-	[timeDateCompletions insertItemWithTitle: @"" atIndex: 0];
-    
+
     // set up completing field editor for date field
-    *dateFieldEditor = [[PSDateFieldEditor alloc] initWithCompletions: [timeDateCompletions itemTitles]];
+    completions = [[timeDateCompletions itemTitles] arrayByAddingObjectsFromArray: dayNames];
+    *dateFieldEditor = [[PSDateFieldEditor alloc] initWithCompletions: completions];
     [*dateFieldEditor setFieldEditor: YES];
     [*dateFieldEditor setDelegate: timeDate];
+
+    if ([timeDateCompletions pullsDown]) // add a dummy first item, which gets consumed for the (obscured) title
+	[timeDateCompletions insertItemWithTitle: @"" atIndex: 0];
 }
 
 @end
