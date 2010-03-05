@@ -236,7 +236,9 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
 - (IBAction)showCalendar:(NSButton *)sender;
 {
-    [PSCalendarController controllerWithDate: [NSCalendarDate dateForDay: [timeDate objectValue]] delegate: self];
+    NSCalendarDate *date = [NSCalendarDate dateForDay: [timeDate objectValue]];
+    [timeDate selectText: nil];
+    [PSCalendarController controllerWithDate: date delegate: self];
 }
 
 - (void)calendarController:(PSCalendarController *)calendar didSetDate:(NSCalendarDate *)date;
