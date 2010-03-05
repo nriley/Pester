@@ -194,12 +194,13 @@ noContext:
 - (NSSet *)selectedItems;
 {
     NSMutableSet *result = [NSMutableSet set];
-    NSEnumerator *e = [tableView selectedRowEnumerator];
-    NSNumber *rowNum;
+    NSIndexSet *selectedRowIndexes = [tableView selectedRowIndexes];
+    unsigned rowIndex = [selectedRowIndexes firstIndex];
 
-    while ( (rowNum = [e nextObject]) != nil) {
-        id item = [reorderedData objectAtIndex: [rowNum intValue]];
+    while (rowIndex != NSNotFound) {
+        id item = [reorderedData objectAtIndex: rowIndex];
         [result addObject: item];
+	rowIndex = [selectedRowIndexes indexGreaterThanIndex: rowIndex];
     }
     return result;
 }
@@ -207,19 +208,21 @@ noContext:
 - (void)selectItems:(NSSet *)inSelectedItems;
 {
     NSEnumerator *e = [inSelectedItems objectEnumerator];
+    NSMutableIndexSet *selectedRowIndexes = [[NSMutableIndexSet alloc] init];
     id item;
-    int savedLastRow = 0;
-
+    
     [tableView deselectAll: nil];
 
-    while ( (item = [e nextObject]) != nil ) {
-        int row = [reorderedData indexOfObjectIdenticalTo: item];
-        if (row != NSNotFound) {
-            [tableView selectRow: row byExtendingSelection: YES];
-            savedLastRow = row;
-        }
+    while ( (item = [e nextObject]) != nil) {
+        unsigned row = [reorderedData indexOfObjectIdenticalTo: item];
+        if (row == NSNotFound)
+	    continue;
+	
+	[selectedRowIndexes addIndex: row];
     }
-    [tableView scrollRowToVisible: savedLastRow];
+    
+    [tableView selectRowIndexes: selectedRowIndexes byExtendingSelection: YES];
+    [tableView scrollRowToVisible: [selectedRowIndexes lastIndex]];
 }
 
 @end
@@ -279,7 +282,7 @@ noContext:
         if (i >= rowCount) i = rowCount - 1;
     }
     // Now select row i -- either the one we found, or the first/last row if not found.
-    [aTableView selectRow: i byExtendingSelection: NO];
+    [aTableView selectRowIndexes: [NSIndexSet indexSetWithIndex: i] byExtendingSelection: NO];
     [aTableView scrollRowToVisible: i];
 }
 
