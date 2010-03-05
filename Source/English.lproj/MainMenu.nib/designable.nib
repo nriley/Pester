@@ -22,7 +22,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="29"/>
-			<integer value="2"/>
+			<integer value="507"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -946,38 +946,54 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 										<object class="NSArray" key="dict.sortedKeys">
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<string>allowsFloats</string>
-											<string>attributedStringForNil</string>
-											<string>attributedStringForNotANumber</string>
-											<string>attributedStringForZero</string>
+											<string>currencyCode</string>
+											<string>currencyDecimalSeparator</string>
+											<string>currencySymbol</string>
 											<string>decimalSeparator</string>
+											<string>exponentSymbol</string>
 											<string>formatterBehavior</string>
+											<string>generatesDecimalNumbers</string>
 											<string>groupingSeparator</string>
+											<string>internationalCurrencySymbol</string>
+											<string>lenient</string>
 											<string>maximum</string>
+											<string>maximumIntegerDigits</string>
 											<string>minimum</string>
+											<string>minimumIntegerDigits</string>
+											<string>minusSign</string>
 											<string>negativeFormat</string>
+											<string>negativePrefix</string>
+											<string>negativeSuffix</string>
+											<string>notANumberSymbol</string>
+											<string>numberStyle</string>
+											<string>paddingCharacter</string>
+											<string>perMillSymbol</string>
+											<string>percentSymbol</string>
+											<string>plusSign</string>
 											<string>positiveFormat</string>
+											<string>positivePrefix</string>
+											<string>positiveSuffix</string>
+											<string>roundingIncrement</string>
+											<string>roundingMode</string>
 											<string>textAttributesForZero</string>
 											<string>usesGroupingSeparator</string>
 											<string>zeroSymbol</string>
 										</object>
 										<object class="NSMutableArray" key="dict.values">
 											<bool key="EncodedWithXMLCoder">YES</bool>
-											<boolean value="YES"/>
-											<object class="NSAttributedString" id="510185294">
-												<string key="NSString"/>
-											</object>
-											<object class="NSAttributedString" id="562212912">
-												<string key="NSString">NaN</string>
-												<reference key="NSAttributes" ref="392930646"/>
-											</object>
-											<object class="NSAttributedString" id="424667492">
-												<string key="NSString">0</string>
-												<reference key="NSAttributes" ref="392930646"/>
-											</object>
+											<boolean value="NO"/>
+											<string>USD</string>
 											<string>.</string>
+											<string>$</string>
+											<string>.</string>
+											<string>E</string>
 											<integer value="1000"/>
+											<boolean value="NO"/>
 											<string>,</string>
+											<string>USD</string>
+											<boolean value="NO"/>
 											<real value="999"/>
+											<integer value="309"/>
 											<object class="NSDecimalNumberPlaceholder" id="950364851">
 												<int key="NS.exponent">0</int>
 												<int key="NS.length">1</int>
@@ -986,15 +1002,23 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 												<int key="NS.mantissa.bo">1</int>
 												<bytes key="NS.mantissa">AQAAAAAAAAAAAAAAAAAAAA</bytes>
 											</object>
+											<integer value="1"/>
+											<string>-</string>
 											<string>-0</string>
+											<string>-</string>
+											<string/>
+											<string>NaN</string>
+											<integer value="0"/>
+											<string>*</string>
+											<string>‰</string>
+											<string>%</string>
+											<string>+</string>
 											<string>0</string>
-											<object class="NSDictionary">
-												<bool key="EncodedWithXMLCoder">YES</bool>
-												<reference key="dict.sortedKeys" ref="0"/>
-												<object class="NSMutableArray" key="dict.values">
-													<bool key="EncodedWithXMLCoder">YES</bool>
-												</object>
-											</object>
+											<string/>
+											<string/>
+											<real value="0.0"/>
+											<integer value="4"/>
+											<reference ref="392930646"/>
 											<boolean value="NO"/>
 											<string>0</string>
 										</object>
@@ -1003,9 +1027,17 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 									<string key="NS.negativeformat">-0</string>
 									<nil key="NS.positiveattrs"/>
 									<nil key="NS.negativeattrs"/>
-									<reference key="NS.zero" ref="424667492"/>
-									<reference key="NS.nil" ref="510185294"/>
-									<reference key="NS.nan" ref="562212912"/>
+									<object class="NSAttributedString" key="NS.zero">
+										<string key="NSString">0</string>
+										<reference key="NSAttributes" ref="392930646"/>
+									</object>
+									<object class="NSAttributedString" key="NS.nil">
+										<string key="NSString"/>
+									</object>
+									<object class="NSAttributedString" key="NS.nan">
+										<string key="NSString">NaN</string>
+										<reference key="NSAttributes" ref="392930646"/>
+									</object>
 									<reference key="NS.min" ref="950364851"/>
 									<real value="999" key="NS.max"/>
 									<nil key="NS.rounding"/>
@@ -1013,7 +1045,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 									<string key="NS.thousand">,</string>
 									<bool key="NS.hasthousands">NO</bool>
 									<bool key="NS.localized">YES</bool>
-									<bool key="NS.allowsfloats">YES</bool>
+									<bool key="NS.allowsfloats">NO</bool>
 								</object>
 								<reference key="NSControlView" ref="144729810"/>
 								<bool key="NSDrawsBackground">YES</bool>
@@ -2975,9 +3007,9 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 							<reference ref="857979145"/>
 							<reference ref="936828339"/>
 							<reference ref="303003038"/>
-							<reference ref="277940014"/>
 							<reference ref="47393745"/>
 							<reference ref="137968487"/>
+							<reference ref="277940014"/>
 						</object>
 						<reference key="parent" ref="373330812"/>
 					</object>
@@ -3310,15 +3342,6 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 							<reference ref="193075042"/>
 						</object>
 						<reference key="parent" ref="716064016"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">631</int>
-						<reference key="object" ref="277940014"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="828075387"/>
-						</object>
-						<reference key="parent" ref="712890362"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">656</int>
@@ -3932,11 +3955,6 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<reference key="parent" ref="992371772"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">1589</int>
-						<reference key="object" ref="828075387"/>
-						<reference key="parent" ref="277940014"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">1590</int>
 						<reference key="object" ref="171016887"/>
 						<object class="NSMutableArray" key="children">
@@ -4061,6 +4079,20 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<int key="objectID">654</int>
 						<reference key="object" ref="265733868"/>
 						<reference key="parent" ref="235333610"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">631</int>
+						<reference key="object" ref="277940014"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="828075387"/>
+						</object>
+						<reference key="parent" ref="712890362"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1589</int>
+						<reference key="object" ref="828075387"/>
+						<reference key="parent" ref="277940014"/>
 					</object>
 				</object>
 			</object>
@@ -4244,6 +4276,8 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>246.ImportedFromIB2</string>
 					<string>256.ImportedFromIB2</string>
 					<string>267.CustomClassName</string>
+					<string>267.IBNumberFormatterBehaviorMetadataKey</string>
+					<string>267.IBNumberFormatterLocalizesFormatMetadataKey</string>
 					<string>267.IBPluginDependency</string>
 					<string>267.ImportedFromIB2</string>
 					<string>276.IBPluginDependency</string>
@@ -4308,6 +4342,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>524.ImportedFromIB2</string>
 					<string>525.IBPluginDependency</string>
 					<string>525.ImportedFromIB2</string>
+					<string>526.CustomClassName</string>
 					<string>526.IBPluginDependency</string>
 					<string>526.ImportedFromIB2</string>
 					<string>527.IBPluginDependency</string>
@@ -4332,6 +4367,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>631.IBAttributePlaceholdersKey</string>
 					<string>631.IBPluginDependency</string>
 					<string>631.ImportedFromIB2</string>
+					<string>640.IBEditorWindowLastContentRect</string>
 					<string>640.IBPluginDependency</string>
 					<string>640.ImportedFromIB2</string>
 					<string>642.IBPluginDependency</string>
@@ -4355,6 +4391,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>656.ImportedFromIB2</string>
 					<string>657.IBPluginDependency</string>
 					<string>657.ImportedFromIB2</string>
+					<string>658.IBEditorWindowLastContentRect</string>
 					<string>658.IBPluginDependency</string>
 					<string>658.ImportedFromIB2</string>
 					<string>664.IBPluginDependency</string>
@@ -4598,9 +4635,9 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{1, 570}, {442, 275}}</string>
+					<string>{{106, 476}, {442, 275}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{1, 570}, {442, 275}}</string>
+					<string>{{106, 476}, {442, 275}}</string>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
@@ -4638,6 +4675,8 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
 					<string>NJRIntegerFilter</string>
+					<integer value="1000"/>
+					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4737,6 +4776,7 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
+					<string>NJRIntegerFilter</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4753,7 +4793,7 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{11, 623}, {229, 203}}</string>
+					<string>{{12, 623}, {229, 203}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4768,6 +4808,7 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
+					<string>{{64, 101}, {148, 223}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4798,6 +4839,7 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
+					<string>{{212, 704}, {174, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4808,7 +4850,7 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
-					<string>{{74, 743}, {156, 83}}</string>
+					<string>{{75, 743}, {156, 83}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
