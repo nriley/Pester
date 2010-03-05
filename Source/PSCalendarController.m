@@ -35,7 +35,8 @@
             NSRect rect = [view convertRect: [view bounds] toView: nil];
             NSWindow *parentWindow = [view window];
             rect.origin = [parentWindow convertBaseToScreen: rect.origin];
-            rect.origin.x -= [window frame].size.width - rect.size.width;
+            rect.origin.x -= [window frame].size.width - rect.size.width + 1;
+	    rect.origin.y += 1;
             [window setFrameTopLeftPoint: rect.origin];
             NSRect visibleFrame = [[parentWindow screen] visibleFrame];
             if (!NSContainsRect(visibleFrame, [window frame])) {
@@ -46,7 +47,6 @@
         
         [window setOpaque: NO];
         [window setBackgroundColor: [NSColor colorWithCalibratedWhite: 0.81f alpha: 0.9f]];
-        [window setHasShadow: NO];
         [window setLevel: NSModalPanelWindowLevel];
         [NSApp runModalForWindow: window];
     }
