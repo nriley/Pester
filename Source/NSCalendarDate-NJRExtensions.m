@@ -20,6 +20,7 @@
 
 + (NSCalendarDate *)dateForDay:(NSDate *)date;
 {
+    if (date == nil) return nil;
     NSCalendarDate *calDate = [NSCalendarDate dateWithDate: date];
     return [NSCalendarDate dateWithYear: [calDate yearOfCommonEra]
                                   month: [calDate monthOfYear]
