@@ -81,7 +81,11 @@
             NSLocalizedString(@"%@ is not a valid entry for the %@ field.",
                               @"Message text for alert posed by text field when invalid value entered"),
             string, label];
-        alternateButtonString = nil;
+    } else if (string == nil) {
+	alertMessage = [NSString stringWithFormat:
+	    NSLocalizedString(@"You must type a number in the %@ field.",
+			      @"Message text for alert posed by text field when no value entered"),
+	    label];
     }
 
     if (proposedValue != nil) {

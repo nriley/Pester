@@ -561,6 +561,16 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     if (control == timeInterval) [self update: timeInterval]; // make sure we still examine the field editor, otherwise if the existing numeric string is invalid, it'll be cleared
 }
 
+- (BOOL)control:(NSControl *)control isValidObject:(id)obj;
+{
+    if (control == soundRepetitions && obj == nil) {
+	[soundRepetitions handleDidFailToFormatString: nil errorDescription: nil label: @"alert repetitions"];
+	return NO;
+    }
+
+    return YES;
+}
+
 @end
 
 @implementation PSAlarmSetController (NSWindowDelegate)
