@@ -25,16 +25,15 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     return [[[self alloc] initWithMovieFileAlias: anAlias repetitions: numReps] autorelease];
 }
 
-- (id)initWithMovieFileAlias:(BDAlias *)anAlias repetitions:(unsigned int) numReps;
+- (id)initWithMovieFileAlias:(BDAlias *)anAlias repetitions:(unsigned int)numReps;
 {
-    if ( (self = [super init]) != nil) {
+    if ( (self = [super initWithRepetitions: numReps]) != nil) {
         NSString *path = [anAlias fullPath];
         if (path == nil) {
             [self release];
             [NSException raise: PSAlertCreationException format: NSLocalizedString(@"Can't locate media to play as alert.", "Exception message on PSMovieAlert initialization when alias doesn't resolve")];
         }
         alias = [anAlias retain];
-        repetitions = numReps;
 	QTMovie *movie = [[QTMovie alloc] initWithFile: path error: NULL];
         if (movie == nil) {
             [self release];
