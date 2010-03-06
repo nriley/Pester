@@ -38,7 +38,7 @@
     NSString *alertMessage = nil;
     NSString *alternateButtonString = nil;
     NSNumber *proposedValue = nil;
-    NSDictionary *contextInfo;
+    NSDictionary *contextInfo = nil;
 
     NSString *alertInformation = [NSString localizedStringWithFormat:
         NSLocalizedString(@"The %@ field must be set to a value between %@ and %@.",
@@ -84,8 +84,10 @@
         alternateButtonString = nil;
     }
 
-    contextInfo = [NSDictionary dictionaryWithObject: proposedValue forKey: @"proposedValue"];
-    [contextInfo retain];
+    if (proposedValue != nil) {
+	contextInfo = [NSDictionary dictionaryWithObject: proposedValue forKey: @"proposedValue"];
+	[contextInfo retain];
+    }
     NSBeep();
     NSBeginAlertSheet(alertMessage, defaultButtonString, alternateButtonString, otherButtonString, [self window],
                       self, @selector(validationFailedSheetDidEnd:returnCode:contextInfo:), NULL, contextInfo,
