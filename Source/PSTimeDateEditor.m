@@ -30,6 +30,9 @@
     [timeDate setFormatter: dateFormatter];
     [timeDate setObjectValue: [NSDate date]];
 
+    if (![NJRDateFormatter naturalLanguageParsingAvailable])
+	return;
+
     // add completions
     NSArray *dayNames = [dateFormatter weekdaySymbols];
     NSArray *completions = [timeDateCompletions itemTitles];
