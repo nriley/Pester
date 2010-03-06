@@ -708,8 +708,10 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
             if (flags.targetWatchesCellDisplay) {
                 [[self target] calendarView:self willDisplayCell:dayOfMonthCell forDate:thisDay];
             } else {
-                if ((dayHighlightMask & (1 << cellIndex)) == 0) {
-                    textColor = (isVisibleMonth ? [NSColor blackColor] : [NSColor grayColor]);
+                if (!isVisibleMonth) {
+                    textColor = [NSColor grayColor];
+                } else if ((dayHighlightMask & (1 << cellIndex)) == 0) {
+                    textColor = [NSColor blackColor];
                 } else {
                     textColor = [NSColor blueColor];
                 }
