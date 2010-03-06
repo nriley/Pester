@@ -57,6 +57,12 @@ NSDate *parse_natural_language_date(NSString *input) {
     return date;
 }
 
+// Perl breaks backwards compatibility between 5.8.8 and 5.8.9 (libperl.dylib does not contain Perl_sys_init).
+// Use the 5.8.8 definition, which still seems to work fine with 5.8.9.
+// (This allows ParseDate to be compiled on 10.6 for 10.5.)
+#undef PERL_SYS_INIT
+#define PERL_SYS_INIT(c,v) MALLOC_CHECK_TAINT2(*c,*v) PERL_FPU_INIT MALLOC_INIT
+
 static void init_perl(void) {
     const char *argv[] = {"", "-CSD", "-I", "", "-MDate::Manip", "-e", "0"};
     argv[3] = [[[NSBundle mainBundle] resourcePath] fileSystemRepresentation];

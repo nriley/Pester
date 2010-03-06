@@ -1107,10 +1107,12 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 				);
+				PRELINK_LIBS = "\"$(SRCROOT)/DynaLoader-10.4.a\"";
 				PRODUCT_NAME = "ParseDate-10.4";
 			};
 			name = Debug;
@@ -1121,11 +1123,12 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EXECUTABLE_PREFIX = lib;
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 				);
-				PREBINDING = NO;
+				PRELINK_LIBS = "\"$(SRCROOT)/DynaLoader-10.4.a\"";
 				PRODUCT_NAME = "ParseDate-10.4";
 				SKIP_INSTALL = YES;
 			};
@@ -1138,10 +1141,12 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 				);
+				PRELINK_LIBS = "\"$(SRCROOT)/DynaLoader-10.5.a\"";
 				PRODUCT_NAME = "ParseDate-10.5";
 			};
 			name = Debug;
@@ -1152,11 +1157,12 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EXECUTABLE_PREFIX = lib;
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 				);
-				PREBINDING = NO;
+				PRELINK_LIBS = "\"$(SRCROOT)/DynaLoader-10.5.a\"";
 				PRODUCT_NAME = "ParseDate-10.5";
 				SKIP_INSTALL = YES;
 			};
