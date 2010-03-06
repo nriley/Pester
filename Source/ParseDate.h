@@ -8,4 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
+// returns [NSDate distantPast] if failed to initialize
 NSDate *(*parse_natural_language_date)(NSString *) = NULL;

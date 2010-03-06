@@ -95,6 +95,10 @@ static NSString *timeFormats[] = {
 	parse_natural_language_date = NULL;
 	return;
     }
+
+    if (parse_natural_language_date(nil) != nil) { // initialization failed
+	parse_natural_language_date = NULL;
+    }
 }
 
 + (NJRDateFormatter *)dateFormatter;

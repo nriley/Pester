@@ -31,8 +31,12 @@ static PerlInterpreter *my_perl;
 static NSDateFormatter *dateManipFormatter;
 
 NSDate *parse_natural_language_date(NSString *input) {
-    if (my_perl == NULL) return nil;
-    
+    if (my_perl == NULL)
+	return [NSDate distantPast];
+
+    if (input == nil)
+	return nil;
+
     if ([input rangeOfString: @"|"].length > 0) {
 	NSMutableString *sanitized = [[input mutableCopy] autorelease];
 	[sanitized replaceOccurrencesOfString: @"|" withString: @""
