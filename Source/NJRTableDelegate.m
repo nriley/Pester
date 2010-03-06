@@ -223,6 +223,7 @@ noContext:
     
     [tableView selectRowIndexes: selectedRowIndexes byExtendingSelection: YES];
     [tableView scrollRowToVisible: [selectedRowIndexes lastIndex]];
+    [selectedRowIndexes release];
 }
 
 @end
