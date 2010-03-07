@@ -83,8 +83,12 @@ static void init_perl(void) {
     PL_exit_flags |= PERL_EXIT_DESTRUCT_END;
     if (perl_run(my_perl) != 0) goto fail;
     
-    // XXX detect localization changes
-    eval_pv("Date_Init(\"Language=English\", \"DateFormat=non-US\", \"Internal=1\"", TRUE);
+    // XXX detect localization & time zone/DST changes
+    int gmtOffsetMinutes = ([[NSTimeZone defaultTimeZone] secondsFromGMT]) / 60;
+    NSString *temp = [[NSString alloc] initWithFormat: @"Date_Init(\"Language=English\", \"DateFormat=non-US\", \"Internal=1\", \"TZ=%c%02d:%02d\")", gmtOffsetMinutes < 0 ? '-' : '+', abs(gmtOffsetMinutes) / 60, abs(gmtOffsetMinutes) % 60];
+    SV *d = eval_pv([temp UTF8String], FALSE);
+    [temp release];
+    if (d == NULL) goto fail;
     
     if (parse_natural_language_date(@"tomorrow") == nil) goto fail;
     
