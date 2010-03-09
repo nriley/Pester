@@ -12,6 +12,8 @@
 
 @interface PSPreferencesController : NSWindowController {
     IBOutlet NJRHotKeyField *setAlarmHotKey;
+    IBOutlet NSPopUpButton *soundOutputDevice;
+    IBOutlet NSArrayController *soundOutputDevices;
     NSCharacterSet *textRejectSet;
     NSCharacterSet *commandRejectSet;
     NSCharacterSet *commandShiftRejectSet;
@@ -21,7 +23,8 @@
 + (void)readPreferences;
 
 - (IBAction)hotKeySet:(NJRHotKeyField *)sender;
+- (IBAction)soundOutputDeviceChanged:(id)sender;
 
-- (NSArray *)soundOutputDevices;
+- (NSArray *)allSoundOutputDevices;
 
 @end

@@ -13,8 +13,9 @@
 #import "NJRHotKeyManager.h"
 #import "NJRSoundDevice.h"
 
-// NSUserDefaults key
+// NSUserDefaults keys
 static NSString * const PSSetAlarmHotKey = @"Pester set alarm system-wide keyboard shortcut";
+static NSString * const PSSoundOutputDevice = @"Pester sound output device";
 
 // NJRHotKeyManager shortcut identifier
 static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
@@ -51,7 +52,7 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 
 #pragma mark sound output devices
 
-- (NSArray *)soundOutputDevices;
+- (NSArray *)allSoundOutputDevices;
 {
     // XXX update on change
     return [NJRSoundDevice allOutputDevices];
@@ -65,12 +66,23 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
     NJRHotKey *hotKey = [[NJRHotKey alloc] initWithPropertyList: [defaults dictionaryForKey: PSSetAlarmHotKey]];
     [setAlarmHotKey setHotKey: hotKey];
     [hotKey release];
+
+    NSString *outputDeviceName = [defaults objectForKey: PSSoundOutputDevice];
+    if (outputDeviceName == nil)
+	return;
+
+    NJRSoundDevice *outputDevice = [[soundOutputDevice itemWithTitle: outputDeviceName] representedObject];
+    if (outputDevice == nil)
+	return;
+    [soundOutputDevices setSelectedObjects: [NSArray arrayWithObject: outputDevice]];
 }
 
 - (void)writeToPrefs;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject: [[setAlarmHotKey hotKey] propertyListRepresentation] forKey: @"Pester set alarm system-wide keyboard shortcut"];
+    [defaults setObject: [[setAlarmHotKey hotKey] propertyListRepresentation] forKey: PSSetAlarmHotKey];
+    [defaults setObject: [[[soundOutputDevice selectedItem] representedObject] name] forKey: PSSoundOutputDevice];
+
     [defaults synchronize];
     [[self class] readPreferences];
 }
@@ -120,6 +132,11 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
     [self writeToPrefs];
 }
 
+- (IBAction)soundOutputDeviceChanged:(id)sender;
+{
+    [self writeToPrefs];
+}
+
 - (IBAction)showWindow:(id)sender;
 {
     [self readFromPrefs];
@@ -133,7 +150,7 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 - (BOOL)hotKeyField:(NJRHotKeyField *)hotKeyField shouldAcceptCharacter:(unichar)keyChar modifierFlags:(unsigned)modifierFlags rejectionMessage:(NSString **)message;
 {
     *message = nil;
-    
+
     if (modifierFlags == 0 || modifierFlags == NSShiftKeyMask || modifierFlags == NSAlternateKeyMask || modifierFlags == (NSShiftKeyMask | NSAlternateKeyMask)) {
         *message = modifierFlags == 0 ? @"key is reserved for typing text" :
                                         @"key combination is reserved for typing text";
