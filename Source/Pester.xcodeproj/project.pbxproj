@@ -14,6 +14,7 @@
 		E17562620CF8C50B00FC5057 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17562720CF8C53F00FC5057 /* Sparkle.framework in Copy Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E17562610CF8C50B00FC5057 /* Sparkle.framework */; };
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
+		E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
 		E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E18E822F113CC5C300687310 /* PSDateFieldEditor.m */; };
 		E1985796104F68EC0082AC3E /* ParseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CC53E0CFDE48C0079DCFC /* ParseDate.m */; };
 		E1985798104F68EC0082AC3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
@@ -225,6 +226,8 @@
 		E17F2F4503FDF67800050002 /* NSCalendarDate-OFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSCalendarDate-OFExtensions.m"; sourceTree = "<group>"; };
 		E17F2F4E03FDFB3100050002 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Calendar.nib; sourceTree = "<group>"; };
 		E17F2F6B03FDFE2C00050002 /* Calendar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Calendar.tiff; sourceTree = "<group>"; };
+		E18A26351145D41400E27A11 /* NJRSoundDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRSoundDevice.h; sourceTree = "<group>"; };
+		E18A26361145D41400E27A11 /* NJRSoundDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRSoundDevice.m; sourceTree = "<group>"; };
 		E18DA4080442C56D00050002 /* PSMediaAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMediaAlert.h; sourceTree = "<group>"; };
 		E18DA4090442C56D00050002 /* PSMediaAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMediaAlert.m; sourceTree = "<group>"; };
 		E18DAAEA0442CC3E00050002 /* NJRSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRSoundManager.h; sourceTree = "<group>"; };
@@ -651,6 +654,8 @@
 				E11373150439FCC700050002 /* NJRHotKey.m */,
 				E145383E043A1DB200050002 /* NJRHotKeyManager.h */,
 				E145383F043A1DB200050002 /* NJRHotKeyManager.m */,
+				E18A26351145D41400E27A11 /* NJRSoundDevice.h */,
+				E18A26361145D41400E27A11 /* NJRSoundDevice.m */,
 				E18DAAEA0442CC3E00050002 /* NJRSoundManager.h */,
 				E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */,
 				E1CDEC3D0444053F00AEEDB1 /* NJRNonCenteringWindow.h */,
@@ -955,6 +960,7 @@
 				E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */,
 				E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */,
 				E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */,
+				E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

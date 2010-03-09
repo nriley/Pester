@@ -7,16 +7,12 @@
 //
 
 #import "NJRSoundManager.h"
+#import "NJRSoundDevice.h"
 #import <CoreAudio/CoreAudio.h>
 
 @implementation NJRSoundManager
 
-static const UInt32 kLeftChannel = 0, kRightChannel = 1;
-
-static AudioDeviceID deviceID;
-static UInt32 stereoChannels[2];
-static float channelVolume[2];
-static float savedChannelVolume[2] = {-1, -1};
+NJRSoundDevice *defaultOutputDevice;
 
 + (BOOL)volumeIsNotMutedOrInvalid:(float)volume;
 {
@@ -25,79 +21,40 @@ static float savedChannelVolume[2] = {-1, -1};
 
 + (BOOL)_getDefaultOutputDevice;
 {
-    UInt32 propertySize;
-    OSStatus err;
-
-    propertySize = sizeof(deviceID);
-    err = AudioHardwareGetProperty(kAudioHardwarePropertyDefaultSystemOutputDevice, &propertySize, &deviceID);
-    if (err != noErr) return NO;
-
-    propertySize = sizeof(stereoChannels);
-    err = AudioDeviceGetProperty(deviceID, 0, false, kAudioDevicePropertyPreferredChannelsForStereo, &propertySize, &stereoChannels);
-    if (err != noErr) return NO;
-    return YES;
+    defaultOutputDevice = [NJRSoundDevice defaultOutputDevice];
+    
+    return (defaultOutputDevice != nil);
 }
 
 + (BOOL)getDefaultOutputVolume:(float *)volume;
 {
-    UInt32 propertySize;
-    OSStatus err;
-
     if (![self _getDefaultOutputDevice]) return NO;
     
-    // read the current volume scalar settings [0...1]
-    propertySize = sizeof(float);
-    err = AudioDeviceGetProperty(deviceID, stereoChannels[kLeftChannel], false, kAudioDevicePropertyVolumeScalar, &propertySize, &channelVolume[kLeftChannel]);
-    if (err != noErr) return NO;
-    err = AudioDeviceGetProperty(deviceID, stereoChannels[kRightChannel], false, kAudioDevicePropertyVolumeScalar, &propertySize, &channelVolume[kRightChannel]);
-    if (err != noErr) return NO;
-    if (volume != NULL) *volume = MAX(channelVolume[kLeftChannel], channelVolume[kRightChannel]);
-    return YES;
-}
-
-+ (void)_updateChannelVolume;
-{
-    UInt32 propertySize = sizeof(channelVolume[kLeftChannel]);
-    // ignore errors
-    AudioDeviceSetProperty(deviceID, NULL, stereoChannels[kLeftChannel], false, kAudioDevicePropertyVolumeScalar, propertySize, &channelVolume[kLeftChannel]);
-    AudioDeviceSetProperty(deviceID, NULL, stereoChannels[kRightChannel], false, kAudioDevicePropertyVolumeScalar, propertySize, &channelVolume[kRightChannel]);
+    return [defaultOutputDevice getOutputVolume: volume];
 }
 
 + (BOOL)saveDefaultOutputVolume;
 {
     if (![self getDefaultOutputVolume: NULL]) return NO;
-    savedChannelVolume[kLeftChannel] = channelVolume[kLeftChannel];
-    savedChannelVolume[kRightChannel] = channelVolume[kRightChannel];
-    // NSLog(@"saving channel volume {%f, %f}", channelVolume[kLeftChannel],channelVolume[kRightChannel]);
-    return YES;
+    
+    return [defaultOutputDevice saveOutputVolume];
 }
 
 + (void)setDefaultOutputVolume:(float)volume;
 {
     if (![self _getDefaultOutputDevice]) return;
 
-    channelVolume[kLeftChannel] = volume;
-    channelVolume[kRightChannel] = volume;
-    [self _updateChannelVolume];
+    [defaultOutputDevice setOutputVolume: volume];
 }
 
 + (void)restoreSavedDefaultOutputVolume;
 {
-    if (savedChannelVolume[kLeftChannel] < 0) return;
-    // NSLog(@"restoring saved channel volume");
-    channelVolume[kLeftChannel] = savedChannelVolume[kLeftChannel];
-    channelVolume[kRightChannel] = savedChannelVolume[kRightChannel];
-    savedChannelVolume[kLeftChannel] = -1;
-    savedChannelVolume[kRightChannel] = -1;
-    [self _updateChannelVolume];
+    [defaultOutputDevice restoreSavedOutputVolume];
 }
 
 + (void)restoreSavedDefaultOutputVolumeIfCurrently:(float)volume;
 {
-    float currentVolume;
-    if ([self getDefaultOutputVolume: &currentVolume] && abs(volume - currentVolume) < 0.05) {
-        [self restoreSavedDefaultOutputVolume];
-    }
+    [defaultOutputDevice restoreSavedOutputVolumeIfCurrently: volume];
 }
 
 @end
