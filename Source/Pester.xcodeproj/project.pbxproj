@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E121E9421146A14E0063E471 /* NJRArrayToObjectTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */; };
 		E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E12CBFD210CC310800159E88 /* NJRMenuSlider.m */; };
 		E14AFF2F11357B6100DC7922 /* Manip in Resources */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
 		E14AFF3011357B6500DC7922 /* Manip in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
@@ -183,6 +184,8 @@
 		E11373150439FCC700050002 /* NJRHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRHotKey.m; sourceTree = "<group>"; };
 		E11CB6E1043025F500050002 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Preferences.nib; sourceTree = "<group>"; };
 		E11DC3FF0D0A9A6D00CE8CCD /* NSWindowCollectionBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSWindowCollectionBehavior.h; sourceTree = "<group>"; };
+		E121E9401146A14E0063E471 /* NJRArrayToObjectTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRArrayToObjectTransformer.h; sourceTree = "<group>"; };
+		E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRArrayToObjectTransformer.m; sourceTree = "<group>"; };
 		E127900104429F9300050002 /* Volume 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Volume 2.png"; sourceTree = "<group>"; };
 		E127900204429F9300050002 /* Volume 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Volume 0.png"; sourceTree = "<group>"; };
 		E127900304429F9300050002 /* Volume 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Volume 3.png"; sourceTree = "<group>"; };
@@ -443,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
+				E17CA7B60CF7D07400018B34 /* Perl */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -491,7 +495,6 @@
 			children = (
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
-				E17CA7B60CF7D07400018B34 /* Perl */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -646,6 +649,8 @@
 				E1A18CB203B439CF00000028 /* PSPropertyListSerialization.h */,
 				E130B9AC03B7C59700000028 /* PSPowerManager.h */,
 				E130B9AD03B7C59700000028 /* PSPowerManager.m */,
+				E121E9401146A14E0063E471 /* NJRArrayToObjectTransformer.h */,
+				E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */,
 				F59DC6E90353F58B01AEEDB1 /* NJRIntegerFilter.h */,
 				F59DC6E80353F58B01AEEDB1 /* NJRIntegerFilter.m */,
 				F59DC6FC0354188F01AEEDB1 /* NJRDateFormatter.h */,
@@ -961,6 +966,7 @@
 				E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */,
 				E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */,
 				E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */,
+				E121E9421146A14E0063E471 /* NJRArrayToObjectTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

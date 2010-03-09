@@ -11,6 +11,7 @@
 #import "NJRHotKeyField.h"
 #import "NJRHotKey.h"
 #import "NJRHotKeyManager.h"
+#import "NJRSoundDevice.h"
 
 // NSUserDefaults key
 static NSString * const PSSetAlarmHotKey = @"Pester set alarm system-wide keyboard shortcut";
@@ -46,6 +47,14 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 - (void)update;
 {
     // perform any interface propagation that needs to be done
+}
+
+#pragma mark sound output devices
+
+- (NSArray *)soundOutputDevices;
+{
+    // XXX update on change
+    return [NJRSoundDevice allOutputDevices];
 }
 
 #pragma mark preferences I/O

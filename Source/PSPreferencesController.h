@@ -22,4 +22,6 @@
 
 - (IBAction)hotKeySet:(NJRHotKeyField *)sender;
 
+- (NSArray *)soundOutputDevices;
+
 @end
