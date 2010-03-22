@@ -16,4 +16,6 @@
 
 + (void)setUpTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions dateFieldEditor:(PSDateFieldEditor **)dateFieldEditor;
 
++ (void)updateDateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions fieldEditor:(PSDateFieldEditor **)dateFieldEditor;
+
 @end

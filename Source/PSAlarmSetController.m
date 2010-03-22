@@ -41,6 +41,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 - (BOOL)_setAlerts;
 - (void)_setVolume:(float)volume withPreview:(BOOL)preview;
 - (void)_stopUpdateTimer;
+- (void)_dateFormatsChanged:(NSNotification *)notification;
 
 @end
 
@@ -48,8 +49,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
 - (void)awakeFromNib;
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     alarm = [[PSAlarm alloc] init];
     [[self window] center];
     if ([[removeMessageButton image] size].width != 0)
@@ -60,6 +59,8 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
         [NJRSoundManager getDefaultOutputVolume: &volume];
         [self _setVolume: volume withPreview: NO];
     }
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [editAlert setState: [defaults boolForKey: PSAlertsEditing]];
     {
         NSDictionary *plAlerts = [defaults dictionaryForKey: PSAlertsSelected];
@@ -82,11 +83,16 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [self doSpeakChanged: nil];
     [self editAlertChanged: nil];
     [script setFileTypes: [NSArray arrayWithObjects: @"applescript", @"script", NSFileTypeForHFSTypeCode(kOSAFileType), NSFileTypeForHFSTypeCode('TEXT'), nil]];
+
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
     [notificationCenter addObserver: self selector: @selector(playSoundChanged:) name: NJRQTMediaPopUpButtonMovieChangedNotification object: sound];
     [notificationCenter addObserver: self selector: @selector(applicationWillHide:) name: NSApplicationWillHideNotification object: NSApp];
     [notificationCenter addObserver: self selector: @selector(applicationDidUnhide:) name: NSApplicationDidUnhideNotification object: NSApp];
     [notificationCenter addObserver: self selector: @selector(applicationWillTerminate:) name: NSApplicationWillTerminateNotification object: NSApp];
+
+    NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
+    [distributedNotificationCenter addObserver: self selector: @selector(_dateFormatsChanged:) name: @"AppleDatePreferencesChangedNotification" object: nil];
     [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
     [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
     
@@ -216,7 +222,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [timeIntervalRepeats setEnabled: isInterval];
     [timeOfDay setEnabled: !isInterval];
     [timeDate setEnabled: !isInterval];
-    [timeDateCompletions setEnabled: !isInterval && [NJRDateFormatter naturalLanguageParsingAvailable]];
+    [timeDateCompletions setEnabled: !isInterval && [timeDateCompletions numberOfItems] > 0];
     [timeCalendarButton setEnabled: !isInterval];
     if (sender != nil)
 	[[self window] makeFirstResponder: isInterval ? (NSTextField *)timeInterval : timeOfDay];
@@ -232,6 +238,21 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [self update: sender];
 }
 
+- (void)_localeChanged;
+{
+    [NJRDateFormatter timeZoneOrLocaleChanged];
+    [PSTimeDateEditor updateDateField: timeDate completions: timeDateCompletions fieldEditor: &dateFieldEditor];
+    [timeDateCompletions setEnabled: !isInterval && [timeDateCompletions numberOfItems] > 0];
+    
+    [self update: nil];
+}
+
+- (void)_dateFormatsChanged:(NSNotification *)notification;
+{
+    // XXX delay while NSLocale updates - can we use another notification instead?
+    // XXX 10.5+ has NSCurrentLocaleDidChangeNotification
+    [self performSelector: @selector(_localeChanged) withObject: nil afterDelay: 0.1];
+}
 #pragma mark calendar
 
 - (IBAction)showCalendar:(NSButton *)sender;

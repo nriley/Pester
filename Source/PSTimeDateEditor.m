@@ -30,35 +30,59 @@
     [timeDate setFormatter: dateFormatter];
     [timeDate setObjectValue: [NSDate date]];
 
+    [self updateDateField: timeDate completions: timeDateCompletions fieldEditor: dateFieldEditor];
+}
+
++ (void)updateDateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions fieldEditor:(PSDateFieldEditor **)dateFieldEditor;
+{
+    if (dateFieldEditor != NULL) {
+	[*dateFieldEditor release];
+	*dateFieldEditor = nil;
+    }
+
+    // get English language completions (once)
+    static NSArray *unlocalizedTitles = nil;
+    if (unlocalizedTitles == nil)
+	unlocalizedTitles = [[timeDateCompletions itemTitles] copy];
+    [timeDateCompletions removeAllItems];
+
     if (![NJRDateFormatter naturalLanguageParsingAvailable])
 	return;
 
-    // add completions
-    NSArray *dayNames = [dateFormatter weekdaySymbols];
-    NSArray *completions = [timeDateCompletions itemTitles];
-    NSEnumerator *e = [completions objectEnumerator];
+    // get localized names
+    NSArray *dayNames = [[timeDate formatter] weekdaySymbols];
+    NSDictionary *localizedCompletions = [NSDictionary dictionaryWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"DateCompletions" ofType: @"strings" inDirectory: nil forLocalization: [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode]]];
+
+    // apply localization
+    NSMenu *menu = [timeDateCompletions menu];
+    NSEnumerator *e = [unlocalizedTitles objectEnumerator];
     NSString *title;
-    int itemIndex = 0;
-    NSRange matchingRange;
     while ( (title = [e nextObject]) != nil) {
-        matchingRange = [title rangeOfString: @"«day»"];
+	NSString *completion = [localizedCompletions objectForKey: title];
+	if (completion == nil)
+	    completion = title;
+
+        NSRange matchingRange = [completion rangeOfString: @"«day»"];
         if (matchingRange.location != NSNotFound) {
-            NSMutableString *format = [title mutableCopy];
-            NSEnumerator *we = [dayNames objectEnumerator];
-            NSString *dayName;
+            NSMutableString *format = [completion mutableCopy];
             [format deleteCharactersInRange: matchingRange];
             [format insertString: @"%@" atIndex: matchingRange.location];
-            [timeDateCompletions removeItemAtIndex: itemIndex];
-            while ( (dayName = [we nextObject]) != nil) {
-                [timeDateCompletions insertItemWithTitle: [NSString stringWithFormat: format, dayName] atIndex: itemIndex];
-                itemIndex++;
+
+	    NSEnumerator *we = [dayNames objectEnumerator];
+            NSString *dayName;
+	    while ( (dayName = [we nextObject]) != nil) {
+                [timeDateCompletions addItemWithTitle: [NSString stringWithFormat: format, dayName]];
             }
 	    [format release];
-        } else itemIndex++;
+        } else if ([title isEqualToString: @""]) {
+	    [menu addItem: [NSMenuItem separatorItem]];
+	} else {
+	    [timeDateCompletions addItemWithTitle: completion];
+	}
     }
 
     // set up completing field editor for date field
-    completions = [[timeDateCompletions itemTitles] arrayByAddingObjectsFromArray: dayNames];
+    NSArray *completions = [[timeDateCompletions itemTitles] arrayByAddingObjectsFromArray: dayNames];
     *dateFieldEditor = [[PSDateFieldEditor alloc] initWithCompletions: completions];
     [*dateFieldEditor setFieldEditor: YES];
     [*dateFieldEditor setDelegate: timeDate];

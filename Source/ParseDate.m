@@ -29,9 +29,10 @@ xs_init(pTHX)
 
 static PerlInterpreter *my_perl;
 static NSDateFormatter *dateManipFormatter;
+static BOOL parser_OK = NO;
 
 NSDate *parse_natural_language_date(NSString *input) {
-    if (my_perl == NULL)
+    if (my_perl == NULL || !parser_OK)
 	return [NSDate distantPast];
 
     if (input == nil)
@@ -61,6 +62,56 @@ NSDate *parse_natural_language_date(NSString *input) {
     return date;
 }
 
+void init_date_parser(void) {
+    if (my_perl == NULL) return;
+
+    parser_OK = NO;
+
+    NSString *localeLanguageCode = [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode];
+    char *language = NULL;
+    if ([localeLanguageCode isEqualToString: @"en"])
+	language = "English";
+    else if ([localeLanguageCode isEqualToString: @"fr"])
+	language = "French";
+    else if ([localeLanguageCode isEqualToString: @"sv"])
+	language = "Swedish";
+    else if ([localeLanguageCode isEqualToString: @"de"])
+	language = "German";
+    else if ([localeLanguageCode isEqualToString: @"pl"])
+	language = "Polish";
+    else if ([localeLanguageCode isEqualToString: @"nl"])
+	language = "Dutch";
+    else if ([localeLanguageCode isEqualToString: @"es"])
+	language = "Spanish";
+    else if ([localeLanguageCode isEqualToString: @"pt"])
+	language = "Portuguese";
+    else if ([localeLanguageCode isEqualToString: @"ro"])
+	language = "Romanian";
+    else if ([localeLanguageCode isEqualToString: @"it"])
+	language = "Italian";
+    else if ([localeLanguageCode isEqualToString: @"ru"])
+	language = "Russian";
+    else if ([localeLanguageCode isEqualToString: @"tr"])
+	language = "Turkish";
+    else if ([localeLanguageCode isEqualToString: @"da"])
+	language = "Danish";
+    else if ([localeLanguageCode isEqualToString: @"ca"])
+	language = "Catalan";
+    else
+	return;
+
+    int gmtOffsetMinutes = ([[NSTimeZone defaultTimeZone] secondsFromGMT]) / 60;
+    NSString *temp = [[NSString alloc] initWithFormat: @"Date_Init(\"Language=%s\", \"DateFormat=non-US\", \"Internal=1\", \"TZ=%c%02d:%02d\")", language, gmtOffsetMinutes < 0 ? '-' : '+', abs(gmtOffsetMinutes) / 60, abs(gmtOffsetMinutes) % 60];
+    SV *d = eval_pv([temp UTF8String], FALSE);
+    [temp release];
+    if (d == NULL) return;
+
+    // XXX test date needs to be format-independent (try ISO 8601)
+    if (parse_natural_language_date(@"20100322t134821") == nil) return;
+
+    parser_OK = YES;
+}
+
 // Perl breaks backwards compatibility between 5.8.8 and 5.8.9.
 // (libperl.dylib does not contain Perl_sys_init or Perl_sys_term.)
 // Use the 5.8.8 definitions, which still seems to work fine with 5.8.9.
@@ -76,24 +127,16 @@ static void init_perl(void) {
     PERL_SYS_INIT(0, NULL);
     my_perl = perl_alloc();
     if (my_perl == NULL) return;
-    
+
     perl_construct(my_perl);
     if (perl_parse(my_perl, xs_init, 7, (char **)argv, NULL) != 0) goto fail;
-    
+
     PL_exit_flags |= PERL_EXIT_DESTRUCT_END;
     if (perl_run(my_perl) != 0) goto fail;
-    
-    // XXX detect localization & time zone/DST changes
-    int gmtOffsetMinutes = ([[NSTimeZone defaultTimeZone] secondsFromGMT]) / 60;
-    NSString *temp = [[NSString alloc] initWithFormat: @"Date_Init(\"Language=English\", \"DateFormat=non-US\", \"Internal=1\", \"TZ=%c%02d:%02d\")", gmtOffsetMinutes < 0 ? '-' : '+', abs(gmtOffsetMinutes) / 60, abs(gmtOffsetMinutes) % 60];
-    SV *d = eval_pv([temp UTF8String], FALSE);
-    [temp release];
-    if (d == NULL) goto fail;
-    
-    if (parse_natural_language_date(@"tomorrow") == nil) goto fail;
-    
+
+    init_date_parser(); // even if it fails, may try again later
     return;
-    
+
 fail:
     perl_destruct(my_perl);
     perl_free(my_perl);

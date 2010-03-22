@@ -96,8 +96,10 @@ static NSString *timeFormats[] = {
 	return;
     }
 
-    if (parse_natural_language_date(nil) != nil) { // initialization failed
-	parse_natural_language_date = NULL;
+    init_date_parser = dlsym(lib, "init_date_parser");
+    if ( (libError = dlerror()) != NULL) {
+	NSLog(@"failed to look up init_date_parser in %@: %s", libPath, libError);
+	init_date_parser = NULL;
     }
 }
 
@@ -231,6 +233,15 @@ success:
 
 + (BOOL)naturalLanguageParsingAvailable;
 {
-    return (parse_natural_language_date != NULL);
+    return (parse_natural_language_date != NULL && parse_natural_language_date(nil) == nil);
 }
+
++ (void)timeZoneOrLocaleChanged;
+{
+    if (init_date_parser == NULL)
+	return;
+
+    init_date_parser();
+}
+
 @end

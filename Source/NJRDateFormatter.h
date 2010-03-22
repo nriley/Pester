@@ -17,4 +17,6 @@
 + (NJRDateFormatter *)dateFormatter;
 + (NJRDateFormatter *)timeFormatter;
 
++ (void)timeZoneOrLocaleChanged;
+
 @end
