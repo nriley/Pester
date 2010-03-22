@@ -3509,8 +3509,6 @@ sub Date_TimeZone {
     $in->close;
   }
   
-  print STDERR "Found time zones: @tz\n";
-
   # Now parse each one to find the first valid one.
   foreach $tz (@tz) {
     $tz =~ s/\s*$//;
