@@ -42,6 +42,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 - (void)_setVolume:(float)volume withPreview:(BOOL)preview;
 - (void)_stopUpdateTimer;
 - (void)_dateFormatsChanged:(NSNotification *)notification;
+- (void)_timeZoneChanged:(NSNotification *)notification;
 
 @end
 
@@ -93,6 +94,8 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 
     NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
     [distributedNotificationCenter addObserver: self selector: @selector(_dateFormatsChanged:) name: @"AppleDatePreferencesChangedNotification" object: nil];
+    [distributedNotificationCenter addObserver: self selector: @selector(_timeZoneChanged:) name: @"NSSystemTimeZoneDidChangeDistributedNotification" object: nil];
+
     [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
     [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
     
@@ -253,6 +256,14 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     // XXX 10.5+ has NSCurrentLocaleDidChangeNotification
     [self performSelector: @selector(_localeChanged) withObject: nil afterDelay: 0.1];
 }
+
+- (void)_timeZoneChanged:(NSNotification *)notification;
+{
+    [NJRDateFormatter timeZoneOrLocaleChanged];
+
+    [self update: nil];
+}
+
 #pragma mark calendar
 
 - (IBAction)showCalendar:(NSButton *)sender;

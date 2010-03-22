@@ -42,6 +42,7 @@
            }
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(alarmsChanged) name: PSAlarmsDidChangeNotification object: alarms];
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(tableViewSelectionDidChange:) name: NSTableViewSelectionDidChangeNotification object: alarmList];
+        [[NSDistributedNotificationCenter defaultCenter] addObserver: alarmList selector: @selector(reloadData) name: @"NSSystemTimeZoneDidChangeDistributedNotification" object: nil];
         messageAttributes = [[NSDictionary alloc] initWithObjectsAndKeys: [[[alarmList tableColumnWithIdentifier: @"message"] dataCell] font], NSFontAttributeName, nil];
         [alarmList setAutosaveName: @"Alarm list"];
         [alarmList setAutosaveTableColumns: YES];
@@ -54,6 +55,8 @@
 
 - (void)dealloc;
 {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+    [[NSDistributedNotificationCenter defaultCenter] removeObserver: alarmList];
     [reorderedAlarms release];
     [messageAttributes release];
     [super dealloc];
