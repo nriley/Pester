@@ -6519,6 +6519,8 @@ sub _Date_Init_Spanish {
   my($d)=@_;
   my(%h)=();
   _Char_8Bit(\%h);
+  my($a) = $h{"a'"};
+  my($e) = $h{"e'"};
 
   $$d{"month_name"}=
     [["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto",
@@ -6529,7 +6531,9 @@ sub _Date_Init_Spanish {
       "Nov","Dic"]];
 
   $$d{"day_name"}=
-    [["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"]];
+    [["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"],
+     ["Lunes","Martes","Mi${e}rcoles","Jueves","Viernes","S${a}bado","Domingo"],
+  ];
   $$d{"day_abb"}=
     [["Lun","Mar","Mie","Jue","Vie","Sab","Dom"]];
   $$d{"day_char"}=
@@ -6624,7 +6628,7 @@ sub _Date_Init_Portuguese {
 
   $$d{"day_name"}=
     [["Segunda","Terca","Quarta","Quinta","Sexta","Sabado","Domingo"],
-     ["Segunda","Ter${c}a","Quarta","Quinta","Sexta","S${a}bado","Domingo"]];
+     ["Segunda-feira","Ter${c}a-feira","Quarta-feira","Quinta-feira","Sexta-feira","S${a}bado","Domingo"]];
   $$d{"day_abb"}=
     [["Seg","Ter","Qua","Qui","Sex","Sab","Dom"],
      ["Seg","Ter","Qua","Qui","Sex","S${a}b","Dom"]];
