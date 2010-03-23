@@ -10,7 +10,7 @@
 #import "PSAlarm.h"
 
 @class PSAlarmNotifierController;
-@class PSDateFieldEditor;
+@class PSTimeDateEditor;
 
 @interface PSSnoozeUntilController : NSWindowController {
     IBOutlet NSTextField *messageField;
@@ -19,8 +19,8 @@
     IBOutlet NSPopUpButton *timeDateCompletions; // XXX should go away when bug preventing both formatters and popup menus from existing is fixed
     IBOutlet NSButton *timeCalendarButton;
     IBOutlet NSButton *snoozeButton;
-    PSDateFieldEditor *dateFieldEditor;
     NSTimeInterval snoozeInterval;
+    PSTimeDateEditor *timeDateEditor;
     PSAlarm *alarm; // not a real alarm, used for date<->interval conversion
 }
 

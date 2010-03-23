@@ -10,30 +10,67 @@
 #import "NJRDateFormatter.h"
 #import "PSDateFieldEditor.h"
 
+@interface PSTimeDateEditor (Private)
+- (void)_update;
+- (void)_dateFormatsChanged:(NSNotification *)notification;
+- (void)_timeZoneChanged:(NSNotification *)notification;
+@end
+
+@interface NSObject (PSTimeDateController)
+- (IBAction)update:(id)sender;
+@end
+
 @implementation PSTimeDateEditor
 
-+ (void)setUpTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions dateFieldEditor:(PSDateFieldEditor **)dateFieldEditor;
-{
-    [NSDateFormatter setDefaultFormatterBehavior: NSDateFormatterBehavior10_4];
-    static NSDateFormatter *timeFormatter = nil, *dateFormatter = nil;
-    if (timeFormatter == nil) {
-        timeFormatter = [[NJRDateFormatter timeFormatter] retain];
-	[timeFormatter setLenient: YES];
-	[timeFormatter setDateStyle: NSDateFormatterNoStyle];
-	[timeFormatter setTimeStyle: NSDateFormatterShortStyle];
-	dateFormatter = [[NJRDateFormatter dateFormatter] retain];
-	[dateFormatter setLenient: YES];
-	[dateFormatter setDateStyle: NSDateFormatterLongStyle];
-	[dateFormatter setTimeStyle: NSDateFormatterNoStyle];
-    }
-    [timeOfDay setFormatter: timeFormatter];
-    [timeDate setFormatter: dateFormatter];
-    [timeDate setObjectValue: [NSDate date]];
+// XXX instantiate from IB (use outlets rather than many-argument constructor); eliminate redundancy between PSAlarmSetController and PSSnoozeUntilController (e.g. popup calendar)
 
-    [self updateTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions dateFieldEditor: dateFieldEditor];
+- (id)initWithTimeField:(NSTextField *)timeField dateField:(NSTextField *)dateField completions:(NSPopUpButton *)completions controller:(id)obj;
+{
+    if ( (self = [super init]) != nil) {
+	timeOfDay = timeField;
+	timeDate = dateField;
+	timeDateCompletions = completions;
+	controller = obj;
+	
+	[NSDateFormatter setDefaultFormatterBehavior: NSDateFormatterBehavior10_4];
+
+	static NSDateFormatter *timeFormatter = nil, *dateFormatter = nil;
+	if (timeFormatter == nil) {
+	    timeFormatter = [[NJRDateFormatter timeFormatter] retain];
+	    [timeFormatter setLenient: YES];
+	    [timeFormatter setDateStyle: NSDateFormatterNoStyle];
+	    [timeFormatter setTimeStyle: NSDateFormatterShortStyle];
+	    dateFormatter = [[NJRDateFormatter dateFormatter] retain];
+	    [dateFormatter setLenient: YES];
+	    [dateFormatter setDateStyle: NSDateFormatterLongStyle];
+	    [dateFormatter setTimeStyle: NSDateFormatterNoStyle];
+	}
+	[timeOfDay setFormatter: timeFormatter];
+	[timeDate setFormatter: dateFormatter];
+	[timeDate setObjectValue: [NSDate date]];
+
+	NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
+	[distributedNotificationCenter addObserver: self selector: @selector(_dateFormatsChanged:) name: @"AppleDatePreferencesChangedNotification" object: nil];
+	[distributedNotificationCenter addObserver: self selector: @selector(_timeZoneChanged:) name: @"NSSystemTimeZoneDidChangeDistributedNotification" object: nil];
+	
+	[self _update];
+    }
+    return self;
 }
 
-+ (void)updateTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions dateFieldEditor:(PSDateFieldEditor **)dateFieldEditor;
+- (void)dealloc;
+{
+    [[NSDistributedNotificationCenter defaultCenter] removeObserver: self];
+    [dateFieldEditor release];
+    [super dealloc];
+}
+
+- (PSDateFieldEditor *)dateFieldEditor;
+{
+    return dateFieldEditor;
+}
+
+- (void)_update;
 {
     NSTextField *editingField = nil;
     if ([timeOfDay currentEditor] != nil)
@@ -45,10 +82,8 @@
 	[editingField performSelector: @selector(becomeFirstResponder) withObject: nil afterDelay: 0];
     }
 
-    if (dateFieldEditor != NULL) {
-	[*dateFieldEditor release];
-	*dateFieldEditor = nil;
-    }
+    [dateFieldEditor release];
+    dateFieldEditor = nil;
 
     // get English language completions (once)
     static NSArray *unlocalizedTitles = nil;
@@ -98,12 +133,36 @@
 
     // set up completing field editor for date field
     NSArray *completions = [[timeDateCompletions itemTitles] arrayByAddingObjectsFromArray: dayNames];
-    *dateFieldEditor = [[PSDateFieldEditor alloc] initWithCompletions: completions];
-    [*dateFieldEditor setFieldEditor: YES];
-    [*dateFieldEditor setDelegate: timeDate];
+    dateFieldEditor = [[PSDateFieldEditor alloc] initWithCompletions: completions];
+    [dateFieldEditor setFieldEditor: YES];
+    [dateFieldEditor setDelegate: timeDate];
 
     if ([timeDateCompletions pullsDown]) // add a dummy first item, which gets consumed for the (obscured) title
 	[timeDateCompletions insertItemWithTitle: @"" atIndex: 0];
 }
+
+- (void)_localeChanged;
+{
+    [NJRDateFormatter timeZoneOrLocaleChanged];
+    [self _update];
+    [timeDateCompletions setEnabled: [timeDate isEnabled] && [timeDateCompletions numberOfItems] > 0];
+    
+    [controller update: nil];
+}
+
+- (void)_dateFormatsChanged:(NSNotification *)notification;
+{
+    // XXX delay while NSLocale updates - can we use another notification instead?
+    // XXX 10.5+ has NSCurrentLocaleDidChangeNotification
+    [self performSelector: @selector(_localeChanged) withObject: nil afterDelay: 0.1];
+}
+
+- (void)_timeZoneChanged:(NSNotification *)notification;
+{
+    [NJRDateFormatter timeZoneOrLocaleChanged];
+
+    [controller update: nil];
+}
+
 
 @end

@@ -41,8 +41,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 - (BOOL)_setAlerts;
 - (void)_setVolume:(float)volume withPreview:(BOOL)preview;
 - (void)_stopUpdateTimer;
-- (void)_dateFormatsChanged:(NSNotification *)notification;
-- (void)_timeZoneChanged:(NSNotification *)notification;
 
 @end
 
@@ -54,7 +52,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [[self window] center];
     if ([[removeMessageButton image] size].width != 0)
 	[removeMessageButton setTitle: @""];
-    [PSTimeDateEditor setUpTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions dateFieldEditor: &dateFieldEditor];
+    timeDateEditor = [[PSTimeDateEditor alloc] initWithTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions controller: self];
     { // volume defaults, usually overridden by restored alert info
         float volume = 0.5f;
         [NJRSoundManager getDefaultOutputVolume: &volume];
@@ -91,10 +89,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
     [notificationCenter addObserver: self selector: @selector(applicationWillHide:) name: NSApplicationWillHideNotification object: NSApp];
     [notificationCenter addObserver: self selector: @selector(applicationDidUnhide:) name: NSApplicationDidUnhideNotification object: NSApp];
     [notificationCenter addObserver: self selector: @selector(applicationWillTerminate:) name: NSApplicationWillTerminateNotification object: NSApp];
-
-    NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
-    [distributedNotificationCenter addObserver: self selector: @selector(_dateFormatsChanged:) name: @"AppleDatePreferencesChangedNotification" object: nil];
-    [distributedNotificationCenter addObserver: self selector: @selector(_timeZoneChanged:) name: @"NSSystemTimeZoneDidChangeDistributedNotification" object: nil];
 
     [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
     [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
@@ -239,29 +233,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 {
     [timeDate setStringValue: [sender titleOfSelectedItem]];
     [self update: sender];
-}
-
-- (void)_localeChanged;
-{
-    [NJRDateFormatter timeZoneOrLocaleChanged];
-    [PSTimeDateEditor updateTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions dateFieldEditor: &dateFieldEditor];
-    [timeDateCompletions setEnabled: !isInterval && [timeDateCompletions numberOfItems] > 0];
-    
-    [self update: nil];
-}
-
-- (void)_dateFormatsChanged:(NSNotification *)notification;
-{
-    // XXX delay while NSLocale updates - can we use another notification instead?
-    // XXX 10.5+ has NSCurrentLocaleDidChangeNotification
-    [self performSelector: @selector(_localeChanged) withObject: nil afterDelay: 0.1];
-}
-
-- (void)_timeZoneChanged:(NSNotification *)notification;
-{
-    [NJRDateFormatter timeZoneOrLocaleChanged];
-
-    [self update: nil];
 }
 
 #pragma mark calendar
@@ -610,7 +581,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 - (id)windowWillReturnFieldEditor:(NSWindow *)sender toObject:(id)client;
 {
     if (client == timeDate)
-	return dateFieldEditor;
+	return [timeDateEditor dateFieldEditor];
 
     return nil;
 }

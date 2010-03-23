@@ -11,11 +11,15 @@
 @class PSDateFieldEditor;
 
 @interface PSTimeDateEditor : NSObject {
-
+    NSTextField *timeOfDay;
+    NSTextField *timeDate;
+    NSPopUpButton *timeDateCompletions;
+    PSDateFieldEditor *dateFieldEditor;
+    id controller;
 }
 
-+ (void)setUpTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions dateFieldEditor:(PSDateFieldEditor **)dateFieldEditor;
+- (id)initWithTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions controller:(id)controller;
 
-+ (void)updateTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions dateFieldEditor:(PSDateFieldEditor **)dateFieldEditor;
+- (PSDateFieldEditor *)dateFieldEditor;
 
 @end
