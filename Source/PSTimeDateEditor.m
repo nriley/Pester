@@ -98,6 +98,9 @@
     NSArray *dayNames = [[timeDate formatter] weekdaySymbols];
     NSDictionary *localizedCompletions = [NSDictionary dictionaryWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"DateCompletions" ofType: @"strings" inDirectory: nil forLocalization: [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode]]];
 
+    if (localizedCompletions == nil)
+	return;
+
     // apply localization
     NSMenu *menu = [timeDateCompletions menu];
     NSEnumerator *e = [unlocalizedTitles objectEnumerator];
@@ -109,9 +112,7 @@
 	}
 
 	NSString *completion;
-	if (localizedCompletions == nil)
-	    completion = title;
-	else if ( (completion = [localizedCompletions objectForKey: title]) == nil)
+	if ( (completion = [localizedCompletions objectForKey: title]) == nil)
 	    continue;
 
         NSRange matchingRange = [completion rangeOfString: @"«day»"];
