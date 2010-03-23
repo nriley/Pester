@@ -244,7 +244,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDef
 - (void)_localeChanged;
 {
     [NJRDateFormatter timeZoneOrLocaleChanged];
-    [PSTimeDateEditor updateDateField: timeDate completions: timeDateCompletions fieldEditor: &dateFieldEditor];
+    [PSTimeDateEditor updateTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions dateFieldEditor: &dateFieldEditor];
     [timeDateCompletions setEnabled: !isInterval && [timeDateCompletions numberOfItems] > 0];
     
     [self update: nil];

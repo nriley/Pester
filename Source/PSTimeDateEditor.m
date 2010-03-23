@@ -30,11 +30,21 @@
     [timeDate setFormatter: dateFormatter];
     [timeDate setObjectValue: [NSDate date]];
 
-    [self updateDateField: timeDate completions: timeDateCompletions fieldEditor: dateFieldEditor];
+    [self updateTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions dateFieldEditor: dateFieldEditor];
 }
 
-+ (void)updateDateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions fieldEditor:(PSDateFieldEditor **)dateFieldEditor;
++ (void)updateTimeField:(NSTextField *)timeOfDay dateField:(NSTextField *)timeDate completions:(NSPopUpButton *)timeDateCompletions dateFieldEditor:(PSDateFieldEditor **)dateFieldEditor;
 {
+    NSTextField *editingField = nil;
+    if ([timeOfDay currentEditor] != nil)
+	editingField = timeOfDay;
+    if ([timeDate currentEditor] != nil)
+	editingField = timeDate;
+    if (editingField != nil) {
+	[editingField abortEditing];
+	[editingField performSelector: @selector(becomeFirstResponder) withObject: nil afterDelay: 0];
+    }
+
     if (dateFieldEditor != NULL) {
 	[*dateFieldEditor release];
 	*dateFieldEditor = nil;
