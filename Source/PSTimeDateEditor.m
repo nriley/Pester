@@ -98,42 +98,46 @@
     NSArray *dayNames = [[timeDate formatter] weekdaySymbols];
     NSDictionary *localizedCompletions = [NSDictionary dictionaryWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"DateCompletions" ofType: @"strings" inDirectory: nil forLocalization: [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode]]];
 
-    if (localizedCompletions == nil)
-	return;
-
     // apply localization
-    NSMenu *menu = [timeDateCompletions menu];
-    NSEnumerator *e = [unlocalizedTitles objectEnumerator];
-    NSString *title;
-    while ( (title = [e nextObject]) != nil) {
-	if ([title isEqualToString: @""]) {
-	    [menu addItem: [NSMenuItem separatorItem]];
-	    continue;
+    NSArray *completions;
+    if (localizedCompletions == nil) {
+	// if we've got nothing else, just use the day names
+	[timeDateCompletions addItemsWithTitles: dayNames];
+	completions = dayNames;
+    } else {
+	NSMenu *menu = [timeDateCompletions menu];
+	NSEnumerator *e = [unlocalizedTitles objectEnumerator];
+	NSString *title;
+	while ( (title = [e nextObject]) != nil) {
+	    if ([title isEqualToString: @""]) {
+		[menu addItem: [NSMenuItem separatorItem]];
+		continue;
+	    }
+
+	    NSString *completion;
+	    if ( (completion = [localizedCompletions objectForKey: title]) == nil)
+		continue;
+
+	    NSRange matchingRange = [completion rangeOfString: @"«day»"];
+	    if (matchingRange.location != NSNotFound) {
+		NSMutableString *format = [completion mutableCopy];
+		[format deleteCharactersInRange: matchingRange];
+		[format insertString: @"%@" atIndex: matchingRange.location];
+
+		NSEnumerator *we = [dayNames objectEnumerator];
+		NSString *dayName;
+		while ( (dayName = [we nextObject]) != nil) {
+		    [timeDateCompletions addItemWithTitle: [NSString stringWithFormat: format, dayName]];
+		}
+		[format release];
+	    } else {
+		[timeDateCompletions addItemWithTitle: completion];
+	    }
 	}
-
-	NSString *completion;
-	if ( (completion = [localizedCompletions objectForKey: title]) == nil)
-	    continue;
-
-        NSRange matchingRange = [completion rangeOfString: @"«day»"];
-        if (matchingRange.location != NSNotFound) {
-            NSMutableString *format = [completion mutableCopy];
-            [format deleteCharactersInRange: matchingRange];
-            [format insertString: @"%@" atIndex: matchingRange.location];
-
-	    NSEnumerator *we = [dayNames objectEnumerator];
-            NSString *dayName;
-	    while ( (dayName = [we nextObject]) != nil) {
-                [timeDateCompletions addItemWithTitle: [NSString stringWithFormat: format, dayName]];
-            }
-	    [format release];
-        } else {
-	    [timeDateCompletions addItemWithTitle: completion];
-	}
+	completions = [[timeDateCompletions itemTitles] arrayByAddingObjectsFromArray: dayNames];
     }
 
     // set up completing field editor for date field
-    NSArray *completions = [[timeDateCompletions itemTitles] arrayByAddingObjectsFromArray: dayNames];
     dateFieldEditor = [[PSDateFieldEditor alloc] initWithCompletions: completions];
     [dateFieldEditor setFieldEditor: YES];
     [dateFieldEditor setDelegate: timeDate];
