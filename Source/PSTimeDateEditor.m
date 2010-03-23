@@ -58,9 +58,16 @@
     NSEnumerator *e = [unlocalizedTitles objectEnumerator];
     NSString *title;
     while ( (title = [e nextObject]) != nil) {
-	NSString *completion = [localizedCompletions objectForKey: title];
-	if (completion == nil)
+	if ([title isEqualToString: @""]) {
+	    [menu addItem: [NSMenuItem separatorItem]];
+	    continue;
+	}
+
+	NSString *completion;
+	if (localizedCompletions == nil)
 	    completion = title;
+	else if ( (completion = [localizedCompletions objectForKey: title]) == nil)
+	    continue;
 
         NSRange matchingRange = [completion rangeOfString: @"«day»"];
         if (matchingRange.location != NSNotFound) {
@@ -74,9 +81,7 @@
                 [timeDateCompletions addItemWithTitle: [NSString stringWithFormat: format, dayName]];
             }
 	    [format release];
-        } else if ([title isEqualToString: @""]) {
-	    [menu addItem: [NSMenuItem separatorItem]];
-	} else {
+        } else {
 	    [timeDateCompletions addItemWithTitle: completion];
 	}
     }
