@@ -104,9 +104,9 @@ void init_date_parser(void) {
 	return;
 
     parserEncoding = CFStringConvertEncodingToNSStringEncoding(stringEncoding);
-    NSLog(@"NSStringEncoding for CFStringEncoding '%@', language '%s'",
-	  (NSString *)CFStringConvertEncodingToIANACharSetName(stringEncoding), language);
     if (parserEncoding == kCFStringEncodingInvalidId) {
+	NSLog(@"failed to get NSStringEncoding for CFStringEncoding '%@', language '%s'",
+	      (NSString *)CFStringConvertEncodingToIANACharSetName(stringEncoding), language);
 	return;
     }
 
@@ -125,7 +125,6 @@ void init_date_parser(void) {
     [temp release];
     if (d == NULL) return;
 
-    // XXX test date needs to be format-independent (try ISO 8601)
     if (parse_natural_language_date(@"20100322t134821") == nil) return;
 
     parser_OK = YES;
