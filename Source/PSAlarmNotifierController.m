@@ -40,7 +40,7 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
             [self setSnoozeInterval: 15 * 60]; // 15 minutes
         if ([alarm isRepeating]) {
             [intervalField setStringValue:
-                [NSString stringWithFormat: @"every %@", [[alarm intervalString] lowercaseString]]];
+                [NSString stringWithFormat: @"every %@", [alarm repeatIntervalString]]];
             [self updateNextDateDisplay: nil];
             updateTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(updateNextDateDisplay:) userInfo: nil repeats: YES];
             frameRect.size = [window maxSize];

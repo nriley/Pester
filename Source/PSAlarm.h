@@ -63,6 +63,7 @@ extern NSString * const PSAlarmDiedNotification;
 - (NSString *)dateTimeString; // current or next alarm time
 - (NSString *)nextDateTimeString; // next alarm time
 - (NSString *)intervalString;
+- (NSString *)repeatIntervalString;
 - (NSString *)timeRemainingString;
 
 - (BOOL)isValid;

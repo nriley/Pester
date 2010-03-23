@@ -370,6 +370,18 @@ static NSDate *midnightOnDate(NSDate *date) {
     return [self _stringForInterval: interval];
 }
 
+- (NSString *)repeatIntervalString;
+{
+    if (!repeating)
+	return nil;
+    
+    NSString *intervalString = [self intervalString];
+    if ([intervalString hasPrefix: @"One "])
+	return [intervalString substringFromIndex: 4];
+    
+    return intervalString;
+}
+
 - (NSString *)timeRemainingString;
 {
     NSString *timeRemainingString = [self _stringForInterval: llround([self timeRemaining])];
