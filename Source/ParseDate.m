@@ -100,8 +100,17 @@ void init_date_parser(void) {
     else
 	return;
 
+    // Date::Manip uses "US" to mean month/day and "non-US" to mean day/month.
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle: NSDateFormatterShortStyle];
+    BOOL isUS = [[dateFormatter dateFormat] characterAtIndex: 0] == 'M';
+    [dateFormatter release];
+
     int gmtOffsetMinutes = ([[NSTimeZone defaultTimeZone] secondsFromGMT]) / 60;
-    NSString *temp = [[NSString alloc] initWithFormat: @"Date_Init(\"Language=%s\", \"DateFormat=non-US\", \"Internal=1\", \"TZ=%c%02d:%02d\")", language, gmtOffsetMinutes < 0 ? '-' : '+', abs(gmtOffsetMinutes) / 60, abs(gmtOffsetMinutes) % 60];
+    NSString *temp = [[NSString alloc] initWithFormat:
+	  @"Date_Init(\"Language=%s\", \"DateFormat=%s\", \"Internal=1\", \"TZ=%c%02d:%02d\")",
+	  language, isUS ? "US" : "non-US",
+	  gmtOffsetMinutes < 0 ? '-' : '+', abs(gmtOffsetMinutes) / 60, abs(gmtOffsetMinutes) % 60];
     SV *d = eval_pv([temp UTF8String], FALSE);
     [temp release];
     if (d == NULL) return;
