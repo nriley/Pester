@@ -31,8 +31,6 @@
 {
     [super insertText: insertString];
     [self complete: nil];
-    // XXX if we *do* successfully complete, need to delete remainder
-    // XXX example: in "today", select "t" then retype it
 }
 
 - (void)moveDown:(id)sender;
@@ -82,6 +80,9 @@
     if (movement == NSRightTextMovement)
 	flag = NO;
 	
+    if (!flag)
+	[self deleteToEndOfLine: nil];
+
     [super insertCompletion:word forPartialWordRange:charRange movement:movement isFinal:flag];
 
     if (movement == NSTabTextMovement)
