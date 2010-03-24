@@ -41,6 +41,8 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
             [(PSApplication *)NSApp performSelector: @selector(orderFrontPreferencesPanel:) withObject: self afterDelay: 0.1];
         }
     }
+
+    [NJRSoundDevice setDefaultOutputDeviceByUID: [defaults objectForKey: PSSoundOutputDevice]];
 }
 
 #pragma mark interface updating
@@ -67,11 +69,7 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
     [setAlarmHotKey setHotKey: hotKey];
     [hotKey release];
 
-    NSString *outputDeviceName = [defaults objectForKey: PSSoundOutputDevice];
-    if (outputDeviceName == nil)
-	return;
-
-    NJRSoundDevice *outputDevice = [[soundOutputDevice itemWithTitle: outputDeviceName] representedObject];
+    NJRSoundDevice *outputDevice = [NJRSoundDevice setDefaultOutputDeviceByUID: [defaults objectForKey: PSSoundOutputDevice]];
     if (outputDevice == nil)
 	return;
     [soundOutputDevices setSelectedObjects: [NSArray arrayWithObject: outputDevice]];
@@ -81,7 +79,7 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject: [[setAlarmHotKey hotKey] propertyListRepresentation] forKey: PSSetAlarmHotKey];
-    [defaults setObject: [[[soundOutputDevice selectedItem] representedObject] name] forKey: PSSoundOutputDevice];
+    [defaults setObject: [[[soundOutputDevice selectedItem] representedObject] uid] forKey: PSSoundOutputDevice];
 
     [defaults synchronize];
     [[self class] readPreferences];

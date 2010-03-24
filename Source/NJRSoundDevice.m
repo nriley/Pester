@@ -7,12 +7,12 @@
 //
 
 #import "NJRSoundDevice.h"
-#import <CoreAudio/CoreAudio.h>
 
 static const UInt32 kLeftChannel = 0, kRightChannel = 1;
 
 static NSMutableArray *allOutputDevices;
 static NSMutableDictionary *devicesByID;
+static NJRSoundDevice *defaultOutputDevice;
 
 @implementation NJRSoundDevice
 
@@ -70,6 +70,14 @@ static NSMutableDictionary *devicesByID;
 	return nil;
     }
 
+    // get device UID
+    propertyAddress.mSelector = kAudioDevicePropertyDeviceUID;
+    err = AudioObjectGetPropertyData(deviceID, &propertyAddress, 0, NULL, &propertySize, &uid);
+    if (err != noErr) {
+	[self release];
+	return nil;
+    }
+
     // get stereo channel IDs (so we can try to set their volume)
     propertyAddress.mSelector = kAudioDevicePropertyPreferredChannelsForStereo;
     propertyAddress.mScope = kAudioDevicePropertyScopeOutput;
@@ -106,6 +114,11 @@ static NSMutableDictionary *devicesByID;
 - (NSString *)name;
 {
     return name;
+}
+
+- (NSString *)uid;
+{
+    return uid;
 }
 
 - (BOOL)canSetVolume;
@@ -159,6 +172,14 @@ static NSMutableDictionary *devicesByID;
 
 + (NJRSoundDevice *)defaultOutputDevice;
 {
+    if (defaultOutputDevice != nil) {
+	// check for device disappearance - XXX move somewhere else?
+	if ([devicesByID objectForKey: [NSNumber numberWithUnsignedInt: defaultOutputDevice->deviceID]] == defaultOutputDevice)
+	    return defaultOutputDevice;
+	[defaultOutputDevice release];
+	defaultOutputDevice = nil;
+    }
+
     UInt32 propertySize;
     OSStatus err;
     AudioDeviceID deviceID;
@@ -176,6 +197,47 @@ static NSMutableDictionary *devicesByID;
 	return nil;
     
     return [devicesByID objectForKey: [NSNumber numberWithUnsignedInt: deviceID]];
+}
+
++ (NJRSoundDevice *)setDefaultOutputDeviceByUID:(NSString *)uid;
+{
+    if ([[defaultOutputDevice uid] isEqualToString: uid])
+	return defaultOutputDevice;
+
+    [defaultOutputDevice release];
+    defaultOutputDevice = nil;
+
+    UInt32 propertySize;
+    OSStatus err;
+    AudioDeviceID deviceID;
+    AudioValueTranslation translation = { &uid, sizeof(uid), &deviceID, sizeof(deviceID) };
+
+    if (devicesByID == nil)
+	[self allOutputDevices];
+
+    AudioObjectPropertyAddress propertyAddress = {
+	kAudioHardwarePropertyDeviceForUID,
+	kAudioObjectPropertyScopeGlobal,
+	kAudioObjectPropertyElementMaster };
+    propertySize = sizeof(translation);
+    err = AudioObjectGetPropertyData(kAudioObjectSystemObject, &propertyAddress, 0, NULL, &propertySize, &translation);
+    if (err != noErr)
+	return nil;
+
+    defaultOutputDevice = [[devicesByID objectForKey: [NSNumber numberWithUnsignedInt: deviceID]] retain];
+
+    return defaultOutputDevice;
+}
+
+- (QTAudioContextRef)quickTimeAudioContext;
+{
+    QTAudioContextRef audioContext;
+    OSStatus err = QTAudioContextCreateForAudioDevice(kCFAllocatorDefault, (CFStringRef)uid, NULL, &audioContext);
+
+    if (err != noErr)
+	return NULL;
+
+    return (QTAudioContextRef)[(id)audioContext autorelease];
 }
 
 - (BOOL)getOutputVolume:(float *)volume;
