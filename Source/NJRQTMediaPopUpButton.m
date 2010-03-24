@@ -8,10 +8,12 @@
 
 #import "NJRQTMediaPopUpButton.h"
 #import "NJRFSObjectSelector.h"
+#import "NJRSoundDevice.h"
 #import "NJRSoundManager.h"
 #import "QTMovie-NJRExtensions.h"
 #import "NSMenuItem-NJRExtensions.h"
 
+#include <QuickTime/QuickTime.h>
 #include <limits.h>
 
 static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
@@ -337,6 +339,9 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     } else {
 	[[preview movie] setVolume: outputVolume];
     }
+
+    SetMovieAudioContext([[preview movie] quickTimeMovie],
+			 [[NJRSoundDevice defaultOutputDevice] quickTimeAudioContext]);
 
     if ([[preview movie] rate] != 0)
 	return; // don't restart preview if already playing
