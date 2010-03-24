@@ -206,6 +206,9 @@ static NJRSoundDevice *defaultOutputDevice;
     [defaultOutputDevice release];
     defaultOutputDevice = nil;
 
+    if (uid == nil)
+	return nil;
+
     UInt32 propertySize;
     OSStatus err;
     AudioDeviceID deviceID;
