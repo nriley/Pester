@@ -47,7 +47,7 @@
 - (IBAction)stopAlerts:(id)sender;
 {
     [PSAlarmAlertController stopAlerts: sender];
-}	
+}
 
 - (IBAction)orderFrontSetAlarmPanel:(id)sender;
 {
@@ -85,7 +85,7 @@
 
 - (IBAction)orderFrontPreferencesPanel:(id)sender;
 {
-    if (!preferencesController)  {
+    if (preferencesController == nil) {
         preferencesController = [[PSPreferencesController alloc] init];
     }
     [preferencesController showWindow: self];
