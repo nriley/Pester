@@ -16,7 +16,7 @@ NSString * const PSAlarmImportException = @"PSAlarmImportException";
 NSString * const PSAlarmsDidChangeNotification = @"PSAlarmsDidChangeNotification";
 NSString * const PSAlarmsNextAlarmDidChangeNotification = @"PSAlarmsNextAlarmDidChangeNotification";
 
-// NSUserDefaults key
+// NSUserDefaults keys
 static NSString * const PSPendingAlarms = @"Pester pending alarms"; // 1.0 Ð 1.1a3
 static NSString * const PSAllAlarms = @"Pester alarms"; // 1.1a4 Ð 
 

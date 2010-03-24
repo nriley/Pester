@@ -32,8 +32,9 @@
 #import "PSSpeechAlert.h"
 #import "PSWakeAlert.h"
 
-static NSString * const PSAlertsSelected = @"Pester alerts selected"; // NSUserDefaults key
-static NSString * const PSAlertsEditing = @"Pester alerts editing"; // NSUserDefaults key
+// NSUserDefaults keys
+static NSString * const PSAlertsSelected = @"Pester alerts selected";
+static NSString * const PSAlertsEditing = @"Pester alerts editing";
 
 @interface PSAlarmSetController (Private)
 

@@ -9,8 +9,7 @@
 #import "NJRSoundManager.h"
 #import "NJRSoundDevice.h"
 
-// NSUserDefaults key
-static NSString * const PSSoundOutputOverrideVolume = @"PesterSoundOutputOverrideVolume";
+static NSString * const PSSoundOutputOverrideVolume = @"PesterSoundOutputOverrideVolume"; // NSUserDefaults key
 
 @implementation NJRSoundManager
 
