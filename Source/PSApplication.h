@@ -27,6 +27,8 @@
 - (IBAction)orderFrontPreferencesPanel:(id)sender;
 - (IBAction)stopAlerts:(id)sender;
 
+- (void)orderFrontSetAlarmPanelIfPreferencesNotKey:(id)sender;
+
 - (void)orderOutSetAlarmPanelIfHidden;
 
 @end

@@ -65,6 +65,15 @@
     [alarmSetController showWindow: self];
 }
 
+- (void)orderFrontSetAlarmPanelIfPreferencesNotKey:(id)sender;
+{
+    if ([self isActive] && preferencesController != nil && [[preferencesController window] isKeyWindow])
+	return;
+
+    [self orderFrontSetAlarmPanel: sender];
+}
+
+
 - (IBAction)orderFrontAlarmsPanel:(id)sender;
 {
     [NSApp activateIgnoringOtherApps: YES];
