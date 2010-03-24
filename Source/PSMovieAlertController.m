@@ -11,6 +11,9 @@
 #import "PSMovieAlert.h"
 #import "QTMovie-NJRExtensions.h"
 #import "NJRSoundManager.h"
+#import "NJRSoundDevice.h"
+
+#include <QuickTime/QuickTime.h>
 
 @implementation PSMovieAlertController
 
@@ -97,6 +100,8 @@
         repetitions = [alert repetitions];
         if ([movie NJR_hasAudio] && [NJRSoundManager volumeIsNotMutedOrInvalid: [alert outputVolume]] && [NJRSoundManager saveDefaultOutputVolume]) {
             [NJRSoundManager setDefaultOutputVolume: [alert outputVolume]];
+	    SetMovieAudioContext([movie quickTimeMovie],
+				 [[NJRSoundDevice defaultOutputDevice] quickTimeAudioContext]);
         }
         if (![movie NJR_isStatic]) [self play]; // if it's an image, don't close the window automatically
     }
