@@ -123,7 +123,6 @@ static NJRSoundDevice *defaultOutputDevice;
 
 - (BOOL)canSetVolume;
 {
-    NSLog(@"canSetVolume: %d", canSetVolume);
     return canSetVolume;
 }
 
