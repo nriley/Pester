@@ -128,14 +128,14 @@
 						<object class="NSTextField" id="17459719">
 							<reference key="NSNextResponder" ref="179271081"/>
 							<int key="NSvFlags">256</int>
-							<string key="NSFrame">{{20, 118}, {323, 13}}</string>
+							<string key="NSFrame">{{17, 118}, {326, 13}}</string>
 							<reference key="NSSuperview" ref="179271081"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="208649364">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">138412032</int>
 								<string key="NSContents">Pester must be running to respond to this keyboard equivalent.</string>
-								<object class="NSFont" key="NSSupport">
+								<object class="NSFont" key="NSSupport" id="690411705">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">10</double>
 									<int key="NSfFlags">2843</int>
@@ -289,6 +289,31 @@
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">200</int>
 								<int key="NSPeriodicInterval">25</int>
+							</object>
+						</object>
+						<object class="NSTextField" id="143206457">
+							<reference key="NSNextResponder" ref="179271081"/>
+							<int key="NSvFlags">256</int>
+							<string key="NSFrame">{{17, 48}, {326, 22}}</string>
+							<reference key="NSSuperview" ref="179271081"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSTextFieldCell" key="NSCell" id="259985314">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">138412032</int>
+								<string key="NSContents">Speech and alert sounds are not directed to this device.</string>
+								<reference key="NSSupport" ref="690411705"/>
+								<reference key="NSControlView" ref="143206457"/>
+								<bool key="NSDrawsBackground">YES</bool>
+								<object class="NSColor" key="NSBackgroundColor">
+									<int key="NSColorSpace">6</int>
+									<string key="NSCatalogName">System</string>
+									<string key="NSColorName">windowBackgroundColor</string>
+									<object class="NSColor" key="NSColor">
+										<int key="NSColorSpace">3</int>
+										<bytes key="NSWhite">MC41AA</bytes>
+									</object>
+								</object>
+								<reference key="NSTextColor" ref="457419280"/>
 							</object>
 						</object>
 					</object>
@@ -656,6 +681,7 @@
 							<reference ref="151588821"/>
 							<reference ref="622076658"/>
 							<reference ref="777469895"/>
+							<reference ref="143206457"/>
 						</object>
 						<reference key="parent" ref="147916377"/>
 					</object>
@@ -801,6 +827,20 @@
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Sound Output Devices</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">196</int>
+						<reference key="object" ref="143206457"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="259985314"/>
+						</object>
+						<reference key="parent" ref="179271081"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">197</int>
+						<reference key="object" ref="259985314"/>
+						<reference key="parent" ref="143206457"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -811,6 +851,9 @@
 					<string>-3.ImportedFromIB2</string>
 					<string>10.IBPluginDependency</string>
 					<string>10.ImportedFromIB2</string>
+					<string>196.IBPluginDependency</string>
+					<string>196.ImportedFromIB2</string>
+					<string>197.IBPluginDependency</string>
 					<string>23.IBPluginDependency</string>
 					<string>23.ImportedFromIB2</string>
 					<string>25.IBPluginDependency</string>
@@ -853,6 +896,9 @@
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -906,7 +952,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">195</int>
+			<int key="maxID">197</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
