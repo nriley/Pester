@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E10D3066115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D3065115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m */; };
 		E121E9421146A14E0063E471 /* NJRArrayToObjectTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */; };
 		E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E12CBFD210CC310800159E88 /* NJRMenuSlider.m */; };
 		E14AFF2F11357B6100DC7922 /* Manip in Resources */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
@@ -178,6 +179,8 @@
 		29B97319FDCFA39411CA2CEA /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		E10D3064115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-PerformWhenIdle.h"; sourceTree = "<group>"; };
+		E10D3065115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject-PerformWhenIdle.m"; sourceTree = "<group>"; };
 		E10F2A3C0402E61C00050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = "en.lproj/Read Me.nib"; sourceTree = "<group>"; };
 		E10F2A3E0402E71400050002 /* NJRReadMeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRReadMeController.h; sourceTree = "<group>"; };
 		E10F2A3F0402E71400050002 /* NJRReadMeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRReadMeController.m; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 				E162698403B6189000000028 /* NSTableView-NJRExtensions.h */,
 				E1B121950CF62FD1004975AA /* NSMenuItem-NJRExtensions.h */,
 				E1B121960CF62FD1004975AA /* NSMenuItem-NJRExtensions.m */,
+				E10D3064115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.h */,
+				E10D3065115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m */,
 				E11DC3FF0D0A9A6D00CE8CCD /* NSWindowCollectionBehavior.h */,
 			);
 			name = Categories;
@@ -984,6 +989,7 @@
 				E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */,
 				E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */,
 				E121E9421146A14E0063E471 /* NJRArrayToObjectTransformer.m in Sources */,
+				E10D3066115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
