@@ -9,15 +9,20 @@
 #import "NJRSoundManager.h"
 #import "NJRSoundDevice.h"
 
+// NSUserDefaults key
+static NSString * const PSSoundOutputOverrideVolume = @"PesterSoundOutputOverrideVolume";
+
 @implementation NJRSoundManager
 
++ (BOOL)shouldOverrideOutputVolume;
+{
+    return ([NJRSoundDevice defaultOutputDevice] != nil &&
+	    [[NSUserDefaults standardUserDefaults] boolForKey: PSSoundOutputOverrideVolume]);
+}
 
 + (BOOL)volumeIsNotMutedOrInvalid:(float)volume;
 {
     return (volume > 0 && volume <= 1);
-}
-
-{
 }
 
 + (BOOL)getDefaultOutputVolume:(float *)volume;

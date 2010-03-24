@@ -13,6 +13,8 @@
 
 }
 
++ (BOOL)shouldOverrideOutputVolume;
+
 + (BOOL)getDefaultOutputVolume:(float *)volume;
 + (void)setDefaultOutputVolume:(float)volume;
 + (BOOL)volumeIsNotMutedOrInvalid:(float)volume;

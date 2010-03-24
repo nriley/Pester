@@ -329,9 +329,13 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     if ([preview movie] == nil || outputVolume == kNoVolume)
 	return;
 
-    if (savedVolume || [NJRSoundManager saveDefaultOutputVolume]) {
-        savedVolume = YES;
-        [NJRSoundManager setDefaultOutputVolume: outputVolume];
+    if ([NJRSoundManager shouldOverrideOutputVolume]) {
+	if (savedVolume || [NJRSoundManager saveDefaultOutputVolume]) {
+	    savedVolume = YES;
+	    [NJRSoundManager setDefaultOutputVolume: outputVolume];
+	}
+    } else {
+	[[preview movie] setVolume: outputVolume];
     }
 
     if ([[preview movie] rate] != 0)
@@ -357,7 +361,8 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (void)_resetOutputVolume;
 {
-    [NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: outputVolume];
+    if ([NJRSoundManager shouldOverrideOutputVolume])
+	[NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: outputVolume];
     savedVolume = NO;
 }
 

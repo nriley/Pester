@@ -26,7 +26,8 @@
 - (void)close;
 {
     [super close];
-    [NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: [alert outputVolume]];
+    if ([NJRSoundManager shouldOverrideOutputVolume])
+	[NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: [alert outputVolume]];
 }
 
 - (void)_movieRateDidChange:(NSNotification *)notification;
@@ -98,8 +99,12 @@
         }
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(close) name: PSAlarmAlertStopNotification object: nil];
         repetitions = [alert repetitions];
-        if ([movie NJR_hasAudio] && [NJRSoundManager volumeIsNotMutedOrInvalid: [alert outputVolume]] && [NJRSoundManager saveDefaultOutputVolume]) {
-            [NJRSoundManager setDefaultOutputVolume: [alert outputVolume]];
+        if ([movie NJR_hasAudio] && [NJRSoundManager volumeIsNotMutedOrInvalid: [alert outputVolume]]) {
+	    if ([NJRSoundManager shouldOverrideOutputVolume] && [NJRSoundManager saveDefaultOutputVolume])
+		[NJRSoundManager setDefaultOutputVolume: [alert outputVolume]];
+	    else
+		[movie setVolume: [alert outputVolume]];
+
 	    SetMovieAudioContext([movie quickTimeMovie],
 				 [[NJRSoundDevice defaultOutputDevice] quickTimeAudioContext]);
         }
