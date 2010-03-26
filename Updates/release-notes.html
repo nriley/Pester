@@ -10,8 +10,20 @@
 
 <body>
 <table>
-	<tr><th>Pester 1.1 beta 8 (25)</th></tr>
+	<tr><th>Pester 1.1 beta 8 (31)</th></tr>
 	<tr><td><ul>
+	    <li>Added customizable alert sounds—the most requested feature. It uses QuickTime, so you're welcome to pick a movie or even a bitmap or PDF to use as well.</li>
+	    <li>Added selectable sound output device (in Preferences) and adjust relative volume for alert sounds. (Note: Pester doesn't yet respond to audio devices being connected/disconnected while it is running, although you should always get audio output <em>somewhere</em>.)</li>
+	    <li>Baseline, ICU-based support for non-natural language dates and times is much more robust (for example, simply “20” or “8p” works to specify 8:00 PM).</li>
+	    <li>Support natural-language dates in non-English languages via <tt>Date::Manip</tt>. I uncovered some bugs here, which the author of <tt>Date::Manip</tt> is working on fixing, but Catalan, Danish, Dutch, French, German, Polish and Russian should work fine. The date popup is limited to the days of the week, for now.</li>
+	    <li>Optionally wait until you stop typing or moving the mouse to display a message. This is quite helpful so you don't start typing into the Snooze box when you want to be typing into another document.  The feature is disabled by default; enable it in Preferences.</li>
+	    <li>Handle time zone changes, many more time zones, and more reliably determine the time zone.</li>
+	    <li>Autocomplete common natural-language dates.</li>
+	    <li>Simplify tab ordering.</li>
+	    <li>Better save and restore focus when you're working as an alarm goes off; will no longer bring unwanted windows to the front.</li>
+	    <li>Open the Set Alarm window in the current Space when triggered with a keyboard equivalent or the Dock menu.</li>
+	    <li>Switch to tomorrow automatically if necessary when tabbing into “on”. If you specify a time that's already passed, while the specified date is today, simply tabbing into the date field will switch the date to tomorrow.</li>
+	    <li>Display “today” and “tomorrow” in the bottom left corner of the Set Alarm window.</li>
 	    <li>Open the Set Alarm window in the current Space when triggered with a keyboard equivalent or the Dock menu.</li>
 	    <li>If the Set Alarm window was visible when Pester was last active, prevent it from switching Spaces and obscuring a notification alert.</li>
 	    <li>(Re-)added optional dock icon bouncing, which works more reliably.</li>
@@ -19,8 +31,9 @@
 	    <li>Fixed horizontal resizing glitches in the Alarms window.</li>
 	    <li>Save the most recent alarm message across runs of Pester.</li>
 	    <li>Disable the “–” button when it would do nothing.</li>
-            <li>Handle Chilean time zone CLT.</li>
             <li>Added “days” and “weeks” alarm interval units.</li>
+	    <li>Allow specifying intervals up to 999 weeks.</li>
+            <li>Many more bug fixes and full compatibility with Mac OS X 10.6 Snow Leopard.</li>
 	</ul></td></tr>
 </table>
 <p />
