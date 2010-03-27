@@ -53,6 +53,17 @@
     return NO;
 }
 
+- (int)intervalMultiplierTag;
+{
+    return [intervalUnits selectedTag];
+}
+
+- (void)setIntervalMultiplierTag:(int)tag;
+{
+    if (tag == 0 || ![intervalUnits selectItemWithTag: tag])
+	[intervalUnits selectItemAtIndex: 0];
+}
+
 - (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)range replacementString:(NSString *)string;
 {
     unsigned length = [string length];

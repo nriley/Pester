@@ -106,12 +106,17 @@ static NSString * const PSAlarmNotifierWaitForIdle = @"PesterAlarmNotifierWaitFo
 
 - (IBAction)snoozeUntil:(NSMenuItem *)sender;
 {
+    [snoozeIntervalField setHidden: YES];
     [PSSnoozeUntilController snoozeUntilControllerWithNotifierController: self];
 }
 
 - (IBAction)snoozeIntervalUnitsChanged:(NSPopUpButton *)sender;
 {
-    if ([[sender selectedItem] tag] > 0) [self update: nil];
+    int intervalMultiplierTag = [[sender selectedItem] tag];
+    if (intervalMultiplierTag < 0)
+	return;
+    lastValidIntervalMultiplierTag = intervalMultiplierTag;
+    [self update: nil];
 }
 
 - (NSTimeInterval)snoozeInterval;
@@ -122,7 +127,16 @@ static NSString * const PSAlarmNotifierWaitForIdle = @"PesterAlarmNotifierWaitFo
 - (BOOL)setSnoozeInterval:(NSTimeInterval)interval;
 {
     snoozeInterval = interval;
-    return [snoozeIntervalField setInterval: interval];
+    if ([snoozeIntervalField isHidden]) {
+	[snoozeIntervalField setHidden: NO];
+	[snoozeIntervalField setIntervalMultiplierTag: lastValidIntervalMultiplierTag];
+	[[self window] makeFirstResponder: snoozeIntervalField];
+    }
+    if (![snoozeIntervalField setInterval: interval])
+	return NO;
+    else
+	lastValidIntervalMultiplierTag = [snoozeIntervalField intervalMultiplierTag];
+    return YES;
 }
 
 - (IBAction)snooze:(NSButton *)sender;
