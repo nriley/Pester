@@ -1,0 +1,10 @@
+/* Date popup */
+"today" = "vandaag";
+"tomorrow" = "morgen";
+"in 2 days" = "over 2 dagen";
+"next «day»" = "volgende «day»";
+"next week" = "volgende week";
+"in 2 weeks" = "over 2 weken";
+"next month" = "volgende maand";
+"in 2 months" = "over 2 maanden";
+"in 1 year" = "over 1 jaar";

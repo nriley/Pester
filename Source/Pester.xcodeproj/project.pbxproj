@@ -179,6 +179,7 @@
 		29B97319FDCFA39411CA2CEA /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		E1050FC2116003DD00E5063D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E10D3064115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-PerformWhenIdle.h"; sourceTree = "<group>"; };
 		E10D3065115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject-PerformWhenIdle.m"; sourceTree = "<group>"; };
 		E10F2A3C0402E61C00050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = "en.lproj/Read Me.nib"; sourceTree = "<group>"; };
@@ -843,6 +844,7 @@
 				de,
 				fr,
 				en,
+				nl,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Pester */;
 			projectDirPath = "";
@@ -1066,6 +1068,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E1866A2711592DB800262485 /* en */,
+				E1050FC2116003DD00E5063D /* nl */,
 			);
 			name = DateCompletions.strings;
 			sourceTree = "<group>";
