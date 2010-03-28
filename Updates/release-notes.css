@@ -8,6 +8,10 @@ table {
 	width: 100%;
 }
 
+table.note {
+    border: solid 1px #900e00;
+}
+
 h1, h2, h3, th {
 	font-family: "Gill Sans", "Lucida Grande", sans-serif;
 }
@@ -18,6 +22,11 @@ th {
 	padding-left: 6px;
 	padding-top: 2px;
 	padding-bottom: 2px
+}
+
+table.note th {
+	background-color: #900e00;
+    color: #fff;
 }
 
 tr {
@@ -43,7 +52,7 @@ h3 {
 	margin-bottom: -4px
 }
 
-p, td, ol {
+p, ol {
 	font-family: "Hoefler Text", serif;
 	font-size: 14px;
 	line-height: 16px;
@@ -74,11 +83,17 @@ ol p {
 	margin-bottom: 6px
 	}
 
-
-ul {
+td, td > p {
 	font-size: 9pt;
 	font-family: "Lucida Grande", Arial, sans-serif;
 	line-height: 12pt;
+}
+
+td > p {
+    margin: 4px 6px 4px 6px;
+}
+
+ul {
 	list-style-type: square;
 	list-style-position: outside;
 	margin-top: 0px;

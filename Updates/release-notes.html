@@ -6,14 +6,41 @@
 	<title>What's new in Pester</title>
 	<meta name="robots" content="anchors" />
 	<link href="release-notes.css" type="text/css" rel="stylesheet" media="all" />
+	<script type="text/javascript">
+		window.onload = function() {
+			if (/#(.*)/.exec(location.href)[1] == 'sparkle') {
+				document.getElementById('sparkle-note').style.cssText = '';
+			}
+		}
+	</script>
 </head>
 
 <body>
+<table class="note">
+	<tr><th>If you’re updating from 1.1 beta 7 or earlier</th></tr>
+	<tr><td>
+          <p>
+            You may update through this window, but the updater will become stuck at “Installing Update...”.
+          </p>
+          <p>
+            If this occurs, quit and reopen Pester; the new version will open.
+          </p>
+        </td></tr>
+</table>
+<p />
+<table>
+	<tr><th>Pester 1.1 beta 9 (32)</th></tr>
+	<tr><td><ul>
+	    <li>If you have no snooze time set, then choose “until,” then cancel, the previously selected item is reselected.</li>
+	    <li>Handle audio devices being connected/disconnected while Pester is running.</li>
+	</ul></td></tr>
+</table>
+<p />
 <table>
 	<tr><th>Pester 1.1 beta 8 (31)</th></tr>
 	<tr><td><ul>
 	    <li>Added customizable alert sounds—the most requested feature. It uses QuickTime, so you're welcome to pick a movie or even a bitmap or PDF to use as well.</li>
-	    <li>Added selectable sound output device (in Preferences) and adjust relative volume for alert sounds. (Note: Pester doesn't yet respond to audio devices being connected/disconnected while it is running, although you should always get audio output <em>somewhere</em>.)</li>
+	    <li>Added selectable sound output device (in Preferences) and adjustable volume for alert sounds. (Note: Pester doesn't yet respond to audio devices being connected/disconnected while it is running, although you should always get audio output <em>somewhere</em>.)</li>
 	    <li>Baseline, ICU-based support for non-natural language dates and times is much more robust (for example, simply “20” or “8p” works to specify 8:00 PM).</li>
 	    <li>Support natural-language dates in non-English languages via <tt>Date::Manip</tt>. I uncovered some bugs here, which the author of <tt>Date::Manip</tt> is working on fixing, but Catalan, Danish, Dutch, French, German, Polish and Russian should work fine. The date popup is limited to the days of the week, for now.</li>
 	    <li>Optionally wait until you stop typing or moving the mouse to display a message. This is quite helpful so you don't start typing into the Snooze box when you want to be typing into another document.  The feature is disabled by default; enable it in Preferences.</li>
