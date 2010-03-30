@@ -251,6 +251,7 @@
 		E19CC53D0CFDE48C0079DCFC /* ParseDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseDate.h; sourceTree = "<group>"; };
 		E19CC53E0CFDE48C0079DCFC /* ParseDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDate.m; sourceTree = "<group>"; };
 		E19CC5830CFDEB440079DCFC /* libParseDate-10.5.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.5.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19D2D741158181A00B68D9F /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E19DCBD203BE4AA200B934BF /* Pester_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Pester_Prefix.h; sourceTree = "<group>"; };
 		E19FD39E03C98645001509F3 /* PSWakeAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWakeAlert.h; sourceTree = "<group>"; };
 		E19FD39F03C98645001509F3 /* PSWakeAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWakeAlert.m; sourceTree = "<group>"; };
@@ -1067,6 +1068,7 @@
 		E19D2D731158181A00B68D9F /* DateCompletions.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
+				E19D2D741158181A00B68D9F /* de */,
 				E1866A2711592DB800262485 /* en */,
 				E1050FC2116003DD00E5063D /* nl */,
 			);
