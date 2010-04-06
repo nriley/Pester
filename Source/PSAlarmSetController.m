@@ -42,6 +42,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
 - (BOOL)_setAlerts;
 - (void)_setVolume:(float)volume withPreview:(BOOL)preview;
 - (void)_stopUpdateTimer;
+- (void)_tryToFocus:(NSView *)view;
 
 @end
 
@@ -223,7 +224,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
     [timeDateCompletions setEnabled: !isInterval && [timeDateCompletions numberOfItems] > 0];
     [timeCalendarButton setEnabled: !isInterval];
     if (sender != nil)
-	[[self window] makeFirstResponder: isInterval ? (NSTextField *)timeInterval : timeOfDay];
+	[self _tryToFocus: isInterval ? (NSTextField *)timeInterval : timeOfDay];
     if (!isInterval) // need to do this every time the controls are enabled
         [timeOfDay setNextKeyView: timeDate];
     // NSLog(@"UPDATING FROM inAtChanged");
@@ -354,9 +355,10 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
     [soundVolumeButton setEnabled: canRepeat && [sound hasAudio]];
     [soundRepetitionStepper setEnabled: canRepeat];
     [soundRepetitionsLabel setTextColor: canRepeat ? [NSColor controlTextColor] : [NSColor disabledControlTextColor]];
-    if (playSoundSelected && sender == playSound) {
-        [[self window] makeFirstResponder: sound];
-    }
+    if (playSoundSelected && sender != nil)
+        [self _tryToFocus: sound];
+    else
+	[self _tryToFocus: sender];
 }
 
 - (IBAction)setSoundRepetitionCount:(id)sender;
@@ -384,10 +386,10 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
     [script setEnabled: doScriptSelected];
     [scriptSelectButton setEnabled: doScriptSelected];
     if (doScriptSelected && sender != nil) {
-        [[self window] makeFirstResponder: scriptSelectButton];
+        [self _tryToFocus: scriptSelectButton];
         if ([script alias] == nil) [scriptSelectButton performClick: sender];
     } else {
-	[[self window] makeFirstResponder: sender];
+	[self _tryToFocus: sender];
     }
 }
 
@@ -396,9 +398,9 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
     BOOL doSpeakSelected = [doSpeak state] == NSOnState;
     [voice setEnabled: doSpeakSelected];
     if (doSpeakSelected && sender != nil)
-        [[self window] makeFirstResponder: voice];
+	[self _tryToFocus: voice];
     else
-	[[self window] makeFirstResponder: sender];	
+	[self _tryToFocus: sender];
 }
 
 - (void)_readAlerts:(PSAlerts *)alerts;
@@ -488,6 +490,13 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
         return NO;
     }
     return YES;
+}
+
+- (void)_tryToFocus:(NSView *)view;
+{
+    if (view != nil && ![view canBecomeKeyView])
+	return;
+    [[self window] makeFirstResponder: view];
 }
 
 #pragma mark actions
