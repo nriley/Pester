@@ -24,6 +24,4 @@
 + (NJRReadMeController *)readMeControllerWithRTFDocument:(NSString *)aPath;
 - (id)initWithRTFDocument:(NSString *)aPath;
 
-- (IBAction)contentsClicked:(NSTableView *)sender;
-
 @end

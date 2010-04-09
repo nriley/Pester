@@ -249,13 +249,17 @@ static NJRReadMeController *sharedController = nil;
     [splitter performSelectorOnMainThread: @selector(adjustSubviews) withObject: nil waitUntilDone: NO];
 }
 
-- (IBAction)contentsClicked:(NSTableView *)sender;
+@end
+
+@implementation NJRReadMeController (NSTableViewDelegate)
+
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row;
 {
-    int row = [sender clickedRow];
-    if (row == -1) return;
     NSRange range = [[headings objectAtIndex: row] range];
     [body setSelectedRange: range];
     [body scrollRangeToVisible: range];
+
+    return YES;
 }
 
 @end
