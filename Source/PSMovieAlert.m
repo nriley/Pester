@@ -85,7 +85,6 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 {
     [alias release];
 
-    NSLog(@"PSMovieAlert dealloc: %@", self);
     [super dealloc];
 }
 

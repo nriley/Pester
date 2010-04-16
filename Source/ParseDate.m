@@ -49,7 +49,7 @@ NSDate *parse_natural_language_date(NSString *input) {
     
     NSString *temp = [[NSString alloc] initWithFormat: @"my $s = eval {UnixDate(q|%@|, '%%q')}; warn $@ if $@; $s", input];
     // XXX Date::Manip doesn't support Unicode, so we provide it a language-specific encoding
-    NSLog(@"%@ %@", input, [input dataUsingEncoding: parserEncoding]);
+    // NSLog(@"%@ %@", input, [input dataUsingEncoding: parserEncoding]);
     SV *d = eval_pv([temp cStringUsingEncoding: parserEncoding], FALSE);
     [temp release];
     if (d == NULL) return nil;
