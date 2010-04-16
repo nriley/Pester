@@ -121,6 +121,11 @@ static NJRSoundDevice *defaultOutputDevice;
     return uid;
 }
 
+- (AudioDeviceID)deviceID;
+{
+    return deviceID;
+}
+
 - (BOOL)canSetVolume;
 {
     return canSetVolume;

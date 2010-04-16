@@ -43,14 +43,14 @@ static NSString * const PLAlertVoice = @"voice"; // NSString
 
 - (void)_stopSpeaking:(NSNotification *)notification;
 {
-    [speaker stopSpeaking]; // triggers didFinishSpeaking:
+    [speaker stopSpeaking]; // triggers speechSynthesizer:didFinishSpeaking:
 }
 
 - (void)triggerForAlarm:(PSAlarm *)anAlarm;
 {
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_stopSpeaking:) name: PSAlarmAlertStopNotification object: nil];
     
-    if ( (speaker = [[NSSpeechSynthesizer alloc] initWithVoice: voice]) == nil) return;
+    if ( (speaker = [[NJRSpeechSynthesizer alloc] initWithVoice: voice]) == nil) return;
     alarm = anAlarm;
     [speaker setDelegate: self];
     [speaker startSpeakingString: [alarm message]];

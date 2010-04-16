@@ -37,5 +37,6 @@
 - (void)restoreSavedOutputVolumeIfCurrently:(float)volume;
 
 - (QTAudioContextRef)quickTimeAudioContext;
+- (AudioDeviceID)deviceID;
 
 @end

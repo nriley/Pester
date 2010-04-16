@@ -7,10 +7,11 @@
 //
 
 #import <AppKit/AppKit.h>
+#import "NJRSpeechSynthesizer.h"
 
 @interface NJRVoicePopUpButton : NSPopUpButton {
     id _delegate;
-    NSSpeechSynthesizer *_speaker;
+    NJRSpeechSynthesizer *_speaker;
 }
 
 - (void)setVoice:(NSString *)voice;

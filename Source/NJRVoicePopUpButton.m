@@ -63,7 +63,7 @@
 
 - (NSSpeechSynthesizer *)_speaker;
 {
-    if (_speaker == nil) _speaker = [[NSSpeechSynthesizer alloc] initWithVoice: nil];
+    if (_speaker == nil) _speaker = [[NJRSpeechSynthesizer alloc] initWithVoice: nil];
     return _speaker;
 }
 
