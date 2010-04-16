@@ -13,6 +13,7 @@
 @interface PSPreferencesController : NSWindowController {
     IBOutlet NJRHotKeyField *setAlarmHotKey;
     IBOutlet NSPopUpButton *soundOutputDevice;
+    IBOutlet NSTextField *soundOutputDeviceExplanatoryText;
     IBOutlet NSArrayController *soundOutputDevices;
     NSCharacterSet *textRejectSet;
     NSCharacterSet *commandRejectSet;

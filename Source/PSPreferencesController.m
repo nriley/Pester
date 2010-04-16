@@ -110,6 +110,11 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
         commandShiftRejectSet = [[NSCharacterSet characterSetWithCharactersInString: @"ACFGHIPQS~? "] retain];
         // command-option
         commandOptionRejectSet = [[NSCharacterSet characterSetWithCharactersInString: @"DW\\-= "] retain];
+
+	[soundOutputDeviceExplanatoryText setStringValue:
+	 floor(NSAppKitVersionNumber) == NSAppKitVersionNumber10_4 ?
+	 NSLocalizedString(@"Speech and alert sounds are not directed to this device.", "'Play sound through' preference explanatory text for 10.4") :
+	 NSLocalizedString(@"Alert sounds are not directed to this device.", "'Play sound through' preference explanatory text for 10.5+")];
     }
     return self;
 }
