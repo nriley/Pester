@@ -279,7 +279,7 @@
 		E1CDEC3D0444053F00AEEDB1 /* NJRNonCenteringWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRNonCenteringWindow.h; sourceTree = "<group>"; };
 		E1CDEC3E0444053F00AEEDB1 /* NJRNonCenteringWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRNonCenteringWindow.m; sourceTree = "<group>"; };
 		E1D94C8911473CBA00C88B55 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
-		E1DE3C14115930BD00C17BB0 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E1DE3C14115930BD00C17BB0 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E1DEF0EA03FE1BF100050002 /* OARightArrowPressed.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OARightArrowPressed.tiff; sourceTree = "<group>"; };
 		E1DEF0EB03FE1BF100050002 /* OALeftArrow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OALeftArrow.tiff; sourceTree = "<group>"; };
 		E1DEF0EC03FE1BF100050002 /* OARightArrow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OARightArrow.tiff; sourceTree = "<group>"; };
