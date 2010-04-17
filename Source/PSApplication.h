@@ -13,6 +13,8 @@
 @class PSTimer;
 @class PSPreferencesController;
 
+extern NSString * const PSApplicationWillReopenNotification;
+
 @interface PSApplication : NSApplication {
     PSAlarmsController *alarmsController;
     IBOutlet PSAlarmSetController *alarmSetController;

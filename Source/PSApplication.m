@@ -19,6 +19,8 @@
 #import "NJRHotKey.h"
 #import "NSWindowCollectionBehavior.h"
 
+NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopenNotification";
+
 @interface PSApplication (Private)
 - (void)_updateDockTile:(PSTimer *)timer;
 @end
@@ -208,6 +210,7 @@
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag;
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName: PSApplicationWillReopenNotification object: self];
     // XXX sometimes alarmsExpiring is NO (?), and we display the alarm set controller on top of an expiring alarm, try to reproduce
     if (!flag && ![[PSAlarms allAlarms] alarmsExpiring] && [NSApp modalWindow] == nil)
         [alarmSetController showWindow: self];
