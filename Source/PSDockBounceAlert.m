@@ -28,7 +28,6 @@ static NMRec nmr;
         PSDockBounceAlertShared = [[PSDockBounceAlert alloc] init];
 	
 	[[NSNotificationCenter defaultCenter] addObserver: PSDockBounceAlertShared selector: @selector(_stopBouncing) name: PSAlarmAlertStopNotification object: nil];
-	[[NSNotificationCenter defaultCenter] addObserver: PSDockBounceAlertShared selector: @selector(_stopBouncing) name:NSApplicationDidBecomeActiveNotification object: nil];
 	[[NSNotificationCenter defaultCenter] addObserver: PSDockBounceAlertShared selector: @selector(_stopBouncing) name:PSApplicationWillReopenNotification object: nil];
 	
 	bzero(&nmr, sizeof(nmr));
