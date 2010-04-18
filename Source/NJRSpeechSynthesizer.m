@@ -59,7 +59,15 @@ foundVoice:
 static void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
     NJRSpeechSynthesizer *synthesizer = (NJRSpeechSynthesizer *)refCon;
 
-    [[synthesizer delegate] speechSynthesizer: nil didFinishSpeaking: YES];
+    id delegate = [synthesizer delegate];
+    SEL selector = @selector(speechSynthesizer:didFinishSpeaking:);
+    NSInvocation *invocation =
+	[NSInvocation invocationWithMethodSignature:
+	 [delegate methodSignatureForSelector: selector]];
+    [invocation setSelector: selector];
+    BOOL yes = YES;
+    [invocation setArgument: &yes atIndex: 3];
+    [invocation performSelectorOnMainThread: @selector(invokeWithTarget:) withObject: delegate waitUntilDone: NO];
 }
 
 - (id)initWithVoice:(NSString *)voice;
