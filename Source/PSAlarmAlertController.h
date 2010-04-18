@@ -24,3 +24,9 @@ extern NSString * const PSAlarmAlertStopNotification;
 - (id)initWithAlarm:(PSAlarm *)alarm;
 
 @end
+
+@interface NSObject (PSAlarmAlertWaitForIdle)
+
+- (void)performAlertSelectorWhenIdle:(SEL)aSelector withObject:(id)anArgument;
+
+@end

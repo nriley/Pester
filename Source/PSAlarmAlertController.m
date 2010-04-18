@@ -9,8 +9,11 @@
 #import "PSAlarmAlertController.h"
 #import "PSAlert.h"
 #import "PSAlerts.h"
+#import "NSObject-PerformWhenIdle.h"
 
 NSString * const PSAlarmAlertStopNotification = @"PSAlarmAlertStopNotification";
+
+static NSString * const PSAlarmAlertWaitForIdle = @"PesterAlarmAlertWaitForIdle"; // NSUserDefaults key
 
 @implementation PSAlarmAlertController
 
@@ -68,7 +71,7 @@ NSString * const PSAlarmAlertStopNotification = @"PSAlarmAlertStopNotification";
         frontmostApp.highLongOfPSN = [[activeProcessInfo objectForKey: @"NSApplicationProcessSerialNumberHigh"] longValue];
         frontmostApp.lowLongOfPSN = [[activeProcessInfo objectForKey: @"NSApplicationProcessSerialNumberLow"] longValue];
         appWasHidden = [NSApp isHidden];
-        [NSApp activateIgnoringOtherApps: YES];
+	[NSApp performAlertSelectorWhenIdle: @selector(activateIgnoringOtherApps:) withObject: [NSNumber numberWithBool: YES]];
     }
 }
 
@@ -86,6 +89,18 @@ NSString * const PSAlarmAlertStopNotification = @"PSAlarmAlertStopNotification";
     NSLog(@"%@ dealloc", self);
     [pendingAlerts release];
     [super dealloc];
+}
+
+@end
+
+@implementation NSObject (PSAlarmAlertWaitForIdle)
+
+- (void)performAlertSelectorWhenIdle:(SEL)aSelector withObject:(id)anArgument;
+{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey: PSAlarmAlertWaitForIdle])
+	[self performSelector: aSelector withObject: anArgument afterSystemIdleTime: 0.5];
+    else
+	[self performSelector: aSelector withObject: anArgument];
 }
 
 @end

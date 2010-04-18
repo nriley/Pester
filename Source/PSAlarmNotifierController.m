@@ -13,10 +13,8 @@
 #import "PSNotifierAlert.h"
 #import "PSSnoozeUntilController.h"
 #import "NJRIntervalField.h"
-#import "NSObject-PerformWhenIdle.h"
 
 static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval"; // NSUserDefaults key
-static NSString * const PSAlarmNotifierWaitForIdle = @"PesterAlarmNotifierWaitForIdle"; // NSUserDefaults key
 
 @interface PSAlarmNotifierController (Private)
 
@@ -51,10 +49,7 @@ static NSString * const PSAlarmNotifierWaitForIdle = @"PesterAlarmNotifierWaitFo
         }
         [window setFrame: frameRect display: NO];
         [window center];
-	if ([[NSUserDefaults standardUserDefaults] boolForKey: PSAlarmNotifierWaitForIdle])
-	    [self performSelector: @selector(showWindow:) withObject: nil afterSystemIdleTime: 0.5];
-	else
-	    [self showWindow: nil];
+	[self performAlertSelectorWhenIdle: @selector(showWindow:) withObject: nil];
     }
     return self;
 }

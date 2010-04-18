@@ -319,13 +319,13 @@
 						<object class="NSButton" id="797138366">
 							<reference key="NSNextResponder" ref="179271081"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{24, 58}, {311, 18}}</string>
+							<string key="NSFrame">{{79, 58}, {203, 18}}</string>
 							<reference key="NSSuperview" ref="179271081"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="185667796">
 								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Wait for idle before displaying alarm message</string>
+								<string key="NSContents">Wait for idle to display alerts</string>
 								<reference key="NSSupport" ref="767484129"/>
 								<reference key="NSControlView" ref="797138366"/>
 								<int key="NSButtonFlags">1211912703</int>
@@ -369,6 +369,10 @@
 				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
 			</object>
 			<object class="NSUserDefaultsController" id="783118354">
+				<object class="NSMutableArray" key="NSDeclaredKeys">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>PesterAlarmAlertWaitForIdle</string>
+				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSArrayController" id="696488522">
@@ -683,28 +687,28 @@
 					<int key="connectionID">201</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.PesterAlarmNotifierWaitForIdle</string>
-						<reference key="source" ref="797138366"/>
-						<reference key="destination" ref="783118354"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="797138366"/>
-							<reference key="NSDestination" ref="783118354"/>
-							<string key="NSLabel">value: values.PesterAlarmNotifierWaitForIdle</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.PesterAlarmNotifierWaitForIdle</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">202</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">soundOutputDeviceExplanatoryText</string>
 						<reference key="source" ref="918573752"/>
 						<reference key="destination" ref="143206457"/>
 					</object>
 					<int key="connectionID">204</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.PesterAlarmAlertWaitForIdle</string>
+						<reference key="source" ref="797138366"/>
+						<reference key="destination" ref="783118354"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="797138366"/>
+							<reference key="NSDestination" ref="783118354"/>
+							<string key="NSLabel">value: values.PesterAlarmAlertWaitForIdle</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.PesterAlarmAlertWaitForIdle</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">207</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1057,7 +1061,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">204</int>
+			<int key="maxID">207</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
