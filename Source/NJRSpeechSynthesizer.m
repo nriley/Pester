@@ -56,7 +56,7 @@ foundVoice:
     return YES;
 }
 
-void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
+static void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
     NJRSpeechSynthesizer *synthesizer = (NJRSpeechSynthesizer *)refCon;
 
     [[synthesizer delegate] speechSynthesizer: nil didFinishSpeaking: YES];
