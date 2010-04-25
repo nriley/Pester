@@ -10,6 +10,17 @@
 
 #define NJRHistoryTrackingComboBoxMaxItems 100
 
+@interface NJRHistoryTrackingComboBox ()
+- (void)clearAllSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+- (void)optionKeyStateChanged:(BOOL)down;
+@end
+
+static CGEventRef flags_changed(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *refcon) {
+    NJRHistoryTrackingComboBox *comboBox = (NJRHistoryTrackingComboBox *)refcon;
+    [comboBox optionKeyStateChanged: (CGEventGetFlags(event) & kCGEventFlagMaskAlternate) != 0];
+    return event;
+}
+
 @implementation NJRHistoryTrackingComboBox
 
 - (NSString *)_defaultKey;
@@ -26,6 +37,26 @@
                                                object: self];
     [self removeAllItems];
     [self addItemsWithObjectValues: [[NSUserDefaults standardUserDefaults] stringArrayForKey: [self _defaultKey]]];
+
+    if (removeEntryButton == nil)
+	return;
+
+    // XXX 10.6+: use addLocalMonitorForEventsMatchingMask:
+    ProcessSerialNumber psn;
+    GetCurrentProcess(&psn); // kCurrentProcess doesn't work
+    flagsChangedTap = (NSMachPort *)CGEventTapCreateForPSN(&psn, kCGHeadInsertEventTap, kCGEventTapOptionListenOnly, CGEventMaskBit(kCGEventFlagsChanged), flags_changed, self);
+    if (flagsChangedTap == nil)
+	return;
+
+    [[NSRunLoop currentRunLoop] addPort: flagsChangedTap forMode: NSDefaultRunLoopMode];
+    [flagsChangedTap release];
+}
+
+- (void)dealloc;
+{
+    if (flagsChangedTap != NULL)
+	[[NSRunLoop currentRunLoop] removePort: flagsChangedTap forMode: NSDefaultRunLoopMode];
+    [super dealloc];
 }
 
 - (void)_writeHistory;
@@ -45,6 +76,9 @@
 
 - (IBAction)removeEntry:(id)sender;
 {
+    if ([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask)
+	NSBeginAlertSheet(@"Are you sure you want to erase all recent messages?", @"Erase All", @"Cancel", nil, [self window], self, @selector(clearAllSheetDidEnd:returnCode:contextInfo:), NULL, NULL, @"You can't undo this action.");
+
     int idx = [self indexOfSelectedItem];
     if (idx == -1) {
         [self selectItemWithObjectValue: [self stringValue]];
@@ -55,6 +89,14 @@
     [self _writeHistory];
 }
 
+- (void)clearAllSheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+{
+    if (returnCode != NSAlertDefaultReturn)
+	return;
+
+    [self clearAllEntries: nil];
+}
+
 - (IBAction)clearAllEntries:(id)sender;
 {
     [self removeAllItems];
@@ -63,11 +105,30 @@
     [self _writeHistory];
 }
 
+- (void)optionKeyStateChanged:(BOOL)down;
+{
+    if (!down && removeEntryButtonEnabledBindingInfo != nil) {
+	[removeEntryButton setEnabled: NO];
+	[removeEntryButton bind: NSEnabledBinding
+		       toObject: [removeEntryButtonEnabledBindingInfo objectForKey: NSObservedObjectKey]
+		    withKeyPath: [removeEntryButtonEnabledBindingInfo objectForKey: NSObservedKeyPathKey]
+			options: [removeEntryButtonEnabledBindingInfo objectForKey: NSOptionsKey]];
+	[removeEntryButtonEnabledBindingInfo release];
+	removeEntryButtonEnabledBindingInfo = nil;
+    }
+
+    if (down) {
+	removeEntryButtonEnabledBindingInfo = [[removeEntryButton infoForBinding: NSEnabledBinding] retain];
+	[removeEntryButton unbind: NSEnabledBinding];
+	[removeEntryButton setEnabled: YES];
+    }
+}
+
 - (BOOL)textShouldEndEditing:(NSText *)textObject;
 {
     NSString *newValue = [self stringValue];
     int oldIndex = [self indexOfItemWithObjectValue: newValue];
-    if ([newValue length] == 0) return YES; // don’t save empty entries
+    if ([newValue length] == 0) return YES; // don't save empty entries
     [self removeItemWithObjectValue: newValue];
     [self insertItemWithObjectValue: newValue atIndex: 0];
     if (oldIndex == NSNotFound) {

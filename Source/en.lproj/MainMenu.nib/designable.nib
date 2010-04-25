@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1040</int>
-		<string key="IBDocument.SystemVersion">10C540</string>
+		<string key="IBDocument.SystemVersion">10D573</string>
 		<string key="IBDocument.InterfaceBuilderVersion">740</string>
-		<string key="IBDocument.AppKitVersion">1038.25</string>
-		<string key="IBDocument.HIToolboxVersion">458.00</string>
+		<string key="IBDocument.AppKitVersion">1038.29</string>
+		<string key="IBDocument.HIToolboxVersion">460.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
@@ -16,13 +16,13 @@
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>740</string>
-				<string>1591.3</string>
+				<string>1729</string>
 			</object>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="29"/>
-			<integer value="507"/>
+			<integer value="2"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1018,7 +1018,13 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 											<string/>
 											<real value="0.0"/>
 											<integer value="4"/>
-											<reference ref="392930646"/>
+											<object class="NSDictionary">
+												<bool key="EncodedWithXMLCoder">YES</bool>
+												<reference key="dict.sortedKeys" ref="0"/>
+												<object class="NSMutableArray" key="dict.values">
+													<bool key="EncodedWithXMLCoder">YES</bool>
+												</object>
+											</object>
 											<boolean value="NO"/>
 											<string>0</string>
 										</object>
@@ -2946,6 +2952,14 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<reference key="destination" ref="47393745"/>
 					</object>
 					<int key="connectionID">1612</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">removeEntryButton</string>
+						<reference key="source" ref="7602437"/>
+						<reference key="destination" ref="225250825"/>
+					</object>
+					<int key="connectionID">1613</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4889,7 +4903,7 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1612</int>
+			<int key="maxID">1613</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4937,6 +4951,10 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">removeEntryButton</string>
+						<string key="NS.object.0">NSButton</string>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
@@ -5117,7 +5135,21 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 					<string key="className">NSObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">NSObject-PerformWhenIdle.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">OACalendarView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">PSAlarmAlertController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -5315,10 +5347,12 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 							<string>orderFrontAlarmsPanel:</string>
 							<string>orderFrontPreferencesPanel:</string>
 							<string>orderFrontSetAlarmPanel:</string>
+							<string>orderFrontSetAlarmPanelIfPreferencesNotKey:</string>
 							<string>stopAlerts:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -6070,7 +6104,7 @@ dG8gcXVpY2tseSBzZWxlY3QgZnJvbQp0aGlzIG1lbnUuA</string>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
-			<integer value="1040" key="NS.object.0"/>
+			<integer value="1050" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.InterfaceBuilder3</string>

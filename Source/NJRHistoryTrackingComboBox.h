@@ -8,9 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface NJRHistoryTrackingComboBox : NSComboBox {
-
+    IBOutlet NSButton *removeEntryButton;
+    NSDictionary *removeEntryButtonEnabledBindingInfo;
+    NSMachPort *flagsChangedTap;
 }
 
 - (IBAction)removeEntry:(id)sender;
