@@ -109,6 +109,7 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
         set = [[NSCharacterSet alphanumericCharacterSet] mutableCopy];
         [set formUnionWithCharacterSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
         [set formUnionWithCharacterSet: [NSCharacterSet punctuationCharacterSet]];
+        [set formUnionWithCharacterSet: [NSCharacterSet symbolCharacterSet]];
         [set addCharactersInString: @"\r\e\x7f\x03"]; // CR, escape, delete, enter
         [set addCharactersInRange: NSMakeRange(0xF700, 0x1FF)]; // reserved function key range
         [set removeCharactersInRange: NSMakeRange(NSF1FunctionKey, 15)]; // F1-F15
