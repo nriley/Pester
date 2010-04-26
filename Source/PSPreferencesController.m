@@ -123,7 +123,7 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 	[soundOutputDeviceExplanatoryText setStringValue:
 	 floor(NSAppKitVersionNumber) == NSAppKitVersionNumber10_4 ?
 	 NSLocalizedString(@"Speech and alert sounds are not directed to this device.", "'Play sound through' preference explanatory text for 10.4") :
-	 NSLocalizedString(@"Alert sounds are not directed to this device.", "'Play sound through' preference explanatory text for 10.5+")];
+	 NSLocalizedString(@"Alert sounds are always played through the default alert device.", "'Play sound through' preference explanatory text for 10.5+")];
     }
     return self;
 }
