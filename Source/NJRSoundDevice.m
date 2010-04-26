@@ -14,6 +14,23 @@ static NSMutableArray *allOutputDevices;
 static NSMutableDictionary *devicesByID;
 static NJRSoundDevice *defaultOutputDevice;
 
+OSStatus AHPropertyListenerProc(AudioHardwarePropertyID propertyID, void *clientData) {
+    switch (propertyID) {
+	case kAudioHardwarePropertyDefaultOutputDevice:
+	case kAudioHardwarePropertyDefaultSystemOutputDevice:
+	    [defaultOutputDevice release];
+	    defaultOutputDevice = nil;
+	    break;
+        case kAudioHardwarePropertyDevices:
+	    [allOutputDevices release];
+	    allOutputDevices = nil;
+	    [NJRSoundDevice allOutputDevices];
+	    [NJRSoundDevice performSelectorOnMainThread: @selector(allOutputDevices) withObject: nil waitUntilDone: NO];
+	    break;
+    }
+    return noErr;
+}
+
 @implementation NJRSoundDevice
 
 - (NJRSoundDevice *)initWithAudioDeviceID:(AudioDeviceID)audioDeviceID;
@@ -135,6 +152,10 @@ static NJRSoundDevice *defaultOutputDevice;
 {
     if (allOutputDevices != nil)
 	return allOutputDevices;
+
+    static BOOL registeredPropertyListener = NO;
+    if (!registeredPropertyListener)
+	AudioHardwareAddPropertyListener(kAudioHardwarePropertyDevices, AHPropertyListenerProc, NULL);
     
     UInt32 propertySize;
     OSStatus err;
