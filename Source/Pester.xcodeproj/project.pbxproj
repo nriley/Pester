@@ -853,16 +853,14 @@
 			isa = PBXProject;
 			buildConfigurationList = E1B11EDA0CF5F2EB004975AA /* Build configuration list for PBXProject "Pester" */;
 			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				en,
-				Japanese,
-				French,
-				German,
+				English,
 				de,
 				fr,
-				en,
 				nl,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Pester */;
 			projectDirPath = "";
