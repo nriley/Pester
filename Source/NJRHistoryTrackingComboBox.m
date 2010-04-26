@@ -76,8 +76,10 @@ static CGEventRef flags_changed(CGEventTapProxy proxy, CGEventType type, CGEvent
 
 - (IBAction)removeEntry:(id)sender;
 {
-    if ([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask)
-	NSBeginAlertSheet(@"Are you sure you want to erase all recent messages?", @"Erase All", @"Cancel", nil, [self window], self, @selector(clearAllSheetDidEnd:returnCode:contextInfo:), NULL, NULL, @"You can't undo this action.");
+    if ([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask) {
+	NSBeginAlertSheet(@"Are you sure you want to remove all recent messages from the list?", @"Remove All", @"Cancel", nil, [self window], self, @selector(clearAllSheetDidEnd:returnCode:contextInfo:), NULL, NULL, @"You can't undo this action.");
+	return;
+    }
 
     int idx = [self indexOfSelectedItem];
     if (idx == -1) {
