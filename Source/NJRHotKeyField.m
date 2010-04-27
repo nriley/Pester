@@ -47,6 +47,14 @@ static NSDictionary *statusAttributes = nil;
     [self cell]->isa = [NJRHotKeyFieldCell class];
 }
 
+- (void)viewWillMoveToWindow:(NSWindow *)newWindow;
+{
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter removeObserver: self name: NSWindowDidResignKeyNotification object: [self window]];
+    [super viewWillMoveToWindow: newWindow];
+    [notificationCenter addObserver: self selector: @selector(windowDidResignKey:) name: NSWindowDidResignKeyNotification object: newWindow];
+}
+
 #pragma mark initialize-release
 
 - (id)initWithCoder:(NSCoder *)coder;
@@ -178,7 +186,7 @@ static NSDictionary *statusAttributes = nil;
     if (aKey != hotKey) {
         [hotKey release];
         hotKey = [aKey retain];
-        [self showKeyEquivalentAttributedStringFinalized: ([[NSApp currentEvent] modifierFlags] & capturedModifierMask) == 0];
+        [self showKeyEquivalentAttributedStringFinalized: YES];
     }
 }
 
@@ -188,6 +196,15 @@ static NSDictionary *statusAttributes = nil;
 {
     [self setHotKey: nil];
     [NSApp sendAction: [self action] to: [self target] from: self];
+    [self showKeyEquivalentAttributedStringFinalized: YES];
+}
+
+@end
+
+@implementation NJRHotKeyField (NSWindowNotifications)
+
+- (void)windowDidResignKey:(NSNotification *)notification;
+{
     [self showKeyEquivalentAttributedStringFinalized: YES];
 }
 
