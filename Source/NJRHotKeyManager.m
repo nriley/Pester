@@ -34,6 +34,12 @@ const OSType kHotKeyManagerSignature = 'NHKM';
     [super dealloc];
 }
 
+- (NSString *)description;
+{
+    return [NSString stringWithFormat: @"<%@: %@ %sregistered [%@ %@]>", [self className], [hotKey keyGlyphs],
+	     isRegistered ? "" : "not ", target, NSStringFromSelector(action)];
+}
+
 @end
 
 pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent, void *refCon);
@@ -134,6 +140,11 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
 
 - (void)setShortcutsEnabled:(BOOL)enabled;
 {
+    if (enabled == shortcutsEnabled)
+	return;
+
+    shortcutsEnabled = enabled;
+
     NSEnumerator *enumerator = [shortcuts objectEnumerator];
     _NJRHotKeyShortcut *hotKey;
 
@@ -143,7 +154,6 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
         else
             [self _unregisterHotKeyIfNeeded: hotKey];
     }
-    shortcutsEnabled = enabled;
 }
 
 - (BOOL)shortcutsEnabled;
@@ -212,8 +222,10 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
 {
     NSParameterAssert(shortcut != nil);
  
-    if (shortcut->isRegistered && shortcut->hotKeyRef != nil)
+    if (shortcut->isRegistered && shortcut->hotKeyRef != nil) {
         UnregisterEventHotKey(shortcut->hotKeyRef);
+	shortcut->isRegistered = NO;
+    }
 }
 
 - (void)_hotKeyDown:(_NJRHotKeyShortcut *)hotKey;
