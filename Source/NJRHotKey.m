@@ -78,6 +78,11 @@ static NSString * const PLKeyCode = @"keyCode"; // NSNumber
     return hotKeyCode;
 }
 
+- (NSString *)keyGlyphs;
+{
+    return [[hotKeyCharacters keyEquivalentAttributedStringWithModifierFlags: hotKeyModifierFlags] string];
+}
+
 #pragma mark property list serialization (Pester 1.1)
 
 - (NSDictionary *)propertyListRepresentation;
@@ -104,11 +109,6 @@ static NSString * const PLKeyCode = @"keyCode"; // NSNumber
         }
     }
     return self;
-}
-
-- (NSString *)keyGlyphs;
-{
-    return [[hotKeyCharacters keyEquivalentAttributedStringWithModifierFlags: hotKeyModifierFlags] string];
 }
 
 @end

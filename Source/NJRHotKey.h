@@ -24,9 +24,9 @@
 - (long)modifiers; // Carbon
 - (unsigned short)keyCode;
 
+- (NSString *)keyGlyphs;
+
 - (NSDictionary *)propertyListRepresentation;
 - (id)initWithPropertyList:(NSDictionary *)dict;
-
-- (NSString *)keyGlyphs;
 
 @end
