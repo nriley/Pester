@@ -21,7 +21,8 @@ static const unsigned int capturedModifierMask = (NSShiftKeyMask |
 static NSParagraphStyle *leftAlignStyle = nil, *centerAlignStyle = nil;
 static NSDictionary *statusAttributes = nil;
 
-@interface NJRHotKeyField (Private)
+@interface NJRHotKeyField ()
+- (void)setPrimitiveHotKey:(NJRHotKey *)aKey;
 - (void)clearStatus;
 @end
 
@@ -151,7 +152,7 @@ static NSDictionary *statusAttributes = nil;
         if (delegate != nil && ![delegate hotKeyField: self shouldAcceptCharacter: character modifierFlags: modifierFlags rejectionMessage: &message]) {
             [self showStatus: message != nil ? message : @"key is unavailable for use"];
         } else {
-            [self setHotKey: [NJRHotKey hotKeyWithCharacters: characters modifierFlags: modifierFlags keyCode: [theEvent keyCode]]];
+            [self setPrimitiveHotKey: [NJRHotKey hotKeyWithCharacters: characters modifierFlags: modifierFlags keyCode: [theEvent keyCode]]];
             [NSApp sendAction: [self action] to: [self target] from: self];
             [self showKeyEquivalentAttributedStringFinalized: ([theEvent modifierFlags] & capturedModifierMask) == 0];
         }
@@ -185,20 +186,25 @@ static NSDictionary *statusAttributes = nil;
     return hotKey;
 }
 
-- (void)setHotKey:(NJRHotKey *)aKey;
+- (void)setPrimitiveHotKey:(NJRHotKey *)aKey;
 {
     if (aKey != hotKey) {
         [hotKey release];
         hotKey = [aKey retain];
-        [self showKeyEquivalentAttributedStringFinalized: YES];
     }
+}
+
+- (void)setHotKey:(NJRHotKey *)aKey;
+{
+    [self setPrimitiveHotKey: aKey];
+    [self showKeyEquivalentAttributedStringFinalized: YES];
 }
 
 #pragma mark actions
 
 - (IBAction)clear:(id)sender;
 {
-    [self setHotKey: nil];
+    [self setPrimitiveHotKey: nil];
     [NSApp sendAction: [self action] to: [self target] from: self];
     [self showKeyEquivalentAttributedStringFinalized: YES];
 }
