@@ -160,7 +160,7 @@ static NSDictionary *statusAttributes = nil;
 
 - (BOOL)performKeyEquivalent:(NSEvent *)theEvent;
 {
-    if ([[self window] firstResponder] == self)
+    if ([[self window] firstResponder] == [self currentEditor])
 	[self keyUp: theEvent];
     return [super performKeyEquivalent: theEvent];
 }
