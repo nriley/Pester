@@ -9,6 +9,7 @@
 #import "NJRHotKeyField.h"
 #import "NJRHotKeyFieldCell.h"
 #import "NJRHotKey.h"
+#import "NJRHotKeyManager.h"
 #import "NSString-NJRExtensions.h"
 
 static const NSRange zeroRange = {0, 0};
@@ -113,6 +114,8 @@ static NSDictionary *statusAttributes = nil;
     [self setAttributedStringValue: equivString];
     [[self currentEditor] setSelectedRange: zeroRange];
     [equivString release];
+    if (finalized)
+	[[NJRHotKeyManager sharedManager] setShortcutsEnabled: YES];
 }
 
 - (void)clearStatus;
@@ -171,6 +174,7 @@ static NSDictionary *statusAttributes = nil;
     } else {
         [self previewKeyEquivalentAttributedString:
             [@"" keyEquivalentAttributedStringWithModifierFlags: modifierFlags]];
+	[[NJRHotKeyManager sharedManager] setShortcutsEnabled: NO];
     }
 }
 
