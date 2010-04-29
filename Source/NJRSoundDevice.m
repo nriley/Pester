@@ -8,30 +8,48 @@
 
 #import "NJRSoundDevice.h"
 
+NSString * const NJRSoundDeviceListChangedNotification = @"NJRSoundDeviceListChangedNotification";
+
 static const UInt32 kLeftChannel = 0, kRightChannel = 1;
 
 static NSMutableArray *allOutputDevices;
 static NSMutableDictionary *devicesByID;
 static NJRSoundDevice *defaultOutputDevice;
 
+@interface NJRSoundDevice ()
++ (void)outputDeviceListChanged;
++ (void)defaultOutputDeviceChanged;
+@end
+
 OSStatus AHPropertyListenerProc(AudioHardwarePropertyID propertyID, void *clientData) {
     switch (propertyID) {
 	case kAudioHardwarePropertyDefaultOutputDevice:
 	case kAudioHardwarePropertyDefaultSystemOutputDevice:
-	    [defaultOutputDevice release];
-	    defaultOutputDevice = nil;
+	    [NJRSoundDevice performSelectorOnMainThread: @selector(defaultOutputDeviceChanged) withObject: nil waitUntilDone: NO];
 	    break;
         case kAudioHardwarePropertyDevices:
-	    [allOutputDevices release];
-	    allOutputDevices = nil;
-	    [NJRSoundDevice allOutputDevices];
-	    [NJRSoundDevice performSelectorOnMainThread: @selector(allOutputDevices) withObject: nil waitUntilDone: NO];
+	    [NJRSoundDevice performSelectorOnMainThread: @selector(outputDeviceListChanged) withObject: nil waitUntilDone: NO];
 	    break;
     }
     return noErr;
 }
 
 @implementation NJRSoundDevice
+
++ (void)defaultOutputDeviceChanged;
+{
+    [defaultOutputDevice release];
+    defaultOutputDevice = nil;
+}
+
++ (void)outputDeviceListChanged;
+{
+    [allOutputDevices release];
+    allOutputDevices = nil;
+    [NJRSoundDevice allOutputDevices];
+    [[NSNotificationCenter defaultCenter] postNotificationName: NJRSoundDeviceListChangedNotification object: allOutputDevices];
+    NSLog(@"posted");
+}
 
 - (NJRSoundDevice *)initWithAudioDeviceID:(AudioDeviceID)audioDeviceID;
 {

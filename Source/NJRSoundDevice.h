@@ -10,6 +10,7 @@
 #import <CoreAudio/CoreAudio.h>
 #import <QuickTime/QuickTime.h>
 
+extern NSString * const NJRSoundDeviceListChangedNotification;
 
 @interface NJRSoundDevice : NSObject {
     NSString *name;

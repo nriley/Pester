@@ -20,6 +20,10 @@ static NSString * const PSSoundOutputDevice = @"Pester sound output device";
 // NJRHotKeyManager shortcut identifier
 static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 
+@interface PSPreferencesController ()
+- (void)soundOutputDeviceListChanged:(NSNotification *)notification;
+@end
+
 @implementation PSPreferencesController
 
 + (void)readPreferences;
@@ -60,11 +64,15 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
     // perform any interface propagation that needs to be done
 }
 
+- (void)soundOutputDeviceListChanged:(NSNotification *)notification;
+{
+    [soundOutputDevices setContent: [notification object]];
+}
+
 #pragma mark sound output devices
 
 - (NSArray *)allSoundOutputDevices;
 {
-    // XXX update on change
     return [NJRSoundDevice allOutputDevices];
 }
 
@@ -124,6 +132,8 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 	 floor(NSAppKitVersionNumber) == NSAppKitVersionNumber10_4 ?
 	 NSLocalizedString(@"Speech and alert sounds are not directed to this device.", "'Play sound through' preference explanatory text for 10.4") :
 	 NSLocalizedString(@"Alert sounds are always played through the default alert device.", "'Play sound through' preference explanatory text for 10.5+")];
+
+	[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(soundOutputDeviceListChanged:)  name: NJRSoundDeviceListChangedNotification object: nil];
     }
     return self;
 }
