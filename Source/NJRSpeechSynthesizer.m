@@ -58,8 +58,10 @@ foundVoice:
 
 static void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
     NJRSpeechSynthesizer *synthesizer = (NJRSpeechSynthesizer *)refCon;
-
     id delegate = [synthesizer delegate];
+    if (delegate == nil)
+	return;
+
     SEL selector = @selector(speechSynthesizer:didFinishSpeaking:);
     NSInvocation *invocation =
 	[NSInvocation invocationWithMethodSignature:
