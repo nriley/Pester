@@ -9,6 +9,7 @@
 #import "PSAlarmAlertController.h"
 #import "PSAlert.h"
 #import "PSAlerts.h"
+#import "PSApplication.h"
 #import "NSObject-PerformWhenIdle.h"
 
 NSString * const PSAlarmAlertStopNotification = @"PSAlarmAlertStopNotification";
@@ -71,7 +72,7 @@ static NSString * const PSAlarmAlertWaitForIdle = @"PesterAlarmAlertWaitForIdle"
         frontmostApp.highLongOfPSN = [[activeProcessInfo objectForKey: @"NSApplicationProcessSerialNumberHigh"] longValue];
         frontmostApp.lowLongOfPSN = [[activeProcessInfo objectForKey: @"NSApplicationProcessSerialNumberLow"] longValue];
         appWasHidden = [NSApp isHidden];
-	[NSApp performAlertSelectorWhenIdle: @selector(activateIgnoringOtherApps:) withObject: [NSNumber numberWithBool: YES]];
+	[NSApp performAlertSelectorWhenIdle: @selector(activateIgnoringOtherApps) withObject: nil];
     }
 }
 

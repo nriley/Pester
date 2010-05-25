@@ -204,6 +204,13 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
     }
 }
 
+#pragma mark activation
+
+- (void)activateIgnoringOtherApps;
+{
+    [self activateIgnoringOtherApps: YES];
+}
+
 @end
 
 @implementation PSApplication (NSApplicationDelegate)

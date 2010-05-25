@@ -33,4 +33,6 @@ extern NSString * const PSApplicationWillReopenNotification;
 
 - (void)orderOutSetAlarmPanelIfHidden;
 
+- (void)activateIgnoringOtherApps;
+
 @end
