@@ -48,7 +48,6 @@ OSStatus AHPropertyListenerProc(AudioHardwarePropertyID propertyID, void *client
     allOutputDevices = nil;
     [NJRSoundDevice allOutputDevices];
     [[NSNotificationCenter defaultCenter] postNotificationName: NJRSoundDeviceListChangedNotification object: allOutputDevices];
-    NSLog(@"posted");
 }
 
 - (NJRSoundDevice *)initWithAudioDeviceID:(AudioDeviceID)audioDeviceID;
