@@ -103,7 +103,6 @@
 {
     // XXX don't delay preview for keyboard adjustment
     [delegate volumeController: self didSetVolume: [sender floatValue]];
-    NSLog(@"%@", [NSApp currentEvent]);
     unsigned eventMask = NSEventMaskFromType([[NSApp currentEvent] type]);
     // The event may simply be a mouse-up: close the menu.
     if (eventMask & (NSLeftMouseUpMask | NSRightMouseDownMask | NSOtherMouseDownMask))

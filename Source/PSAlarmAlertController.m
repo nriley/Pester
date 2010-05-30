@@ -44,8 +44,8 @@ static NSString * const PSAlarmAlertWaitForIdle = @"PesterAlarmAlertWaitForIdle"
     PSAlert *alert = [[notification userInfo] objectForKey: @"alert"];
     unsigned count = [pendingAlerts count];
     [pendingAlerts removeObject: alert];
-    NSLog(@"removed: %@; still pending: %@", alert, [pendingAlerts description]);
-    NSLog(@"alarm: %@ retainCount %d", [notification object], [[notification object] retainCount]);
+    // NSLog(@"removed: %@; still pending: %@", alert, [pendingAlerts description]);
+    // NSLog(@"alarm: %@ retainCount %d", [notification object], [[notification object] retainCount]);
     NSAssert2([pendingAlerts count] == count - 1, @"alert not in set: %@\n%@", alert, notification);
     if ([pendingAlerts count] == 0) {
         [self _resumeAlarm: [notification object]];
@@ -87,7 +87,7 @@ static NSString * const PSAlarmAlertWaitForIdle = @"PesterAlarmAlertWaitForIdle"
 
 - (void)dealloc;
 {
-    NSLog(@"%@ dealloc", self);
+    // NSLog(@"%@ dealloc", self);
     [pendingAlerts release];
     [super dealloc];
 }

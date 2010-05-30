@@ -71,9 +71,9 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 - (void)_alarmTimerExpired:(NSNotification *)notification;
 {
     PSAlarm *alarm = [notification object];
-    NSLog(@"timer expired: %@ retainCount %d", alarm, [alarm retainCount]);
+    // NSLog(@"timer expired: %@ retainCount %d", alarm, [alarm retainCount]);
     [expiredAlarms addObject: alarm];
-    NSLog(@"expired alarms: %@", [expiredAlarms description]);
+    // NSLog(@"expired alarms: %@", [expiredAlarms description]);
     [alarms removeObject: alarm];
     [self _changed];
 }
@@ -81,7 +81,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 - (void)_alarmTimerSet:(NSNotification *)notification;
 {
     PSAlarm *alarm = [notification object];
-    NSLog(@"timer set: %@ retainCount %d", alarm, [alarm retainCount]);
+    // NSLog(@"timer set: %@ retainCount %d", alarm, [alarm retainCount]);
     [alarms addObject: alarm];
     [expiredAlarms removeObject: alarm];
     [self _changed];

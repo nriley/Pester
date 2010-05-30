@@ -155,7 +155,7 @@ static NSDate *midnightOnDate(NSDate *date) {
 
 - (void)_timerExpired:(PSTimer *)aTimer;
 {
-    NSLog(@"expired: %@; now %@", [[aTimer fireDate] description], [[NSDate date] description]);
+    // NSLog(@"expired: %@; now %@", [[aTimer fireDate] description], [[NSDate date] description]);
     alarmType = PSAlarmExpired;
     [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmTimerExpiredNotification object: self];
     [timer release]; timer = nil;
