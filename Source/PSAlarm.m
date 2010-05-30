@@ -145,6 +145,7 @@ static NSDate *midnightOnDate(NSDate *date) {
     // +[NSString stringWithFormat:] in 10.1 does not support long longs: work around it by converting to unsigned ints or longs for display
     if (interval == 0) return nil;
     if (interval < minute) return [NSString stringWithFormat: @"%us", (unsigned)interval];
+    if (interval % minute != 0) interval += minute; // match per-minute dock update interval
     if (interval < hour) return [NSString stringWithFormat: @"%um", (unsigned)(interval / minute)];
     if (interval < day) return [NSString stringWithFormat: @"%uh %um", (unsigned)(interval / hour), (unsigned)((interval % hour) / minute)];
     if (interval < 2 * day) return @"One day";
@@ -384,7 +385,7 @@ static NSDate *midnightOnDate(NSDate *date) {
 
 - (NSString *)timeRemainingString;
 {
-    NSString *timeRemainingString = [self _stringForInterval: llround([self timeRemaining])];
+    NSString *timeRemainingString = [self _stringForInterval: ceil([self timeRemaining])];
     
     if (timeRemainingString == nil) return @"«expired»";
     return timeRemainingString;

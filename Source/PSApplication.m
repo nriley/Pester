@@ -135,7 +135,7 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
     if (timer == nil) alarm = [[PSAlarms allAlarms] nextAlarm];
     if (alarm == nil) return;
     tileString = [alarm timeRemainingString];
-    timeRemaining = [alarm timeRemaining]; // want to err on the side of timeRemaining being smaller, otherwise «expired» can appear
+    timeRemaining = ceil([alarm timeRemaining]);
     {
         NSMutableDictionary *atts = [NSMutableDictionary dictionary];
         NSSize imageSize = [appIconImage size];
