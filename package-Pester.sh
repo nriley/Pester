@@ -44,11 +44,14 @@ SIZE=$(stat -L +size $DMG)
 
 # update Web presence
 DIGEST=`openssl dgst -sha1 -binary < $DMG | openssl dgst -dss1 -sign ~/Documents/Development/DSA/dsa_priv.pem | openssl enc -base64`
+NOW=`perl -e 'use POSIX qw(strftime); print strftime("%a, %d %b %Y %H:%M:%S %z", localtime(time())) . $tz'`
 perl -pi -e 's|(<enclosure url=".+'$DMG'").+/>|\1 length="'$SIZE'" type="application/x-apple-diskimage" sparkle:version="'$BUILD'" sparkle:shortVersionString="'$VERSION'" sparkle:dsaSignature="'$DIGEST'"/>|' Updates/updates.xml
+perl -pi -e 's#<(pubDate|lastBuildDate)>[^<]*#<$1>'$NOW'# && $done++ if $done < 3' Updates/updates.xml
 scp $DMG ainaz:web/nriley/software/$DMG.new
 ssh ainaz chmod go+r web/nriley/software/$DMG.new
 ssh ainaz mv web/nriley/software/$DMG{.new,}
 rsync -avz --exclude='.*' Updates/ ainaz:web/nriley/software/$PRODUCT/
+ssh ainaz chmod -R go+rX web/nriley/software/$PRODUCT
 # cd "$PACKAGEDIR"/Source
 # agvtool bump -all
 
