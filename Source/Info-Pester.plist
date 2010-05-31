@@ -29,7 +29,7 @@
 	<key>NSPrincipalClass</key>
 	<string>PSApplication</string>
 	<key>SUFeedURL</key>
-	<string>http://web.sabi.net/nriley/software/Pester/updates.xml</string>
+	<string>http://sabi.net/nriley/software/Pester/updates.xml</string>
 	<key>SUExpectsDSASignature</key>
 	<true/>
 	<key>SUPublicDSAKey</key>

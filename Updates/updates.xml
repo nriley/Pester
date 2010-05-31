@@ -2,58 +2,58 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
   <channel>
     <title>Pester</title>
-    <link>http://web.sabi.net/nriley/software/#pester</link>
+    <link>http://sabi.net/nriley/software/#pester</link>
     <description>Appcast for Pester updates.</description>
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
     <language>en</language>
     <pubDate>Mon, Apr 26 2010 14:40:57 -0600</pubDate>
     <lastBuildDate>Mon, Apr 26 2010 14:40:57 -0600</lastBuildDate>
     
-    <atom:link href="http://web.sabi.net/nriley/software/Pester/updates.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="http://sabi.net/nriley/software/Pester/updates.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Pester 1.1b9</title>
-      <link>http://web.sabi.net/nriley/software/#pester</link>
+      <link>http://sabi.net/nriley/software/#pester</link>
       <author>pester@sabi.net (Nicholas Riley)</author>
       <pubDate>Mon, Apr 26 2010 14:40:57 -0600</pubDate>
-      <enclosure url="http://web.sabi.net/nriley/software/Pester-1.1b9.dmg" length="861788" type="application/x-apple-diskimage" sparkle:version="35" sparkle:shortVersionString="1.1b9" sparkle:dsaSignature="MC0CFQCdgAbBlnv3ov+TxWjkKMFTjukjEgIUPfoPoFTRB2Rtbe/IuFoTGTAWB2Q="/>
+      <enclosure url="http://sabi.net/nriley/software/Pester-1.1b9.dmg" length="861788" type="application/x-apple-diskimage" sparkle:version="35" sparkle:shortVersionString="1.1b9" sparkle:dsaSignature="MC0CFQCdgAbBlnv3ov+TxWjkKMFTjukjEgIUPfoPoFTRB2Rtbe/IuFoTGTAWB2Q="/>
       <guid isPermaLink="false">pester-11b9</guid>
-      <sparkle:releaseNotesLink>http://web.sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
     </item>
     <item>
       <title>Pester 1.1b8</title>
-      <link>http://web.sabi.net/nriley/software/#pester</link>
+      <link>http://sabi.net/nriley/software/#pester</link>
       <author>pester@sabi.net (Nicholas Riley)</author>
       <pubDate>Thu, Mar 25 2010 23:37:42 -0600</pubDate>
-      <enclosure url="http://web.sabi.net/nriley/software/Pester-1.1b8.dmg" length="881197" type="application/x-apple-diskimage" sparkle:version="31" sparkle:shortVersionString="1.1b8" sparkle:dsaSignature="MCwCFEXjpffxDjyd5XjtZxB8OaHJ9+TKAhQbz4S/ESgg3i+lo9PARA51U40tcA=="/>
+      <enclosure url="http://sabi.net/nriley/software/Pester-1.1b8.dmg" length="881197" type="application/x-apple-diskimage" sparkle:version="31" sparkle:shortVersionString="1.1b8" sparkle:dsaSignature="MCwCFEXjpffxDjyd5XjtZxB8OaHJ9+TKAhQbz4S/ESgg3i+lo9PARA51U40tcA=="/>
       <guid isPermaLink="false">pester-11b8</guid>
-      <sparkle:releaseNotesLink>http://web.sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
     </item>
     <item>
       <title>Pester 1.1b7</title>
-      <link>http://web.sabi.net/nriley/software/#pester</link>
+      <link>http://sabi.net/nriley/software/#pester</link>
       <author>pester@sabi.net (Nicholas Riley)</author>
       <pubDate>Wed, 28 Nov 2007 12:56:44 -0600</pubDate>
-      <enclosure url="http://web.sabi.net/nriley/software/Pester-1.1b7.dmg" length="756428" type="application/x-apple-diskimage" sparkle:version="24" sparkle:shortVersionString="1.1b7" sparkle:dsaSignature="MCwCFFqQOUDTaC2zbXRgLbwJvUheGrPDAhQrVfoVSBwROm0UlwYybVlSVU4GpQ=="/>
+      <enclosure url="http://sabi.net/nriley/software/Pester-1.1b7.dmg" length="756428" type="application/x-apple-diskimage" sparkle:version="24" sparkle:shortVersionString="1.1b7" sparkle:dsaSignature="MCwCFFqQOUDTaC2zbXRgLbwJvUheGrPDAhQrVfoVSBwROm0UlwYybVlSVU4GpQ=="/>
       <guid isPermaLink="false">pester-11b7</guid>
-      <sparkle:releaseNotesLink>http://web.sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
     </item>
     <item>
       <title>Pester 1.1b6</title>
-      <link>http://web.sabi.net/nriley/software/#pester</link>
+      <link>http://sabi.net/nriley/software/#pester</link>
       <author>pester@sabi.net (Nicholas Riley)</author>
       <pubDate>Tue, 27 Nov 2007 18:26:26 -0600</pubDate>
-      <enclosure url="http://web.sabi.net/nriley/software/Pester-1.1b6.dmg" length="746933" type="application/x-apple-diskimage" sparkle:version="22" sparkle:shortVersionString="1.1b6" sparkle:dsaSignature="MC4CFQCKd5osaqHiFoGzDDTAHtBy+fHabgIVAJ9odNFRknU2/Czd3hVHu/htpvEu"/>
+      <enclosure url="http://sabi.net/nriley/software/Pester-1.1b6.dmg" length="746933" type="application/x-apple-diskimage" sparkle:version="22" sparkle:shortVersionString="1.1b6" sparkle:dsaSignature="MC4CFQCKd5osaqHiFoGzDDTAHtBy+fHabgIVAJ9odNFRknU2/Czd3hVHu/htpvEu"/>
       <guid isPermaLink="false">pester-11b6</guid>
-      <sparkle:releaseNotesLink>http://web.sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
     </item>
     <item>
       <title>Pester 1.1b5</title>
-      <link>http://web.sabi.net/nriley/software/#pester</link>
+      <link>http://sabi.net/nriley/software/#pester</link>
       <author>pester@sabi.net (Nicholas Riley)</author>
       <pubDate>Sat, 24 Nov 2007 17:14:47 -0600</pubDate>
-      <enclosure url="http://web.sabi.net/nriley/software/Pester-1.1b5.dmg" length="749389" type="application/x-apple-diskimage" sparkle:version="21" sparkle:shortVersionString="1.1b5" sparkle:dsaSignature="MCwCFFkK4zRnPAKoKDEz3h8/Ra4KDZT6AhQryVERDhVrDE1Q014MLJv/HKVc5g=="/>
+      <enclosure url="http://sabi.net/nriley/software/Pester-1.1b5.dmg" length="749389" type="application/x-apple-diskimage" sparkle:version="21" sparkle:shortVersionString="1.1b5" sparkle:dsaSignature="MCwCFFkK4zRnPAKoKDEz3h8/Ra4KDZT6AhQryVERDhVrDE1Q014MLJv/HKVc5g=="/>
       <guid isPermaLink="false">pester-11b5</guid>
-      <sparkle:releaseNotesLink>http://web.sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
     </item>
   </channel>
 </rss>
