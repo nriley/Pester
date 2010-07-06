@@ -1,0 +1,10 @@
+/* Date popup */
+"today" = "i dag";
+"tomorrow" = "i morgon";
+"in 2 days" = "om 2 dagar";
+"next «day»" = "nästa «day»";
+"next week" = "nästa vecka";
+"in 2 weeks" = "om 2 veckor";
+"next month" = "nästa månad";
+"in 2 months" = "om 2 månader";
+"in 1 year" = "om 1 år";
