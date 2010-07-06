@@ -267,6 +267,7 @@
 		E1A18CAB03B4344C00000028 /* PSAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAlerts.h; sourceTree = "<group>"; };
 		E1A18CAC03B4344C00000028 /* PSAlerts.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PSAlerts.m; sourceTree = "<group>"; };
 		E1A18CB203B439CF00000028 /* PSPropertyListSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPropertyListSerialization.h; sourceTree = SOURCE_ROOT; };
+		E1A7069111E3921700084DF5 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E1B11F8B0CF5F30F004975AA /* Info-Pester.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Pester.plist"; sourceTree = "<group>"; };
 		E1B11F8C0CF5F30F004975AA /* Pester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B121950CF62FD1004975AA /* NSMenuItem-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMenuItem-NJRExtensions.h"; sourceTree = "<group>"; };
@@ -274,6 +275,7 @@
 		E1B121B30CF639A1004975AA /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E1B46FE804057E3400050002 /* NJRSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRSplitView.h; sourceTree = "<group>"; };
 		E1B46FE904057E3400050002 /* NJRSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRSplitView.m; sourceTree = "<group>"; };
+		E1BF67B811E37E0400A85B42 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E1BF6E9003C928D200050002 /* PSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTimer.h; sourceTree = "<group>"; };
 		E1BF6E9103C928D200050002 /* PSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTimer.m; sourceTree = "<group>"; };
 		E1CDEC3D0444053F00AEEDB1 /* NJRNonCenteringWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRNonCenteringWindow.h; sourceTree = "<group>"; };
@@ -861,6 +863,8 @@
 				fr,
 				nl,
 				en,
+				it,
+				sv,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Pester */;
 			projectDirPath = "";
@@ -1087,6 +1091,8 @@
 				E19D2D741158181A00B68D9F /* de */,
 				E1866A2711592DB800262485 /* en */,
 				E1050FC2116003DD00E5063D /* nl */,
+				E1BF67B811E37E0400A85B42 /* it */,
+				E1A7069111E3921700084DF5 /* sv */,
 			);
 			name = DateCompletions.strings;
 			sourceTree = "<group>";
