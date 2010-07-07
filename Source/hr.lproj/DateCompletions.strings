@@ -1,0 +1,10 @@
+/* Date popup */
+"today" = "danas";
+"tomorrow" = "sutra";
+"in 2 days" = "prekosutra";
+"next «day»" = "sljedeći «dan»";
+"next week" = "sljedeći tjedan";
+"in 2 weeks" = "za dva tjedna";
+"next month" = "sljedeći mjesec";
+"in 2 months" = "za dva mjeseca";
+"in 1 year" = "za godinu dana";

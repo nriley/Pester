@@ -280,6 +280,8 @@
 		E1BF6E9103C928D200050002 /* PSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTimer.m; sourceTree = "<group>"; };
 		E1CDEC3D0444053F00AEEDB1 /* NJRNonCenteringWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRNonCenteringWindow.h; sourceTree = "<group>"; };
 		E1CDEC3E0444053F00AEEDB1 /* NJRNonCenteringWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRNonCenteringWindow.m; sourceTree = "<group>"; };
+		E1D88CEF11E4BA9800F472E6 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/DateCompletions.strings; sourceTree = "<group>"; };
+		E1D88CF011E4BA9900F472E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E1D94C8911473CBA00C88B55 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		E1DE3C14115930BD00C17BB0 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E1DEF0EA03FE1BF100050002 /* OARightArrowPressed.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OARightArrowPressed.tiff; sourceTree = "<group>"; };
@@ -865,6 +867,7 @@
 				en,
 				it,
 				sv,
+				hr,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Pester */;
 			projectDirPath = "";
@@ -1093,6 +1096,8 @@
 				E1050FC2116003DD00E5063D /* nl */,
 				E1BF67B811E37E0400A85B42 /* it */,
 				E1A7069111E3921700084DF5 /* sv */,
+				E1D88CEF11E4BA9800F472E6 /* hr */,
+				E1D88CF011E4BA9900F472E6 /* fr */,
 			);
 			name = DateCompletions.strings;
 			sourceTree = "<group>";
