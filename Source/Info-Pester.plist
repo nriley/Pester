@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Pester</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Pester 1.1b10, © 2002–10 Nicholas Riley</string>
+	<string>Pester 1.1b11, © 2002–10 Nicholas Riley</string>
 	<key>CFBundleIconFile</key>
 	<string>Application icon</string>
 	<key>CFBundleIdentifier</key>
@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1b10</string>
+	<string>1.1b11</string>
 	<key>CFBundleSignature</key>
 	<string>Pest</string>
 	<key>CFBundleVersion</key>
-	<string>36</string>
+	<string>37</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
