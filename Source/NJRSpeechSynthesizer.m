@@ -32,6 +32,7 @@
     if (voice == nil) return YES;
 
     const char *voiceName = [[[NSSpeechSynthesizer attributesForVoice: voice] objectForKey: NSVoiceName] UTF8String];
+    size_t voiceLength = strlen(voiceName);
     SInt16 voiceCount, voiceIndex;
     VoiceSpec voiceSpec;
     OSStatus err = CountVoices(&voiceCount);
@@ -44,7 +45,7 @@
 	err = GetVoiceDescription(&voiceSpec, &voiceDescription, sizeof(voiceDescription));
 	if (err != noErr) continue;
 
-	if (!strcmp(voiceName, (const char *)(voiceDescription.name + 1)))
+	if (voiceLength == voiceDescription.name[0] && !strncmp(voiceName, (const char *)(voiceDescription.name + 1), voiceLength))
 	    goto foundVoice;
     }
     return NO;
