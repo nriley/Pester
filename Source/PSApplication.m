@@ -19,6 +19,8 @@
 #import "NJRHotKey.h"
 #import "NSWindowCollectionBehavior.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopenNotification";
 
 @interface PSApplication (Private)
@@ -127,55 +129,118 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
     dockUpdateInterval = interval; // because [timer timeInterval] always returns 0 once set
 }
 
+- (void)nextAlarmDidChange:(NSNotification *)notification;
+{
+    PSAlarm *nextAlarm = [notification object];
+    // NSLog(@"nextAlarmDidChange: %@", nextAlarm);
+    [self _resetUpdateTimer];
+    if (nextAlarm == nil) {
+        [NSApp setApplicationIconImage: appIconImage];
+    } else {
+        [self _updateDockTile: nil];
+    }
+}
+
+#pragma mark time remaining display
+
+- (NSImage *)iconImageWithAlarm:(PSAlarm *)alarm;
+{
+	NSMutableDictionary *atts = [NSMutableDictionary dictionary];
+	NSSize imageSize = [appIconImage size];
+	NSImage *tile = [[NSImage alloc] initWithSize: imageSize];
+	NSSize textSize;
+	NSPoint textOrigin;
+	NSRect frameRect;
+	float fontSize = 37;
+    NSString *tileString = [alarm timeRemainingString];
+
+	do {
+		fontSize -= 1;
+		[atts setObject: [NSFont boldSystemFontOfSize: fontSize] forKey: NSFontAttributeName];
+		textSize = [tileString sizeWithAttributes: atts];
+	} while (textSize.width > imageSize.width - 8);
+
+	textOrigin = NSMakePoint(imageSize.width / 2 - textSize.width / 2,
+							 imageSize.height / 2 - textSize.height / 2);
+	frameRect = NSInsetRect(NSMakeRect(textOrigin.x, textOrigin.y, textSize.width, textSize.height), -4, -2);
+
+	[tile lockFocus];
+	// draw the grayed-out app icon
+	[appIconImage dissolveToPoint: NSZeroPoint fraction: 0.5f];
+	// draw the frame
+	[[NSColor colorWithCalibratedWhite: 0.1f alpha: 0.5f] set];
+	NSRectFill(frameRect);
+	// draw a gray two-pixel text shadow
+	[atts setObject: [NSColor grayColor] forKey: NSForegroundColorAttributeName];
+	textOrigin.x++; textOrigin.y--;
+	[tileString drawAtPoint: textOrigin withAttributes: atts];
+	textOrigin.x++; textOrigin.y--;
+	[tileString drawAtPoint: textOrigin withAttributes: atts];
+	// draw white text
+	textOrigin.x -= 2; textOrigin.y += 2;
+	[atts setObject: [NSColor whiteColor] forKey: NSForegroundColorAttributeName];
+	[tileString drawAtPoint: textOrigin withAttributes: atts];
+	[tile unlockFocus];
+
+	return [tile autorelease];
+}
+
+- (void)showTimeRemainingForAlarm:(PSAlarm *)alarm fromWindow:(NSWindow *)window;
+{
+	NSScreen *screen = [window screen];
+	NSWindow *screenWindow =
+	[[NSWindow alloc]initWithContentRect: [window frame]
+							   styleMask: NSBorderlessWindowMask
+								 backing: NSBackingStoreRetained
+								   defer: NO
+								  screen: screen];
+
+	[screenWindow setLevel: NSPopUpMenuWindowLevel + 1];
+    [screenWindow setBackgroundColor: [NSColor clearColor]];
+    [screenWindow setHasShadow: NO];
+    [screenWindow setOpaque: NO];
+ 	[screenWindow setIgnoresMouseEvents: YES];
+
+    NSView *contentView = [screenWindow contentView];
+	[contentView setWantsLayer: YES];
+
+    CALayer *rootLayer = [contentView layer];
+	[rootLayer setLayoutManager: [CAConstraintLayoutManager layoutManager]];
+
+    CALayer *iconLayer = [CALayer layer];
+	NSImage *iconImage = [self iconImageWithAlarm: alarm];
+	NSSize size = [[iconImage bestRepresentationForDevice: [screen deviceDescription]] size];
+	[iconLayer setBounds: CGRectMake(0, 0, size.width, size.height)];
+	[iconLayer setContents: iconImage];
+	[iconLayer addConstraint: [CAConstraint constraintWithAttribute: kCAConstraintMidX
+														 relativeTo: @"superlayer"
+														  attribute: kCAConstraintMidX]];
+	[iconLayer addConstraint: [CAConstraint constraintWithAttribute: kCAConstraintMidY
+														 relativeTo: @"superlayer"
+														  attribute: kCAConstraintMidY]];
+	[iconLayer setOpacity: 0]; // don't "bounce" at end
+    [rootLayer addSublayer: iconLayer];
+	[rootLayer layoutIfNeeded];
+
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath: @"opacity"];
+	[animation setFromValue: [NSNumber numberWithFloat: 1]];
+	[animation setToValue: [NSNumber numberWithFloat: 0]];
+	[animation setDuration: 1];
+	[animation setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
+	[iconLayer addAnimation: animation forKey: @"opacity"];
+
+	[screenWindow makeKeyAndOrderFront: nil];
+	// XXX remove window, etc.
+}
+
 - (void)_updateDockTile:(PSTimer *)timer;
 {
     PSAlarm *alarm = [timer userInfo];
-    NSTimeInterval timeRemaining;
-    NSString *tileString;
     if (timer == nil) alarm = [[PSAlarms allAlarms] nextAlarm];
     if (alarm == nil) return;
-    tileString = [alarm timeRemainingString];
-    timeRemaining = ceil([alarm timeRemaining]);
-    {
-        NSMutableDictionary *atts = [NSMutableDictionary dictionary];
-        NSSize imageSize = [appIconImage size];
-        NSImage *tile = [[NSImage alloc] initWithSize: imageSize];
-        NSSize textSize;
-        NSPoint textOrigin;
-        NSRect frameRect;
-        float fontSize = 37;
-        
-        do {
-            fontSize -= 1;
-            [atts setObject: [NSFont boldSystemFontOfSize: fontSize] forKey: NSFontAttributeName];
-            textSize = [tileString sizeWithAttributes: atts];
-        } while (textSize.width > imageSize.width - 8);
+	[NSApp setApplicationIconImage: [self iconImageWithAlarm: alarm]];
 
-        textOrigin = NSMakePoint(imageSize.width / 2 - textSize.width / 2,
-                                 imageSize.height / 2 - textSize.height / 2);
-        frameRect = NSInsetRect(NSMakeRect(textOrigin.x, textOrigin.y, textSize.width, textSize.height), -4, -2);
-        
-        [tile lockFocus];
-        // draw the grayed-out app icon
-        [appIconImage dissolveToPoint: NSZeroPoint fraction: 0.5f];
-        // draw the frame
-        [[NSColor colorWithCalibratedWhite: 0.1f alpha: 0.5f] set];
-        NSRectFill(frameRect);
-        // draw a gray two-pixel text shadow
-        [atts setObject: [NSColor grayColor] forKey: NSForegroundColorAttributeName];
-        textOrigin.x++; textOrigin.y--;
-        [tileString drawAtPoint: textOrigin withAttributes: atts];
-        textOrigin.x++; textOrigin.y--;
-        [tileString drawAtPoint: textOrigin withAttributes: atts];
-        // draw white text
-        textOrigin.x -= 2; textOrigin.y += 2;
-        [atts setObject: [NSColor whiteColor] forKey: NSForegroundColorAttributeName];
-        [tileString drawAtPoint: textOrigin withAttributes: atts];
-        
-        [tile unlockFocus];
-        [NSApp setApplicationIconImage: tile];
-        [tile release];
-    }
+	NSTimeInterval timeRemaining = ceil([alarm timeRemaining]);
     // NSLog(@"_updateDockTile > time remaining %@ (%.6lf), last time interval %.6lf", tileString, timeRemaining, dockUpdateInterval);
     if (timeRemaining > 61) {
         NSTimeInterval nextUpdate = ((unsigned long long)timeRemaining) % 60;
@@ -189,18 +254,6 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
         // NSLog(@"_updateDockTile > set timer for 1 second");
     } else if (timeRemaining <= 1) {
         [self _resetUpdateTimer];
-    }
-}
-
-- (void)nextAlarmDidChange:(NSNotification *)notification;
-{
-    PSAlarm *nextAlarm = [notification object];
-    // NSLog(@"nextAlarmDidChange: %@", nextAlarm);
-    [self _resetUpdateTimer];
-    if (nextAlarm == nil) {
-        [NSApp setApplicationIconImage: appIconImage];
-    } else {
-        [self _updateDockTile: nil];
     }
 }
 

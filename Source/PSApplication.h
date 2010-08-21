@@ -8,6 +8,7 @@
 
 #import <AppKit/AppKit.h>
 
+@class PSAlarm;
 @class PSAlarmsController;
 @class PSAlarmSetController;
 @class PSTimer;
@@ -34,5 +35,7 @@ extern NSString * const PSApplicationWillReopenNotification;
 - (void)orderOutSetAlarmPanelIfHidden;
 
 - (void)activateIgnoringOtherApps;
+
+- (void)showTimeRemainingForAlarm:(PSAlarm *)alarm fromWindow:(NSWindow *)window;
 
 @end
