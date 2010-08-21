@@ -36,6 +36,6 @@ extern NSString * const PSApplicationWillReopenNotification;
 
 - (void)activateIgnoringOtherApps;
 
-- (void)showTimeRemainingForAlarm:(PSAlarm *)alarm fromWindow:(NSWindow *)window;
+- (void)showTimeRemainingForAlarm:(PSAlarm *)alarm;
 
 @end

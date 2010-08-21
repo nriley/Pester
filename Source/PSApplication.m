@@ -185,52 +185,8 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
 	return [tile autorelease];
 }
 
-- (void)showTimeRemainingForAlarm:(PSAlarm *)alarm fromWindow:(NSWindow *)window;
+- (void)showTimeRemainingForAlarm:(PSAlarm *)alarm;
 {
-	NSScreen *screen = [window screen];
-	NSWindow *screenWindow =
-	[[NSWindow alloc]initWithContentRect: [window frame]
-							   styleMask: NSBorderlessWindowMask
-								 backing: NSBackingStoreRetained
-								   defer: NO
-								  screen: screen];
-
-	[screenWindow setLevel: NSPopUpMenuWindowLevel + 1];
-    [screenWindow setBackgroundColor: [NSColor clearColor]];
-    [screenWindow setHasShadow: NO];
-    [screenWindow setOpaque: NO];
- 	[screenWindow setIgnoresMouseEvents: YES];
-
-    NSView *contentView = [screenWindow contentView];
-	[contentView setWantsLayer: YES];
-
-    CALayer *rootLayer = [contentView layer];
-	[rootLayer setLayoutManager: [CAConstraintLayoutManager layoutManager]];
-
-    CALayer *iconLayer = [CALayer layer];
-	NSImage *iconImage = [self iconImageWithAlarm: alarm];
-	NSSize size = [[iconImage bestRepresentationForDevice: [screen deviceDescription]] size];
-	[iconLayer setBounds: CGRectMake(0, 0, size.width, size.height)];
-	[iconLayer setContents: iconImage];
-	[iconLayer addConstraint: [CAConstraint constraintWithAttribute: kCAConstraintMidX
-														 relativeTo: @"superlayer"
-														  attribute: kCAConstraintMidX]];
-	[iconLayer addConstraint: [CAConstraint constraintWithAttribute: kCAConstraintMidY
-														 relativeTo: @"superlayer"
-														  attribute: kCAConstraintMidY]];
-	[iconLayer setOpacity: 0]; // don't "bounce" at end
-    [rootLayer addSublayer: iconLayer];
-	[rootLayer layoutIfNeeded];
-
-	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath: @"opacity"];
-	[animation setFromValue: [NSNumber numberWithFloat: 1]];
-	[animation setToValue: [NSNumber numberWithFloat: 0]];
-	[animation setDuration: 1];
-	[animation setTimingFunction: [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut]];
-	[iconLayer addAnimation: animation forKey: @"opacity"];
-
-	[screenWindow makeKeyAndOrderFront: nil];
-	// XXX remove window, etc.
 }
 
 - (void)_updateDockTile:(PSTimer *)timer;

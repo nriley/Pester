@@ -8,6 +8,7 @@
 
 #import "PSAlarmSetController.h"
 #import "PSAlarmAlertController.h"
+#import "PSApplication.h"
 #import "PSCalendarController.h"
 #import "PSPowerManager.h"
 #import "PSTimeDateEditor.h"
@@ -535,6 +536,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
     
     [self setStatus: [[alarm date] descriptionWithCalendarFormat: @"Alarm set for %x at %X" timeZone: nil locale: nil]];
     [[self window] close];
+	[(PSApplication *)NSApp showTimeRemainingForAlarm: alarm];
     [alarm release];
     alarm = [[PSAlarm alloc] init];
 }

@@ -10,7 +10,6 @@
 		E102D848116EB43A00207746 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D847116EB43A00207746 /* AudioToolbox.framework */; };
 		E102D84A116EB43A00207746 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D849116EB43A00207746 /* AudioUnit.framework */; };
 		E102D876116EB73100207746 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D875116EB73100207746 /* ApplicationServices.framework */; };
-		E10CD1A6121E1EF70041A275 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10CD1A5121E1EF70041A275 /* QuartzCore.framework */; };
 		E10D3066115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D3065115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m */; };
 		E121E9421146A14E0063E471 /* NJRArrayToObjectTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */; };
 		E1246FDE1177EF4700AC249B /* NJRSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */; };
@@ -188,7 +187,6 @@
 		E102D849116EB43A00207746 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		E102D875116EB73100207746 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		E1050FC2116003DD00E5063D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/DateCompletions.strings; sourceTree = "<group>"; };
-		E10CD1A5121E1EF70041A275 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		E10D3064115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-PerformWhenIdle.h"; sourceTree = "<group>"; };
 		E10D3065115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject-PerformWhenIdle.m"; sourceTree = "<group>"; };
 		E10F2A3C0402E61C00050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = "en.lproj/Read Me.nib"; sourceTree = "<group>"; };
@@ -416,7 +414,6 @@
 				E102D848116EB43A00207746 /* AudioToolbox.framework in Frameworks */,
 				E102D84A116EB43A00207746 /* AudioUnit.framework in Frameworks */,
 				E102D876116EB73100207746 /* ApplicationServices.framework in Frameworks */,
-				E10CD1A6121E1EF70041A275 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +445,6 @@
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				F5F240D0036A87E301FE7503 /* Carbon.framework */,
 				E18DAAEE0442D02500050002 /* CoreAudio.framework */,
-				E10CD1A5121E1EF70041A275 /* QuartzCore.framework */,
 				E1D94C8911473CBA00C88B55 /* QuickTime.framework */,
 				E1B121B30CF639A1004975AA /* QTKit.framework */,
 				E14DB31203B8038300000028 /* IOKit.framework */,
