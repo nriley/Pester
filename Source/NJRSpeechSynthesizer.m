@@ -153,7 +153,7 @@ fail:
 - (BOOL)setVoice:(NSString *)voice;
 {
     if (speechChannel != NULL)
-	[self NJR_setVoice: voice];
+	return [self NJR_setVoice: voice];
 
     return [super setVoice: voice];
 }
