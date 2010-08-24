@@ -1,0 +1,12 @@
+{
+	DefaultNotifications = (
+		"Alarm Set",
+		"Alarm Expired"
+	);
+	TicketVersion = 1;
+	AllNotifications = (
+		"Alarm Set",
+		"Alarm Expired"
+	);
+	ApplicationName = Pester;
+}

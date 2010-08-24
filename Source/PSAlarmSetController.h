@@ -44,6 +44,7 @@
     IBOutlet NJRVoicePopUpButton *voice;
     IBOutlet NSButton *scriptSelectButton;
     IBOutlet NSButtonCell *wakeUp;
+    IBOutlet NSButton *notifyWithGrowlButton;
     IBOutlet NSTextField *timeSummary;
     IBOutlet NSButton *cancelButton;
     IBOutlet NSButton *setButton;

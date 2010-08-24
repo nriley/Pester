@@ -10,11 +10,13 @@
 #import "PSAlarmSetController.h"
 #import "PSAlarmAlertController.h"
 #import "PSAlarmsController.h"
+#import "PSGrowlController.h"
 #import "PSPreferencesController.h"
 #import "NJRReadMeController.h"
 #import "NJRSoundManager.h"
 #import "PSAlarm.h"
 #import "PSAlarms.h"
+#import "PSGrowlAlert.h"
 #import "PSTimer.h"
 #import "NJRHotKey.h"
 #import "NSWindowCollectionBehavior.h"
@@ -187,6 +189,17 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
 
 - (void)showTimeRemainingForAlarm:(PSAlarm *)alarm;
 {
+    [[PSGrowlController sharedController]
+     notifyWithTitle: [alarm message]
+     description: [NSString stringWithFormat: @"Alarm set for %@ from now.",
+		   [[alarm intervalString] lowercaseString]]
+     notificationName: @"Alarm Set"
+     isSticky: NO
+     target: [NSObject class]
+     selector: @selector(isEqual:)
+     object: [NSObject class]
+     onlyOnClick: YES];
+    // XXX select in alarm list
 }
 
 - (void)_updateDockTile:(PSTimer *)timer;

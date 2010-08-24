@@ -32,6 +32,9 @@
 #import "PSMovieAlert.h"
 #import "PSSpeechAlert.h"
 #import "PSWakeAlert.h"
+#import "PSGrowlAlert.h"
+
+#import <Growl/Growl.h>
 
 // NSUserDefaults keys
 static NSString * const PSAlertsSelected = @"Pester alerts selected";
@@ -442,7 +445,9 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
             [voice setVoice: [(PSSpeechAlert *)alert voice]];
         } else if ([alert isKindOfClass: [PSWakeAlert class]]) {
             [wakeUp setIntValue: YES];
-        }
+        } else if ([alert isKindOfClass: [PSGrowlAlert class]]) {
+	    [notifyWithGrowlButton setIntValue: YES];
+	}
 }
 }
 
@@ -485,6 +490,9 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
         // wake alert
         if ([wakeUp intValue])
             [alerts addAlert: [PSWakeAlert alert]];
+	// Growl alert
+	if ([notifyWithGrowlButton intValue])
+	    [alerts addAlert: [PSGrowlAlert alert]];
         [[NSUserDefaults standardUserDefaults] setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
     } @catch (NSException *exception) {
 	[self setStatus: [exception reason]];
@@ -601,6 +609,11 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
 @end
 
 @implementation PSAlarmSetController (NSWindowNotifications)
+
+- (void)windowDidBecomeKey:(NSNotification *)notification;
+{
+    [notifyWithGrowlButton setEnabled: [GrowlApplicationBridge isGrowlRunning]];
+}
 
 - (void)windowWillClose:(NSNotification *)notification;
 {
