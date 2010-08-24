@@ -58,6 +58,7 @@ foundVoice:
 }
 
 static void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     NJRSpeechSynthesizer *synthesizer = (NJRSpeechSynthesizer *)refCon;
     id delegate = [synthesizer delegate];
     if (delegate == nil)
@@ -71,6 +72,7 @@ static void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
     BOOL yes = YES;
     [invocation setArgument: &yes atIndex: 3];
     [invocation performSelectorOnMainThread: @selector(invokeWithTarget:) withObject: delegate waitUntilDone: NO];
+    [pool release];
 }
 
 - (id)initWithVoice:(NSString *)voice;
