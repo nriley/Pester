@@ -24,12 +24,12 @@
 
 \f1\b \cf0 Written by 
 \b0 Nicholas Riley <{\field{\*\fldinst{HYPERLINK "mailto:pester@sabi.net"}}{\fldrslt pester@sabi.net}}>.\
-Obtain updates from <{\field{\*\fldinst{HYPERLINK "http://web.sabi.net/nriley/software/"}}{\fldrslt http://web.sabi.net/nriley/software/}}>.\
+Obtain updates from <{\field{\*\fldinst{HYPERLINK "http://sabi.net/nriley/software/"}}{\fldrslt http://sabi.net/nriley/software/}}>.\
 \
 \pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\tx10560\tx11520\tx12481\tx13441\tx14401\tx15361\tx16321\tx17281\tx18241\tx19203\tx20163\tx21123\tx22083\tx23043\tx24003\tx24963\tx25923\tx26883\tx27843\tx28803\tx29763\tx30725\tx31685\tx32645\tx33605\tx34565\tx35525\tx36485\tx37446\tx38406\tx39366\tx40326\tx41286\tx42246\tx43207\tx44167\tx45127\tx46087\tx47047\tx48007\tx48967\tx49927\tx50887\tx51847\tx52807\tx53767\tx54727\tx55688\tx56648\tx57608\tx58568\tx59528\tx60488\tx61450\tx62410\tx63370\tx64330\tx65290\tx66250\tx67210\tx68171\tx69131\tx70091\tx71051\tx72011\tx72971\tx73932\tx74892\tx75852\tx76812\tx77772\tx78732\tx79692\tx80652\tx81612\tx82572\tx83532\tx84492\tx85452\tx86414\tx87374\tx88334\tx89294\tx90254\tx91214\tx92175\tx93135\tx94095\tx95055\tx96015\ql\qnatural
 
 \b \cf3 Note:
-\b0  This documentation is not yet updated for version 1.1, though most of it should still apply; please read the release notes at the end for a listing of what has changed in this version.\
+\b0  This documentation is not yet updated for version 1.1, though most of it should still apply; please read the version history at the end of this document for a listing of what has changed in this version. The {\field{\*\fldinst{HYPERLINK "http://www.macworld.com/reviews/product/569796/review/pester_11b10.html"}}{\fldrslt Macworld review}} does a great job of introducing Pester 1.1, too.\
 \pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\tx10560\tx11520\tx12481\tx13441\tx14401\tx15361\tx16321\tx17281\tx18241\tx19203\tx20163\tx21123\tx22083\tx23043\tx24003\tx24963\tx25923\tx26883\tx27843\tx28803\tx29763\tx30725\tx31685\tx32645\tx33605\tx34565\tx35525\tx36485\tx37446\tx38406\tx39366\tx40326\tx41286\tx42246\tx43207\tx44167\tx45127\tx46087\tx47047\tx48007\tx48967\tx49927\tx50887\tx51847\tx52807\tx53767\tx54727\tx55688\tx56648\tx57608\tx58568\tx59528\tx60488\tx61450\tx62410\tx63370\tx64330\tx65290\tx66250\tx67210\tx68171\tx69131\tx70091\tx71051\tx72011\tx72971\tx73932\tx74892\tx75852\tx76812\tx77772\tx78732\tx79692\tx80652\tx81612\tx82572\tx83532\tx84492\tx85452\tx86414\tx87374\tx88334\tx89294\tx90254\tx91214\tx92175\tx93135\tx94095\tx95055\tx96015\ql\qnatural
 \cf0 \
 \pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\tx10560\tx11520\tx12481\tx13441\tx14401\tx15361\tx16321\tx17281\tx18241\tx19203\tx20163\tx21123\tx22083\tx23043\tx24003\tx24963\tx25923\tx26883\tx27843\tx28803\tx29763\tx30725\tx31685\tx32645\tx33605\tx34565\tx35525\tx36485\tx37446\tx38406\tx39366\tx40326\tx41286\tx42246\tx43207\tx44167\tx45127\tx46087\tx47047\tx48007\tx48967\tx49927\tx50887\tx51847\tx52807\tx53767\tx54727\tx55688\tx56648\tx57608\tx58568\tx59528\tx60488\tx61450\tx62410\tx63370\tx64330\tx65290\tx66250\tx67210\tx68171\tx69131\tx70091\tx71051\tx72011\tx72971\tx73932\tx74892\tx75852\tx76812\tx77772\tx78732\tx79692\tx80652\tx81612\tx82572\tx83532\tx84492\tx85452\tx86414\tx87374\tx88334\tx89294\tx90254\tx91214\tx92175\tx93135\tx94095\tx95055\tx96015\ql\qnatural
@@ -51,7 +51,7 @@ Obtain updates from <{\field{\*\fldinst{HYPERLINK "http://web.sabi.net/nriley/so
 \f1 \cf0 \
 \pard\tx960\tx1920\tx2880\tx3840\tx4800\tx5760\tx6720\tx7680\tx8640\tx9600\tx10560\tx11520\tx12481\tx13441\tx14401\tx15361\tx16321\tx17281\tx18241\tx19203\tx20163\tx21123\tx22083\tx23043\tx24003\tx24963\tx25923\tx26883\tx27843\tx28803\tx29763\tx30725\tx31685\tx32645\tx33605\tx34565\tx35525\tx36485\tx37446\tx38406\tx39366\tx40326\tx41286\tx42246\tx43207\tx44167\tx45127\tx46087\tx47047\tx48007\tx48967\tx49927\tx50887\tx51847\tx52807\tx53767\tx54727\tx55688\tx56648\tx57608\tx58568\tx59528\tx60488\tx61450\tx62410\tx63370\tx64330\tx65290\tx66250\tx67210\tx68171\tx69131\tx70091\tx71051\tx72011\tx72971\tx73932\tx74892\tx75852\tx76812\tx77772\tx78732\tx79692\tx80652\tx81612\tx82572\tx83532\tx84492\tx85452\tx86414\tx87374\tx88334\tx89294\tx90254\tx91214\tx92175\tx93135\tx94095\tx95055\tx96015\ql\qnatural
 
-\b0 \cf0 Pester should work on Mac OS X 10.4 or later; it has been tested on Mac OS X 10.4.11, 10.5.8 and 10.6.3.\
+\b0 \cf0 Pester should work on Mac OS X 10.4 or later; it has been tested on Mac OS X 10.4.11, 10.5.8 and 10.6.4.\
 \
 To install Pester, simply drag the Pester icon to your Applications folder or another convenient location. If you use Pester often, consider keeping it in the Dock and adding it to your Login Items.\
 \
@@ -204,6 +204,8 @@ Pester is also fully Y3K-compliant. It can be comforting to know that even if yo
 \'95	View alerts for scheduled alarms as help tags in the alarm list window.\
 \'95	Customizable alerts: the previously-mandatory notification dialog box, alert sound and Dock bouncing are now all optional.\
 \'95	Customizable alerts: playback of sounds, images and movies (anything QuickTime can handle) and speech with selectable sound output device.\
+\'95	Customizable alerts: support for the Growl notification system.\
+\'95	Display an alarm\'92s time remaining when it is set for confirmation (requires Growl).\
 \'95	Ellipsize long alarm messages in the alarm list window.\
 \'95	Added Delete keyboard shortcut for removing alarms in the alarm list window.\
 \'95	Alarm removal in the alarm list window is now undoable.\
