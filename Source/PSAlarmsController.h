@@ -19,4 +19,6 @@
 
 - (IBAction)remove:(id)sender;
 
+- (void)selectAlarm:(PSAlarm *)alarm;
+
 @end

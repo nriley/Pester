@@ -87,6 +87,16 @@
     [self _removeAlarms: [[alarmList delegate] selectedItems]];
 }
 
+- (void)selectAlarm:(PSAlarm *)alarm;
+{
+    unsigned row = [reorderedAlarms indexOfObject: alarm];
+    if (row == NSNotFound)
+        return;
+
+    [alarmList selectRow: row byExtendingSelection: NO];
+    [alarmList scrollRowToVisible: row];
+}
+
 @end
 
 @implementation PSAlarmsController (NSTableDataSource)

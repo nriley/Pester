@@ -187,6 +187,12 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
 	return [tile autorelease];
 }
 
+- (void)selectAlarmInAlarmsPanel:(PSAlarm *)alarm;
+{
+    [self orderFrontAlarmsPanel: nil];
+    [alarmsController selectAlarm: alarm];
+}
+
 - (void)showTimeRemainingForAlarm:(PSAlarm *)alarm;
 {
     [[PSGrowlController sharedController]
@@ -195,11 +201,10 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
 		   [[alarm intervalString] lowercaseString]]
      notificationName: @"Alarm Set"
      isSticky: NO
-     target: [NSObject class]
-     selector: @selector(isEqual:)
-     object: [NSObject class]
+     target: self
+     selector: @selector(selectAlarmInAlarmsPanel:)
+     object: alarm
      onlyOnClick: YES];
-    // XXX select in alarm list
 }
 
 - (void)_updateDockTile:(PSTimer *)timer;
