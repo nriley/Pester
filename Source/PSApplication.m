@@ -189,6 +189,9 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
 
 - (void)selectAlarmInAlarmsPanel:(PSAlarm *)alarm;
 {
+    if (![alarm isValid])
+        return;
+
     [self orderFrontAlarmsPanel: nil];
     [alarmsController selectAlarm: alarm];
 }
