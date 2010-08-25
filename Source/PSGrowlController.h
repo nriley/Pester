@@ -24,4 +24,6 @@
 		 object:(id)object
 	    onlyOnClick:(BOOL)onlyOnClick;
 
+- (void)timeOutAllNotifications;
+
 @end

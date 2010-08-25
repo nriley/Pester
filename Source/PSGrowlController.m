@@ -23,7 +23,7 @@ static PSGrowlController *PSGrowlControllerShared;
 	 [NSDictionary dictionaryWithContentsOfFile:
 	  [[NSBundle mainBundle] pathForResource: @"Growl Registration Ticket"
 					  ofType: GROWL_REG_DICT_EXTENSION]]];
-	[GrowlApplicationBridge setGrowlDelegate: PSGrowlControllerShared];	
+	[GrowlApplicationBridge setGrowlDelegate: PSGrowlControllerShared];
     }
     
     return PSGrowlControllerShared;
@@ -90,6 +90,20 @@ static PSGrowlController *PSGrowlControllerShared;
 notificationFailed:
     if (!onlyOnClick)
 	[target performSelector: selector withObject: object];
+}
+
+- (void)timeOutAllNotifications;
+{
+    NSEnumerator *e = [[outstandingNotifications allKeys] objectEnumerator];
+    NSString *uuidString;
+    while ( (uuidString = [e nextObject]) != nil) {
+        NSDictionary *notificationInfo = [outstandingNotifications objectForKey: uuidString];
+
+        if ([[notificationInfo objectForKey: @"onlyOnClick"] boolValue])
+            continue;
+        [[notificationInfo objectForKey: @"invocation"] invoke];
+        [outstandingNotifications removeObjectForKey: uuidString];
+    }
 }
 
 @end

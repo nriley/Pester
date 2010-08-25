@@ -6,6 +6,7 @@
 //  Copyright 2010 Nicholas Riley. All rights reserved.
 //
 
+#import "PSAlarmAlertController.h"
 #import "PSGrowlAlert.h"
 #import "PSGrowlController.h"
 
@@ -15,8 +16,12 @@ static PSGrowlAlert *PSGrowlAlertShared;
 
 + (PSAlert *)alert;
 {
-    if (PSGrowlAlertShared == nil)
+    if (PSGrowlAlertShared == nil) {
         PSGrowlAlertShared = [[PSGrowlAlert alloc] init];
+
+        [[NSNotificationCenter defaultCenter] addObserver:
+         [PSGrowlController sharedController] selector: @selector(timeOutAllNotifications) name: PSAlarmAlertStopNotification object: nil];
+    }
     
     return PSGrowlAlertShared;
 }
