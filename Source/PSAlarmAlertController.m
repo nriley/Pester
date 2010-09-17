@@ -74,6 +74,10 @@ static NSString * const PSAlarmAlertWaitForIdle = @"PesterAlarmAlertWaitForIdle"
         appWasHidden = [NSApp isHidden];
 	[NSApp performAlertSelectorWhenIdle: @selector(activateIgnoringOtherApps) withObject: nil];
     }
+    // wake display
+    CGEventRef nullEvent = CGEventCreate(NULL);
+    CGEventPost(kCGHIDEventTap, nullEvent);
+    CFRelease(nullEvent);
 }
 
 - (id)initWithAlarm:(PSAlarm *)alarm;
