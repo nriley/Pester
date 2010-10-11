@@ -154,6 +154,49 @@ static NSDate *midnightOnDate(NSDate *date) {
     return [NSString stringWithFormat: @"%lu years", (unsigned long)(interval / year)];
 }
 
+- (NSString *)_intervalStringWithMultipleUnits:(BOOL)multipleUnits;
+{
+    const unsigned long long mval = 999, minute = 60, hour = minute * 60, day = hour * 24, week = day * 7;
+    unsigned long long interval = [self interval];
+    if (interval == 0) return nil;
+
+    if (interval == 1) return @"One second";
+    if (interval == minute) return @"One minute";
+    if (interval == hour) return @"One hour";
+    if (interval == day) return @"One day";
+    if (interval == week) return @"One week";
+
+    if (multipleUnits) {
+        if (interval <= minute) goto flooredInterval;
+
+        unsigned long long divisor1, divisor2;
+        NSString *unit1, *unit2;
+
+        if (interval < hour) { divisor1 = minute; divisor2 = 1; unit1 = @"minute"; unit2 = @"second"; }
+        else if (interval < day) { divisor1 = hour; divisor2 = minute; unit1 = @"hour"; unit2 = @"minute"; }
+        else if (interval < week) { divisor1 = day; divisor2 = hour; unit1 = @"day"; unit2 = @"hour"; }
+        else goto flooredInterval;
+
+        unsigned count1 = (unsigned)(interval / divisor1), count2 = (unsigned)((interval % divisor1) / divisor2);
+        return [NSString stringWithFormat:@"%@ %@%@ and %@ %@%@",
+                count1 == 1 ? @"One" : [NSString stringWithFormat:@"%u", count1], unit1, count1 == 1 ? @"" : @"s",
+                count2 == 1 ? @"one" : [NSString stringWithFormat:@"%u", count2], unit2, count2 == 1 ? @"" : @"s"];
+    }
+
+    if (interval % week == 0) return [NSString stringWithFormat: @"%u weeks", (unsigned)(interval / week)];
+    if (interval % day == 0) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
+    if (interval % hour == 0) return [NSString stringWithFormat: @"%u hours", (unsigned)(interval / hour)];
+    if (interval % minute == 0) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
+
+flooredInterval:
+    if (interval <= mval) return [NSString stringWithFormat: @"%u seconds", (unsigned)interval];
+    if (interval <= mval * minute) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
+    if (interval <= mval * hour) return [NSString stringWithFormat: @"%u hours", (unsigned)(interval / hour)];
+    if (interval <= mval * day) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
+
+    return [NSString stringWithFormat: @"%u weeks", (unsigned)(interval / week)];
+}
+
 - (void)_timerExpired:(PSTimer *)aTimer;
 {
     // NSLog(@"expired: %@; now %@", [[aTimer fireDate] description], [[NSDate date] description]);
@@ -347,28 +390,7 @@ static NSDate *midnightOnDate(NSDate *date) {
 
 - (NSString *)intervalString;
 {
-    const unsigned long long mval = 999, minute = 60, hour = minute * 60, day = hour * 24, week = day * 7;
-    unsigned long long interval = [self interval];
-    if (interval == 0) return nil;
-
-    if (interval == 1) return @"One second";
-    if (interval == minute) return @"One minute";
-    if (interval == hour) return @"One hour";
-    if (interval == day) return @"One day";
-    if (interval == week) return @"One week";
-
-    if (interval % week == 0) return [NSString stringWithFormat: @"%u weeks", (unsigned)(interval / week)];
-    if (interval % day == 0) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
-    if (interval % hour == 0) return [NSString stringWithFormat: @"%u hours", (unsigned)(interval / hour)];
-    if (interval % minute == 0) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
-    
-    if (interval <= mval) return [NSString stringWithFormat: @"%u seconds", (unsigned)interval];
-    if (interval <= mval * minute) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
-    if (interval <= mval * hour) return [NSString stringWithFormat: @"%u hours", (unsigned)(interval / hour)];
-    if (interval <= mval * day) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
-    return [NSString stringWithFormat: @"%u weeks", (unsigned)(interval / week)];
-
-    return [self _stringForInterval: interval];
+    return [self _intervalStringWithMultipleUnits:YES];
 }
 
 - (NSString *)repeatIntervalString;
@@ -376,7 +398,7 @@ static NSDate *midnightOnDate(NSDate *date) {
     if (!repeating)
 	return nil;
     
-    NSString *intervalString = [self intervalString];
+    NSString *intervalString = [self _intervalStringWithMultipleUnits:NO];
     if ([intervalString hasPrefix: @"One "])
 	return [intervalString substringFromIndex: 4];
     
