@@ -363,7 +363,7 @@
 		F59E4C0D036B43D2016B311C /* QTMovie-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "QTMovie-NJRExtensions.m"; sourceTree = "<group>"; };
 		F59E4C0E036B43D2016B311C /* QTMovie-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "QTMovie-NJRExtensions.h"; sourceTree = "<group>"; };
 		F59F6CB40354E7DA01AEEDB1 /* PSAlarm.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSAlarm.h; sourceTree = "<group>"; };
-		F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAlarm.m; sourceTree = "<group>"; };
+		F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAlarm.m; sourceTree = "<group>"; tabWidth = 8; };
 		F5B79836035F64F80136A8DD /* NJRTableView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NJRTableView.m; sourceTree = "<group>"; };
 		F5B79837035F64F80136A8DD /* NJRTableView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = NJRTableView.h; sourceTree = "<group>"; };
 		F5B79865038865B30136A8DD /* NSCharacterSet-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "NSCharacterSet-NJRExtensions.m"; sourceTree = "<group>"; };
@@ -1334,7 +1334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Sparkle/build/Release";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -1363,7 +1363,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 41;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Sparkle/build/Release";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pester_Prefix.h;

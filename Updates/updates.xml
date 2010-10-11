@@ -6,10 +6,19 @@
     <description>Appcast for Pester updates.</description>
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
     <language>en</language>
-    <pubDate>Wed, 25 Aug 2010 17:13:28 -0500</pubDate>
-    <lastBuildDate>Wed, 25 Aug 2010 17:13:28 -0500</lastBuildDate>
+    <pubDate>Mon, 11 Oct 2010 14:35:10 -0500</pubDate>
+    <lastBuildDate>Mon, 11 Oct 2010 14:35:10 -0500</lastBuildDate>
     
     <atom:link href="http://sabi.net/nriley/software/Pester/updates.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Pester 1.1b12</title>
+      <link>http://sabi.net/nriley/software/#pester</link>
+      <author>pester@sabi.net (Nicholas Riley)</author>
+      <pubDate>Mon, 11 Oct 2010 14:35:10 -0500</pubDate>
+      <enclosure url="http://sabi.net/nriley/software/Pester-1.1b12.dmg" length="947864" type="application/x-apple-diskimage" sparkle:version="41" sparkle:shortVersionString="1.1b12" sparkle:dsaSignature="MC0CFQCX8tiYE+fn/CYL0gf+W/RXOWjR7QIUcNVe3RFF8mhlMXpUeKrdatI0o6Y="/>
+      <guid isPermaLink="false">pester-11b12</guid>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
+    </item>
     <item>
       <title>Pester 1.1b11</title>
       <link>http://sabi.net/nriley/software/#pester</link>

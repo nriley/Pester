@@ -153,15 +153,12 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
-      <print-info-key name="NSPaperName" type="string">US Letter</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
   <editor content-size="{603, 600}" column-titles-display-mode="auto">
     <drawer display="sections" palette-height="167"/>
-    <selected-rows ids="gotAfbOXCFU"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{8, 0}"/>
+    <selected-rows ids="dc0fOPk0RKO"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -3543,7 +3540,7 @@
         </item>
       </children>
     </item>
-    <item id="dc0fOPk0RKO" expanded="yes" state="indeterminate">
+    <item id="dc0fOPk0RKO" state="checked">
       <style/>
       <style/>
       <style/>
@@ -3576,7 +3573,18 @@
             </text>
           </values>
         </item>
-        <item id="n1xKqSVEuas">
+        <item id="iRmG6vjvRb2" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Send null event to wake machine up with notifier.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="n1xKqSVEuas" state="checked">
           <values>
             <text>
               <p>
@@ -3607,6 +3615,17 @@
         </text>
       </values>
       <children>
+        <item id="fc_13JEUtZ4">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Auto-tomorrow *is* misbehaving. Fix it.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="nVBLUJLMa_2">
           <values>
             <text>
