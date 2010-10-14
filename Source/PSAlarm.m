@@ -178,9 +178,10 @@ static NSDate *midnightOnDate(NSDate *date) {
         else goto flooredInterval;
 
         unsigned count1 = (unsigned)(interval / divisor1), count2 = (unsigned)((interval % divisor1) / divisor2);
-        return [NSString stringWithFormat:@"%@ %@%@ and %@ %@%@",
-                count1 == 1 ? @"One" : [NSString stringWithFormat:@"%u", count1], unit1, count1 == 1 ? @"" : @"s",
-                count2 == 1 ? @"one" : [NSString stringWithFormat:@"%u", count2], unit2, count2 == 1 ? @"" : @"s"];
+        if (count2 != 0)
+            return [NSString stringWithFormat:@"%@ %@%@ and %@ %@%@",
+                    count1 == 1 ? @"One" : [NSString stringWithFormat:@"%u", count1], unit1, count1 == 1 ? @"" : @"s",
+                    count2 == 1 ? @"one" : [NSString stringWithFormat:@"%u", count2], unit2, count2 == 1 ? @"" : @"s"];
     }
 
     if (interval % week == 0) return [NSString stringWithFormat: @"%u weeks", (unsigned)(interval / week)];
