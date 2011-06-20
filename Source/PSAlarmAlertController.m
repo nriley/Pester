@@ -15,6 +15,7 @@
 NSString * const PSAlarmAlertStopNotification = @"PSAlarmAlertStopNotification";
 
 static NSString * const PSAlarmAlertWaitForIdle = @"PesterAlarmAlertWaitForIdle"; // NSUserDefaults key
+static NSString * const PSAlarmAlertWaitForIdleTime = @"PesterAlarmAlertWaitForIdleTime"; // NSUserDefaults key
 
 @implementation PSAlarmAlertController
 
@@ -102,10 +103,15 @@ static NSString * const PSAlarmAlertWaitForIdle = @"PesterAlarmAlertWaitForIdle"
 
 - (void)performAlertSelectorWhenIdle:(SEL)aSelector withObject:(id)anArgument;
 {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey: PSAlarmAlertWaitForIdle])
-	[self performSelector: aSelector withObject: anArgument afterSystemIdleTime: 0.5];
-    else
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey: PSAlarmAlertWaitForIdle]) {
+        NSTimeInterval idleTimeInterval = [defaults doubleForKey: PSAlarmAlertWaitForIdleTime];
+        if (idleTimeInterval <= 0)
+            idleTimeInterval = 0.5;
+	[self performSelector: aSelector withObject: anArgument afterSystemIdleTime: idleTimeInterval];
+    } else {
 	[self performSelector: aSelector withObject: anArgument];
+    }
 }
 
 @end
