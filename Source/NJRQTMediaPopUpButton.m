@@ -127,7 +127,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     for (FSVolumeRefNum domain = kSystemDomain ; domain <= kLastDomainConstant ; domain++) {
 	OSStatus err;
 	FSRef fsr;
-	err = FSFindFolder(domain, kSystemSoundsFolderType, false, &fsr);
+	err = FSFindFolder(domain, kSystemSoundsFolderType, kDontCreateFolder, &fsr);
 	if (err != noErr) continue;
 
 	UInt8 path[PATH_MAX];
@@ -152,7 +152,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 	while ( (path = [de nextObject]) != nil) {
 	    BOOL isDir;
 	    if (![fm fileExistsAtPath: path isDirectory: &isDir] || isDir) {
-		[de skipDescendents];
+		[de skipDescendents]; // [sic]
 		continue;
 	    }
 
@@ -169,7 +169,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
             [item setImageFromPath: path];
 	    path = [folderPath stringByAppendingPathComponent: path];
             [item setRepresentedObject: path];
-	    [item setToolTip: path];
+	    [item setToolTip: [[fm componentsToDisplayForPath: path] componentsJoinedByString: @" \u25b8 "]];
         }
     }
     [soundFolderPaths release];
