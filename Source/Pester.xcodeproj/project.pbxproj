@@ -1179,10 +1179,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Info-Pester.plist";
 				INSTALL_PATH = /;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SYSTEM_LIBRARY_DIR)/Perl/5.8.8/darwin-thread-multi-2level/auto/DynaLoader",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = Pester;
 				VERSIONING_SYSTEM = "apple-generic";
 				WARNING_CFLAGS = (
