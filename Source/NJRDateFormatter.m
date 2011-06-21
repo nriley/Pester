@@ -72,7 +72,7 @@ static NSString *timeFormats[] = {
 	libName = @"libParseDate-10.4";
     } else if (minorVersion == 5) {
 	libName = @"libParseDate-10.5";
-    } else if (minorVersion == 6) {
+    } else if (minorVersion == 6 || minorVersion == 7) {
 	libName = @"libParseDate-10.6";
     } else {
 	return;
