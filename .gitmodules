@@ -1,3 +1,6 @@
+[submodule "Sparkle"]
+	path = Source/Sparkle
+	url = https://github.com/nriley/Sparkle.git
 [submodule "Source/Sparkle"]
 	path = Source/Sparkle
-	url = git://github.com/nriley/Sparkle.git
+	url = https://github.com/nriley/Sparkle.git
