@@ -156,7 +156,7 @@ static NSDate *midnightOnDate(NSDate *date) {
 
 - (NSString *)_intervalStringWithMultipleUnits:(BOOL)multipleUnits;
 {
-    const unsigned long long mval = 999, minute = 60, hour = minute * 60, day = hour * 24, week = day * 7;
+    const unsigned long long minute = 60, hour = minute * 60, day = hour * 24, week = day * 7;
     unsigned long long interval = [self interval];
     if (interval == 0) return nil;
 
@@ -190,10 +190,10 @@ static NSDate *midnightOnDate(NSDate *date) {
     if (interval % minute == 0) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
 
 flooredInterval:
-    if (interval <= mval) return [NSString stringWithFormat: @"%u seconds", (unsigned)interval];
-    if (interval <= mval * minute) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
-    if (interval <= mval * hour) return [NSString stringWithFormat: @"%u hours", (unsigned)(interval / hour)];
-    if (interval <= mval * day) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
+    if (interval <= 2 * minute) return [NSString stringWithFormat: @"%u seconds", (unsigned)interval];
+    if (interval <= 2 * hour) return [NSString stringWithFormat: @"%u minutes", (unsigned)(interval / minute)];
+    if (interval <= 2 * day) return [NSString stringWithFormat: @"%u hours", (unsigned)(interval / hour)];
+    if (interval <= 2 * week) return [NSString stringWithFormat: @"%u days", (unsigned)(interval / day)];
 
     return [NSString stringWithFormat: @"%u weeks", (unsigned)(interval / week)];
 }
