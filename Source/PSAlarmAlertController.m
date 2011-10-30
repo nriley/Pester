@@ -24,7 +24,7 @@ static NSString * const PSAlarmAlertWaitForIdleTime = @"PesterAlarmAlertWaitForI
     return [[[self alloc] initWithAlarm: [notification object]] autorelease];
 }
 
-+ (IBAction)stopAlerts:(id)sender;
++ (void)stopAlerts:(id)sender;
 {
     [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmAlertStopNotification object: nil];
 }

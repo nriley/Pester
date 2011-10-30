@@ -25,7 +25,7 @@
 
 - (void)alarmsChanged;
 {
-    reorderedAlarms = [[alarmList delegate] reorderedDataForData: [alarms alarms]];
+    reorderedAlarms = [(NJRTableDelegate *)[alarmList delegate] reorderedDataForData: [alarms alarms]];
 }
 
 - (id)init;
@@ -70,7 +70,7 @@
 - (void)_restoreAlarms:(NSSet *)selectedAlarms;
 {
     [alarms restoreAlarms: selectedAlarms];
-    [[alarmList delegate] selectItems: selectedAlarms];
+    [(NJRTableDelegate *)[alarmList delegate] selectItems: selectedAlarms];
     [[self undoManager] setActionName: NSLocalizedString(@"Alarm Removal", "Undo action")];
     [[[self undoManager] prepareWithInvocationTarget: self] _removeAlarms: selectedAlarms];
 }
@@ -84,7 +84,7 @@
 
 - (IBAction)remove:(id)sender;
 {
-    [self _removeAlarms: [[alarmList delegate] selectedItems]];
+    [self _removeAlarms: [(NJRTableDelegate *)[alarmList delegate] selectedItems]];
 }
 
 - (void)selectAlarm:(PSAlarm *)alarm;

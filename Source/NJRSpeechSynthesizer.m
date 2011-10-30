@@ -86,7 +86,7 @@ static void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
     err = NewAUGraph(&graph);
     if (err != noErr) goto fail;
 
-    ComponentDescription outputDescription = {
+    AudioComponentDescription outputDescription = {
 	.componentType = kAudioUnitType_Output,
 	.componentSubType = kAudioUnitSubType_HALOutput,
 	.componentManufacturer = kAudioUnitManufacturer_Apple
@@ -106,7 +106,7 @@ static void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
     err = AudioUnitSetProperty(outputUnit, kAudioOutputUnitProperty_CurrentDevice, kAudioUnitScope_Global, 0, &outputDevice, sizeof(outputDevice));
     if (err != noErr) goto fail;
 
-    ComponentDescription speechSynthesisDescription = {
+    AudioComponentDescription speechSynthesisDescription = {
 	.componentType = kAudioUnitType_Generator,
 	.componentSubType = kAudioUnitSubType_SpeechSynthesis,
 	.componentManufacturer = kAudioUnitManufacturer_Apple

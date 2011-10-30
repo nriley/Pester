@@ -19,7 +19,7 @@ extern NSString * const PSAlarmAlertStopNotification;
 
 + (PSAlarmAlertController *)controllerWithTimerExpiredNotification:(NSNotification *)notification;
 
-+ (IBAction)stopAlerts:(id)sender;
++ (void)stopAlerts:(id)sender;
 
 - (id)initWithAlarm:(PSAlarm *)alarm;
 
