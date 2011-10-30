@@ -10,7 +10,6 @@
 #import <Foundation/NSCalendarDate.h>
 
 @interface NSCalendarDate (OFExtensions)
-+ (NSCalendarDate *)unixReferenceDate;
 - (void)setToUnixDateFormat;
 
 - (NSCalendarDate *)safeReferenceDate;

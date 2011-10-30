@@ -13,17 +13,6 @@
 
 @implementation NSCalendarDate (OFExtensions)
 
-+ (NSCalendarDate *)unixReferenceDate;
-{
-    static NSCalendarDate *unixReferenceDate = nil;
-    const long zero = 0;
-
-    if (unixReferenceDate == nil) {
-        unixReferenceDate = [[NSCalendarDate dateWithString:[NSString stringWithCString:ctime(&zero)] calendarFormat:@"%a %b %d %H:%M:%S %Y\n"] retain];
-    }
-    return unixReferenceDate;
-}
-
 - (void)setToUnixDateFormat;
 {
     if ([self yearOfCommonEra] == [(NSCalendarDate *)[NSCalendarDate date] yearOfCommonEra])
