@@ -313,7 +313,10 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     if ([preview movie] == nil) {
         [self _validateWithPreview: YES];
     } else {
-        [self _startSoundPreview];
+        SInt32 version;
+        Gestalt(gestaltSystemVersionMinor, &version);
+        if (version < 7) // XXX this is crashy on Lion
+            [self _startSoundPreview];
     }
 }
 
