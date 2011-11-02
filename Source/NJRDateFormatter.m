@@ -68,11 +68,7 @@ static NSString *timeFormats[] = {
 	return;
     
     NSString *libName;
-    if (minorVersion == 4) {
-	libName = @"libParseDate-10.4";
-    } else if (minorVersion == 5) {
-	libName = @"libParseDate-10.5";
-    } else if (minorVersion == 6 || minorVersion == 7) {
+    if (minorVersion == 6 || minorVersion == 7) {
 	libName = @"libParseDate-10.6";
     } else {
 	return;
