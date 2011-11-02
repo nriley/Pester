@@ -20,7 +20,6 @@
 		E121E9421146A14E0063E471 /* NJRArrayToObjectTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */; };
 		E1246FDE1177EF4700AC249B /* NJRSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */; };
 		E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E12CBFD210CC310800159E88 /* NJRMenuSlider.m */; };
-		E14AFF2F11357B6100DC7922 /* Manip in Resources */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
 		E14AFF3011357B6500DC7922 /* Manip in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
 		E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */; };
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
@@ -948,7 +947,6 @@
 				E1B11F3C0CF5F30F004975AA /* Volume 3.png in Resources */,
 				E1B11F3D0CF5F30F004975AA /* Volume 1.png in Resources */,
 				E1B11F3E0CF5F30F004975AA /* Volume.nib in Resources */,
-				E14AFF2F11357B6100DC7922 /* Manip in Resources */,
 				E19D2D751158181A00B68D9F /* DateCompletions.strings in Resources */,
 				E1DE3C15115930BD00C17BB0 /* Localizable.strings in Resources */,
 				E11BE23C12238FB600240657 /* Growl Registration Ticket.growlRegDict in Resources */,
