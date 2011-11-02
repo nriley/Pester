@@ -1181,6 +1181,7 @@
 					"/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE",
 				);
 				LIBRARY_SEARCH_PATHS = /System/Library/Perl/lib/5.10;
+				OTHER_LDFLAGS = "-lperl";
 				PRODUCT_NAME = "ParseDate-10.6";
 			};
 			name = Debug;
@@ -1196,6 +1197,7 @@
 					"/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE",
 				);
 				LIBRARY_SEARCH_PATHS = /System/Library/Perl/lib/5.10;
+				OTHER_LDFLAGS = "-lperl";
 				PRODUCT_NAME = "ParseDate-10.6";
 				SKIP_INSTALL = YES;
 			};
@@ -1218,10 +1220,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
-				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				OTHER_LDFLAGS = "-lperl";
 				SDKROOT = macosx10.6;
 				VALID_ARCHS = i386;
 			};
@@ -1244,10 +1243,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
-				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				OTHER_LDFLAGS = "-lperl";
 				SDKROOT = macosx10.6;
 				STRIP_INSTALLED_PRODUCT = NO;
 				VALID_ARCHS = i386;
@@ -1266,10 +1262,8 @@
 				GCC_PREFIX_HEADER = Pester_Prefix.h;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE";
 				INFOPLIST_FILE = "Info-Pester.plist";
 				INSTALL_PATH = /;
-				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE";
 				PRODUCT_NAME = Pester;
 				VERSIONING_SYSTEM = "apple-generic";
 				WARNING_CFLAGS = (
@@ -1289,10 +1283,8 @@
 				GCC_PREFIX_HEADER = Pester_Prefix.h;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE";
 				INFOPLIST_FILE = "Info-Pester.plist";
 				INSTALL_PATH = /;
-				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE";
 				PRODUCT_NAME = Pester;
 				VERSIONING_SYSTEM = "apple-generic";
 				WARNING_CFLAGS = (
