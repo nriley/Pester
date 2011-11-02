@@ -110,8 +110,7 @@
     // On a quick click, the event may be a mouse down but the mouse button is no longer down.
     if (!(eventMask & (NSLeftMouseDownMask | NSRightMouseDownMask | NSOtherMouseDownMask)))
 	return;
-    // 10.6+: use [NSEvent pressedMouseButtons] instead
-    if (GetCurrentButtonState() == 0)
+    if ([NSEvent pressedMouseButtons] == 0)
 	[menu cancelTracking];
 }
 
