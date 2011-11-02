@@ -521,8 +521,6 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
             [timeDate setObjectValue: today];
         }
         [self update: self];
-        // XXX bug workaround - otherwise, first responder appears to alternate every time the window is shown.  And if you set the initial first responder, you can't tab in the window. :(
-        [window makeFirstResponder: [window initialFirstResponder]];
     }
     
     [super showWindow: sender];
