@@ -259,7 +259,7 @@
 		E162698A03B6190B00000028 /* NSCalendarDate-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendarDate-NJRExtensions.m"; sourceTree = "<group>"; };
 		E16959290437A4A400050002 /* NSFont-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFont-NJRExtensions.h"; sourceTree = "<group>"; };
 		E169592A0437A4A400050002 /* NSFont-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFont-NJRExtensions.m"; sourceTree = "<group>"; };
-		E17562BD0CF8E7D000FC5057 /* updates.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = updates.xml; path = ../Updates/updates.xml; sourceTree = SOURCE_ROOT; };
+		E17562BD0CF8E7D000FC5057 /* updates.xml */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.xml; name = updates.xml; path = ../Updates/updates.xml; sourceTree = SOURCE_ROOT; };
 		E17562BE0CF8E7D000FC5057 /* release-notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "release-notes.html"; path = "../Updates/release-notes.html"; sourceTree = SOURCE_ROOT; };
 		E17562BF0CF8E7D000FC5057 /* release-notes.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = "release-notes.css"; path = "../Updates/release-notes.css"; sourceTree = SOURCE_ROOT; };
 		E17562C00CF8E7D000FC5057 /* Application icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Application icon.png"; path = "../Updates/Application icon.png"; sourceTree = SOURCE_ROOT; };
@@ -1258,7 +1258,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 47;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1284,7 +1284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 47;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pester_Prefix.h;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
