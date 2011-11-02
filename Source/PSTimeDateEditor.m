@@ -31,7 +31,17 @@
 	timeDate = dateField;
 	timeDateCompletions = completions;
 	controller = obj;
-	
+
+	long minorVersion;
+	Gestalt(gestaltSystemVersionMinor, &minorVersion);
+	if (minorVersion == 6) {
+	    // combo box/popup menu arrows are different sizes in Snow Leopard;
+	    // they are the same size in Lion
+	    NSSize size = [timeDate frame].size;
+	    size.width -= 3;
+	    [timeDate setFrameSize: size];
+	}
+
 	[NSDateFormatter setDefaultFormatterBehavior: NSDateFormatterBehavior10_4];
 
 	static NSDateFormatter *timeFormatter = nil, *dateFormatter = nil;
@@ -52,7 +62,7 @@
 	NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
 	[distributedNotificationCenter addObserver: self selector: @selector(_dateFormatsChanged:) name: @"AppleDatePreferencesChangedNotification" object: nil];
 	[distributedNotificationCenter addObserver: self selector: @selector(_timeZoneChanged:) name: @"NSSystemTimeZoneDidChangeDistributedNotification" object: nil];
-	
+
 	[self _update];
     }
     return self;
@@ -151,7 +161,7 @@
     [NJRDateFormatter timeZoneOrLocaleChanged];
     [self _update];
     [timeDateCompletions setEnabled: [timeDate isEnabled] && [timeDateCompletions numberOfItems] > 0];
-    
+
     [controller update: nil];
 }
 
