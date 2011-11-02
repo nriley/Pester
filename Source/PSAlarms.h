@@ -33,7 +33,6 @@ extern NSString * const PSAlarmsNextAlarmDidChangeNotification;
 - (int)alarmCount;
 - (PSAlarm *)alarmAtIndex:(int)index;
 - (void)removeAlarmAtIndex:(int)index;
-- (void)removeAlarmsAtIndices:(NSArray *)indices;
 - (void)removeAlarms:(NSSet *)alarmsToRemove;
 - (void)restoreAlarms:(NSSet *)alarmsToRestore;
 
