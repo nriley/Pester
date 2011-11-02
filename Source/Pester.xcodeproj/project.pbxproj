@@ -1178,9 +1178,12 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE";
+				HEADER_SEARCH_PATHS = (
+					"/System/Library/Perl/5.10.0/darwin-thread-multi-2level/CORE",
+					"/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE",
+				);
+				LIBRARY_SEARCH_PATHS = /System/Library/Perl/lib/5.10;
 				PRODUCT_NAME = "ParseDate-10.6";
-				USER_HEADER_SEARCH_PATHS = "/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE";
 			};
 			name = Debug;
 		};
@@ -1190,10 +1193,13 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EXECUTABLE_PREFIX = lib;
-				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE";
+				HEADER_SEARCH_PATHS = (
+					"/System/Library/Perl/5.10.0/darwin-thread-multi-2level/CORE",
+					"/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE",
+				);
+				LIBRARY_SEARCH_PATHS = /System/Library/Perl/lib/5.10;
 				PRODUCT_NAME = "ParseDate-10.6";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE";
 			};
 			name = Release;
 		};
@@ -1214,8 +1220,8 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.10.0/darwin-thread-multi-2level/CORE";
-				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE";
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-lperl";
 				SDKROOT = macosx10.6;
@@ -1240,8 +1246,8 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.10.0/darwin-thread-multi-2level/CORE";
-				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.10/darwin-thread-multi-2level/CORE";
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-lperl";
 				SDKROOT = macosx10.6;
