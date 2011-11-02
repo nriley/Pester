@@ -153,12 +153,13 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
+      <print-info-key name="NSPaperName" type="string">8 1/2x11</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{603, 600}" column-titles-display-mode="auto">
+  <editor content-size="{603, 600}" scroll-position="{0, 792}" column-titles-display-mode="auto">
     <drawer display="sections" palette-height="167"/>
-    <selected-rows ids="dc0fOPk0RKO"/>
+    <selected-rows ids="kqBAGVCUnzg"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -230,9 +231,6 @@
       <value key="font-size">11</value>
     </style>
     <style>
-      <value key="font-family">Screen</value>
-      <value key="font-fixed-pitch">yes</value>
-      <value key="font-weight">9</value>
       <value key="ligature-selection">none</value>
       <value key="paragraph-tab-stop-interval">56</value>
       <value key="paragraph-tab-stops">56L</value>
@@ -3556,7 +3554,7 @@
         <text>
           <p>
             <run>
-              <lit>Beta 12 or final</lit>
+              <lit>Beta 12</lit>
             </run>
           </p>
         </text>
@@ -3597,14 +3595,147 @@
         </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" expanded="yes">
-      <style/>
+    <item id="fTtHMas0yU0" state="checked">
       <style/>
       <style/>
       <style/>
       <style>
-        <value key="font-weight">9</value>
+        <value key="paragraph-tab-stop-interval">56</value>
+        <value key="paragraph-tab-stops">56L</value>
       </style>
+      <style>
+        <value key="paragraph-tab-stop-interval">56</value>
+        <value key="paragraph-tab-stops">56L</value>
+      </style>
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Beta 13</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="l6xKQv_nNAz" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>defaults write net.sabi.Pester PesterAlarmAlertWaitForIdleTime</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="imw1yZ0vv6W" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix for Lion (Perl 5.10)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+      </children>
+    </item>
+    <item id="it66Jvg2GKC" state="checked">
+      <style/>
+      <style/>
+      <style/>
+      <style>
+        <value key="paragraph-tab-stop-interval">56</value>
+        <value key="paragraph-tab-stops">56L</value>
+      </style>
+      <style>
+        <value key="paragraph-tab-stop-interval">56</value>
+        <value key="paragraph-tab-stops">56L</value>
+      </style>
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Beta 14</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="mg2MHg9Ffd7" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Still some issues with timing with large #s of hours (1 week, etc. needs fixing)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="mU3B_kSmsPh" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Lion issues</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="mHiZh-iF0Ju" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Non-new speech voices don&apos;t work (gone in 10.7.2)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="jTywgVdXZzA" expanded="yes" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Can widen date popup so it looks like a real combo box</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="or2DdcY5LHm" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Do this on Lion only (currently it&apos;s unconditional)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="mFTW_AZ3Png" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Fix (revert?) Perl build paths so we can still build on 10.6</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+      </children>
+    </item>
+    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
       <values>
         <text>
           <p>
@@ -3615,7 +3746,76 @@
         </text>
       </values>
       <children>
-        <item id="fc_13JEUtZ4">
+        <item id="a3mrQDB3QWV">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Remove ppc/x86_64 for Growl and Sparkle</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="ej07utAvqji">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Growl framework 1.3 (what about Mist?)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="eeUpgnKiCLL">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Stop truncating our own alarm messages</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="iVWCccCEGwK">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix the &quot;Expression result unused&quot; stuff; it looks like it could be a legitimate bug</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="kSspM3hLnqd">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>The [-] and calendar buttons don&apos;t line up vertically</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="cO4IPXG2NDq">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Speech preview uses CPU in QuickTime movie idle (need to destroy something?)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="fc_13JEUtZ4" state="indeterminate">
+          <style>
+            <inherited-style name="Highlight" idref="fX4oymYqiYH"/>
+          </style>
           <values>
             <text>
               <p>
@@ -3625,17 +3825,137 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="kr2Lrqg_AuM">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Problem seems to be setting auto-tomorrow when the window first opens, *not* when.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="coA43tsa67L">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Fix: make the auto-tomorrow actually be auto-*today*.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="c5WcA1Zce9p" expanded="yes">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>But this is what happens now! So when do we mess up?</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="pG3JgyDh2-E">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>It may happen when the time in the window has just passed, </lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="nvmyvxut2Zc">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Might just want to insert logging.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="i9eiMXwsYTJ" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Idea: use cmd-J to highlight it when it changes.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="fVZiD4vHhLc" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Tried it; this requires we keep the selection intact for the period of the highlight.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+          </children>
         </item>
-        <item id="nVBLUJLMa_2">
+        <item id="cIEPDoh44Id">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Reevaluate default Read Me window size (1024x768 minimum)</lit>
+                  <lit>Selected sound output device selection gets lost for both speech and resets to the system device (even when the selected device is &quot;built-in audio&quot;).  May need to redo this every time the device list changes (or every time for an alarm?), even if the selected device is unchanged.</lit>
                 </run>
               </p>
             </text>
           </values>
+          <children>
+            <item id="fIpO6kAgUfx">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>At the very least, set up some logging for this so we catch it on mary; it&apos;s pretty common there.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="nVBLUJLMa_2" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Reevaluate default Read Me window size (1024x768 is minimum screen size)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="o4cr2GM8vIO">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Just use Helpify?</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="nAN3YBMnpEC">
           <values>
@@ -4484,29 +4804,36 @@
             </text>
           </values>
         </item>
-        <item id="jAxW1cgzSjp" expanded="yes">
+        <item id="cxhjINnivnn">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Fix languages with Date::Manip</lit>
+                  <lit>Remove button has click-through. Don&apos;t.</lit>
                 </run>
               </p>
             </text>
           </values>
-          <children>
-            <item id="fVk2w0OhmaK">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Sullivan Beck refuses to backport it; I&apos;ll have to do it myself.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
+          <note expanded="yes">
+            <text>
+              <p>
+                <run>
+                  <lit><cell href="http://michelf.com/projects/click-through-disabler/" name="michelf.com—click-through-disabler" type="link"/></lit>
+                </run>
+              </p>
+            </text>
+          </note>
+        </item>
+        <item id="jAxW1cgzSjp">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix languages with Date::Manip; can just upgrade since we are 10.6+ now</lit>
+                </run>
+              </p>
+            </text>
+          </values>
         </item>
         <item id="hQWxxFSfQgj">
           <values>
@@ -4543,7 +4870,7 @@
             </text>
           </values>
         </item>
-        <item id="gn1qGNMAUZp">
+        <item id="gn1qGNMAUZp" expanded="yes">
           <values>
             <text>
               <p>
@@ -4587,7 +4914,10 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Give PLCrashReporter a shot: it&apos;s written by Landon Fuller and has a GUI/server component (http://github.com/TheRealKerni/CrashReporterDemo).</lit>
+                      <lit>Give PLCrashReporter a shot: it&apos;s written by Landon Fuller and has a GUI/server component (</lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://github.com/TheRealKerni/CrashReporterDemo)." name="github.com—CrashReporterDemo)." type="link"/></lit>
                     </run>
                   </p>
                 </text>
@@ -4617,44 +4947,6 @@
                 </item>
               </children>
             </item>
-            <item id="cbVT-vaF__d">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>ILCrashReporter-NG is Andre Pang&apos;s, but sends email. (Though it uses *your* SMTP server. Hmm.) Needs significant UI cleanup *and* fix for asl_search related hang.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="pM9FctqX7Wh">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Looks OK but needs cleanup.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-            <item id="dyDWFcCb1Xm">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Also: </lit>
-                    </run>
-                    <run>
-                      <lit><cell href="http://www.red-sweater.com/blog/860/crash-reporter-roundup" name="www.red-sweater.com—crash-reporter-roundup" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
           </children>
         </item>
         <item id="pXixUuSef0K">
@@ -4668,7 +4960,7 @@
             </text>
           </values>
         </item>
-        <item id="dnyPkcPZQD1">
+        <item id="dnyPkcPZQD1" expanded="yes">
           <values>
             <text>
               <p>
@@ -4800,7 +5092,19 @@
                     <value key="font-size">10</value>
                     <value key="paragraph-alignment">center</value>
                   </style>
-                  <lit>http://www.potionfactory.com/blog/2009/09/17/move-applications-folder</lit>
+                  <lit><cell href="http://www.potionfactory.com/blog/2009/09/17/move-applications-folder" name="www.potionfactory.com—move-applications-folder" type="link"/></lit>
+                </run>
+                <run>
+                  <style>
+                    <value key="font-family">Menlo</value>
+                    <value key="font-fill">
+                      <color w="0"/>
+                    </value>
+                    <value key="font-fixed-pitch">yes</value>
+                    <value key="font-italic">no</value>
+                    <value key="font-size">10</value>
+                    <value key="paragraph-alignment">center</value>
+                  </style>
                 </run>
               </p>
               <p>
@@ -4815,7 +5119,7 @@
                     <value key="font-size">10</value>
                     <value key="paragraph-alignment">center</value>
                   </style>
-                  <lit>http://github.com/potionfactory/LetsMove</lit>
+                  <lit><cell href="http://github.com/potionfactory/LetsMove" name="github.com—LetsMove" type="link"/></lit>
                 </run>
               </p>
             </text>
@@ -4834,7 +5138,279 @@
         </text>
       </values>
       <children>
-        <item id="mQfcMmDdKRH" expanded="yes">
+        <item id="c16shmiTx0T" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Get scripting working again</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="pj5i1JVIPTm" expanded="yes">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Switch scripting to use OSAKit (10.4+)—with objc-appscript?</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="cY3ZDl36fmk">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Run script in a separate process (LSUIElement), that way you can kill it when alerts are stopped.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="gsvwSJRRG80">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit><cell href="http://boredzo.org/blog/archives/2008-11-09/framework-friday-osakit" name="boredzo.org—framework-friday-osakit" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="adSUA6Dkq4c">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>See has&apos;s comment on how to call handlers by using objc-appscript</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="awNIkPAt7ji">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Great use case: sending multiple Growl/Prowl notification (see email from Dennitzio </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="mailto:dennitzio@yahoo.com" name="dennitzio@yahoo.com" type="link"/></lit>
+                        </run>
+                        <run>
+                          <lit>)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="o5VE-Oj5Sv4">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>In order to support stopping the script, we need to set an active proc and a send proc. From Chris Page:</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <note expanded="yes">
+                    <text>
+                      <p>
+                        <run>
+                          <lit>This is what the &quot;active proc&quot; is for. It is called periodically during script execution and can return an error to stop execution (usually -128). </lit>
+                        </run>
+                      </p>
+                      <p>
+                        <run/>
+                      </p>
+                      <p>
+                        <run>
+                          <lit>Note that sending an Apple event can take arbitrarily long amounts of time, and the active proc is not called while waiting on replies. To cancel waiting for the reply, install &quot;send proc&quot; that calls AESend() and passes in an idle proc that checks for cancellation. </lit>
+                        </run>
+                      </p>
+                    </text>
+                  </note>
+                </item>
+                <item id="h6TqNS5FtZq">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Got a simple example of aborting scripts in Beep.xcodeproj.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="lW3uo6zibYg" expanded="yes">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>OAOSAScript has an ActiveProc but no SendProc (or IdleProc).</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="bqgFJsZnsNh">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>It seems to try to give events to Cocoa, though.</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
+                </item>
+                <item id="igrozEzw4_Z" expanded="yes">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>So does NDAppleScriptObject, which is what I was using until I stopped... Gah.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="gM8EhXmDQXT">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit><cell href="http://code.google.com/p/blacktree-alchemy/source/browse/branches/B5X/Quicksilver/Code-External/NDClasses/" name="code.google.com—NDClasses" type="link"/></lit>
+                            </run>
+                            <run>
+                              <lit> looks like the newest place for this stuff.</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                    <item id="kjP89di5pI8">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>But this code is very ugly</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
+                </item>
+                <item id="lJKoXl0tHjx">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>ASTranslate has a SendProc: </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="http://osdir.com/ml/applescript-implementors/2010-01/msg00065.html" name="osdir.com—msg00065.html" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="kUYzxJFqS2E" expanded="yes">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Use multiple handlers running in a separate thread (or not?)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="chPWipdEQeS">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Perhaps one handler when the alarm stops going off; one when it&apos;s going off.</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                    <item id="iP6_h_gfczD">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>We can make these standard handlers with &quot;using terms from app...&quot; - see MultiAd Creator Pro.</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
+                </item>
+              </children>
+            </item>
+            <item id="jG1JOqz6as7">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Do script button is disabled by default the first time I try to use it</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="aOnOLV_Lmty">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>(need to clear prefs)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="l9TZxvMaSDT">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Default script picker to ~/Library/Scripts (if it exists) or /Library/Scripts</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="lvuac8nJGR0">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Support more AppleScript file types (scpt, scptd?); use UTIs?</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="mQfcMmDdKRH">
           <values>
             <text>
               <p>
@@ -4845,7 +5421,7 @@
             </text>
           </values>
           <children>
-            <item id="eV3ml7a4whH">
+            <item id="eV3ml7a4whH" expanded="yes">
               <values>
                 <text>
                   <p>
@@ -4855,6 +5431,30 @@
                   </p>
                 </text>
               </values>
+              <children>
+                <item id="gDSLFJcrYbL">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Initially modally with sheet on all alarms window.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="gPPSheM8IsG">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>We have an implementation of interval-&gt;time conversion in &quot;snooze until&quot;.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
             </item>
             <item id="aBPxny6-iTF" expanded="yes">
               <values>
@@ -4881,6 +5481,76 @@
               </children>
             </item>
           </children>
+        </item>
+        <item id="fYQJ4Bknvt1">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Most common user requests</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="hFUcMaCHqaD" expanded="yes">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Arbitrary repeats [Vicki Brown, others]</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="epegTBQD99F">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit><cell href="http://culturedcode.com/things/blog/2008/02/habemus-dialogum-we-have-a-dialog.html" name="culturedcode.com—habemus-dialogum-we-have-a-dialog.html" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="jl0OFwRPq1f">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>After we modernize date classes? some way to use ICU or CalendarStore?)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="dKs0IPwh8bD">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Could do the Due thing of just days of week.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+          </children>
+        </item>
+        <item id="pK_1BzW0Dsk">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Auto-snooze (seems like an interesting idea)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
         </item>
         <item id="c_da_QKcrF0">
           <values>
@@ -5114,88 +5784,7 @@
             </text>
           </values>
         </item>
-        <item id="pj5i1JVIPTm">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Switch scripting to use OSAKit (10.4+) or objc-appscript</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="gsvwSJRRG80">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit><cell href="http://boredzo.org/blog/archives/2008-11-09/framework-friday-osakit" name="boredzo.org—framework-friday-osakit" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="adSUA6Dkq4c">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>See has&apos;s comment on how to do this with objc-appscript</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="jG1JOqz6as7">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Do script button is disabled by default the first time I try to use it</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="aOnOLV_Lmty">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>(need to clear prefs)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="l9TZxvMaSDT">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Default script picker to ~/Library/Scripts (if it exists) or /Library/Scripts</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="lvuac8nJGR0">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Support more AppleScript file types (scpt, scptd?); use UTIs?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="grV-dRnIrV2">
+        <item id="grV-dRnIrV2" expanded="yes">
           <values>
             <text>
               <p>
@@ -5234,6 +5823,23 @@
                 </text>
               </values>
             </item>
+            <item id="p0Qc8Ot2I8L">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Replacement for BetterAuthSample in 10.6: ServiceManagement </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://developer.apple.com/library/mac/#samplecode/SMJobBless/Introduction/Intro.html" name="developer.apple.com—mac" type="link"/></lit>
+                    </run>
+                    <run>
+                      <lit>#//apple_ref/doc/uid/DTS40010071</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
           </children>
         </item>
         <item id="ewqCQz_o4cU">
@@ -5246,7 +5852,7 @@
               </p>
             </text>
           </values>
-          <note expanded="yes">
+          <note>
             <text>
               <p>
                 <run>
@@ -5258,7 +5864,7 @@
         </item>
       </children>
     </item>
-    <item id="kqBAGVCUnzg" state="indeterminate">
+    <item id="kqBAGVCUnzg" expanded="yes" state="indeterminate">
       <values>
         <text>
           <p>
@@ -5618,7 +6224,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Intercept -/+ (except where part of localized strings) and use it to change date/time</lit>
+                  <lit>Intercept -/+/= (except where part of localized strings) and use it to change date/time</lit>
                 </run>
               </p>
             </text>
@@ -5701,7 +6307,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Sparkle update.xml: update pubDate, lastBuildDate</lit>
+                  <lit>Sparkle update.xml: update pubDate, lastBuildDate (Shroud does this already, too?)</lit>
                 </run>
               </p>
             </text>
@@ -5845,6 +6451,17 @@
             </item>
           </children>
         </item>
+        <item id="nGb3_3OaHfs">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Sometimes validation breaks with the “–” button. Not sure why or when.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="fkMyExan5oD">
           <values>
             <text>
@@ -5934,7 +6551,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Add (Amazon?) donation link</lit>
+                  <lit>Add donation link</lit>
                 </run>
               </p>
             </text>
@@ -6010,17 +6627,6 @@
         </text>
       </values>
       <children>
-        <item id="icOYkknUL75">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Why must you click to pop up the calendar? It could simply appear when the field is focused.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
         <item id="ck9AGKHqavD">
           <values>
             <text>
@@ -6042,30 +6648,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="dZT3dx1bySD" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Actually repeating events [Vicki Brown]</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="epegTBQD99F">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit><cell href="http://culturedcode.com/things/blog/2008/02/habemus-dialogum-we-have-a-dialog.html" name="culturedcode.com—habemus-dialogum-we-have-a-dialog.html" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="axjdBF4Q8SG">
           <values>
@@ -6207,30 +6789,6 @@
                   <p>
                     <run>
                       <lit>Or…trigger expired alarms at launch?</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="gDSLFJcrYbL" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Implement alarm editing, initially modally with sheet on all alarms window.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="gPPSheM8IsG">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>We have an implementation of interval-&gt;time conversion in &quot;snooze until&quot;.</lit>
                     </run>
                   </p>
                 </text>
@@ -6425,6 +6983,19 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="p1Ww-fEXAup">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>PSError isn&apos;t even being used right now</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="oW9hBQEzFCa">
           <values>
@@ -6485,17 +7056,44 @@
         </item>
       </children>
     </item>
-    <item id="jAOT-TLS_lI">
+    <item id="jAOT-TLS_lI" expanded="yes">
       <values>
         <text>
           <p>
             <run>
-              <lit>2.0 (Snow Leopard+)</lit>
+              <lit>2.0 (10.6+)</lit>
             </run>
           </p>
         </text>
       </values>
       <children>
+        <item id="mBYTPJQg4zx">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Localize everything</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="aZ3o8d1jttA">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Consider CHLayoutManager: </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="https://github.com/davedelong/CHLayoutManager" name="github.com—CHLayoutManager" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="lLMJU4Eebw9">
           <values>
             <text>
@@ -6664,20 +7262,20 @@
                 </text>
               </values>
             </item>
+            <item id="mYGpvu77tXb">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Time zone handling is broken in some places. Upgrade to Date::Manip 6.0, when we can require 10.6 (it requires Perl 5.10)—or just switch to OFRelativeDateParser?</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
           </children>
         </item>
-        <item id="mYGpvu77tXb">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Time zone handling is broken in some places. Upgrade to Date::Manip 6.0, when we can require 10.6 (it requires Perl 5.10)—or just switch to OFRelativeDateParser?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="ofDiUwDQNsR">
+        <item id="ofDiUwDQNsR" expanded="yes">
           <values>
             <text>
               <p>
@@ -6687,6 +7285,33 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="kUqj9s5DQwm">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Note that CalendarStore doesn&apos;t support delegate calendars at least in 10.6, so Google Calendar may be a good idea (</lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://openradar.appspot.com/7077307)" name="openradar.appspot.com—7077307)" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="coIg6pRc3YQ">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Not fixed in 10.7; apparently CalendarStore is pretty flaky, so we may want to do CalDAV only.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="nFiwU1Pz_I4">
           <values>
@@ -6797,17 +7422,6 @@
             </text>
           </values>
         </item>
-        <item id="f2d2UExYi5s">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Sync Services support? Probably not? Better to do CalendarStore.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
         <item id="gSAh-U2-jcw">
           <values>
             <text>
@@ -6824,7 +7438,10 @@
             <text>
               <p>
                 <run>
-                  <lit>Consider http://www.noodlesoft.com/blog/2010/07/01/playing-with-nstimer/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+noodlesoft%2Fdev+%28Noodlings%29&amp;utm_content=Google+Reader</lit>
+                  <lit>Consider </lit>
+                </run>
+                <run>
+                  <lit><cell href="http://www.noodlesoft.com/blog/2010/07/01/playing-with-nstimer/" name="www.noodlesoft.com—playing-with-nstimer" type="link"/></lit>
                 </run>
               </p>
             </text>
