@@ -154,7 +154,10 @@ static NSString *timeFormats[] = {
 {
     if ([super getObjectValue: anObject forString: string errorDescription: error])
 	return YES;
-	
+    
+    if ([string length] == 0)
+        return NO;
+    
     NSDate *date;
     NSEnumerator *e = [tryFormatters objectEnumerator];
     NSDateFormatter *tryFormatter;
