@@ -12,6 +12,8 @@
 #import "NJRHotKeyManager.h"
 #import "NSString-NJRExtensions.h"
 
+#include <objc/runtime.h>
+
 static const NSRange zeroRange = {0, 0};
 static const unsigned int capturedModifierMask = (NSShiftKeyMask |
                                                   NSControlKeyMask |
@@ -46,7 +48,7 @@ static NSDictionary *statusAttributes = nil;
 {
     [self setAllowsEditingTextAttributes: YES];
     [self setImportsGraphics: NO];
-    [self cell]->isa = [NJRHotKeyFieldCell class];
+    object_setClass([self cell], [NJRHotKeyFieldCell class]);
 }
 
 - (void)viewWillMoveToWindow:(NSWindow *)newWindow;
