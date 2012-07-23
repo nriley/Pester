@@ -52,6 +52,7 @@ static NSString *timeFormats[] = {
     @"HHmmss",
     @"HHmm",
     @"HH",
+    @"Hmm",
     nil
 };
 
