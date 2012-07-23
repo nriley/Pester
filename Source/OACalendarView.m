@@ -79,7 +79,6 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
     NSDateFormatter *monthAndYearFormatter;
     int dayOfWeek;
-    NSUserDefaults *defaults;
     NSArray *shortWeekDays;
     NSRect buttonFrame;
     NSButton *button;
@@ -95,8 +94,9 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     [monthAndYearTextFieldCell setFont: [NSFont boldSystemFontOfSize: [NSFont systemFontSize]]];
     [monthAndYearFormatter release];
 
-    defaults = [NSUserDefaults standardUserDefaults];
-    shortWeekDays = [defaults objectForKey:NSShortWeekDayNameArray];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    shortWeekDays = [formatter shortWeekdaySymbols];
+    [formatter release];
     for (dayOfWeek = 0; dayOfWeek < OACalendarViewNumDaysPerWeek; dayOfWeek++) {
         dayOfWeekCell[dayOfWeek] = [[NSTableHeaderCell alloc] init];
         [dayOfWeekCell[dayOfWeek] setAlignment:NSCenterTextAlignment];
