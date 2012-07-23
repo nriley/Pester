@@ -11,6 +11,14 @@
 #import "NSCalendarDate-OFExtensions.h"
 #import "NSCalendarDate-NJRExtensions.h"
 
+enum {
+    NSWindowAnimationBehaviorNone = 2 // suppress inferred animations (don't animate)
+};
+
+@interface NSWindow (Lion)
+- (void)setAnimationBehavior:(NSUInteger)newAnimationBehavior;
+@end
+
 @implementation PSCalendarController
 
 + (PSCalendarController *)controllerWithDate:(NSCalendarDate *)aDate delegate:(id)aDelegate;
@@ -22,6 +30,8 @@
 {
     if ([self initWithWindowNibName: @"Calendar"]) {
         NSWindow *window = [self window]; // connect outlets
+        if ([window respondsToSelector: @selector(setAnimationBehavior:)])
+            [window setAnimationBehavior: NSWindowAnimationBehaviorNone];
         [calendarView setTarget: self]; // delegate
         [calendarView setSelectionType: OACalendarViewSelectByDay];
         [calendarView setShowsDaysForOtherMonths: YES];
