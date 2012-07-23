@@ -125,7 +125,7 @@ int ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
         [self setSortingColumn: inTableColumn];
         [tableView setHighlightedTableColumn: inTableColumn];
     }
-    [tableView setIndicatorImage: (sortDescending ? [NSTableView descendingSortIndicator] : [NSTableView ascendingSortIndicator]) inTableColumn: inTableColumn];
+    [tableView setIndicatorImage: (sortDescending ? [NSImage imageNamed: @"NSDescendingSortIndicator"] : [NSImage imageNamed: @"NSAscendingSortIndicator"]) inTableColumn: inTableColumn];
     [self _positionTypeSelectDisplay];
     // Actually sort the data
     [self _sortData];

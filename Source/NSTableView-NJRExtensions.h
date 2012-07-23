@@ -11,9 +11,6 @@
 
 @interface NSTableView (NJRExtensions)
 
-+ (NSImage *)ascendingSortIndicator;
-+ (NSImage *)descendingSortIndicator;
-
 - (float)cellHeight;
 
 @end

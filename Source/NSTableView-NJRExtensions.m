@@ -9,29 +9,7 @@
 #import "NSTableView-NJRExtensions.h"
 
 
-@interface NSTableView (PumaPrivate)
-// Declarations of 10.1 private methods, just to make the compiler happy.
-+ (id) _defaultTableHeaderReverseSortImage;
-+ (id) _defaultTableHeaderSortImage;
-@end
-
 @implementation NSTableView (NJRExtensions)
-
-+ (NSImage *)ascendingSortIndicator;
-{
-    NSImage *result = [NSImage imageNamed: @"NSAscendingSortIndicator"];
-    if (result == nil && [[NSTableView class] respondsToSelector: @selector(_defaultTableHeaderSortImage)])
-        result = [NSTableView _defaultTableHeaderSortImage];
-    return result;
-}
-
-+ (NSImage *)descendingSortIndicator;
-{
-    NSImage *result = [NSImage imageNamed: @"NSDescendingSortIndicator"];
-    if (result == nil && [[NSTableView class] respondsToSelector: @selector(_defaultTableHeaderReverseSortImage)])
-        result = [NSTableView _defaultTableHeaderReverseSortImage];
-    return result;
-}
 
 - (float)cellHeight;
 {
