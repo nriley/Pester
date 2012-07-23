@@ -17,7 +17,7 @@
     IBOutlet NSTabView *progressTabs;
     IBOutlet NSProgressIndicator *progress;
     NSMutableArray *headings;
-    float maxHeadingWidth;
+    float maxContentsWidth;
     NSDictionary *headingAttributes;
 }
 

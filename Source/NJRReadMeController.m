@@ -7,7 +7,6 @@
 //
 
 #import "NJRReadMeController.h"
-#import "NJRSplitView.h"
 #import "NSString-NJRExtensions.h"
 
 @interface NJRHelpContentsEntry : NSObject {
@@ -72,9 +71,7 @@
 
 @end
 
-@interface NJRReadMeController (Private)
-- (void)_saveSplit;
-- (void)_restoreSplit;
+@interface NJRReadMeController ()
 - (void)readRTF:(NSString *)aPath;
 @end
 
@@ -99,16 +96,19 @@ static NJRReadMeController *sharedController = nil;
         [progress setIndeterminate: YES];
         [progressTabs selectTabViewItemWithIdentifier: @"progress"];
 
-        [NSThread detachNewThreadSelector: @selector(readRTF:) toTarget: self withObject: aPath];
-        NSString *frameAutosaveName;
-        if ( (frameAutosaveName = [window frameAutosaveName]) == nil) {
-            // XXX workaround for bug in 10.1.5–10.2.4 (at least): autosave name set in IB doesn't show up
-            [self setWindowFrameAutosaveName: @"Read Me"];
-            frameAutosaveName = [window frameAutosaveName];
-        }
-        if (frameAutosaveName == nil || ![window setFrameUsingName: frameAutosaveName])
+        NSString *frameAutosaveName = [window frameAutosaveName];
+        if (![window setFrameUsingName: frameAutosaveName])
             [window center];
-        [self _restoreSplit];
+
+        // remove NJRSplitView save information
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults removeObjectForKey: [frameAutosaveName stringByAppendingString: @" maximum contents heading width"]];
+        [defaults removeObjectForKey: [frameAutosaveName stringByAppendingString: @" contents are collapsed"]];
+        
+        // set an interim max contents width to limit splitter resizing
+        maxContentsWidth = [[[splitter subviews] objectAtIndex: 0] frame].size.width;
+        
+        [NSThread detachNewThreadSelector: @selector(readRTF:) toTarget: self withObject: aPath];
 
         [window makeKeyAndOrderFront: self];
         sharedController = self;
@@ -184,69 +184,35 @@ static NJRReadMeController *sharedController = nil;
                 [headings addObject: [NJRHelpContentsEntry headingLevel: 2 description: [heading substringToIndex: chunkLength] range: NSMakeRange(effectiveRange.location, chunkLength)]];
             }
             [progress setDoubleValue: NSMaxRange(effectiveRange)];
+            [NSThread sleepForTimeInterval:0.01];
         }
     }
     headingAttributes = [[NSDictionary alloc] initWithObjectsAndKeys: [[[contents tableColumnWithIdentifier: @"heading"] dataCell] font], NSFontAttributeName, nil];
     NSEnumerator *e = [headings objectEnumerator];
     NSString *s;
     float width;
-    maxHeadingWidth = 0;
+    float maxHeadingWidth = 0;
     while ( (s = [(NJRHelpContentsEntry *)[e nextObject] displayString]) != nil) {
         width = [s sizeWithAttributes: headingAttributes].width;
         if (width > maxHeadingWidth) maxHeadingWidth = width;
     }
-    maxHeadingWidth += 25; // account for scroll bar and frame
-    [self _saveSplit];
-    [self _restoreSplit];
+    maxContentsWidth = maxHeadingWidth + 25; // account for scroll bar and frame
     
-    [contents reloadData];
+    NSBox *contentsBox = [[splitter subviews] objectAtIndex: 0];
+    NSSize contentsSize = [contentsBox frame].size;
+    float widthDiff = contentsSize.width - maxContentsWidth;
+    if (widthDiff > 0) {
+        NSSize bodySize = [bodyBox frame].size;
+        bodySize.width += widthDiff;
+        contentsSize.width -= widthDiff;
+        [contentsBox setFrameSize: contentsSize];
+        [bodyBox setFrameSize: bodySize];
+        [splitter performSelectorOnMainThread: @selector(adjustSubviews) withObject: nil waitUntilDone: NO];
+    }
+    
+    [contents performSelectorOnMainThread: @selector(reloadData) withObject: nil waitUntilDone: NO];
     [progressTabs selectTabViewItemWithIdentifier: @"completed"];
     [pool release];
-}
-
-- (void)_saveSplit;
-{
-    NSString *frameAutosaveName;
-    if ( (frameAutosaveName = [[self window] frameAutosaveName]) != nil) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setFloat: maxHeadingWidth forKey:
-            [frameAutosaveName stringByAppendingString: @" maximum contents heading width"]];
-        NSBox *contentsBox = [[splitter subviews] objectAtIndex: 0];
-        [defaults setBool: [splitter isSubviewCollapsed: contentsBox] forKey:
-                [frameAutosaveName stringByAppendingString: @" contents are collapsed"]];
-        [defaults synchronize];
-    }
-}
-
-- (void)_restoreSplit;
-{
-    NSString *frameAutosaveName;
-    BOOL contentsCollapsed = NO;
-    if ( (frameAutosaveName = [[self window] frameAutosaveName]) != nil) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        contentsCollapsed = [defaults boolForKey:
-            [frameAutosaveName stringByAppendingString: @" contents are collapsed"]];
-        if (maxHeadingWidth == 0) { // don't want to restore 0 if we can't write to defaults
-            maxHeadingWidth = [defaults floatForKey:
-                [frameAutosaveName stringByAppendingString: @" maximum contents heading width"]];
-        }
-    }
-    NSBox *contentsBox = [[splitter subviews] objectAtIndex: 0];
-    if ([splitter isSubviewCollapsed: contentsBox] ||
-        (maxHeadingWidth == 0 && !contentsCollapsed)) return;
-    if (contentsCollapsed) {
-        [splitter performSelectorOnMainThread: @selector(collapseSubview:) withObject: contentsBox waitUntilDone: YES];
-        return;
-    }
-    NSSize contentsSize = [contentsBox frame].size;
-    float widthDiff = contentsSize.width - maxHeadingWidth;
-    if (widthDiff < 1) return;
-    NSSize bodySize = [bodyBox frame].size;
-    bodySize.width += widthDiff;
-    contentsSize.width -= widthDiff;
-    [contentsBox setFrameSize: contentsSize];
-    [bodyBox setFrameSize: bodySize];
-    [splitter performSelectorOnMainThread: @selector(adjustSubviews) withObject: nil waitUntilDone: NO];
 }
 
 @end
@@ -290,26 +256,17 @@ static NJRReadMeController *sharedController = nil;
 
 - (float)splitView:(NSSplitView *)sender constrainMaxCoordinate:(float)proposedCoord ofSubviewAt:(int)offset;
 {
-    return MIN(proposedCoord, maxHeadingWidth);
-}
-
-- (void)splitView:(NSSplitView *)sender resizeSubviewsWithOldSize:(NSSize)oldSize;
-{
-    NSSize newSize = [sender frame].size;
-    NSBox *contentsBox = [[splitter subviews] objectAtIndex: 0];
-    NSSize contentsSize = [contentsBox frame].size;
-    NSSize bodySize = [bodyBox frame].size;
-    contentsSize.height += newSize.height - oldSize.height;
-    [contentsBox setFrameSize: contentsSize];
-    bodySize.width += newSize.width - oldSize.width;
-    bodySize.height += newSize.height - oldSize.height;
-    [bodyBox setFrameSize: bodySize];
-    [sender adjustSubviews];
+    return MIN(proposedCoord, maxContentsWidth);
 }
 
 - (BOOL)splitView:(NSSplitView *)sender canCollapseSubview:(NSView *)subview;
 {
     return [contents isDescendantOf: subview];
+}
+
+- (BOOL)splitView:(NSSplitView *)splitView shouldCollapseSubview:(NSView *)subview forDoubleClickOnDividerAtIndex:(NSInteger)dividerIndex;
+{
+    return YES;
 }
 
 @end
@@ -318,7 +275,6 @@ static NJRReadMeController *sharedController = nil;
 
 - (void)windowWillClose:(NSNotification *)notification;
 {
-    [self _saveSplit];
     [self autorelease];
 }
 
