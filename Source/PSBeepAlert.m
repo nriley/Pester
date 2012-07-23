@@ -30,6 +30,7 @@ static NSString * const PLAlertRepetitions = @"times"; // NSNumber
 
 - (void)beep;
 {
+    // XXX switch to AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert) / AudioServicesAddSystemSoundCompletion (10.6+)
     NSBeep();
     repetitionsRemaining--;
     if (repetitionsRemaining == 0) {
