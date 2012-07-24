@@ -8,19 +8,26 @@
 	<link href="release-notes.css" type="text/css" rel="stylesheet" media="all" />
 	<script type="text/javascript">
 		window.onload = function() {
-			if (/#(.*)/.exec(location.href)[1] == 'sparkle') {
+			if (location.hash == '#sparkle')
 				document.getElementById('sparkle-note').style.cssText = '';
-			}
 		}
 	</script>
 </head>
 
 <body>
 <table class="note" id="sparkle-note" style="display: none">
-	<tr><th>If you’re updating from 1.1 beta 7 or earlier</th></tr>
+	<tr><th>Important: do not click “Install Update”</th></tr>
 	<tr><td>
-          <p>You may update through this window, but the updater will become stuck at “Installing Update...”.</p>
-          <p>If this occurs, quit and reopen Pester; the new version will open.</p>
+          <p>A recent Apple security update causes updates through
+          this window to fail.</p>
+          <p>To update, please download Pester 1.1b15 <a
+          href="http://sabi.net/nriley/software/Pester-1.1b15.dmg">here</a>
+          and replace this copy of Pester with the updated version.</p>
+		  <p><b>You must update Pester if you are using OS X Mountain
+		  Lion (10.8): versions 1.1b14 and earlier will not work
+		  properly.</b></p>
+		  <p>Pester 1.1b15 is again able to update through this
+		  window.</p>
         </td></tr>
 </table>
 <p />
@@ -47,6 +54,9 @@
 	href="http://codykrieger.com/gfxCardStatus">gfxCardStatus</a>
 	helpful as a workaround.</li>
 	<li>Update Growl framework to 1.2.3.</li>
+	<li>Update Sparkle to work around a problem with update
+	verification that only occurred after recent OS X security
+	updates.</li>
 	<li>Sign with Developer ID for Gatekeeper on OS X Mountain
 	Lion (10.8).</li>
     </ul></td></tr>
