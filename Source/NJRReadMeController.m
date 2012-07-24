@@ -184,7 +184,7 @@ static NJRReadMeController *sharedController = nil;
                 [headings addObject: [NJRHelpContentsEntry headingLevel: 2 description: [heading substringToIndex: chunkLength] range: NSMakeRange(effectiveRange.location, chunkLength)]];
             }
             [progress setDoubleValue: NSMaxRange(effectiveRange)];
-            [NSThread sleepForTimeInterval:0.01];
+            // [NSThread sleepForTimeInterval:0.01];
         }
     }
     headingAttributes = [[NSDictionary alloc] initWithObjectsAndKeys: [[[contents tableColumnWithIdentifier: @"heading"] dataCell] font], NSFontAttributeName, nil];
