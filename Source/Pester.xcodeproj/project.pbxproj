@@ -1247,6 +1247,7 @@
 		E1B11F880CF5F30F004975AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application: Nicholas Riley";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 47;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1273,6 +1274,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 47;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Nicholas Riley";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pester_Prefix.h;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
@@ -1282,6 +1284,8 @@
 				PRODUCT_NAME = Pester;
 				VERSIONING_SYSTEM = "apple-generic";
 				WARNING_CFLAGS = (
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx10.6;
 					"-Wmost",
 					"-Wno-four-char-constants",
 					"-Wno-unknown-pragmas",
