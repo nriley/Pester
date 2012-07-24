@@ -205,13 +205,17 @@ static NJRReadMeController *sharedController = nil;
         NSSize bodySize = [bodyBox frame].size;
         bodySize.width += widthDiff;
         contentsSize.width -= widthDiff;
-        [contentsBox setFrameSize: contentsSize];
-        [bodyBox setFrameSize: bodySize];
-        [splitter performSelectorOnMainThread: @selector(adjustSubviews) withObject: nil waitUntilDone: NO];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [contentsBox setFrameSize: contentsSize];
+            [bodyBox setFrameSize: bodySize];
+            [splitter adjustSubviews];
+        });
     }
     
-    [contents performSelectorOnMainThread: @selector(reloadData) withObject: nil waitUntilDone: NO];
-    [progressTabs selectTabViewItemWithIdentifier: @"completed"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [contents reloadData];
+        [progressTabs selectTabViewItemWithIdentifier: @"completed"];
+    });
     [pool release];
 }
 
