@@ -217,16 +217,14 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
     if (alarm == nil) return;
 	[NSApp setApplicationIconImage: [self iconImageWithAlarm: alarm]];
 
-	NSTimeInterval timeRemaining = ceil([alarm timeRemaining]);
-    // NSLog(@"_updateDockTile > time remaining %@ (%.6lf), last time interval %.6lf", tileString, timeRemaining, dockUpdateInterval);
+    NSTimeInterval timeRemaining = [alarm timeRemaining];
+    // NSLog(@"_updateDockTile > time remaining %@ (%.8lfs), last update interval %.8lfs", [alarm timeRemainingString], timeRemaining, dockUpdateInterval);
     if (timeRemaining > 61) {
-        NSTimeInterval nextUpdate = ((unsigned long long)timeRemaining) % 60;
-        if (nextUpdate <= 1) nextUpdate = 60;
         [self _resetUpdateTimer];
-        [self _setUpdateTimerForInterval: nextUpdate alarm: alarm repeats: NO];
-        // NSLog(@"_updateDockTile > set timer for %.0lf seconds", nextUpdate);
+        [self _setUpdateTimerForInterval: fmod(timeRemaining, 60) alarm: alarm repeats: NO];
+        // NSLog(@"_updateDockTile > set timer for %.8lfs", fmod(timeRemaining, 60));
     } else if (timer == nil || dockUpdateInterval > 1) {
-        [self _resetUpdateTimer]; 
+        [self _resetUpdateTimer];
         [self _setUpdateTimerForInterval: 1 alarm: alarm repeats: YES];
         // NSLog(@"_updateDockTile > set timer for 1 second");
     } else if (timeRemaining <= 1) {
