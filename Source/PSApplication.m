@@ -24,12 +24,21 @@
 #import <QuartzCore/QuartzCore.h>
 
 NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopenNotification";
+NSString * const PSPreferenceShowCountdownInDock = @"PesterAlarmShowDockCountdown";
 
 @interface PSApplication (Private)
 - (void)_updateDockTile:(PSTimer *)timer;
+- (void)_resetUpdateTimer;
 @end
 
 @implementation PSApplication
+
++ (void)initialize
+{
+    NSDictionary* defaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:PSPreferenceShowCountdownInDock];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+    NSLog(@"initialize");
+}
 
 - (void)finishLaunching;
 {
@@ -40,7 +49,28 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
     [PSAlarms setUp];
     [self setDelegate: self];
     [PSPreferencesController readPreferences];
+    [[NSUserDefaults standardUserDefaults] addObserver:self
+					    forKeyPath:PSPreferenceShowCountdownInDock
+					       options:NSKeyValueObservingOptionNew
+					       context:nil];
     [super finishLaunching];
+}
+
+#pragma mark KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:PSPreferenceShowCountdownInDock]) {
+	if ([[NSUserDefaults standardUserDefaults] boolForKey:PSPreferenceShowCountdownInDock]) {
+	    [self _updateDockTile: nil];
+	} else {
+	    [self _resetUpdateTimer];
+	    [NSApp setApplicationIconImage: appIconImage];
+	}
+	return;
+    }
+
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
 #pragma mark actions
@@ -136,6 +166,8 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
     PSAlarm *nextAlarm = [notification object];
     // NSLog(@"nextAlarmDidChange: %@", nextAlarm);
     [self _resetUpdateTimer];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:PSPreferenceShowCountdownInDock])
+	return;
     if (nextAlarm == nil) {
         [NSApp setApplicationIconImage: appIconImage];
     } else {
