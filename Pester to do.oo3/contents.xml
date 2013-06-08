@@ -153,13 +153,14 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
-      <print-info-key name="NSPaperName" type="string">8 1/2x11</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{603, 600}" scroll-position="{0, 792}" column-titles-display-mode="auto">
+  <editor content-size="{603, 503}" scroll-position="{0, 119}" column-titles-display-mode="auto">
     <drawer display="sections" palette-height="167"/>
-    <selected-rows ids="kqBAGVCUnzg"/>
+    <selected-rows ids="ghb67S_8h5b"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{0, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -3735,7 +3736,229 @@
         </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+    <item id="nIZ-I7s8rE-" state="checked">
+      <style/>
+      <style/>
+      <style/>
+      <style>
+        <value key="paragraph-tab-stop-interval">56</value>
+        <value key="paragraph-tab-stops">56L</value>
+      </style>
+      <style>
+        <value key="paragraph-tab-stop-interval">56</value>
+        <value key="paragraph-tab-stops">56L</value>
+      </style>
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Beta 15</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="ayy3Rd6sKaN" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>930 doesn&apos;t work for 9:30</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="hsy30A0LlBB" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix </lit>
+                </run>
+                <run>
+                  <lit><cell href="http://developer.apple.com/library/mac/#qa/qa1734/_index.html" name="developer.apple.com—mac" type="link"/></lit>
+                </run>
+                <run>
+                  <lit>#//apple_ref/doc/uid/DTS40010791</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="e1DwmFyT9A6" expanded="yes" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>ML signing</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="ajX2mbOyeI4" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://fetchsoftworks.com/fetch/blog/gatekeeper-vs-leopard-an-ongoing-tale" name="fetchsoftworks.com—gatekeeper-vs-leopard-an-ongoing-tale" type="link"/></lit>
+                    </run>
+                    <run>
+                      <lit> ?</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="eK_afDtGNPN" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://www.red-sweater.com/blog/2390/developer-id-gotcha" name="www.red-sweater.com—developer-id-gotcha" type="link"/></lit>
+                    </run>
+                    <run>
+                      <lit> ?</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="ei8zU0vS3MC" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://sutes.co.uk/2012/03/code-signing-using-new-apple-d.html" name="sutes.co.uk—code-signing-using-new-apple-d.html" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="pLaYFaWN7yL" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>More dock time remaining issues</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="cwsw3ROJDTT" expanded="yes" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>We can just use ceil(...) for generating output but we should not use it for the timer.  Go back to fractional seconds and solve the problem.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="oBl0gqrgJoa" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Actually, no.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="o3EVNJP0zug" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Basic issue, just as Peter identified: ceil(...) works fine for &lt;1m, but there&apos;s the specific case where we&apos;ve got a time between x:00 and x:01 instead of x:59 and x:00, the timer goes off, it&apos;s set for 60 seconds and the problem just gets perpetrated forever. Maybe just set for slightly more than 60 seconds.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="g9Dkh7jpfKr" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Looks like just not using fractional sections *does* work.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+      </children>
+    </item>
+    <item id="bzWWXOvmNoS" expanded="yes">
+      <style/>
+      <style/>
+      <style/>
+      <style>
+        <value key="paragraph-tab-stop-interval">56</value>
+        <value key="paragraph-tab-stops">56L</value>
+      </style>
+      <style>
+        <value key="paragraph-tab-stop-interval">56</value>
+        <value key="paragraph-tab-stops">56L</value>
+      </style>
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Beta 16</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="aPhhqT8zVkg">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Weird Growl/repeating bug (see email)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="eqtbb4Ew46Y" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Retina volume icons</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="kUrH1iInHbb">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Steal from iTunes (10.7!): http://stackoverflow.com/questions/5069705/how-to-get-images-from-itunes-rsrc-using-derez/11784713#11784713</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+      </children>
+    </item>
+    <item id="gotAfbOXCFU" state="indeterminate">
       <values>
         <text>
           <p>
@@ -3746,23 +3969,58 @@
         </text>
       </values>
       <children>
-        <item id="a3mrQDB3QWV">
+        <item id="dk5TK8uVMBn">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Remove ppc/x86_64 for Growl and Sparkle</lit>
+                  <lit>Retina calendar icons</lit>
                 </run>
               </p>
             </text>
           </values>
         </item>
-        <item id="ej07utAvqji">
+        <item id="osFYu2nyTcS" expanded="yes">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Growl framework 1.3 (what about Mist?)</lit>
+                  <lit>Fix saving/restoring read me divider width; autosave isn&apos;t working properly</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="m9-MiESb8Gz">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Probably the +25 padding we&apos;re adding or similar</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="c6eQKGHL8H1">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Retina displays have issues with the read me (10.8, maybe 10.7.4?)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="a3mrQDB3QWV">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Remove ppc/x86_64 for Growl</lit>
                 </run>
               </p>
             </text>
@@ -3933,7 +4191,7 @@
             </item>
           </children>
         </item>
-        <item id="nVBLUJLMa_2" expanded="yes">
+        <item id="nVBLUJLMa_2">
           <values>
             <text>
               <p>
@@ -3943,19 +4201,6 @@
               </p>
             </text>
           </values>
-          <children>
-            <item id="o4cr2GM8vIO">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Just use Helpify?</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="nAN3YBMnpEC">
           <values>
@@ -5154,13 +5399,13 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Switch scripting to use OSAKit (10.4+)—with objc-appscript?</lit>
+                      <lit>Switch scripting to use OSAKit (10.4+)</lit>
                     </run>
                   </p>
                 </text>
               </values>
               <children>
-                <item id="cY3ZDl36fmk">
+                <item id="cY3ZDl36fmk" expanded="yes">
                   <values>
                     <text>
                       <p>
@@ -5170,6 +5415,19 @@
                       </p>
                     </text>
                   </values>
+                  <children>
+                    <item id="bHsnn6IMTXD">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Or consider using an XPC service for this on 10.7+.</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
                 </item>
                 <item id="gsvwSJRRG80">
                   <values>
@@ -5864,7 +6122,7 @@
         </item>
       </children>
     </item>
-    <item id="kqBAGVCUnzg" expanded="yes" state="indeterminate">
+    <item id="kqBAGVCUnzg" state="indeterminate">
       <values>
         <text>
           <p>
@@ -7105,6 +7363,17 @@
             </text>
           </values>
         </item>
+        <item id="n6I0a7iP580">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Get rid of my custom typeahead in the alarm list</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="iLAIg4I2C1Z">
           <values>
             <text>
@@ -7239,6 +7508,57 @@
               </p>
             </text>
           </note>
+        </item>
+        <item id="oF3K30LkPWO" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Aliases → bookmarks</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="olxsZ_mYV2y">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>http://www.mikeabdullah.net/migrating-from-alias-handle.html</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cx4xfUeP1P8">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>http://www.mikeabdullah.net/last-known-bookmark-location.html</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="aQiRdKxQL1x">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>http://www.mikeabdullah.net/convert-between-path+reference-urls.html</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="ghb67S_8h5b">
+              <values>
+                <null/>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="p4C730BZt1m" expanded="yes">
           <values>
