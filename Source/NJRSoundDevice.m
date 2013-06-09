@@ -21,16 +21,25 @@ static NJRSoundDevice *defaultOutputDevice;
 + (void)defaultOutputDeviceChanged;
 @end
 
-OSStatus AHPropertyListenerProc(AudioHardwarePropertyID propertyID, void *clientData) {
-    switch (propertyID) {
-	case kAudioHardwarePropertyDefaultOutputDevice:
-	case kAudioHardwarePropertyDefaultSystemOutputDevice:
-	    [NJRSoundDevice performSelectorOnMainThread: @selector(defaultOutputDeviceChanged) withObject: nil waitUntilDone: NO];
-	    break;
-        case kAudioHardwarePropertyDevices:
-	    [NJRSoundDevice performSelectorOnMainThread: @selector(outputDeviceListChanged) withObject: nil waitUntilDone: NO];
-	    break;
+static OSStatus AudioHardwareDevicesChanged(AudioObjectID objectID,
+                                            UInt32 numberAddresses,
+                                            const AudioObjectPropertyAddress addresses[],
+                                            void *clientData) {
+    if (objectID != kAudioObjectSystemObject)
+        return paramErr;
+
+    for (UInt32 addressIndex = 0 ; addressIndex < numberAddresses ; ++addressIndex) {
+        switch (addresses[addressIndex].mSelector) {
+            case kAudioHardwarePropertyDefaultOutputDevice:
+            case kAudioHardwarePropertyDefaultSystemOutputDevice:
+                [NJRSoundDevice performSelectorOnMainThread: @selector(defaultOutputDeviceChanged) withObject: nil waitUntilDone: NO];
+                break;
+            case kAudioHardwarePropertyDevices:
+                [NJRSoundDevice performSelectorOnMainThread: @selector(outputDeviceListChanged) withObject: nil waitUntilDone: NO];
+                break;
+        }
     }
+
     return noErr;
 }
 
@@ -169,19 +178,31 @@ OSStatus AHPropertyListenerProc(AudioHardwarePropertyID propertyID, void *client
 {
     if (allOutputDevices != nil)
 	return allOutputDevices;
-
-    static BOOL registeredPropertyListener = NO;
-    if (!registeredPropertyListener)
-	AudioHardwareAddPropertyListener(kAudioHardwarePropertyDevices, AHPropertyListenerProc, NULL);
     
-    UInt32 propertySize;
     OSStatus err;
-
     AudioObjectPropertyAddress propertyAddress = {
 	kAudioHardwarePropertyDevices,
 	kAudioObjectPropertyScopeGlobal,
 	kAudioObjectPropertyElementMaster };
     
+    static BOOL registeredPropertyListener = NO;
+    if (!registeredPropertyListener) {
+        err = AudioObjectAddPropertyListener(kAudioObjectSystemObject, &propertyAddress, AudioHardwareDevicesChanged, NULL);
+        if (err != noErr)
+            return nil;
+        propertyAddress.mSelector = kAudioHardwarePropertyDefaultOutputDevice;
+        err = AudioObjectAddPropertyListener(kAudioObjectSystemObject, &propertyAddress, AudioHardwareDevicesChanged, NULL);
+        if (err != noErr)
+            return nil;
+        propertyAddress.mSelector = kAudioHardwarePropertyDefaultSystemOutputDevice;
+        AudioObjectAddPropertyListener(kAudioObjectSystemObject, &propertyAddress, AudioHardwareDevicesChanged, NULL);
+        if (err != noErr)
+            return nil;
+        propertyAddress.mSelector = kAudioHardwarePropertyDevices;
+        registeredPropertyListener = YES;
+    }
+
+    UInt32 propertySize;
     err = AudioObjectGetPropertyDataSize(kAudioObjectSystemObject, &propertyAddress, 0, NULL, &propertySize);
     if (err != noErr)
 	return nil;
