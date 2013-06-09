@@ -43,6 +43,15 @@ static OSStatus AudioHardwareDevicesChanged(AudioObjectID objectID,
     return noErr;
 }
 
+static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
+                                             UInt32 numberAddresses,
+                                             const AudioObjectPropertyAddress addresses[],
+                                             void *clientData) {
+    [NJRSoundDevice outputDeviceListChanged];
+
+    return noErr;
+}
+
 @implementation NJRSoundDevice
 
 + (void)defaultOutputDeviceChanged;
@@ -53,6 +62,11 @@ static OSStatus AudioHardwareDevicesChanged(AudioObjectID objectID,
 
 + (void)outputDeviceListChanged;
 {
+    [self defaultOutputDeviceChanged];
+    [devicesByID release];
+    devicesByID = nil;
+    // since we can't control the lifetime entirely, we may not release in the expected order
+    [allOutputDevices makeObjectsPerformSelector:@selector(unregisterSourceListener)];
     [allOutputDevices release];
     allOutputDevices = nil;
     [NJRSoundDevice allOutputDevices];
@@ -121,6 +135,11 @@ static OSStatus AudioHardwareDevicesChanged(AudioObjectID objectID,
     propertySize = sizeof(source);
     err = AudioObjectGetPropertyData(audioDeviceID, &propertyAddress, 0, NULL, &propertySize, &source);
     if (err == noErr) {
+        err = AudioObjectAddPropertyListener(audioDeviceID, &propertyAddress, AudioDeviceDataSourceChanged, NULL);
+        if (err != noErr)
+            return nil;
+        registeredSourceListener = YES;
+
         NSString *sourceName = nil;
         AudioValueTranslation translation = { &source, sizeof(source), &sourceName, sizeof(CFStringRef) };
         propertyAddress.mSelector = kAudioDevicePropertyDataSourceNameForIDCFString;
@@ -164,9 +183,25 @@ static OSStatus AudioHardwareDevicesChanged(AudioObjectID objectID,
     return self;
 }
 
+- (void)unregisterSourceListener;
+{
+    if (!registeredSourceListener)
+        return;
+
+    AudioObjectPropertyAddress propertyAddress = {
+        kAudioDevicePropertyDataSource,
+        kAudioDevicePropertyScopeOutput,
+        kAudioObjectPropertyElementMaster
+    };
+    AudioObjectRemovePropertyListener(deviceID, &propertyAddress, AudioDeviceDataSourceChanged, NULL);
+
+    registeredSourceListener = NO;
+}
+
 - (void)dealloc;
 {
     [name release];
+    [self unregisterSourceListener];
     [super dealloc];
 }
 

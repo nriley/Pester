@@ -20,6 +20,7 @@ extern NSString * const NJRSoundDeviceListChangedNotification;
     float channelVolume[2];
     float savedChannelVolume[2];
     BOOL canSetVolume;
+    BOOL registeredSourceListener;
 }
 
 + (NSArray *)allOutputDevices;
