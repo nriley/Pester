@@ -62,7 +62,7 @@ static unichar combiningHelpChar[] = {0x003F, 0x20DD};
                 if (keyChar >= NSF1FunctionKey && keyChar <= NSF35FunctionKey) {
                     return [NSString stringWithFormat: @"F%u", keyChar - NSF1FunctionKey + 1];
                 }
-                return [NSString stringWithFormat: @"[unknown %lX]", keyChar];
+                return [NSString stringWithFormat: @"[unknown %hX]", keyChar];
             }
         } else if (str[0] >= 'A' && str[0] <= 'Z') {
             return self;
