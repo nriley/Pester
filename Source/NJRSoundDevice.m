@@ -32,10 +32,10 @@ static OSStatus AudioHardwareDevicesChanged(AudioObjectID objectID,
         switch (addresses[addressIndex].mSelector) {
             case kAudioHardwarePropertyDefaultOutputDevice:
             case kAudioHardwarePropertyDefaultSystemOutputDevice:
-                [NJRSoundDevice performSelectorOnMainThread: @selector(defaultOutputDeviceChanged) withObject: nil waitUntilDone: NO];
+                [NJRSoundDevice defaultOutputDeviceChanged];
                 break;
             case kAudioHardwarePropertyDevices:
-                [NJRSoundDevice performSelectorOnMainThread: @selector(outputDeviceListChanged) withObject: nil waitUntilDone: NO];
+                [NJRSoundDevice outputDeviceListChanged];
                 break;
         }
     }
