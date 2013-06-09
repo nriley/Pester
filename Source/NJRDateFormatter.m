@@ -100,7 +100,7 @@ static NSString *timeFormats[] = {
     NJRDateFormatter *formatter = [[self alloc] init];
     NSMutableArray *tryFormatters = [[NSMutableArray alloc] init];
     
-    for (const NSDateFormatterStyle *s = formatterStyles ; *s != NSDateFormatterNoStyle ; *s++) {
+    for (const NSDateFormatterStyle *s = formatterStyles ; *s != NSDateFormatterNoStyle ; s++) {
 	NSDateFormatter *tryFormatter = dateFormatterWithStyle(*s);
 	[tryFormatters addObject: tryFormatter];
 	[tryFormatter release];
@@ -117,12 +117,12 @@ static NSString *timeFormats[] = {
     NSMutableArray *tryFormatters = [[NSMutableArray alloc] init];
     NSDateFormatter *tryFormatter;
     
-    for (const NSDateFormatterStyle *s = formatterStyles ; *s != NSDateFormatterNoStyle ; *s++) {
+    for (const NSDateFormatterStyle *s = formatterStyles ; *s != NSDateFormatterNoStyle ; s++) {
 	tryFormatter = timeFormatterWithStyle(*s);
 	[tryFormatters addObject: tryFormatter];
 	[tryFormatter release];
     }
-    for (NSString **s = timeFormats ; *s != nil ; *s++) {
+    for (NSString **s = timeFormats ; *s != nil ; s++) {
 	tryFormatter = timeFormatterWithFormat(*s);
 	[tryFormatters addObject: tryFormatter];
 	[tryFormatter release];
