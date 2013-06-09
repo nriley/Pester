@@ -102,7 +102,6 @@
 		E1B11F720CF5F30F004975AA /* NJRReadMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10F2A3F0402E71400050002 /* NJRReadMeController.m */; };
 		E1B11F740CF5F30F004975AA /* NJRHotKeyField.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F993C20436280200050002 /* NJRHotKeyField.m */; };
 		E1B11F750CF5F30F004975AA /* PSPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F993C70436310F00050002 /* PSPreferencesController.m */; };
-		E1B11F760CF5F30F004975AA /* NSFont-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E169592A0437A4A400050002 /* NSFont-NJRExtensions.m */; };
 		E1B11F770CF5F30F004975AA /* NJRHotKeyFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E14DEC830438969400050002 /* NJRHotKeyFieldCell.m */; };
 		E1B11F780CF5F30F004975AA /* NJRHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = E11373150439FCC700050002 /* NJRHotKey.m */; };
 		E1B11F790CF5F30F004975AA /* NJRHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E145383F043A1DB200050002 /* NJRHotKeyManager.m */; };
@@ -256,8 +255,6 @@
 		E162698403B6189000000028 /* NSTableView-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "NSTableView-NJRExtensions.h"; sourceTree = "<group>"; };
 		E162698903B6190B00000028 /* NSCalendarDate-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendarDate-NJRExtensions.h"; sourceTree = "<group>"; };
 		E162698A03B6190B00000028 /* NSCalendarDate-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendarDate-NJRExtensions.m"; sourceTree = "<group>"; };
-		E16959290437A4A400050002 /* NSFont-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFont-NJRExtensions.h"; sourceTree = "<group>"; };
-		E169592A0437A4A400050002 /* NSFont-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFont-NJRExtensions.m"; sourceTree = "<group>"; };
 		E17562BD0CF8E7D000FC5057 /* updates.xml */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.xml; name = updates.xml; path = ../Updates/updates.xml; sourceTree = SOURCE_ROOT; };
 		E17562BE0CF8E7D000FC5057 /* release-notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "release-notes.html"; path = "../Updates/release-notes.html"; sourceTree = SOURCE_ROOT; };
 		E17562BF0CF8E7D000FC5057 /* release-notes.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = "release-notes.css"; path = "../Updates/release-notes.css"; sourceTree = SOURCE_ROOT; };
@@ -560,8 +557,6 @@
 				F5B79865038865B30136A8DD /* NSCharacterSet-NJRExtensions.m */,
 				F5EE8DBA038A76AC0134BEAC /* NSDictionary-NJRExtensions.h */,
 				F5EE8DB9038A76AC0134BEAC /* NSDictionary-NJRExtensions.m */,
-				E16959290437A4A400050002 /* NSFont-NJRExtensions.h */,
-				E169592A0437A4A400050002 /* NSFont-NJRExtensions.m */,
 				F59E4C0E036B43D2016B311C /* QTMovie-NJRExtensions.h */,
 				F59E4C0D036B43D2016B311C /* QTMovie-NJRExtensions.m */,
 				E1F0B14E03ADBE3800AEFBE0 /* NSString-NJRExtensions.h */,
@@ -1013,7 +1008,6 @@
 				E1B11F720CF5F30F004975AA /* NJRReadMeController.m in Sources */,
 				E1B11F740CF5F30F004975AA /* NJRHotKeyField.m in Sources */,
 				E1B11F750CF5F30F004975AA /* PSPreferencesController.m in Sources */,
-				E1B11F760CF5F30F004975AA /* NSFont-NJRExtensions.m in Sources */,
 				E1B11F770CF5F30F004975AA /* NJRHotKeyFieldCell.m in Sources */,
 				E1B11F780CF5F30F004975AA /* NJRHotKey.m in Sources */,
 				E1B11F790CF5F30F004975AA /* NJRHotKeyManager.m in Sources */,

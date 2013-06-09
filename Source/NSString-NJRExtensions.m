@@ -7,7 +7,6 @@
 //
 
 #import "NSString-NJRExtensions.h"
-#import "NSFont-NJRExtensions.h"
 #include <Carbon/Carbon.h>
 
 @implementation NSString (NJRExtensions)
@@ -38,16 +37,6 @@
 }
 
 static unichar combiningHelpChar[] = {0x003F, 0x20DD};
-
-static NSFont *menuItemCmdKeyFont = nil;
-static NSFont *menuItemFont = nil;
-
-static void initialize() {
-    if (menuItemCmdKeyFont != nil) return;
-
-    menuItemCmdKeyFont = [[NSFont themeFont: kThemeMenuItemCmdKeyFont] retain];
-    menuItemFont = [[NSFont themeFont: kThemeMenuItemFont] retain];
-}
 
 - (NSString *)keyEquivalentString;
 {
@@ -97,7 +86,9 @@ static void initialize() {
 
 - (NSAttributedString *)keyEquivalentAttributedStringWithModifierFlags:(unsigned int)modifierFlags;
 {
-    initialize();
+    static NSFont *menuItemFont = nil;
+    if (menuItemFont == nil)
+        menuItemFont = [NSFont menuBarFontOfSize: 0];
     NSString *keyEquivalentStringNoMask = [self keyEquivalentString];
     NSAttributedString *keyEquivalentAttributedString =
         [[NSString stringWithFormat: @"%@%@%@%@%@",
@@ -106,7 +97,7 @@ static void initialize() {
             (modifierFlags & NSShiftKeyMask) ? [NSString stringWithCharacter: kShiftUnicode] : @"",
             (modifierFlags & NSCommandKeyMask) ? [NSString stringWithCharacter: kCommandUnicode] : @"",
                 keyEquivalentStringNoMask]
-        attributedStringWithFont: menuItemCmdKeyFont];
+        attributedStringWithFont: menuItemFont];
     unsigned noMaskLength = [keyEquivalentStringNoMask length];
     if (noMaskLength > 3 || // Fxx
         (noMaskLength == 1 && [keyEquivalentStringNoMask characterAtIndex: 0] <= 0x7F)) {
