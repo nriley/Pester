@@ -113,8 +113,29 @@ static OSStatus AudioHardwareDevicesChanged(AudioObjectID objectID,
 	return nil;
     }
 
+    // prefer (optional) device's currently selected data source name
+    // e.g. 'Headphones', or name of AirPlay device
+    propertyAddress.mSelector = kAudioDevicePropertyDataSource;
+    propertyAddress.mScope = kAudioDevicePropertyScopeOutput;
+    UInt32 source;
+    propertySize = sizeof(source);
+    err = AudioObjectGetPropertyData(audioDeviceID, &propertyAddress, 0, NULL, &propertySize, &source);
+    if (err == noErr) {
+        NSString *sourceName = nil;
+        AudioValueTranslation translation = { &source, sizeof(source), &sourceName, sizeof(CFStringRef) };
+        propertyAddress.mSelector = kAudioDevicePropertyDataSourceNameForIDCFString;
+        propertySize = sizeof(translation);
+        err = AudioObjectGetPropertyData(audioDeviceID, &propertyAddress, 0, NULL, &propertySize, &translation);
+        if (err == noErr) {
+            [name release];
+            name = sourceName;
+        }
+    }
+
     // get device UID
     propertyAddress.mSelector = kAudioDevicePropertyDeviceUID;
+    propertyAddress.mScope = kAudioObjectPropertyScopeGlobal;
+    propertySize = sizeof(CFStringRef);
     err = AudioObjectGetPropertyData(deviceID, &propertyAddress, 0, NULL, &propertySize, &uid);
     if (err != noErr) {
 	[self release];
