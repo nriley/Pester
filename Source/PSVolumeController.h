@@ -9,7 +9,7 @@
 #import <AppKit/AppKit.h>
 
 
-@interface PSVolumeController : NSWindowController {
+@interface PSVolumeController : NSWindowController <NSWindowDelegate> {
     id delegate;
     IBOutlet NSView *contentView;
     IBOutlet NSSlider *volumeSlider;

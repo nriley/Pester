@@ -12,7 +12,7 @@
 
 extern NSString * const NJRQTMediaPopUpButtonMovieChangedNotification;
 
-@interface NJRQTMediaPopUpButton : NSPopUpButton {
+@interface NJRQTMediaPopUpButton : NSPopUpButton <NSOpenSavePanelDelegate> {
     IBOutlet QTMovieView *preview;
     BOOL movieCanRepeat, movieHasAudio;
     NSMenuItem *otherItem;

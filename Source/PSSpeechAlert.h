@@ -9,7 +9,7 @@
 #import "PSAlert.h"
 #import "NJRSpeechSynthesizer.h"
 
-@interface PSSpeechAlert : PSAlert {
+@interface PSSpeechAlert : PSAlert <NSSpeechSynthesizerDelegate> {
     NJRSpeechSynthesizer *speaker;
     NSString *voice;
     PSAlarm *alarm;
