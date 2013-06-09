@@ -19,7 +19,6 @@
 #import "PSGrowlAlert.h"
 #import "PSTimer.h"
 #import "NJRHotKey.h"
-#import "NSWindowCollectionBehavior.h"
 
 #import <QuartzCore/QuartzCore.h>
 

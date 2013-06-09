@@ -225,7 +225,6 @@
 		E11BE3771224388B00240657 /* PSGrowlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGrowlController.h; sourceTree = "<group>"; };
 		E11BE3781224388B00240657 /* PSGrowlController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGrowlController.m; sourceTree = "<group>"; tabWidth = 8; };
 		E11CB6E1043025F500050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/Preferences.nib; sourceTree = "<group>"; };
-		E11DC3FF0D0A9A6D00CE8CCD /* NSWindowCollectionBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSWindowCollectionBehavior.h; sourceTree = "<group>"; };
 		E121E9401146A14E0063E471 /* NJRArrayToObjectTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRArrayToObjectTransformer.h; sourceTree = "<group>"; };
 		E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRArrayToObjectTransformer.m; sourceTree = "<group>"; };
 		E1246FDC1177EF4700AC249B /* NJRSpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRSpeechSynthesizer.h; sourceTree = "<group>"; };
@@ -567,7 +566,6 @@
 				E1B121960CF62FD1004975AA /* NSMenuItem-NJRExtensions.m */,
 				E10D3064115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.h */,
 				E10D3065115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m */,
-				E11DC3FF0D0A9A6D00CE8CCD /* NSWindowCollectionBehavior.h */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
