@@ -103,7 +103,7 @@ static OSStatus AudioHardwareDevicesChanged(AudioObjectID objectID,
     }
 
     // get device name
-    propertyAddress.mSelector = kAudioDevicePropertyDeviceNameCFString;
+    propertyAddress.mSelector = kAudioObjectPropertyName;
     propertyAddress.mScope = kAudioObjectPropertyScopeGlobal;
     propertyAddress.mElement = kAudioObjectPropertyElementMaster;
     propertySize = sizeof(CFStringRef);
