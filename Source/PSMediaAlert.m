@@ -65,7 +65,7 @@ const float PSMediaAlertNoVolume = 0;
     return [plAlert autorelease];
 }
 
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [self initWithRepetitions: [[dict objectForRequiredKey: PLAlertRepetitions] unsignedShortValue]]) != nil) {
         [self setOutputVolume: [[dict objectForKey: PLAlertOutputVolume] floatValue]];

@@ -14,6 +14,6 @@
 // 1.1 only, deprecated when we move to keyed archiving
 - (NSDictionary *)propertyListRepresentation;
 // subclasses should NOT call [super initWithPropertyList:] - infinite recursion will result!
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 
 @end

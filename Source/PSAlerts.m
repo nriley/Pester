@@ -126,7 +126,7 @@ static NSString * const PLAlerts = @"alerts"; // NSString
     return dict;
 }
 
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [self init]) != nil) {
 	@try {

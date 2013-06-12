@@ -125,7 +125,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     return [plAlert autorelease];
 }
 
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [super initWithPropertyList: dict]) != nil)
         [self initWithMovieFileAlias: [BDAlias aliasWithData: [dict objectForRequiredKey: PLAlertAlias]]

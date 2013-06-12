@@ -37,7 +37,7 @@ static PSWakeAlert *PSWakeAlertShared;
 
 #pragma mark property list serialization (Pester 1.1)
 
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 {
     [self release];
     return [[PSWakeAlert alert] retain];

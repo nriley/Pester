@@ -81,7 +81,7 @@ static NSString * const PLAlertVoice = @"voice"; // NSString
     return [plAlert autorelease];
 }
 
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [self init]) != nil) {
         voice = [[dict objectForRequiredKey: PLAlertVoice] retain];

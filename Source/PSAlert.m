@@ -57,7 +57,7 @@ static NSString * const PLAlertClass = @"class"; // NSString
     return [NSDictionary dictionaryWithObject: NSStringFromClass([self class]) forKey: PLAlertClass];
 }
 
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [self init]) != nil) {
         IMP myImp = [self methodForSelector: _cmd];
