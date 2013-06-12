@@ -13,7 +13,7 @@ static PSNotifierAlert *PSNotifierAlertShared;
 
 @implementation PSNotifierAlert
 
-+ (PSAlert *)alert;
++ (instancetype)alert;
 {
     if (PSNotifierAlertShared == nil)
         PSNotifierAlertShared = [[PSNotifierAlert alloc] init];

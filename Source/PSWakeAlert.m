@@ -13,7 +13,7 @@ static PSWakeAlert *PSWakeAlertShared;
 
 @implementation PSWakeAlert
 
-+ (PSAlert *)alert;
++ (instancetype)alert;
 {
     if (PSWakeAlertShared == nil)
         PSWakeAlertShared = [[PSWakeAlert alloc] init];

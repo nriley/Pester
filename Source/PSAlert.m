@@ -18,7 +18,7 @@ static NSString * const PLAlertClass = @"class"; // NSString
 
 @implementation PSAlert
 
-+ (PSAlert *)alert;
++ (instancetype)alert;
 {
     NSAssert(NO, @"Class is abstract");
     return nil;

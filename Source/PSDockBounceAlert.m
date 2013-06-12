@@ -22,7 +22,7 @@ static NMRec nmr;
 
 @implementation PSDockBounceAlert
 
-+ (PSAlert *)alert;
++ (instancetype)alert;
 {
     if (PSDockBounceAlertShared == nil) {
         PSDockBounceAlertShared = [[PSDockBounceAlert alloc] init];

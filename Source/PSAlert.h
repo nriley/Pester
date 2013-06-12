@@ -20,7 +20,7 @@ extern NSString * const PSAlarmAlertCompletedNotification; // userInfo key: "ale
 }
 
 // subclasses should implement these methods
-+ (PSAlert *)alert;
++ (instancetype)alert;
 - (void)prepareForAlarm:(PSAlarm *)alarm; // optional
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 - (BOOL)requiresPesterFrontmost; // optional, default NO
