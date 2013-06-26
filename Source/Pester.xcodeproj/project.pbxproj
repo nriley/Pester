@@ -23,6 +23,7 @@
 		E14AFF3011357B6500DC7922 /* Manip in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
 		E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */; };
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
+		E1869DB3177A82EA00DBCEC3 /* Calendar@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1869DB2177A82EA00DBCEC3 /* Calendar@2x.tiff */; };
 		E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
 		E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E18E822F113CC5C300687310 /* PSDateFieldEditor.m */; };
 		E1985796104F68EC0082AC3E /* ParseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CC53E0CFDE48C0079DCFC /* ParseDate.m */; };
@@ -266,6 +267,7 @@
 		E17F2F4E03FDFB3100050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/Calendar.nib; sourceTree = "<group>"; };
 		E17F2F6B03FDFE2C00050002 /* Calendar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Calendar.tiff; sourceTree = "<group>"; };
 		E1866A2711592DB800262485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DateCompletions.strings; sourceTree = "<group>"; };
+		E1869DB2177A82EA00DBCEC3 /* Calendar@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Calendar@2x.tiff"; sourceTree = "<group>"; };
 		E18A26351145D41400E27A11 /* NJRSoundDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRSoundDevice.h; sourceTree = "<group>"; };
 		E18A26361145D41400E27A11 /* NJRSoundDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRSoundDevice.m; sourceTree = "<group>"; };
 		E18DA4080442C56D00050002 /* PSMediaAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMediaAlert.h; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				E17F2F6B03FDFE2C00050002 /* Calendar.tiff */,
+				E1869DB2177A82EA00DBCEC3 /* Calendar@2x.tiff */,
 			);
 			name = "Calendar icons";
 			sourceTree = "<group>";
@@ -922,6 +925,7 @@
 				E19D2D751158181A00B68D9F /* DateCompletions.strings in Resources */,
 				E1DE3C15115930BD00C17BB0 /* Localizable.strings in Resources */,
 				E11BE23C12238FB600240657 /* Growl Registration Ticket.growlRegDict in Resources */,
+				E1869DB3177A82EA00DBCEC3 /* Calendar@2x.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
