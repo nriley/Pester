@@ -40,10 +40,6 @@
 		E1B11F2F0CF5F30F004975AA /* Popup triangle.tiff in Resources */ = {isa = PBXBuildFile; fileRef = F5243DA40378681101AEEDB1 /* Popup triangle.tiff */; };
 		E1B11F300CF5F30F004975AA /* Calendar.nib in Resources */ = {isa = PBXBuildFile; fileRef = E17F2F4D03FDFB3100050002 /* Calendar.nib */; };
 		E1B11F310CF5F30F004975AA /* Calendar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E17F2F6B03FDFE2C00050002 /* Calendar.tiff */; };
-		E1B11F320CF5F30F004975AA /* OARightArrowPressed.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1DEF0EA03FE1BF100050002 /* OARightArrowPressed.tiff */; };
-		E1B11F330CF5F30F004975AA /* OALeftArrow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1DEF0EB03FE1BF100050002 /* OALeftArrow.tiff */; };
-		E1B11F340CF5F30F004975AA /* OARightArrow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1DEF0EC03FE1BF100050002 /* OARightArrow.tiff */; };
-		E1B11F350CF5F30F004975AA /* OALeftArrowPressed.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1DEF0ED03FE1BF100050002 /* OALeftArrowPressed.tiff */; };
 		E1B11F360CF5F30F004975AA /* Snooze until.nib in Resources */ = {isa = PBXBuildFile; fileRef = E1DEF10603FF83AC00050002 /* Snooze until.nib */; };
 		E1B11F370CF5F30F004975AA /* Read Me.nib in Resources */ = {isa = PBXBuildFile; fileRef = E10F2A3B0402E61C00050002 /* Read Me.nib */; };
 		E1B11F390CF5F30F004975AA /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = E11CB6E0043025F500050002 /* Preferences.nib */; };
@@ -304,10 +300,6 @@
 		E1D88CF011E4BA9900F472E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E1D94C8911473CBA00C88B55 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		E1DE3C14115930BD00C17BB0 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E1DEF0EA03FE1BF100050002 /* OARightArrowPressed.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OARightArrowPressed.tiff; sourceTree = "<group>"; };
-		E1DEF0EB03FE1BF100050002 /* OALeftArrow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OALeftArrow.tiff; sourceTree = "<group>"; };
-		E1DEF0EC03FE1BF100050002 /* OARightArrow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OARightArrow.tiff; sourceTree = "<group>"; };
-		E1DEF0ED03FE1BF100050002 /* OALeftArrowPressed.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OALeftArrowPressed.tiff; sourceTree = "<group>"; };
 		E1DEF0F903FE9F2C00050002 /* NJROffCenterPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJROffCenterPanel.h; sourceTree = "<group>"; };
 		E1DEF0FA03FE9F2C00050002 /* NJROffCenterPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJROffCenterPanel.m; sourceTree = "<group>"; };
 		E1DEF10203FF816300050002 /* PSSnoozeUntilController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSnoozeUntilController.h; sourceTree = "<group>"; };
@@ -612,10 +604,6 @@
 			isa = PBXGroup;
 			children = (
 				E17F2F6B03FDFE2C00050002 /* Calendar.tiff */,
-				E1DEF0EA03FE1BF100050002 /* OARightArrowPressed.tiff */,
-				E1DEF0EB03FE1BF100050002 /* OALeftArrow.tiff */,
-				E1DEF0EC03FE1BF100050002 /* OARightArrow.tiff */,
-				E1DEF0ED03FE1BF100050002 /* OALeftArrowPressed.tiff */,
 			);
 			name = "Calendar icons";
 			sourceTree = "<group>";
@@ -923,10 +911,6 @@
 				E1B11F2F0CF5F30F004975AA /* Popup triangle.tiff in Resources */,
 				E1B11F300CF5F30F004975AA /* Calendar.nib in Resources */,
 				E1B11F310CF5F30F004975AA /* Calendar.tiff in Resources */,
-				E1B11F320CF5F30F004975AA /* OARightArrowPressed.tiff in Resources */,
-				E1B11F330CF5F30F004975AA /* OALeftArrow.tiff in Resources */,
-				E1B11F340CF5F30F004975AA /* OARightArrow.tiff in Resources */,
-				E1B11F350CF5F30F004975AA /* OALeftArrowPressed.tiff in Resources */,
 				E1B11F360CF5F30F004975AA /* Snooze until.nib in Resources */,
 				E1B11F370CF5F30F004975AA /* Read Me.nib in Resources */,
 				E1B11F390CF5F30F004975AA /* Preferences.nib in Resources */,

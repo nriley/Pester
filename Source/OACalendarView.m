@@ -116,16 +116,14 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
     buttonFrame = NSMakeRect(0.0f, 0.0f, OACalendarViewButtonWidth, OACalendarViewButtonHeight);
     button = [self _createButtonWithFrame:buttonFrame];
-    [button setImage:[NSImage imageNamed:@"OALeftArrow" inBundle:thisBundle]];
-    [button setAlternateImage:[NSImage imageNamed:@"OALeftArrowPressed" inBundle:thisBundle]];
+    [button setImage:[NSImage imageNamed:NSImageNameLeftFacingTriangleTemplate]];
     [button setAction:@selector(previous:)];
     [button setAutoresizingMask:NSViewMaxXMargin];
     [monthAndYearView addSubview:button];
 
     buttonFrame = NSMakeRect(frameRect.size.width - OACalendarViewButtonWidth, 0.0f, OACalendarViewButtonWidth, OACalendarViewButtonHeight);
     button = [self _createButtonWithFrame:buttonFrame];
-    [button setImage:[NSImage imageNamed:@"OARightArrow" inBundle:thisBundle]];
-    [button setAlternateImage:[NSImage imageNamed:@"OARightArrowPressed" inBundle:thisBundle]];
+    [button setImage:[NSImage imageNamed:NSImageNameRightFacingTriangleTemplate]];
     [button setAction:@selector(next:)];
     [button setAutoresizingMask:NSViewMinXMargin];
     [monthAndYearView addSubview:button];
