@@ -7,6 +7,7 @@
 //
 
 #import <AppKit/AppKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "PSBeepAlert.h"
 #import "PSAlarmAlertController.h"
 #import "NJRSoundManager.h"
@@ -14,6 +15,14 @@
 
 // property list keys
 static NSString * const PLAlertRepetitions = @"times"; // NSNumber
+
+@interface PSBeepAlert ()
+- (void)beep;
+@end
+
+static void PSBeepAlertSoundCompleted(SystemSoundID ssID, void *self) {
+    [(PSBeepAlert *)self beep];
+}
 
 @implementation PSBeepAlert
 
@@ -30,23 +39,21 @@ static NSString * const PLAlertRepetitions = @"times"; // NSNumber
 
 - (void)beep;
 {
-    // XXX switch to AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert) / AudioServicesAddSystemSoundCompletion (10.6+)
-    NSBeep();
-    repetitionsRemaining--;
     if (repetitionsRemaining == 0) {
-        if (savedVolume) {
+	AudioServicesRemoveSystemSoundCompletion(kSystemSoundID_UserPreferredAlert);
+        if (savedVolume)
             [NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: outputVolume];
-        }
         [self completedForAlarm: alarm];
         [self release];
         return;
     }
-    [self performSelector: @selector(beep) withObject: nil afterDelay: 0.15 inModes: [NSArray arrayWithObject: NSDefaultRunLoopMode]];
+    AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert);
+    repetitionsRemaining--;
 }
 
 - (void)_stopBeeping:(NSNotification *)notification;
 {
-    repetitionsRemaining = 1;
+    repetitionsRemaining = 0;
 }
 
 - (void)triggerForAlarm:(PSAlarm *)anAlarm;
@@ -56,6 +63,7 @@ static NSString * const PLAlertRepetitions = @"times"; // NSNumber
     [self retain];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_stopBeeping:) name: PSAlarmAlertStopNotification object: nil];
     savedVolume = [NJRSoundManager saveDefaultOutputVolume];
+    AudioServicesAddSystemSoundCompletion(kSystemSoundID_UserPreferredAlert, NULL, NULL, PSBeepAlertSoundCompleted, (void *)self);
     [self beep];
 }
 
