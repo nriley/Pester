@@ -118,7 +118,7 @@
       <style>
         <value key="font-family">Calibri</value>
         <value key="font-fill">
-          <color r="0.5" g="0.5" b="0.5" archive="YnBsaXN0MDDUAQIDBAUIISJUJHRvcFgkb2JqZWN0c1gkdmVyc2lvblkkYXJjaGl2ZXLRBgdUcm9vdIABpQkKExceVSRudWxs1AsMDQ4PEBESXxASTlNDdXN0b21Db2xvclNwYWNlV05TV2hpdGVcTlNDb2xvclNwYWNlViRjbGFzc4ACRDAuNQAQA4AE0hQOFRZUTlNJRBACgAPSGBkaHVgkY2xhc3Nlc1okY2xhc3NuYW1lohscXE5TQ29sb3JTcGFjZVhOU09iamVjdFxOU0NvbG9yU3BhY2XSGBkfIKIgHFdOU0NvbG9yEgABhqBfEA9OU0tleWVkQXJjaGl2ZXIACAARABYAHwAoADIANQA6ADwAQgBIAFEAZgBuAHsAggCEAIkAiwCNAJIAlwCZAJsAoACpALQAtwDEAM0A2gDfAOIA6gDvAAAAAAAAAgEAAAAAAAAAIwAAAAAAAAAAAAAAAAAAAQE="/>
+          <color r="0.5" g="0.5" b="0.5" archive="YnBsaXN0MDDUAQIDBAUIISJUJHRvcFgkb2JqZWN0c1gkdmVyc2lvblkkYXJjaGl2ZXLRBgdUcm9vdIABpQkKExceVSRudWxs1AsMDQ4PEBESV05TV2hpdGVWJGNsYXNzXE5TQ29sb3JTcGFjZV8QEk5TQ3VzdG9tQ29sb3JTcGFjZUQwLjUAgAQQA4AC0hQMFRZUTlNJRBACgAPSGBkaHVgkY2xhc3Nlc1okY2xhc3NuYW1lohscXE5TQ29sb3JTcGFjZVhOU09iamVjdFxOU0NvbG9yU3BhY2XSGBkfIKIgHFdOU0NvbG9yEgABhqBfEA9OU0tleWVkQXJjaGl2ZXIACAARABYAHwAoADIANQA6ADwAQgBIAFEAWQBgAG0AggCHAIkAiwCNAJIAlwCZAJsAoACpALQAtwDEAM0A2gDfAOIA6gDvAAAAAAAAAgEAAAAAAAAAIwAAAAAAAAAAAAAAAAAAAQE="/>
         </value>
         <value key="font-size">13</value>
         <value key="strikethrough-color">
@@ -156,11 +156,11 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{603, 503}" scroll-position="{0, 119}" column-titles-display-mode="auto">
+  <editor content-size="{603, 503}" scroll-position="{0, 123}" column-titles-display-mode="auto">
     <drawer display="sections" palette-height="167"/>
-    <selected-rows ids="ghb67S_8h5b"/>
+    <selected-rows ids="l4Rqlus22Ye"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{0, 0}"/>
+    <selected-characters range="{95, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -197,7 +197,7 @@
         </text>
       </title>
     </column>
-    <column id="jFqHUGd_Dg1" type="text" width="567" minimum-width="13" maximum-width="1000000" text-export-width="72" is-outline-column="yes">
+    <column id="jFqHUGd_Dg1" type="text" width="582" minimum-width="13" maximum-width="1000000" text-export-width="72" is-outline-column="yes">
       <title>
         <text>
           <p>
@@ -3899,7 +3899,7 @@
         </item>
       </children>
     </item>
-    <item id="bzWWXOvmNoS" expanded="yes">
+    <item id="bzWWXOvmNoS" expanded="yes" state="indeterminate">
       <style/>
       <style/>
       <style/>
@@ -3921,18 +3921,18 @@
         </text>
       </values>
       <children>
-        <item id="aPhhqT8zVkg">
+        <item id="eGN1OU7IA8l" state="checked">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Weird Growl/repeating bug (see email)</lit>
+                  <lit>Remove &quot;Do It&quot; from Edit menu (oops!)</lit>
                 </run>
               </p>
             </text>
           </values>
         </item>
-        <item id="eqtbb4Ew46Y" expanded="yes">
+        <item id="eqtbb4Ew46Y" state="checked">
           <values>
             <text>
               <p>
@@ -3943,7 +3943,7 @@
             </text>
           </values>
           <children>
-            <item id="kUrH1iInHbb">
+            <item id="kUrH1iInHbb" state="checked">
               <values>
                 <text>
                   <p>
@@ -3956,9 +3956,129 @@
             </item>
           </children>
         </item>
+        <item id="dk5TK8uVMBn" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Retina calendar icons (particularly the arrow buttons) — can use </lit>
+                </run>
+                <run>
+                  <style>
+                    <value key="font-family">Menlo</value>
+                    <value key="font-fixed-pitch">yes</value>
+                    <value key="ligature-selection">none</value>
+                  </style>
+                  <lit>NSImageNameRightFacingTriangleTemplate/NSImageNameLeftFacingTriangleTemplate</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="hQWxxFSfQgj" expanded="yes" state="indeterminate">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Use a different set of names for the output devices (&quot;name&quot; instead of &quot;type&quot;), as in the sound effects tab of Sound System Preferences?</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="hnpes2A64RO" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Or both for deduplication purposes? Consider the case of a Bluetooth device which is both &quot;Bluetooth Headset&quot; and &quot;Bluetooth Headphones&quot;. OTOH, Sound menu extra / System Preferences popup doesn&apos;t get this right either.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cYp-_oW5iyx" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Now just doing what the Sound menu extra does; happy for now.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="l4Rqlus22Ye">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Urgh, notifications seem to have broken with changing AirPlay devices on Mavericks. File a bug.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="lJLlHRbPcb8">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>See if we can stop the hang-on-alarm-set when output device is set to AirPlay — seems to be the case even if it&apos;s not the device being used!</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="dgfEbu0eNAl">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Integrate patch to disable dock icon (https://github.com/nriley/Pester/pull/11)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="kp_0xMo-Y5J">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Commit the change on shirley which adds another time format</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="asoX78UnMlR">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Growl tooltip mentions the prefpane but it&apos;s an app in 2.0</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="aPhhqT8zVkg">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Weird Growl/repeating bug (see email)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" state="indeterminate">
+    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
       <values>
         <text>
           <p>
@@ -3969,18 +4089,29 @@
         </text>
       </values>
       <children>
-        <item id="dk5TK8uVMBn">
+        <item id="g2MxNsiRckV">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Retina calendar icons</lit>
+                  <lit>Use </lit>
+                </run>
+                <run>
+                  <style>
+                    <value key="font-family">Menlo</value>
+                    <value key="font-fill">
+                      <color r="0" g="0.454902" b="0"/>
+                    </value>
+                    <value key="font-fixed-pitch">yes</value>
+                    <value key="ligature-selection">none</value>
+                  </style>
+                  <lit>NSCurrentLocaleDidChangeNotification</lit>
                 </run>
               </p>
             </text>
           </values>
         </item>
-        <item id="osFYu2nyTcS" expanded="yes">
+        <item id="osFYu2nyTcS">
           <values>
             <text>
               <p>
@@ -4010,17 +4141,6 @@
               <p>
                 <run>
                   <lit>Retina displays have issues with the read me (10.8, maybe 10.7.4?)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="a3mrQDB3QWV">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Remove ppc/x86_64 for Growl</lit>
                 </run>
               </p>
             </text>
@@ -5080,30 +5200,6 @@
             </text>
           </values>
         </item>
-        <item id="hQWxxFSfQgj">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Use a different set of names for the output devices (&quot;name&quot; instead of &quot;type&quot;), as in the sound effects tab of Sound System Preferences?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="hnpes2A64RO">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Or both for deduplication purposes? Consider the case of a Bluetooth device which is both &quot;Bluetooth Headset&quot; and &quot;Bluetooth Headphones&quot;. OTOH, Sound menu extra / System Preferences popup doesn&apos;t get this right either.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
         <item id="on-H0eb7CPg">
           <values>
             <text>
@@ -5115,7 +5211,7 @@
             </text>
           </values>
         </item>
-        <item id="gn1qGNMAUZp" expanded="yes">
+        <item id="gn1qGNMAUZp">
           <values>
             <text>
               <p>
@@ -5205,7 +5301,7 @@
             </text>
           </values>
         </item>
-        <item id="dnyPkcPZQD1" expanded="yes">
+        <item id="dnyPkcPZQD1">
           <values>
             <text>
               <p>
@@ -5383,7 +5479,7 @@
         </text>
       </values>
       <children>
-        <item id="c16shmiTx0T" expanded="yes">
+        <item id="c16shmiTx0T">
           <values>
             <text>
               <p>
@@ -5394,7 +5490,7 @@
             </text>
           </values>
           <children>
-            <item id="pj5i1JVIPTm" expanded="yes">
+            <item id="pj5i1JVIPTm">
               <values>
                 <text>
                   <p>
@@ -6042,7 +6138,7 @@
             </text>
           </values>
         </item>
-        <item id="grV-dRnIrV2" expanded="yes">
+        <item id="grV-dRnIrV2">
           <values>
             <text>
               <p>
@@ -6598,7 +6694,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Sparkle dynamic release notes</lit>
+                  <lit>Sparkle dynamic release notes (easier now everything&apos;s on osric)</lit>
                 </run>
               </p>
             </text>
@@ -6744,41 +6840,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="jTQ6frr5KBa">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Sign the app itself with Leopard&apos;s code-signing stuff.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="mR4z0qRvZgR">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Put dylibs into the Plug-Ins directory for better code signing compatibility</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="eCsT1oX7Z_S">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Copy script from F-Script Anywhere</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="kEknfjVzLZX">
           <values>
@@ -6962,7 +7023,7 @@
             </text>
           </values>
         </item>
-        <item id="kDkBstI7mIu" expanded="yes">
+        <item id="kDkBstI7mIu">
           <values>
             <text>
               <p>
@@ -7314,17 +7375,28 @@
         </item>
       </children>
     </item>
-    <item id="jAOT-TLS_lI" expanded="yes">
+    <item id="jAOT-TLS_lI">
       <values>
         <text>
           <p>
             <run>
-              <lit>2.0 (10.6+)</lit>
+              <lit>2.0 (10.8+)</lit>
             </run>
           </p>
         </text>
       </values>
       <children>
+        <item id="pm30OL8bjWf">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Notification Center in addition to Growl</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="mBYTPJQg4zx">
           <values>
             <text>
@@ -7351,6 +7423,17 @@
               </values>
             </item>
           </children>
+        </item>
+        <item id="cS0GArGokqo">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>VoiceOver support (accessibility descriptions)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
         </item>
         <item id="lLMJU4Eebw9">
           <values>
@@ -7553,11 +7636,6 @@
                 </text>
               </values>
             </item>
-            <item id="ghb67S_8h5b">
-              <values>
-                <null/>
-              </values>
-            </item>
           </children>
         </item>
         <item id="p4C730BZt1m" expanded="yes">
@@ -7632,20 +7710,6 @@
               </values>
             </item>
           </children>
-        </item>
-        <item id="nFiwU1Pz_I4">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Using BDAlias? Targeting 64-bit? You&apos;ll want the latest commit: </lit>
-                </run>
-                <run>
-                  <lit><cell href="http://github.com/rentzsch/bdalias/" name="github.com—bdalias" type="link"/></lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="bnA3PhzDAha">
           <values>
