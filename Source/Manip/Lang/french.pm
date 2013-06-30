@@ -47,7 +47,7 @@ $YearAdded = 1996;
   fields => [
     ['annees', 'années', 'an', 'annee', 'ans', 'année'],
     ['mois', 'm'],
-    ['semaine', 'sem'],
+    ['semaine', 'semaines', 'sem'],
     ['jours', 'j', 'jour', 'journee', 'journée'],
     ['heures', 'h', 'heure'],
     ['minutes', 'mn', 'min', 'minute'],
@@ -87,7 +87,7 @@ $YearAdded = 1996;
     ['décembre', 'decembre'],
   ],
   nextprev => [
-    ['suivant', 'suivante', 'prochaine'],
+    ['suivant', 'suivante', 'prochain', 'prochaine'],
     ['precedent', 'précédent', 'precedente', 'précédente', 'derniere', 'dernière'],
   ],
   nth => [
@@ -148,6 +148,7 @@ $YearAdded = 1996;
   of => ['de', 'en', 'du'],
   offset_date => {
     'aujourd\'hui' => '0:0:0:0:0:0:0',
+    'aujourd’hui' => '0:0:0:0:0:0:0',
     'demain' => '+0:0:0:1:0:0:0',
     'hier' => '-0:0:0:1:0:0:0',
   },

@@ -38,9 +38,9 @@ $YearAdded = 1998;
   each => ['cada'],
   fields => [
     ['anos', 'a', 'ano', 'ano', 'anos', 'años', 'año'],
-    ['meses', 'm', 'mes', 'mes'],
-    ['semanas', 'sem', 'semana', 'semana'],
-    ['dias', 'd', 'dia'],
+    ['meses', 'm', 'mes'],
+    ['semanas', 'sem', 'semana'],
+    ['dias', 'd', 'dia', 'días'],
     ['horas', 'hr', 'hrs', 'hora'],
     ['minutos', 'min', 'min', 'minuto'],
     ['segundos', 's', 'seg', 'segundo'],
@@ -474,7 +474,7 @@ $YearAdded = 1998;
   offset_date => {
     ayer => '-0:0:0:1:0:0:0',
     Hoy => '0:0:0:0:0:0:0',
-    manana => '+0:0:0:1:0:0:0',
+    'mañana' => '+0:0:0:1:0:0:0',
   },
   offset_time => { Ahora => '0:0:0:0:0:0:0' },
   on => ['el'],

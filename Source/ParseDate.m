@@ -78,29 +78,29 @@ void init_date_parser(void) {
     else if ([localeLanguageCode isEqualToString: @"en"])
         language = "English";
     else if ([localeLanguageCode isEqualToString: @"es"])
-        language = "Spanish"; // XXX manana => mañana; en 2 días, mes próximo don't work
+        language = "Spanish"; // XXX la siguiente semana / el mes siguiente
     else if ([localeLanguageCode isEqualToString: @"fi"])
-        language = "Finnish"; // XXX weekdays fail
+        language = "Finnish"; // weekdays OK with patch
     else if ([localeLanguageCode isEqualToString: @"fr"])
-        language = "French"; // XXX aujourd’hui needs un-curly-ization; prochain * fails is wrong (prochain vs prochaine)
+        language = "French"; // OK with patch
     else if ([localeLanguageCode isEqualToString: @"it"])
-        language = "Italian"; // XXX tra 2 giorni;  settimana prossima (extra space?)
+        language = "Italian"; // XXX tra 2 giorni and quite a bit more
+    else if ([localeLanguageCode isEqualToString: @"nb"])
+        language = "Norwegian"; // weekdays OK
     else if ([localeLanguageCode isEqualToString: @"nl"])
         language = "Dutch"; // OK
-    else if ([localeLanguageCode isEqualToString: @"no"])
-        language = "Norwegian"; // XXX nothing?
     else if ([localeLanguageCode isEqualToString: @"pl"])
         language = "Polish"; // weekdays OK
     else if ([localeLanguageCode isEqualToString: @"pt"])
-        language = "Portuguese";// XXX sábado OK, *-feira needs patch again
+        language = "Portuguese"; // weekdays OK with patch
     else if ([localeLanguageCode isEqualToString: @"ro"])
         language = "Romanian"; // weekdays OK
     else if ([localeLanguageCode isEqualToString: @"ru"])
         language = "Russian"; // weekdays OK
     else if ([localeLanguageCode isEqualToString: @"sv"])
-        language = "Swedish"; // XXX i dag / i morgon
+        language = "Swedish"; // OK with patch
     else if ([localeLanguageCode isEqualToString: @"tr"])
-        language = "Turkish"; // XXX Salı, Çarşamba, Perşembe broken
+        language = "Turkish"; // weekdays OK with patch
     else
         return;
 
