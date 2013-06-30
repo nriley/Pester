@@ -10,7 +10,7 @@
 #import "NJRTableView.h"
 
 
-@interface NJRTableDelegate : NSObject {
+@interface NJRTableDelegate : NSObject <NSTableViewDelegate, NJRTableViewDelegate> {
     IBOutlet NJRTableView *tableView;
     NSTableColumn *sortingColumn;
     NSString *sortingKey;

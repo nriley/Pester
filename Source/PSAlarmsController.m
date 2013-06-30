@@ -10,7 +10,6 @@
 #import "PSAlarm.h"
 #import "PSAlerts.h"
 #import "NSTableView-NJRExtensions.h"
-#import "NJRTableView.h"
 #import "NJRTableDelegate.h"
 
 @interface PSAlarmsController (PrivateUndoSupport)
@@ -94,9 +93,7 @@
     [alarmList scrollRowToVisible: row];
 }
 
-@end
-
-@implementation PSAlarmsController (NSTableDataSource)
+#pragma mark NSTableViewDataSource
 
 - (int)numberOfRowsInTableView:(NSTableView *)tableView;
 {
@@ -121,9 +118,8 @@
 
     return nil;
 }
-@end
 
-@implementation PSAlarmsController (NJRTableViewDataSource)
+#pragma mark NJRTableViewDataSource
 
 - (void)removeSelectedRowsFromTableView:(NSTableView *)aTableView;
 {
@@ -133,22 +129,18 @@
 - (NSString *)toolTipForRow:(int)rowIndex;
 {
     PSAlarm *alarm = [reorderedAlarms objectAtIndex: rowIndex];
-    
+
     return [[alarm prettyDescription] string];
 }
 
-@end
-
-@implementation PSAlarmsController (NSTableViewNotifications)
+#pragma mark NSTableViewNotifications
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification;
 {
     [removeButton setEnabled: ([alarmList numberOfSelectedRows] != 0)];
 }
 
-@end
-
-@implementation PSAlarmsController (NSWindowDelegate)
+#pragma mark NSWindowDelegate
 
 // XXX workaround for bug in 10.1.5, 10.2.1 (and earlier?): no autosave on window move
 - (void)windowDidMove:(NSNotification *)aNotification

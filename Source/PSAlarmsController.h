@@ -8,8 +8,9 @@
 
 #import <AppKit/AppKit.h>
 #import "PSAlarms.h"
+#import "NJRTableView.h"
 
-@interface PSAlarmsController : NSWindowController {
+@interface PSAlarmsController : NSWindowController <NJRTableViewDataSource, NSTableViewDataSource, NSWindowDelegate> {
     IBOutlet NSTableView *alarmList;
     IBOutlet NSButton *removeButton;
     PSAlarms *alarms;

@@ -226,9 +226,7 @@ noContext:
     [selectedRowIndexes release];
 }
 
-@end
-
-@implementation NJRTableDelegate (NSTableViewDelegate)
+#pragma mark NSTableViewDelegate
 
 - (void)tableView:(NSTableView *)aTableView didClickTableColumn:(NSTableColumn *)inTableColumn
 {
@@ -256,9 +254,7 @@ noContext:
     return nil;
 }
 
-@end
-
-@implementation NJRTableDelegate (NJRTableViewDelegate)
+#pragma mark NJRTableViewDelegate
 
 - (void)tableView:(NSTableView *)aTableView selectRowMatchingString:(NSString *)matchString;
 {

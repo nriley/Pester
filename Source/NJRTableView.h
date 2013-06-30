@@ -19,13 +19,14 @@
 
 @end
 
-@interface NSObject (NJRTableViewDelegate)
+@protocol NJRTableViewDelegate <NSObject>
 
 - (void)tableView:(NSTableView *)aTableView selectRowMatchingString:(NSString *)matchString;
 
 @end
 
-@interface NSObject (NJRTableViewDataSource)
+@protocol NJRTableViewDataSource <NSObject>
+@optional
 
 - (void)removeSelectedRowsFromTableView:(NSTableView *)tableView;
 - (NSString *)toolTipForRow:(int)rowIndex;

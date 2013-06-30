@@ -42,7 +42,7 @@
         case NSDeleteFunctionKey:
         case NSDeleteCharFunctionKey:
             if ([self selectedRow] >= 0 && [[self dataSource] respondsToSelector: @selector(removeSelectedRowsFromTableView:)]) {
-                [[self dataSource] removeSelectedRowsFromTableView: self];
+                [(id <NJRTableViewDataSource>)[self dataSource] removeSelectedRowsFromTableView: self];
             }
             return;
         case NSHomeFunctionKey:
@@ -81,7 +81,7 @@
     [self performSelector: @selector(_resetTypeSelect) withObject: nil afterDelay: resetDelay];
 
     // Use stringWithString to make an autoreleased copy, since we may clear out the original string below before it can be used.
-    [[self delegate] tableView: self selectRowMatchingString: [NSString stringWithString: typed]];
+    [(id <NJRTableViewDelegate>)[self delegate] tableView: self selectRowMatchingString: [NSString stringWithString: typed]];
 
     // Show the current typeahead string in the optional display field, like CodeWarrior does (well, not really, CW is much more elegant because it doesn't select anything until you stop typing)
     [typeSelectDisplay setObjectValue: typed];
