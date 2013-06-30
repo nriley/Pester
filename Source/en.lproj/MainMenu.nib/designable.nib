@@ -506,7 +506,7 @@ AADBtMUAAAAAAAAAAAAAAAAAAAAAAA</bytes>
 												<string key="NSFrame">{{191, 30}, {149, 26}}</string>
 												<reference key="NSSuperview" ref="276308755"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="266547535"/>
+												<reference key="NSNextKeyView"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSPopUpButtonCell" key="NSCell" id="79247756">
 													<int key="NSCellFlags">-2076180416</int>
@@ -4161,8 +4161,8 @@ QWxhcm0gbWVudS4</string>
 						<string key="name">ToolTip</string>
 						<reference key="object" ref="266547535"/>
 						<string type="base64-UTF8" key="toolTip">VXNlIHRoZSBHcm93bCBub3RpZmljYXRpb24gc3lzdGVtLiBDdXN0b21pemUgdGhlIG5vdGlmaWNhdGlv
-biBmcm9tIEdyb3ds4oCZcyBTeXN0ZW0gUHJlZmVyZW5jZXMgcGFuZS4KCihEaXNhYmxlZCBpZiBHcm93
-bCBpcyBub3QgY3VycmVudGx5IHJ1bm5pbmcuKQ</string>
+biBmcm9tIEdyb3dsLgoKKERpc2FibGVkIGlmIEdyb3dsIGlzIG5vdCBjdXJyZW50bHkgcnVubmluZy4p
+A</string>
 					</object>
 				</object>
 				<string key="1614.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4396,7 +4396,7 @@ ZXNzYWdlcy4</string>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1619</int>
+			<int key="maxID">1628</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
