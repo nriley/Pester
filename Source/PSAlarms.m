@@ -171,39 +171,15 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     [alarms removeObjectAtIndex: alarmIndex];
 }
 
-- (void)removeAlarmsAtIndices:(NSArray *)indices;
-{
-    NSEnumerator *e = [indices objectEnumerator];
-    NSNumber *n;
-    unsigned indexCount = [indices count], i = 0, alarmIndex;
-    unsigned *indexArray = (unsigned *)malloc(indexCount * sizeof(unsigned));
-    @try {
-        while ( (n = [e nextObject]) != nil) {
-            alarmIndex = [n intValue];
-            [(PSAlarm *)[alarms objectAtIndex: alarmIndex] cancelTimer];
-            indexArray[i] = alarmIndex;
-            i++;
-        }
-        [alarms removeObjectsFromIndices: indexArray numIndices: indexCount];
-    } @finally {
-        free(indexArray); indexArray = NULL;
-        [self _changed];
-    }
-}
-
 - (void)removeAlarms:(NSSet *)alarmsToRemove;
 {
-    NSEnumerator *e = [alarms objectEnumerator];
-    PSAlarm *alarm;
-    NSMutableArray *indices = [NSMutableArray arrayWithCapacity: [alarmsToRemove count]];
-    int alarmIndex = 0;
-
-    while ( (alarm = [e nextObject]) != nil) {
-        if ([alarmsToRemove containsObject: alarm])
-            [indices addObject: [NSNumber numberWithInt: alarmIndex]];
-        alarmIndex++;
-    }
-    [self removeAlarmsAtIndices: indices];
+    NSIndexSet *indexes = [alarms indexesOfObjectsPassingTest:
+                           ^BOOL(id alarm, NSUInteger i, BOOL *stop) {
+                               return [alarmsToRemove containsObject: alarm];
+                           }];
+    [alarmsToRemove makeObjectsPerformSelector: @selector(cancelTimer)];
+    [alarms removeObjectsAtIndexes: indexes];
+    [self _changed];
 }
 
 - (void)restoreAlarms:(NSSet *)alarmsToRestore;
