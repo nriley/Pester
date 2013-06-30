@@ -1,5 +1,5 @@
 package Date::Manip::DM5abbrevs;
-# Copyright (c) 2003-2010 Sullivan Beck. All rights reserved.
+# Copyright (c) 2003-2013 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -26,15 +26,20 @@ time zone handling to version 5.xx .
 
 =cut
 
-require 5.008000;
+require 5.000;
 
 use strict;
 use warnings;
 
-use vars qw($VERSION);
-$VERSION='5.55';
+our($VERSION);
+$VERSION='6.40';
 
-$Date::Manip::Abbrevs = join(' ',qw(
+END {
+   my $tmp;
+   $tmp = \$Date::Manip::DM5::Abbrevs;
+}
+
+$Date::Manip::DM5::Abbrevs = join(' ',qw(
       idlw   -1200
       nt     -1100
       sat    -0400
@@ -83,7 +88,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       almt   +0600
       amst   -0300
       amt    -0400
-      anast  +1300
+      anast  +1200
       anat   +1200
       ant    -0430
       apt    -0300
@@ -106,6 +111,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       bdst   +0700
       bdt    +0600
       beat   +0230
+      beaut  +0245
       bnt    +0800
       bort   +0800
       bortst +0820
@@ -136,6 +142,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       chost  +1000
       chot   +0800
       chst   +1000
+      chut   +1000
       cit    +0800
       cjt    +0900
       ckhst  -0930
@@ -155,7 +162,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       cxt    +0700
       d      -0400
       dact   +0600
-      davt   +0500
+      davt   +0700
       ddut   +1000
       dusst  +0600
       dust   +0600
@@ -176,6 +183,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       est    -0500
       ewt    -0400
       f      -0600
+      fet    +0300
       fjst   +1300
       fjt    +1200
       fkst   -0300
@@ -222,7 +230,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       gmt-7  -0700
       gmt-8  -0800
       gmt-9  -0900
-      gst    +0400
+      gst    -0200
       gyt    -0400
       h      -0800
       hadt   -0900
@@ -232,9 +240,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       hkt    +0800
       hovst  +0800
       hovt   +0700
-      hpt    -0930
       hst    -1000
-      hwt    -0930
       i      -0900
       ict    +0700
       iddt   +0400
@@ -243,7 +249,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       iot    +0600
       irdt   +0430
       irkst  +0900
-      irkt   +0800
+      irkt   +0900
       irst   +0330
       isst   +0000
       ist    +0200
@@ -260,7 +266,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       kizt   +0500
       kost   +1100
       krast  +0800
-      krat   +0700
+      krat   +0800
       kst    +0900
       kuyst  +0300
       kuyt   +0300
@@ -275,22 +281,23 @@ $Date::Manip::Abbrevs = join(' ',qw(
       madst  +0000
       madt   -0100
       magst  +1200
-      magt   +1100
+      magt   +1200
       malst  +0720
       malt   +0730
       mart   -0930
       mawt   +0500
       mddt   -0500
       mdt    -0600
-      mest   +0200
+      mest   -0800
       met    +0100
       mht    +1200
+      mist   +1100
       mmt    +0630
       most   +0900
       mot    +0800
       mpt    +1000
       msd    +0400
-      msk    +0300
+      msk    +0400
       mst    -0700
       must   +0500
       mut    +0400
@@ -308,7 +315,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       nft    +1130
       nmt    +1112
       novst  +0700
-      novt   +0600
+      novt   +0700
       npt    +0545
       nrt    +1200
       nst    -0330
@@ -319,7 +326,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       nzst   +1200
       o      +0200
       omsst  +0700
-      omst   +0600
+      omst   +0700
       orast  +0500
       orat   +0500
       p      +0300
@@ -327,7 +334,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       pdt    -0700
       pest   -0400
       pet    -0500
-      petst  +1300
+      petst  +1200
       pett   +1200
       pgt    +1000
       phot   +1300
@@ -355,8 +362,8 @@ $Date::Manip::Abbrevs = join(' ',qw(
       rott   -0300
       s      +0600
       sakst  +1100
-      sakt   +1000
-      samst  +0500
+      sakt   +1100
+      samst  +0400
       samt   +0400
       sast   +0200
       sbt    +1100
@@ -382,14 +389,13 @@ $Date::Manip::Abbrevs = join(' ',qw(
       tbit   +0400
       tft    +0500
       tjt    +0500
-      tkt    -1000
+      tkt    +1300
       tlt    +0900
       tmt    +0500
       tost   +1400
       tot    +1300
       trst   +0400
       trt    +0300
-      trut   +1000
       tsat   +0300
       tvt    +1200
       u      +0800
@@ -399,6 +405,7 @@ $Date::Manip::Abbrevs = join(' ',qw(
       urat   +0400
       urut   +0600
       ut     +0000
+      utc    +0000
       uyhst  -0230
       uyst   -0200
       uyt    -0300
@@ -408,9 +415,9 @@ $Date::Manip::Abbrevs = join(' ',qw(
       vet    -0430
       vlasst +1000
       vlast  +1100
-      vlat   +1000
+      vlat   +1100
       volst  +0400
-      volt   +0300
+      volt   +0400
       vost   +0600
       vust   +1200
       vut    +1100
@@ -428,16 +435,16 @@ $Date::Manip::Abbrevs = join(' ',qw(
       wgt    -0300
       wit    +0700
       wmt    +0124
-      wsdt   -1000
+      wsdt   +1400
       wst    +0800
       x      +1100
       y      +1200
       yakst  +1000
-      yakt   +0900
+      yakt   +1000
       yddt   -0700
       ydt    -0800
       yekst  +0600
-      yekt   +0500
+      yekt   +0600
       yerst  +0400
       yert   +0400
       ypt    -0800
@@ -471,7 +478,7 @@ The following timezones are defined:
       ALMT   +0600
       AMST   -0300
       AMT    -0400
-      ANAST  +1300
+      ANAST  +1200
       ANAT   +1200
       ANT    -0430
       APT    -0300
@@ -496,6 +503,7 @@ The following timezones are defined:
       BDST   +0700
       BDT    +0600
       BEAT   +0230
+      BEAUT  +0245
       BNT    +0800
       BORT   +0800
       BORTST +0820
@@ -528,6 +536,7 @@ The following timezones are defined:
       CHOST  +1000
       CHOT   +0800
       CHST   +1000
+      CHUT   +1000
       CIT    +0800
       CJT    +0900
       CKHST  -0930
@@ -548,7 +557,7 @@ The following timezones are defined:
       CXT    +0700
       D      -0400
       DACT   +0600
-      DAVT   +0500
+      DAVT   +0700
       DDUT   +1000
       DUSST  +0600
       DUST   +0600
@@ -572,6 +581,7 @@ The following timezones are defined:
       EST    -0500
       EWT    -0400
       F      -0600
+      FET    +0300
       FJST   +1300
       FJT    +1200
       FKST   -0300
@@ -621,7 +631,7 @@ The following timezones are defined:
       GMT-7  -0700
       GMT-8  -0800
       GMT-9  -0900
-      GST    +0400
+      GST    -0200
       GYT    -0400
       H      -0800
       HADT   -0900
@@ -631,9 +641,7 @@ The following timezones are defined:
       HKT    +0800
       HOVST  +0800
       HOVT   +0700
-      HPT    -0930
       HST    -1000
-      HWT    -0930
       I      -0900
       ICT    +0700
       IDDT   +0400
@@ -644,7 +652,7 @@ The following timezones are defined:
       IOT    +0600
       IRDT   +0430
       IRKST  +0900
-      IRKT   +0800
+      IRKT   +0900
       IRST   +0330
       ISST   +0000
       IST    +0200
@@ -662,7 +670,7 @@ The following timezones are defined:
       KIZT   +0500
       KOST   +1100
       KRAST  +0800
-      KRAT   +0700
+      KRAT   +0800
       KST    +0900
       KUYST  +0300
       KUYT   +0300
@@ -677,26 +685,27 @@ The following timezones are defined:
       MADST  +0000
       MADT   -0100
       MAGST  +1200
-      MAGT   +1100
+      MAGT   +1200
       MALST  +0720
       MALT   +0730
       MART   -0930
       MAWT   +0500
       MDDT   -0500
       MDT    -0600
-      MEST   +0200
+      MEST   -0800
       MESZ   +0200
       MET    +0100
       METDST +0200
       MEWT   +0100
       MEZ    +0100
       MHT    +1200
+      MIST   +1100
       MMT    +0630
       MOST   +0900
       MOT    +0800
       MPT    +1000
       MSD    +0400
-      MSK    +0300
+      MSK    +0400
       MST    -0700
       MUST   +0500
       MUT    +0400
@@ -714,7 +723,7 @@ The following timezones are defined:
       NFT    +1130
       NMT    +1112
       NOVST  +0700
-      NOVT   +0600
+      NOVT   +0700
       NPT    +0545
       NRT    +1200
       NST    -0330
@@ -727,7 +736,7 @@ The following timezones are defined:
       NZT    +1200
       O      +0200
       OMSST  +0700
-      OMST   +0600
+      OMST   +0700
       ORAST  +0500
       ORAT   +0500
       P      +0300
@@ -735,7 +744,7 @@ The following timezones are defined:
       PDT    -0700
       PEST   -0400
       PET    -0500
-      PETST  +1300
+      PETST  +1200
       PETT   +1200
       PGT    +1000
       PHOT   +1300
@@ -764,8 +773,8 @@ The following timezones are defined:
       ROTT   -0300
       S      +0600
       SAKST  +1100
-      SAKT   +1000
-      SAMST  +0500
+      SAKT   +1100
+      SAMST  +0400
       SAMT   +0400
       SAST   +0200
       SAT    -0400
@@ -793,14 +802,13 @@ The following timezones are defined:
       TBIT   +0400
       TFT    +0500
       TJT    +0500
-      TKT    -1000
+      TKT    +1300
       TLT    +0900
       TMT    +0500
       TOST   +1400
       TOT    +1300
       TRST   +0400
       TRT    +0300
-      TRUT   +1000
       TSAT   +0300
       TVT    +1200
       U      +0800
@@ -820,9 +828,9 @@ The following timezones are defined:
       VET    -0430
       VLASST +1000
       VLAST  +1100
-      VLAT   +1000
+      VLAT   +1100
       VOLST  +0400
-      VOLT   +0300
+      VOLT   +0400
       VOST   +0600
       VUST   +1200
       VUT    +1100
@@ -840,16 +848,16 @@ The following timezones are defined:
       WGT    -0300
       WIT    +0700
       WMT    +0124
-      WSDT   -1000
+      WSDT   +1400
       WST    +0800
       X      +1100
       Y      +1200
       YAKST  +1000
-      YAKT   +0900
+      YAKT   +1000
       YDDT   -0700
       YDT    -0800
       YEKST  +0600
-      YEKT   +0500
+      YEKT   +0600
       YERST  +0400
       YERT   +0400
       YPT    -0800

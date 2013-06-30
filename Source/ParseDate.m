@@ -30,7 +30,6 @@ xs_init(pTHX)
 static PerlInterpreter *my_perl;
 static NSDateFormatter *dateManipFormatter;
 static BOOL parser_OK = NO;
-static NSStringEncoding parserEncoding;
 
 NSDate *parse_natural_language_date(NSString *input) {
     if (my_perl == NULL || !parser_OK)
@@ -48,9 +47,8 @@ NSDate *parse_natural_language_date(NSString *input) {
     }
     
     NSString *temp = [[NSString alloc] initWithFormat: @"my $s = eval {UnixDate(q|%@|, '%%q')}; warn $@ if $@; $s", input];
-    // XXX Date::Manip doesn't support Unicode, so we provide it a language-specific encoding
-    // NSLog(@"%@ %@", input, [input dataUsingEncoding: parserEncoding]);
-    SV *d = eval_pv([temp cStringUsingEncoding: parserEncoding], FALSE);
+    // NSLog(@"%@", input);
+    SV *d = eval_pv([temp UTF8String], FALSE);
     [temp release];
     if (d == NULL) return nil;
     
@@ -71,44 +69,40 @@ void init_date_parser(void) {
 
     NSString *localeLanguageCode = [[NSLocale currentLocale] objectForKey: NSLocaleLanguageCode];
     char *language = NULL;
-    CFStringEncoding stringEncoding = kCFStringEncodingISOLatin1;
-    if ([localeLanguageCode isEqualToString: @"en"]) {
-	language = "English";
-    } else if ([localeLanguageCode isEqualToString: @"fr"]) {
-	language = "French";	// OK
-    } else if ([localeLanguageCode isEqualToString: @"sv"]) {
-	language = "Swedish";	// XXX måndag broken
-    } else if ([localeLanguageCode isEqualToString: @"de"]) {
-	language = "German";	// OK
-    } else if ([localeLanguageCode isEqualToString: @"pl"]) {
-	language = "Polish";	stringEncoding = kCFStringEncodingWindowsLatin2;
-    } else if ([localeLanguageCode isEqualToString: @"nl"]) {
-	language = "Dutch";	// OK
-    } else if ([localeLanguageCode isEqualToString: @"es"]) {
-	language = "Spanish";	// OK with patch
-    } else if ([localeLanguageCode isEqualToString: @"pt"]) {
-	language = "Portuguese";// XXX sábado broken, others OK with patch
-    } else if ([localeLanguageCode isEqualToString: @"ro"]) {
-	language = "Romanian";	stringEncoding = kCFStringEncodingISOLatin10; // XXX sâmbătă broken
-    } else if ([localeLanguageCode isEqualToString: @"it"]) {
-	language = "Italian";	// XXX venerdì broken
-    } else if ([localeLanguageCode isEqualToString: @"ru"]) {
-	language = "Russian";	stringEncoding = kCFStringEncodingKOI8_R;
-    } else if ([localeLanguageCode isEqualToString: @"tr"]) {
-	language = "Turkish";	stringEncoding = kCFStringEncodingISOLatin5; // XXX Çarşamba broken
-    } else if ([localeLanguageCode isEqualToString: @"da"]) {
-	language = "Danish";	// OK
-    } else if ([localeLanguageCode isEqualToString: @"ca"]) {
-	language = "Catalan";	// XXX OK but triggers a *lot* of warnings
-    } else
-	return;
-
-    parserEncoding = CFStringConvertEncodingToNSStringEncoding(stringEncoding);
-    if (parserEncoding == kCFStringEncodingInvalidId) {
-	NSLog(@"failed to get NSStringEncoding for CFStringEncoding '%@', language '%s'",
-	      (NSString *)CFStringConvertEncodingToIANACharSetName(stringEncoding), language);
-	return;
-    }
+    if ([localeLanguageCode isEqualToString: @"ca"])
+        language = "Catalan"; // weekdays OK
+    else if ([localeLanguageCode isEqualToString: @"da"])
+        language = "Danish"; // weekdays OK
+    else if ([localeLanguageCode isEqualToString: @"de"])
+        language = "German"; // OK
+    else if ([localeLanguageCode isEqualToString: @"en"])
+        language = "English";
+    else if ([localeLanguageCode isEqualToString: @"es"])
+        language = "Spanish"; // XXX manana => mañana; en 2 días, mes próximo don't work
+    else if ([localeLanguageCode isEqualToString: @"fi"])
+        language = "Finnish"; // XXX weekdays fail
+    else if ([localeLanguageCode isEqualToString: @"fr"])
+        language = "French"; // XXX aujourd’hui needs un-curly-ization; prochain * fails is wrong (prochain vs prochaine)
+    else if ([localeLanguageCode isEqualToString: @"it"])
+        language = "Italian"; // XXX tra 2 giorni;  settimana prossima (extra space?)
+    else if ([localeLanguageCode isEqualToString: @"nl"])
+        language = "Dutch"; // OK
+    else if ([localeLanguageCode isEqualToString: @"no"])
+        language = "Norwegian"; // XXX nothing?
+    else if ([localeLanguageCode isEqualToString: @"pl"])
+        language = "Polish"; // weekdays OK
+    else if ([localeLanguageCode isEqualToString: @"pt"])
+        language = "Portuguese";// XXX sábado OK, *-feira needs patch again
+    else if ([localeLanguageCode isEqualToString: @"ro"])
+        language = "Romanian"; // weekdays OK
+    else if ([localeLanguageCode isEqualToString: @"ru"])
+        language = "Russian"; // weekdays OK
+    else if ([localeLanguageCode isEqualToString: @"sv"])
+        language = "Swedish"; // XXX i dag / i morgon
+    else if ([localeLanguageCode isEqualToString: @"tr"])
+        language = "Turkish"; // XXX Salı, Çarşamba, Perşembe broken
+    else
+        return;
 
     // Date::Manip uses "US" to mean month/day and "non-US" to mean day/month.
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -118,7 +112,7 @@ void init_date_parser(void) {
 
     int gmtOffsetMinutes = ([[NSTimeZone defaultTimeZone] secondsFromGMT]) / 60;
     NSString *temp = [[NSString alloc] initWithFormat:
-	  @"Date_Init(\"Language=%s\", \"DateFormat=%s\", \"Internal=1\", \"TZ=%c%02d:%02d\")",
+	  @"Date_Init(\"Language=%s\", \"DateFormat=%s\", \"Printable=1\", \"TZ=%c%02d:%02d\")",
 	  language, isUS ? "US" : "non-US",
 	  gmtOffsetMinutes < 0 ? '-' : '+', abs(gmtOffsetMinutes) / 60, abs(gmtOffsetMinutes) % 60];
     SV *d = eval_pv([temp UTF8String], FALSE);
