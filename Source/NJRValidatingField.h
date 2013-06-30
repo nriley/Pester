@@ -9,7 +9,7 @@
 #import <AppKit/AppKit.h>
 
 
-@interface NJRValidatingField : NSTextField {
+@interface NJRValidatingField : NSTextField <NSTextViewDelegate> {
 
 }
 

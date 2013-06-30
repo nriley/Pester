@@ -64,6 +64,8 @@
 	[intervalUnits selectItemAtIndex: 0];
 }
 
+#pragma mark NSTextViewDelegate
+
 - (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)range replacementString:(NSString *)string;
 {
     unsigned length = [string length];
@@ -89,7 +91,9 @@
             if (tag < 0) return NO; // don't send update
         }
     }
-    return [super textView: textView shouldChangeTextInRange: range replacementString: string];
+    if ([super respondsToSelector: _cmd])
+        return [super textView: textView shouldChangeTextInRange: range replacementString: string];
+    return YES;
 }
 
 @end

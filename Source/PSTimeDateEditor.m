@@ -150,7 +150,7 @@
     // set up completing field editor for date field
     dateFieldEditor = [[PSDateFieldEditor alloc] initWithCompletions: completions];
     [dateFieldEditor setFieldEditor: YES];
-    [dateFieldEditor setDelegate: timeDate];
+    [dateFieldEditor setDelegate: (id <NSTextViewDelegate>)timeDate];
 
     if ([timeDateCompletions pullsDown]) // add a dummy first item, which gets consumed for the (obscured) title
 	[timeDateCompletions insertItemWithTitle: @"" atIndex: 0];
