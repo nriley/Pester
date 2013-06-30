@@ -55,5 +55,7 @@ ncNZEp14qWoKVKn3CXk=
 -----END PUBLIC KEY-----</string>
 	<key>NSSupportsAutomaticGraphicsSwitching</key>
 	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2002–13 Nicholas Riley</string>
 </dict>
 </plist>
