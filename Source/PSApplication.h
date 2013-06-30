@@ -16,7 +16,7 @@
 
 extern NSString * const PSApplicationWillReopenNotification;
 
-@interface PSApplication : NSApplication {
+@interface PSApplication : NSApplication <NSApplicationDelegate> {
     PSAlarmsController *alarmsController;
     IBOutlet PSAlarmSetController *alarmSetController;
     PSPreferencesController *preferencesController;
