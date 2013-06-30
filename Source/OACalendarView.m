@@ -84,7 +84,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     NSButton *button;
     NSBundle *thisBundle;
 
-    if ([super initWithFrame:frameRect] == nil)
+    if ( (self = [super initWithFrame:frameRect]) == nil)
         return nil;
     
     thisBundle = [NSBundle bundleForClass: [OACalendarView class]];

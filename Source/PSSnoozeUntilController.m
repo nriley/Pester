@@ -25,7 +25,7 @@
 
 - (id)initWithNotifierController:(PSAlarmNotifierController *)aController;
 {
-    if ([self initWithWindowNibName: @"Snooze until"]) {
+    if ( (self = [self initWithWindowNibName: @"Snooze until"]) != nil) {
         NSWindow *window = [self window];
         alarm = [[PSAlarm alloc] init];
         snoozeInterval = [aController snoozeInterval];

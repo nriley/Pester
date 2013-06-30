@@ -29,7 +29,7 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
 
 - (id)initWithAlarm:(PSAlarm *)anAlarm;
 {
-    if ([self initWithWindowNibName: @"Notifier"]) {
+    if ( (self = [self initWithWindowNibName: @"Notifier"]) != nil) {
         NSWindow *window = [self window];
         NSRect frameRect = [window frame];
         alarm = [anAlarm retain];
