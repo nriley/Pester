@@ -82,12 +82,10 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     NSArray *shortWeekDays;
     NSRect buttonFrame;
     NSButton *button;
-    NSBundle *thisBundle;
 
     if ( (self = [super initWithFrame:frameRect]) == nil)
         return nil;
     
-    thisBundle = [NSBundle bundleForClass: [OACalendarView class]];
     monthAndYearTextFieldCell = [[NSTextFieldCell alloc] init];
     monthAndYearFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%B %Y" allowNaturalLanguage:NO];
     [monthAndYearTextFieldCell setFormatter:monthAndYearFormatter];
