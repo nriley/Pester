@@ -93,7 +93,7 @@
     if (row == NSNotFound)
         return;
 
-    [alarmList selectRow: row byExtendingSelection: NO];
+    [alarmList selectRowIndexes: [NSIndexSet indexSetWithIndex: row] byExtendingSelection: NO];
     [alarmList scrollRowToVisible: row];
 }
 
