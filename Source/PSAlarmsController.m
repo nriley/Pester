@@ -9,7 +9,6 @@
 #import "PSAlarmsController.h"
 #import "PSAlarm.h"
 #import "PSAlerts.h"
-#import "NSString-NJRExtensions.h"
 #import "NSTableView-NJRExtensions.h"
 #import "NJRTableView.h"
 #import "NJRTableDelegate.h"
@@ -43,7 +42,6 @@
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(alarmsChanged) name: PSAlarmsDidChangeNotification object: alarms];
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(tableViewSelectionDidChange:) name: NSTableViewSelectionDidChangeNotification object: alarmList];
         [[NSDistributedNotificationCenter defaultCenter] addObserver: alarmList selector: @selector(reloadData) name: @"NSSystemTimeZoneDidChangeDistributedNotification" object: nil];
-        messageAttributes = [[NSDictionary alloc] initWithObjectsAndKeys: [[[alarmList tableColumnWithIdentifier: @"message"] dataCell] font], NSFontAttributeName, nil];
         [alarmList setAutosaveName: @"Alarm list"];
         [alarmList setAutosaveTableColumns: YES];
         [self alarmsChanged];
@@ -58,7 +56,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [[NSDistributedNotificationCenter defaultCenter] removeObserver: alarmList];
     [reorderedAlarms release];
-    [messageAttributes release];
     [super dealloc];
 }
 
@@ -109,19 +106,19 @@
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row;
 {
     PSAlarm *alarm = [reorderedAlarms objectAtIndex: row];
+    NSString *identifier = [tableColumn identifier];
 
-    if ([[tableColumn identifier] isEqualToString: @"message"]) {
-        NSMutableString *message = [[alarm message] mutableCopy];
-        [message truncateToWidth: [tableView frameOfCellAtColumn: 0 row: row].size.width by: NSLineBreakByTruncatingTail withAttributes: messageAttributes];
-        return [message autorelease];
-    } else {
-        NSCalendarDate *date = [alarm date];
-        if ([[tableColumn identifier] isEqualToString: @"date"]) return [alarm shortDateString];
-        if ([[tableColumn identifier] isEqualToString: @"time"]) {
-            if (date == nil) return @"«expired»";
-            return [alarm timeString];
-        }
+    if ([identifier isEqualToString: @"message"])
+        return [alarm message];
+
+    NSCalendarDate *date = [alarm date];
+    if ([identifier isEqualToString: @"date"])
+        return [alarm shortDateString];
+    if ([identifier isEqualToString: @"time"]) {
+        if (date == nil) return @"«expired»";
+        return [alarm timeString];
     }
+
     return nil;
 }
 @end

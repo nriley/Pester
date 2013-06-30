@@ -14,7 +14,6 @@
     IBOutlet NSButton *removeButton;
     PSAlarms *alarms;
     NSArray *reorderedAlarms;
-    NSDictionary *messageAttributes;
 }
 
 - (IBAction)remove:(id)sender;
