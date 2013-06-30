@@ -86,7 +86,6 @@
 		E1B11F630CF5F30F004975AA /* PSSpeechAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1986C036B813101EB0372 /* PSSpeechAlert.m */; };
 		E1B11F640CF5F30F004975AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		E1B11F650CF5F30F004975AA /* NJRIntervalField.m in Sources */ = {isa = PBXBuildFile; fileRef = E13919E303B9E4E100000028 /* NJRIntervalField.m */; };
-		E1B11F660CF5F30F004975AA /* PSError.m in Sources */ = {isa = PBXBuildFile; fileRef = E1ECA00703C002B300F54C66 /* PSError.m */; };
 		E1B11F690CF5F30F004975AA /* PSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF6E9103C928D200050002 /* PSTimer.m */; };
 		E1B11F6A0CF5F30F004975AA /* PSWakeAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E19FD39F03C98645001509F3 /* PSWakeAlert.m */; };
 		E1B11F6B0CF5F30F004975AA /* PSCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17F2F3303FDF2F000050002 /* PSCalendarController.m */; };
@@ -309,8 +308,6 @@
 		E1DEF10703FF83AC00050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = "en.lproj/Snooze until.nib"; sourceTree = "<group>"; };
 		E1DEF116040014EB00050002 /* PSTimeDateEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTimeDateEditor.h; sourceTree = "<group>"; };
 		E1DEF117040014EB00050002 /* PSTimeDateEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTimeDateEditor.m; sourceTree = "<group>"; };
-		E1ECA00603C002B300F54C66 /* PSError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSError.h; sourceTree = SOURCE_ROOT; };
-		E1ECA00703C002B300F54C66 /* PSError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSError.m; sourceTree = SOURCE_ROOT; };
 		E1F0B14A03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRUnfocusableMovieView.h; sourceTree = "<group>"; };
 		E1F0B14B03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRUnfocusableMovieView.m; sourceTree = "<group>"; };
 		E1F0B14E03ADBE3800AEFBE0 /* NSString-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-NJRExtensions.h"; sourceTree = "<group>"; };
@@ -681,8 +678,6 @@
 				F59E47A6036AA5FC016B311C /* BDAlias */,
 				E1DEF116040014EB00050002 /* PSTimeDateEditor.h */,
 				E1DEF117040014EB00050002 /* PSTimeDateEditor.m */,
-				E1ECA00603C002B300F54C66 /* PSError.h */,
-				E1ECA00703C002B300F54C66 /* PSError.m */,
 				E1A18CB203B439CF00000028 /* PSPropertyListSerialization.h */,
 				E130B9AC03B7C59700000028 /* PSPowerManager.h */,
 				E130B9AD03B7C59700000028 /* PSPowerManager.m */,
@@ -981,7 +976,6 @@
 				E1B11F630CF5F30F004975AA /* PSSpeechAlert.m in Sources */,
 				E1B11F640CF5F30F004975AA /* main.m in Sources */,
 				E1B11F650CF5F30F004975AA /* NJRIntervalField.m in Sources */,
-				E1B11F660CF5F30F004975AA /* PSError.m in Sources */,
 				E1B11F690CF5F30F004975AA /* PSTimer.m in Sources */,
 				E1B11F6A0CF5F30F004975AA /* PSWakeAlert.m in Sources */,
 				E1B11F6B0CF5F30F004975AA /* PSCalendarController.m in Sources */,
