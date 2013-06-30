@@ -87,9 +87,9 @@ static NSDictionary *statusAttributes = nil;
 
 - (void)showStatus:(NSString *)error;
 {
-    [self setAttributedStringValue:
-        [[NSAttributedString alloc] initWithString: [NSString stringWithFormat: @"(%@)", error]
-                                        attributes: statusAttributes]];
+    NSAttributedString *statusString = [[NSAttributedString alloc] initWithString: [NSString stringWithFormat: @"(%@)", error] attributes: statusAttributes];
+    [self setAttributedStringValue: statusString];
+    [statusString release];
     [NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(clearStatus) object: nil];
     [self performSelector: @selector(clearStatus) withObject: nil afterDelay: 0.5];
     [[self currentEditor] setSelectedRange: zeroRange];

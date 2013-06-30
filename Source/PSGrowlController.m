@@ -85,6 +85,8 @@ static PSGrowlController *PSGrowlControllerShared;
 				   priority: 0
 				   isSticky: isSticky
 			       clickContext: (NSString *)uuidString];
+    [uuidString release];
+
     return;
 
 notificationFailed:
