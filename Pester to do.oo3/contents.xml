@@ -156,11 +156,9 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{603, 503}" scroll-position="{0, 123}" column-titles-display-mode="auto">
+  <editor content-size="{603, 503}" scroll-position="{0, 135}" column-titles-display-mode="auto">
     <drawer display="sections" palette-height="167"/>
-    <selected-rows ids="l4Rqlus22Ye"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{95, 0}"/>
+    <selected-rows ids="miwjl_AxEzB"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -3975,6 +3973,74 @@
             </text>
           </values>
         </item>
+        <item id="kp_0xMo-Y5J" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Commit the change on shirley which adds another time format</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="iVWCccCEGwK" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix the &quot;Expression result unused&quot; stuff; it looks like it could be a legitimate bug</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="miwjl_AxEzB" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix languages with Date::Manip; can just upgrade since we are 10.6+ now</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="k4Ws5dVZ_A1" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Encodings reset</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="g6I72ZJu601" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Are weekdays doing the same thing as in 5? Lots seem to refer to the past. (Yup.)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="fgqarqfQPyM" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>See if we can delete the TZ data — on the other hand, never mind.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="hQWxxFSfQgj" expanded="yes" state="indeterminate">
           <values>
             <text>
@@ -4043,17 +4109,6 @@
             </text>
           </values>
         </item>
-        <item id="kp_0xMo-Y5J">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Commit the change on shirley which adds another time format</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
         <item id="asoX78UnMlR">
           <values>
             <text>
@@ -4078,7 +4133,7 @@
         </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+    <item id="gotAfbOXCFU" state="indeterminate">
       <values>
         <text>
           <p>
@@ -4089,6 +4144,28 @@
         </text>
       </values>
       <children>
+        <item id="jLn4LxZH1wg">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Spanish and Italian</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="nMswcVPzlDR">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>&quot;on in 2 days&quot;, etc. is crazy — what was I thinking?</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="g2MxNsiRckV">
           <values>
             <text>
@@ -4152,17 +4229,6 @@
               <p>
                 <run>
                   <lit>Stop truncating our own alarm messages</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="iVWCccCEGwK">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Fix the &quot;Expression result unused&quot; stuff; it looks like it could be a legitimate bug</lit>
                 </run>
               </p>
             </text>
@@ -4303,7 +4369,7 @@
                 <text>
                   <p>
                     <run>
-                      <lit>At the very least, set up some logging for this so we catch it on mary; it&apos;s pretty common there.</lit>
+                      <lit>Think we may have solved this already.</lit>
                     </run>
                   </p>
                 </text>
@@ -5158,17 +5224,6 @@
             </text>
           </note>
         </item>
-        <item id="hvM3PT4dFfQ">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>More languages: I can steal from Omni&apos;s DateProcessing.strings.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
         <item id="cxhjINnivnn">
           <values>
             <text>
@@ -5188,17 +5243,6 @@
               </p>
             </text>
           </note>
-        </item>
-        <item id="jAxW1cgzSjp">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Fix languages with Date::Manip; can just upgrade since we are 10.6+ now</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="on-H0eb7CPg">
           <values>
@@ -5363,7 +5407,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Auto-move to apps folder</lit>
+                  <lit>Auto-move to apps folder?</lit>
                 </run>
               </p>
             </text>
@@ -6245,7 +6289,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Try to get hog mode working?</lit>
+                  <lit>Try to get hog mode working? Probably not.</lit>
                 </run>
               </p>
             </text>
@@ -7592,7 +7636,7 @@
             </text>
           </note>
         </item>
-        <item id="oF3K30LkPWO" expanded="yes">
+        <item id="oF3K30LkPWO">
           <values>
             <text>
               <p>
@@ -7673,7 +7717,7 @@
             </item>
           </children>
         </item>
-        <item id="ofDiUwDQNsR" expanded="yes">
+        <item id="ofDiUwDQNsR">
           <values>
             <text>
               <p>
