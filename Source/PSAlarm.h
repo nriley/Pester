@@ -80,6 +80,6 @@ extern NSString * const PSAlarmDiedNotification;
 
 // 1.1 only, going away when we move to keyed archiving (or Core Data)
 - (NSDictionary *)propertyListRepresentation;
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 
 @end

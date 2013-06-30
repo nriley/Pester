@@ -234,7 +234,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     return plAllAlarms;
 }
 
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [super init]) != nil) {
         NSArray *plPendingAlarms = [dict objectForRequiredKey: PLAlarmsPending];

@@ -549,7 +549,7 @@ flooredInterval:
     return dict;
 }
 
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [self init]) != nil) {
         PSAlerts *alarmAlerts;

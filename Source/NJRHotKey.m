@@ -94,7 +94,7 @@ static NSString * const PLKeyCode = @"keyCode"; // NSNumber
         nil];
 }
 
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [self init]) != nil) {
         hotKeyCode = 0xFFFF;

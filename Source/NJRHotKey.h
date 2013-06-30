@@ -27,6 +27,6 @@
 - (NSString *)keyGlyphs;
 
 - (NSDictionary *)propertyListRepresentation;
-- (id)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict;
 
 @end
