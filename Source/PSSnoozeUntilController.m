@@ -39,9 +39,6 @@
         [self update: self];
         
         [NSApp beginSheet: window modalForWindow: [aController window] modalDelegate: self didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:) contextInfo: aController];
-
-        // work around Cocoa confusion with our bizarre key loop
-        [timeOfDay setNextKeyView: timeDate];
     }
     return self;
 }
