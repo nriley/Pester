@@ -66,7 +66,7 @@ static NSString *timeFormats[] = {
     long minorVersion, majorVersion;
     Gestalt(gestaltSystemVersionMajor, &majorVersion);
     Gestalt(gestaltSystemVersionMinor, &minorVersion);
-    // 10.6 includes Perl 5.8 and 5.10; 10.7 includes Perl 5.10 and 5.12
+    // 10.6 includes Perl 5.8 and 5.10; 10.7/10.8 include Perl 5.10 and 5.12
     if (majorVersion != 10 || minorVersion > 8)
 	return;
     
