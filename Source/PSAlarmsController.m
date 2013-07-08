@@ -38,9 +38,11 @@
            {
             [[self window] center];
            }
-        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(alarmsChanged) name: PSAlarmsDidChangeNotification object: alarms];
-        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(tableViewSelectionDidChange:) name: NSTableViewSelectionDidChangeNotification object: alarmList];
-        [[NSDistributedNotificationCenter defaultCenter] addObserver: alarmList selector: @selector(reloadData) name: @"NSSystemTimeZoneDidChangeDistributedNotification" object: nil];
+        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+        [notificationCenter addObserver: self selector: @selector(alarmsChanged) name: PSAlarmsDidChangeNotification object: alarms];
+        [notificationCenter addObserver: self selector: @selector(tableViewSelectionDidChange:) name: NSTableViewSelectionDidChangeNotification object: alarmList];
+        [notificationCenter addObserver: alarmList selector: @selector(reloadData) name: NSCurrentLocaleDidChangeNotification object: nil];
+        [notificationCenter addObserver: alarmList selector: @selector(reloadData) name: NSSystemTimeZoneDidChangeNotification object: nil];
         [alarmList setAutosaveName: @"Alarm list"];
         [alarmList setAutosaveTableColumns: YES];
         [self alarmsChanged];
