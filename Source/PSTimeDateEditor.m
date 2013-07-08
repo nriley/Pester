@@ -12,8 +12,8 @@
 
 @interface PSTimeDateEditor (Private)
 - (void)_update;
-- (void)_dateFormatsChanged:(NSNotification *)notification;
-- (void)_timeZoneChanged:(NSNotification *)notification;
+- (void)localeDidChange:(NSNotification *)notification;
+- (void)timeZoneDidChange:(NSNotification *)notification;
 @end
 
 @interface NSObject (PSTimeDateController)
@@ -59,9 +59,9 @@
 	[timeDate setFormatter: dateFormatter];
 	[timeDate setObjectValue: [NSDate date]];
 
-	NSDistributedNotificationCenter *distributedNotificationCenter = [NSDistributedNotificationCenter defaultCenter];
-	[distributedNotificationCenter addObserver: self selector: @selector(_dateFormatsChanged:) name: @"AppleDatePreferencesChangedNotification" object: nil];
-	[distributedNotificationCenter addObserver: self selector: @selector(_timeZoneChanged:) name: @"NSSystemTimeZoneDidChangeDistributedNotification" object: nil];
+        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+        [notificationCenter addObserver: self selector: @selector(localeDidChange:) name: NSCurrentLocaleDidChangeNotification object: nil];
+        [notificationCenter addObserver: self selector: @selector(timeZoneDidChange:) name: NSSystemTimeZoneDidChangeNotification object: nil];
 
 	[self _update];
     }
@@ -70,7 +70,7 @@
 
 - (void)dealloc;
 {
-    [[NSDistributedNotificationCenter defaultCenter] removeObserver: self];
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
     [dateFieldEditor release];
     [super dealloc];
 }
@@ -156,7 +156,7 @@
 	[timeDateCompletions insertItemWithTitle: @"" atIndex: 0];
 }
 
-- (void)_localeChanged;
+- (void)localeDidChange:(NSNotification *)notification;
 {
     [NJRDateFormatter timeZoneOrLocaleChanged];
     [self _update];
@@ -165,19 +165,11 @@
     [controller update: nil];
 }
 
-- (void)_dateFormatsChanged:(NSNotification *)notification;
-{
-    // XXX delay while NSLocale updates - can we use another notification instead?
-    // XXX 10.5+ has NSCurrentLocaleDidChangeNotification
-    [self performSelector: @selector(_localeChanged) withObject: nil afterDelay: 0.1];
-}
-
-- (void)_timeZoneChanged:(NSNotification *)notification;
+- (void)timeZoneDidChange:(NSNotification *)notification;
 {
     [NJRDateFormatter timeZoneOrLocaleChanged];
 
     [controller update: nil];
 }
-
 
 @end
