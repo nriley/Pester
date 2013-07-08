@@ -112,7 +112,7 @@ void init_date_parser(void) {
 
     int gmtOffsetMinutes = ([[NSTimeZone defaultTimeZone] secondsFromGMT]) / 60;
     NSString *temp = [[NSString alloc] initWithFormat:
-	  @"Date_Init(\"Language=%s\", \"DateFormat=%s\", \"Printable=1\", \"TZ=%c%02d:%02d\")",
+	  @"Date_Init(\"Language=%s\", \"DateFormat=%s\", \"Printable=1\", \"SetDate=now,%c%02d:%02d\")",
 	  language, isUS ? "US" : "non-US",
 	  gmtOffsetMinutes < 0 ? '-' : '+', abs(gmtOffsetMinutes) / 60, abs(gmtOffsetMinutes) % 60];
     SV *d = eval_pv([temp UTF8String], FALSE);
