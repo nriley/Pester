@@ -24,8 +24,11 @@
 
 NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopenNotification";
 
+NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSUserDefaults key
+
 @interface PSApplication (Private)
 - (void)_updateDockTile:(PSTimer *)timer;
+- (void)_resetUpdateTimer;
 @end
 
 @implementation PSApplication
@@ -39,7 +42,31 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
     [PSAlarms setUp];
     [self setDelegate: self];
     [PSPreferencesController readPreferences];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults registerDefaults:
+     [NSDictionary dictionaryWithObject: [NSNumber numberWithBool: YES]
+                                 forKey: PSShowDockCountdown]];
+    [defaults addObserver: self forKeyPath: PSShowDockCountdown options: NSKeyValueObservingOptionNew context: nil];
+
     [super finishLaunching];
+}
+
+#pragma mark KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString: PSShowDockCountdown]) {
+        if ([[change objectForKey: NSKeyValueChangeNewKey] boolValue]) {
+            [self _updateDockTile: nil];
+        } else {
+            [self _resetUpdateTimer];
+            [NSApp setApplicationIconImage: appIconImage];
+        }
+        return;
+    }
+
+    [super observeValueForKeyPath: keyPath ofObject: object change: change context: context];
 }
 
 #pragma mark actions
@@ -132,6 +159,9 @@ NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopen
 
 - (void)nextAlarmDidChange:(NSNotification *)notification;
 {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey: PSShowDockCountdown])
+        return;
+
     PSAlarm *nextAlarm = [notification object];
     // NSLog(@"nextAlarmDidChange: %@", nextAlarm);
     [self _resetUpdateTimer];
