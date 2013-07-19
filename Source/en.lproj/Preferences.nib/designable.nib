@@ -198,7 +198,6 @@
 							<string key="NSFrame">{{76, 18}, {207, 18}}</string>
 							<reference key="NSSuperview" ref="179271081"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="347811417">
 								<int key="NSCellFlags">-2080374784</int>
@@ -426,7 +425,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="59072761"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1680, 1050}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMinSize">{213, 129}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -642,9 +641,9 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">nextKeyView</string>
 						<reference key="source" ref="151588821"/>
-						<reference key="destination" ref="797138366"/>
+						<reference key="destination" ref="328480185"/>
 					</object>
-					<int key="connectionID">211</int>
+					<int key="connectionID">219</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -746,14 +745,6 @@
 					<int key="connectionID">212</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">nextKeyView</string>
-						<reference key="source" ref="328480185"/>
-						<reference key="destination" ref="777469895"/>
-					</object>
-					<int key="connectionID">216</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: values.PesterShowDockCountdown</string>
 						<reference key="source" ref="328480185"/>
@@ -768,6 +759,14 @@
 						</object>
 					</object>
 					<int key="connectionID">218</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">nextKeyView</string>
+						<reference key="source" ref="328480185"/>
+						<reference key="destination" ref="797138366"/>
+					</object>
+					<int key="connectionID">220</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1042,7 +1041,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">218</int>
+			<int key="maxID">220</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
