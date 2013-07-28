@@ -8,8 +8,6 @@
 
 #import "NJRIntervalField.h"
 
-// XXX much implementation borrowed from DockCam, then factored; should replace DockCam interval selector with a NJRIntervalField at some point
-
 @implementation NJRIntervalField
 
 - (NSTimeInterval)interval;
