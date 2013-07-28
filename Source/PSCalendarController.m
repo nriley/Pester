@@ -11,6 +11,8 @@
 #import "NSCalendarDate-OFExtensions.h"
 #import "NSCalendarDate-NJRExtensions.h"
 
+#if MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_6
+
 enum {
     NSWindowAnimationBehaviorNone = 2 // suppress inferred animations (don't animate)
 };
@@ -18,6 +20,8 @@ enum {
 @interface NSWindow (Lion)
 - (void)setAnimationBehavior:(NSUInteger)newAnimationBehavior;
 @end
+
+#endif
 
 @implementation PSCalendarController
 
