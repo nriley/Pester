@@ -18,6 +18,8 @@ NSString * const PSAlarmTimerSetNotification = @"PSAlarmTimerSetNotification";
 NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotification";
 NSString * const PSAlarmDiedNotification = @"PSAlarmDiedNotification";
 
+static NSString * const PSLogAlarmTimerExpired = @"PesterLogAlarmTimerExpired"; // NSUserDefaults key
+
 // property list keys
 static NSString * const PLAlarmType = @"type"; // NSString
 static NSString * const PLAlarmDate = @"date"; // NSNumber
@@ -201,6 +203,9 @@ flooredInterval:
 - (void)_timerExpired:(PSTimer *)aTimer;
 {
     // NSLog(@"expired: %@; now %@", [[aTimer fireDate] description], [[NSDate date] description]);
+    if ([[NSUserDefaults standardUserDefaults] boolForKey: PSLogAlarmTimerExpired])
+        NSLog(@"Alarm expired: %@\n%@", [self message], [[alerts prettyList] string]);
+
     alarmType = PSAlarmExpired;
     [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmTimerExpiredNotification object: self];
     [timer release]; timer = nil;
