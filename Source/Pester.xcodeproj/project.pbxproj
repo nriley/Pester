@@ -36,7 +36,6 @@
 		E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6E30353ED1201AEEDB1 /* Application icon.icns */; };
 		E1B11F290CF5F30F004975AA /* Alarms.nib in Resources */ = {isa = PBXBuildFile; fileRef = F560E2EE03574F8A01A4E466 /* Alarms.nib */; };
 		E1B11F2A0CF5F30F004975AA /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
-		E1B11F2B0CF5F30F004975AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		E1B11F2C0CF5F30F004975AA /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = F59DD44F0358ABF4017318D0 /* Credits.html */; };
 		E1B11F2D0CF5F30F004975AA /* Read Me.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = F589C9C6035AA12B0155F4B2 /* Read Me.rtfd */; };
 		E1B11F2E0CF5F30F004975AA /* Movie alert.nib in Resources */ = {isa = PBXBuildFile; fileRef = F59E4BDE036B1D94016B311C /* Movie alert.nib */; };
@@ -198,7 +197,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		089C165DFE840E0CC02AAC07 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97319FDCFA39411CA2CEA /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/MainMenu.nib; sourceTree = "<group>"; };
@@ -512,7 +510,6 @@
 				E10F2A3B0402E61C00050002 /* Read Me.nib */,
 				E11CB6E0043025F500050002 /* Preferences.nib */,
 				E1B11F8B0CF5F30F004975AA /* Info-Pester.plist */,
-				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				E1DE3C13115930BD00C17BB0 /* Localizable.strings */,
 				E19D2D731158181A00B68D9F /* DateCompletions.strings */,
 				F59DD44F0358ABF4017318D0 /* Credits.html */,
@@ -914,7 +911,6 @@
 				E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */,
 				E1B11F290CF5F30F004975AA /* Alarms.nib in Resources */,
 				E1B11F2A0CF5F30F004975AA /* MainMenu.nib in Resources */,
-				E1B11F2B0CF5F30F004975AA /* InfoPlist.strings in Resources */,
 				E1B11F2C0CF5F30F004975AA /* Credits.html in Resources */,
 				E1B11F2D0CF5F30F004975AA /* Read Me.rtfd in Resources */,
 				E1B11F2E0CF5F30F004975AA /* Movie alert.nib in Resources */,
@@ -1038,14 +1034,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				089C165DFE840E0CC02AAC07 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
