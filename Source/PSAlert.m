@@ -18,6 +18,11 @@ static NSString * const PLAlertClass = @"class"; // NSString
 
 @implementation PSAlert
 
++ (BOOL)canTrigger;
+{
+    return YES;
+}
+
 + (instancetype)alert;
 {
     NSAssert(NO, @"Class is abstract");

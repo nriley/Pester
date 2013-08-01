@@ -30,4 +30,7 @@ extern NSString * const PSAlarmAlertCompletedNotification; // userInfo key: "ale
 // after alert completes, invoke method of superclass
 - (void)completedForAlarm:(PSAlarm *)alarm;
 
+// optional (superclass returns YES)
++ (BOOL)canTrigger;
+
 @end

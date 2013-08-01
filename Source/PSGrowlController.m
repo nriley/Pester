@@ -29,6 +29,11 @@ static PSGrowlController *PSGrowlControllerShared;
     return PSGrowlControllerShared;
 }
 
++ (BOOL)canNotify;
+{
+    return [GrowlApplicationBridge isGrowlRunning];
+}
+
 - (id)init;
 {
     if ( (self = [super init]) != nil)
@@ -49,7 +54,7 @@ static PSGrowlController *PSGrowlControllerShared;
 		 object:(id)object
 	    onlyOnClick:(BOOL)onlyOnClick;
 {
-    if (![GrowlApplicationBridge isGrowlRunning])
+    if (![PSGrowlController canNotify])
 	goto notificationFailed;
     
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:

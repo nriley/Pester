@@ -23,6 +23,7 @@
 #import "NSString-NJRExtensions.h"
 #import "NSAttributedString-NJRExtensions.h"
 #import "NSCalendarDate-NJRExtensions.h"
+#import "NSPopUpButton-NJRExtensions.h"
 
 #import "PSAlerts.h"
 #import "PSDockBounceAlert.h"
@@ -33,12 +34,14 @@
 #import "PSSpeechAlert.h"
 #import "PSWakeAlert.h"
 #import "PSGrowlAlert.h"
+#import "PSUserNotificationAlert.h"
 
 #import <Growl/Growl.h>
 
 // NSUserDefaults keys
 static NSString * const PSAlertsSelected = @"Pester alerts selected";
 static NSString * const PSAlertsEditing = @"Pester alerts editing";
+static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 
 @interface PSAlarmSetController (Private)
 
@@ -51,6 +54,14 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
 @end
 
 @implementation PSAlarmSetController
+
++ (void)initialize;
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *notificationClassName = NSStringFromClass([PSUserNotificationAlert canTrigger] ? [PSUserNotificationAlert class] : [PSGrowlAlert class]);
+    [defaults registerDefaults:
+     [NSDictionary dictionaryWithObject: notificationClassName forKey: PSAlertNotifyWith]];
+}
 
 - (void)awakeFromNib;
 {
@@ -446,9 +457,13 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
         } else if ([alert isKindOfClass: [PSWakeAlert class]]) {
             [wakeUp setIntValue: YES];
         } else if ([alert isKindOfClass: [PSGrowlAlert class]]) {
-	    [notifyWithGrowlButton setIntValue: YES];
-	}
-}
+	    [notifyButton setIntValue: YES];
+            [notifyWith NJR_selectItemWithRepresentedObjectNameOfClass: [PSGrowlAlert class]];
+	} else if ([alert isKindOfClass: [PSUserNotificationAlert class]]) {
+	    [notifyButton setIntValue: YES];
+            [notifyWith NJR_selectItemWithRepresentedObjectNameOfClass: [PSUserNotificationAlert class]];
+        }
+    }
 }
 
 - (BOOL)_setAlerts;
@@ -490,9 +505,11 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
         // wake alert
         if ([wakeUp intValue])
             [alerts addAlert: [PSWakeAlert alert]];
-	// Growl alert
-	if ([notifyWithGrowlButton intValue])
-	    [alerts addAlert: [PSGrowlAlert alert]];
+        // notification alerts (Growl / OS X)
+	if ([notifyButton intValue]) {
+            Class notifierAlertClass = [notifyWith NJR_classFromRepresentedObjectOfSelectedItem];
+            [alerts addAlert: [notifierAlertClass alert]];
+        }
         [[NSUserDefaults standardUserDefaults] setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
     } @catch (NSException *exception) {
 	[self setStatus: [exception reason]];
@@ -610,7 +627,12 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
 
 - (void)windowDidBecomeKey:(NSNotification *)notification;
 {
-    [notifyWithGrowlButton setEnabled: [GrowlApplicationBridge isGrowlRunning]];
+    BOOL growlAvailable = [PSGrowlAlert canTrigger];
+    BOOL userNotificationsAvailable = [PSUserNotificationAlert canTrigger];
+    [notifyButton setEnabled: growlAvailable || userNotificationsAvailable];
+
+    [[notifyWith NJR_itemWithRepresentedObjectNameOfClass: [PSGrowlAlert class]] setEnabled: growlAvailable];
+    [[notifyWith NJR_itemWithRepresentedObjectNameOfClass: [PSUserNotificationAlert class]] setEnabled: userNotificationsAvailable];
 }
 
 - (void)windowWillClose:(NSNotification *)notification;

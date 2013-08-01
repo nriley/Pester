@@ -15,6 +15,8 @@
 
 + (PSGrowlController *)sharedController;
 
++ (BOOL)canNotify;
+
 - (void)notifyWithTitle:(NSString *)title
 	    description:(NSString *)description
        notificationName:(NSString *)notificationName

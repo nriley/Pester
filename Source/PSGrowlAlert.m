@@ -14,6 +14,11 @@ static PSGrowlAlert *PSGrowlAlertShared;
 
 @implementation PSGrowlAlert
 
++ (BOOL)canTrigger;
+{
+    return [PSGrowlController canNotify];
+}
+
 + (PSAlert *)alert;
 {
     if (PSGrowlAlertShared == nil) {
