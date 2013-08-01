@@ -16,7 +16,6 @@
 #import "NJRSoundManager.h"
 #import "PSAlarm.h"
 #import "PSAlarms.h"
-#import "PSGrowlAlert.h"
 #import "PSTimer.h"
 #import "NJRHotKey.h"
 
@@ -24,7 +23,7 @@
 
 NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopenNotification";
 
-NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSUserDefaults key
+static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSUserDefaults key
 
 @interface PSApplication (Private)
 - (void)_updateDockTile:(PSTimer *)timer;
