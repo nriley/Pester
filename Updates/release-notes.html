@@ -35,9 +35,9 @@
     <tr><th>Pester 1.1 beta 16 ()</th></tr>
     <tr><td><ul>
         <li>Added Notification Center alerts on OS X Mountain Lion
-        (10.8) and later.  Use the Notifications System Preferences
-        pane to customize the alert style and behavior. If you select
-        the Alerts style, you can click the “Stop Alerts” button in an
+        (10.8) and later.  Use Notifications System Preferences to
+        customize the alert style and behavior. If you select the
+        Alerts style, you can click the “Stop Alerts” button in an
         alert to stop any other alerts in progress (dock bouncing,
         sounds or speech), equivalent to the same-named item in
         Pester’s Alarm menu.  Unlike Growl, Notification Center only
@@ -70,7 +70,7 @@
         not exposed in Pester’s user interface, but you can quit
         Pester, type <tt>defaults write net.sabi.Pester
         PesterLogAlarmTimerExpired -bool YES</tt> in Terminal and
-        restart Pester to enable logging; replace <tt>YES</tt>
+        reopen Pester to enable logging; replace <tt>YES</tt>
         with <tt>NO</tt> to disable logging.  (Thanks to Mikey Reppy
         for the suggestion.)</li>
     </ul></td></tr>
@@ -86,7 +86,8 @@
 	unwanted horizontal scrolling.  To work around this issue,
 	close and reopen the Read Me window.)</li>
 	<li>Fix natural-language date processing on OS X Mountain
-	Lion.</li>
+	Lion.  Earlier Pester 1.1 betas are not compatible with OS X
+	Mountain Lion.</li>
 	<li>Permit entry of single-digit hour/minute times without
 	punctuation or an initial zero.  For example, you can now type
 	“930” for 9:30, where previously “0930” or “9:30” was
@@ -148,7 +149,7 @@
 <table>
 	<tr><th>Pester 1.1 beta 11 (39)</th></tr>
 	<tr><td><ul>
-	    <li>Added <a href="http://growl.info/">Growl</a> alerts. Configure Growl alert appearance and behavior from the Growl System Preferences pane.  Growl is optional; install it separately if you wish to use it.</li>
+	    <li>Added <a href="http://growl.info/">Growl</a> alerts. Configure Growl alert appearance and behavior from Growl System Preferences or the Growl application (in 2.0 and later).  Growl is optional; install it separately if you wish to use it.</li>
 	    <li>If Growl is installed, display an alarm’s time remaining when it is set as a confirmation.  You can disable this from the Growl System Preferences pane as well.</li>
 	    <li>Fix Preferences not displaying on Mac OS X 10.4.</li>
 	    <li>Fix intermittent failure to play the correct speech voice.</li>
