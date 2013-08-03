@@ -156,9 +156,9 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{603, 503}" scroll-position="{0, 135}" column-titles-display-mode="auto">
+  <editor content-size="{603, 503}" scroll-position="{0, 272}" column-titles-display-mode="auto">
     <drawer display="sections" palette-height="167"/>
-    <selected-rows ids="miwjl_AxEzB"/>
+    <selected-rows ids="pHqhhR2Qvrc"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -3784,7 +3784,7 @@
             </text>
           </values>
         </item>
-        <item id="e1DwmFyT9A6" expanded="yes" state="checked">
+        <item id="e1DwmFyT9A6" state="checked">
           <values>
             <text>
               <p>
@@ -3959,15 +3959,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Retina calendar icons (particularly the arrow buttons) — can use </lit>
-                </run>
-                <run>
-                  <style>
-                    <value key="font-family">Menlo</value>
-                    <value key="font-fixed-pitch">yes</value>
-                    <value key="ligature-selection">none</value>
-                  </style>
-                  <lit>NSImageNameRightFacingTriangleTemplate/NSImageNameLeftFacingTriangleTemplate</lit>
+                  <lit>Retina calendar &amp; arrow icons</lit>
                 </run>
               </p>
             </text>
@@ -3978,7 +3970,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Commit the change on shirley which adds another time format</lit>
+                  <lit>930a too</lit>
                 </run>
               </p>
             </text>
@@ -4041,7 +4033,192 @@
             </item>
           </children>
         </item>
-        <item id="hQWxxFSfQgj" expanded="yes" state="indeterminate">
+        <item id="asoX78UnMlR" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Growl tooltip mentions the prefpane but it&apos;s an app in 2.0</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="eeUpgnKiCLL" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Stop truncating our own alarm messages</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="iFAwuniyntU" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Ellipsization in Alarms window breaks if you rearrange the columns</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="nMswcVPzlDR" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>&quot;on in 2 days&quot;, etc. is crazy — what was I thinking? — easiest to just get rid of the word &quot;on&quot;</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="jOA0LvBiy9_" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix time zone handling with Date::Manip</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="brRZL1z4jbb" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>We&apos;re using defaultTimeZone, this may not change.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="kTOUSlVHa2R" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>See http://search.cpan.org/~sbeck/Date-Manip-6.40/lib/Date/Manip/Config.pod#TIME_ZONE_RELATED_CONFIGURATION_VARIABLES.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="g2MxNsiRckV" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Use </lit>
+                </run>
+                <run>
+                  <style>
+                    <value key="font-family">Menlo</value>
+                    <value key="font-fill">
+                      <color r="0" g="0.454902" b="0"/>
+                    </value>
+                    <value key="font-fixed-pitch">yes</value>
+                    <value key="ligature-selection">none</value>
+                  </style>
+                  <lit>NSCurrentLocaleDidChangeNotification</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="dgfEbu0eNAl" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Integrate patch to disable dock icon (https://github.com/nriley/Pester/pull/11)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="a_mEm3hj8Za" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Implement logging (http://twitter.com/mgpreppy/status/361353544714039296)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="hnBeinO3y8O" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Need to document user default </lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-family">Screen</value>
+                        <value key="font-fill">
+                          <color r="0.768627" g="0.101961" b="0.0862745"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-weight">6</value>
+                        <value key="ligature-selection">none</value>
+                      </style>
+                      <lit>PesterLogAlarmTimerExpired</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="pm30OL8bjWf" expanded="yes" state="indeterminate">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Notification Center in addition to Growl</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="pHqhhR2Qvrc" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Save/restore selected notification system in defaults</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="csTogp0QGwA">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Popup is too narrow on Snow Leopard</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="hQWxxFSfQgj" expanded="yes" state="checked">
           <values>
             <text>
               <p>
@@ -4074,47 +4251,27 @@
                 </text>
               </values>
             </item>
-            <item id="l4Rqlus22Ye">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Urgh, notifications seem to have broken with changing AirPlay devices on Mavericks. File a bug.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
           </children>
         </item>
-        <item id="lJLlHRbPcb8">
+      </children>
+    </item>
+    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>For 1.1 final</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="l4Rqlus22Ye">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>See if we can stop the hang-on-alarm-set when output device is set to AirPlay — seems to be the case even if it&apos;s not the device being used!</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="dgfEbu0eNAl">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Integrate patch to disable dock icon (https://github.com/nriley/Pester/pull/11)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="asoX78UnMlR">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Growl tooltip mentions the prefpane but it&apos;s an app in 2.0</lit>
+                  <lit>Urgh, notifications seem to have broken with changing AirPlay devices on Mavericks. File a bug.</lit>
                 </run>
               </p>
             </text>
@@ -4131,58 +4288,23 @@
             </text>
           </values>
         </item>
-      </children>
-    </item>
-    <item id="gotAfbOXCFU" state="indeterminate">
-      <values>
-        <text>
-          <p>
-            <run>
-              <lit>For 1.1 final</lit>
-            </run>
-          </p>
-        </text>
-      </values>
-      <children>
+        <item id="lJLlHRbPcb8">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>See if we can stop the hang-on-alarm-set when output device is set to AirPlay — seems to be the case even if it&apos;s not the device being used!</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="jLn4LxZH1wg">
           <values>
             <text>
               <p>
                 <run>
                   <lit>Spanish and Italian</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="nMswcVPzlDR">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>&quot;on in 2 days&quot;, etc. is crazy — what was I thinking?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="g2MxNsiRckV">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Use </lit>
-                </run>
-                <run>
-                  <style>
-                    <value key="font-family">Menlo</value>
-                    <value key="font-fill">
-                      <color r="0" g="0.454902" b="0"/>
-                    </value>
-                    <value key="font-fixed-pitch">yes</value>
-                    <value key="ligature-selection">none</value>
-                  </style>
-                  <lit>NSCurrentLocaleDidChangeNotification</lit>
                 </run>
               </p>
             </text>
@@ -4212,23 +4334,97 @@
             </item>
           </children>
         </item>
+        <item id="gSAh-U2-jcw">
+          <style/>
+          <style>
+            <value key="font-family">Menlo</value>
+            <value key="font-fixed-pitch">yes</value>
+            <value key="ligature-selection">none</value>
+            <value key="paragraph-alignment">left</value>
+            <value key="paragraph-tab-stop-interval">56</value>
+            <value key="paragraph-tab-stops">56L</value>
+          </style>
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Relative date formatting (in list) via NSDateFormatter setDoesRelativeDateFormatting?</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="gL9krasC3Bg">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>[</lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-fill">
+                          <color r="0.247059" g="0.431373" b="0.454902"/>
+                        </value>
+                      </style>
+                      <lit>shortDateFormatter</lit>
+                    </run>
+                    <run>
+                      <lit> </lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-fill">
+                          <color r="0.180392" g="0.0509804" b="0.431373"/>
+                        </value>
+                      </style>
+                      <lit>setDoesRelativeDateFormatting</lit>
+                    </run>
+                    <run>
+                      <lit>: </lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-fill">
+                          <color r="0.666667" g="0.0509804" b="0.568627"/>
+                        </value>
+                      </style>
+                      <lit>YES</lit>
+                    </run>
+                    <run>
+                      <lit>];</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="ili16hNDt4H">
+              <style>
+                <value key="font-family">Lucida Grande</value>
+                <value key="font-fixed-pitch">no</value>
+                <value key="ligature-selection">default</value>
+                <value key="paragraph-alignment">natural</value>
+                <value key="paragraph-tab-stop-interval">0</value>
+                <value key="paragraph-tab-stops">28L,56L,84L,112L,140L,168L,196L,224L,252L,280L,308L,336L</value>
+              </style>
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>This may not actually be what we want; it looks weird in the list, particularly right-justified.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="c6eQKGHL8H1">
           <values>
             <text>
               <p>
                 <run>
                   <lit>Retina displays have issues with the read me (10.8, maybe 10.7.4?)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="eeUpgnKiCLL">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Stop truncating our own alarm messages</lit>
                 </run>
               </p>
             </text>
@@ -4275,46 +4471,57 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Problem seems to be setting auto-tomorrow when the window first opens, *not* when.</lit>
+                      <lit>Problem seems to be setting auto-tomorrow when the window first opens, *not* when tabbing into the field.</lit>
                     </run>
                   </p>
                 </text>
               </values>
             </item>
-            <item id="coA43tsa67L">
+            <item id="coA43tsa67L" expanded="yes">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Fix: make the auto-tomorrow actually be auto-*today*.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="c5WcA1Zce9p" expanded="yes">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>But this is what happens now! So when do we mess up?</lit>
+                      <lit>Proposed fix: make the auto-tomorrow actually be auto-*today*.</lit>
                     </run>
                   </p>
                 </text>
               </values>
               <children>
-                <item id="pG3JgyDh2-E">
+                <item id="c5WcA1Zce9p">
                   <values>
                     <text>
                       <p>
                         <run>
-                          <lit>It may happen when the time in the window has just passed, </lit>
+                          <lit>But this is what happens now! So when do we mess up?</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="gTmdxvUDr3W">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Perhaps we&apos;re not recognizing when Pester comes to the front or the window becomes visible, somehow.</lit>
                         </run>
                       </p>
                     </text>
                   </values>
                 </item>
               </children>
+            </item>
+            <item id="lFvO5fgreup">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>But we also may have an issue where it&apos;s advancing an extra day.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
             </item>
             <item id="nvmyvxut2Zc">
               <values>
@@ -4353,6 +4560,17 @@
             </item>
           </children>
         </item>
+        <item id="nVBLUJLMa_2">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Reevaluate default Read Me window size (1024x768 is minimum screen size)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="cIEPDoh44Id">
           <values>
             <text>
@@ -4376,17 +4594,6 @@
               </values>
             </item>
           </children>
-        </item>
-        <item id="nVBLUJLMa_2">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Reevaluate default Read Me window size (1024x768 is minimum screen size)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="nAN3YBMnpEC">
           <values>
@@ -5383,11 +5590,66 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Handle alarm—mostly alert—restoration failure (finish implementing PSError, test cases).</lit>
+                      <lit>Handle alarm—mostly alert—restoration failure. Probably use NSError or something equivalent (anything mentioned on Edge Cases?)</lit>
                     </run>
                   </p>
                 </text>
               </values>
+              <note expanded="yes">
+                <text>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color r="0" g="0.454902" b="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">56</value>
+                        <value key="paragraph-tab-stops">56L</value>
+                      </style>
+                      <lit>PSAlerts =&gt; can&apos;t restore one or more alerts, keep the rest</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color r="0" g="0.454902" b="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">56</value>
+                        <value key="paragraph-tab-stops">56L</value>
+                      </style>
+                      <lit>   Need to add error to initWithPropertyList: protocol, otherwise we can&apos;t get back partially-formed objects.</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color r="0" g="0.454902" b="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">56</value>
+                        <value key="paragraph-tab-stops">56L</value>
+                      </style>
+                      <lit>   - (id)initWithPropertyList:(NSDictionary *)dict error:(PSException **)exception;</lit>
+                    </run>
+                  </p>
+                </text>
+              </note>
             </item>
             <item id="p8IxntctwZ8">
               <values>
@@ -7336,30 +7598,6 @@
             </text>
           </values>
         </item>
-        <item id="dWPA9Ucxnvk">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>PSError =&gt; NSError</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="p1Ww-fEXAup">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>PSError isn&apos;t even being used right now</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
         <item id="oW9hBQEzFCa">
           <values>
             <text>
@@ -7430,12 +7668,12 @@
         </text>
       </values>
       <children>
-        <item id="pm30OL8bjWf">
+        <item id="jZ4eav_FhrO">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Notification Center in addition to Growl</lit>
+                  <lit>Migrate off QuickTime to AVFoundation / something else for image display?</lit>
                 </run>
               </p>
             </text>
@@ -7501,7 +7739,7 @@
             </text>
           </values>
         </item>
-        <item id="iLAIg4I2C1Z">
+        <item id="iLAIg4I2C1Z" expanded="yes">
           <values>
             <text>
               <p>
@@ -7511,6 +7749,19 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="jW1uBvTaM2Q">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Tried this with Shroud; too many problems. We *could* try to use Notification Center for some of it, but probably not worth it.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="oAQd6k5EvB1">
           <values>
@@ -7682,41 +7933,6 @@
             </item>
           </children>
         </item>
-        <item id="p4C730BZt1m" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Omni has some date processing stuff I might be able to use (DateProcessing.strings; OFRelativeDateParser) and drop Date::Manip</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="ohgpBRuoub_">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Might be better for producing than parsing; there&apos;s no time-only mode, etc. Try it, tho.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="mYGpvu77tXb">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Time zone handling is broken in some places. Upgrade to Date::Manip 6.0, when we can require 10.6 (it requires Perl 5.10)—or just switch to OFRelativeDateParser?</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
         <item id="ofDiUwDQNsR">
           <values>
             <text>
@@ -7845,17 +8061,6 @@
               <p>
                 <run>
                   <lit>Switch to NSPredicateEditor</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="gSAh-U2-jcw">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Relative date formatting via NSDateFormatter setDoesRelativeDateFormatting</lit>
                 </run>
               </p>
             </text>

@@ -142,3 +142,7 @@ td {
 .mult  {
 	margin-top: -8px
 	}
+
+tt, pre {
+	font-family: Menlo, Monaco, Consolas, monospace;
+	}

@@ -20,23 +20,62 @@
 	<tr><td>
           <p>A recent Apple security update causes updates through
           this window to fail.</p>
-          <p>To update, please download Pester 1.1b15 <a
-          href="http://sabi.net/nriley/software/Pester-1.1b15.dmg">here</a>
+          <p>To update, please download Pester 1.1b16 <a
+          href="http://sabi.net/nriley/software/Pester-1.1b16.dmg">here</a>
           and replace this copy of Pester with the updated version.</p>
 		  <p><b>You must update Pester if you are using OS X Mountain
 		  Lion (10.8): versions 1.1b14 and earlier will not work
 		  properly.</b></p>
-		  <p>Pester 1.1b15 is again able to update through this
-		  window.</p>
+		  <p>Pester 1.1b15 and later are again able to update
+		  through this window.</p>
         </td></tr>
+</table>
+<p />
+<table>
+    <tr><th>Pester 1.1 beta 16 ()</th></tr>
+    <tr><td><ul>
+        <li>Added Notification Center alerts on OS X Mountain Lion
+        (10.8) and later.  Use the Notifications System Preferences
+        pane to customize the alert style and behavior. If you select
+        the Alerts style, you can click the “Stop Alerts” button in an
+        alert to stop any other alerts in progress (dock bouncing,
+        sounds or speech), equivalent to the same-named item in
+        Pester’s Alarm menu.  Unlike Growl, Notification Center only
+        supports one type of alert per application, so the time
+        remaining confirmation is not displayed as an OS X alert.  If
+        you have Growl installed, it will still be used for this
+        purpose unless you’ve turned it off.</li>
+        <li>Optionally disable display of the time remaining until the
+        next alarm in Pester’s Dock icon, in Preferences. (Thanks to
+        Nur Monson for the contribution.)</li>
+        <li>Permit entry of 12-hour single-digit hour/minute times
+        without punctuation.  For example, you can now type
+        “930a”.</li>
+        <li>Remove an item from the Edit menu that didn’t do anything
+        useful and should not have been there.</li>
+        <li>Add Retina calendar and volume icons.</li>
+        <li>Improve display of certain sound device names (such as
+        those of AirPlay devices) to be consistent with the Sound menu
+        extra.</li>
+        <li>Update the natural language date
+        parser, <tt>Date::Manip</tt>.</li>
+        <li>Improve display of long alarm messages in the alarm list
+        window.</li>
+        <li>Optional log expired alarms to the Console.  (Note that
+        you can also view expired alarms in Growl or Notification
+        Center, if you have the corresponding alert enabled.)  This is
+        not exposed in Pester’s user interface, but you can quit
+        Pester, type <tt>defaults write net.sabi.Pester
+        PesterLogAlarmTimerExpired -bool YES</tt> in Terminal and
+        restart Pester to enable logging; replace <tt>YES</tt>
+        with <tt>NO</tt> to disable logging.  (Thanks to Mikey Reppy
+        for the suggestion.)</li>
+    </ul></td></tr>
 </table>
 <p />
 <table>
     <tr><th>Pester 1.1 beta 15 (48)</th></tr>
     <tr><td><ul>
-        <li>Optionally stop the time remaining until the next alarm
-        from displaying in Pester’s Dock icon, in Preferences. (Thanks
-        to Nur Monson for the contribution.)</li>
 	<li>Fix rare instances where the Dock displays an inaccurate
 	time remaining.</li>
 	<li>Fix Read Me losing its section navigation.  (If you're
