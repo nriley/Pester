@@ -9,6 +9,7 @@
 #import "PSAlarmsController.h"
 #import "PSAlarm.h"
 #import "PSAlerts.h"
+#import "NSString-NJRExtensions.h"
 #import "NSTableView-NJRExtensions.h"
 #import "NJRTableDelegate.h"
 
@@ -102,23 +103,37 @@
     return [alarms alarmCount];
 }
 
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row;
+- (NSString *)stringValueForTableColumnIdentifier:(id)identifier row:(NSInteger)row;
 {
     PSAlarm *alarm = [reorderedAlarms objectAtIndex: row];
-    NSString *identifier = [tableColumn identifier];
 
     if ([identifier isEqualToString: @"message"])
         return [alarm message];
-
-    NSCalendarDate *date = [alarm date];
     if ([identifier isEqualToString: @"date"])
         return [alarm shortDateString];
     if ([identifier isEqualToString: @"time"]) {
-        if (date == nil) return @"«expired»";
+        if ([alarm date] == nil) return @"«expired»";
         return [alarm timeString];
     }
 
     return nil;
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
+{
+    NSString *identifier = [tableColumn identifier];
+
+    if ([identifier isEqualToString: @"message"]) {
+        PSAlarm *alarm = [reorderedAlarms objectAtIndex: row];
+
+        if ([alarm isRepeating]) {
+            NSCell *cell = (NSCell *)[tableColumn dataCellForRow: row];
+
+            return [[alarm message] attributedStringByPrependingFontAwesomeIcon: @"\uf01e" inCell: cell];
+        }
+    }
+
+    return [self stringValueForTableColumnIdentifier: identifier row: row];
 }
 
 #pragma mark NJRTableViewDataSource

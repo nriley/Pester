@@ -115,6 +115,7 @@
 		E1D94C8A11473CBA00C88B55 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D94C8911473CBA00C88B55 /* QuickTime.framework */; };
 		E1DE3C15115930BD00C17BB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1DE3C13115930BD00C17BB0 /* Localizable.strings */; };
 		E1E0EFEA145DF20100C421D4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722B9F5713DCF2B6000E0C3D /* Sparkle.framework */; };
+		E1E1F14717B2E42C00444F94 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1E1F14617B2E42C00444F94 /* FontAwesome.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -313,6 +314,7 @@
 		E1DEF10703FF83AC00050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = "en.lproj/Snooze until.nib"; sourceTree = "<group>"; };
 		E1DEF116040014EB00050002 /* PSTimeDateEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTimeDateEditor.h; sourceTree = "<group>"; };
 		E1DEF117040014EB00050002 /* PSTimeDateEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTimeDateEditor.m; sourceTree = "<group>"; };
+		E1E1F14617B2E42C00444F94 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		E1F0B14A03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRUnfocusableMovieView.h; sourceTree = "<group>"; };
 		E1F0B14B03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRUnfocusableMovieView.m; sourceTree = "<group>"; };
 		E1F0B14E03ADBE3800AEFBE0 /* NSString-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-NJRExtensions.h"; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 			children = (
 				E18830410442B5FC00050002 /* Calendar icons */,
 				E18830420442B60000050002 /* Volume icons */,
+				E1E1F14617B2E42C00444F94 /* FontAwesome.otf */,
 				F5243DA40378681101AEEDB1 /* Popup triangle.tiff */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 				F560E2EE03574F8A01A4E466 /* Alarms.nib */,
@@ -929,6 +932,7 @@
 				E1DE3C15115930BD00C17BB0 /* Localizable.strings in Resources */,
 				E11BE23C12238FB600240657 /* Growl Registration Ticket.growlRegDict in Resources */,
 				E1869DB3177A82EA00DBCEC3 /* Calendar@2x.tiff in Resources */,
+				E1E1F14717B2E42C00444F94 /* FontAwesome.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

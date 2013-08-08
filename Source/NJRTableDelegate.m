@@ -259,21 +259,22 @@ noContext:
 - (void)tableView:(NSTableView *)aTableView selectRowMatchingString:(NSString *)matchString;
 {
     // Look for a highlighted column, presuming we are sorted by that column, and search its values.
-    NSTableColumn *col = [aTableView highlightedTableColumn];
-    id dataSource = [aTableView dataSource];
+    id columnIdentifier = [[aTableView highlightedTableColumn] identifier];
+
+    if (columnIdentifier == nil) return;
+
+    id<NJRTableViewDataSource> dataSource = (id<NJRTableViewDataSource>)[aTableView dataSource];
     int i, rowCount = [reorderedData count];
-    if (nil == col) return;
+
     if (sortDescending) {
         for ( i = rowCount - 1 ; i >= 0 ; i-- ) {
-            NSComparisonResult order = [matchString caseInsensitiveCompare:
-                [dataSource tableView: aTableView objectValueForTableColumn: col row: i]];
+            NSComparisonResult order = [matchString localizedStandardCompare: [dataSource stringValueForTableColumnIdentifier: columnIdentifier row: i]];
             if (order != NSOrderedDescending) break;
         }
         if (i < 0) i = 0;
     } else {
         for ( i = 0 ; i < rowCount ; i++ ) {
-            NSComparisonResult order = [matchString caseInsensitiveCompare:
-                [dataSource tableView: aTableView objectValueForTableColumn: col row: i]];
+            NSComparisonResult order = [matchString localizedStandardCompare: [dataSource stringValueForTableColumnIdentifier: columnIdentifier row: i]];
             if (order != NSOrderedDescending) break;
         }
         if (i >= rowCount) i = rowCount - 1;

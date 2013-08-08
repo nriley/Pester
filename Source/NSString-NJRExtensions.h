@@ -15,15 +15,14 @@
 - (NSAttributedString *)smallBold;
 - (NSAttributedString *)underlined;
 
-+ (NSString *)ellipsisString;
-
 - (NSAttributedString *)keyEquivalentAttributedStringWithModifierFlags:(unsigned int)modifierFlags;
+
+- (NSAttributedString *)attributedStringByPrependingFontAwesomeIcon:(NSString *)icon inCell:(NSCell *)cell;
 
 @end
 
 @interface NSMutableString (NJRExtensions)
 
-- (void)truncateToLength:(unsigned)maxLength by:(NSLineBreakMode)method;
 - (void)truncateToWidth:(float)maxWidth by:(NSLineBreakMode)method withAttributes:(NSDictionary *)attributes;
 
 @end

@@ -109,14 +109,30 @@ static unichar combiningHelpChar[] = {0x003F, 0x20DD};
     return keyEquivalentAttributedString;
 }
 
-+ (NSString *)ellipsisString;
+- (NSAttributedString *)attributedStringByPrependingFontAwesomeIcon:(NSString *)icon inCell:(NSCell *)cell;
 {
-    static NSString *ellipsis = nil;
-    if (ellipsis == nil) {
-        const unichar ellipsisChar = 0x2026;
-        ellipsis = [[NSString alloc] initWithCharacters: &ellipsisChar length: 1];
-    }
-    return ellipsis;
+    NSFont *baseFont = [cell font];
+    NSFont *fontAwesome = [NSFont fontWithName: @"FontAwesome" size: [baseFont pointSize]];
+    NSString *string;
+
+    if (fontAwesome != nil)
+        string = [NSString stringWithFormat: @"%@ %@", icon, self];
+    else
+        string = self;
+
+    // If we use an attributed string, Cocoa loses our line break mode (and other stuff we don't care about)
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [paragraphStyle setLineBreakMode: [cell lineBreakMode]];
+
+    NSMutableAttributedString *attributedString =
+        [[NSMutableAttributedString alloc] initWithString: string attributes:
+         [NSDictionary dictionaryWithObject: paragraphStyle forKey: NSParagraphStyleAttributeName]];
+    [paragraphStyle release];
+
+    if (fontAwesome != nil)
+        [attributedString addAttribute:NSFontAttributeName value: fontAwesome range: NSMakeRange(0, [icon length])];
+
+    return [attributedString autorelease];
 }
 
 @end
@@ -141,7 +157,7 @@ static unichar combiningHelpChar[] = {0x003F, 0x20DD};
                 range.location = maxLength;
                 break;
         }
-        [self replaceCharactersInRange: range withString: [NSString ellipsisString]];
+        [self replaceCharactersInRange: range withString: @"\u2026"];
     }
 }
 

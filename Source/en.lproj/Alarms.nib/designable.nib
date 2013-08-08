@@ -71,7 +71,7 @@
 											<string key="NSFrameSize">{372, 90}</string>
 											<reference key="NSSuperview" ref="162182105"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="1026429656"/>
+											<reference key="NSNextKeyView" ref="42177745"/>
 											<bool key="NSEnabled">YES</bool>
 											<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 											<bool key="NSControlAllowsExpansionToolTips">YES</bool>
@@ -121,7 +121,7 @@
 													</object>
 													<object class="NSTextFieldCell" key="NSDataCell" id="424508642">
 														<int key="NSCellFlags">67108928</int>
-														<int key="NSCellFlags2">2112</int>
+														<int key="NSCellFlags2">2368</int>
 														<string key="NSContents">Text Cell</string>
 														<object class="NSFont" key="NSSupport" id="187078587">
 															<string key="NSName">LucidaGrande</string>
@@ -277,7 +277,7 @@
 							<string key="NSFrame">{{20, 60}, {374, 108}}</string>
 							<reference key="NSSuperview" ref="505963617"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="162182105"/>
+							<reference key="NSNextKeyView" ref="1026429656"/>
 							<int key="NSsFlags">133138</int>
 							<reference key="NSVScroller" ref="42177745"/>
 							<reference key="NSHScroller" ref="1026429656"/>
