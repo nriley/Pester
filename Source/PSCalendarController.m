@@ -32,7 +32,7 @@ enum {
 
 - (id)initWithDate:(NSCalendarDate *)aDate delegate:(id)aDelegate;
 {
-    if ([self initWithWindowNibName: @"Calendar"]) {
+    if ( (self = [self initWithWindowNibName: @"Calendar"]) != nil) {
         NSWindow *window = [self window]; // connect outlets
         if ([window respondsToSelector: @selector(setAnimationBehavior:)])
             [window setAnimationBehavior: NSWindowAnimationBehaviorNone];

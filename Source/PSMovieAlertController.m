@@ -59,7 +59,7 @@
 
 - (id)initWithAlarm:(PSAlarm *)anAlarm movieAlert:(PSMovieAlert *)anAlert;
 {
-    if ([self initWithWindowNibName: @"Movie alert"]) {
+    if ( (self = [self initWithWindowNibName: @"Movie alert"]) != nil) {
         QTMovie *movie = [anAlert movie];
         NSWindow *window = [self window]; // connect outlets
         alarm = anAlarm;
