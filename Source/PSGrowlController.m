@@ -42,6 +42,25 @@ static PSGrowlController *PSGrowlControllerShared;
     return self;
 }
 
+#pragma mark workarounds
+
+- (BOOL)failsToNotifyOnClickOrTimeout;
+{
+    NSArray *growlApps = [NSRunningApplication runningApplicationsWithBundleIdentifier: @"com.Growl.GrowlHelperApp"];
+
+    if ([growlApps count] == 0) {
+        NSLog(@"-[PSGrowlController growlFailsToNotify] invoked when Growl helper app isn't running");
+        return YES; // shouldn't get here
+    }
+
+    NSRunningApplication *growlApp = (NSRunningApplication *)[growlApps objectAtIndex: 0];
+    CFBundleRef growlBundle = CFBundleCreate(NULL, (CFURLRef)growlApp.bundleURL);
+    UInt32 growlVersionNumber = CFBundleGetVersionNumber(growlBundle);
+    CFRelease(growlBundle);
+
+    // XXX as of this writing, Growl 2.0 and later (sandboxed versions) don't invoke the growlNotification* delegate methods
+    return (growlVersionNumber >= 0x2000000);
+}
 
 #pragma mark actions
 
@@ -55,34 +74,39 @@ static PSGrowlController *PSGrowlControllerShared;
 	    onlyOnClick:(BOOL)onlyOnClick;
 {
     if (![PSGrowlController canNotify])
-	goto notificationFailed;
-    
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
-				[target methodSignatureForSelector: selector]];
-    [invocation setTarget: target];
-    [invocation setSelector: selector];
-    [invocation setArgument: &object atIndex: 2];
-    [invocation retainArguments];
-    
-    // XXX alarms should have UUIDs instead, or in addition
-    CFUUIDRef uuid = CFUUIDCreate(NULL);
-    if (uuid == NULL)
-	goto notificationFailed;
-    
-    NSString *uuidString = (NSString *)CFUUIDCreateString(NULL, uuid);
-    CFRelease(uuid);
-    if (uuidString == nil)
-	goto notificationFailed;
-	
-    NSDictionary *notificationInfo =
-	[NSDictionary dictionaryWithObjectsAndKeys:
-	 invocation, @"invocation",
-	 [NSNumber numberWithBool: onlyOnClick], @"onlyOnClick",
-	 nil];
-    
-    [outstandingNotifications setObject: notificationInfo
-				 forKey: uuidString];
-     
+        goto notificationFailed;
+
+    NSString *uuidString = nil;
+    BOOL failsToNotifyOnClickOrTimeout = [self failsToNotifyOnClickOrTimeout];
+
+    if (!failsToNotifyOnClickOrTimeout) {
+        // we'll be waiting forever, so don't keep track of outstanding notifications
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
+                                    [target methodSignatureForSelector: selector]];
+        [invocation setTarget: target];
+        [invocation setSelector: selector];
+        [invocation setArgument: &object atIndex: 2];
+        [invocation retainArguments];
+
+        CFUUIDRef uuid = CFUUIDCreate(NULL);
+        if (uuid == NULL)
+            goto notificationFailed;
+
+        uuidString = (NSString *)CFUUIDCreateString(NULL, uuid);
+        CFRelease(uuid);
+        if (uuidString == nil)
+            goto notificationFailed;
+
+        NSDictionary *notificationInfo =
+            [NSDictionary dictionaryWithObjectsAndKeys:
+             invocation, @"invocation",
+             [NSNumber numberWithBool: onlyOnClick], @"onlyOnClick",
+             nil];
+
+        [outstandingNotifications setObject: notificationInfo
+                                     forKey: uuidString];
+    }
+
     [GrowlApplicationBridge notifyWithTitle: title
 				description: description
 			   notificationName: notificationName
@@ -91,6 +115,9 @@ static PSGrowlController *PSGrowlControllerShared;
 				   isSticky: isSticky
 			       clickContext: (NSString *)uuidString];
     [uuidString release];
+
+    if (failsToNotifyOnClickOrTimeout)
+        goto notificationFailed;
 
     return;
 
