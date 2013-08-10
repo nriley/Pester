@@ -16,11 +16,13 @@
 
 NSString * const PSAlarmTimerSetNotification = @"PSAlarmTimerSetNotification";
 NSString * const PSAlarmTimerExpiredNotification = @"PSAlarmTimerExpiredNotification";
+NSString * const PSAlarmStoppedRepeatingNotification = @"PSAlarmStoppedRepeatingNotification";
 NSString * const PSAlarmDiedNotification = @"PSAlarmDiedNotification";
 
 static NSString * const PSLogAlarmTimerExpired = @"PesterLogAlarmTimerExpired"; // NSUserDefaults key
 
 // property list keys
+static NSString * const PLAlarmUUID = @"uuid"; // NSString
 static NSString * const PLAlarmType = @"type"; // NSString
 static NSString * const PLAlarmDate = @"date"; // NSNumber
 static NSString * const PLAlarmInterval = @"interval"; // NSNumber
@@ -61,6 +63,7 @@ static NSDate *midnightOnDate(NSDate *date) {
 {
     // NSLog(@"DEALLOC %@", self);
     alarmType = PSAlarmInvalid;
+    if (uuid != NULL) CFRelease(uuid), uuid = NULL;
     [alarmDate release]; alarmDate = nil;
     [alarmMessage release]; alarmMessage = nil;
     [invalidMessage release]; invalidMessage = nil;
@@ -250,7 +253,20 @@ flooredInterval:
 
 - (void)setRepeating:(BOOL)isRepeating;
 {
+    if (repeating == isRepeating)
+        return;
+
     repeating = isRepeating;
+
+    if (!isRepeating) {
+        if (alarmType == PSAlarmExpired)
+            [[NSNotificationCenter defaultCenter] postNotificationName: PSAlarmStoppedRepeatingNotification object: self];
+        else if (alarmType == PSAlarmSet) {
+            alarmType = PSAlarmExpired;
+            [self cancelTimer];
+            [self setTimer];
+        }
+    }
 }
 
 - (void)setSnoozeInterval:(NSTimeInterval)anInterval;
@@ -266,6 +282,11 @@ flooredInterval:
 }
 
 #pragma mark accessing
+
+- (CFUUIDRef)uuid;
+{
+    return uuid;
+}
 
 - (NSString *)message;
 {
@@ -358,6 +379,11 @@ flooredInterval:
 - (BOOL)isRepeating;
 {
     return repeating;
+}
+
+- (NSString *)uuidString;
+{
+    return [(NSString *)CFUUIDCreateString(NULL, uuid) autorelease];
 }
 
 - (NSString *)dateString;
@@ -459,6 +485,10 @@ flooredInterval:
     timer = [PSTimer scheduledTimerWithTimeInterval: (alarmType == PSAlarmSnooze ? snoozeInterval : alarmInterval) target: self selector: @selector(_timerExpired:) userInfo: nil repeats: NO];
     if (timer == nil) return NO;
     [timer retain];
+
+    if (uuid == NULL)
+        uuid = CFUUIDCreate(NULL);
+
     alarmType = PSAlarmSet;
     [alerts prepareForAlarm: self];
 
@@ -526,8 +556,9 @@ flooredInterval:
 
 - (NSDictionary *)propertyListRepresentation;
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity: 5];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity: 6];
     if (![self isValid]) return nil;
+    [dict setObject: [self uuidString] forKey: PLAlarmUUID];
     [dict setObject: [self _alarmTypeString] forKey: PLAlarmType];
     switch (alarmType) {
         case PSAlarmDate:
@@ -558,6 +589,7 @@ flooredInterval:
 {
     if ( (self = [self init]) != nil) {
         PSAlerts *alarmAlerts;
+        uuid = CFUUIDCreateFromString(NULL, (CFStringRef)[dict objectForKey: PLAlarmUUID]);
         alarmType = [self _alarmTypeForString: [dict objectForRequiredKey: PLAlarmType]];
         switch (alarmType) {
             case PSAlarmDate:

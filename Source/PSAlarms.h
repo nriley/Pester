@@ -16,6 +16,7 @@ extern NSString * const PSAlarmsNextAlarmDidChangeNotification;
 
 @interface PSAlarms : NSObject <PSPropertyListSerialization> {
     NSMutableArray *alarms;
+    NSMapTable *alarmsByUUID;
     NSMutableSet *expiredAlarms;
     PSAlarm *nextAlarm;
 }
@@ -31,8 +32,7 @@ extern NSString * const PSAlarmsNextAlarmDidChangeNotification;
 
 - (PSAlarm *)nextAlarm;
 - (int)alarmCount;
-- (PSAlarm *)alarmAtIndex:(int)index;
-- (void)removeAlarmAtIndex:(int)index;
+- (PSAlarm *)alarmWithUUIDString:(NSString *)uuidString;
 - (void)removeAlarms:(NSSet *)alarmsToRemove;
 - (void)restoreAlarms:(NSSet *)alarmsToRestore;
 

@@ -83,6 +83,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     PSAlarm *alarm = [notification object];
     // NSLog(@"timer set: %@ retainCount %d", alarm, [alarm retainCount]);
     [alarms addObject: alarm];
+    [alarmsByUUID setObject: alarm forKey: (id)[alarm uuid]];
     [expiredAlarms removeObject: alarm];
     [self _changed];
 }
@@ -92,6 +93,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     PSAlarm *alarm = [notification object];
     // NSLog(@"alarm died: %@ retainCount %d", alarm, [alarm retainCount]);
     [alarms removeObject: alarm];
+    [alarmsByUUID removeObjectForKey: (id)[alarm uuid]];
     [expiredAlarms removeObject: alarm];
     [self _changed];
 }
@@ -125,10 +127,18 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 
 #pragma mark initialize-release
 
+static NSMapTable *UUIDMapTableWithCapacity(NSUInteger capacity) {
+    return [[NSMapTable alloc]
+            initWithKeyOptions: NSPointerFunctionsOpaqueMemory | NSPointerFunctionsObjectPointerPersonality
+            valueOptions: NSPointerFunctionsOpaqueMemory | NSPointerFunctionsObjectPersonality
+            capacity: capacity];
+}
+
 - (id)init;
 {
     if ( (self = [super init]) != nil) {
         alarms = [[NSMutableArray alloc] init];
+        alarmsByUUID = UUIDMapTableWithCapacity(8);
         expiredAlarms = [[NSMutableSet alloc] init];
         [self _setUpNotifications];
     }
@@ -138,6 +148,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
 - (void)dealloc;
 {
     [alarms release];
+    [alarmsByUUID release];
     [expiredAlarms release];
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [super dealloc];
@@ -160,15 +171,13 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     return [alarms count];
 }
 
-- (PSAlarm *)alarmAtIndex:(int)alarmIndex;
+- (PSAlarm *)alarmWithUUIDString:(NSString *)uuidString;
 {
-    return [alarms objectAtIndex: alarmIndex];
-}
+    CFUUIDRef uuid = CFUUIDCreateFromString(NULL, (CFStringRef)uuidString);
+    PSAlarm *alarm = [alarmsByUUID objectForKey: (id)uuid];
 
-- (void)removeAlarmAtIndex:(int)alarmIndex;
-{
-    [(PSAlarm *)[alarms objectAtIndex: alarmIndex] cancelTimer];
-    [alarms removeObjectAtIndex: alarmIndex];
+    CFRelease(uuid);
+    return alarm;
 }
 
 - (void)removeAlarms:(NSSet *)alarmsToRemove;
@@ -178,6 +187,8 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
                                return [alarmsToRemove containsObject: alarm];
                            }];
     [alarmsToRemove makeObjectsPerformSelector: @selector(cancelTimer)];
+    for (id uuidToRemove in [alarmsToRemove valueForKey: @"uuid"])
+        [alarmsByUUID removeObjectForKey: uuidToRemove];
     [alarms removeObjectsAtIndexes: indexes];
     [self _changed];
 }
@@ -234,31 +245,30 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     return plAllAlarms;
 }
 
+- (void)addAlarmsWithPropertyList:(NSArray *)plAlarms;
+{
+    for (NSDictionary *plAlarm in plAlarms) {
+        PSAlarm *alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm];
+        [alarms addObject: alarm];
+        [alarmsByUUID setObject: alarm forKey: (id)[alarm uuid]];
+        [alarm release];
+    }
+}
+
 - (instancetype)initWithPropertyList:(NSDictionary *)dict;
 {
     if ( (self = [super init]) != nil) {
         NSArray *plPendingAlarms = [dict objectForRequiredKey: PLAlarmsPending];
         NSArray *plExpiredAlarms = [dict objectForRequiredKey: PLAlarmsExpired];
-        NSEnumerator *e;
-        NSDictionary *plAlarm;
-        PSAlarm *alarm;
+        NSUInteger alarmCount = [plPendingAlarms count] + [plExpiredAlarms count];
 
-        alarms = [[NSMutableArray alloc] initWithCapacity: [plPendingAlarms count]];
-        e = [plPendingAlarms objectEnumerator];
-        while ( (plAlarm = [e nextObject]) != nil) {
-	    alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm];
-            [alarms addObject: alarm];
-	    [alarm release];
-        }
+        alarmsByUUID = UUIDMapTableWithCapacity(alarmCount);
+        alarms = [[NSMutableArray alloc] initWithCapacity: alarmCount];
 
-        e = [plExpiredAlarms objectEnumerator];
-        while ( (plAlarm = [e nextObject]) != nil) {
-            // expired alarms may be ready for deletion, or may repeat - if the latter, PSAlarm will reschedule the alarm so the repeat interval begins at restoration time. 
-            if ( (alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm]) != nil) {
-                [alarms addObject: alarm];
-		[alarm release];
-	    }
-        }
+        [self addAlarmsWithPropertyList: plPendingAlarms];
+
+        // expired alarms may be ready for deletion, or may repeat - if the latter, PSAlarm will reschedule the alarm so the repeat interval begins at restoration time.
+        [self addAlarmsWithPropertyList: plExpiredAlarms];
         expiredAlarms = [[NSMutableSet alloc] init];
         
         [self _setUpNotifications];

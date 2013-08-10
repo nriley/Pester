@@ -19,6 +19,7 @@
     IBOutlet NJRIntervalField *snoozeIntervalField;
     IBOutlet NSButton *okButton;
     IBOutlet NSButton *snoozeButton;
+    IBOutlet NSButton *stopRepeatingButton;
     NSTimer *updateTimer;
     PSAlarm *alarm;
     BOOL canSnooze;
@@ -36,6 +37,6 @@
 - (IBAction)close:(id)sender;
 - (IBAction)snooze:(NSButton *)sender;
 - (IBAction)snoozeUntil:(NSMenuItem *)sender;
-- (IBAction)stopRepeating:(NSButton *)sender;
+- (IBAction)stopRepeating:(id)sender;
 
 @end

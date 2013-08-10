@@ -19,6 +19,10 @@
 #import "PSTimer.h"
 #import "NJRHotKey.h"
 
+#ifndef NSUserNotification
+#import "NSUserNotification.h"
+#endif
+
 #import <QuartzCore/QuartzCore.h>
 
 NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopenNotification";
@@ -329,6 +333,15 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
             case NSAlertOtherReturn:
                 break;
         }
+    }
+
+    id /*NSUserNotification*/ launchUserNotification = [[notification userInfo] objectForKey: @"NSApplicationLaunchUserNotificationKey"];
+    if (launchUserNotification != nil) {
+#ifndef NSUserNotification
+        Class NSUserNotificationCenter = NSClassFromString(@"NSUserNotificationCenter");
+#endif
+        id /*NSUserNotificationCenter*/ userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+        [[userNotificationCenter delegate] userNotificationCenter: userNotificationCenter didActivateNotification: launchUserNotification];
     }
 }
 

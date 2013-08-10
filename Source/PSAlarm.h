@@ -20,11 +20,13 @@ typedef enum {
 
 extern NSString * const PSAlarmTimerSetNotification;
 extern NSString * const PSAlarmTimerExpiredNotification;
+extern NSString * const PSAlarmStoppedRepeatingNotification;
 extern NSString * const PSAlarmDiedNotification;
 
 @class PSAlert, PSAlerts, PSTimer;
 
 @interface PSAlarm : NSObject <NSCoding, PSPropertyListSerialization> {
+    CFUUIDRef uuid;
     PSAlarmType alarmType; // changes during lifetime of alarm; more like a state
     NSCalendarDate *alarmDate;
     NSTimeInterval alarmInterval;
@@ -46,6 +48,7 @@ extern NSString * const PSAlarmDiedNotification;
 - (void)setSnoozeInterval:(NSTimeInterval)anInterval;
 - (void)setWakeUp:(BOOL)doWake;
 
+- (CFUUIDRef)uuid;
 - (NSCalendarDate *)date;
 - (NSDate *)midnightOnDate;
 - (NSDate *)time;
@@ -57,6 +60,7 @@ extern NSString * const PSAlarmDiedNotification;
 - (BOOL)isRepeating;
 - (NSTimeInterval)snoozeInterval; // most recent interval (nonzero return does not indicate alarm is snoozing or set to snooze)
 
+- (NSString *)uuidString;
 - (NSString *)dateString;
 - (NSString *)shortDateString;
 - (NSString *)timeString;

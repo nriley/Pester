@@ -44,6 +44,7 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
             [self updateNextDateDisplay: nil];
             updateTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(updateNextDateDisplay:) userInfo: nil repeats: YES];
             frameRect.size = [window maxSize];
+            [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(stopRepeating:) name: PSAlarmStoppedRepeatingNotification object: anAlarm];
         } else {
             frameRect.size = [window minSize];
         }
@@ -63,6 +64,7 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
 
 - (void)dealloc;
 {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
     [alarm release]; alarm = nil;
     [updateTimer invalidate]; updateTimer = nil;
     [super dealloc];
@@ -148,14 +150,17 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
     [self close: self];
 }
 
-- (IBAction)stopRepeating:(NSButton *)sender;
+- (IBAction)stopRepeating:(id)sender;
 {
+    if (![stopRepeatingButton isEnabled])
+        return;
+
     NSWindow *window = [self window];
     NSRect frameRect = [window frame];
     NSSize newSize = [window minSize];
     
     [alarm setRepeating: NO];
-    [sender setEnabled: NO];
+    [stopRepeatingButton setEnabled: NO];
     frameRect.origin.y += frameRect.size.height - newSize.height;
     frameRect.size = newSize;
     [window setFrame: frameRect display: YES animate: YES];

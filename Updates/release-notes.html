@@ -37,14 +37,16 @@
         <li>Added Notification Center alerts on OS X Mountain Lion
         (10.8) and later.  Use Notifications System Preferences to
         customize the alert style and behavior. If you select the
-        Alerts style, you can click the “Stop Alerts” button in an
-        alert to stop any other alerts in progress (dock bouncing,
-        sounds or speech), equivalent to the same-named item in
-        Pester’s Alarm menu.  Unlike Growl, Notification Center only
-        supports one type of alert per application, so the time
-        remaining confirmation is not displayed as an OS X alert.  If
-        you have Growl installed, it will still be used for this
-        purpose unless you’ve turned it off.</li>
+        <b>Alerts</b> style, you can click the <b>Stop Repeating</b>
+        button in an alert to stop a repeating alarm.  Unlike Growl,
+        Notification Center only supports one type of alert per
+        application, so the time remaining confirmation is not
+        displayed as an OS X alert.  If you have Growl installed, it
+        will still be used for this purpose unless you’ve turned it
+        off.  Also unlike Growl 1.x, Notification Center does not
+        inform Pester when an alert disappears from the screen, so
+        repeating alarms don’t wait until you’ve dismissed the alert
+        (or it disappears) to repeat.</li>
         <li>Don’t wait forever for Growl 2.0 and 2.1 before
         rescheduling a repeating alarm.  This affects repeating alarms
         for which you have <b>Notify with Growl</b> selected but

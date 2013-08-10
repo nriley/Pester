@@ -7,6 +7,7 @@
 //
 
 #import "PSUserNotificationAlert.h"
+#import "PSAlarms.h"
 #import "PSAlarmAlertController.h"
 
 static PSUserNotificationAlert *PSUserNotificationAlertShared;
@@ -22,21 +23,22 @@ static PSUserNotificationAlert *PSUserNotificationAlertShared;
     return (NSUserNotification != NULL);
 }
 
-+ (PSAlert *)alert;
++ (void)initialize;
 {
-    if (PSUserNotificationAlertShared == nil) {
-        PSUserNotificationAlertShared = [[PSUserNotificationAlert alloc] init];
+    PSUserNotificationAlertShared = [[PSUserNotificationAlert alloc] init];
 
-        // XXX move into a separate class like Growl, if/when we can control the lifetime of alerts
+    // XXX move into a separate class like Growl, if/when we can control the lifetime of alerts
 
 #ifndef NSUserNotification
-        Class NSUserNotificationCenter = NSClassFromString(@"NSUserNotificationCenter");
+    Class NSUserNotificationCenter = NSClassFromString(@"NSUserNotificationCenter");
 #endif
 
-        id /*NSUserNotificationCenter*/ userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
-        [userNotificationCenter setDelegate: PSUserNotificationAlertShared];
-    }
+    id /*NSUserNotificationCenter*/ userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+    [userNotificationCenter setDelegate: PSUserNotificationAlertShared];
+}
 
++ (PSAlert *)alert;
+{
     return PSUserNotificationAlertShared;
 }
 
@@ -51,7 +53,12 @@ static PSUserNotificationAlert *PSUserNotificationAlertShared;
         id /*NSUserNotification*/ notification = [[NSUserNotification alloc] init];
         [notification setTitle: [alarm message]];
         [notification setSoundName: nil];
-        [notification setActionButtonTitle: @"Stop Alerts"];
+        if ([alarm isRepeating]) {
+            [notification setActionButtonTitle: @"Stop Repeating"];
+            [notification setUserInfo: [NSDictionary dictionaryWithObject: [alarm uuidString] forKey: @"uuid"]];
+        } else {
+            [notification setHasActionButton: NO];
+        }
 
         id /*NSUserNotificationCenter*/ userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
 
@@ -81,8 +88,10 @@ static PSUserNotificationAlert *PSUserNotificationAlertShared;
 
 - (void)userNotificationCenter:(id /*NSUserNotificationCenter*/)center didActivateNotification:(id /*NSUserNotification*/)notification;
 {
-    if ([notification activationType] == NSUserNotificationActivationTypeActionButtonClicked)
+    if ([notification activationType] == NSUserNotificationActivationTypeActionButtonClicked) {
         [PSAlarmAlertController stopAlerts: nil];
+        [[[PSAlarms allAlarms] alarmWithUUIDString: [[notification userInfo] objectForKey: @"uuid"]] setRepeating: NO];
+    }
 }
 
 - (BOOL)userNotificationCenter:(id /*NSUserNotificationCenter*/)center shouldPresentNotification:(id /*NSUserNotification*/)notification;
