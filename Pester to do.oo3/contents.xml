@@ -156,9 +156,9 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{603, 503}" scroll-position="{0, 272}" column-titles-display-mode="auto">
+  <editor content-size="{601, 501}" scroll-position="{0, 268}" column-titles-display-mode="auto">
     <drawer display="sections" palette-height="167"/>
-    <selected-rows ids="pHqhhR2Qvrc"/>
+    <selected-rows ids="pm30OL8bjWf"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -195,7 +195,7 @@
         </text>
       </title>
     </column>
-    <column id="jFqHUGd_Dg1" type="text" width="582" minimum-width="13" maximum-width="1000000" text-export-width="72" is-outline-column="yes">
+    <column id="jFqHUGd_Dg1" type="text" width="580" minimum-width="13" maximum-width="1000000" text-export-width="72" is-outline-column="yes">
       <title>
         <text>
           <p>
@@ -4183,34 +4183,53 @@
             </item>
           </children>
         </item>
-        <item id="pm30OL8bjWf" expanded="yes" state="indeterminate">
+        <item id="jOgUFlWQccn" state="checked">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Notification Center in addition to Growl</lit>
+                  <lit>Growl-only notifications never finish when set to repeat. Oops.</lit>
                 </run>
               </p>
             </text>
           </values>
           <children>
-            <item id="pHqhhR2Qvrc" state="checked">
+            <item id="o_0mcPraBH7" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Save/restore selected notification system in defaults</lit>
+                      <lit>Actually, this is a bug in Growl; everything still works fine in Growl 1.x.</lit>
                     </run>
                   </p>
                 </text>
               </values>
+              <note expanded="yes">
+                <text>
+                  <p>
+                    <run>
+                      <lit>&quot;</lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-family">Arial</value>
+                        <value key="font-fill">
+                          <color r="0.101961" g="0.101961" b="0.101961"/>
+                        </value>
+                        <value key="font-size">13</value>
+                      </style>
+                      <lit>the clicking of the notification having no effect is a known issue that we haven&apos;t fully solved, but is slated for a release after 2.1.&quot;: https://groups.google.com/forum/?fromgroups#!searchin/growl-development/delegate/growl-development/L9Avfk1qGsI/KPG_TamZaV8J</lit>
+                    </run>
+                  </p>
+                </text>
+              </note>
             </item>
-            <item id="csTogp0QGwA">
+            <item id="fow5WnxM5Nm" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Popup is too narrow on Snow Leopard</lit>
+                      <lit>Can test with NSRunningApplication</lit>
                     </run>
                   </p>
                 </text>
@@ -4218,7 +4237,18 @@
             </item>
           </children>
         </item>
-        <item id="hQWxxFSfQgj" expanded="yes" state="checked">
+        <item id="mZPIHfJXgWd" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Repeating icon in alarm list</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="hQWxxFSfQgj" state="checked">
           <values>
             <text>
               <p>
@@ -4253,9 +4283,156 @@
             </item>
           </children>
         </item>
+        <item id="pm30OL8bjWf" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Notification Center in addition to Growl</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="pHqhhR2Qvrc" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Save/restore selected notification system in defaults</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="csTogp0QGwA" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Popup is too narrow on Snow Leopard</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="eAbwR75ZzQ4" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>“Stop Repeating”, not “Stop Alerts”: better idea</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="pi53otfRhAn" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Support this on startup, too</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="bteX3uwopYy" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Handle alarm—mostly alert—restoration failure. Probably use NSError or something equivalent (anything mentioned on Edge Cases?)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <note expanded="yes">
+            <text>
+              <p>
+                <run>
+                  <style>
+                    <value key="font-family">Menlo</value>
+                    <value key="font-fill">
+                      <color r="0" g="0.454902" b="0"/>
+                    </value>
+                    <value key="font-fixed-pitch">yes</value>
+                    <value key="font-italic">no</value>
+                    <value key="ligature-selection">none</value>
+                    <value key="paragraph-alignment">left</value>
+                    <value key="paragraph-tab-stop-interval">56</value>
+                    <value key="paragraph-tab-stops">56L</value>
+                  </style>
+                  <lit>PSAlerts =&gt; can&apos;t restore one or more alerts, keep the rest</lit>
+                </run>
+              </p>
+              <p>
+                <run>
+                  <style>
+                    <value key="font-family">Menlo</value>
+                    <value key="font-fill">
+                      <color r="0" g="0.454902" b="0"/>
+                    </value>
+                    <value key="font-fixed-pitch">yes</value>
+                    <value key="font-italic">no</value>
+                    <value key="ligature-selection">none</value>
+                    <value key="paragraph-alignment">left</value>
+                    <value key="paragraph-tab-stop-interval">56</value>
+                    <value key="paragraph-tab-stops">56L</value>
+                  </style>
+                  <lit>   Need to add error to initWithPropertyList: protocol, otherwise we can&apos;t get back partially-formed objects.</lit>
+                </run>
+              </p>
+              <p>
+                <run>
+                  <style>
+                    <value key="font-family">Menlo</value>
+                    <value key="font-fill">
+                      <color r="0" g="0.454902" b="0"/>
+                    </value>
+                    <value key="font-fixed-pitch">yes</value>
+                    <value key="font-italic">no</value>
+                    <value key="ligature-selection">none</value>
+                    <value key="paragraph-alignment">left</value>
+                    <value key="paragraph-tab-stop-interval">56</value>
+                    <value key="paragraph-tab-stops">56L</value>
+                  </style>
+                  <lit>   - (id)initWithPropertyList:(NSDictionary *)dict error:(PSException **)exception;</lit>
+                </run>
+              </p>
+            </text>
+          </note>
+          <children>
+            <item id="fEb4Hir-ekR">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>We can sometimes crash when restoring the default set of alerts, even though we catch it and display a dialog</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cMWEkVXN5om">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Should support partial alert restoration (but somehow keep around the old property list for the future, for alarms at least?)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+    <item id="gotAfbOXCFU" state="indeterminate">
       <values>
         <text>
           <p>
@@ -4272,17 +4449,6 @@
               <p>
                 <run>
                   <lit>Urgh, notifications seem to have broken with changing AirPlay devices on Mavericks. File a bug.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="aPhhqT8zVkg">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Weird Growl/repeating bug (see email)</lit>
                 </run>
               </p>
             </text>
@@ -5552,7 +5718,7 @@
             </text>
           </values>
         </item>
-        <item id="dnyPkcPZQD1">
+        <item id="dnyPkcPZQD1" expanded="yes">
           <values>
             <text>
               <p>
@@ -5584,72 +5750,6 @@
                   </p>
                 </text>
               </values>
-            </item>
-            <item id="bteX3uwopYy">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Handle alarm—mostly alert—restoration failure. Probably use NSError or something equivalent (anything mentioned on Edge Cases?)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <note expanded="yes">
-                <text>
-                  <p>
-                    <run>
-                      <style>
-                        <value key="font-family">Menlo</value>
-                        <value key="font-fill">
-                          <color r="0" g="0.454902" b="0"/>
-                        </value>
-                        <value key="font-fixed-pitch">yes</value>
-                        <value key="font-italic">no</value>
-                        <value key="ligature-selection">none</value>
-                        <value key="paragraph-alignment">left</value>
-                        <value key="paragraph-tab-stop-interval">56</value>
-                        <value key="paragraph-tab-stops">56L</value>
-                      </style>
-                      <lit>PSAlerts =&gt; can&apos;t restore one or more alerts, keep the rest</lit>
-                    </run>
-                  </p>
-                  <p>
-                    <run>
-                      <style>
-                        <value key="font-family">Menlo</value>
-                        <value key="font-fill">
-                          <color r="0" g="0.454902" b="0"/>
-                        </value>
-                        <value key="font-fixed-pitch">yes</value>
-                        <value key="font-italic">no</value>
-                        <value key="ligature-selection">none</value>
-                        <value key="paragraph-alignment">left</value>
-                        <value key="paragraph-tab-stop-interval">56</value>
-                        <value key="paragraph-tab-stops">56L</value>
-                      </style>
-                      <lit>   Need to add error to initWithPropertyList: protocol, otherwise we can&apos;t get back partially-formed objects.</lit>
-                    </run>
-                  </p>
-                  <p>
-                    <run>
-                      <style>
-                        <value key="font-family">Menlo</value>
-                        <value key="font-fill">
-                          <color r="0" g="0.454902" b="0"/>
-                        </value>
-                        <value key="font-fixed-pitch">yes</value>
-                        <value key="font-italic">no</value>
-                        <value key="ligature-selection">none</value>
-                        <value key="paragraph-alignment">left</value>
-                        <value key="paragraph-tab-stop-interval">56</value>
-                        <value key="paragraph-tab-stops">56L</value>
-                      </style>
-                      <lit>   - (id)initWithPropertyList:(NSDictionary *)dict error:(PSException **)exception;</lit>
-                    </run>
-                  </p>
-                </text>
-              </note>
             </item>
             <item id="p8IxntctwZ8">
               <values>
@@ -6070,7 +6170,7 @@
             </item>
           </children>
         </item>
-        <item id="mQfcMmDdKRH">
+        <item id="mQfcMmDdKRH" expanded="yes">
           <values>
             <text>
               <p>
@@ -7679,6 +7779,17 @@
             </text>
           </values>
         </item>
+        <item id="ofDiUwDQNsR">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Event Kit support — we can use EKAlarmTypeProcedure to trigger a URL in Pester, and potentially an audio/display alarm too</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="mBYTPJQg4zx">
           <values>
             <text>
@@ -7722,7 +7833,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Start 32→64 transition (-DNS_BUILD_32_LIKE_64).</lit>
+                  <lit>32→64 transition (-DNS_BUILD_32_LIKE_64).</lit>
                 </run>
               </p>
             </text>
@@ -7933,44 +8044,6 @@
             </item>
           </children>
         </item>
-        <item id="ofDiUwDQNsR">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Multiple backends: Google Calendar and CalendarStore support</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="kUqj9s5DQwm">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Note that CalendarStore doesn&apos;t support delegate calendars at least in 10.6, so Google Calendar may be a good idea (</lit>
-                    </run>
-                    <run>
-                      <lit><cell href="http://openradar.appspot.com/7077307)" name="openradar.appspot.com—7077307)" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="coIg6pRc3YQ">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Not fixed in 10.7; apparently CalendarStore is pretty flaky, so we may want to do CalDAV only.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
         <item id="bnA3PhzDAha">
           <values>
             <text>
@@ -7990,7 +8063,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Make the interface simpler, less cluttered. </lit>
+                  <lit>Make the interface simpler, less cluttered.</lit>
                 </run>
               </p>
             </text>
