@@ -283,9 +283,9 @@ flooredInterval:
 
 #pragma mark accessing
 
-- (CFUUIDRef)uuid;
+- (id /*CFUUIDRef*/)uuid;
 {
-    return uuid;
+    return (id)uuid;
 }
 
 - (NSString *)message;

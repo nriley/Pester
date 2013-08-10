@@ -48,7 +48,7 @@ extern NSString * const PSAlarmDiedNotification;
 - (void)setSnoozeInterval:(NSTimeInterval)anInterval;
 - (void)setWakeUp:(BOOL)doWake;
 
-- (CFUUIDRef)uuid;
+- (id /*CFUUIDRef*/)uuid;
 - (NSCalendarDate *)date;
 - (NSDate *)midnightOnDate;
 - (NSDate *)time;

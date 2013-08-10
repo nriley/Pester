@@ -83,7 +83,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     PSAlarm *alarm = [notification object];
     // NSLog(@"timer set: %@ retainCount %d", alarm, [alarm retainCount]);
     [alarms addObject: alarm];
-    [alarmsByUUID setObject: alarm forKey: (id)[alarm uuid]];
+    [alarmsByUUID setObject: alarm forKey: [alarm uuid]];
     [expiredAlarms removeObject: alarm];
     [self _changed];
 }
@@ -93,7 +93,7 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
     PSAlarm *alarm = [notification object];
     // NSLog(@"alarm died: %@ retainCount %d", alarm, [alarm retainCount]);
     [alarms removeObject: alarm];
-    [alarmsByUUID removeObjectForKey: (id)[alarm uuid]];
+    [alarmsByUUID removeObjectForKey: [alarm uuid]];
     [expiredAlarms removeObject: alarm];
     [self _changed];
 }
@@ -250,7 +250,7 @@ static NSMapTable *UUIDMapTableWithCapacity(NSUInteger capacity) {
     for (NSDictionary *plAlarm in plAlarms) {
         PSAlarm *alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm];
         [alarms addObject: alarm];
-        [alarmsByUUID setObject: alarm forKey: (id)[alarm uuid]];
+        [alarmsByUUID setObject: alarm forKey: [alarm uuid]];
         [alarm release];
     }
 }
