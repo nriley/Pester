@@ -71,7 +71,11 @@ static PSUserNotificationAlert *PSUserNotificationAlertShared;
 
 - (NSAttributedString *)actionDescription;
 {
-    return [@"Notify with OS X" small];
+    NSString *description = @"Notify with OS X";
+    if (![PSUserNotificationAlert canTrigger])
+        description = [description stringByAppendingString: @" (on OS X 10.8 Mountain Lion and later)"];
+
+    return [description small];
 }
 
 #pragma mark property list serialization (Pester 1.1)
