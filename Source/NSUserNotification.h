@@ -31,7 +31,6 @@ typedef enum {
 @property BOOL hasReplyButton; // 10.9
 @property (copy) NSString *responsePlaceholder; // 10.9
 @property (readonly) NSAttributedString *response; // 10.9
-
 @end
 
 FOUNDATION_EXPORT NSString * const NSUserNotificationDefaultSoundName;
@@ -52,6 +51,8 @@ FOUNDATION_EXPORT NSString * const NSUserNotificationDefaultSoundName;
 - (void)deliverNotification:(id /*NSUserNotification*/)notification;
 - (void)removeDeliveredNotification:(id /*NSUserNotification*/)notification;
 - (void)removeAllDeliveredNotifications;
+
+- (void)_removeAllPresentedAlerts; // 10.8; subsumed by removeAllDeliveredNotifications on 10.9
 
 @end
 

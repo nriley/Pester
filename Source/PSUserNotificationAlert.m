@@ -12,6 +12,10 @@
 
 static PSUserNotificationAlert *PSUserNotificationAlertShared;
 
+#ifndef NSAppKitVersionNumber10_8
+#define NSAppKitVersionNumber10_8 1187
+#endif
+
 @implementation PSUserNotificationAlert
 
 + (BOOL)canTrigger;
@@ -33,8 +37,32 @@ static PSUserNotificationAlert *PSUserNotificationAlertShared;
     Class NSUserNotificationCenter = NSClassFromString(@"NSUserNotificationCenter");
 #endif
 
+    if (NSUserNotificationCenter == nil)
+        return;
+
     id /*NSUserNotificationCenter*/ userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
     [userNotificationCenter setDelegate: PSUserNotificationAlertShared];
+
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+
+    void (^sendToUserNotificationCenterOnAlertStop)(SEL) = ^(SEL selector){
+        if (![userNotificationCenter respondsToSelector: selector])
+            return;
+
+        [notificationCenter addObserver: userNotificationCenter
+                               selector: selector
+                                   name: PSAlarmAlertStopNotification
+                                 object: nil];
+    };
+
+    // removes from Notification Center in 10.8; also removes alerts/banners in 10.9
+    sendToUserNotificationCenterOnAlertStop(@selector(removeAllDeliveredNotifications));
+
+    // -removeAllDeliveredNotifications doesn't remove alerts/banners in 10.8
+    if (floor(NSAppKitVersionNumber) == NSAppKitVersionNumber10_8) {
+        sendToUserNotificationCenterOnAlertStop(@selector(_removeAllPresentedAlerts)); // alerts
+        // nothing, even SPI, for banners I can find in 10.8
+    }
 }
 
 + (PSAlert *)alert;
@@ -53,12 +81,15 @@ static PSUserNotificationAlert *PSUserNotificationAlertShared;
         id /*NSUserNotification*/ notification = [[NSUserNotification alloc] init];
         [notification setTitle: [alarm message]];
         [notification setSoundName: nil];
+        NSString *uuidString = [alarm uuidString];
         if ([alarm isRepeating]) {
             [notification setActionButtonTitle: @"Stop Repeating"];
-            [notification setUserInfo: [NSDictionary dictionaryWithObject: [alarm uuidString] forKey: @"uuid"]];
+            [notification setUserInfo: [NSDictionary dictionaryWithObject: uuidString forKey: @"uuid"]];
         } else {
             [notification setHasActionButton: NO];
         }
+        if ([notification respondsToSelector: @selector(setIdentifier:)]) // 10.9+
+            [notification setIdentifier: uuidString];
 
         id /*NSUserNotificationCenter*/ userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
 
