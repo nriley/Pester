@@ -23,6 +23,7 @@
 #import "NSUserNotification.h"
 #endif
 
+#import "PFMoveApplication.h"
 #import <QuartzCore/QuartzCore.h>
 
 NSString * const PSApplicationWillReopenNotification = @"PSApplicationWillReopenNotification";
@@ -343,6 +344,8 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
         id /*NSUserNotificationCenter*/ userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
         [[userNotificationCenter delegate] userNotificationCenter: userNotificationCenter didActivateNotification: launchUserNotification];
     }
+
+    PFMoveToApplicationsFolderIfNecessary();
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification;
