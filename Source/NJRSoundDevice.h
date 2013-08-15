@@ -11,6 +11,7 @@
 #import <QuickTime/QuickTime.h>
 
 extern NSString * const NJRSoundDeviceListChangedNotification;
+extern NSString * const NJRSoundDeviceDefaultOutputDeviceChangedNotification;
 
 @interface NJRSoundDevice : NSObject {
     NSString *name;

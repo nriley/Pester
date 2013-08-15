@@ -334,7 +334,7 @@
 		E1F993C10436280200050002 /* NJRHotKeyField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRHotKeyField.h; sourceTree = "<group>"; };
 		E1F993C20436280200050002 /* NJRHotKeyField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRHotKeyField.m; sourceTree = "<group>"; };
 		E1F993C60436310F00050002 /* PSPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPreferencesController.h; sourceTree = "<group>"; };
-		E1F993C70436310F00050002 /* PSPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPreferencesController.m; sourceTree = "<group>"; tabWidth = 4; };
+		E1F993C70436310F00050002 /* PSPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPreferencesController.m; sourceTree = "<group>"; tabWidth = 8; };
 		F517D63E0356B80C016D68B9 /* PSAlarmsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAlarmsController.m; sourceTree = "<group>"; };
 		F517D63F0356B80C016D68B9 /* PSAlarmsController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSAlarmsController.h; sourceTree = "<group>"; };
 		F517D6420356B8CC016D68B9 /* PSAlarms.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PSAlarms.m; sourceTree = "<group>"; };

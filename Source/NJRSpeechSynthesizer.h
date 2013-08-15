@@ -14,6 +14,7 @@
 
 @interface NJRSpeechSynthesizer : NSSpeechSynthesizer {
     AUGraph graph;
+    AudioUnit outputUnit;
     AudioUnit speechUnit;
     SpeechChannel speechChannel;
 }

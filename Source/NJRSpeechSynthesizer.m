@@ -27,6 +27,14 @@
     graph = NULL;
 }
 
+- (BOOL)NJR_setOutputDevice;
+{
+    AudioDeviceID outputDevice = [[NJRSoundDevice defaultOutputDevice] deviceID];
+    OSStatus err = AudioUnitSetProperty(outputUnit, kAudioOutputUnitProperty_CurrentDevice, kAudioUnitScope_Global, 0, &outputDevice, sizeof(outputDevice));
+
+    return (err == noErr);
+}
+
 - (BOOL)NJR_setVoice:(NSString *)voice;
 {
     if (voice == nil) return YES;
@@ -79,9 +87,6 @@ static void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
 {
     if ( (self = [super initWithVoice: voice]) == nil) return nil;
 
-    if (AUGraphAddNode == NULL || SpeakCFString == NULL)
-	goto fail; // only supported on 10.5+
-
     OSStatus err;
     err = NewAUGraph(&graph);
     if (err != noErr) goto fail;
@@ -98,13 +103,10 @@ static void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
     err = AUGraphOpen(graph);
     if (err != noErr) goto fail;
 
-    AudioUnit outputUnit;
     err = AUGraphNodeInfo(graph, outputNode, NULL, &outputUnit);
     if (err != noErr || outputUnit == NULL) goto fail;
 
-    AudioDeviceID outputDevice = [[NJRSoundDevice defaultOutputDevice] deviceID];
-    err = AudioUnitSetProperty(outputUnit, kAudioOutputUnitProperty_CurrentDevice, kAudioUnitScope_Global, 0, &outputDevice, sizeof(outputDevice));
-    if (err != noErr) goto fail;
+    if (![self NJR_setOutputDevice]) goto fail;
 
     AudioComponentDescription speechSynthesisDescription = {
 	.componentType = kAudioUnitType_Generator,
@@ -139,6 +141,8 @@ static void speech_done(SpeechChannel speechChannel, long /*SRefCon*/ refCon) {
     err = SetSpeechInfo(speechChannel, soSpeechDoneCallBack, speech_done);
     if (err != noErr) goto fail;
 
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(defaultSoundOutputDeviceChanged:) name: NJRSoundDeviceDefaultOutputDeviceChangedNotification object: nil];
+
     return self;
 
 fail:
@@ -149,6 +153,7 @@ fail:
 
 - (void)dealloc;
 {
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
     [self NJR_tearDownAUPath];
     [super dealloc];
 }
@@ -175,6 +180,11 @@ fail:
 	return;
 
     StopSpeech(speechChannel);
+}
+
+- (void)defaultSoundOutputDeviceChanged:(NSNotification *)notification;
+{
+    [self NJR_setOutputDevice];
 }
 
 @end

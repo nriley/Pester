@@ -9,6 +9,7 @@
 #import "NJRSoundDevice.h"
 
 NSString * const NJRSoundDeviceListChangedNotification = @"NJRSoundDeviceListChangedNotification";
+NSString * const NJRSoundDeviceDefaultOutputDeviceChangedNotification = @"NJRSoundDeviceDefaultOutputDeviceChangedNotification";
 
 static const UInt32 kLeftChannel = 0, kRightChannel = 1;
 
@@ -326,27 +327,28 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
     [defaultOutputDevice release];
     defaultOutputDevice = nil;
 
-    if (uid == nil)
-	return nil;
+    if (uid != nil) {
+        UInt32 propertySize;
+        OSStatus err;
+        AudioDeviceID deviceID;
+        AudioValueTranslation translation = { &uid, sizeof(uid), &deviceID, sizeof(deviceID) };
 
-    UInt32 propertySize;
-    OSStatus err;
-    AudioDeviceID deviceID;
-    AudioValueTranslation translation = { &uid, sizeof(uid), &deviceID, sizeof(deviceID) };
+        if (devicesByID == nil)
+            [self allOutputDevices];
 
-    if (devicesByID == nil)
-	[self allOutputDevices];
+        AudioObjectPropertyAddress propertyAddress = {
+            kAudioHardwarePropertyDeviceForUID,
+            kAudioObjectPropertyScopeGlobal,
+            kAudioObjectPropertyElementMaster };
+        propertySize = sizeof(translation);
+        err = AudioObjectGetPropertyData(kAudioObjectSystemObject, &propertyAddress, 0, NULL, &propertySize, &translation);
+        if (err != noErr)
+            return nil;
 
-    AudioObjectPropertyAddress propertyAddress = {
-	kAudioHardwarePropertyDeviceForUID,
-	kAudioObjectPropertyScopeGlobal,
-	kAudioObjectPropertyElementMaster };
-    propertySize = sizeof(translation);
-    err = AudioObjectGetPropertyData(kAudioObjectSystemObject, &propertyAddress, 0, NULL, &propertySize, &translation);
-    if (err != noErr)
-	return nil;
+        defaultOutputDevice = [[devicesByID objectForKey: [NSNumber numberWithUnsignedInt: deviceID]] retain];
+    }
 
-    defaultOutputDevice = [[devicesByID objectForKey: [NSNumber numberWithUnsignedInt: deviceID]] retain];
+    [[NSNotificationCenter defaultCenter] postNotificationName: NJRSoundDeviceDefaultOutputDeviceChangedNotification object: defaultOutputDevice];
 
     return defaultOutputDevice;
 }
