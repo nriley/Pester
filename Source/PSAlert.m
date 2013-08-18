@@ -62,19 +62,24 @@ static NSString * const PLAlertClass = @"class"; // NSString
     return [NSDictionary dictionaryWithObject: NSStringFromClass([self class]) forKey: PLAlertClass];
 }
 
-- (instancetype)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict error:(NSError **)error;
 {
     if ( (self = [self init]) != nil) {
-        IMP myImp = [self methodForSelector: _cmd];
-        NSString *clsString = [dict objectForRequiredKey: PLAlertClass];
-        Class cls = NSClassFromString(clsString);
-        NSAssert1(cls != nil, @"Alert class %@ is not available", clsString);
-        [super release];
-        self = [cls alloc];
-        if (self != nil) {
-            IMP subImp = [self methodForSelector: @selector(initWithPropertyList:)];
-            NSAssert1(subImp != myImp, @"No implementation of initWithPropertyList: for alert class %@", clsString);
-            self = [self initWithPropertyList: dict];
+        @try {
+            IMP myImp = [self methodForSelector: _cmd];
+            NSString *clsString = [dict objectForRequiredKey: PLAlertClass];
+            Class cls = NSClassFromString(clsString);
+            NSAssert1(cls != nil, @"Alert class %@ is not available", clsString);
+            [self release];
+            self = [cls alloc];
+            if (self != nil) {
+                IMP subImp = [self methodForSelector: @selector(initWithPropertyList:error:)];
+                NSAssert1(subImp != myImp, @"No implementation of initWithPropertyList:error: for alert class %@", clsString);
+                self = [self initWithPropertyList: dict error: error];
+            }
+        } @catch (NSException *e) {
+            [self release];
+            @throw;
         }
     }
     return self;

@@ -80,15 +80,38 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
     [editAlert setState: [defaults boolForKey: PSAlertsEditing]];
     {
         NSDictionary *plAlerts = [defaults dictionaryForKey: PSAlertsSelected];
-        PSAlerts *alerts = nil;
+        __block PSAlerts *alerts = nil;
         if (plAlerts == nil) {
             alerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
         } else {
             @try {
-                alerts = [[PSAlerts alloc] initWithPropertyList: plAlerts];
-	    } @catch (NSException *exception) {
-                NSRunAlertPanel(@"Unable to restore alerts", @"Pester could not restore recent alert information for one or more alerts in the Set Alarm window.  The default set of alerts will be used instead.\n\n%@", nil, nil, nil, [exception reason]);
-                alerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
+                JRThrowErr(alerts = [[PSAlerts alloc] initWithPropertyList: plAlerts error: jrErrRef]);
+	    } @catch (NSException *e) {
+                [[JRErrContext currentContext] popError]; // don't log unhandled error
+
+                NSString *title = @"Unable to restore alerts";
+                NSString *description = [NSString stringWithFormat: @"Pester could not restore recent alert information for the Set Alarm window, probably because you have previously used a newer version of Pester.\n\n%@", [e reason]];
+                NSString *alternateButton = nil;
+                NSString *otherButton = @"Use Defaults";
+
+                NSUInteger alertCount = [[alerts allAlerts] count];
+                if (alertCount > 0) {
+                    description = [description stringByAppendingFormat: @"\n\nClick Use Restored to use the alerts which could be restored:\n%@", [[alerts prettyList] string]];
+                    alternateButton = @"Use Restored";
+                }
+                description = [description stringByAppendingString: @"\n\nClick Use Defaults to use the default set of alerts instead.\n\nIf you accidentally opened the wrong version of Pester, click Quit.\n"];
+                switch (NSRunCriticalAlertPanel(title, description, @"Quit", alternateButton, otherButton)) {
+                    case NSAlertAlternateReturn:
+                        [[NSUserDefaults standardUserDefaults] setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
+                        break;
+                    case NSAlertOtherReturn:
+                        [alerts release];
+                        alerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
+                        break;
+                    default:
+                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        exit(0);
+                }
             }
         }
         [self _readAlerts: alerts];
@@ -331,7 +354,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
         } else {
             NSAttributedString *string = [[alarm alerts] prettyList];
             if (string == nil) {
-                [alertView setStringValue: NSLocalizedString(@"Do nothing. Click the button labeled 'Edit' to add an alert.", "Message shown in collapsed alert edit area when no alerts have been specified")];
+                [alertView setStringValue: NSLocalizedString(@"Do nothing. Click the button beside 'Edit' and add an alert.", "Message shown in collapsed alert edit area when no alerts have been specified")];
             } else {
                 [alertView setAttributedStringValue: string];
                 [self updateDateDisplay: sender];

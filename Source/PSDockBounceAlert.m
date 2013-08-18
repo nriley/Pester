@@ -64,7 +64,7 @@ static NMRec nmr;
 
 #pragma mark property list serialization (Pester 1.1)
 
-- (instancetype)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict error:(NSError **)error;
 {
     [self release];
     return [[PSDockBounceAlert alert] retain];

@@ -15,6 +15,15 @@
 // property list keys
 static NSString * const PLAlerts = @"alerts"; // NSString
 
+PSAlerts * __attribute__((overloadable))
+JRErrExpressionAdapter(PSAlerts *(^block)(void), JRErrExpression *expression, NSError **jrErrRef) {
+    *jrErrRef = nil;
+    PSAlerts *result = block();
+    if (*jrErrRef != nil)
+        JRErrReportError(expression, *jrErrRef, nil);
+    return result;
+}
+
 @implementation PSAlerts
 
 #pragma mark initialize-release
@@ -126,22 +135,33 @@ static NSString * const PLAlerts = @"alerts"; // NSString
     return dict;
 }
 
-- (instancetype)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict error:(NSError **)error;
 {
     if ( (self = [self init]) != nil) {
 	@try {
-	    NSArray *plAlerts = [dict objectForKey: PLAlerts];
-	    NSEnumerator *e = [plAlerts objectEnumerator];
-	    NSDictionary *alertDict;
-	    while ( (alertDict = [e nextObject]) != nil) {
-		[self addAlert: [[PSAlert alloc] initWithPropertyList: alertDict]];
-	    }
-	} @catch (NSException *e) {
+            NSMutableArray *exceptions = nil;
+
+            for (NSDictionary *alertDict in [dict objectForKey: PLAlerts]) {
+                @try {
+                    PSAlert *alert = JRThrowErr([[PSAlert alloc] initWithPropertyList: alertDict error: jrErrRef]);
+                    [self addAlert: alert];
+                } @catch (NSException *e) {
+                    if (exceptions == nil)
+                        exceptions = [NSMutableArray array];
+                    [exceptions addObject: e];
+                }
+            }
+
+            if (exceptions != nil)
+                JRThrowErrMsg([[exceptions valueForKey: @"description"] componentsJoinedByString: @"\n"], nil);
+	} @catch (JRErrException *je) {
+            // object may be partially valid; keep it around
+        } @catch (NSException *e) {
 	    [self release];
 	    @throw;
 	}
     }
-    return self;
+    returnJRErr(self, self);
 }
 
 @end

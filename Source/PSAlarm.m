@@ -40,6 +40,26 @@ static NSDate *midnightOnDate(NSDate *date) {
 	    [gregorianCalendar components: NSMonthCalendarUnit|NSDayCalendarUnit|NSYearCalendarUnit fromDate: date]];
 }
 
+enum {
+    PSAlarmAlertsFailedToDeserializeError = 1
+};
+
+enum {
+    PSAlarmAlertsFailedToDeserializeQuitRecoveryOptionIndex = 0,
+    PSAlarmAlertsFailedToDeserializeRemoveAlarmRecoveryOptionIndex = 1,
+    PSAlarmAlertsFailedToDeserializeUseDefaultsRecoveryOptionIndex = 2,
+    PSAlarmAlertsFailedToDeserializeUseRestoredRecoveryOptionIndex = 3
+};
+
+PSAlarm * __attribute__((overloadable))
+JRErrExpressionAdapter(PSAlarm *(^block)(void), JRErrExpression *expression, NSError **jrErrRef) {
+    *jrErrRef = nil;
+    PSAlarm *result = block();
+    if (*jrErrRef != nil)
+        JRErrReportError(expression, *jrErrRef, nil);
+    return result;
+}
+
 @implementation PSAlarm
 
 #pragma mark initialize-release
@@ -482,9 +502,11 @@ flooredInterval:
     } else if (alarmType != PSAlarmInterval) {
         return NO;
     }
+#ifndef PESTER_TEST
     timer = [PSTimer scheduledTimerWithTimeInterval: (alarmType == PSAlarmSnooze ? snoozeInterval : alarmInterval) target: self selector: @selector(_timerExpired:) userInfo: nil repeats: NO];
     if (timer == nil) return NO;
     [timer retain];
+#endif
 
     if (uuid == NULL)
         uuid = CFUUIDCreate(NULL);
@@ -502,9 +524,11 @@ flooredInterval:
     [timer invalidate]; [timer release]; timer = nil;
 }
 
-- (void)resetTimer;
+- (void)restoreTimer;
 {
-    if (timer != nil || alarmType != PSAlarmSet)
+    NSAssert(timer == nil, @"Timer already started");
+
+    if (alarmType != PSAlarmSet)
         return;
 
     alarmType = PSAlarmDate;
@@ -514,17 +538,29 @@ flooredInterval:
         // don't want to put this logic in setTimer or isValid because it can cause invalid alarms to be set (consider when someone clicks the "repeat" checkbox, then switches to a [nonrepeating, by design] date alarm, and enters a date that has passed: we do -not- want the alarm to magically morph into a repeating interval alarm)
         NSTimeInterval savedInterval = alarmInterval;
         if ([self setTimer]) {
-	    // alarm is set, but not repeating - and the interval is wrong because it was computed from the date
-	    alarmInterval = savedInterval;
-	    [self setRepeating: YES];
-	} else {
-	    // alarm is now invalid: expired in the past, so we start the timer over again
-	    // We could potentially start counting from the expiration date (or expiration date + n * interval), but this doesn't match our existing behavior.
+            // alarm is set, but not repeating - and the interval is wrong because it was computed from the date
+            alarmInterval = savedInterval;
+            [self setRepeating: YES];
+        } else {
+            // alarm is now invalid: expired in the past, so we start the timer over again
+            // We could potentially start counting from the expiration date (or expiration date + n * interval), but this doesn't match our existing behavior.
             alarmType = PSAlarmInterval;
             [self setInterval: savedInterval];
             [self setTimer];
         }
     }
+}
+
+- (BOOL)restoreOrUnexpireTimer;
+{
+    [self restoreTimer];
+
+    // if alarm was expired at the time Pester quit, resurrect it
+    if (alarmType == PSAlarmExpired)
+        [self setTimer];
+
+    // if alarm remains expired (failed to restart), it is invalid
+    return (alarmType != PSAlarmExpired);
 }
 
 #pragma mark comparing
@@ -536,7 +572,7 @@ flooredInterval:
 
 - (NSComparisonResult)compareMessage:(PSAlarm *)otherAlarm;
 {
-    return [[self message] caseInsensitiveCompare: [otherAlarm message]];
+    return [[self message] localizedCaseInsensitiveCompare: [otherAlarm message]];
 }
 
 #pragma mark printing
@@ -585,47 +621,81 @@ flooredInterval:
     return dict;
 }
 
-- (instancetype)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict error:(NSError **)error;
 {
     if ( (self = [self init]) != nil) {
-        PSAlerts *alarmAlerts;
-        uuid = CFUUIDCreateFromString(NULL, (CFStringRef)[dict objectForKey: PLAlarmUUID]);
-        alarmType = [self _alarmTypeForString: [dict objectForRequiredKey: PLAlarmType]];
-        switch (alarmType) {
-            case PSAlarmDate:
-            case PSAlarmSet:
-               { NSCalendarDate *date = [[NSCalendarDate alloc] initWithTimeIntervalSinceReferenceDate: [[dict objectForRequiredKey: PLAlarmDate] doubleValue]];
-                [self _setAlarmDate: date];
-                [date release];
-               }
-                break;
-            case PSAlarmSnooze: // snooze interval set but not confirmed; ignore
-                alarmType = PSAlarmExpired;
-            case PSAlarmInterval:
-            case PSAlarmExpired:
-                break;
-            default:
-                NSAssert1(NO, NSLocalizedString(@"Can't load alarm type %@", "Assertion for invalid PSAlarm type on load; %@ replaced with alarm type string"), [self _alarmTypeString]);
-                break;
-        }
-        repeating = [[dict objectForKey: PLAlarmRepeating] boolValue];
-        if ((alarmType != PSAlarmSet || repeating) && alarmType != PSAlarmDate)
-            alarmInterval = [[dict objectForRequiredKey: PLAlarmInterval] doubleValue];
-        snoozeInterval = [[dict objectForKey: PLAlarmSnoozeInterval] doubleValue];
-        [self setMessage: [dict objectForRequiredKey: PLAlarmMessage]];
-        alarmAlerts = [[PSAlerts alloc] initWithPropertyList: [dict objectForRequiredKey: PLAlarmAlerts]];
-        [self setAlerts: alarmAlerts];
-        [alarmAlerts release];
-        [self resetTimer];
-        if (alarmType == PSAlarmExpired) {
-            [self setTimer];
-            if (alarmType == PSAlarmExpired) { // failed to restart
+        @try {
+            uuid = CFUUIDCreateFromString(NULL, (CFStringRef)[dict objectForKey: PLAlarmUUID]);
+            alarmType = [self _alarmTypeForString: [dict objectForRequiredKey: PLAlarmType]];
+            switch (alarmType) {
+                case PSAlarmDate:
+                case PSAlarmSet:
+                   { NSCalendarDate *date = [[NSCalendarDate alloc] initWithTimeIntervalSinceReferenceDate: [[dict objectForRequiredKey: PLAlarmDate] doubleValue]];
+                    [self _setAlarmDate: date];
+                    [date release];
+                   }
+                    break;
+                case PSAlarmSnooze: // snooze interval set but not confirmed; ignore
+                    alarmType = PSAlarmExpired;
+                case PSAlarmInterval:
+                case PSAlarmExpired:
+                    break;
+                default:
+                    NSAssert1(NO, NSLocalizedString(@"Can't load alarm type %@", "Assertion for invalid PSAlarm type on load; %@ replaced with alarm type string"), [self _alarmTypeString]);
+                    break;
+            }
+            repeating = [[dict objectForKey: PLAlarmRepeating] boolValue];
+            if ((alarmType != PSAlarmSet || repeating) && alarmType != PSAlarmDate)
+                alarmInterval = [[dict objectForRequiredKey: PLAlarmInterval] doubleValue];
+            snoozeInterval = [[dict objectForKey: PLAlarmSnoozeInterval] doubleValue];
+            [self setMessage: [dict objectForRequiredKey: PLAlarmMessage]];
+            __block PSAlerts *alarmAlerts;
+            JRPushErr(alarmAlerts = [[PSAlerts alloc] initWithPropertyList: [dict objectForRequiredKey: PLAlarmAlerts] error: jrErrRef]);
+            [self setAlerts: alarmAlerts];
+            [alarmAlerts release];
+            if (alarmAlerts == nil || jrErr) {
+                NSString *description = [NSString stringWithFormat: NSLocalizedString(@"Pester could not fully restore the alerts for alarm '%@', probably because they were created with a newer version of Pester.", "PSAlarmAlertsFailedToDeserializeError description"), [self message]];
+                if (jrErr) {
+                    description = [description stringByAppendingFormat: @"\n\n%@", [[[JRErrContext currentContext]popError] localizedDescription]];
+                }
+
+                NSString *recoverySuggestion = @"";
+                NSUInteger alertCount = [[alarmAlerts allAlerts] count];
+                if (alertCount) {
+                    recoverySuggestion = [recoverySuggestion stringByAppendingFormat: NSLocalizedString(@"Click Use Restored to use the alerts which could be restored:\n%@\n\n", "PSAlarmAlertsFailedToDeserializeError recovery suggestion if alerts can be restored"), [[alarmAlerts prettyList] string]];
+                }
+
+                recoverySuggestion = [recoverySuggestion stringByAppendingString: NSLocalizedString(@"Click Use Defaults to use the default set of alerts instead.\n\nClick Remove Alarm to remove this alarm entirely.\n\nIf you accidentally opened the wrong version of Pester, click Quit.", "PSAlarmAlertsFailedToDeserializeError recovery suggestion")];
+
+                NSArray *recoveryOptions = [NSArray arrayWithObjects: @"Quit", @"Remove Alarm",
+                                            @"Use Defaults", alertCount ? @"Use Restored" : nil, nil];
+
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          description,        NSLocalizedDescriptionKey,
+                                          recoverySuggestion, NSLocalizedRecoverySuggestionErrorKey,
+                                          recoveryOptions,    NSLocalizedRecoveryOptionsErrorKey,
+                                          self,               NSRecoveryAttempterErrorKey,
+                                          nil];
+
+                NSError *error = [NSError errorWithDomain: [[self class] description]
+                                                     code: PSAlarmAlertsFailedToDeserializeError
+                                                 userInfo: userInfo];
+
+                JRThrowErr((*jrErrRef = error, NO)); // XXX a better way?
+            }
+            if (![self restoreOrUnexpireTimer]) {
                 [self release];
                 self = nil;
             }
-        }
+        } @catch (JRErrException *je) {
+            // object partially valid; keep it around
+        } @catch (NSException *e) {
+	    [self release];
+	    @throw;
+	}
     }
-    return self;
+
+    returnJRErr(self, self);
 }
 
 #pragma mark archiving (Pester 1.0)
@@ -673,8 +743,39 @@ flooredInterval:
             alarmType = PSAlarmDate;
 	// Note: the timer is not set here, so these alarms are inert.
 	// This helps make importing atomic (see -[PSAlarms importVersion1Alarms])
+
     }
     return self;
+}
+
+@end
+
+@implementation PSAlarm (NSErrorRecoveryAttempting)
+
+- (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex;
+{
+    if (!JRErrEqual(error, [[self class] description], PSAlarmAlertsFailedToDeserializeError))
+        return NO;
+    switch (recoveryOptionIndex) {
+        case PSAlarmAlertsFailedToDeserializeQuitRecoveryOptionIndex:
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            exit(0);
+        case PSAlarmAlertsFailedToDeserializeRemoveAlarmRecoveryOptionIndex:
+            [self release];
+            return NO;
+        case PSAlarmAlertsFailedToDeserializeUseDefaultsRecoveryOptionIndex:
+            [self setAlerts: [[[PSAlerts alloc] initWithPesterVersion1Alerts] autorelease]];
+            break;
+        case PSAlarmAlertsFailedToDeserializeUseRestoredRecoveryOptionIndex:
+            break;
+        default:
+            NSAssert1(NO, @"Invalid recovery option index: %u", recoveryOptionIndex);
+    }
+    if (![self restoreOrUnexpireTimer]) {
+        [self release];
+        return NO;
+    }
+    return YES;
 }
 
 @end

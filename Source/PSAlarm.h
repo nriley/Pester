@@ -80,10 +80,14 @@ extern NSString * const PSAlarmDiedNotification;
 
 - (BOOL)setTimer; // or die, if expired and no snooze/repeat
 - (void)cancelTimer;
-- (void)resetTimer; // use after cancel, only effective on set alarms
+- (void)restoreTimer; // use after cancel, only effective on set alarms
 
 // 1.1 only, going away when we move to keyed archiving (or Core Data)
 - (NSDictionary *)propertyListRepresentation;
-- (instancetype)initWithPropertyList:(NSDictionary *)dict;
+
+- (instancetype)initWithPropertyList:(NSDictionary *)dict error:(NSError **)error;
 
 @end
+
+PSAlarm * __attribute__((overloadable))
+JRErrExpressionAdapter(PSAlarm *(^block)(void), JRErrExpression *expression, NSError **jrErrRef);

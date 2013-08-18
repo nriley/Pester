@@ -1,3 +1,7 @@
 [submodule "Sparkle"]
 	path = Source/Sparkle
 	url = https://github.com/nriley/Sparkle.git
+[submodule "Source/JRErr"]
+	path = Source/JRErr
+	url = https://github.com/nriley/JRErr.git
+	branch = pester

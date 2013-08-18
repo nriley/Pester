@@ -26,8 +26,18 @@ static NSString * const PLAlarmsExpired = @"expired";
 
 static PSAlarms *PSAlarmsAllAlarms = nil;
 
+enum {
+    PSAlarmsFailedToDeserializeError = 1
+};
+
+enum {
+    PSAlarmsFailedToDeserializeQuitRecoveryOptionIndex = 0,
+    PSAlarmsFailedToDeserializeStartOverRecoveryOptionIndex = 1
+};
+
 @interface PSAlarms (Private)
 
+- (void)_changed;
 - (void)_updateNextAlarm;
 
 @end
@@ -42,9 +52,15 @@ static PSAlarms *PSAlarmsAllAlarms = nil;
         if (plAlarms == nil) {
             PSAlarmsAllAlarms = [[self alloc] init];
         } else {
-            PSAlarmsAllAlarms = [[self alloc] initWithPropertyList: plAlarms];
+            @try {
+                PSAlarmsAllAlarms = JRThrowErr([[self alloc] initWithPropertyList: plAlarms error: jrErrRef]);
+            } @catch (JRErrException *je) {
+                NSAssert([NSApp presentError: [[JRErrContext currentContext] popError]], @"Error recovery failed");
+                PSAlarmsAllAlarms = [[self alloc] init];
+            }
         }
         [PSAlarmsAllAlarms _updateNextAlarm]; // only generate notifications after singleton established
+        [PSAlarmsAllAlarms _changed]; // write back in case we changed anything while restoring
     }
 }
 
@@ -195,7 +211,7 @@ static NSMapTable *UUIDMapTableWithCapacity(NSUInteger capacity) {
 
 - (void)restoreAlarms:(NSSet *)alarmsToRestore;
 {
-    [alarmsToRestore makeObjectsPerformSelector: @selector(resetTimer)];
+    [alarmsToRestore makeObjectsPerformSelector: @selector(restoreTimer)];
 }
 
 - (BOOL)alarmsExpiring;
@@ -248,32 +264,69 @@ static NSMapTable *UUIDMapTableWithCapacity(NSUInteger capacity) {
 - (void)addAlarmsWithPropertyList:(NSArray *)plAlarms;
 {
     for (NSDictionary *plAlarm in plAlarms) {
-        PSAlarm *alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm];
+        __block PSAlarm *alarm = nil;
+        @try {
+            JRThrowErr(alarm = [[PSAlarm alloc] initWithPropertyList: plAlarm error: jrErrRef]);
+        } @catch (JRErrException *je) {
+#ifdef PESTER_TEST
+            @throw;
+#else
+            if (![NSApp presentError: [[JRErrContext currentContext] popError]])
+                continue;
+#endif
+        }
+        if (alarm == nil)
+            continue;
         [alarms addObject: alarm];
         [alarmsByUUID setObject: alarm forKey: [alarm uuid]];
         [alarm release];
     }
 }
 
-- (instancetype)initWithPropertyList:(NSDictionary *)dict;
+- (instancetype)initWithPropertyList:(NSDictionary *)dict error:(NSError **)error;
 {
     if ( (self = [super init]) != nil) {
-        NSArray *plPendingAlarms = [dict objectForRequiredKey: PLAlarmsPending];
-        NSArray *plExpiredAlarms = [dict objectForRequiredKey: PLAlarmsExpired];
-        NSUInteger alarmCount = [plPendingAlarms count] + [plExpiredAlarms count];
+        @try {
+            NSArray *plPendingAlarms = [dict objectForRequiredKey: PLAlarmsPending];
+            NSArray *plExpiredAlarms = [dict objectForRequiredKey: PLAlarmsExpired];
+            NSUInteger alarmCount = [plPendingAlarms count] + [plExpiredAlarms count];
 
-        alarmsByUUID = UUIDMapTableWithCapacity(alarmCount);
-        alarms = [[NSMutableArray alloc] initWithCapacity: alarmCount];
+            alarmsByUUID = UUIDMapTableWithCapacity(alarmCount);
+            alarms = [[NSMutableArray alloc] initWithCapacity: alarmCount];
 
-        [self addAlarmsWithPropertyList: plPendingAlarms];
+            [self addAlarmsWithPropertyList: plPendingAlarms];
 
-        // expired alarms may be ready for deletion, or may repeat - if the latter, PSAlarm will reschedule the alarm so the repeat interval begins at restoration time.
-        [self addAlarmsWithPropertyList: plExpiredAlarms];
-        expiredAlarms = [[NSMutableSet alloc] init];
-        
-        [self _setUpNotifications];
+            // expired alarms may be ready for deletion, or may repeat - if the latter, PSAlarm will reschedule the alarm so the repeat interval begins at restoration time.
+            [self addAlarmsWithPropertyList: plExpiredAlarms];
+            expiredAlarms = [[NSMutableSet alloc] init];
+
+            [self _setUpNotifications];
+#ifdef PESTER_TEST
+        } @catch (JRErrException *je) {
+#endif
+        } @catch (NSException *e) {
+            NSString *description = [NSString stringWithFormat: NSLocalizedString(@"Sorry, Pester could not restore any alarm information at all. It is possible that your alarms are only readable by newer versions of Pester.\n\n%@", "PSAlarmsFailedToDeserializeError description"), [e description]];
+            NSString *recoverySuggestion = NSLocalizedString(@"Click Start Over to erase all alarm information and continue.\n\nIf you accidentally opened an old version of Pester, click Quit.", "PSAlarmsFailedToDeserializeError recovery suggestion");
+
+            NSArray *recoveryOptions = [NSArray arrayWithObjects: @"Quit", @"Start Over", nil];
+
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      description,        NSLocalizedDescriptionKey,
+                                      recoverySuggestion, NSLocalizedRecoverySuggestionErrorKey,
+                                      recoveryOptions,    NSLocalizedRecoveryOptionsErrorKey,
+                                      self,               NSRecoveryAttempterErrorKey,
+                                      nil];
+
+            NSError *error = [NSError errorWithDomain: [[self class] description]
+                                                 code: PSAlarmsFailedToDeserializeError
+                                             userInfo: userInfo];
+
+            JRPushErr((*jrErrRef = error, NO)); // XXX a better way?
+            [self release];
+            self = nil;
+        }
     }
-    return self;
+    returnJRErr(self);
 }
 
 #pragma mark archiving (Pester 1.0)
@@ -312,6 +365,25 @@ static NSMapTable *UUIDMapTableWithCapacity(NSUInteger capacity) {
     } @finally {
 	[importedAlarms release];
     }
+}
+
+@end
+
+@implementation PSAlarms (NSErrorRecoveryAttempting)
+
+- (BOOL)attemptRecoveryFromError:(NSError *)error optionIndex:(NSUInteger)recoveryOptionIndex;
+{
+    if (!JRErrEqual(error, [[self class] description], PSAlarmsFailedToDeserializeError))
+        return NO;
+    switch (recoveryOptionIndex) {
+        case PSAlarmsFailedToDeserializeQuitRecoveryOptionIndex:
+            exit(0);
+        case PSAlarmsFailedToDeserializeStartOverRecoveryOptionIndex:
+            return YES;
+        default:
+            NSAssert1(NO, @"Invalid recovery option index: %u", recoveryOptionIndex);
+    }
+    return NO;
 }
 
 @end

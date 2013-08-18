@@ -1,0 +1,62 @@
+{
+	alarmsEmpty = {
+		expired = ();
+		pending = ();
+	};
+	alarmValid = {
+		alerts = {
+			alerts = (
+				{
+					class = PSDockBounceAlert;
+				},
+				{
+					class = PSNotifierAlert;
+				},
+			);
+		};
+		date = "9998397860.713268";
+		message = "Testing.";
+		type = PSAlarmSet;
+		uuid = "AB1D1C04-43B9-4110-9FFE-D6B27444DC78";
+	};
+	alertsTwoValid = {
+		alerts = (
+			{
+				class = PSDockBounceAlert;
+			},
+			{
+				class = PSNotifierAlert;
+			},
+		);
+	};
+	alertsOneValidOneInvalid = {
+		alerts = (
+			{
+				class = PSBogusAlert;
+			},
+			{
+				class = PSNotifierAlert;
+			},
+		);
+	};
+	alertsOneValid = {
+		alerts = (
+			{
+				class = PSNotifierAlert;
+			}
+		);
+	};
+	alertsTwoInvalid = {
+		alerts = (
+			{
+				class = PSBogusAlert;
+			},
+			{
+				class = PSInvalidAlert;
+			},
+		);
+	};
+    alertsEmpty = {
+		alerts = ();
+    };
+}

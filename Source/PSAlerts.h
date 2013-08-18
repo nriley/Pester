@@ -33,3 +33,6 @@
 - (NSAttributedString *)prettyList;
 
 @end
+
+PSAlerts * __attribute__((overloadable))
+JRErrExpressionAdapter(PSAlerts *(^block)(void), JRErrExpression *expression, NSError **jrErrRef);

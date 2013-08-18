@@ -17,6 +17,61 @@
 		E11BE23C12238FB600240657 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = E11BE23B12238FB600240657 /* Growl Registration Ticket.growlRegDict */; };
 		E11BE34412239B7A00240657 /* Growl.framework in Copy Growl.framework & Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; };
 		E11BE3791224388B00240657 /* PSGrowlController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BE3781224388B00240657 /* PSGrowlController.m */; };
+		E11E00B217BEE23B00BA997C /* JRErr.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E00B117BEE23B00BA997C /* JRErr.m */; };
+		E11E00BE17BEE2E900BA997C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11E00BD17BEE2E900BA997C /* SenTestingKit.framework */; };
+		E11E00CA17BEE2E900BA997C /* PesterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E00C917BEE2E900BA997C /* PesterTest.m */; };
+		E11E00D017BEE69600BA997C /* PSAlarms.m in Sources */ = {isa = PBXBuildFile; fileRef = F517D6420356B8CC016D68B9 /* PSAlarms.m */; };
+		E11E00D117BEE69900BA997C /* PSAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */; };
+		E11E00D217BEE69C00BA997C /* PSAlerts.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A18CAC03B4344C00000028 /* PSAlerts.m */; };
+		E11E00D317BEE69D00BA997C /* PSAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E47A7036AAA6D016B311C /* PSAlert.m */; };
+		E11E00D417BEE6A000BA997C /* PSDockBounceAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E47B8036AB217016B311C /* PSDockBounceAlert.m */; };
+		E11E00D517BEE6A300BA997C /* PSGrowlAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BE21C12238E6700240657 /* PSGrowlAlert.m */; };
+		E11E00D617BEE6A600BA997C /* PSScriptAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E4BE6036B2E5E016B311C /* PSScriptAlert.m */; };
+		E11E00D717BEE6A800BA997C /* PSNotifierAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E47B0036AACD1016B311C /* PSNotifierAlert.m */; };
+		E11E00D817BEE6B400BA997C /* PSMediaAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E18DA4090442C56D00050002 /* PSMediaAlert.m */; };
+		E11E00D917BEE6B400BA997C /* PSBeepAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E47AB036AAC1E016B311C /* PSBeepAlert.m */; };
+		E11E00DA17BEE6B400BA997C /* PSMovieAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E47BC036AB228016B311C /* PSMovieAlert.m */; };
+		E11E00DB17BEE6B400BA997C /* PSSpeechAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F1986C036B813101EB0372 /* PSSpeechAlert.m */; };
+		E11E00DC17BEE6B400BA997C /* PSUserNotificationAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E143BA4217A461E100A7735E /* PSUserNotificationAlert.m */; };
+		E11E00DD17BEE6B400BA997C /* PSWakeAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E19FD39F03C98645001509F3 /* PSWakeAlert.m */; };
+		E11E00DE17BEE72B00BA997C /* PSAlarmAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E47B4036AAD55016B311C /* PSAlarmAlertController.m */; };
+		E11E00DF17BEE75C00BA997C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		E11E00E017BEE76300BA997C /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B121B30CF639A1004975AA /* QTKit.framework */; };
+		E11E00E117BEE76F00BA997C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F240D0036A87E301FE7503 /* Carbon.framework */; };
+		E11E00E217BEE77900BA997C /* BDAlias.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F240CA036A869401FE7503 /* BDAlias.m */; };
+		E11E00E317BEE79100BA997C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D847116EB43A00207746 /* AudioToolbox.framework */; };
+		E11E00E417BEE79B00BA997C /* PSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF6E9103C928D200050002 /* PSTimer.m */; };
+		E11E00E517BEE7A100BA997C /* PSApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = F560E2F10357506401A4E466 /* PSApplication.m */; };
+		E11E00E617BEE7D400BA997C /* PSMovieAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E47C0036B1ADD016B311C /* PSMovieAlertController.m */; };
+		E11E00E717BEE7D600BA997C /* PSGrowlController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BE3781224388B00240657 /* PSGrowlController.m */; };
+		E11E00E817BEE7F200BA997C /* NSDictionary-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EE8DB9038A76AC0134BEAC /* NSDictionary-NJRExtensions.m */; };
+		E11E00E917BEE80F00BA997C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; };
+		E11E00EA17BEE82500BA997C /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D94C8911473CBA00C88B55 /* QuickTime.framework */; };
+		E11E00EB17BEE82E00BA997C /* PSAlarmsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F517D63E0356B80C016D68B9 /* PSAlarmsController.m */; };
+		E11E00EC17BEE83F00BA997C /* JRErr.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E00B117BEE23B00BA997C /* JRErr.m */; };
+		E11E00ED17BEE84500BA997C /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
+		E11E00EE17BEE85100BA997C /* NJRReadMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10F2A3F0402E71400050002 /* NJRReadMeController.m */; };
+		E11E00EF17BEE85A00BA997C /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CC17BC7E3700DC565A /* PFMoveApplication.m */; };
+		E11E00F017BEE85D00BA997C /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CA17BC7E3700DC565A /* NSString+SymlinksAndAliases.m */; };
+		E11E00F117BEE86600BA997C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1F1D117BC80C500DC565A /* Security.framework */; };
+		E11E00F217BEE87900BA997C /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18DAAEE0442D02500050002 /* CoreAudio.framework */; };
+		E11E00F317BEE88700BA997C /* NJRSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */; };
+		E11E00F417BEE88D00BA997C /* NJRSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */; };
+		E11E00F517BEE89700BA997C /* PSPowerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E130B9AD03B7C59700000028 /* PSPowerManager.m */; };
+		E11E00F617BEE8A300BA997C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14DB31203B8038300000028 /* IOKit.framework */; };
+		E11E00F717BEE8A800BA997C /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D849116EB43A00207746 /* AudioUnit.framework */; };
+		E11E00F817BEE8B000BA997C /* PSAlarmNotifierController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59DC6DC0353DE5101AEEDB1 /* PSAlarmNotifierController.m */; };
+		E11E00F917BEE8BA00BA997C /* PSPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F993C70436310F00050002 /* PSPreferencesController.m */; };
+		E11E00FA17BEE8BF00BA997C /* PSSnoozeUntilController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DEF10303FF816300050002 /* PSSnoozeUntilController.m */; };
+		E11E00FB17BEE8F000BA997C /* NJRHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = E11373150439FCC700050002 /* NJRHotKey.m */; };
+		E11E00FC17BEE8F300BA997C /* NJRHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E145383F043A1DB200050002 /* NJRHotKeyManager.m */; };
+		E11E00FD17BEE8FE00BA997C /* NJRArrayToObjectTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */; };
+		E11E00FE17BEE90D00BA997C /* PSCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17F2F3303FDF2F000050002 /* PSCalendarController.m */; };
+		E11E00FF17BEE92200BA997C /* PSTimeDateEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DEF117040014EB00050002 /* PSTimeDateEditor.m */; };
+		E11E010017BEE92B00BA997C /* PSDateFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E18E822F113CC5C300687310 /* PSDateFieldEditor.m */; };
+		E11E010117BEE93800BA997C /* NJRDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F59DC6FD0354188F01AEEDB1 /* NJRDateFormatter.m */; };
+		E11E010317BEEA5200BA997C /* Growl.framework in Copy Growl.framework */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; };
+		E11E012017BF0B7600BA997C /* PesterTestFixtures.plist in Resources */ = {isa = PBXBuildFile; fileRef = E11E011F17BF0B7600BA997C /* PesterTestFixtures.plist */; };
 		E121E9421146A14E0063E471 /* NJRArrayToObjectTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */; };
 		E1246FDE1177EF4700AC249B /* NJRSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */; };
 		E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E12CBFD210CC310800159E88 /* NJRMenuSlider.m */; };
@@ -112,6 +167,7 @@
 		E1B11F840CF5F30F004975AA /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18DAAEE0442D02500050002 /* CoreAudio.framework */; };
 		E1B121970CF62FD1004975AA /* NSMenuItem-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B121960CF62FD1004975AA /* NSMenuItem-NJRExtensions.m */; };
 		E1B121B40CF639A1004975AA /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B121B30CF639A1004975AA /* QTKit.framework */; };
+		E1C26DAD17C0685A0057E74F /* NSString-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0B14F03ADBE3800AEFBE0 /* NSString-NJRExtensions.m */; };
 		E1D94C8A11473CBA00C88B55 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D94C8911473CBA00C88B55 /* QuickTime.framework */; };
 		E1DE3C15115930BD00C17BB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1DE3C13115930BD00C17BB0 /* Localizable.strings */; };
 		E1E0EFEA145DF20100C421D4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722B9F5713DCF2B6000E0C3D /* Sparkle.framework */; };
@@ -158,6 +214,13 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = Sparkle;
 		};
+		E11E010417BEF46200BA997C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 722B9F4913DCF2B6000E0C3D /* Sparkle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Sparkle;
+		};
 		E123AD2915BF1AA00041C569 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 722B9F4913DCF2B6000E0C3D /* Sparkle.xcodeproj */;
@@ -175,6 +238,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E11E010217BEEA4400BA997C /* Copy Growl.framework */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				E11E010317BEEA5200BA997C /* Growl.framework in Copy Growl.framework */,
+			);
+			name = "Copy Growl.framework";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E17562730CF8C55D00FC5057 /* Copy Growl.framework & Sparkle.framework */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,6 +300,16 @@
 		E11BE3771224388B00240657 /* PSGrowlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGrowlController.h; sourceTree = "<group>"; };
 		E11BE3781224388B00240657 /* PSGrowlController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGrowlController.m; sourceTree = "<group>"; tabWidth = 8; };
 		E11CB6E1043025F500050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/Preferences.nib; sourceTree = "<group>"; };
+		E11E00B017BEE23B00BA997C /* JRErr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRErr.h; path = JRErr/JRErr/JRErr.h; sourceTree = "<group>"; };
+		E11E00B117BEE23B00BA997C /* JRErr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRErr.m; path = JRErr/JRErr/JRErr.m; sourceTree = "<group>"; };
+		E11E00BC17BEE2E900BA997C /* PesterTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PesterTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11E00BD17BEE2E900BA997C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E11E00C117BEE2E900BA997C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E11E00C417BEE2E900BA997C /* PesterTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PesterTest-Info.plist"; sourceTree = "<group>"; };
+		E11E00C817BEE2E900BA997C /* PesterTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PesterTest.h; sourceTree = "<group>"; };
+		E11E00C917BEE2E900BA997C /* PesterTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PesterTest.m; sourceTree = "<group>"; };
+		E11E00CB17BEE2E900BA997C /* PesterTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PesterTest-Prefix.pch"; sourceTree = "<group>"; };
+		E11E011F17BF0B7600BA997C /* PesterTestFixtures.plist */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = PesterTestFixtures.plist; sourceTree = "<group>"; };
 		E121E9401146A14E0063E471 /* NJRArrayToObjectTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRArrayToObjectTransformer.h; sourceTree = "<group>"; };
 		E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRArrayToObjectTransformer.m; sourceTree = "<group>"; };
 		E1246FDC1177EF4700AC249B /* NJRSpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRSpeechSynthesizer.h; sourceTree = "<group>"; };
@@ -292,7 +376,7 @@
 		E19FD39E03C98645001509F3 /* PSWakeAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWakeAlert.h; sourceTree = "<group>"; };
 		E19FD39F03C98645001509F3 /* PSWakeAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWakeAlert.m; sourceTree = "<group>"; };
 		E1A18CAB03B4344C00000028 /* PSAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAlerts.h; sourceTree = "<group>"; };
-		E1A18CAC03B4344C00000028 /* PSAlerts.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PSAlerts.m; sourceTree = "<group>"; };
+		E1A18CAC03B4344C00000028 /* PSAlerts.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PSAlerts.m; sourceTree = "<group>"; tabWidth = 8; };
 		E1A18CB203B439CF00000028 /* PSPropertyListSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPropertyListSerialization.h; sourceTree = SOURCE_ROOT; };
 		E1A7069111E3921700084DF5 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E1A927E617A9EA1000322A13 /* NSPopUpButton-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPopUpButton-NJRExtensions.h"; sourceTree = "<group>"; };
@@ -402,6 +486,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E11E00B817BEE2E900BA997C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E11E00BE17BEE2E900BA997C /* SenTestingKit.framework in Frameworks */,
+				E11E00DF17BEE75C00BA997C /* Cocoa.framework in Frameworks */,
+				E11E00E017BEE76300BA997C /* QTKit.framework in Frameworks */,
+				E11E00E117BEE76F00BA997C /* Carbon.framework in Frameworks */,
+				E11E00E317BEE79100BA997C /* AudioToolbox.framework in Frameworks */,
+				E11E00E917BEE80F00BA997C /* Growl.framework in Frameworks */,
+				E11E00EA17BEE82500BA997C /* QuickTime.framework in Frameworks */,
+				E11E00F117BEE86600BA997C /* Security.framework in Frameworks */,
+				E11E00F217BEE87900BA997C /* CoreAudio.framework in Frameworks */,
+				E11E00F617BEE8A300BA997C /* IOKit.framework in Frameworks */,
+				E11E00F717BEE8A800BA997C /* AudioUnit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1985797104F68EC0082AC3E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +563,7 @@
 				E1B121B30CF639A1004975AA /* QTKit.framework */,
 				E1D94C8911473CBA00C88B55 /* QuickTime.framework */,
 				E1E1F1D117BC80C500DC565A /* Security.framework */,
+				E11E00BD17BEE2E900BA997C /* SenTestingKit.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -470,6 +573,7 @@
 			children = (
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				E11E00C117BEE2E900BA997C /* CoreData.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -479,6 +583,7 @@
 			children = (
 				E1B11F8C0CF5F30F004975AA /* Pester.app */,
 				E198579D104F68EC0082AC3E /* libParseDate-10.6.dylib */,
+				E11E00BC17BEE2E900BA997C /* PesterTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -487,6 +592,7 @@
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
+				E11E00C217BEE2E900BA997C /* Tests */,
 				E17CA7B60CF7D07400018B34 /* Perl */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -554,6 +660,36 @@
 				E123AD2A15BF1AA00041C569 /* finish_installation.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E11E00AB17BEE22A00BA997C /* JRErr */ = {
+			isa = PBXGroup;
+			children = (
+				E11E00B017BEE23B00BA997C /* JRErr.h */,
+				E11E00B117BEE23B00BA997C /* JRErr.m */,
+			);
+			name = JRErr;
+			sourceTree = "<group>";
+		};
+		E11E00C217BEE2E900BA997C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E11E00C817BEE2E900BA997C /* PesterTest.h */,
+				E11E00C917BEE2E900BA997C /* PesterTest.m */,
+				E11E00C317BEE2E900BA997C /* Supporting Files */,
+			);
+			name = Tests;
+			path = PesterTest;
+			sourceTree = "<group>";
+		};
+		E11E00C317BEE2E900BA997C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E11E011F17BF0B7600BA997C /* PesterTestFixtures.plist */,
+				E11E00C417BEE2E900BA997C /* PesterTest-Info.plist */,
+				E11E00CB17BEE2E900BA997C /* PesterTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		E162698703B6189D00000028 /* Categories */ = {
@@ -709,6 +845,7 @@
 			isa = PBXGroup;
 			children = (
 				F59E47A6036AA5FC016B311C /* BDAlias */,
+				E11E00AB17BEE22A00BA997C /* JRErr */,
 				E1E1F1C817BC7E2900DC565A /* LetsMove */,
 				E1DEF116040014EB00050002 /* PSTimeDateEditor.h */,
 				E1DEF117040014EB00050002 /* PSTimeDateEditor.m */,
@@ -815,6 +952,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E11E00BB17BEE2E900BA997C /* PesterTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E11E00CC17BEE2E900BA997C /* Build configuration list for PBXNativeTarget "PesterTest" */;
+			buildPhases = (
+				E11E00B717BEE2E900BA997C /* Sources */,
+				E11E00B817BEE2E900BA997C /* Frameworks */,
+				E11E00B917BEE2E900BA997C /* Resources */,
+				E11E010217BEEA4400BA997C /* Copy Growl.framework */,
+				E11E00BA17BEE2E900BA997C /* Run Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E11E010517BEF46200BA997C /* PBXTargetDependency */,
+			);
+			name = PesterTest;
+			productName = PesterTest;
+			productReference = E11E00BC17BEE2E900BA997C /* PesterTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		E1985794104F68EC0082AC3E /* ParseDate-10.6 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E198579A104F68EC0082AC3E /* Build configuration list for PBXNativeTarget "ParseDate-10.6" */;
@@ -887,6 +1044,7 @@
 			targets = (
 				E1B11EE30CF5F30F004975AA /* Pester */,
 				E1985794104F68EC0082AC3E /* ParseDate-10.6 */,
+				E11E00BB17BEE2E900BA997C /* PesterTest */,
 			);
 		};
 /* End PBXProject section */
@@ -930,6 +1088,14 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E11E00B917BEE2E900BA997C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E11E012017BF0B7600BA997C /* PesterTestFixtures.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1B11F260CF5F30F004975AA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -964,7 +1130,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E11E00BA17BEE2E900BA997C /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n# \"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		E11E00B717BEE2E900BA997C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E11E00CA17BEE2E900BA997C /* PesterTest.m in Sources */,
+				E11E00D017BEE69600BA997C /* PSAlarms.m in Sources */,
+				E11E00D117BEE69900BA997C /* PSAlarm.m in Sources */,
+				E11E00D217BEE69C00BA997C /* PSAlerts.m in Sources */,
+				E11E00D317BEE69D00BA997C /* PSAlert.m in Sources */,
+				E11E00D417BEE6A000BA997C /* PSDockBounceAlert.m in Sources */,
+				E11E00D517BEE6A300BA997C /* PSGrowlAlert.m in Sources */,
+				E11E00D617BEE6A600BA997C /* PSScriptAlert.m in Sources */,
+				E11E00D717BEE6A800BA997C /* PSNotifierAlert.m in Sources */,
+				E11E00D817BEE6B400BA997C /* PSMediaAlert.m in Sources */,
+				E11E00D917BEE6B400BA997C /* PSBeepAlert.m in Sources */,
+				E11E00DA17BEE6B400BA997C /* PSMovieAlert.m in Sources */,
+				E11E00DB17BEE6B400BA997C /* PSSpeechAlert.m in Sources */,
+				E11E00DC17BEE6B400BA997C /* PSUserNotificationAlert.m in Sources */,
+				E11E00DD17BEE6B400BA997C /* PSWakeAlert.m in Sources */,
+				E11E00DE17BEE72B00BA997C /* PSAlarmAlertController.m in Sources */,
+				E11E00E217BEE77900BA997C /* BDAlias.m in Sources */,
+				E11E00E417BEE79B00BA997C /* PSTimer.m in Sources */,
+				E11E00E517BEE7A100BA997C /* PSApplication.m in Sources */,
+				E11E00E617BEE7D400BA997C /* PSMovieAlertController.m in Sources */,
+				E11E00E717BEE7D600BA997C /* PSGrowlController.m in Sources */,
+				E11E00E817BEE7F200BA997C /* NSDictionary-NJRExtensions.m in Sources */,
+				E11E00EB17BEE82E00BA997C /* PSAlarmsController.m in Sources */,
+				E11E00EC17BEE83F00BA997C /* JRErr.m in Sources */,
+				E11E00ED17BEE84500BA997C /* NJRSoundDevice.m in Sources */,
+				E11E00EE17BEE85100BA997C /* NJRReadMeController.m in Sources */,
+				E11E00EF17BEE85A00BA997C /* PFMoveApplication.m in Sources */,
+				E11E00F017BEE85D00BA997C /* NSString+SymlinksAndAliases.m in Sources */,
+				E11E00F317BEE88700BA997C /* NJRSoundManager.m in Sources */,
+				E11E00F417BEE88D00BA997C /* NJRSpeechSynthesizer.m in Sources */,
+				E11E00F517BEE89700BA997C /* PSPowerManager.m in Sources */,
+				E11E00F817BEE8B000BA997C /* PSAlarmNotifierController.m in Sources */,
+				E11E00F917BEE8BA00BA997C /* PSPreferencesController.m in Sources */,
+				E11E00FA17BEE8BF00BA997C /* PSSnoozeUntilController.m in Sources */,
+				E11E00FB17BEE8F000BA997C /* NJRHotKey.m in Sources */,
+				E11E00FC17BEE8F300BA997C /* NJRHotKeyManager.m in Sources */,
+				E11E00FD17BEE8FE00BA997C /* NJRArrayToObjectTransformer.m in Sources */,
+				E11E00FE17BEE90D00BA997C /* PSCalendarController.m in Sources */,
+				E11E00FF17BEE92200BA997C /* PSTimeDateEditor.m in Sources */,
+				E11E010017BEE92B00BA997C /* PSDateFieldEditor.m in Sources */,
+				E11E010117BEE93800BA997C /* NJRDateFormatter.m in Sources */,
+				E1C26DAD17C0685A0057E74F /* NSString-NJRExtensions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1985795104F68EC0082AC3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1047,6 +1279,7 @@
 				E1A927E817A9EA1000322A13 /* NSPopUpButton-NJRExtensions.m in Sources */,
 				E1E1F1CD17BC7E3700DC565A /* NSString+SymlinksAndAliases.m in Sources */,
 				E1E1F1CE17BC7E3700DC565A /* PFMoveApplication.m in Sources */,
+				E11E00B217BEE23B00BA997C /* JRErr.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1290,11 @@
 			isa = PBXTargetDependency;
 			name = Sparkle;
 			targetProxy = 722B9F6013DCF331000E0C3D /* PBXContainerItemProxy */;
+		};
+		E11E010517BEF46200BA997C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Sparkle;
+			targetProxy = E11E010417BEF46200BA997C /* PBXContainerItemProxy */;
 		};
 		E19857A1104F69150082AC3E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1171,6 +1409,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E11E00CD17BEE2E900BA997C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PesterTest/PesterTest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "PesterTest/PesterTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E11E00CE17BEE2E900BA997C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PesterTest/PesterTest-Prefix.pch";
+				INFOPLIST_FILE = "PesterTest/PesterTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		E198579B104F68EC0082AC3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1316,6 +1588,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E11E00CC17BEE2E900BA997C /* Build configuration list for PBXNativeTarget "PesterTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11E00CD17BEE2E900BA997C /* Debug */,
+				E11E00CE17BEE2E900BA997C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		E198579A104F68EC0082AC3E /* Build configuration list for PBXNativeTarget "ParseDate-10.6" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
