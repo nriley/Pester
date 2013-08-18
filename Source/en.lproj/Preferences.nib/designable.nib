@@ -195,14 +195,15 @@
 						<object class="NSButton" id="777469895">
 							<reference key="NSNextResponder" ref="179271081"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{76, 18}, {207, 18}}</string>
+							<string key="NSFrame">{{68, 18}, {226, 18}}</string>
 							<reference key="NSSuperview" ref="179271081"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="347811417">
 								<int key="NSCellFlags">-2080374784</int>
 								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Check for updates on startup</string>
+								<string key="NSContents">Check for updates automatically</string>
 								<reference key="NSSupport" ref="767484129"/>
 								<reference key="NSControlView" ref="777469895"/>
 								<int key="NSButtonFlags">1211912448</int>
@@ -552,28 +553,28 @@
 					<int key="connectionID">210</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.SUCheckAtStartup</string>
-						<reference key="source" ref="777469895"/>
-						<reference key="destination" ref="783118354"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="777469895"/>
-							<reference key="NSDestination" ref="783118354"/>
-							<string key="NSLabel">value: values.SUCheckAtStartup</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.SUCheckAtStartup</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">26</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">nextKeyView</string>
 						<reference key="source" ref="777469895"/>
 						<reference key="destination" ref="289291369"/>
 					</object>
 					<int key="connectionID">36</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.SUEnableAutomaticChecks</string>
+						<reference key="source" ref="777469895"/>
+						<reference key="destination" ref="783118354"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="777469895"/>
+							<reference key="NSDestination" ref="783118354"/>
+							<string key="NSLabel">value: values.SUEnableAutomaticChecks</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.SUEnableAutomaticChecks</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">221</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1041,7 +1042,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">220</int>
+			<int key="maxID">221</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
