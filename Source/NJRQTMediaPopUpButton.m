@@ -591,7 +591,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
             const char *osTypeHex = [[type substringFromIndex: [type rangeOfString: @"0x" options: NSBackwardsSearch].location] UTF8String];
             OSType osType;
             sscanf(osTypeHex, "%lx", &osType);
-            [s appendFormat: @" '%4s'", &osType];
+            [s appendFormat: @" '%4s'", (char *)&osType];
         } else {
             [s appendFormat: @" '%@'", type];
         }
