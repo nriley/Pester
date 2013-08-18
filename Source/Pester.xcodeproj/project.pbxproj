@@ -1449,6 +1449,7 @@
 		E198579B104F68EC0082AC3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				EXECUTABLE_PREFIX = lib;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1466,6 +1467,7 @@
 		E198579C104F68EC0082AC3E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EXECUTABLE_PREFIX = lib;
@@ -1542,7 +1544,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Developer ID Application: Nicholas Riley";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 50;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1569,7 +1571,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Developer ID Application: Nicholas Riley";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 48;
+				CURRENT_PROJECT_VERSION = 50;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pester_Prefix.h;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
