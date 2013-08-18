@@ -18,7 +18,7 @@ NSString * const PSAlarmsNextAlarmDidChangeNotification = @"PSAlarmsNextAlarmDid
 
 // NSUserDefaults keys
 static NSString * const PSPendingAlarms = @"Pester pending alarms"; // 1.0 Ð 1.1a3
-static NSString * const PSAllAlarms = @"Pester alarms"; // 1.1a4 Ð 
+static NSString * const PSAllAlarms = @"Pester alarms"; // 1.1a4 and later
 
 // property list keys
 static NSString * const PLAlarmsPending = @"pending";
