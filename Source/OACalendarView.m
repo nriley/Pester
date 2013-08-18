@@ -384,14 +384,13 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     switch (selectionType) {
         case OACalendarViewSelectByDay:
             return [NSArray arrayWithObject:selectedDay];
-            break;
-            
+
         case OACalendarViewSelectByWeek:
             {
                 NSMutableArray *days;
                 NSCalendarDate *day;
                 int dayOfWeek;
-                
+
                 days = [NSMutableArray arrayWithCapacity:OACalendarViewNumDaysPerWeek];
                 day = [selectedDay dateByAddingYears:0 months:0 days:-[selectedDay dayOfWeek] hours:0 minutes:0 seconds:0];
                 for (dayOfWeek = 0; dayOfWeek < OACalendarViewNumDaysPerWeek; dayOfWeek++) {
@@ -403,8 +402,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
                 }
             
                 return days;
-            }            
-            break;
+            }
 
         case OACalendarViewSelectByWeekday:
             {
@@ -424,12 +422,10 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
                 return days;
             }
-            break;
-            
+
         default:
             [NSException raise:NSInvalidArgumentException format:@"OACalendarView: Unknown selection type: %d", selectionType];
             return nil;
-            break;
     }
 }
 

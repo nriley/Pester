@@ -113,7 +113,7 @@ static PSGrowlController *PSGrowlControllerShared;
 				   iconData: nil
 				   priority: 0
 				   isSticky: isSticky
-			       clickContext: (NSString *)uuidString];
+			       clickContext: uuidString];
     [uuidString release];
 
     if (failsToNotifyOnClickOrTimeout)

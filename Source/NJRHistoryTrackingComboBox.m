@@ -54,7 +54,7 @@ static CGEventRef flags_changed(CGEventTapProxy proxy, CGEventType type, CGEvent
 
 - (void)dealloc;
 {
-    if (flagsChangedTap != NULL)
+    if (flagsChangedTap != nil)
 	[[NSRunLoop currentRunLoop] removePort: flagsChangedTap forMode: NSDefaultRunLoopMode];
     [super dealloc];
 }

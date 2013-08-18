@@ -20,7 +20,7 @@ int ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
     SortContext *context = (SortContext *)ctxt;
     int order = 0;
     id key = context->key;
-    if (0 != key) {
+    if (key != nil) {
         id first, second;	// the actual objects to compare
 
         if (context->descending) {

@@ -239,7 +239,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
     [timeDateCompletions setEnabled: !isInterval && [timeDateCompletions numberOfItems] > 0];
     [timeCalendarButton setEnabled: !isInterval];
     if (sender != nil)
-	[self _tryToFocus: isInterval ? (NSTextField *)timeInterval : timeOfDay];
+	[self _tryToFocus: isInterval ? timeInterval : timeOfDay];
     if (!isInterval) // need to do this every time the controls are enabled
         [timeOfDay setNextKeyView: timeDate];
     // NSLog(@"UPDATING FROM inAtChanged");
