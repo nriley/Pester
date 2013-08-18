@@ -28,7 +28,7 @@ find "$DSTROOT" \( -name ".svn" -or -name "Headers" \) \
 # create disk image
 cd "$PACKAGEDIR"
 rm -f $DMG
-hdiutil create $DMG -megabytes 5 -ov -layout NONE -fs 'HFS+' -volname $VOL
+hdiutil create $DMG -megabytes 20 -ov -layout NONE -fs 'HFS+' -volname $VOL
 MOUNT=`hdiutil attach $DMG`
 DISK=`echo $MOUNT | sed -ne ' s|^/dev/\([^ ]*\).*$|\1|p'`
 MOUNTPOINT=`echo $MOUNT | sed -ne 's|^.*\(/Volumes/.*\)$|\1|p'`
