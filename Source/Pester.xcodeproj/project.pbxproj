@@ -409,6 +409,7 @@
 		E1E1F1CB17BC7E3700DC565A /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; tabWidth = 4; };
 		E1E1F1CC17BC7E3700DC565A /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; tabWidth = 4; };
 		E1E1F1D117BC80C500DC565A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E1EF3EE8177FF6760051200A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E1F0B14A03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRUnfocusableMovieView.h; sourceTree = "<group>"; };
 		E1F0B14B03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRUnfocusableMovieView.m; sourceTree = "<group>"; };
 		E1F0B14E03ADBE3800AEFBE0 /* NSString-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-NJRExtensions.h"; sourceTree = "<group>"; };
@@ -1031,6 +1032,7 @@
 				it,
 				sv,
 				hr,
+				es,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Pester */;
 			projectDirPath = "";
@@ -1354,6 +1356,7 @@
 				E1A7069111E3921700084DF5 /* sv */,
 				E1D88CEF11E4BA9800F472E6 /* hr */,
 				E1D88CF011E4BA9900F472E6 /* fr */,
+				E1EF3EE8177FF6760051200A /* es */,
 			);
 			name = DateCompletions.strings;
 			sourceTree = "<group>";

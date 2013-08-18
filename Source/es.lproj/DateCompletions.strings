@@ -1,0 +1,10 @@
+/* Date popup */
+"today" = "hoy";
+"tomorrow" = "mañana";
+"in 2 days" = "en 2 días";
+"next «day»" = "el «day» siguiente";
+"next week" = "la siguiente semana";
+"in 2 weeks" = "en 2 semanas";
+"next month" = "el mes siguiente";
+"in 2 months" = "en 2 meses";
+"in 1 year" = "en 1 año";
