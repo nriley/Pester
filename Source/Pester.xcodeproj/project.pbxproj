@@ -1543,8 +1543,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Developer ID Application: Nicholas Riley";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 51;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1555,7 +1556,6 @@
 				INFOPLIST_FILE = "Info-Pester.plist";
 				INSTALL_PATH = /;
 				PRODUCT_NAME = Pester;
-				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx10.6;
 				VERSIONING_SYSTEM = "apple-generic";
 				WARNING_CFLAGS = (
@@ -1570,8 +1570,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Developer ID Application: Nicholas Riley";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 51;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pester_Prefix.h;
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
@@ -1579,7 +1580,6 @@
 				INFOPLIST_FILE = "Info-Pester.plist";
 				INSTALL_PATH = /;
 				PRODUCT_NAME = Pester;
-				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx10.6;
 				VERSIONING_SYSTEM = "apple-generic";
 				WARNING_CFLAGS = (

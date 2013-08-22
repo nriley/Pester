@@ -157,9 +157,9 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 850}" scroll-position="{0, 87}" column-titles-display-mode="auto">
+  <editor content-size="{551, 850}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="lTQERko8gNX"/>
+    <selected-rows ids="bzWWXOvmNoS"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -3898,7 +3898,7 @@
         </item>
       </children>
     </item>
-    <item id="bzWWXOvmNoS" expanded="yes" state="indeterminate">
+    <item id="bzWWXOvmNoS" state="checked">
       <style/>
       <style/>
       <style/>
@@ -4829,7 +4829,18 @@
             </text>
           </values>
         </item>
-        <item id="kEr5ZNbpgvA">
+        <item id="iwlgiiytbgg" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>The Sparkle alert sets SUEnableAutomaticChecks but the Preferences checkbox sets SUCheckAtStartup. These should be consistent, somehow.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="kEr5ZNbpgvA" state="checked">
           <values>
             <text>
               <p>
@@ -4840,7 +4851,7 @@
             </text>
           </values>
         </item>
-        <item id="nsnWy9DgEaz">
+        <item id="nsnWy9DgEaz" state="checked">
           <values>
             <text>
               <p>
@@ -4851,7 +4862,7 @@
             </text>
           </values>
         </item>
-        <item id="pTLQBBZCMNB">
+        <item id="pTLQBBZCMNB" state="checked">
           <values>
             <text>
               <p>
@@ -4862,7 +4873,7 @@
             </text>
           </values>
         </item>
-        <item id="oi2D4LzN75_">
+        <item id="oi2D4LzN75_" state="checked">
           <values>
             <text>
               <p>
@@ -4886,6 +4897,28 @@
         </text>
       </values>
       <children>
+        <item id="cMx00vcPQv_">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Remove volume setting code</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="bBDlUDQpHzQ">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix the beep preview (NJRQTMediaPopUpButton.m) to work like the actual beep</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="pXixUuSef0K">
           <values>
             <text>
@@ -4929,30 +4962,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="osFYu2nyTcS">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Fix saving/restoring read me divider width; autosave isn&apos;t working properly</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="m9-MiESb8Gz">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Probably the +25 padding we&apos;re adding or similar</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="c6eQKGHL8H1">
           <values>
@@ -5083,17 +5092,6 @@
               </children>
             </item>
           </children>
-        </item>
-        <item id="nVBLUJLMa_2">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Reevaluate default Read Me window size (1024×768 is minimum screen size)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="on-H0eb7CPg">
           <values>
@@ -5926,6 +5924,41 @@
         </text>
       </values>
       <children>
+        <item id="nVBLUJLMa_2">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Reevaluate default Read Me window size (1024×768 is minimum screen size)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="osFYu2nyTcS">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix saving/restoring read me divider width; autosave isn&apos;t working properly</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="m9-MiESb8Gz">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Probably the +25 padding we&apos;re adding or similar</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="cxhjINnivnn">
           <values>
             <text>
