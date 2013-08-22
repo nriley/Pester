@@ -134,10 +134,10 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
         // command-option
         commandOptionRejectSet = [[NSCharacterSet characterSetWithCharactersInString: @"DW\\-= "] retain];
 
-	[soundOutputDeviceExplanatoryText setStringValue:
-	 NSLocalizedString(@"Alert sounds are always played through the default alert device.", "'Play sound through' preference explanatory text for 10.5+")];
+        [soundOutputDeviceExplanatoryText setStringValue:
+         NSLocalizedString(@"Alert sounds are always played through the default alert device.", "'Play sound through' preference explanatory text for 10.5+")];
 
-	[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(soundOutputDeviceListChanged:)  name: NJRSoundDeviceListChangedNotification object: nil];
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(soundOutputDeviceListChanged:) name: NJRSoundDeviceListChangedNotification object: nil];
     }
     return self;
 }
