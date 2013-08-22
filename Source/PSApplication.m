@@ -42,7 +42,6 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
     appIconImage = [[NSImage imageNamed: @"NSApplicationIcon"] retain];
     [[NSNotificationCenter defaultCenter] addObserver: [PSAlarmAlertController class] selector: @selector(controllerWithTimerExpiredNotification:) name: PSAlarmTimerExpiredNotification object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(nextAlarmDidChange:) name: PSAlarmsNextAlarmDidChangeNotification object: nil];
-    // XXX exception handling
     [PSAlarms setUp];
     [self setDelegate: self];
     [PSPreferencesController readPreferences];
@@ -313,7 +312,6 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
 {
-    // XXX import panel will not be frontmost window if you switch to another app while Pester is launching; Mac OS X bug?
     PSAlarms *allAlarms = [PSAlarms allAlarms];
     unsigned version1AlarmCount = [allAlarms countOfVersion1Alarms];
     if (version1AlarmCount > 0) {

@@ -25,8 +25,6 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
 
 @implementation PSAlarmNotifierController
 
-// XXX should use NSNonactivatingPanelMask on 10.2?
-
 - (id)initWithAlarm:(PSAlarm *)anAlarm;
 {
     if ( (self = [self initWithWindowNibName: @"Notifier"]) != nil) {
