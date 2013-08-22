@@ -54,11 +54,10 @@
 {
     if (returnCode == NSRunAbortedResponse) {
         [aController setSnoozeInterval: snoozeInterval];
-        [sheet close];
     } else {
         [aController snoozeUntilDate: [alarm date]];
     }
-    // XXX according to Cocoa documentation, the sheet should hide after the didEnd method returns, but it doesn't.
+    [sheet close];
 }
 
 // XXX yuck, should not be duplicating this method between PSAlarmSetController and PSSnoozeUntilController
