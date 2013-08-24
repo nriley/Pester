@@ -28,7 +28,7 @@
       <enclosure url="http://sabi.net/nriley/software/Pester-1.1b15.dmg" length="899055" type="application/x-apple-diskimage" sparkle:version="48" sparkle:shortVersionString="1.1b15" sparkle:dsaSignature="MCwCFHNFUFYdlazYaHQr8gPkZDIQK6Q2AhR/2xuRHmUMII4BJuUPYHO25Sn16g=="/>
       <guid isPermaLink="false">pester-11b15</guid>
       <sparkle:minimumSystemVersion>10.6</sparkle:minimumSystemVersion>
-      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
     </item>
     <item>
       <title>Pester 1.1b14</title>
@@ -57,7 +57,7 @@
       <pubDate>Wed, 13 Oct 2010 19:06:06 -0500</pubDate>
       <enclosure url="http://sabi.net/nriley/software/Pester-1.1b12.dmg" length="947657" type="application/x-apple-diskimage" sparkle:version="42" sparkle:shortVersionString="1.1b12" sparkle:dsaSignature="MCwCFGqQNemaJUQbiLdWqJ+ByUFYkM0+AhQahbu++mxHZhCGmg7lJHi7Zo7C7w=="/>
       <guid isPermaLink="false">pester-11b12</guid>
-      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
     </item>
     <item>
       <title>Pester 1.1b11</title>
@@ -66,7 +66,7 @@
       <pubDate>Wed, 25 Aug 2010 17:13:28 -0500</pubDate>
       <enclosure url="http://sabi.net/nriley/software/Pester-1.1b11.dmg" length="947691" type="application/x-apple-diskimage" sparkle:version="39" sparkle:shortVersionString="1.1b11" sparkle:dsaSignature="MCwCFCcVx4rb8eivMyxn27sV7XK0d8rjAhRR+5m4LnghTd6fEK9lGD2V7xdFOA=="/>
       <guid isPermaLink="false">pester-11b11</guid>
-      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
     </item>
     <item>
       <title>Pester 1.1b10</title>
@@ -75,25 +75,25 @@
       <pubDate>Sun, 30 May 2010 19:30:56 -0500</pubDate>
       <enclosure url="http://sabi.net/nriley/software/Pester-1.1b10.dmg" length="861747" type="application/x-apple-diskimage" sparkle:version="36" sparkle:shortVersionString="1.1b10" sparkle:dsaSignature="MC0CFQCi+DEgHJqWo01DphFqTAS5R1tu9AIUG55E5aFg9hbaYSF46wEoOgddaLg="/>
       <guid isPermaLink="false">pester-11b10</guid>
-      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
     </item>
     <item>
       <title>Pester 1.1b9</title>
       <link>http://sabi.net/nriley/software/#pester</link>
       <author>pester@sabi.net (Nicholas Riley)</author>
-      <pubDate>Mon, Apr 26 2010 14:40:57 -0600</pubDate>
+      <pubDate>Mon, 26 Apr 2010 14:40:57 -0600</pubDate>
       <enclosure url="http://sabi.net/nriley/software/Pester-1.1b9.dmg" length="861788" type="application/x-apple-diskimage" sparkle:version="35" sparkle:shortVersionString="1.1b9" sparkle:dsaSignature="MC0CFQCdgAbBlnv3ov+TxWjkKMFTjukjEgIUPfoPoFTRB2Rtbe/IuFoTGTAWB2Q="/>
       <guid isPermaLink="false">pester-11b9</guid>
-      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
     </item>
     <item>
       <title>Pester 1.1b8</title>
       <link>http://sabi.net/nriley/software/#pester</link>
       <author>pester@sabi.net (Nicholas Riley)</author>
-      <pubDate>Thu, Mar 25 2010 23:37:42 -0600</pubDate>
+      <pubDate>Thu, 25 Mar 2010 23:37:42 -0600</pubDate>
       <enclosure url="http://sabi.net/nriley/software/Pester-1.1b8.dmg" length="881197" type="application/x-apple-diskimage" sparkle:version="31" sparkle:shortVersionString="1.1b8" sparkle:dsaSignature="MCwCFEXjpffxDjyd5XjtZxB8OaHJ9+TKAhQbz4S/ESgg3i+lo9PARA51U40tcA=="/>
       <guid isPermaLink="false">pester-11b8</guid>
-      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html#sparkle</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
     </item>
     <item>
       <title>Pester 1.1b7</title>
