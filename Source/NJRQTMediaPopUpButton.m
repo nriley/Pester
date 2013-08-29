@@ -51,7 +51,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (NSString *)_defaultKey;
 {
     NSAssert([self tag] != 0, NSLocalizedString(@"Can't track recently selected media for popup with tag 0: please set a tag", "Assertion for QuickTime media popup button if tag is 0"));
-    return [NSString stringWithFormat: @"NJRQTMediaPopUpButtonMaxRecentItems tag %d", [self tag]];
+    return [NSString stringWithFormat: @"NJRQTMediaPopUpButtonMaxRecentItems tag %ld", (long)[self tag]];
 }
 
 - (void)_writeRecentMedia;
@@ -566,8 +566,8 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (NSString *)_descriptionForDraggingInfo:(id <NSDraggingInfo>)sender;
 {
     NSDragOperation mask = [sender draggingSourceOperationMask];
-    NSMutableString *s = [NSMutableString stringWithFormat: @"Drag seq %d source: %@",
-        [sender draggingSequenceNumber], [sender draggingSource]];
+    NSMutableString *s = [NSMutableString stringWithFormat: @"Drag seq %ld source: %@",
+        (long)[sender draggingSequenceNumber], [sender draggingSource]];
     NSPasteboard *draggingPasteboard = [sender draggingPasteboard];
     NSArray *types = [draggingPasteboard types];
     NSEnumerator *e = [types objectEnumerator];

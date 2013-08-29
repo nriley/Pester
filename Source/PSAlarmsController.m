@@ -98,7 +98,7 @@
 
 #pragma mark NSTableViewDataSource
 
-- (int)numberOfRowsInTableView:(NSTableView *)tableView;
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
 {
     return [alarms alarmCount];
 }

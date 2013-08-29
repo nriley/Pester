@@ -11,7 +11,7 @@
 
 @implementation NJRHotKeyFieldCell
 
-- (void)selectWithFrame:(NSRect)aRect inView:(NSView *)controlView editor:(NSText *)textObj delegate:(id)anObject start:(int)selStart length:(int)selLength
+- (void)selectWithFrame:(NSRect)aRect inView:(NSView *)controlView editor:(NSText *)textObj delegate:(id)anObject start:(NSInteger)selStart length:(NSInteger)selLength;
 {
     [super selectWithFrame: aRect inView: controlView editor: textObj delegate: anObject start: 0 length: 0];
     [textObj setSelectable: NO];

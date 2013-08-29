@@ -16,7 +16,7 @@ typedef struct { NSString *key; BOOL descending; } SortContext;
 // Sort array of itemNums, by looking up the itemNum in the dictionary of objects.
 // based on code of Ondra Cada <ocs@ocs.cz> on cocoa-dev list
 
-int ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
+NSInteger ORDER_BY_CONTEXT(id left, id right, void *ctxt) {
     SortContext *context = (SortContext *)ctxt;
     int order = 0;
     id key = context->key;
@@ -244,7 +244,7 @@ noContext:
     [self _positionTypeSelectDisplay];
 }
 
-- (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)tc row:(int)rowIndex mouseLocation:(NSPoint)mouseLocation;
+- (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)tc row:(NSInteger)rowIndex mouseLocation:(NSPoint)mouseLocation;
 {
     id dataSource = [aTableView dataSource];
     

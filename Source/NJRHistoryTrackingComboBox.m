@@ -26,7 +26,7 @@ static CGEventRef flags_changed(CGEventTapProxy proxy, CGEventType type, CGEvent
 - (NSString *)_defaultKey;
 {
     NSAssert([self tag] != 0, NSLocalizedString(@"Can't track history for combo box with tag 0: please set a tag", "Assertion for history tracking combo box if tag is 0"));
-    return [NSString stringWithFormat: @"NJRHistoryTrackingComboBox tag %d", [self tag]];
+    return [NSString stringWithFormat: @"NJRHistoryTrackingComboBox tag %ld", (long)[self tag]];
 }
 
 - (void)awakeFromNib;
