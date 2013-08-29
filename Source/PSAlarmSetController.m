@@ -385,7 +385,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
     BOOL canRepeat = playSoundSelected ? [sound canRepeat] : NO;
     [sound setEnabled: playSoundSelected];
     [soundRepetitions setEnabled: canRepeat];
-    [soundVolumeButton setEnabled: canRepeat && [sound hasAudio]];
+    [soundVolumeButton setEnabled: canRepeat && [sound canAdjustVolume]];
     [soundRepetitionStepper setEnabled: canRepeat];
     [soundRepetitionsLabel setTextColor: canRepeat ? [NSColor controlTextColor] : [NSColor disabledControlTextColor]];
     if (playSoundSelected && sender != nil)

@@ -14,7 +14,7 @@ extern NSString * const NJRQTMediaPopUpButtonMovieChangedNotification;
 
 @interface NJRQTMediaPopUpButton : NSPopUpButton <NSOpenSavePanelDelegate> {
     IBOutlet QTMovieView *preview;
-    BOOL movieCanRepeat, movieHasAudio;
+    BOOL mediaCanRepeat, mediaCanAdjustVolume;
     NSMenuItem *otherItem;
     BDAlias *selectedAlias, *previousAlias;
     NSMutableArray *recentMediaAliasData;
@@ -28,7 +28,7 @@ extern NSString * const NJRQTMediaPopUpButtonMovieChangedNotification;
 - (void)setOutputVolume:(float)volume withPreview:(BOOL)doPreview;
 
 - (BOOL)canRepeat;
-- (BOOL)hasAudio;
+- (BOOL)canAdjustVolume;
 
 - (IBAction)stopSoundPreview:(id)sender;
 

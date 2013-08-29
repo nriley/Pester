@@ -12,6 +12,7 @@
 #import "QTMovie-NJRExtensions.h"
 #import "NSMenuItem-NJRExtensions.h"
 
+#include <AudioToolbox/AudioToolbox.h>
 #include <QuickTime/QuickTime.h>
 #include <limits.h>
 
@@ -289,12 +290,12 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (BOOL)canRepeat;
 {
-    return movieCanRepeat;
+    return mediaCanRepeat;
 }
 
-- (BOOL)hasAudio;
+- (BOOL)canAdjustVolume;
 {
-    return movieHasAudio;
+    return mediaCanAdjustVolume;
 }
 
 - (float)outputVolume;
@@ -329,9 +330,12 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (void)_startSoundPreview;
 {
-    if ([preview movie] == nil || outputVolume == kNoVolume)
-	return;
+    if ([preview movie] == nil)
+        return;
 
+    if (outputVolume == kNoVolume) {
+        [self _resetPreview];
+        return;
     }
 
     [[preview movie] setVolume: outputVolume];
@@ -368,16 +372,16 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [preview pause: self];
     if (selectedAlias == nil) {
         [preview setMovie: nil];
-        movieCanRepeat = YES;
-        movieHasAudio = NO; // XXX should be YES - this is broken, NSBeep() is asynchronous
+        mediaCanRepeat = YES;
+        mediaCanAdjustVolume = NO;
         if (doPreview) {
-            NSBeep();
+            AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert);
         }
     } else {
 	NSError *error;
 	QTMovie *movie = [[QTMovie alloc] initWithFile: [selectedAlias fullPath] error: &error];
-        movieCanRepeat = ![movie NJR_isStatic];
-        if ((movieHasAudio = [movie NJR_hasAudio])) {
+        mediaCanRepeat = ![movie NJR_isStatic];
+        if ( (mediaCanAdjustVolume = [movie NJR_hasAudio])) {
             [preview setMovie: doPreview ? movie : nil];
         } else {
             [self _resetPreview];
