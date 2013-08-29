@@ -9,7 +9,6 @@
 #import "NJRQTMediaPopUpButton.h"
 #import "NJRFSObjectSelector.h"
 #import "NJRSoundDevice.h"
-#import "NJRSoundManager.h"
 #import "QTMovie-NJRExtensions.h"
 #import "NSMenuItem-NJRExtensions.h"
 
@@ -27,7 +26,6 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (void)_startSoundPreview;
 - (void)_soundPreviewDidEnd:(NSNotification *)notification;
 - (void)_resetPreview;
-- (void)_resetOutputVolume;
 - (void)_aliasSelected:(NSMenuItem *)sender;
 - (void)_beepSelected:(NSMenuItem *)sender;
 - (void)_systemSoundSelected:(NSMenuItem *)sender;
@@ -306,7 +304,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (void)setOutputVolume:(float)volume withPreview:(BOOL)doPreview;
 {
-    if (![NJRSoundManager volumeIsNotMutedOrInvalid: volume]) return;
+    if (![NJRSoundDevice volumeIsNotMutedOrInvalid: volume]) return;
     outputVolume = volume;
     if (!doPreview) return;
     // NSLog(@"setting volume to %f, preview movie %@", volume, [preview movie]);
@@ -334,14 +332,9 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     if ([preview movie] == nil || outputVolume == kNoVolume)
 	return;
 
-    if ([NJRSoundManager shouldOverrideOutputVolume]) {
-	if (savedVolume || [NJRSoundManager saveDefaultOutputVolume]) {
-	    savedVolume = YES;
-	    [NJRSoundManager setDefaultOutputVolume: outputVolume];
-	}
-    } else {
-	[[preview movie] setVolume: outputVolume];
     }
+
+    [[preview movie] setVolume: outputVolume];
 
     SetMovieAudioContext([[preview movie] quickTimeMovie],
 			 [[NJRSoundDevice defaultOutputDevice] quickTimeAudioContext]);
@@ -364,14 +357,6 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (void)_resetPreview;
 {
     [preview setMovie: nil];
-    [self _resetOutputVolume];
-}
-
-- (void)_resetOutputVolume;
-{
-    if ([NJRSoundManager shouldOverrideOutputVolume])
-	[NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: outputVolume];
-    savedVolume = NO;
 }
 
 - (BOOL)_validateWithPreview:(BOOL)doPreview;
@@ -386,9 +371,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
         movieCanRepeat = YES;
         movieHasAudio = NO; // XXX should be YES - this is broken, NSBeep() is asynchronous
         if (doPreview) {
-            // XXX [self _updateOutputVolume];
             NSBeep();
-            // XXX [self _resetOutputVolume];
         }
     } else {
 	NSError *error;

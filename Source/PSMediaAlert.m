@@ -8,7 +8,7 @@
 
 #import "PSMediaAlert.h"
 #import "NSDictionary-NJRExtensions.h"
-#import "NJRSoundManager.h"
+#import "NJRSoundDevice.h"
 
 // property list keys
 static NSString * const PLAlertRepetitions = @"times"; // NSString
@@ -47,7 +47,7 @@ const float PSMediaAlertNoVolume = 0;
 
 - (void)setOutputVolume:(float)volume;
 {
-    if ([NJRSoundManager volumeIsNotMutedOrInvalid: volume])
+    if ([NJRSoundDevice volumeIsNotMutedOrInvalid: volume])
         outputVolume = volume;
     else
         outputVolume = PSMediaAlertNoVolume;

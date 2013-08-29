@@ -11,7 +11,6 @@
 @interface PSBeepAlert : PSMediaAlert {
     PSAlarm *alarm;
     unsigned short repetitionsRemaining;
-    BOOL savedVolume;
 }
 
 + (PSBeepAlert *)alertWithRepetitions:(unsigned short)numReps;

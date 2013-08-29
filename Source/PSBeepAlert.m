@@ -10,7 +10,6 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "PSBeepAlert.h"
 #import "PSAlarmAlertController.h"
-#import "NJRSoundManager.h"
 #import "NSDictionary-NJRExtensions.h"
 
 // property list keys
@@ -41,8 +40,6 @@ static void PSBeepAlertSoundCompleted(SystemSoundID ssID, void *self) {
 {
     if (repetitionsRemaining == 0) {
 	AudioServicesRemoveSystemSoundCompletion(kSystemSoundID_UserPreferredAlert);
-        if (savedVolume)
-            [NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: outputVolume];
         [self completedForAlarm: alarm];
         [self release];
         return;
@@ -62,7 +59,6 @@ static void PSBeepAlertSoundCompleted(SystemSoundID ssID, void *self) {
     repetitionsRemaining = repetitions;
     [self retain];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(_stopBeeping:) name: PSAlarmAlertStopNotification object: nil];
-    savedVolume = [NJRSoundManager saveDefaultOutputVolume];
     AudioServicesAddSystemSoundCompletion(kSystemSoundID_UserPreferredAlert, NULL, NULL, PSBeepAlertSoundCompleted, (void *)self);
     [self beep];
 }

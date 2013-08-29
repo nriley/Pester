@@ -19,7 +19,6 @@ extern NSString * const NJRQTMediaPopUpButtonMovieChangedNotification;
     BDAlias *selectedAlias, *previousAlias;
     NSMutableArray *recentMediaAliasData;
     BOOL dragAccepted;
-    BOOL savedVolume;
     float outputVolume;
 }
 

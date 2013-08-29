@@ -80,7 +80,6 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
 	return nil;
 	
     deviceID = audioDeviceID;
-    savedChannelVolume[kLeftChannel] = savedChannelVolume[kRightChannel] = -1;
 
     // is it an output device?
     UInt32 propertySize;
@@ -162,25 +161,6 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
 	return nil;
     }
 
-    // get stereo channel IDs (so we can try to set their volume)
-    propertyAddress.mSelector = kAudioDevicePropertyPreferredChannelsForStereo;
-    propertyAddress.mScope = kAudioDevicePropertyScopeOutput;
-    propertyAddress.mElement = kAudioObjectPropertyElementWildcard;
-    propertySize = sizeof(stereoChannels);
-    err = AudioObjectGetPropertyData(audioDeviceID, &propertyAddress, 0, NULL, &propertySize, &stereoChannels);
-    canSetVolume = (err == noErr);
-    if (!canSetVolume)
-	return self;
-
-    // can we set the volume?
-    Boolean isSettable;
-    propertyAddress.mSelector = kAudioDevicePropertyVolumeScalar;
-    propertyAddress.mElement = stereoChannels[kLeftChannel]; // XXX or set master volume?
-    err = AudioObjectIsPropertySettable(audioDeviceID, &propertyAddress, &isSettable);
-    canSetVolume = (err == noErr) && isSettable;
-    if (!canSetVolume)
-	return self;
-    
     return self;
 }
 
@@ -208,7 +188,7 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
 
 - (NSString *)description;
 {
-    return [NSString stringWithFormat: @"<NJRSoundDevice '%@'%@>", name, canSetVolume ? @" can set volume" : @""];
+    return [NSString stringWithFormat: @"<NJRSoundDevice '%@'>", name];
 }
 
 - (NSString *)name;
@@ -224,11 +204,6 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
 - (AudioDeviceID)deviceID;
 {
     return deviceID;
-}
-
-- (BOOL)canSetVolume;
-{
-    return canSetVolume;
 }
 
 + (NSArray *)allOutputDevices;
@@ -364,64 +339,9 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
     return (QTAudioContextRef)[(id)audioContext autorelease];
 }
 
-- (BOOL)getOutputVolume:(float *)volume;
++ (BOOL)volumeIsNotMutedOrInvalid:(float)volume;
 {
-    UInt32 propertySize;
-    OSStatus err;
-    
-    // read the current volume scalar settings [0...1]
-    propertySize = sizeof(float);
-    err = AudioDeviceGetProperty(deviceID, stereoChannels[kLeftChannel], false, kAudioDevicePropertyVolumeScalar, &propertySize, &channelVolume[kLeftChannel]);
-    if (err != noErr) return NO;
-    err = AudioDeviceGetProperty(deviceID, stereoChannels[kRightChannel], false, kAudioDevicePropertyVolumeScalar, &propertySize, &channelVolume[kRightChannel]);
-    if (err != noErr) return NO;
-    if (volume != NULL) *volume = MAX(channelVolume[kLeftChannel], channelVolume[kRightChannel]);
-    return YES;
-}
-
-- (void)_updateChannelVolume;
-{
-    UInt32 propertySize = sizeof(channelVolume[kLeftChannel]);
-    // ignore errors
-    AudioDeviceSetProperty(deviceID, NULL, stereoChannels[kLeftChannel], false, kAudioDevicePropertyVolumeScalar, propertySize, &channelVolume[kLeftChannel]);
-    AudioDeviceSetProperty(deviceID, NULL, stereoChannels[kRightChannel], false, kAudioDevicePropertyVolumeScalar, propertySize, &channelVolume[kRightChannel]);
-}
-
-- (BOOL)saveOutputVolume;
-{
-    if (![self getOutputVolume: NULL]) return NO;
-    savedChannelVolume[kLeftChannel] = channelVolume[kLeftChannel];
-    savedChannelVolume[kRightChannel] = channelVolume[kRightChannel];
-    // NSLog(@"saving channel volume {%f, %f}", channelVolume[kLeftChannel],channelVolume[kRightChannel]);
-    return YES;
-}
-
-- (void)setOutputVolume:(float)volume;
-{
-    if (!canSetVolume) return;
-    
-    channelVolume[kLeftChannel] = volume;
-    channelVolume[kRightChannel] = volume;
-    [self _updateChannelVolume];
-}
-
-- (void)restoreSavedOutputVolume;
-{
-    if (savedChannelVolume[kLeftChannel] < 0) return;
-    // NSLog(@"restoring saved channel volume");
-    channelVolume[kLeftChannel] = savedChannelVolume[kLeftChannel];
-    channelVolume[kRightChannel] = savedChannelVolume[kRightChannel];
-    savedChannelVolume[kLeftChannel] = -1;
-    savedChannelVolume[kRightChannel] = -1;
-    [self _updateChannelVolume];
-}
-
-- (void)restoreSavedOutputVolumeIfCurrently:(float)volume;
-{
-    float currentVolume;
-    if ([self getOutputVolume: &currentVolume] && abs(volume - currentVolume) < 0.05) {
-        [self restoreSavedOutputVolume];
-    }
+    return (volume > 0 && volume <= 1);
 }
 
 @end

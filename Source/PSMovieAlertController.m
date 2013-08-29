@@ -10,7 +10,6 @@
 #import "PSMovieAlertController.h"
 #import "PSMovieAlert.h"
 #import "QTMovie-NJRExtensions.h"
-#import "NJRSoundManager.h"
 #import "NJRSoundDevice.h"
 
 #include <QuickTime/QuickTime.h>
@@ -26,8 +25,6 @@
 - (void)close;
 {
     [super close];
-    if ([NJRSoundManager shouldOverrideOutputVolume])
-	[NJRSoundManager restoreSavedDefaultOutputVolumeIfCurrently: [alert outputVolume]];
 }
 
 - (void)_movieRateDidChange:(NSNotification *)notification;
@@ -99,11 +96,8 @@
         }
         [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(close) name: PSAlarmAlertStopNotification object: nil];
         repetitions = [alert repetitions];
-        if ([movie NJR_hasAudio] && [NJRSoundManager volumeIsNotMutedOrInvalid: [alert outputVolume]]) {
-	    if ([NJRSoundManager shouldOverrideOutputVolume] && [NJRSoundManager saveDefaultOutputVolume])
-		[NJRSoundManager setDefaultOutputVolume: [alert outputVolume]];
-	    else
-		[movie setVolume: [alert outputVolume]];
+        if ([movie NJR_hasAudio] && [NJRSoundDevice volumeIsNotMutedOrInvalid: [alert outputVolume]]) {
+            [movie setVolume: [alert outputVolume]];
 
 	    SetMovieAudioContext([movie quickTimeMovie],
 				 [[NJRSoundDevice defaultOutputDevice] quickTimeAudioContext]);

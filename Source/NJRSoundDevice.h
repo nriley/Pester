@@ -17,10 +17,6 @@ extern NSString * const NJRSoundDeviceDefaultOutputDeviceChangedNotification;
     NSString *name;
     NSString *uid;
     AudioDeviceID deviceID;
-    UInt32 stereoChannels[2];
-    float channelVolume[2];
-    float savedChannelVolume[2];
-    BOOL canSetVolume;
     BOOL registeredSourceListener;
 }
 
@@ -30,16 +26,10 @@ extern NSString * const NJRSoundDeviceDefaultOutputDeviceChangedNotification;
 
 - (NSString *)name;
 - (NSString *)uid;
-- (BOOL)canSetVolume;
-
-- (BOOL)getOutputVolume:(float *)volume;
-- (void)setOutputVolume:(float)volume;
-
-- (BOOL)saveOutputVolume;
-- (void)restoreSavedOutputVolume;
-- (void)restoreSavedOutputVolumeIfCurrently:(float)volume;
 
 - (QTAudioContextRef)quickTimeAudioContext;
 - (AudioDeviceID)deviceID;
+
++ (BOOL)volumeIsNotMutedOrInvalid:(float)volume;
 
 @end

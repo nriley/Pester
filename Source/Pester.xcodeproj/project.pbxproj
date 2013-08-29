@@ -55,7 +55,6 @@
 		E11E00F017BEE85D00BA997C /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CA17BC7E3700DC565A /* NSString+SymlinksAndAliases.m */; };
 		E11E00F117BEE86600BA997C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1F1D117BC80C500DC565A /* Security.framework */; };
 		E11E00F217BEE87900BA997C /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18DAAEE0442D02500050002 /* CoreAudio.framework */; };
-		E11E00F317BEE88700BA997C /* NJRSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */; };
 		E11E00F417BEE88D00BA997C /* NJRSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */; };
 		E11E00F517BEE89700BA997C /* PSPowerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E130B9AD03B7C59700000028 /* PSPowerManager.m */; };
 		E11E00F617BEE8A300BA997C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14DB31203B8038300000028 /* IOKit.framework */; };
@@ -159,7 +158,6 @@
 		E1B11F790CF5F30F004975AA /* NJRHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E145383F043A1DB200050002 /* NJRHotKeyManager.m */; };
 		E1B11F7A0CF5F30F004975AA /* PSVolumeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E127900D0442A92900050002 /* PSVolumeController.m */; };
 		E1B11F7B0CF5F30F004975AA /* PSMediaAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E18DA4090442C56D00050002 /* PSMediaAlert.m */; };
-		E1B11F7C0CF5F30F004975AA /* NJRSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */; };
 		E1B11F7D0CF5F30F004975AA /* NJRNonCenteringWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CDEC3E0444053F00AEEDB1 /* NJRNonCenteringWindow.m */; };
 		E1B11F7F0CF5F30F004975AA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		E1B11F800CF5F30F004975AA /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F240D0036A87E301FE7503 /* Carbon.framework */; };
@@ -363,8 +361,6 @@
 		E18A26361145D41400E27A11 /* NJRSoundDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRSoundDevice.m; sourceTree = "<group>"; };
 		E18DA4080442C56D00050002 /* PSMediaAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMediaAlert.h; sourceTree = "<group>"; };
 		E18DA4090442C56D00050002 /* PSMediaAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMediaAlert.m; sourceTree = "<group>"; };
-		E18DAAEA0442CC3E00050002 /* NJRSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRSoundManager.h; sourceTree = "<group>"; };
-		E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRSoundManager.m; sourceTree = "<group>"; };
 		E18DAAEE0442D02500050002 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
 		E18E822E113CC5C300687310 /* PSDateFieldEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDateFieldEditor.h; sourceTree = "<group>"; };
 		E18E822F113CC5C300687310 /* PSDateFieldEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDateFieldEditor.m; sourceTree = "<group>"; };
@@ -865,8 +861,6 @@
 				E145383F043A1DB200050002 /* NJRHotKeyManager.m */,
 				E18A26351145D41400E27A11 /* NJRSoundDevice.h */,
 				E18A26361145D41400E27A11 /* NJRSoundDevice.m */,
-				E18DAAEA0442CC3E00050002 /* NJRSoundManager.h */,
-				E18DAAEB0442CC3E00050002 /* NJRSoundManager.m */,
 				E1246FDC1177EF4700AC249B /* NJRSpeechSynthesizer.h */,
 				E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */,
 				E1CDEC3D0444053F00AEEDB1 /* NJRNonCenteringWindow.h */,
@@ -1182,7 +1176,6 @@
 				E11E00EE17BEE85100BA997C /* NJRReadMeController.m in Sources */,
 				E11E00EF17BEE85A00BA997C /* PFMoveApplication.m in Sources */,
 				E11E00F017BEE85D00BA997C /* NSString+SymlinksAndAliases.m in Sources */,
-				E11E00F317BEE88700BA997C /* NJRSoundManager.m in Sources */,
 				E11E00F417BEE88D00BA997C /* NJRSpeechSynthesizer.m in Sources */,
 				E11E00F517BEE89700BA997C /* PSPowerManager.m in Sources */,
 				E11E00F817BEE8B000BA997C /* PSAlarmNotifierController.m in Sources */,
@@ -1265,7 +1258,6 @@
 				E1B11F790CF5F30F004975AA /* NJRHotKeyManager.m in Sources */,
 				E1B11F7A0CF5F30F004975AA /* PSVolumeController.m in Sources */,
 				E1B11F7B0CF5F30F004975AA /* PSMediaAlert.m in Sources */,
-				E1B11F7C0CF5F30F004975AA /* NJRSoundManager.m in Sources */,
 				E1B11F7D0CF5F30F004975AA /* NJRNonCenteringWindow.m in Sources */,
 				E1B121970CF62FD1004975AA /* NSMenuItem-NJRExtensions.m in Sources */,
 				E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */,

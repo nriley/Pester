@@ -17,7 +17,6 @@
 #import "NJRFSObjectSelector.h"
 #import "NJRIntervalField.h"
 #import "NJRQTMediaPopUpButton.h"
-#import "NJRSoundManager.h"
 #import "NJRValidatingField.h"
 #import "NJRVoicePopUpButton.h"
 #import "NSString-NJRExtensions.h"
@@ -70,11 +69,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
     if ([[removeMessageButton image] size].width != 0)
 	[removeMessageButton setTitle: @""];
     timeDateEditor = [[PSTimeDateEditor alloc] initWithTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions controller: self];
-    { // volume defaults, usually overridden by restored alert info
-        float volume = 0.5f;
-        [NJRSoundManager getDefaultOutputVolume: &volume];
-        [self _setVolume: volume withPreview: NO];
-    }
+    [self _setVolume: 1.0f withPreview: NO]; // volume default, usually overridden by restored alert info
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [editAlert setState: [defaults boolForKey: PSAlertsEditing]];

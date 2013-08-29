@@ -7,8 +7,8 @@
 //
 
 #import "PSVolumeController.h"
-#import "NJRSoundManager.h"
 #import "NJRNonCenteringWindow.h"
+#import "NJRSoundDevice.h"
 #include <Carbon/Carbon.h>
 
 @interface NSMenu (SnowLeopardAdditions)
@@ -33,7 +33,7 @@
     if ( (self = [self initWithWindowNibName: @"Volume"]) != nil) {
         [self window]; // connect outlets
 
-	if ([NJRSoundManager volumeIsNotMutedOrInvalid: volume])
+	if ([NJRSoundDevice volumeIsNotMutedOrInvalid: volume])
             [volumeSlider setFloatValue: volume];
 
         delegate = [aDelegate retain];

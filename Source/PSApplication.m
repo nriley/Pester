@@ -13,7 +13,6 @@
 #import "PSGrowlController.h"
 #import "PSPreferencesController.h"
 #import "NJRReadMeController.h"
-#import "NJRSoundManager.h"
 #import "PSAlarm.h"
 #import "PSAlarms.h"
 #import "PSTimer.h"
@@ -381,7 +380,6 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (void)applicationWillTerminate:(NSNotification *)notification;
 {
-    [NJRSoundManager restoreSavedDefaultOutputVolume];
     [NSApp setApplicationIconImage: appIconImage];
 }
 
