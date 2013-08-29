@@ -302,7 +302,6 @@
 		E11E00B117BEE23B00BA997C /* JRErr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRErr.m; path = JRErr/JRErr/JRErr.m; sourceTree = "<group>"; };
 		E11E00BC17BEE2E900BA997C /* PesterTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PesterTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11E00BD17BEE2E900BA997C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		E11E00C117BEE2E900BA997C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E11E00C417BEE2E900BA997C /* PesterTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PesterTest-Info.plist"; sourceTree = "<group>"; };
 		E11E00C817BEE2E900BA997C /* PesterTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PesterTest.h; sourceTree = "<group>"; };
 		E11E00C917BEE2E900BA997C /* PesterTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PesterTest.m; sourceTree = "<group>"; };
@@ -570,7 +569,6 @@
 			children = (
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
-				E11E00C117BEE2E900BA997C /* CoreData.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
