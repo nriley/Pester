@@ -157,9 +157,11 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 650}" scroll-position="{0, 153}" column-titles-display-mode="auto">
+  <editor content-size="{551, 650}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="cMx00vcPQv_"/>
+    <selected-rows ids="c6u2eAABK2P"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{22, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -4886,12 +4888,23 @@
         </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+    <item id="gTwBAN8WuF9" state="checked">
+      <style/>
+      <style/>
+      <style/>
+      <style>
+        <value key="paragraph-tab-stop-interval">56</value>
+        <value key="paragraph-tab-stops">56L</value>
+      </style>
+      <style>
+        <value key="paragraph-tab-stop-interval">56</value>
+        <value key="paragraph-tab-stops">56L</value>
+      </style>
       <values>
         <text>
           <p>
             <run>
-              <lit>For 1.1 final</lit>
+              <lit>Beta 17</lit>
             </run>
           </p>
         </text>
@@ -4941,12 +4954,89 @@
             </text>
           </values>
         </item>
+        <item id="bBDlUDQpHzQ" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix the beep preview (NJRQTMediaPopUpButton.m) to work like the actual beep</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="jjZAyTpNkEA" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Perl 5.12 for 10.7–10.9</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+      </children>
+    </item>
+    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>For 1.1 final</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="c6u2eAABK2P">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Switch to the 10.8 SDK for Xcode 5 compatibility</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="aB_HXdWNVRR">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Work on startup time — slow even with SSD (fewer time zones? compare ± Perl)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <note expanded="yes">
+            <text>
+              <p>
+                <run>
+                  <lit>http://steveweller.com/articles/speedup/ is nice and simple (works on Mac too?)</lit>
+                </run>
+              </p>
+            </text>
+          </note>
+        </item>
+        <item id="pXixUuSef0K">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Documentation!</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="imAr-votsga">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Retina icon?</lit>
+                  <lit>Retina icon? Ask Diederik?</lit>
                 </run>
               </p>
             </text>
@@ -4963,29 +5053,7 @@
             </text>
           </values>
         </item>
-        <item id="pXixUuSef0K">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Documentation. Maybe less is better?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="bBDlUDQpHzQ">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Fix the beep preview (NJRQTMediaPopUpButton.m) to work like the actual beep</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="l4Rqlus22Ye">
+        <item id="l4Rqlus22Ye" expanded="yes">
           <values>
             <text>
               <p>
@@ -4995,6 +5063,19 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="d90nEuP7xCP">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Make sure http://joris.kluivers.nl/blog/2012/07/25/per-application-airplay-in-mountain-lion/ breaks too.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="lJLlHRbPcb8" expanded="yes">
           <values>
@@ -5031,23 +5112,36 @@
             </text>
           </values>
         </item>
+        <item id="kCOPoGtA412" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Stop abusing NSAssert — http://chanson.livejournal.com/170068.html</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="fROCS_-8Da1">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Follow-up to http://www.mikeash.com/pyblog/friday-qa-2013-08-30-model-serialization-with-property-lists.html should help</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="c6eQKGHL8H1">
           <values>
             <text>
               <p>
                 <run>
                   <lit>Retina displays have issues with the read me (10.8, maybe 10.7.4?)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="cO4IPXG2NDq">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Speech preview uses CPU in QuickTime movie idle (need to destroy something?)</lit>
                 </run>
               </p>
             </text>
@@ -5253,7 +5347,7 @@
         </item>
       </children>
     </item>
-    <item id="nqWfp1JOMA5" state="indeterminate">
+    <item id="nqWfp1JOMA5" expanded="yes">
       <values>
         <text>
           <p>
@@ -5264,6 +5358,146 @@
         </text>
       </values>
       <children>
+        <item id="fYQJ4Bknvt1" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Common user requests</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="e1DplVtaAIa">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Repeat every day if date is omitted.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="hFUcMaCHqaD">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Arbitrary repeats [Vicki Brown, others]</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="epegTBQD99F">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit><cell href="http://culturedcode.com/things/blog/2008/02/habemus-dialogum-we-have-a-dialog.html" name="culturedcode.com—habemus-dialogum-we-have-a-dialog.html" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="jl0OFwRPq1f">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>After we modernize date classes? some way to use ICU or CalendarStore?)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="dKs0IPwh8bD">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Could do the Due thing of just days of week.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="a0kAKJrNrzj">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Ability to pause/resume interval alarms. I&apos;d use it.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="ndkUlQo0eKA" expanded="yes">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Interval alarms don&apos;t get saved as interval + date; this is a difference from the hiptop Pester</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="ilsIZSRcRyc">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Do this early before people starting using the app much</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                    <item id="bZ-LypLnoRQ">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>In particular, make sure we can support everything the hiptop alarm format does</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                    <item id="nLTZiDIoKEM">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>It&apos;s weird how this interacts with snooze, so be careful</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                    <item id="n16EWqZagh0">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Do we need two intervals? I think I&apos;ve thought through time resetting interaction more carefully on the hiptop version.</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
+                </item>
+              </children>
+            </item>
+          </children>
+        </item>
         <item id="mQfcMmDdKRH" expanded="yes">
           <values>
             <text>
@@ -5321,6 +5555,28 @@
                 </text>
               </values>
               <children>
+                <item id="gDS9DN7wEYX">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Add &quot;trigger&quot; button to list in addition to &quot;delete&quot;</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="bs3tcycD1cn">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Or…trigger expired alarms at launch?</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
                 <item id="k227oa10yQ4">
                   <values>
                     <text>
@@ -5336,76 +5592,202 @@
             </item>
           </children>
         </item>
-        <item id="fYQJ4Bknvt1" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Common user requests</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="hFUcMaCHqaD" expanded="yes">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Arbitrary repeats [Vicki Brown, others]</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="epegTBQD99F">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit><cell href="http://culturedcode.com/things/blog/2008/02/habemus-dialogum-we-have-a-dialog.html" name="culturedcode.com—habemus-dialogum-we-have-a-dialog.html" type="link"/></lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="jl0OFwRPq1f">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>After we modernize date classes? some way to use ICU or CalendarStore?)</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="dKs0IPwh8bD">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Could do the Due thing of just days of week.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-          </children>
-        </item>
         <item id="pK_1BzW0Dsk">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Auto-snooze (seems like an interesting idea)</lit>
+                  <lit>Auto-snooze (seems like an interesting idea) — see Due</lit>
                 </run>
               </p>
             </text>
           </values>
         </item>
+        <item id="d6falrxFuPW" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Have a status stack: if there are any pending messages from the alerts, then display those instead of the alarm time and don&apos;t permit the &quot;Set&quot; button to be used.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="huMTdICeRjf">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Also: if there are no alerts, don’t allow setting the alarm.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+      </children>
+    </item>
+    <item id="cdYV41JFtXE">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Medium</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="l8IIIxMfoDZ">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Better handling of expiring alarms; should be possible to delete them</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="n2HQrvRG-s7">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Support *time* changes (different from time zone changes). Be careful: if an alarm expires, don&apos;t delete it.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="f0PGOAMPq0w">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Display time until next alarm for &quot;at&quot;, not just an expanded date.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="lLRR0rxoP1L">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>And finally, special-case time in 12-hour formats to mean the next occurrence of h:mm</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="mfJCcQ67jnw">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>...or does that interfere with tab-to-increment-date? How about making command key necessary for +/-? Then no autoincrement.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="grV-dRnIrV2">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Power manager interface</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="ieVdVX7EtRb">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Huh, it seems we never cancel wakeup ever ([PSPowerManager clearWakeTime]). This is dumb.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="lQmRYUSx3en">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Requires authorization? See </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://developer.apple.com/samplecode/BetterAuthorizationSample/" name="developer.apple.com—BetterAuthorizationSample" type="link"/></lit>
+                    </run>
+                    <run>
+                      <lit> if so (will have to deal with multiple users, networked home directories, and even versioning, too. This is really complicated.).</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="p0Qc8Ot2I8L">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Replacement for BetterAuthSample in 10.6: ServiceManagement </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://developer.apple.com/library/mac/#samplecode/SMJobBless/Introduction/Intro.html" name="developer.apple.com—mac" type="link"/></lit>
+                    </run>
+                    <run>
+                      <lit>#//apple_ref/doc/uid/DTS40010071</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="ewqCQz_o4cU">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>«expired» sorts weirdly by date</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <note>
+            <text>
+              <p>
+                <run>
+                  <lit><cell refid="att1" name="Picture 1" type="image" width="494" height="326"/></lit>
+                </run>
+              </p>
+            </text>
+          </note>
+        </item>
+      </children>
+    </item>
+    <item id="kqBAGVCUnzg" state="indeterminate">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Low</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
         <item id="nEfcke74SI8" state="indeterminate">
           <values>
             <text>
@@ -5458,63 +5840,6 @@
                   <p>
                     <run>
                       <lit>The real solution is to rearchitect so the checkbox disables itself if no script</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="ndkUlQo0eKA">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Interval alarms don&apos;t get saved as interval + date; this is a difference from the hiptop Pester</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="ilsIZSRcRyc">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Do this early before people starting using the app much</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="bZ-LypLnoRQ">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>In particular, make sure we can support everything the hiptop alarm format does</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="nLTZiDIoKEM">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>It&apos;s weird how this interacts with snooze, so be careful</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="n16EWqZagh0">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Do we need two intervals? I think I&apos;ve thought through time resetting interaction more carefully on the hiptop version.</lit>
                     </run>
                   </p>
                 </text>
@@ -5807,191 +6132,17 @@
             </item>
           </children>
         </item>
-        <item id="d6falrxFuPW" expanded="yes">
+        <item id="cO4IPXG2NDq">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Have a status stack: if there are any pending messages from the alerts, then display those instead of the alarm time and don&apos;t permit the &quot;Set&quot; button to be used.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="huMTdICeRjf">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Also: if there are no alerts, don’t allow setting the alarm.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-      </children>
-    </item>
-    <item id="cdYV41JFtXE">
-      <values>
-        <text>
-          <p>
-            <run>
-              <lit>Medium</lit>
-            </run>
-          </p>
-        </text>
-      </values>
-      <children>
-        <item id="l8IIIxMfoDZ">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Better handling of expiring alarms; should be possible to delete them</lit>
+                  <lit>Speech preview uses CPU in QuickTime movie idle (need to destroy something?)</lit>
                 </run>
               </p>
             </text>
           </values>
         </item>
-        <item id="n2HQrvRG-s7">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Support *time* changes (different from time zone changes). Be careful: if an alarm expires, don&apos;t delete it.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="f0PGOAMPq0w">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Display time until next alarm for &quot;at&quot;, not just an expanded date.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="lLRR0rxoP1L">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>And finally, special-case time in 12-hour formats to mean the next occurrence of h:mm</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="mfJCcQ67jnw">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>...or does that interfere with tab-to-increment-date? How about making command key necessary for +/-? Then no autoincrement.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="grV-dRnIrV2">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Power manager interface</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="ieVdVX7EtRb">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Huh, it seems we never cancel wakeup ever ([PSPowerManager clearWakeTime]). This is dumb.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="lQmRYUSx3en">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Requires authorization? See </lit>
-                    </run>
-                    <run>
-                      <lit><cell href="http://developer.apple.com/samplecode/BetterAuthorizationSample/" name="developer.apple.com—BetterAuthorizationSample" type="link"/></lit>
-                    </run>
-                    <run>
-                      <lit> if so (will have to deal with multiple users, networked home directories, and even versioning, too. This is really complicated.).</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="p0Qc8Ot2I8L">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Replacement for BetterAuthSample in 10.6: ServiceManagement </lit>
-                    </run>
-                    <run>
-                      <lit><cell href="http://developer.apple.com/library/mac/#samplecode/SMJobBless/Introduction/Intro.html" name="developer.apple.com—mac" type="link"/></lit>
-                    </run>
-                    <run>
-                      <lit>#//apple_ref/doc/uid/DTS40010071</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="ewqCQz_o4cU">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>«expired» sorts weirdly by date</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <note>
-            <text>
-              <p>
-                <run>
-                  <lit><cell refid="att1" name="Picture 1" type="image" width="494" height="326"/></lit>
-                </run>
-              </p>
-            </text>
-          </note>
-        </item>
-      </children>
-    </item>
-    <item id="kqBAGVCUnzg" state="indeterminate">
-      <values>
-        <text>
-          <p>
-            <run>
-              <lit>Low</lit>
-            </run>
-          </p>
-        </text>
-      </values>
-      <children>
         <item id="nVBLUJLMa_2">
           <values>
             <text>
@@ -6531,7 +6682,7 @@
             </text>
           </values>
         </item>
-        <item id="fAzvbk1IgdZ" expanded="yes">
+        <item id="fAzvbk1IgdZ">
           <values>
             <text>
               <p>
@@ -6564,7 +6715,7 @@
             </item>
           </children>
         </item>
-        <item id="fnSnqkF94lx" expanded="yes">
+        <item id="fnSnqkF94lx">
           <values>
             <text>
               <p>
@@ -6751,7 +6902,7 @@
             </text>
           </values>
         </item>
-        <item id="jBoVEClogGv" state="indeterminate">
+        <item id="jBoVEClogGv" state="checked">
           <values>
             <text>
               <p>
@@ -6762,7 +6913,7 @@
             </text>
           </values>
           <children>
-            <item id="gligYqpFf1s">
+            <item id="gligYqpFf1s" state="checked">
               <values>
                 <text>
                   <p>
@@ -6784,12 +6935,12 @@
                 </text>
               </values>
             </item>
-            <item id="fUJS-qNgyIG">
+            <item id="onUIT4_nhhL" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Or switch to MAAttachedWindow?</lit>
+                      <lit>I don&apos;t think this is a bug any more.</lit>
                     </run>
                   </p>
                 </text>
@@ -7009,17 +7160,6 @@
             </text>
           </values>
         </item>
-        <item id="a0kAKJrNrzj">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Ability to suspend/deactivate alarms (e.g., repeating ones)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
         <item id="k0Pt80Z3Mg7">
           <values>
             <text>
@@ -7041,41 +7181,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="g67FLBuZ2Ya" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Expired alarm window</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="gDS9DN7wEYX">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Add &quot;trigger&quot; button to list in addition to &quot;delete&quot;</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="bs3tcycD1cn">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Or…trigger expired alarms at launch?</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="kbW_YInrJyK">
           <values>
@@ -7112,6 +7217,52 @@
         </text>
       </values>
       <children>
+        <item id="oF3K30LkPWO">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Aliases → bookmarks (should be fine in 10.6+, actually)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="olxsZ_mYV2y">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>http://www.mikeabdullah.net/migrating-from-alias-handle.html</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cx4xfUeP1P8">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>http://www.mikeabdullah.net/last-known-bookmark-location.html</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="aQiRdKxQL1x">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>http://www.mikeabdullah.net/convert-between-path+reference-urls.html</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="jHl8Wf2bM8k">
           <values>
             <text>
@@ -7146,17 +7297,6 @@
               </values>
             </item>
           </children>
-        </item>
-        <item id="kCOPoGtA412">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Stop abusing NSAssert — http://chanson.livejournal.com/170068.html</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="eL79soqc3fW">
           <values>
@@ -7344,7 +7484,7 @@
         </item>
       </children>
     </item>
-    <item id="jAOT-TLS_lI" expanded="yes">
+    <item id="jAOT-TLS_lI">
       <values>
         <text>
           <p>
@@ -7376,6 +7516,15 @@
               </p>
             </text>
           </values>
+          <note expanded="yes">
+            <text>
+              <p>
+                <run>
+                  <lit>Movist migration from QT to AVFoundation: https://github.com/samiamwork/Movist/commit/0552ed927a28ad7c6583393943c101faf5085493</lit>
+                </run>
+              </p>
+            </text>
+          </note>
         </item>
         <item id="ofDiUwDQNsR">
           <values>
@@ -7584,52 +7733,6 @@
               </p>
             </text>
           </note>
-        </item>
-        <item id="oF3K30LkPWO">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Aliases → bookmarks (should be fine in 10.6+, actually)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="olxsZ_mYV2y">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>http://www.mikeabdullah.net/migrating-from-alias-handle.html</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="cx4xfUeP1P8">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>http://www.mikeabdullah.net/last-known-bookmark-location.html</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="aQiRdKxQL1x">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>http://www.mikeabdullah.net/convert-between-path+reference-urls.html</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="bnA3PhzDAha">
           <values>
