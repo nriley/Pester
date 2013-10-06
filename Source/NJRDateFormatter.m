@@ -66,11 +66,17 @@ static NSString *timeFormats[] = {
     long minorVersion, majorVersion;
     Gestalt(gestaltSystemVersionMajor, &majorVersion);
     Gestalt(gestaltSystemVersionMinor, &minorVersion);
-    // 10.6 includes Perl 5.8 and 5.10; 10.7/10.8 include Perl 5.10 and 5.12
-    if (majorVersion != 10 || minorVersion > 8)
+    if (majorVersion != 10)
 	return;
     
-    NSString *libName = @"libParseDate-10.6";
+    NSString *libName;
+    if (minorVersion == 6)
+        libName = @"libParseDate-10.6"; // Perl 5.10: 5.8/5.10 in 10.6
+    else if (minorVersion == 7 || minorVersion == 8 || minorVersion == 9)
+        libName = @"libParseDate-10.7"; // Perl 5.12: 5.10/5.12 in 10.7/10.8; 5.12/5.16 in 10.9
+    else
+        return;
+
     NSString *libPath = [[NSBundle mainBundle] pathForResource: libName ofType: @"dylib"];
     if (libPath == nil)
 	return;
