@@ -2,9 +2,9 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">12E55</string>
+		<string key="IBDocument.SystemVersion">12F45</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.39</string>
+		<string key="IBDocument.AppKitVersion">1187.40</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -293,38 +293,13 @@
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
-						<object class="NSButton" id="622076658">
-							<reference key="NSNextResponder" ref="179271081"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{153, 112}, {189, 18}}</string>
-							<reference key="NSSuperview" ref="179271081"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="328480185"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="285179844">
-								<int key="NSCellFlags">-2080374784</int>
-								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">Override volume control</string>
-								<reference key="NSSupport" ref="767484129"/>
-								<reference key="NSControlView" ref="622076658"/>
-								<int key="NSButtonFlags">1211912448</int>
-								<int key="NSButtonFlags2">2</int>
-								<reference key="NSNormalImage" ref="515281046"/>
-								<reference key="NSAlternateImage" ref="172940362"/>
-								<string key="NSAlternateContents"/>
-								<string key="NSKeyEquivalent"/>
-								<int key="NSPeriodicDelay">200</int>
-								<int key="NSPeriodicInterval">25</int>
-							</object>
-							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
-						</object>
 						<object class="NSTextField" id="143206457">
 							<reference key="NSNextResponder" ref="179271081"/>
 							<int key="NSvFlags">256</int>
 							<string key="NSFrame">{{17, 109}, {326, 22}}</string>
 							<reference key="NSSuperview" ref="179271081"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="622076658"/>
+							<reference key="NSNextKeyView" ref="328480185"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="259985314">
 								<int key="NSCellFlags">67108864</int>
@@ -437,7 +412,6 @@
 			<object class="NSArrayController" id="696488522">
 				<array class="NSMutableArray" key="NSDeclaredKeys">
 					<string>name</string>
-					<string>canSetVolume</string>
 				</array>
 				<string key="NSObjectClassName">NJRSoundDevice</string>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
@@ -667,49 +641,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.PesterSoundOutputOverrideVolume</string>
-						<reference key="source" ref="622076658"/>
-						<reference key="destination" ref="783118354"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="622076658"/>
-							<reference key="NSDestination" ref="783118354"/>
-							<string key="NSLabel">value: values.PesterSoundOutputOverrideVolume</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.PesterSoundOutputOverrideVolume</string>
-							<dictionary key="NSOptions">
-								<integer value="0" key="NSNoSelectionPlaceholder"/>
-								<integer value="0" key="NSNotApplicablePlaceholder"/>
-								<integer value="0" key="NSNullPlaceholder"/>
-							</dictionary>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">144</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: selection.canSetVolume</string>
-						<reference key="source" ref="622076658"/>
-						<reference key="destination" ref="696488522"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="622076658"/>
-							<reference key="NSDestination" ref="696488522"/>
-							<string key="NSLabel">enabled: selection.canSetVolume</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">selection.canSetVolume</string>
-							<dictionary key="NSOptions">
-								<integer value="0" key="NSMultipleValuesPlaceholder"/>
-								<integer value="0" key="NSNoSelectionPlaceholder"/>
-								<integer value="0" key="NSNotApplicablePlaceholder"/>
-								<integer value="0" key="NSNullPlaceholder"/>
-							</dictionary>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">151</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">contentArray: self.allSoundOutputDevices</string>
 						<reference key="source" ref="696488522"/>
 						<reference key="destination" ref="918573752"/>
@@ -818,7 +749,6 @@
 							<reference ref="434397898"/>
 							<reference ref="629736399"/>
 							<reference ref="151588821"/>
-							<reference ref="622076658"/>
 							<reference ref="797138366"/>
 							<reference ref="939303357"/>
 							<reference ref="777469895"/>
@@ -941,19 +871,6 @@
 						<reference key="parent" ref="120309213"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">52</int>
-						<reference key="object" ref="622076658"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="285179844"/>
-						</array>
-						<reference key="parent" ref="179271081"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">53</int>
-						<reference key="object" ref="285179844"/>
-						<reference key="parent" ref="622076658"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">84</int>
 						<reference key="object" ref="696488522"/>
 						<reference key="parent" ref="0"/>
@@ -1038,8 +955,6 @@
 				<string key="49.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBWindowTemplateEditedContentRect">{{0, 871}, {360, 274}}</string>
-				<string key="52.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="53.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="8.CustomClassName">NJRHotKeyField</string>
