@@ -95,6 +95,6 @@
     NSBeep();
     NSBeginAlertSheet(alertMessage, defaultButtonString, alternateButtonString, otherButtonString, [self window],
                       self, @selector(validationFailedSheetDidEnd:returnCode:contextInfo:), NULL, contextInfo,
-                      alertInformation);
+                      @"%@", alertInformation);
 }
 @end

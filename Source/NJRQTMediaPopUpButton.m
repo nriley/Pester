@@ -387,7 +387,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
             [self _resetPreview];
             doPreview = NO;
             if (movie == nil) {
-                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, [NSString stringWithFormat: NSLocalizedString(@"The item you selected isn't an image, sound or movie recognized by QuickTime. (%@)\n\nPlease select a different item.", "Message displayed in alert sheet when media document is not recognized by QuickTime"), [error localizedDescription]]);
+                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The item you selected isn't an image, sound or movie recognized by QuickTime. (%@)\n\nPlease select a different item.", "Message displayed in alert sheet when media document is not recognized by QuickTime"), [error localizedDescription]);
                 [self _invalidateSelection];
                 return NO;
             }
