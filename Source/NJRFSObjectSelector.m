@@ -6,9 +6,11 @@
 static NSImage *PopupTriangleImage = nil;
 static NSSize PopupTriangleSize;
 
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
 @interface NJRFSObjectSelector (NSOpenPanelRuntime)
 - (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 @end
+#endif
 
 @implementation NJRFSObjectSelector
 
@@ -88,10 +90,16 @@ static NSSize PopupTriangleSize;
 - (IBAction)select:(id)sender;
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
     NSString *path = [selectedAlias fullPath];
+#else
+    NSURL *url = [NSURL fileURLWithPath:[selectedAlias fullPath]];
+    [openPanel setAllowedFileTypes: fileTypes];
+#endif
     [openPanel setAllowsMultipleSelection: NO];
     [openPanel setCanChooseDirectories: canChooseDirectories];
     [openPanel setCanChooseFiles: canChooseFiles];
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
     [openPanel beginSheetForDirectory: [path stringByDeletingLastPathComponent]
                                  file: [path lastPathComponent]
                                 types: fileTypes
@@ -99,8 +107,25 @@ static NSSize PopupTriangleSize;
                         modalDelegate: self
                        didEndSelector: @selector(openPanelDidEnd:returnCode:contextInfo:)
                           contextInfo: nil];
+#else
+    [openPanel setDirectoryURL: url]; // [sic] - this works with a file URL, but not properly on 10.6
+
+    [openPanel beginSheetModalForWindow: [self window] completionHandler:
+     ^(NSInteger result) {
+         if (result == NSOKButton) {
+             NSArray *urls = [openPanel URLs];
+             NSAssert1([urls count] == 1, @"%d items returned, only one expected", [urls count]);
+             NSURL *url = [urls objectAtIndex: 0];
+             NSAssert1([url isFileURL], @"file URL expected, %@ returned", url);
+             [self setPath: [url path]];
+             if ([self target] != nil && [[self target] respondsToSelector:[self action]])
+                 [[self target] performSelector: [self action] withObject: self];
+         }
+     }];
+#endif
 }
 
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
 - (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 {
     [sheet close];
@@ -113,6 +138,7 @@ static NSSize PopupTriangleSize;
 			[[self target] performSelector: [self action] withObject: self];
     }
 }
+#endif
 
 - (void)revealInFinder:(NSMenuItem *)sender;
 {

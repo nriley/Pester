@@ -32,9 +32,11 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (void)_systemSoundSelected:(NSMenuItem *)sender;
 @end
 
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
 @interface NJRQTMediaPopUpButton (NSOpenPanelRuntime)
 - (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 @end
+#endif
 
 @implementation NJRQTMediaPopUpButton
 
@@ -457,11 +459,16 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (IBAction)select:(id)sender;
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
     NSString *path = [selectedAlias fullPath];
+#else
+    NSURL *url = [NSURL fileURLWithPath:[selectedAlias fullPath]];
+#endif
     [openPanel setAllowsMultipleSelection: NO];
     [openPanel setCanChooseDirectories: NO];
     [openPanel setCanChooseFiles: YES];
     [openPanel setDelegate: self];
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
     [openPanel beginSheetForDirectory: [path stringByDeletingLastPathComponent]
                                  file: [path lastPathComponent]
                                 types: nil
@@ -469,8 +476,31 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
                         modalDelegate: self
                        didEndSelector: @selector(openPanelDidEnd:returnCode:contextInfo:)
                           contextInfo: nil];
+#else
+    [openPanel setDirectoryURL: url]; // [sic] - this works with a file URL, but not properly on 10.6
+
+    [openPanel beginSheetModalForWindow: [self window] completionHandler:
+     ^(NSInteger result) {
+         if (result == NSOKButton) {
+             NSArray *urls = [openPanel URLs];
+             NSAssert1([urls count] == 1, @"%d items returned, only one expected", [urls count]);
+             NSURL *url = [urls objectAtIndex: 0];
+             NSAssert1([url isFileURL], @"file URL expected, %@ returned", url);
+             [self _setPath: [url path]];
+             if ([self _validateWithPreview: YES]) {
+                 [self selectItem: [self _itemForAlias: selectedAlias]];
+             }
+         } else {
+             // "Other..." item is still selected, revert to previously selected item
+             // XXX issue with cancelling, top item in recent menu is sometimes duplicated!?
+             [self selectItem: [self _itemForAlias: selectedAlias]];
+         }
+         // [self _validateRecentMedia];
+     }];
+#endif
 }
 
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
 - (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 {
     [sheet close];
@@ -489,6 +519,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     }
     // [self _validateRecentMedia];
 }
+#endif
 
 - (void)setEnabled:(BOOL)flag;
 {
