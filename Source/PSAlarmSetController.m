@@ -56,9 +56,8 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 
 + (void)initialize;
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *notificationClassName = NSStringFromClass([PSUserNotificationAlert canTrigger] ? [PSUserNotificationAlert class] : [PSGrowlAlert class]);
-    [defaults registerDefaults:
+    [[NSUserDefaults standardUserDefaults] registerDefaults:
      [NSDictionary dictionaryWithObject: notificationClassName forKey: PSAlertNotifyWith]];
 }
 

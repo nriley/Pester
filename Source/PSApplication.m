@@ -36,6 +36,13 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 @implementation PSApplication
 
++ (void)initialize;
+{
+    [[NSUserDefaults standardUserDefaults] registerDefaults:
+     [NSDictionary dictionaryWithObject: [NSNumber numberWithBool: YES]
+                                 forKey: PSShowDockCountdown]];
+}
+
 - (void)finishLaunching;
 {
     appIconImage = [[NSImage imageNamed: @"NSApplicationIcon"] retain];
@@ -45,11 +52,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
     [self setDelegate: self];
     [PSPreferencesController readPreferences];
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults registerDefaults:
-     [NSDictionary dictionaryWithObject: [NSNumber numberWithBool: YES]
-                                 forKey: PSShowDockCountdown]];
-    [defaults addObserver: self forKeyPath: PSShowDockCountdown options: NSKeyValueObservingOptionNew context: nil];
+    [[NSUserDefaults standardUserDefaults] addObserver: self forKeyPath: PSShowDockCountdown options: NSKeyValueObservingOptionNew context: nil];
 
     [super finishLaunching];
 }
