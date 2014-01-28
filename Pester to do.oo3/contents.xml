@@ -157,11 +157,11 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 650}" column-titles-display-mode="auto">
+  <editor content-size="{551, 650}" scroll-position="{0, 20}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="c6u2eAABK2P"/>
+    <selected-rows ids="dpEDHHPiQ2k"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{22, 0}"/>
+    <selected-characters range="{74, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -4978,6 +4978,210 @@
         </item>
       </children>
     </item>
+    <item id="bLh_rmeRQSB" expanded="yes" state="checked">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Beta 18</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="oS6supSsULp" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Stack traces when changing output devices</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="lRnrSOgJftO" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Broke something in cleanup of canSetVolume: NSArrayController references it</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="jALSybE9_jA" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Vestiges of volume overriding, which we don&apos;t do because hog mode is unsuitable</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="gy1lwHojju_" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Just take it out</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="oR_SN0UQtKd" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Speech voice selection isn&apos;t working at *all* on Mountain Lion; it just uses the system default voice all the time</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="jicqi13PKJQ" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Will soOutputToAudioDevice work instead (simpler for 10.6+)? Yes.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="ogeXmPZ8rrf" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Test on 10.9/10.6/10.7, then ship it</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="c6u2eAABK2P" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Switch to the 10.8 SDK for Xcode 5 compatibility</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="eOlrcSwaVmG" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Check that it works on 10.6 still</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="c9gz6Aoa1v1" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix countdown shadow drawing; it&apos;s ugly particularly on Retina displays</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="pXixUuSef0K" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Finish documentation</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="eULMbVX8t2C" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>More alerts</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="mGS8gon5oMl" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Audio output discussion</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="ipGcN7O2-uK" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Notifications</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="ojHQYUBRYMF" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Time remaining is not showing up in the Dock initially (not matching Preferences configuration) — this is a timing related issue, probably (check for release notes)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="dpEDHHPiQ2k" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Countdown is not being drawn in Retina resolution (because the icon isn’t)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <note>
+            <text>
+              <p>
+                <run>
+                  <lit>Doing the best we can for now, short of switching to NSDockTile and a view. Revisit when we have a higher-resolution icon.</lit>
+                </run>
+              </p>
+            </text>
+          </note>
+        </item>
+      </children>
+    </item>
     <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
       <values>
         <text>
@@ -4989,12 +5193,23 @@
         </text>
       </values>
       <children>
-        <item id="c6u2eAABK2P">
+        <item id="k0CUR00pCIw">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Switch to the 10.8 SDK for Xcode 5 compatibility</lit>
+                  <lit>Fix code signing for embedded frameworks for 10.9 compatibility: http://furbo.org/2013/10/17/code-signing-and-mavericks/</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="kl-5gKL-Yml">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>&quot;0&quot; does not work for midnight, even in 24-hour time (but &quot;00&quot; does)</lit>
                 </run>
               </p>
             </text>
@@ -5010,7 +5225,7 @@
               </p>
             </text>
           </values>
-          <note expanded="yes">
+          <note>
             <text>
               <p>
                 <run>
@@ -5020,12 +5235,23 @@
             </text>
           </note>
         </item>
-        <item id="pXixUuSef0K">
+        <item id="jbyyRQY827S">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Documentation!</lit>
+                  <lit>Bigger default size for Read Me window (check 11ʺ MacBook Air resolution). Make the sidebar wider too since the cropping/ellipsization seems annoyingly flaky.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="dJQiIr_5SgH">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Somehow undoing a delete can sometimes turn a repeating alarm into a non-repeating one. Huh?</lit>
                 </run>
               </p>
             </text>
@@ -5047,7 +5273,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Figure out a way to generate dSYMs (we do it for Shroud).</lit>
+                  <lit>Figure out a way to generate and archive dSYMs (we do it for Shroud).</lit>
                 </run>
               </p>
             </text>
@@ -5148,9 +5374,6 @@
           </values>
         </item>
         <item id="fc_13JEUtZ4" state="indeterminate">
-          <style>
-            <inherited-style name="Highlight" idref="fX4oymYqiYH"/>
-          </style>
           <values>
             <text>
               <p>
@@ -5345,9 +5568,20 @@
             </item>
           </children>
         </item>
+        <item id="md_9pQEG98Q">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>If you enter a h:m:s interval, only h:m is saved</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
       </children>
     </item>
-    <item id="nqWfp1JOMA5" expanded="yes">
+    <item id="nqWfp1JOMA5">
       <values>
         <text>
           <p>
@@ -5788,66 +6022,18 @@
         </text>
       </values>
       <children>
-        <item id="nEfcke74SI8" state="indeterminate">
+        <item id="nGPFxPzuKHO">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Crash on setting alarm with &quot;Do script&quot; if sheet cancelled</lit>
+                  <lit>If you add a new voice while Pester is running, it doesn&apos;t show up in the menu (is there a notification we can use? Can we just watch /System/Library/Speech/Voices?)</lit>
                 </run>
               </p>
             </text>
           </values>
-          <children>
-            <item id="kdRhRkDtDUA" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Exception problem, fixed</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="ix_fI3-cnC-" expanded="yes">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Also issues switching to view mode</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="hGnSWWB2BCM">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Error only shown for ≤1s though</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-            <item id="nafb8cyOnJe">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>The real solution is to rearchitect so the checkbox disables itself if no script</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
-        <item id="c16shmiTx0T">
+        <item id="c16shmiTx0T" state="indeterminate">
           <values>
             <text>
               <p>
@@ -6130,6 +6316,65 @@
                 </text>
               </values>
             </item>
+            <item id="nEfcke74SI8" state="indeterminate">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Crash on setting alarm with &quot;Do script&quot; if sheet cancelled</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="kdRhRkDtDUA" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Exception problem, fixed</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="ix_fI3-cnC-" expanded="yes">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Also issues switching to view mode</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="hGnSWWB2BCM">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Error only shown for ≤1s though</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
+                </item>
+                <item id="nafb8cyOnJe">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>The real solution is to rearchitect so the checkbox disables itself if no script</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
           </children>
         </item>
         <item id="cO4IPXG2NDq">
@@ -6282,17 +6527,6 @@
               </values>
             </item>
           </children>
-        </item>
-        <item id="haNjN_W-kP4">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Consider refining auto-tomorrow.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="aFlXnzc_awg">
           <values>
@@ -6902,6 +7136,17 @@
             </text>
           </values>
         </item>
+        <item id="fL6zmzUiqRO">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Handle case where selected output device is missing - save name in prefs, display in italic</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="jBoVEClogGv" state="checked">
           <values>
             <text>
@@ -6947,17 +7192,6 @@
               </values>
             </item>
           </children>
-        </item>
-        <item id="fL6zmzUiqRO">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Handle case where selected output device is missing - save name in prefs, display in italic</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
       </children>
     </item>
@@ -7143,7 +7377,7 @@
             <text>
               <p>
                 <run>
-                  <lit>UI cleanup: the creation window is too cluttered. Also, maybe use some shading.</lit>
+                  <lit>UI cleanup: the creation window is too cluttered. Also, maybe use some shading?</lit>
                 </run>
               </p>
             </text>
@@ -7217,12 +7451,12 @@
         </text>
       </values>
       <children>
-        <item id="oF3K30LkPWO">
+        <item id="oF3K30LkPWO" expanded="yes">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Aliases → bookmarks (should be fine in 10.6+, actually)</lit>
+                  <lit>Aliases &amp; paths → bookmark URLs (should be fine in 10.6+, actually)</lit>
                 </run>
               </p>
             </text>
@@ -7489,7 +7723,7 @@
         <text>
           <p>
             <run>
-              <lit>2.0 (10.8+)</lit>
+              <lit>2.0 (10.8+ or perhaps even 10.9+)</lit>
             </run>
           </p>
         </text>
@@ -7506,7 +7740,7 @@
             </text>
           </values>
         </item>
-        <item id="jZ4eav_FhrO">
+        <item id="jZ4eav_FhrO" expanded="yes">
           <values>
             <text>
               <p>
@@ -7525,6 +7759,19 @@
               </p>
             </text>
           </note>
+          <children>
+            <item id="gxG3Bnt2RLC">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Could use NSSound or AudioQueue for sounds; AVFoundation for movies; Quick Look (!) or PDFKit for still images/PDFs.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="ofDiUwDQNsR">
           <values>
