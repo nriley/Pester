@@ -214,44 +214,55 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (NSImage *)iconImageWithAlarm:(PSAlarm *)alarm;
 {
-	NSMutableDictionary *atts = [NSMutableDictionary dictionary];
 	NSSize imageSize = [appIconImage size];
-	NSImage *tile = [[NSImage alloc] initWithSize: imageSize];
-	NSSize textSize;
-	NSPoint textOrigin;
-	NSRect frameRect;
-	float fontSize = 37;
-    NSString *tileString = [alarm timeRemainingString];
+	NSImage *tile = nil;
 
-	do {
-		fontSize -= 1;
-		[atts setObject: [NSFont boldSystemFontOfSize: fontSize] forKey: NSFontAttributeName];
-		textSize = [tileString sizeWithAttributes: atts];
-	} while (textSize.width > imageSize.width - 8);
+    BOOL (^drawingHandler)(NSRect) = ^(NSRect dstRect) {
+        NSString *tileString = [alarm timeRemainingString];
+        NSMutableDictionary *atts = [NSMutableDictionary dictionary];
+        float fontSize = 37;
+        NSSize textSize;
 
-	textOrigin = NSMakePoint(imageSize.width / 2 - textSize.width / 2,
-							 imageSize.height / 2 - textSize.height / 2);
-	frameRect = NSInsetRect(NSMakeRect(textOrigin.x, textOrigin.y, textSize.width, textSize.height), -4, -2);
+        do {
+            fontSize -= 1;
+            NSFont *font = [NSFont boldSystemFontOfSize: fontSize];
+            [atts setObject: font forKey: NSFontAttributeName];
+            textSize = [tileString sizeWithAttributes: atts];
+        } while (textSize.width > imageSize.width - 20);
 
-	[tile lockFocus];
-	// draw the grayed-out app icon
-	[appIconImage dissolveToPoint: NSZeroPoint fraction: 0.5f];
-	// draw the frame
-	[[NSColor colorWithCalibratedWhite: 0.1f alpha: 0.5f] set];
-	NSRectFill(frameRect);
-	// draw a gray two-pixel text shadow
-	[atts setObject: [NSColor grayColor] forKey: NSForegroundColorAttributeName];
-	textOrigin.x++; textOrigin.y--;
-	[tileString drawAtPoint: textOrigin withAttributes: atts];
-	textOrigin.x++; textOrigin.y--;
-	[tileString drawAtPoint: textOrigin withAttributes: atts];
-	// draw white text
-	textOrigin.x -= 2; textOrigin.y += 2;
-	[atts setObject: [NSColor whiteColor] forKey: NSForegroundColorAttributeName];
-	[tileString drawAtPoint: textOrigin withAttributes: atts];
-	[tile unlockFocus];
+        NSPoint textOrigin = NSMakePoint(imageSize.width / 2 - textSize.width / 2,
+                                         imageSize.height / 2 - textSize.height / 2);
+        NSRect frameRect = NSInsetRect(NSMakeRect(textOrigin.x, textOrigin.y, textSize.width, textSize.height), -10, -2);
 
-	return [tile autorelease];
+        // draw the grayed-out app icon
+        [appIconImage drawAtPoint: NSZeroPoint fromRect: NSZeroRect operation: NSCompositeCopy fraction: 0.5f];
+        // draw the frame
+        [[NSColor colorWithCalibratedWhite: 0.1f alpha: 0.5f] set];
+        float radius = frameRect.size.height / 2;
+        // XXX this is opaque when called as a drawing handler and translucent otherwise
+        [[NSBezierPath bezierPathWithRoundedRect: frameRect xRadius: radius yRadius: radius] fill];
+        // draw text
+        NSShadow *shadow = [[NSShadow alloc] init];
+        [shadow setShadowOffset: NSMakeSize(0, -2)];
+        [shadow setShadowBlurRadius: 3];
+        [atts setObject: shadow forKey: NSShadowAttributeName];
+        [atts setObject: [NSColor whiteColor] forKey: NSForegroundColorAttributeName];
+        [tileString drawAtPoint: textOrigin withAttributes: atts];
+        if (tile != nil) {
+            [tile unlockFocus];
+        }
+        return YES;
+    };
+
+    if ([[NSImage class] respondsToSelector: @selector(imageWithSize:flipped:drawingHandler:)]) { // 10.8+
+        tile = [NSImage imageWithSize: imageSize flipped: NO drawingHandler: drawingHandler];
+    } else {
+        tile = [[[NSImage alloc] initWithSize: imageSize] autorelease];
+        [tile lockFocus];
+        drawingHandler(NSZeroRect);
+        [tile unlockFocus];
+    }
+	return tile;
 }
 
 - (void)selectAlarmInAlarmsPanel:(PSAlarm *)alarm;
