@@ -12,6 +12,7 @@
 @interface NJRReadMeController : NSWindowController {
     IBOutlet NSSplitView *splitter;
     IBOutlet NSTableView *contents;
+    IBOutlet NSTextFieldCell *headingCell;
     IBOutlet NSTextView *body;
     IBOutlet NSBox *bodyBox;
     IBOutlet NSTabView *progressTabs;

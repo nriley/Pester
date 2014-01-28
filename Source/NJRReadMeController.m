@@ -20,7 +20,7 @@
 
 - (NSString *)description;
 - (NSRange)range;
-- (NSMutableString *)displayString;
+- (NSString *)displayString;
 
 @end
 
@@ -57,13 +57,13 @@
     return range;
 }
 
-- (NSMutableString *)displayString;
+- (NSString *)displayString;
 {
     NSMutableString *s = [[NSMutableString alloc] init];
 
     unsigned i;
     for (i = 0 ; i < level ; i++) {
-        [s appendString: @"  "];
+        [s appendString: @"\t"];
     }
     [s appendString: description];
     return [s autorelease];
@@ -99,6 +99,19 @@ static NJRReadMeController *sharedController = nil;
         NSString *frameAutosaveName = [window frameAutosaveName];
         if (![window setFrameUsingName: frameAutosaveName])
             [window center];
+
+        // set up paragraph style for heading indentation
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        NSMutableArray *tabStops = [[NSMutableArray alloc] initWithCapacity: 2];
+        for (unsigned i = 1 ; i <= 2 ; i++) {
+            NSTextTab *tabStop = [[NSTextTab alloc] initWithType: NSLeftTabStopType location: i * 10];
+            [tabStops addObject: tabStop];
+            [tabStop release];
+        }
+        [paragraphStyle setTabStops: tabStops];
+        [tabStops release];
+        headingAttributes = [[NSDictionary alloc] initWithObjectsAndKeys: paragraphStyle, NSParagraphStyleAttributeName, nil];
+        [paragraphStyle release];
 
         // remove NJRSplitView save information
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -192,15 +205,17 @@ static NJRReadMeController *sharedController = nil;
             // [NSThread sleepForTimeInterval:0.01];
         }
     }
-    headingAttributes = [[NSDictionary alloc] initWithObjectsAndKeys: [[[contents tableColumnWithIdentifier: @"heading"] dataCell] font], NSFontAttributeName, nil];
+    NSMutableDictionary *allHeadingAttributes = [headingAttributes mutableCopy];
+    [allHeadingAttributes setObject: [headingCell font] forKey: NSFontAttributeName];
     NSEnumerator *e = [headings objectEnumerator];
     NSString *s;
     float width;
     float maxHeadingWidth = 0;
     while ( (s = [(NJRHelpContentsEntry *)[e nextObject] displayString]) != nil) {
-        width = [s sizeWithAttributes: headingAttributes].width;
+        width = [s sizeWithAttributes: allHeadingAttributes].width;
         if (width > maxHeadingWidth) maxHeadingWidth = width;
     }
+    [allHeadingAttributes release];
     maxContentsWidth = maxHeadingWidth + 25; // account for scroll bar and frame
     
     NSBox *contentsBox = [[splitter subviews] objectAtIndex: 0];
@@ -247,12 +262,13 @@ static NJRReadMeController *sharedController = nil;
     return [headings count];
 }
 
-// need to enable column resizing for this to work, otherwise we never get called again
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(int)row;
 {
-    NSMutableString *s = [[headings objectAtIndex: row] displayString];
-    [s truncateToWidth: [tableView frameOfCellAtColumn: 0 row: row].size.width by: NSLineBreakByTruncatingTail withAttributes: headingAttributes];
-    return s;
+    // Note: Returning an attributed string here, even one which only specifies heading attributes, suppresses some special behavior ("squeezed" text and bold text for the selected rhow) compared with returning a regular string.
+    // IMO, squeezed text is confusing in a source list; non-bold text is slightly harder to read, but by no means disastrous, and prevents any compression/ellipsization of text because we compute the optimal width based on the non-bold text.  It also bypasses some OS X bugs which display broken tooltips (e.g. with shadowing in place) when mousing over a selected item in a source list.
+    return [[[NSAttributedString alloc] initWithString: [[headings objectAtIndex: row] displayString]
+                                            attributes: headingAttributes]
+            autorelease];
 }
 
 @end
