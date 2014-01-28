@@ -157,9 +157,11 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 650}" column-titles-display-mode="auto">
+  <editor content-size="{551, 650}" scroll-position="{0, 128}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="bLh_rmeRQSB"/>
+    <selected-rows ids="gn1qGNMAUZp"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{11, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -5520,6 +5522,17 @@
             </text>
           </values>
         </item>
+        <item id="md_9pQEG98Q">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>If you enter a h:m:s interval, only h:m is saved</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="gn1qGNMAUZp">
           <values>
             <text>
@@ -5598,17 +5611,6 @@
               </children>
             </item>
           </children>
-        </item>
-        <item id="md_9pQEG98Q">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>If you enter a h:m:s interval, only h:m is saved</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
       </children>
     </item>
