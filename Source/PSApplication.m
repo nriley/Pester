@@ -246,6 +246,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
         [shadow setShadowOffset: NSMakeSize(0, -2)];
         [shadow setShadowBlurRadius: 3];
         [atts setObject: shadow forKey: NSShadowAttributeName];
+        [shadow release];
         [atts setObject: [NSColor whiteColor] forKey: NSForegroundColorAttributeName];
         [tileString drawAtPoint: textOrigin withAttributes: atts];
         if (tile != nil) {
