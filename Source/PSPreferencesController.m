@@ -105,11 +105,6 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 #pragma mark initialize-release
 
 - (id)init {
-	// XXX Register controller for 10.4.  This is not necessary on 10.5 and later.
-	NSValueTransformer *transformer = [[NJRArrayToObjectTransformer alloc] init];
-	[NSValueTransformer setValueTransformer: transformer forName: @"NJRArrayToObjectTransformer"];
-    [transformer release];
-
     if ( (self = [super initWithWindowNibName: @"Preferences"]) != nil) {
         [[self window] center]; // connect outlets
         [self readFromPrefs];
