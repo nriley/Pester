@@ -157,11 +157,9 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 650}" scroll-position="{0, 20}" column-titles-display-mode="auto">
+  <editor content-size="{551, 650}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="dpEDHHPiQ2k"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{74, 0}"/>
+    <selected-rows ids="bLh_rmeRQSB"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -4978,7 +4976,7 @@
         </item>
       </children>
     </item>
-    <item id="bLh_rmeRQSB" expanded="yes" state="checked">
+    <item id="bLh_rmeRQSB" state="checked">
       <values>
         <text>
           <p>
@@ -5180,6 +5178,39 @@
             </text>
           </note>
         </item>
+        <item id="kl-5gKL-Yml" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>&quot;0&quot; does not work for midnight, even in 24-hour time (but &quot;00&quot; does)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="jbyyRQY827S" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Bigger default size for Read Me window (check 11ʺ MacBook Air resolution). Make the sidebar wider too since the cropping/ellipsization seems annoyingly flaky.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="bAEWSZN1KLq" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Ellipsization is an issue in Read Me. Can’t this be automatic?</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
       </children>
     </item>
     <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
@@ -5193,23 +5224,34 @@
         </text>
       </values>
       <children>
+        <item id="jLu2u1xEV_2">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>When resizing Read Me, sidebar can become wider than maximum width, which looks ugly.  (Try starting with no defaults then zooming. Bleah.)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="bEzhzDWzTAu">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Differential drawing behavior in dock icon seems to potentially be a bug</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="k0CUR00pCIw">
           <values>
             <text>
               <p>
                 <run>
                   <lit>Fix code signing for embedded frameworks for 10.9 compatibility: http://furbo.org/2013/10/17/code-signing-and-mavericks/</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="kl-5gKL-Yml">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>&quot;0&quot; does not work for midnight, even in 24-hour time (but &quot;00&quot; does)</lit>
                 </run>
               </p>
             </text>
@@ -5234,17 +5276,6 @@
               </p>
             </text>
           </note>
-        </item>
-        <item id="jbyyRQY827S">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Bigger default size for Read Me window (check 11ʺ MacBook Air resolution). Make the sidebar wider too since the cropping/ellipsization seems annoyingly flaky.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="dJQiIr_5SgH">
           <values>
