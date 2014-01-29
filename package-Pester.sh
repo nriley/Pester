@@ -48,6 +48,7 @@ NOW=`perl -e 'use POSIX qw(strftime); print strftime("%a, %d %b %Y %H:%M:%S %z",
 perl -pi -e 's|(<enclosure url=".+'$DMG'").+/>|\1 length="'$SIZE'" type="application/x-apple-diskimage" sparkle:version="'$BUILD'" sparkle:shortVersionString="'$VERSION'" sparkle:dsaSignature="'$DIGEST'"/>|' Updates/updates.xml
 perl -pi -e 's#<(pubDate|lastBuildDate)>[^<]*#<$1>'$NOW'# && $done++ if $done < 3' Updates/updates.xml
 perl -pi -e 's|(<guid isPermaLink="false">)[^<]*|$1'${PRODUCT:l}-${VERSION:s/.//}'| && $done++ if $done < 1' Updates/updates.xml
+perl -pe 's|release-notes.html<|release-notes.html#sparkle<|' < Updates/updates.xml >! Updates/updates-1.1b14.xml
 scp $DMG osric:web/nriley/software/$DMG.new
 ssh osric chmod go+r web/nriley/software/$DMG.new
 ssh osric mv web/nriley/software/$DMG{.new,}
