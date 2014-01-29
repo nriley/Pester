@@ -159,9 +159,9 @@
   </settings>
   <editor content-size="{551, 650}" scroll-position="{0, 128}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="gn1qGNMAUZp"/>
+    <selected-rows ids="fDRJqUsWBCI"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{11, 0}"/>
+    <selected-characters range="{62, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -5226,6 +5226,28 @@
         </text>
       </values>
       <children>
+        <item id="jmUtivqbYtW">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix or annotate away Clang analyzer issues so we can build cleanly.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="fDRJqUsWBCI">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Replace dock menu screenshot in Read Me with an up-to-date one</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="jLu2u1xEV_2">
           <values>
             <text>
