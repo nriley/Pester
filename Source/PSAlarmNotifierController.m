@@ -32,6 +32,7 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
         NSRect frameRect = [window frame];
         alarm = [anAlarm retain];
         [messageField setStringValue: [alarm message]];
+        [messageField setToolTip: [alarm message]];
         [dateField setStringValue: [alarm dateTimeString]];
         if (![self setSnoozeInterval: [alarm snoozeInterval]] &&
             ![self setSnoozeInterval: [[[NSUserDefaults standardUserDefaults] objectForKey: PSAlarmSnoozeInterval] doubleValue]])
