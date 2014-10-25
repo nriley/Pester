@@ -119,7 +119,7 @@
       <style>
         <value key="font-family">Calibri</value>
         <value key="font-fill">
-          <color r="0.5" g="0.5" b="0.5" archive="YnBsaXN0MDDUAQIDBAUIISJUJHRvcFgkb2JqZWN0c1gkdmVyc2lvblkkYXJjaGl2ZXLRBgdUcm9vdIABpQkKExceVSRudWxs1AsMDQ4PEBESV05TV2hpdGVWJGNsYXNzXE5TQ29sb3JTcGFjZV8QEk5TQ3VzdG9tQ29sb3JTcGFjZUQwLjUAgAQQA4AC0hQMFRZUTlNJRBACgAPSGBkaHVgkY2xhc3Nlc1okY2xhc3NuYW1lohscXE5TQ29sb3JTcGFjZVhOU09iamVjdFxOU0NvbG9yU3BhY2XSGBkfIKIgHFdOU0NvbG9yEgABhqBfEA9OU0tleWVkQXJjaGl2ZXIACAARABYAHwAoADIANQA6ADwAQgBIAFEAWQBgAG0AggCHAIkAiwCNAJIAlwCZAJsAoACpALQAtwDEAM0A2gDfAOIA6gDvAAAAAAAAAgEAAAAAAAAAIwAAAAAAAAAAAAAAAAAAAQE="/>
+          <color r="0.5" g="0.5" b="0.5" archive="YnBsaXN0MDDUAQIDBAUIIiNUJHRvcFgkb2JqZWN0c1gkdmVyc2lvblkkYXJjaGl2ZXLRBgdUcm9vdIABpQkKExceVSRudWxs1AsMDQ4PEBESV05TV2hpdGVWJGNsYXNzXE5TQ29sb3JTcGFjZV8QEk5TQ3VzdG9tQ29sb3JTcGFjZUQwLjUAgAQQA4AC0hQMFRZUTlNJRBACgAPSGBkaHVgkY2xhc3Nlc1okY2xhc3NuYW1lohscXE5TQ29sb3JTcGFjZVhOU09iamVjdFxOU0NvbG9yU3BhY2XSGBkfIaIgHFdOU0NvbG9yV05TQ29sb3ISAAGGoF8QD05TS2V5ZWRBcmNoaXZlcgAIABEAFgAfACgAMgA1ADoAPABCAEgAUQBZAGAAbQCCAIcAiQCLAI0AkgCXAJkAmwCgAKkAtAC3AMQAzQDaAN8A4gDqAPIA9wAAAAAAAAIBAAAAAAAAACQAAAAAAAAAAAAAAAAAAAEJ"/>
         </value>
         <value key="font-size">13</value>
         <value key="strikethrough-color">
@@ -157,11 +157,11 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 650}" scroll-position="{0, 128}" column-titles-display-mode="auto">
+  <editor content-size="{551, 650}" scroll-position="{0, 195}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="fDRJqUsWBCI"/>
+    <selected-rows ids="oz3Sl7__sjc"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{62, 0}"/>
+    <selected-characters range="{68, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -5212,6 +5212,89 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="c6eQKGHL8H1" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Retina displays have issues with the read me (10.8, maybe 10.7.4?)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+      </children>
+    </item>
+    <item id="oKT0IVzJBd3" expanded="yes" state="indeterminate">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Beta 19</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="jbhqPIHL-1R" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Display message in notifier in tooltip (if it’s too long)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="e7L8Eb9VtJO">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>10.10 compatibility for Perl</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="iD1U1Leo-fo" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Bringing up alarm list is broken in 10.10</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="oz3Sl7__sjc">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>This is an OS X bug; same happens with Rules in Mail.app. Report it.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="k0CUR00pCIw">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix code signing for embedded frameworks for 10.9 compatibility: http://furbo.org/2013/10/17/code-signing-and-mavericks/</lit>
+                </run>
+              </p>
+            </text>
+          </values>
         </item>
       </children>
     </item>
@@ -5226,12 +5309,23 @@
         </text>
       </values>
       <children>
+        <item id="geB34WTY77c">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Yosemite (and Mavericks?): all the speech voices are displayed regardless of whether they&apos;re present</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="jmUtivqbYtW">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Fix or annotate away Clang analyzer issues so we can build cleanly.</lit>
+                  <lit>Fix or annotate away (not possible?) Clang analyzer issues so we can build cleanly.</lit>
                 </run>
               </p>
             </text>
@@ -5242,7 +5336,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Replace dock menu screenshot in Read Me with an up-to-date one</lit>
+                  <lit>Replace dock menu screenshot in Read Me with an up-to-date HiDPI oneπ</lit>
                 </run>
               </p>
             </text>
@@ -5265,17 +5359,6 @@
               <p>
                 <run>
                   <lit>Differential drawing behavior in dock icon seems to potentially be a bug</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="k0CUR00pCIw">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Fix code signing for embedded frameworks for 10.9 compatibility: http://furbo.org/2013/10/17/code-signing-and-mavericks/</lit>
                 </run>
               </p>
             </text>
@@ -5416,17 +5499,6 @@
               </values>
             </item>
           </children>
-        </item>
-        <item id="c6eQKGHL8H1">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Retina displays have issues with the read me (10.8, maybe 10.7.4?)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="fc_13JEUtZ4" state="indeterminate">
           <values>
@@ -5634,6 +5706,28 @@
             </item>
           </children>
         </item>
+        <item id="dzjxToMHtIi">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Blog it.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="c2T77bLGESd">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>More than 4 years, sadly. http://njr.sabi.net/2007/11/24/pester-11b5-released/</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
       </children>
     </item>
     <item id="nqWfp1JOMA5">
@@ -5647,7 +5741,7 @@
         </text>
       </values>
       <children>
-        <item id="fYQJ4Bknvt1" expanded="yes">
+        <item id="fYQJ4Bknvt1">
           <values>
             <text>
               <p>
