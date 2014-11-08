@@ -85,7 +85,7 @@ ol p {
 
 td, td > p {
 	font-size: 9pt;
-	font-family: "Lucida Grande", Arial, sans-serif;
+	font-family: "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
 	line-height: 12pt;
 }
 
@@ -118,7 +118,7 @@ ul p {
 a {
 	color: #00f;
 	font-size: 9pt;
-	font-family: "Lucida Grande", Arial, sans-serif;
+	font-family: "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
 	line-height: 12pt;
 	text-decoration: none
 	}
@@ -126,7 +126,7 @@ a {
 
 a:hover {
 	color: #00f;
-	font-family: "Lucida Grande", Arial, sans-serif;
+	font-family: "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
 	text-decoration: underline
 	}
 
