@@ -12,9 +12,6 @@
 #import "PSAlarmAlertController.h"
 #import "NSDictionary-NJRExtensions.h"
 
-// property list keys
-static NSString * const PLAlertRepetitions = @"times"; // NSNumber
-
 @interface PSBeepAlert ()
 - (void)beep;
 @end
