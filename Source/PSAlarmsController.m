@@ -46,6 +46,7 @@
         [notificationCenter addObserver: alarmList selector: @selector(reloadData) name: NSSystemTimeZoneDidChangeNotification object: nil];
         [alarmList setAutosaveName: @"Alarm list"];
         [alarmList setAutosaveTableColumns: YES];
+        [alarmList scrollRowToVisible: 0]; // XXX workaround for bug in 10.10 (r. 18292112)
         [self alarmsChanged];
         [[self window] makeFirstResponder: alarmList];
         [[self window] setResizeIncrements: NSMakeSize(1, [alarmList cellHeight])];
