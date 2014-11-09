@@ -84,6 +84,8 @@
 		E1869DB3177A82EA00DBCEC3 /* Calendar@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1869DB2177A82EA00DBCEC3 /* Calendar@2x.tiff */; };
 		E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
 		E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E18E822F113CC5C300687310 /* PSDateFieldEditor.m */; };
+		E194E73D1A0FCFC0004070C5 /* NJRIntervalField.plist in Resources */ = {isa = PBXBuildFile; fileRef = E194E73C1A0FCFC0004070C5 /* NJRIntervalField.plist */; };
+		E194E73F1A0FEA47004070C5 /* NJROperatingSystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = E194E73E1A0FEA47004070C5 /* NJROperatingSystemVersion.m */; };
 		E1985796104F68EC0082AC3E /* ParseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CC53E0CFDE48C0079DCFC /* ParseDate.m */; };
 		E1985798104F68EC0082AC3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
 		E19857B6104F697D0082AC3E /* libParseDate-10.6.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E198579D104F68EC0082AC3E /* libParseDate-10.6.dylib */; };
@@ -375,6 +377,7 @@
 		E18E822E113CC5C300687310 /* PSDateFieldEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDateFieldEditor.h; sourceTree = "<group>"; };
 		E18E822F113CC5C300687310 /* PSDateFieldEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDateFieldEditor.m; sourceTree = "<group>"; };
 		E198579D104F68EC0082AC3E /* libParseDate-10.6.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.6.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E194E73C1A0FCFC0004070C5 /* NJRIntervalField.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NJRIntervalField.plist; sourceTree = "<group>"; };
 		E19CC53D0CFDE48C0079DCFC /* ParseDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseDate.h; sourceTree = "<group>"; };
 		E19CC53E0CFDE48C0079DCFC /* ParseDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDate.m; sourceTree = "<group>"; };
 		E19D2D741158181A00B68D9F /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DateCompletions.strings; sourceTree = "<group>"; };
@@ -648,6 +651,7 @@
 				E1DE3C13115930BD00C17BB0 /* Localizable.strings */,
 				E1E1F1C217BC7DFB00DC565A /* MoveApplication.strings */,
 				E19D2D731158181A00B68D9F /* DateCompletions.strings */,
+				E194E73C1A0FCFC0004070C5 /* NJRIntervalField.plist */,
 				E18830410442B5FC00050002 /* Calendar icons */,
 				F59DD44F0358ABF4017318D0 /* Credits.html */,
 				E11BE23B12238FB600240657 /* Growl Registration Ticket.growlRegDict */,
@@ -1158,6 +1162,7 @@
 				E1869DB3177A82EA00DBCEC3 /* Calendar@2x.tiff in Resources */,
 				E1E1F14717B2E42C00444F94 /* FontAwesome.otf in Resources */,
 				E1E1F1C317BC7DFB00DC565A /* MoveApplication.strings in Resources */,
+				E194E73D1A0FCFC0004070C5 /* NJRIntervalField.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

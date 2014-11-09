@@ -10,11 +10,64 @@
 
 @implementation NJRIntervalField
 
-- (NSTimeInterval)interval;
+static NSDictionary *unitLabels;
+
++ (void)initialize;
+{
+    unitLabels = [[NSDictionary dictionaryWithContentsOfURL: [[NSBundle mainBundle] URLForResource: @"NJRIntervalField" withExtension: @"plist"]] retain];
+}
+
+- (void)_observeTextDidChange;
+{
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(controlTextDidChange:) name: NSControlTextDidChangeNotification object: self];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder;
+{
+    if ( (self = [super initWithCoder: aDecoder]) != nil)
+        [self _observeTextDidChange];
+    return self;
+}
+
+- (id)initWithFrame:(NSRect)frameRect;
+{
+    if ( (self = [super initWithFrame: frameRect]) != nil)
+        [self _observeTextDidChange];
+    return self;
+}
+
+- (void)dealloc;
+{
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+    [super dealloc];
+}
+
+- (void)setIntervalUnits:(NSPopUpButton *)aPopUpButton;
+{
+    if (intervalUnits == aPopUpButton)
+        return;
+
+    [intervalUnits release];
+    intervalUnits = [aPopUpButton retain];
+
+    for (NSMenuItem *item in [intervalUnits itemArray]) {
+        NSInteger tag = [item tag];
+        if (tag == 0)
+            continue;
+
+        NSDictionary *labelsForUnit = unitLabels[[NSString stringWithFormat: @"%d", tag]];
+        if (labelsForUnit == nil)
+            continue;
+
+        [item setRepresentedObject: labelsForUnit];
+    }
+}
+
+- (NSInteger)intervalValue;
 {
     NSText *editor = [self currentEditor];
     id obj = nil;
-    
+
     if (editor != nil) {
         NSString *stringValue = [editor string];
         if (![[self formatter] getObjectValue: &obj forString: stringValue errorDescription: NULL])
@@ -22,29 +75,50 @@
     } else {
         obj = self;
     }
-    
-    return [obj intValue] * [[intervalUnits selectedItem] tag];
+
+    return [obj integerValue];
+}
+
+- (void)_updateUnitLabels;
+{
+    NSString *valueString = [NSString stringWithFormat: @"%d", [self intervalValue]];
+
+    for (NSMenuItem *item in [intervalUnits itemArray]) {
+        NSDictionary *labelsForUnit = [item representedObject];
+        if (labelsForUnit == nil)
+            continue;
+
+        NSString *label = labelsForUnit[valueString];
+        if (label == nil)
+            label = labelsForUnit[@"0"];
+
+        if (label != nil)
+            [item setTitle: label];
+    }
+}
+
+- (NSTimeInterval)interval;
+{
+    return [self intervalValue] * [[intervalUnits selectedItem] tag];
 }
 
 - (BOOL)setInterval:(NSTimeInterval)interval;
 {
-    // we assume that the tags are in ascending order in the array
-    NSEnumerator *e = [[intervalUnits itemArray] reverseObjectEnumerator];
-    NSMenuItem *i;
-    int multiplierTag;
-
-    while ( (i = [e nextObject]) != nil) {
-        multiplierTag = [i tag];
+    // assuming the tags are in ascending order in the array
+    for (NSMenuItem *item in [[intervalUnits itemArray] reverseObjectEnumerator]) {
+        NSInteger multiplierTag = [item tag];
         if (multiplierTag <= 0) continue;
-        if (((int)interval % multiplierTag) == 0) {
+        if (((NSInteger)interval % multiplierTag) == 0) {
             NSFormatter *formatter = [self formatter];
-            int intervalValue = (int)interval / multiplierTag;
+            int intervalValue = (NSInteger)interval / multiplierTag;
             if (formatter != nil) {
                 id ignored;
-                if (![formatter getObjectValue: &ignored forString: [formatter stringForObjectValue: [NSNumber numberWithInt: intervalValue]] errorDescription: NULL]) return NO;
+                if (![formatter getObjectValue: &ignored forString: [formatter stringForObjectValue: [NSNumber numberWithInteger: intervalValue]] errorDescription: NULL]) return NO;
             }
-            [self setIntValue: intervalValue];
-            [intervalUnits selectItem: i];
+            [self setIntegerValue: intervalValue];
+            [intervalUnits selectItem: item];
+            [self _updateUnitLabels];
+
             return YES;
         }
     }
@@ -92,6 +166,15 @@
     if ([super respondsToSelector: _cmd])
         return [super textView: textView shouldChangeTextInRange: range replacementString: string];
     return YES;
+}
+
+@end
+
+@implementation NJRIntervalField (NSControlSubclassNotifications)
+
+- (void)controlTextDidChange:(NSNotification *)obj;
+{
+    [self _updateUnitLabels];
 }
 
 @end
