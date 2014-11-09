@@ -23,7 +23,7 @@
 
 - (NSAttributedString *)underlined;
 {
-    return [[[NSAttributedString alloc] initWithString: self attributes: [NSDictionary dictionaryWithObject: [NSNumber numberWithInt: NSSingleUnderlineStyle] forKey: NSUnderlineStyleAttributeName]] autorelease];
+    return [[[NSAttributedString alloc] initWithString: self attributes: [NSDictionary dictionaryWithObject: [NSNumber numberWithInt: NSUnderlineStyleSingle] forKey: NSUnderlineStyleAttributeName]] autorelease];
 }
 
 - (NSAttributedString *)small;
