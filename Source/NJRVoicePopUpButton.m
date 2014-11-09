@@ -34,11 +34,13 @@
         NSDictionary *visibleIdentifiers = [[[NSUserDefaults standardUserDefaults] persistentDomainForName: @"com.apple.speech.voice.prefs"] objectForKey: @"VisibleIdentifiers"];
 
         for (NSString *voice in voices) {
-            NSNumber *visibleIdentifier = [visibleIdentifiers objectForKey: voice];
-            if (visibleIdentifier == nil)
-                visibleIdentifier = [visibleIdentifiers objectForKey: [voice stringByAppendingString: @".premium"]];
-            if (visibleIdentifier == nil || [visibleIdentifier integerValue] != 1)
-                continue;
+            if (visibleIdentifiers != nil) {
+                NSNumber *visibleIdentifier = [visibleIdentifiers objectForKey: voice];
+                if (visibleIdentifier == nil)
+                    visibleIdentifier = [visibleIdentifiers objectForKey: [voice stringByAppendingString: @".premium"]];
+                if (visibleIdentifier == nil || [visibleIdentifier integerValue] != 1)
+                    continue;
+            }
             NSDictionary *voiceAttributes = [NSSpeechSynthesizer attributesForVoice: voice];
             item = [menu addItemWithTitle:
                     voiceAttributes[NSVoiceName]
