@@ -33,8 +33,10 @@ static NSString * const PSAlarmAlertWaitForIdleTime = @"PesterAlarmAlertWaitForI
 {
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [alarm setTimer]; // if snooze not set and not repeating, alarm will die
-    if (frontmostApp.highLongOfPSN != 0 || frontmostApp.lowLongOfPSN != 0) {
-        SetFrontProcessWithOptions(&frontmostApp, kSetFrontProcessFrontWindowOnly);
+    if (frontmostApplication != nil) {
+        [frontmostApplication activateWithOptions: NSApplicationActivateIgnoringOtherApps];
+        [frontmostApplication release];
+        frontmostApplication = nil;
         if (appWasHidden)
             [NSApp hide: self];
     }
@@ -69,9 +71,8 @@ static NSString * const PSAlarmAlertWaitForIdleTime = @"PesterAlarmAlertWaitForI
     }
     [alerts triggerForAlarm: alarm];
     if ([alerts requirePesterFrontmost] && ![NSApp isActive]) { // restore frontmost process afterward
-        NSDictionary *activeProcessInfo = [[NSWorkspace sharedWorkspace] activeApplication];
-        frontmostApp.highLongOfPSN = [[activeProcessInfo objectForKey: @"NSApplicationProcessSerialNumberHigh"] longValue];
-        frontmostApp.lowLongOfPSN = [[activeProcessInfo objectForKey: @"NSApplicationProcessSerialNumberLow"] longValue];
+        [frontmostApplication release];
+        frontmostApplication = [[[NSWorkspace sharedWorkspace] frontmostApplication] retain];
         appWasHidden = [NSApp isHidden];
 	[NSApp performAlertSelectorWhenIdle: @selector(activateIgnoringOtherApps) withObject: nil];
     }

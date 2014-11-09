@@ -13,7 +13,7 @@ extern NSString * const PSAlarmAlertStopNotification;
 
 @interface PSAlarmAlertController : NSObject {
     NSMutableSet *pendingAlerts;
-    ProcessSerialNumber frontmostApp;
+    NSRunningApplication *frontmostApplication;
     BOOL appWasHidden;
 }
 
