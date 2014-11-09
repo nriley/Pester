@@ -50,11 +50,11 @@
                 [self selectItem: item];
         }
     }
-    if (_speaker == nil)
-	[self selectItemAtIndex: [menu indexOfItemWithRepresentedObject: [NSSpeechSynthesizer defaultVoice]]];
     if (item == nil) {
         item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate voices", "Voice popup menu item surrogate for voice list if no voices are found") action: nil keyEquivalent: @""];
         [item setEnabled: NO];
+    } else if (selectedVoice == nil) {
+        [self setVoice: [NSSpeechSynthesizer defaultVoice]];
     }
 
     if (!registeredForVoiceChangedNotification) {
@@ -96,9 +96,8 @@
     int voiceIdx = [self indexOfItemWithRepresentedObject: voice];
     if (voiceIdx == -1) {
         [self _invalidateVoiceSelection];
-    } else {
-        [self selectItemAtIndex: voiceIdx];
     }
+    [self selectItemAtIndex: voiceIdx];
 }
 
 - (void)_previewVoice;
