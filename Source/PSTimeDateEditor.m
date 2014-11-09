@@ -32,13 +32,11 @@
 	timeDateCompletions = completions;
 	controller = obj;
 
-	long minorVersion;
-	Gestalt(gestaltSystemVersionMinor, &minorVersion);
-	if (minorVersion == 6) {
-	    // combo box/popup menu arrows are different sizes in Snow Leopard;
-	    // they are the same size in Lion
+        if (NJROSXMinorVersion() >= 10) {
+	    // combo box/popup menu arrows are different sizes in Yosemite
+            // (same on Lion, Mountain Lion and Mavericks)
 	    NSSize size = [timeDate frame].size;
-	    size.width -= 3;
+            size.width += 1;
 	    [timeDate setFrameSize: size];
 	}
 
