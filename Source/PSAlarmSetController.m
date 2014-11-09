@@ -65,6 +65,11 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 {
     alarm = [[PSAlarm alloc] init];
     [[self window] center];
+
+    // XXX work around control baseline misalignment in 10.10
+    if (NJROSXMinorVersion() >= 10)
+        [messageField setFrame: NSOffsetRect([messageField frame], 0, -1)];
+
     if ([[removeMessageButton image] size].width != 0)
 	[removeMessageButton setTitle: @""];
     timeDateEditor = [[PSTimeDateEditor alloc] initWithTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions controller: self];
