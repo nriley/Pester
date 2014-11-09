@@ -25,7 +25,7 @@
         return NO;
 
     AudioDeviceID outputDevice = [[NJRSoundDevice defaultOutputDevice] deviceID];
-    OSStatus err = SetSpeechInfo(speechChannel, soOutputToAudioDevice, &outputDevice);
+    OSStatus err = SetSpeechProperty(speechChannel, kSpeechOutputToAudioDeviceProperty, [NSNumber numberWithUnsignedLong: outputDevice]);
 
     return (err == noErr);
 }
@@ -81,10 +81,10 @@ static BOOL voiceSpecForVoice(NSString *voice, VoiceSpec *voiceSpec) {
 
     if (![self NJR_setOutputDevice]) goto fail;
 
-    err = SetSpeechInfo(speechChannel, soRefCon, self);
+    err = SetSpeechProperty(speechChannel, kSpeechRefConProperty, [NSNumber numberWithUnsignedLongLong: (unsigned long long)self]);
     if (err != noErr) goto fail;
 
-    err = SetSpeechInfo(speechChannel, soSpeechDoneCallBack, speech_done);
+    err = SetSpeechProperty(speechChannel, kSpeechSpeechDoneCallBack, [NSNumber numberWithUnsignedLongLong: (unsigned long long)speech_done]);
     if (err != noErr) goto fail;
 
     return YES;
