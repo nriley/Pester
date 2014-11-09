@@ -94,7 +94,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
                     alternateButton = @"Use Restored";
                 }
                 description = [description stringByAppendingString: @"\n\nClick Use Defaults to use the default set of alerts instead.\n\nIf you accidentally opened the wrong version of Pester, click Quit.\n"];
-                switch (NSRunCriticalAlertPanel(title, description, @"Quit", alternateButton, otherButton)) {
+                switch (NSRunCriticalAlertPanel(title, @"%@", @"Quit", alternateButton, otherButton, description)) {
                     case NSAlertAlternateReturn:
                         [[NSUserDefaults standardUserDefaults] setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
                         break;
