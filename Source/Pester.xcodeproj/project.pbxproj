@@ -991,7 +991,7 @@
 			name = PesterTest;
 			productName = PesterTest;
 			productReference = E11E00BC17BEE2E900BA997C /* PesterTest.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		E17E8D6D1801DD6E00D1174A /* ParseDate-10.7 */ = {
 			isa = PBXNativeTarget;
