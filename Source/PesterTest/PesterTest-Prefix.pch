@@ -4,6 +4,7 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
+    #import "NJROperatingSystemVersion.h"
 #endif
 
 #define PESTER_TEST 1

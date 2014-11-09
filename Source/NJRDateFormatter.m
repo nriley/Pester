@@ -64,10 +64,7 @@ static NSString *timeFormats[] = {
 
 + (void)initialize;
 {
-    long minorVersion, majorVersion;
-    Gestalt(gestaltSystemVersionMajor, &majorVersion);
-    Gestalt(gestaltSystemVersionMinor, &minorVersion);
-    if (majorVersion != 10)
+    NSInteger minorVersion = NJROSXMinorVersion();
 	return;
     
     NSString *libName;

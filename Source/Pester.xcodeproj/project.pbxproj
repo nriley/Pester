@@ -378,6 +378,8 @@
 		E18E822F113CC5C300687310 /* PSDateFieldEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDateFieldEditor.m; sourceTree = "<group>"; };
 		E198579D104F68EC0082AC3E /* libParseDate-10.6.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.6.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E194E73C1A0FCFC0004070C5 /* NJRIntervalField.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NJRIntervalField.plist; sourceTree = "<group>"; };
+		E194E73E1A0FEA47004070C5 /* NJROperatingSystemVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJROperatingSystemVersion.m; sourceTree = "<group>"; };
+		E194E7401A0FECB1004070C5 /* NJROperatingSystemVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJROperatingSystemVersion.h; sourceTree = "<group>"; };
 		E19CC53D0CFDE48C0079DCFC /* ParseDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseDate.h; sourceTree = "<group>"; };
 		E19CC53E0CFDE48C0079DCFC /* ParseDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDate.m; sourceTree = "<group>"; };
 		E19D2D741158181A00B68D9F /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DateCompletions.strings; sourceTree = "<group>"; };
@@ -626,6 +628,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E194E7401A0FECB1004070C5 /* NJROperatingSystemVersion.h */,
+				E194E73E1A0FEA47004070C5 /* NJROperatingSystemVersion.m */,
 				E19DCBD203BE4AA200B934BF /* Pester_Prefix.h */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -1204,6 +1208,7 @@
 				E11E00DA17BEE6B400BA997C /* PSMovieAlert.m in Sources */,
 				E11E00DB17BEE6B400BA997C /* PSSpeechAlert.m in Sources */,
 				E11E00DC17BEE6B400BA997C /* PSUserNotificationAlert.m in Sources */,
+				E154EEDB1A0FF0F300E52A57 /* NJROperatingSystemVersion.m in Sources */,
 				E11E00DD17BEE6B400BA997C /* PSWakeAlert.m in Sources */,
 				E11E00DE17BEE72B00BA997C /* PSAlarmAlertController.m in Sources */,
 				E11E00E217BEE77900BA997C /* BDAlias.m in Sources */,
@@ -1308,6 +1313,7 @@
 				E1B11F790CF5F30F004975AA /* NJRHotKeyManager.m in Sources */,
 				E1B11F7A0CF5F30F004975AA /* PSVolumeController.m in Sources */,
 				E1B11F7B0CF5F30F004975AA /* PSMediaAlert.m in Sources */,
+				E194E73F1A0FEA47004070C5 /* NJROperatingSystemVersion.m in Sources */,
 				E1B11F7D0CF5F30F004975AA /* NJRNonCenteringWindow.m in Sources */,
 				E1B121970CF62FD1004975AA /* NSMenuItem-NJRExtensions.m in Sources */,
 				E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */,
