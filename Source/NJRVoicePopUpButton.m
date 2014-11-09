@@ -22,10 +22,9 @@
     NSMenu *menu = [self menu];
     [menu setAutoenablesItems: NO];
 
-    // XXX would be more elegant with surrogate support like my font popup menu
     NSMenuItem *item = [menu addItemWithTitle: @"«unknown»" action: nil keyEquivalent: @""];
     [item setEnabled: NO];
-    [menu addItem: [NSMenuItem separatorItem]];
+    [item setHidden: YES];
 
     NSArray *voices = [NSSpeechSynthesizer availableVoices];
     item = nil;
@@ -119,7 +118,7 @@
     }
 
     if (previewString == nil)
-        previewString = [[NSSpeechSynthesizer attributesForVoice: voice] objectForKey: NSVoiceDemoText];
+        previewString = [NSSpeechSynthesizer attributesForVoice: voice][NSVoiceDemoText];
 
     [_speaker startSpeakingString: previewString];
 }
