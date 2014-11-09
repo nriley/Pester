@@ -381,13 +381,12 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
         }
     }
 
-    id /*NSUserNotification*/ launchUserNotification = [[notification userInfo] objectForKey: @"NSApplicationLaunchUserNotificationKey"];
-    if (launchUserNotification != nil) {
-#ifndef NSUserNotification
-        Class NSUserNotificationCenter = NSClassFromString(@"NSUserNotificationCenter");
-#endif
-        id /*NSUserNotificationCenter*/ userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
-        [[userNotificationCenter delegate] userNotificationCenter: userNotificationCenter didActivateNotification: launchUserNotification];
+    if (NSApplicationLaunchUserNotificationKey != nil) {
+        NSUserNotification *launchUserNotification = [[notification userInfo] objectForKey: NSApplicationLaunchUserNotificationKey];
+        if (launchUserNotification != nil) {
+            NSUserNotificationCenter *userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+            [[userNotificationCenter delegate] userNotificationCenter: userNotificationCenter didActivateNotification: launchUserNotification];
+        }
     }
 
     PFMoveToApplicationsFolderIfNecessary();
