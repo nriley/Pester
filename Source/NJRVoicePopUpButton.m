@@ -16,33 +16,51 @@
 
 - (void)_refreshVoiceList;
 {
-    NSMenu *menu;
-    NSMenuItem *item;
-    NSArray *voices = [NSSpeechSynthesizer availableVoices];
-
+    NSString *selectedVoice = [[self selectedItem] representedObject];
     [self removeAllItems];
-    menu = [self menu];
+
+    NSMenu *menu = [self menu];
     [menu setAutoenablesItems: NO];
+
     // XXX would be more elegant with surrogate support like my font popup menu
-    item = [menu addItemWithTitle: @"«unknown»" action: nil keyEquivalent: @""];
+    NSMenuItem *item = [menu addItemWithTitle: @"«unknown»" action: nil keyEquivalent: @""];
     [item setEnabled: NO];
     [menu addItem: [NSMenuItem separatorItem]];
-    if (voices == nil || [voices count] == 0) {
-        item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate voices", "Voice popup menu item surrogate for voice list if no voices are found") action: nil keyEquivalent: @""];
-        [item setEnabled: NO];
-    } else {
-        NSEnumerator *e = [voices objectEnumerator];
-        NSString *voice;
-        while ( (voice = [e nextObject]) != nil) {
+
+    NSArray *voices = [NSSpeechSynthesizer availableVoices];
+    item = nil;
+
+    if (voices != nil) {
+        // XXX unaware of any public way to get enabled voice information
+        NSDictionary *visibleIdentifiers = [[[NSUserDefaults standardUserDefaults] persistentDomainForName: @"com.apple.speech.voice.prefs"] objectForKey: @"VisibleIdentifiers"];
+
+        for (NSString *voice in voices) {
+            NSNumber *visibleIdentifier = [visibleIdentifiers objectForKey: voice];
+            if (visibleIdentifier == nil)
+                visibleIdentifier = [visibleIdentifiers objectForKey: [voice stringByAppendingString: @".premium"]];
+            if (visibleIdentifier == nil || [visibleIdentifier integerValue] != 1)
+                continue;
+            NSDictionary *voiceAttributes = [NSSpeechSynthesizer attributesForVoice: voice];
             item = [menu addItemWithTitle:
-		    [[NSSpeechSynthesizer attributesForVoice: voice] objectForKey: NSVoiceName]
-				   action: @selector(_previewVoice) keyEquivalent: @""];
-	    [item setRepresentedObject: voice];
+                    voiceAttributes[NSVoiceName]
+                                   action: @selector(_previewVoice) keyEquivalent: @""];
+            [item setRepresentedObject: voice];
             [item setTarget: self];
+            if ([voice isEqualToString: selectedVoice])
+                [self selectItem: item];
         }
     }
     if (_speaker == nil)
 	[self selectItemAtIndex: [menu indexOfItemWithRepresentedObject: [NSSpeechSynthesizer defaultVoice]]];
+    if (item == nil) {
+        item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate voices", "Voice popup menu item surrogate for voice list if no voices are found") action: nil keyEquivalent: @""];
+        [item setEnabled: NO];
+    }
+
+    if (!registeredForVoiceChangedNotification) {
+        [[NSDistributedNotificationCenter defaultCenter] addObserver: self selector: @selector(_refreshVoiceList) name: @"com.apple.speech.DefaultVoiceChangedNotification" object: nil];
+        registeredForVoiceChangedNotification = YES;
+    }
 }
 
 - (id)initWithFrame:(NSRect)frame;
@@ -109,6 +127,7 @@
 
 - (void)dealloc;
 {
+    [[NSDistributedNotificationCenter defaultCenter] removeObserver: self];
     [_speaker release];
     [super dealloc];
 }

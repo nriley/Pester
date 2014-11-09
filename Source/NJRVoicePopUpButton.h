@@ -12,6 +12,7 @@
 @interface NJRVoicePopUpButton : NSPopUpButton {
     id _delegate;
     NJRSpeechSynthesizer *_speaker;
+    BOOL registeredForVoiceChangedNotification;
 }
 
 - (void)setVoice:(NSString *)voice;
