@@ -6,7 +6,7 @@
 //  Copyright (c) 2003 Nicholas Riley. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 
 
 @interface PSTimer : NSObject {
