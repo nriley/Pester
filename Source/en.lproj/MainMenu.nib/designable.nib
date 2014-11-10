@@ -194,7 +194,7 @@ choose “Stop Alerts” from the Alarm menu.</string>
 
 Customize the notification from Growl, or Notifications System Preferences, respectively.
 
-(Corresponding options are disabled if Growl is not currently running or you are using OS X 10.7 or earlier.)</string>
+(Corresponding options are disabled if Growl is not currently running or you are using OS X 10.7.)</string>
                                             <buttonCell key="cell" type="check" title="Notify with" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1615">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -522,7 +522,7 @@ DQ
                     <button toolTip="Collapse or expand the alert editor." horizontalHuggingPriority="750" verticalHuggingPriority="750" id="1541">
                         <rect key="frame" x="397" y="142" width="29" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="BF5D3ED4-92A8-45A1-B156-623826B16276" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1591">
+                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="6DA3E74D-6305-481F-9BAF-531FFB0A2327" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1591">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -807,7 +807,7 @@ DQ
         <userDefaultsController representsSharedInstance="YES" id="mI9-ue-Gfi"/>
     </objects>
     <resources>
-        <image name="BF5D3ED4-92A8-45A1-B156-623826B16276" width="1" height="1">
+        <image name="6DA3E74D-6305-481F-9BAF-531FFB0A2327" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
