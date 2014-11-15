@@ -22,7 +22,7 @@ static NSSize PopupTriangleSize;
     }
     canChooseFiles = YES; canChooseDirectories = NO;
     [self setAlias: nil];
-    [[self cell] setHighlightsBy: NSChangeBackgroundCell];
+    [[self cell] setHighlightsBy: NSChangeBackgroundCellMask];
     [[self cell] setGradientType: NSGradientNone];
     [self registerForDraggedTypes:
         [NSArray arrayWithObjects: NSFilenamesPboardType, NSURLPboardType, nil]];
