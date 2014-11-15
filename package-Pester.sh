@@ -22,8 +22,6 @@ cd ..
 xcodebuild -target Pester -configuration Release "DSTROOT=$DSTROOT" \
     DEPLOYMENT_LOCATION=YES install
 rm -rf build/Release # or Xcode gets confused next time because of the symlink
-find "$DSTROOT" \( -name ".svn" -or -name "Headers" \) \
-    -exec sudo /bin/rm -rf "{}" \; || true
 
 # create disk image
 cd "$PACKAGEDIR"
