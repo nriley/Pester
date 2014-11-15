@@ -13,7 +13,6 @@ DMG="$PRODUCT-$VERSION.dmg" VOL="$PRODUCT $VERSION"
 DSTROOT="$PACKAGEDIR/$VOL"
 
 # clean and build
-sudo rm -rf "$DSTROOT"
 find . -name \*~ -exec rm '{}' \;
 rm -rf build/ Sparkle/build/
 xcodebuild -target Pester -configuration Release "DSTROOT=$DSTROOT" \
