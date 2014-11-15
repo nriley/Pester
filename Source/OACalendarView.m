@@ -87,8 +87,10 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
         return nil;
     
     monthAndYearTextFieldCell = [[NSTextFieldCell alloc] init];
-    monthAndYearFormatter = [[NSDateFormatter alloc] initWithDateFormat:@"%B %Y" allowNaturalLanguage:NO];
-    [monthAndYearTextFieldCell setFormatter:monthAndYearFormatter];
+    monthAndYearFormatter = [[NSDateFormatter alloc] init];
+    monthAndYearFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
+    monthAndYearFormatter.dateFormat = [NSDateFormatter dateFormatFromTemplate: @"MMMM yyyy" options: 0 locale: monthAndYearFormatter.locale];
+    [monthAndYearTextFieldCell setFormatter: monthAndYearFormatter];
     [monthAndYearTextFieldCell setFont: [NSFont boldSystemFontOfSize: [NSFont systemFontSize]]];
     [monthAndYearFormatter release];
 
