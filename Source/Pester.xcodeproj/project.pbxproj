@@ -1034,6 +1034,7 @@
 				E1B11F260CF5F30F004975AA /* Resources */,
 				E17CA9A80CF7F89900018B34 /* Copy Perl Modules */,
 				E17562730CF8C55D00FC5057 /* Copy Growl.framework & Sparkle.framework */,
+				E1BDC2791A17F5F800B6C8A1 /* Code Sign Embedded Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1186,6 +1187,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n# \"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"";
+		};
+		E1BDC2791A17F5F800B6C8A1 /* Code Sign Embedded Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Code Sign Embedded Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ X\"$EXPANDED_CODE_SIGN_IDENTITY_NAME\" != X ]]; then\n    for embedded_framework in \"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH\"/*; do\n        /usr/bin/codesign --verbose --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY_NAME\" \"$embedded_framework\"\n\tdone\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1581,6 +1596,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
@@ -1608,6 +1624,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
@@ -1631,7 +1648,6 @@
 		E1B11F880CF5F30F004975AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application: Nicholas Riley";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 56;
@@ -1656,7 +1672,6 @@
 		E1B11F890CF5F30F004975AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application: Nicholas Riley";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 56;
