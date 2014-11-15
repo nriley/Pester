@@ -65,7 +65,7 @@
     // The event may simply be a mouse-up: close the menu.
     if (eventMask & (NSLeftMouseUpMask | NSRightMouseDownMask | NSOtherMouseDownMask))
 	[menu cancelTracking];
-    // On a quick click, the event may be a mouse down but the mouse button is no longer down.
+    // On a quick click, the event may be a mouse down but the mouse button is no longer down.
     if (!(eventMask & (NSLeftMouseDownMask | NSRightMouseDownMask | NSOtherMouseDownMask)))
 	return;
     if ([NSEvent pressedMouseButtons] == 0)
