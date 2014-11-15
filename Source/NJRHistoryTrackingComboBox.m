@@ -15,12 +15,6 @@
 - (void)optionKeyStateChanged:(BOOL)down;
 @end
 
-static CGEventRef flags_changed(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *refcon) {
-    NJRHistoryTrackingComboBox *comboBox = (NJRHistoryTrackingComboBox *)refcon;
-    [comboBox optionKeyStateChanged: (CGEventGetFlags(event) & kCGEventFlagMaskAlternate) != 0];
-    return event;
-}
-
 @implementation NJRHistoryTrackingComboBox
 
 - (NSString *)_defaultKey;
@@ -41,21 +35,15 @@ static CGEventRef flags_changed(CGEventTapProxy proxy, CGEventType type, CGEvent
     if (removeEntryButton == nil)
 	return;
 
-    // XXX 10.6+: use addLocalMonitorForEventsMatchingMask:
-    ProcessSerialNumber psn;
-    GetCurrentProcess(&psn); // kCurrentProcess doesn't work
-    flagsChangedTap = (NSMachPort *)CGEventTapCreateForPSN(&psn, kCGHeadInsertEventTap, kCGEventTapOptionListenOnly, CGEventMaskBit(kCGEventFlagsChanged), flags_changed, self);
-    if (flagsChangedTap == nil)
-	return;
-
-    [[NSRunLoop currentRunLoop] addPort: flagsChangedTap forMode: NSDefaultRunLoopMode];
-    [flagsChangedTap release];
+    flagsChangedEventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask: NSFlagsChangedMask handler: ^NSEvent *(NSEvent *event) {
+        [self optionKeyStateChanged: (event.modifierFlags & NSAlternateKeyMask) != 0];
+        return event;
+    }];
 }
 
 - (void)dealloc;
 {
-    if (flagsChangedTap != nil)
-	[[NSRunLoop currentRunLoop] removePort: flagsChangedTap forMode: NSDefaultRunLoopMode];
+    [NSEvent removeMonitor: flagsChangedEventMonitor];
     [super dealloc];
 }
 

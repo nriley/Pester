@@ -11,7 +11,7 @@
 @interface NJRHistoryTrackingComboBox : NSComboBox {
     IBOutlet NSButton *removeEntryButton;
     NSDictionary *removeEntryButtonEnabledBindingInfo;
-    NSMachPort *flagsChangedTap;
+    id flagsChangedEventMonitor;
 }
 
 - (IBAction)removeEntry:(id)sender;
