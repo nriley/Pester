@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" promptedForUpgradeToXcode5="NO">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <development version="6000" identifier="xcode"/>
@@ -13,24 +13,24 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Set Alarm" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="21" userLabel="Set Alarm" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="441" y="647" width="442" height="275"/>
+            <rect key="contentRect" x="441" y="647" width="444" height="275"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <value key="minSize" type="size" width="442" height="190"/>
             <value key="maxSize" type="size" width="442" height="275"/>
             <view key="contentView" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="442" height="275"/>
+                <rect key="frame" x="0.0" y="0.0" width="444" height="275"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <popUpButton toolTip="Select a relative date from the combo box." verticalHuggingPriority="750" id="656">
-                        <rect key="frame" x="198" y="171" width="198" height="26"/>
+                        <rect key="frame" x="200" y="171" width="198" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Item1" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" borderStyle="borderAndBezel" inset="2" pullsDown="YES" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="654" id="1590">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="658">
                                 <items>
                                     <menuItem title="Item1" hidden="YES" id="654"/>
@@ -46,7 +46,7 @@
                         </connections>
                     </popUpButton>
                     <tabView drawsBackground="NO" type="noTabsNoBorder" id="509">
-                        <rect key="frame" x="85" y="56" width="338" height="109"/>
+                        <rect key="frame" x="87" y="56" width="338" height="109"/>
                         <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
@@ -123,7 +123,7 @@ choose “Stop Alerts” from the Alarm menu.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <popUpButtonCell key="cell" type="push" title="(voice name)" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="527" id="1580">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="menu"/>
                                                 <menu key="menu" title="OtherViews" id="520">
                                                     <items>
                                                         <menuItem title="(voice name)" state="on" id="527"/>
@@ -163,7 +163,7 @@ choose “Stop Alerts” from the Alarm menu.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <popUpButtonCell key="cell" type="push" title="Alert sound" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" enabled="NO" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1381" id="1584">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="menu"/>
                                                 <menu key="menu" title="OtherViews" id="1380">
                                                     <items>
                                                         <menuItem title="Alert sound" state="on" id="1381"/>
@@ -203,12 +203,12 @@ Customize the notification from Growl, or Notifications System Preferences, resp
                                         <popUpButton verticalHuggingPriority="750" id="1631">
                                             <rect key="frame" x="259" y="2" width="81" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <popUpButtonCell key="cell" type="push" title="OS X" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" id="1632">
+                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" id="1632">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="menu"/>
                                                 <menu key="menu" title="OtherViews" autoenablesItems="NO" id="1633">
                                                     <items>
-                                                        <menuItem title="OS X" state="on" tag="1" toolTip="Alert via Notification Center (OS X 10.8 and later)." id="1635">
+                                                        <menuItem title="OS X" tag="1" toolTip="Alert via Notification Center (OS X 10.8 and later)." id="1635">
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="representedObject" value="PSUserNotificationAlert"/>
                                                             </userDefinedRuntimeAttributes>
@@ -235,8 +235,8 @@ Customize the notification from Growl, or Notifications System Preferences, resp
                             </tabViewItem>
                             <tabViewItem label="View" identifier="view" id="508">
                                 <view key="view" id="510">
-                                    <rect key="frame" x="0.0" y="0.0" width="337" height="109"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="338" height="109"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" id="543">
                                             <rect key="frame" x="9" y="-23" width="343" height="112"/>
@@ -260,7 +260,7 @@ Customize the notification from Growl, or Notifications System Preferences, resp
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="548">
-                                            <rect key="frame" x="284" y="92" width="28" height="17"/>
+                                            <rect key="frame" x="274" y="92" width="38" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Edit" id="1588">
                                                 <font key="font" metaFont="system"/>
@@ -277,7 +277,7 @@ Customize the notification from Growl, or Notifications System Preferences, resp
                         </connections>
                     </tabView>
                     <textField verticalHuggingPriority="750" id="195">
-                        <rect key="frame" x="17" y="235" width="63" height="17"/>
+                        <rect key="frame" x="18" y="235" width="64" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Message:" id="1565">
                             <font key="font" metaFont="system"/>
@@ -286,7 +286,7 @@ Customize the notification from Growl, or Notifications System Preferences, resp
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="198">
-                        <rect key="frame" x="17" y="187" width="63" height="35"/>
+                        <rect key="frame" x="18" y="187" width="64" height="35"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" id="1566">
                             <font key="font" metaFont="system"/>
@@ -297,7 +297,7 @@ Customize the notification from Growl, or Notifications System Preferences, resp
                         </textFieldCell>
                     </textField>
                     <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="199">
-                        <rect key="frame" x="83" y="174" width="195" height="48"/>
+                        <rect key="frame" x="85" y="174" width="195" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         <size key="cellSize" width="195" height="18"/>
@@ -328,7 +328,7 @@ Customize the notification from Growl, or Notifications System Preferences, resp
                         </connections>
                     </matrix>
                     <textField toolTip="Number of seconds, minutes, hours, days or weeks." verticalHuggingPriority="750" id="202" customClass="NJRIntervalField">
-                        <rect key="frame" x="121" y="203" width="33" height="22"/>
+                        <rect key="frame" x="123" y="203" width="33" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" drawsBackground="YES" id="1567">
                             <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="-0" hasThousandSeparators="NO" thousandSeparator="," id="267" customClass="NJRIntegerFilter">
@@ -349,14 +349,14 @@ Customize the notification from Growl, or Notifications System Preferences, resp
                         </connections>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" id="204">
-                        <rect key="frame" x="159" y="199" width="112" height="26"/>
+                        <rect key="frame" x="161" y="199" width="112" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <string key="toolTip">While you’re specifying an interval,
 type S, M, H, D or W to quickly select from
 this menu.</string>
                         <popUpButtonCell key="cell" type="push" title="minutes" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" tag="60" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="205" id="1568">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="206">
                                 <items>
                                     <menuItem title="seconds" tag="1" id="208"/>
@@ -373,7 +373,7 @@ this menu.</string>
                         </connections>
                     </popUpButton>
                     <textField toolTip="Time of day." verticalHuggingPriority="750" id="209">
-                        <rect key="frame" x="121" y="173" width="72" height="22"/>
+                        <rect key="frame" x="123" y="173" width="72" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="1569">
                             <font key="font" metaFont="system"/>
@@ -386,7 +386,7 @@ this menu.</string>
                         </connections>
                     </textField>
                     <textField toolTip="Date." verticalHuggingPriority="750" id="246">
-                        <rect key="frame" x="201" y="173" width="174" height="22"/>
+                        <rect key="frame" x="203" y="173" width="174" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="1574">
                             <font key="font" metaFont="system"/>
@@ -399,7 +399,7 @@ this menu.</string>
                         </connections>
                     </textField>
                     <comboBox toolTip="Message to display when the alarm timer expires." verticalHuggingPriority="750" tag="1" id="316" customClass="NJRHistoryTrackingComboBox">
-                        <rect key="frame" x="85" y="231" width="311" height="26"/>
+                        <rect key="frame" x="87" y="231" width="311" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" tag="1" drawsBackground="YES" numberOfVisibleItems="8" id="1575">
                             <font key="font" metaFont="system"/>
@@ -428,7 +428,7 @@ this menu.</string>
                         </connections>
                     </comboBox>
                     <button toolTip="Set this alarm to repeat at the interval specified at left." id="344">
-                        <rect key="frame" x="274" y="204" width="65" height="18"/>
+                        <rect key="frame" x="276" y="204" width="65" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Repeat" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1577">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -439,7 +439,7 @@ this menu.</string>
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" id="345">
-                        <rect key="frame" x="17" y="148" width="63" height="17"/>
+                        <rect key="frame" x="18" y="148" width="64" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Alert:" id="1578">
                             <font key="font" metaFont="system"/>
@@ -448,11 +448,11 @@ this menu.</string>
                         </textFieldCell>
                     </textField>
                     <qtMovieView controllerVisible="NO" id="373" customClass="NJRUnfocusableMovieView">
-                        <rect key="frame" x="-100" y="374" width="1" height="1"/>
+                        <rect key="frame" x="-98" y="374" width="1" height="1"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </qtMovieView>
                     <button toolTip="Set the alarm." verticalHuggingPriority="750" id="211">
-                        <rect key="frame" x="344" y="16" width="84" height="32"/>
+                        <rect key="frame" x="346" y="16" width="84" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="1570">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -467,7 +467,7 @@ DQ
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="222">
-                        <rect key="frame" x="260" y="16" width="84" height="32"/>
+                        <rect key="frame" x="262" y="16" width="84" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="1572">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -480,17 +480,8 @@ DQ
                             <outlet property="nextKeyView" destination="211" id="436"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" id="223">
-                        <rect key="frame" x="19" y="20" width="238" height="28"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="1573">
-                            <font key="font" metaFont="systemBold" size="10"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <button toolTip="Select an alarm date from the calendar." verticalHuggingPriority="750" id="631">
-                        <rect key="frame" x="399" y="174" width="23" height="21"/>
+                        <rect key="frame" x="403" y="174" width="23" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Calendar" imagePosition="only" alignment="center" borderStyle="border" id="1589">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -502,7 +493,7 @@ DQ
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="332">
-                        <rect key="frame" x="400" y="233" width="22" height="21"/>
+                        <rect key="frame" x="402" y="233" width="22" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <string key="toolTip">Remove this message from the list.
 ⌥-click to remove all messages.</string>
@@ -520,9 +511,9 @@ DQ
                         </connections>
                     </button>
                     <button toolTip="Collapse or expand the alert editor." horizontalHuggingPriority="750" verticalHuggingPriority="750" id="1541">
-                        <rect key="frame" x="397" y="142" width="29" height="26"/>
+                        <rect key="frame" x="399" y="142" width="29" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="6DA3E74D-6305-481F-9BAF-531FFB0A2327" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1591">
+                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="86A07826-189A-4367-BCAA-6302F9104441" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1591">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -530,12 +521,22 @@ DQ
                             <action selector="editAlertChanged:" target="256" id="1544"/>
                         </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" id="223">
+                        <rect key="frame" x="18" y="20" width="242" height="28"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="1573">
+                            <font key="font" metaFont="systemBold" size="10"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <connections>
                 <outlet property="delegate" destination="256" id="285"/>
                 <outlet property="initialFirstResponder" destination="316" id="1598"/>
             </connections>
+            <point key="canvasLocation" x="389" y="291.5"/>
         </window>
         <menu title="MainMenu" systemMenu="main" id="29" userLabel="MainMenu">
             <items>
@@ -807,7 +808,7 @@ DQ
         <userDefaultsController representsSharedInstance="YES" id="mI9-ue-Gfi"/>
     </objects>
     <resources>
-        <image name="6DA3E74D-6305-481F-9BAF-531FFB0A2327" width="1" height="1">
+        <image name="86A07826-189A-4367-BCAA-6302F9104441" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
