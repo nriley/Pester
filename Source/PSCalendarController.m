@@ -46,9 +46,8 @@ enum {
 
         NSView *view = [aDelegate calendarControllerLaunchingView: self];
         if (view != nil) {
-            NSRect rect = [view convertRect: [view bounds] toView: nil];
             NSWindow *parentWindow = [view window];
-            rect.origin = [parentWindow convertBaseToScreen: rect.origin];
+            NSRect rect = [parentWindow convertRectToScreen: [view convertRect: [view bounds] toView: nil]];
             rect.origin.x -= [window frame].size.width - rect.size.width + 1;
 	    rect.origin.y += 1;
             [window setFrameTopLeftPoint: rect.origin];
