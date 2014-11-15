@@ -24,7 +24,7 @@ static void PSBeepAlertSoundCompleted(SystemSoundID ssID, void *self) {
 
 + (PSBeepAlert *)alertWithRepetitions:(unsigned short)numReps;
 {
-    return [[self alloc] initWithRepetitions: numReps];
+    return [[[self alloc] initWithRepetitions: numReps] autorelease];
 }
 
 - (void)dealloc;
