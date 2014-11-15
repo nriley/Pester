@@ -27,7 +27,7 @@
 
         delegate = [aDelegate retain];
 
-	NSView *view = [aDelegate volumeControllerLaunchingView: self];
+        NSView *view = [aDelegate volumeControllerLaunchingView: self];
 
         menu = [[NSMenu alloc] initWithTitle: @""];
         NSMenuItem *menuItem = [[NSMenuItem alloc] init];
