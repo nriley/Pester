@@ -16,9 +16,6 @@ DSTROOT="$PACKAGEDIR/$VOL"
 sudo rm -rf "$DSTROOT"
 find . -name \*~ -exec rm '{}' \;
 rm -rf build/ Sparkle/build/
-cd Sparkle
-xcodebuild -target Sparkle -configuration Release
-cd ..
 xcodebuild -target Pester -configuration Release "DSTROOT=$DSTROOT" \
     DEPLOYMENT_LOCATION=YES install
 rm -rf build/Release # or Xcode gets confused next time because of the symlink
