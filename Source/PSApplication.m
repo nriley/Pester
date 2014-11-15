@@ -220,12 +220,13 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
     BOOL (^drawingHandler)(NSRect) = ^(NSRect dstRect) {
         NSString *tileString = [alarm timeRemainingString];
         NSMutableDictionary *atts = [NSMutableDictionary dictionary];
+        BOOL useBoldFont = (NJROSXMinorVersion() < 10);
         float fontSize = 37;
         NSSize textSize;
 
         do {
             fontSize -= 1;
-            NSFont *font = [NSFont boldSystemFontOfSize: fontSize];
+            NSFont *font = useBoldFont ? [NSFont boldSystemFontOfSize: fontSize] : [NSFont systemFontOfSize: fontSize];
             [atts setObject: font forKey: NSFontAttributeName];
             textSize = [tileString sizeWithAttributes: atts];
         } while (textSize.width > imageSize.width - 20);
@@ -242,11 +243,13 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
         // XXX this is opaque when called as a drawing handler and translucent otherwise
         [[NSBezierPath bezierPathWithRoundedRect: frameRect xRadius: radius yRadius: radius] fill];
         // draw text
-        NSShadow *shadow = [[NSShadow alloc] init];
-        [shadow setShadowOffset: NSMakeSize(0, -2)];
-        [shadow setShadowBlurRadius: 3];
-        [atts setObject: shadow forKey: NSShadowAttributeName];
-        [shadow release];
+        if (useBoldFont) {
+            NSShadow *shadow = [[NSShadow alloc] init];
+            [shadow setShadowOffset: NSMakeSize(0, -2)];
+            [shadow setShadowBlurRadius: 3];
+            [atts setObject: shadow forKey: NSShadowAttributeName];
+            [shadow release];
+        }
         [atts setObject: [NSColor whiteColor] forKey: NSForegroundColorAttributeName];
         [tileString drawAtPoint: textOrigin withAttributes: atts];
         if (tile != nil) {
