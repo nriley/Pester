@@ -43,7 +43,7 @@
             }
             NSDictionary *voiceAttributes = [NSSpeechSynthesizer attributesForVoice: voice];
             item = [menu addItemWithTitle:
-                    [voiceAttributes objectForKey: NSVoiceName]
+                    voiceAttributes[NSVoiceName]
                                    action: @selector(_previewVoice) keyEquivalent: @""];
             [item setRepresentedObject: voice];
             [item setTarget: self];
@@ -120,7 +120,7 @@
     }
 
     if (previewString == nil)
-        previewString = [[NSSpeechSynthesizer attributesForVoice: voice] objectForKey:NSVoiceDemoText];
+        previewString = [NSSpeechSynthesizer attributesForVoice: voice][NSVoiceDemoText];
 
     [_speaker startSpeakingString: previewString];
 }

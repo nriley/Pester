@@ -55,7 +55,7 @@ static NSDictionary *unitLabels;
         if (tag == 0)
             continue;
 
-        NSDictionary *labelsForUnit = [unitLabels objectForKey:[NSString stringWithFormat: @"%d", tag]];
+        NSDictionary *labelsForUnit = unitLabels[[NSString stringWithFormat: @"%d", tag]];
         if (labelsForUnit == nil)
             continue;
 
@@ -88,9 +88,9 @@ static NSDictionary *unitLabels;
         if (labelsForUnit == nil)
             continue;
 
-        NSString *label = [labelsForUnit objectForKey:valueString];
+        NSString *label = labelsForUnit[valueString];
         if (label == nil)
-            label = [labelsForUnit objectForKey:@"0"];
+            label = labelsForUnit[@"0"];
 
         if (label != nil)
             [item setTitle: label];

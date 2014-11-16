@@ -37,15 +37,15 @@ static BOOL voiceSpecForVoice(NSString *voice, VoiceSpec *voiceSpec) {
     NSDictionary *voiceAttributes = [NSSpeechSynthesizer attributesForVoice: voice];
 
     // keys from SpeechEngine SPI (from Apple sample code), only present with some voices
-    NSNumber *synthesizerID = [voiceAttributes objectForKey:@"VoiceSynthesizerNumericID"];
-    NSNumber *voiceID = [voiceAttributes objectForKey:@"VoiceNumericID"];
+    NSNumber *synthesizerID = voiceAttributes[@"VoiceSynthesizerNumericID"];
+    NSNumber *voiceID = voiceAttributes[@"VoiceNumericID"];
     if (voiceID != nil && synthesizerID != nil) {
         voiceSpec->creator = [synthesizerID longValue];
         voiceSpec->id = [voiceID longValue];
         return YES;
     }
 
-    const char *voiceName = [[voiceAttributes objectForKey:NSVoiceName] UTF8String];
+    const char *voiceName = [voiceAttributes[NSVoiceName] UTF8String];
     size_t voiceLength = strlen(voiceName);
     SInt16 voiceCount, voiceIndex;
     OSStatus err = CountVoices(&voiceCount);
