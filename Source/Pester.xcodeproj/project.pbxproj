@@ -80,7 +80,6 @@
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
 		E17E8D6F1801DD6E00D1174A /* ParseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E19CC53E0CFDE48C0079DCFC /* ParseDate.m */; };
 		E17E8D711801DD6E00D1174A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
-		E17E8D7C1801E0F100D1174A /* libParseDate-10.7.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E17E8D751801DD6E00D1174A /* libParseDate-10.7.dylib */; };
 		E1869DB3177A82EA00DBCEC3 /* Calendar@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1869DB2177A82EA00DBCEC3 /* Calendar@2x.tiff */; };
 		E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
 		E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E18E822F113CC5C300687310 /* PSDateFieldEditor.m */; };
@@ -92,6 +91,7 @@
 		E19D2D751158181A00B68D9F /* DateCompletions.strings in Resources */ = {isa = PBXBuildFile; fileRef = E19D2D731158181A00B68D9F /* DateCompletions.strings */; };
 		E1A927E817A9EA1000322A13 /* NSPopUpButton-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A927E717A9EA1000322A13 /* NSPopUpButton-NJRExtensions.m */; };
 		E1AECF941A18068600559A5F /* NJROperatingSystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = E194E73E1A0FEA47004070C5 /* NJROperatingSystemVersion.m */; };
+		E1AECFAA1A182FAC00559A5F /* libParseDate-10.7.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E17E8D751801DD6E00D1174A /* libParseDate-10.7.dylib */; };
 		E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6DF0353DF5E01AEEDB1 /* Notifier.nib */; };
 		E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6E30353ED1201AEEDB1 /* Application icon.icns */; };
 		E1B11F290CF5F30F004975AA /* Alarms.nib in Resources */ = {isa = PBXBuildFile; fileRef = F560E2EE03574F8A01A4E466 /* Alarms.nib */; };
@@ -1143,6 +1143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1AECFAA1A182FAC00559A5F /* libParseDate-10.7.dylib in Resources */,
 				E19857B6104F697D0082AC3E /* libParseDate-10.9.dylib in Resources */,
 				E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */,
 				E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */,
