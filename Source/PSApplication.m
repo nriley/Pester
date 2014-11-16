@@ -384,7 +384,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
         }
     }
 
-    if (NSApplicationLaunchUserNotificationKey != nil) {
+    if ((NSClassFromString(@"NSUserNotificationCenter") != nil) && NSApplicationLaunchUserNotificationKey != nil) {
         NSUserNotification *launchUserNotification = [[notification userInfo] objectForKey: NSApplicationLaunchUserNotificationKey];
         if (launchUserNotification != nil) {
             NSUserNotificationCenter *userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
