@@ -91,6 +91,7 @@
 		E19857B6104F697D0082AC3E /* libParseDate-10.9.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E198579D104F68EC0082AC3E /* libParseDate-10.9.dylib */; };
 		E19D2D751158181A00B68D9F /* DateCompletions.strings in Resources */ = {isa = PBXBuildFile; fileRef = E19D2D731158181A00B68D9F /* DateCompletions.strings */; };
 		E1A927E817A9EA1000322A13 /* NSPopUpButton-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A927E717A9EA1000322A13 /* NSPopUpButton-NJRExtensions.m */; };
+		E1AECF941A18068600559A5F /* NJROperatingSystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = E194E73E1A0FEA47004070C5 /* NJROperatingSystemVersion.m */; };
 		E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6DF0353DF5E01AEEDB1 /* Notifier.nib */; };
 		E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6E30353ED1201AEEDB1 /* Application icon.icns */; };
 		E1B11F290CF5F30F004975AA /* Alarms.nib in Resources */ = {isa = PBXBuildFile; fileRef = F560E2EE03574F8A01A4E466 /* Alarms.nib */; };
@@ -1223,7 +1224,7 @@
 				E11E00DA17BEE6B400BA997C /* PSMovieAlert.m in Sources */,
 				E11E00DB17BEE6B400BA997C /* PSSpeechAlert.m in Sources */,
 				E11E00DC17BEE6B400BA997C /* PSUserNotificationAlert.m in Sources */,
-				E154EEDB1A0FF0F300E52A57 /* NJROperatingSystemVersion.m in Sources */,
+				E1AECF941A18068600559A5F /* NJROperatingSystemVersion.m in Sources */,
 				E11E00DD17BEE6B400BA997C /* PSWakeAlert.m in Sources */,
 				E11E00DE17BEE72B00BA997C /* PSAlarmAlertController.m in Sources */,
 				E11E00E217BEE77900BA997C /* BDAlias.m in Sources */,
