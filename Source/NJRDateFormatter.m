@@ -69,9 +69,9 @@ static NSString *timeFormats[] = {
 	return;
     
     NSString *libName;
-    if (minorVersion == 7)
+    if (minorVersion == 7 || minorVersion == 8)
         libName = @"libParseDate-10.7"; // Perl 5.12: 5.10/5.12 in 10.7/10.8
-    else if (minorVersion == 8 || minorVersion == 9 || minorVersion == 10)
+    else if (minorVersion == 9 || minorVersion == 10)
         libName = @"libParseDate-10.9"; // Perl 5.16: 5.12/5.16 in 10.9; 5.16/5.18 in 10.10
     else
         return;
