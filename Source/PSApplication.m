@@ -89,17 +89,12 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 - (IBAction)orderFrontSetAlarmPanel:(id)sender;
 {
     NSWindow *window = [alarmSetController window];
-    if ([window respondsToSelector: @selector(setCollectionBehavior:)]) { // 10.5-only
-	// XXX bug workaround - NSWindowCollectionBehaviorMoveToActiveSpace is what we want, but it doesn't work correctly, probably because we have a "chicken and egg" problem as the panel isn't visible when the app is hidden
-	[window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
-	[alarmSetController showWindow: self];
-    	[window performSelector: @selector(setCollectionBehavior:) withObject:
-	 (id)NSWindowCollectionBehaviorDefault afterDelay: 0];
-	[NSApp activateIgnoringOtherApps: YES]; // XXX causes title bar to flash
-	return;
-    }
-    [NSApp activateIgnoringOtherApps: YES];
+    // XXX bug workaround - NSWindowCollectionBehaviorMoveToActiveSpace is what we want, but it doesn't work correctly, probably because we have a "chicken and egg" problem as the panel isn't visible when the app is hidden
+    [window setCollectionBehavior: NSWindowCollectionBehaviorCanJoinAllSpaces];
     [alarmSetController showWindow: self];
+    [window performSelector: @selector(setCollectionBehavior:) withObject:
+     (id)NSWindowCollectionBehaviorDefault afterDelay: 0];
+    [NSApp activateIgnoringOtherApps: YES]; // XXX causes title bar to flash
 }
 
 - (void)orderFrontSetAlarmPanelIfPreferencesNotKey:(id)sender;
@@ -214,8 +209,8 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (NSImage *)iconImageWithAlarm:(PSAlarm *)alarm;
 {
-	NSSize imageSize = [appIconImage size];
-	NSImage *tile = nil;
+    NSSize imageSize = [appIconImage size];
+    NSImage *tile = nil;
 
     BOOL (^drawingHandler)(NSRect) = ^(NSRect dstRect) {
         NSString *tileString = [alarm timeRemainingString];
@@ -258,15 +253,8 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
         return YES;
     };
 
-    if ([[NSImage class] respondsToSelector: @selector(imageWithSize:flipped:drawingHandler:)]) { // 10.8+
-        tile = [NSImage imageWithSize: imageSize flipped: NO drawingHandler: drawingHandler];
-    } else {
-        tile = [[[NSImage alloc] initWithSize: imageSize] autorelease];
-        [tile lockFocus];
-        drawingHandler(NSZeroRect);
-        [tile unlockFocus];
-    }
-	return tile;
+    tile = [NSImage imageWithSize: imageSize flipped: NO drawingHandler: drawingHandler];
+    return tile;
 }
 
 - (void)selectAlarmInAlarmsPanel:(PSAlarm *)alarm;
