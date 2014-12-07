@@ -154,12 +154,15 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
     // get device UID
     propertyAddress.mSelector = kAudioDevicePropertyDeviceUID;
     propertyAddress.mScope = kAudioObjectPropertyScopeGlobal;
-    propertySize = sizeof(CFStringRef);
-    err = AudioObjectGetPropertyData(deviceID, &propertyAddress, 0, NULL, &propertySize, &uid);
-    if (err != noErr) {
+    CFStringRef deviceUID;
+    propertySize = sizeof(deviceUID);
+    err = AudioObjectGetPropertyData(deviceID, &propertyAddress, 0, NULL, &propertySize, &deviceUID);
+    if (err != noErr || deviceUID == NULL) {
 	[self release];
 	return nil;
     }
+    uid = [(NSString *)deviceUID copy];
+    CFRelease(uid);
 
     return self;
 }
@@ -182,6 +185,7 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
 - (void)dealloc;
 {
     [name release];
+    [uid release];
     [self unregisterSourceListener];
     [super dealloc];
 }

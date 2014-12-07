@@ -68,6 +68,7 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 - (void)soundOutputDeviceListChanged:(NSNotification *)notification;
 {
     [soundOutputDevices setContent: [notification object]];
+    [self readOutputDeviceFromPrefs];
 }
 
 #pragma mark sound output devices
@@ -79,6 +80,15 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 
 #pragma mark preferences I/O
 
+- (void)readOutputDeviceFromPrefs;
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NJRSoundDevice *outputDevice = [NJRSoundDevice setDefaultOutputDeviceByUID: [defaults objectForKey: PSSoundOutputDevice]];
+    if (outputDevice == nil)
+        return;
+    [soundOutputDevices setSelectedObjects: [NSArray arrayWithObject: outputDevice]];
+}
+
 - (void)readFromPrefs;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -86,10 +96,7 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
     [setAlarmHotKey setHotKey: hotKey];
     [hotKey release];
 
-    NJRSoundDevice *outputDevice = [NJRSoundDevice setDefaultOutputDeviceByUID: [defaults objectForKey: PSSoundOutputDevice]];
-    if (outputDevice == nil)
-	return;
-    [soundOutputDevices setSelectedObjects: [NSArray arrayWithObject: outputDevice]];
+    [self readOutputDeviceFromPrefs];
 }
 
 - (void)writeToPrefs;
