@@ -6,12 +6,6 @@
 static NSImage *PopupTriangleImage = nil;
 static NSSize PopupTriangleSize;
 
-#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
-@interface NJRFSObjectSelector (NSOpenPanelRuntime)
-- (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
-@end
-#endif
-
 @implementation NJRFSObjectSelector
 
 - (void)_initSelector;
@@ -90,25 +84,13 @@ static NSSize PopupTriangleSize;
 - (IBAction)select:(id)sender;
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
-#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
     NSString *path = [selectedAlias fullPath];
-#else
-    NSURL *url = [NSURL fileURLWithPath:[selectedAlias fullPath]];
+    NSURL *url = path == nil ? nil : [NSURL fileURLWithPath: path];
     [openPanel setAllowedFileTypes: fileTypes];
-#endif
     [openPanel setAllowsMultipleSelection: NO];
     [openPanel setCanChooseDirectories: canChooseDirectories];
     [openPanel setCanChooseFiles: canChooseFiles];
-#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
-    [openPanel beginSheetForDirectory: [path stringByDeletingLastPathComponent]
-                                 file: [path lastPathComponent]
-                                types: fileTypes
-                       modalForWindow: [self window]
-                        modalDelegate: self
-                       didEndSelector: @selector(openPanelDidEnd:returnCode:contextInfo:)
-                          contextInfo: nil];
-#else
-    [openPanel setDirectoryURL: url]; // [sic] - this works with a file URL, but not properly on 10.6
+    [openPanel setDirectoryURL: url]; // [sic] - this works with a file URL
 
     [openPanel beginSheetModalForWindow: [self window] completionHandler:
      ^(NSInteger result) {
@@ -122,23 +104,7 @@ static NSSize PopupTriangleSize;
                  [[self target] performSelector: [self action] withObject: self];
          }
      }];
-#endif
 }
-
-#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_7
-- (void)openPanelDidEnd:(NSOpenPanel *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
-{
-    [sheet close];
-
-    if (returnCode == NSOKButton) {
-        NSArray *files = [sheet filenames];
-        NSAssert1([files count] == 1, @"%d items returned, only one expected", [files count]);
-        [self setPath: [files objectAtIndex: 0]];
-		if ([self target] != nil && [[self target] respondsToSelector:[self action]])
-			[[self target] performSelector: [self action] withObject: self];
-    }
-}
-#endif
 
 - (void)revealInFinder:(NSMenuItem *)sender;
 {
