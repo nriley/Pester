@@ -307,7 +307,7 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
     if (uid != nil) {
         UInt32 propertySize;
         OSStatus err;
-        AudioDeviceID deviceID;
+        AudioDeviceID deviceID = kAudioDeviceUnknown;
         AudioValueTranslation translation = { &uid, sizeof(uid), &deviceID, sizeof(deviceID) };
 
         if (devicesByID == nil)
@@ -319,7 +319,7 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
             kAudioObjectPropertyElementMaster };
         propertySize = sizeof(translation);
         err = AudioObjectGetPropertyData(kAudioObjectSystemObject, &propertyAddress, 0, NULL, &propertySize, &translation);
-        if (err != noErr)
+        if (err != noErr || deviceID == kAudioDeviceUnknown)
             return nil;
 
         defaultOutputDevice = [[devicesByID objectForKey: [NSNumber numberWithUnsignedInt: deviceID]] retain];
