@@ -11,8 +11,6 @@
 NSString * const NJRSoundDeviceListChangedNotification = @"NJRSoundDeviceListChangedNotification";
 NSString * const NJRSoundDeviceDefaultOutputDeviceChangedNotification = @"NJRSoundDeviceDefaultOutputDeviceChangedNotification";
 
-static const UInt32 kLeftChannel = 0, kRightChannel = 1;
-
 static NSMutableArray *allOutputDevices;
 static NSMutableDictionary *devicesByID;
 static NJRSoundDevice *defaultOutputDevice;
