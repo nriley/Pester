@@ -13,11 +13,11 @@ NSString * const NJRSoundDeviceDefaultOutputDeviceChangedNotification = @"NJRSou
 
 static NSMutableArray *allOutputDevices;
 static NSMutableDictionary *devicesByID;
-static NJRSoundDevice *defaultOutputDevice;
+static NJRSoundDevice *defaultOutputDevice; // if overridden by application
 
 @interface NJRSoundDevice ()
++ (void)invalidateDefaultOutputDevice;
 + (void)outputDeviceListChanged;
-+ (void)defaultOutputDeviceChanged;
 @end
 
 static OSStatus AudioHardwareDevicesChanged(AudioObjectID objectID,
@@ -31,7 +31,10 @@ static OSStatus AudioHardwareDevicesChanged(AudioObjectID objectID,
         switch (addresses[addressIndex].mSelector) {
             case kAudioHardwarePropertyDefaultOutputDevice:
             case kAudioHardwarePropertyDefaultSystemOutputDevice:
-                [NJRSoundDevice defaultOutputDeviceChanged];
+                // Only matters if the application has not overriden the default output device, in which case currently-playing sound should be redirected.
+                if (defaultOutputDevice == nil) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName: NJRSoundDeviceDefaultOutputDeviceChangedNotification object: defaultOutputDevice];
+                }
                 break;
             case kAudioHardwarePropertyDevices:
                 [NJRSoundDevice outputDeviceListChanged];
@@ -46,6 +49,7 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
                                              UInt32 numberAddresses,
                                              const AudioObjectPropertyAddress addresses[],
                                              void *clientData) {
+    // Likely the display name of one of the devices has changed (e.g., when plugging in headphones).  Could invalidate just this one device, but easier to just rebuild the whole list.
     [NJRSoundDevice outputDeviceListChanged];
 
     return noErr;
@@ -53,7 +57,7 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
 
 @implementation NJRSoundDevice
 
-+ (void)defaultOutputDeviceChanged;
++ (void)invalidateDefaultOutputDevice;
 {
     [defaultOutputDevice release];
     defaultOutputDevice = nil;
@@ -61,7 +65,7 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
 
 + (void)outputDeviceListChanged;
 {
-    [self defaultOutputDeviceChanged];
+    [self invalidateDefaultOutputDevice];
     [devicesByID release];
     devicesByID = nil;
     // since we can't control the lifetime entirely, we may not release in the expected order
@@ -270,11 +274,12 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
 + (NJRSoundDevice *)defaultOutputDevice;
 {
     if (defaultOutputDevice != nil) {
-	// check for device disappearance - XXX move somewhere else?
-	if ([devicesByID objectForKey: [NSNumber numberWithUnsignedInt: defaultOutputDevice->deviceID]] == defaultOutputDevice)
+        // if overridden by application and still present, return it
+        if ([devicesByID objectForKey: [NSNumber numberWithUnsignedInt: defaultOutputDevice->deviceID]] == defaultOutputDevice) {
 	    return defaultOutputDevice;
-	[defaultOutputDevice release];
-	defaultOutputDevice = nil;
+        }
+        // otherwise, fall back to the system default so the sound will go somewhere
+        [self invalidateDefaultOutputDevice];
     }
 
     UInt32 propertySize;
@@ -301,8 +306,7 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
     if ([[defaultOutputDevice uid] isEqualToString: uid])
 	return defaultOutputDevice;
 
-    [defaultOutputDevice release];
-    defaultOutputDevice = nil;
+    [self invalidateDefaultOutputDevice];
 
     if (uid != nil) {
         UInt32 propertySize;
