@@ -83,7 +83,7 @@
     if (!flag)
 	[self deleteToEndOfLine: nil];
 
-    [super insertCompletion:word forPartialWordRange:charRange movement:movement isFinal:flag];
+    [super insertCompletion: word forPartialWordRange: charRange movement: movement isFinal: flag];
 
     if (movement == NSTabTextMovement)
 	[self insertTab: nil];
