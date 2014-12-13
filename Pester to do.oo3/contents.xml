@@ -119,7 +119,7 @@
       <style>
         <value key="font-family">Calibri</value>
         <value key="font-fill">
-          <color r="0.5" g="0.5" b="0.5" archive="YnBsaXN0MDDUAQIDBAUIISJUJHRvcFgkb2JqZWN0c1gkdmVyc2lvblkkYXJjaGl2ZXLRBgdUcm9vdIABpQkKExceVSRudWxs1AsMDQ4PEBESV05TV2hpdGVWJGNsYXNzXE5TQ29sb3JTcGFjZV8QEk5TQ3VzdG9tQ29sb3JTcGFjZUQwLjUAgAQQA4AC0hQMFRZUTlNJRBACgAPSGBkaHVgkY2xhc3Nlc1okY2xhc3NuYW1lohscXE5TQ29sb3JTcGFjZVhOU09iamVjdFxOU0NvbG9yU3BhY2XSGBkfIKIgHFdOU0NvbG9yEgABhqBfEA9OU0tleWVkQXJjaGl2ZXIACAARABYAHwAoADIANQA6ADwAQgBIAFEAWQBgAG0AggCHAIkAiwCNAJIAlwCZAJsAoACpALQAtwDEAM0A2gDfAOIA6gDvAAAAAAAAAgEAAAAAAAAAIwAAAAAAAAAAAAAAAAAAAQE="/>
+          <color r="0.5" g="0.5" b="0.5" archive="YnBsaXN0MDDUAQIDBAUIIiNUJHRvcFgkb2JqZWN0c1gkdmVyc2lvblkkYXJjaGl2ZXLRBgdUcm9vdIABpQkKExceVSRudWxs1AsMDQ4PEBESV05TV2hpdGVWJGNsYXNzXE5TQ29sb3JTcGFjZV8QEk5TQ3VzdG9tQ29sb3JTcGFjZUQwLjUAgAQQA4AC0hQMFRZUTlNJRBACgAPSGBkaHVgkY2xhc3Nlc1okY2xhc3NuYW1lohscXE5TQ29sb3JTcGFjZVhOU09iamVjdFxOU0NvbG9yU3BhY2XSGBkfIaIgHFdOU0NvbG9yV05TQ29sb3ISAAGGoF8QD05TS2V5ZWRBcmNoaXZlcgAIABEAFgAfACgAMgA1ADoAPABCAEgAUQBZAGAAbQCCAIcAiQCLAI0AkgCXAJkAmwCgAKkAtAC3AMQAzQDaAN8A4gDqAPIA9wAAAAAAAAIBAAAAAAAAACQAAAAAAAAAAAAAAAAAAAEJ"/>
         </value>
         <value key="font-size">13</value>
         <value key="strikethrough-color">
@@ -159,7 +159,9 @@
   </settings>
   <editor content-size="{551, 650}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="oKT0IVzJBd3"/>
+    <selected-rows ids="p5PB7yWqxC4"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{6, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -5417,9 +5419,290 @@
             </text>
           </values>
         </item>
+        <item id="e6gQ2Vc2UDL" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Build 59: correctly link Perl on 10.8</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" state="indeterminate">
+    <item id="kG1BKZsTaZB" expanded="yes" state="indeterminate">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Beta 20</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="okG2reIHMa5" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Drop 10.7</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="jbvMXqgGwRQ" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Drop 10.8 (no need to compile on 10.9 any more)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="hIx91hn2guU" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>The media open sheet didn&apos;t display if the alert sound was selected.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="oDxrkho4JX4" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>“Play sound through:” reverts to “Default alert device” when refreshing list</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="gpOgWT9du2H" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Fixed.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="kNP2dcyXtxd" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Sound output target reverts to [something else] when changing default output device</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="j8MTuYh-w8W" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>The whole flow here is really a mess. We&apos;re conflating the *system* default output device with Pester’s default output device for many purposes.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="aB_HXdWNVRR" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Work on startup time — slow even with SSD (fewer time zones? compare ± Perl)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="fYK6q9_AmWb" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Need to refresh -[PSTimeDateEditor _update] when loading complete (add completions, etc.)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="ljwNsh3hqX8" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Likely use something like NJRNaturalLanguageDateParsingAvailableNotification.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="nZkxHQ3Nhny" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Deadlock issue with parsing nil to check whether parsing works (yet).</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="mBRq_rr-Rd5" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>By Instruments, looks like about 0.5s for +[NJRDateFormatter initialize], or about 50% of startup time</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="o9_QGvNXRNN" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>We can *delay* Perl startup entirely, halving startup time from about 0.9 to about 0.45 seconds.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="omgZK-aWuUX" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>With async initialization being triggered from when the software needs it versus on library initialization, startup time decreases less, to about 0.6 seconds.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="gpImUwqnRA2" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Starting the async init from the main runloop, we can do as well as 0.4 seconds.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="kPpcR9ExvDm" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>It doesn&apos;t help initializing the queue as </lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color r="0.168627" g="0.513726" b="0.623529"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="ligature-selection">none</value>
+                      </style>
+                      <lit>QOS_CLASS_BACKGROUND</lit>
+                    </run>
+                    <run>
+                      <lit> — it&apos;s 10.10-only in any case.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="p7WS1Fl16Fv" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Still need to check into ownership/leakage issues and test time zone/locale changes.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="p5PB7yWqxC4" expanded="yes">
+          <style>
+            <value key="paragraph-alignment">left</value>
+          </style>
+          <style>
+            <value key="paragraph-alignment">left</value>
+          </style>
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Pester 1.1b19 introduced voice loading infinite recursion in certain cases (thanks, João Nelas)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="gdDzylDNimX">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Need to verify this; waiting for him to get back to me.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="gWWWwNtrdMA">
+          <style>
+            <value key="font-family">Menlo</value>
+            <value key="font-fixed-pitch">yes</value>
+            <value key="font-weight">9</value>
+            <value key="ligature-selection">none</value>
+            <value key="paragraph-alignment">left</value>
+            <value key="paragraph-tab-stop-interval">28</value>
+            <value key="paragraph-tab-stops">28L</value>
+          </style>
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>2014-12-13 11:35:03.019 Pester[46856:13484177] Failed to connect (contentsBox) outlet from (NJRReadMeController) to (NSBox): missing setter or instance variable</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+      </children>
+    </item>
+    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
       <values>
         <text>
           <p>
@@ -5430,6 +5713,78 @@
         </text>
       </values>
       <children>
+        <item id="aWv2ABzX8Pv" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Update Date::Manip — looks like some UTF-8 changes have been made</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="atbxEXDYqYq">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Use https://github.com/SBECK-github/Date-Manip</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="jLn4LxZH1wg" expanded="yes">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Spanish and Italian</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="aefpU54spuW">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Automate this testing based on the plists</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+          </children>
+        </item>
+        <item id="lJLlHRbPcb8">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>See if we can stop the hang-on-alarm-set when system output device is set to AirPlay (and there is no current AirPlay output) — it is the case even if it&apos;s not the device being used by Pester!</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="omkT9ZPCZSw">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Even with AirPlay is not in use, we sometimes get a hang on window close.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="fBzQIOZSu5i" expanded="yes">
           <values>
             <text>
@@ -5446,7 +5801,7 @@
                 <text>
                   <p>
                     <run>
-                      <lit>It&apos;s going to go away, but if it&apos;s fixed in 10.8/9/10, reenable it</lit>
+                      <lit>It&apos;s going to go away, but if it&apos;s fixed in 10.9/10, reenable it</lit>
                     </run>
                   </p>
                 </text>
@@ -5454,23 +5809,23 @@
             </item>
           </children>
         </item>
+        <item id="ii_SIUeb0xo">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Update Sparkle acknowledgement</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="jmUtivqbYtW">
           <values>
             <text>
               <p>
                 <run>
                   <lit>Fix or annotate away (not possible?) Clang analyzer issues so we can build cleanly.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="fDRJqUsWBCI">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Replace dock menu screenshot in Read Me with an up-to-date HiDPI one</lit>
                 </run>
               </p>
             </text>
@@ -5497,50 +5852,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="aB_HXdWNVRR" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Work on startup time — slow even with SSD (fewer time zones? compare ± Perl)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <note expanded="yes">
-            <text>
-              <p>
-                <run>
-                  <lit>http://steveweller.com/articles/speedup/ is nice and simple (works on Mac too?)</lit>
-                </run>
-              </p>
-            </text>
-          </note>
-          <children>
-            <item id="mBRq_rr-Rd5">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>By Instruments, looks like about 0.5s for +[NJRDateFormatter initialize], or about 50% of startup time</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="nkRU_NwmQll">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Can we move this into a separate thread?</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="dJQiIr_5SgH">
           <values>
@@ -5570,65 +5881,6 @@
               <p>
                 <run>
                   <lit>Figure out a way to generate and archive dSYMs (we do it for Shroud).</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="l4Rqlus22Ye" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Urgh, notifications seem to have broken with changing AirPlay devices on Mavericks. File a bug.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="d90nEuP7xCP">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Make sure http://joris.kluivers.nl/blog/2012/07/25/per-application-airplay-in-mountain-lion/ breaks too.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="lJLlHRbPcb8" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>See if we can stop the hang-on-alarm-set when output device is set to AirPlay — seems to be the case even if it&apos;s not the device being used!</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="omkT9ZPCZSw">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Even with AirPlay is not in use, we sometimes get a hang on window close.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="jLn4LxZH1wg">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Spanish and Italian</lit>
                 </run>
               </p>
             </text>
@@ -5774,18 +6026,7 @@
             </text>
           </values>
         </item>
-        <item id="md_9pQEG98Q">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>If you enter a h:m:s interval, only h:m is saved</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="gn1qGNMAUZp">
+        <item id="gn1qGNMAUZp" expanded="yes">
           <values>
             <text>
               <p>
@@ -5915,7 +6156,7 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Repeat every day if date is omitted.</lit>
+                      <lit>Repeat every day if date is omitted. ***</lit>
                     </run>
                   </p>
                 </text>
@@ -6329,6 +6570,17 @@
         </text>
       </values>
       <children>
+        <item id="md_9pQEG98Q">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>If you enter a h:m:s interval, only h:m is saved</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="c16shmiTx0T" state="indeterminate">
           <values>
             <text>
@@ -6670,6 +6922,77 @@
                   </values>
                 </item>
               </children>
+            </item>
+          </children>
+        </item>
+        <item id="e35cj38l-Iw">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Make sound output selection more sophisticated, particularly wrt AirPlay</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="fq4-ziOSYAz">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Pull in the sound source enumeration/labeling stuff from soundsource — actually no</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="eUyNQ9sBD9z">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>…but, you can *write* to the audio source property. Wow. http://joris.kluivers.nl/blog/2012/07/25/per-application-airplay-in-mountain-lion/</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="pFtUqDvuKTa">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>We can&apos;t use anything more granular than UID in </lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color r="0" g="0.501961" b="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="ligature-selection">none</value>
+                      </style>
+                      <lit>QTAudioContextCreateForAudioDevice</lit>
+                    </run>
+                    <run>
+                      <lit> (UID of any AirPlay device is just &quot;AirPlay&quot;)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="fL6zmzUiqRO">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Handle case where selected output device is missing - save name in prefs, display in italic</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
             </item>
           </children>
         </item>
@@ -7432,17 +7755,6 @@
             </text>
           </values>
         </item>
-        <item id="fL6zmzUiqRO">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Handle case where selected output device is missing - save name in prefs, display in italic</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
         <item id="jBoVEClogGv" state="checked">
           <values>
             <text>
@@ -7872,43 +8184,6 @@
             </text>
           </values>
         </item>
-        <item id="oW9hBQEzFCa">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>NSCalendarDate (deprecated) </lit>
-                </run>
-                <run>
-                  <lit>⇒</lit>
-                </run>
-                <run>
-                  <lit> NSCalendar + NSCalendarComponents + NSDate</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <note>
-            <text>
-              <p>
-                <run>
-                  <style>
-                    <value key="font-fill">
-                      <color w="0"/>
-                    </value>
-                    <value key="font-italic">no</value>
-                    <value key="font-size">13</value>
-                    <value key="paragraph-alignment">left</value>
-                    <value key="paragraph-spacing">10.8</value>
-                    <value key="paragraph-tab-stop-interval">36</value>
-                    <value key="paragraph-tab-stops"/>
-                  </style>
-                  <lit>Prior to 10.9, NSCalendar was not thread-safe, which required the +currentCalendar and -copy/-copyWithZone: methods to make time consuming full copies. This has been improved so that expensive copy operations will be deferred until the object is mutated. If you can avoid calling setter methods on NSCalendar instances, you&apos;ll likely get better performance.</lit>
-                </run>
-              </p>
-            </text>
-          </note>
-        </item>
         <item id="gYC-LwRNs54">
           <values>
             <text>
@@ -7962,7 +8237,7 @@
         <text>
           <p>
             <run>
-              <lit>2.0 (10.9+)</lit>
+              <lit>1.2 (10.10+) — address deprecations</lit>
             </run>
           </p>
         </text>
@@ -7973,7 +8248,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Aliases &amp; paths → bookmark URLs (should be fine in 10.6+, actually)</lit>
+                  <lit>Aliases &amp; paths → bookmark URLs</lit>
                 </run>
               </p>
             </text>
@@ -8019,11 +8294,48 @@
             <text>
               <p>
                 <run>
-                  <lit>Does 10.9 fix the original reason we use a popup menu as opposed to a combobox for the date?  That is, can formatters work on a combobox yet?</lit>
+                  <lit>Is the original reason we use a popup menu as opposed to a combobox for the date fixed?  That is, can formatters work on a combobox yet?  What about </lit>
                 </run>
               </p>
             </text>
           </values>
+        </item>
+        <item id="oW9hBQEzFCa">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>NSCalendarDate (deprecated) </lit>
+                </run>
+                <run>
+                  <lit>⇒</lit>
+                </run>
+                <run>
+                  <lit> NSCalendar + NSCalendarComponents + NSDate</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <note>
+            <text>
+              <p>
+                <run>
+                  <style>
+                    <value key="font-fill">
+                      <color w="0"/>
+                    </value>
+                    <value key="font-italic">no</value>
+                    <value key="font-size">13</value>
+                    <value key="paragraph-alignment">left</value>
+                    <value key="paragraph-spacing">10.8</value>
+                    <value key="paragraph-tab-stop-interval">36</value>
+                    <value key="paragraph-tab-stops"/>
+                  </style>
+                  <lit>Prior to 10.9, NSCalendar was not thread-safe, which required the +currentCalendar and -copy/-copyWithZone: methods to make time consuming full copies. This has been improved so that expensive copy operations will be deferred until the object is mutated. If you can avoid calling setter methods on NSCalendar instances, you&apos;ll likely get better performance.</lit>
+                </run>
+              </p>
+            </text>
+          </note>
         </item>
         <item id="o0mXE5oK50-">
           <values>
