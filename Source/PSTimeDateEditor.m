@@ -10,12 +10,6 @@
 #import "NJRDateFormatter.h"
 #import "PSDateFieldEditor.h"
 
-@interface PSTimeDateEditor (Private)
-- (void)_update;
-- (void)localeDidChange:(NSNotification *)notification;
-- (void)timeZoneDidChange:(NSNotification *)notification;
-@end
-
 @interface NSObject (PSTimeDateController)
 - (IBAction)update:(id)sender;
 @end
@@ -57,9 +51,7 @@
 	[timeDate setFormatter: dateFormatter];
 	[timeDate setObjectValue: [NSDate date]];
 
-        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-        [notificationCenter addObserver: self selector: @selector(localeDidChange:) name: NSCurrentLocaleDidChangeNotification object: nil];
-        [notificationCenter addObserver: self selector: @selector(timeZoneDidChange:) name: NSSystemTimeZoneDidChangeNotification object: nil];
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(naturalLanguageDateParsingDidChange:) name: NJRDateFormatterNaturalLanguageDateParsingDidChangeNotification object: nil];
 
 	[self _update];
     }
@@ -81,13 +73,23 @@
 - (void)_update;
 {
     NSTextField *editingField = nil;
-    if ([timeOfDay currentEditor] != nil)
+    NSText *editor;
+    if ( (editor = [timeOfDay currentEditor]) != nil)
 	editingField = timeOfDay;
-    if ([timeDate currentEditor] != nil)
+    else if ( (editor = [timeDate currentEditor]) != nil)
 	editingField = timeDate;
     if (editingField != nil) {
-	[editingField abortEditing];
-	[editingField performSelector: @selector(becomeFirstResponder) withObject: nil afterDelay: 0];
+        NSString *editingString = editor.string;
+        NSRange editingSelectedRange = editor.selectedRange;
+        [editingField.window disableFlushWindow];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [editingField becomeFirstResponder];
+            NSText *editor = [editingField currentEditor];
+            editor.string = editingString;
+            editor.selectedRange = editingSelectedRange;
+            [editingField.window enableFlushWindow];
+        });
+        [editingField abortEditing];
     }
 
     [dateFieldEditor release];
@@ -99,8 +101,10 @@
 	unlocalizedTitles = [[timeDateCompletions itemTitles] copy];
     [timeDateCompletions removeAllItems];
 
-    if (![NJRDateFormatter naturalLanguageParsingAvailable])
+    if (![NJRDateFormatter naturalLanguageParsingAvailable]) {
+        [timeDateCompletions setEnabled: NO];
 	return;
+    }
 
     // get localized names
     NSArray *dayNames = [[timeDate formatter] weekdaySymbols];
@@ -150,23 +154,15 @@
     [dateFieldEditor setFieldEditor: YES];
     [dateFieldEditor setDelegate: (id <NSTextViewDelegate>)timeDate];
 
+    [timeDateCompletions setEnabled: [timeDate isEnabled] && [timeDateCompletions numberOfItems] > 0];
+
     if ([timeDateCompletions pullsDown]) // add a dummy first item, which gets consumed for the (obscured) title
 	[timeDateCompletions insertItemWithTitle: @"" atIndex: 0];
 }
 
-- (void)localeDidChange:(NSNotification *)notification;
+- (void)naturalLanguageDateParsingDidChange:(NSNotification *)notification;
 {
-    [NJRDateFormatter timeZoneOrLocaleChanged];
     [self _update];
-    [timeDateCompletions setEnabled: [timeDate isEnabled] && [timeDateCompletions numberOfItems] > 0];
-
-    [controller update: nil];
-}
-
-- (void)timeZoneDidChange:(NSNotification *)notification;
-{
-    [NJRDateFormatter timeZoneOrLocaleChanged];
-
     [controller update: nil];
 }
 

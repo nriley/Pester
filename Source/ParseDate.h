@@ -11,5 +11,5 @@
 // returns [NSDate distantPast] if parser is unavailable
 NSDate *(*parse_natural_language_date)(NSString *) = NULL;
 
-// update parser with current locale/time zone information (may make available)
-void (*init_date_parser)(void) = NULL;
+// initialize or reinitialize parser with current locale/time zone information (may make available)
+void (*init_date_parser_async)(void (^completion_block)(void)) = NULL;

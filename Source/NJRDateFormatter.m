@@ -10,6 +10,8 @@
 #import "ParseDate.h"
 #include <dlfcn.h>
 
+NSString * const NJRDateFormatterNaturalLanguageDateParsingDidChangeNotification = @"NJRDateFormatterNaturalLanguageDateParsingDidChangeNotification";
+
 static NSDateFormatter *protoFormatter() {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLenient: YES];
@@ -83,6 +85,13 @@ static NSString *timeFormats[] = {
 	return;
     }
     
+    init_date_parser_async = dlsym(lib, "init_date_parser_async");
+    if ( (libError = dlerror()) != NULL) {
+        NSLog(@"failed to look up init_date_parser_async in %@: %s", libPath, libError);
+        init_date_parser_async = NULL;
+        return;
+    }
+
     parse_natural_language_date = dlsym(lib, "parse_natural_language_date");
     if ( (libError = dlerror()) != NULL) {
 	NSLog(@"failed to look up parse_natural_language_date in %@: %s", libPath, libError);
@@ -90,11 +99,13 @@ static NSString *timeFormats[] = {
 	return;
     }
 
-    init_date_parser = dlsym(lib, "init_date_parser");
-    if ( (libError = dlerror()) != NULL) {
-	NSLog(@"failed to look up init_date_parser in %@: %s", libPath, libError);
-	init_date_parser = NULL;
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self initializeNaturalLanguageDateParser];
+
+        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+        [notificationCenter addObserver: self selector: @selector(initializeNaturalLanguageDateParser) name: NSCurrentLocaleDidChangeNotification object: nil];
+        [notificationCenter addObserver: self selector: @selector(initializeNaturalLanguageDateParser) name: NSSystemTimeZoneDidChangeNotification object: nil];
+    });
 }
 
 + (NJRDateFormatter *)dateFormatter;
@@ -228,17 +239,16 @@ success:
 
 #pragma mark miscellaneous
 
++ (void)initializeNaturalLanguageDateParser;
+{
+    init_date_parser_async(^{
+        [[NSNotificationCenter defaultCenter] postNotificationName: NJRDateFormatterNaturalLanguageDateParsingDidChangeNotification object: nil];
+    });
+}
+
 + (BOOL)naturalLanguageParsingAvailable;
 {
     return (parse_natural_language_date != NULL && parse_natural_language_date(nil) == nil);
-}
-
-+ (void)timeZoneOrLocaleChanged;
-{
-    if (init_date_parser == NULL)
-	return;
-
-    init_date_parser();
 }
 
 @end

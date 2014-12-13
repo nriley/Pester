@@ -27,14 +27,14 @@ xs_init(pTHX)
 }
 // end generated code
 
-static PerlInterpreter *my_perl;
+static dispatch_queue_t perl_dispatch_queue;
 static NSDateFormatter *dateManipFormatter;
+
+// write only on (serial) queue
+static PerlInterpreter *my_perl;
 static BOOL parser_OK = NO;
 
-NSDate *parse_natural_language_date(NSString *input) {
-    if (my_perl == NULL || !parser_OK)
-	return [NSDate distantPast];
-
+static NSDate *parse_natural_language_date_on_queue(NSString *input) {
     if (input == nil)
 	return nil;
 
@@ -62,8 +62,52 @@ NSDate *parse_natural_language_date(NSString *input) {
     return date;
 }
 
-void init_date_parser(void) {
-    if (my_perl == NULL) return;
+NSDate *parse_natural_language_date(NSString *input) {
+    if (!parser_OK)
+        return [NSDate distantPast];
+    
+    __block NSDate *date;
+
+    dispatch_sync(perl_dispatch_queue, ^{
+        date = parse_natural_language_date_on_queue(input);
+    });
+
+    return date;
+}
+
+static BOOL init_perl_on_queue(void) {
+    const char *argv[] = {"", "-CSD", "-I", "", "-MDate::Manip", "-e", "0"};
+    argv[3] = [[[NSBundle mainBundle] resourcePath] fileSystemRepresentation];
+    int no_argc = 0;
+    char **no_argv = 0;
+    PERL_SYS_INIT(&no_argc, &no_argv);
+    my_perl = perl_alloc();
+    if (my_perl == NULL) return NO;
+
+    perl_construct(my_perl);
+    if (perl_parse(my_perl, xs_init, 7, (char **)argv, NULL) != 0) goto fail;
+
+    PL_exit_flags |= PERL_EXIT_DESTRUCT_END;
+    if (perl_run(my_perl) != 0) goto fail;
+
+    return YES;
+
+fail:
+    perl_destruct(my_perl);
+    perl_free(my_perl);
+    PERL_SYS_TERM();
+    my_perl = NULL;
+
+    return NO;
+}
+
+static void init_date_parser_on_queue(void) {
+    if (my_perl == NULL) {
+        static BOOL perl_init_failed = NO;
+
+        if (perl_init_failed || (perl_init_failed = !init_perl_on_queue()))
+            return;
+    }
 
     parser_OK = NO;
 
@@ -119,36 +163,18 @@ void init_date_parser(void) {
     [temp release];
     if (d == NULL) return;
 
-    if (parse_natural_language_date(@"20100322t134821") == nil) return;
+    if (parse_natural_language_date_on_queue(@"20100322t134821") == nil) return;
 
     parser_OK = YES;
 }
 
-static void init_perl(void) {
-    const char *argv[] = {"", "-CSD", "-I", "", "-MDate::Manip", "-e", "0"};
-    argv[3] = [[[NSBundle mainBundle] resourcePath] fileSystemRepresentation];
-    int no_argc = 0;
-    char **no_argv = 0;
-    PERL_SYS_INIT(&no_argc, &no_argv);
-    my_perl = perl_alloc();
-    if (my_perl == NULL) return;
-
-    perl_construct(my_perl);
-    if (perl_parse(my_perl, xs_init, 7, (char **)argv, NULL) != 0) goto fail;
-
-    PL_exit_flags |= PERL_EXIT_DESTRUCT_END;
-    if (perl_run(my_perl) != 0) goto fail;
-
-    init_date_parser(); // even if it fails, may try again later
-    return;
-
-fail:
-    perl_destruct(my_perl);
-    perl_free(my_perl);
-    PERL_SYS_TERM();
-    my_perl = NULL;
+void init_date_parser_async(void (^completion_block)(void)) {
+    dispatch_async(perl_dispatch_queue, ^{
+        init_date_parser_on_queue();
+        if (completion_block != NULL)
+            dispatch_async(dispatch_get_main_queue(), completion_block);
+    });
 }
-
 
 // note: the documentation is misleading here, and this works.
 // <http://gcc.gnu.org/ml/gcc-patches/2004-06/msg00385.html>
@@ -157,5 +183,5 @@ void initialize(void) __attribute__((constructor));
 void initialize(void) {
     dateManipFormatter = [[NSDateFormatter alloc] init];
     [dateManipFormatter setDateFormat: @"yyyyMMddHHmmss"]; // Date::Manip's "%q"
-    init_perl();
+    perl_dispatch_queue = dispatch_queue_create("ParseDate", DISPATCH_QUEUE_SERIAL);
 }
