@@ -28,7 +28,7 @@
     clock_t after = clock();
     XCTAssertNotEqual(before, -1);
     XCTAssertNotEqual(after, -1);
-    fprintf(stderr, ">>>> Initialization of %s - %.3f seconds.\n", [name UTF8String], (after - before) / (float)CLOCKS_PER_SEC);
+    fprintf(stderr, ">>>> Initialized %s in %.3f seconds.\n", [name UTF8String], (after - before) / (float)CLOCKS_PER_SEC);
 }
 
 - (void)setUp;
