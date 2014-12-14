@@ -6,9 +6,9 @@
 //
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface PesterTest : SenTestCase
+@interface PesterTest : XCTestCase
 {
     NSDictionary *fixtures;
 }
