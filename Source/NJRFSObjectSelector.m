@@ -201,7 +201,9 @@ extern MenuRef _NSGetCarbonMenu(NSMenu *menu);
         mRef = _NSGetCarbonMenu(menu);
     }
 
+#if !__LP64__
     ChangeMenuAttributes(mRef, kMenuAttrExcludesMarkColumn, 0);
+#endif
     theEvent = [NSEvent mouseEventWithType: [theEvent type]
                                   location: [self convertPoint: NSMakePoint(-1, 1) toView: nil]
                              modifierFlags: [theEvent modifierFlags]

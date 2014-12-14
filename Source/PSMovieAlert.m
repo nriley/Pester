@@ -98,6 +98,10 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     [PSMovieAlertController newControllerWithAlarm: alarm movieAlert: self];
 }
 
+#if __LP64__
+#define kNoVolume 0
+#endif
+
 - (NSAttributedString *)actionDescription;
 {
     BOOL isStatic = [[self movie] NJR_isStatic];

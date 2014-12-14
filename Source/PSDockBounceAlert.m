@@ -40,19 +40,23 @@ static NMRec nmr;
 
 - (void)_stopBouncing;
 {
+#if !__LP64__
     if ((void *)nmr.nmRefCon != self)
 	return;
     
     nmr.nmRefCon = 0;
     NMRemove(&nmr);
+#endif
 }
 
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
+#if !__LP64__
     if (nmr.nmRefCon == 0) {
 	nmr.nmRefCon = (long)self;
 	NMInstall(&nmr);
     }
+#endif
 
     [self completedForAlarm: alarm];
 }

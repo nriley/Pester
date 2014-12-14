@@ -323,6 +323,10 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [[NSNotificationCenter defaultCenter] postNotificationName: NJRQTMediaPopUpButtonMovieChangedNotification object: self];
 }
 
+#if __LP64__
+#define kNoVolume 0
+#endif
+
 - (void)_startSoundPreview;
 {
     if ([preview movie] == nil)
@@ -335,8 +339,10 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
     [[preview movie] setVolume: outputVolume];
 
+#if !__LP64__
     SetMovieAudioContext([[preview movie] quickTimeMovie],
 			 [[NJRSoundDevice defaultOutputDevice] quickTimeAudioContext]);
+#endif
 
     if ([[preview movie] rate] != 0)
 	return; // don't restart preview if already playing

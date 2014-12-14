@@ -334,6 +334,8 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
     return defaultOutputDevice;
 }
 
+#if !__LP64__
+
 - (QTAudioContextRef)quickTimeAudioContext;
 {
     QTAudioContextRef audioContext;
@@ -344,6 +346,8 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
 
     return (QTAudioContextRef)[(id)audioContext autorelease];
 }
+
+#endif
 
 + (BOOL)volumeIsNotMutedOrInvalid:(float)volume;
 {

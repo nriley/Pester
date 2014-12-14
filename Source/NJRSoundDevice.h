@@ -27,7 +27,9 @@ extern NSString * const NJRSoundDeviceDefaultOutputDeviceChangedNotification;
 - (NSString *)name;
 - (NSString *)uid;
 
+#if !__LP64__
 - (QTAudioContextRef)quickTimeAudioContext;
+#endif
 - (AudioDeviceID)deviceID;
 
 + (BOOL)volumeIsNotMutedOrInvalid:(float)volume;

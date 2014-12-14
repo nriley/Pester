@@ -98,9 +98,10 @@
         repetitions = [alert repetitions];
         if ([movie NJR_hasAudio] && [NJRSoundDevice volumeIsNotMutedOrInvalid: [alert outputVolume]]) {
             [movie setVolume: [alert outputVolume]];
-
+#if !__LP64__
 	    SetMovieAudioContext([movie quickTimeMovie],
 				 [[NJRSoundDevice defaultOutputDevice] quickTimeAudioContext]);
+#endif
         }
         if (![movie NJR_isStatic]) [self play]; // if it's an image, don't close the window automatically
     }
