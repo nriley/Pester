@@ -90,6 +90,9 @@
         NSInteger weekday = 1;
         for (NSString *weekdaySymbol in calendar.weekdaySymbols) {
             NSDate *parsedDate = parse_natural_language_date_on_queue(weekdaySymbol);
+            XCTAssertNotNil(parsedDate, @"locale '%@' weekday '%@'", localeLanguageCode, weekdaySymbol);
+            if (parsedDate == nil)
+                continue;
             NSInteger parsedWeekday = [calendar component:NSCalendarUnitWeekday fromDate:parsedDate];
             XCTAssertEqual(parsedWeekday, weekday, @"locale '%@' weekday '%@'", localeLanguageCode, weekdaySymbol);
             weekday++;
