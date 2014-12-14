@@ -15,8 +15,8 @@
 - (NSCalendarDate *)safeReferenceDate;
 - (NSCalendarDate *)firstDayOfMonth;
 - (NSCalendarDate *)lastDayOfMonth;
-- (int)numberOfDaysInMonth;
-- (int)weekOfMonth;
+- (NSInteger)numberOfDaysInMonth;
+- (NSInteger)weekOfMonth;
     // Returns 1 through 6. Weeks are Sunday-Saturday.
 - (BOOL)isInSameWeekAsDate:(NSCalendarDate *)otherDate;
 

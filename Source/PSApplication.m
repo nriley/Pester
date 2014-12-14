@@ -350,12 +350,13 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
 {
+    NSLog(@"time to -applicationDidFinishLaunching: %f", clock() / (float)CLOCKS_PER_SEC);
     PSAlarms *allAlarms = [PSAlarms allAlarms];
-    unsigned version1AlarmCount = [allAlarms countOfVersion1Alarms];
+    NSUInteger version1AlarmCount = [allAlarms countOfVersion1Alarms];
     if (version1AlarmCount > 0) {
-        int answer = NSRunAlertPanel(@"Import alarms from older Pester version?", @"Pester found %u alarm%@ created with an older version. These alarms must be converted for use with this version of Pester, and will be unavailable in previous versions after conversion. New alarms created with this version of Pester will not appear in Pester version 1.1a3 or earlier.",
+        NSInteger answer = NSRunAlertPanel(@"Import alarms from older Pester version?", @"Pester found %u alarm%@ created with an older version. These alarms must be converted for use with this version of Pester, and will be unavailable in previous versions after conversion. New alarms created with this version of Pester will not appear in Pester version 1.1a3 or earlier.",
                                      @"Import", @"Discard", NSLocalizedString(@"Don't Import", "Pester <= 1.1a3 format alarms button"),
-                                     version1AlarmCount, version1AlarmCount == 1 ? @"" : @"s");
+                                     (unsigned)version1AlarmCount, version1AlarmCount == 1 ? @"" : @"s");
         switch (answer) {
             case NSAlertDefaultReturn:
                 @try {

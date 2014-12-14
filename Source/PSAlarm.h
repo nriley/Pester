@@ -52,7 +52,7 @@ extern NSString * const PSAlarmDiedNotification;
 - (NSCalendarDate *)date;
 - (NSDate *)midnightOnDate;
 - (NSDate *)time;
-- (int)daysFromToday;
+- (NSInteger)daysFromToday;
 - (NSTimeInterval)interval;
 - (NSTimeInterval)timeRemaining;
 - (NSString *)message;

@@ -139,7 +139,7 @@ static NSDictionary *statusAttributes = nil;
 - (void)keyUp:(NSEvent *)theEvent;
 {
     NSString *characters = [theEvent charactersIgnoringModifiers];
-    int length = [characters length];
+    NSUInteger length = [characters length];
     if (length > 1) {
         [self showStatus: @"please press only one non-modifier key"];
         return;

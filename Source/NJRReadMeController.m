@@ -153,11 +153,11 @@ static NJRReadMeController *sharedController = nil;
         });
         [readMe release]; readMe = nil;
 
-        unsigned int length = [storage length];
+        NSUInteger length = [storage length];
         [progress setIndeterminate: NO];
         [progress setMaxValue: length];
         NSRange effectiveRange = NSMakeRange(0, 0);
-        unsigned int chunkLength = 0;
+        NSUInteger chunkLength = 0;
         NSFont *fontAttr = nil;
         NSString *fontName = nil; float fontSize = 0;
         NSString *heading = nil;
@@ -257,7 +257,7 @@ static NJRReadMeController *sharedController = nil;
 
 @implementation NJRReadMeController (NSTableDataSource)
 
-- (int)numberOfRowsInTableView:(NSTableView *)tableView;
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
 {
     return [headings count];
 }

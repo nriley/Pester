@@ -24,7 +24,7 @@
     PSAlarm *alarm;
     BOOL canSnooze;
     NSTimeInterval snoozeInterval;
-    int lastValidIntervalMultiplierTag;
+    NSInteger lastValidIntervalMultiplierTag;
 }
 
 - (id)initWithAlarm:(PSAlarm *)anAlarm;

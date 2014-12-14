@@ -26,7 +26,7 @@
 
 - (NSCalendarDate *)safeReferenceDate;
 {
-    int year, month, day;
+    NSInteger year, month, day;
 
     year = [self yearOfCommonEra];
     month = [self monthOfYear];
@@ -55,16 +55,16 @@
     return [[self firstDayOfMonth] dateByAddingYears:0 months:1 days:-1 hours:0 minutes:0 seconds:0];
 }
 
-- (int)numberOfDaysInMonth;
+- (NSInteger)numberOfDaysInMonth;
 {
     return [[self lastDayOfMonth] dayOfMonth];
 }
 
-- (int)weekOfMonth;
+- (NSInteger)weekOfMonth;
 {
     // Returns 1 through 6. Weeks are Sunday-Saturday.
-    int dayOfMonth;
-    int firstWeekDayOfMonth;
+    NSInteger dayOfMonth;
+    NSInteger firstWeekDayOfMonth;
     
     dayOfMonth = [self dayOfMonth];
     firstWeekDayOfMonth = [[self firstDayOfMonth] dayOfWeek];
@@ -73,10 +73,10 @@
 
 - (BOOL)isInSameWeekAsDate:(NSCalendarDate *)otherDate;
 {
-    int weekOfMonth;
+    NSInteger weekOfMonth;
 
     // First, do a quick check to filter out dates which are more than a week away.
-    if (abs([self dayOfCommonEra] - [otherDate dayOfCommonEra]) > 6)
+    if (labs([self dayOfCommonEra] - [otherDate dayOfCommonEra]) > 6)
         return NO;
 
     // Then, handle the simple case, when both dates are the same year and month.

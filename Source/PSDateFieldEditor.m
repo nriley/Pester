@@ -55,7 +55,7 @@
 - (NSArray *)completionsForPartialWordRange:(NSRange)charRange indexOfSelectedItem:(int *)idx;
 {
     NSString *partialMatch = [self string];
-    unsigned partialLength = [partialMatch length];
+    NSUInteger partialLength = [partialMatch length];
     NSMutableArray *completions = [allCompletions mutableCopy];
     for (int i = [completions count] - 1 ; i >= 0 ; i--) {
 	NSString *completion = [completions objectAtIndex: i];

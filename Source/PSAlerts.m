@@ -102,7 +102,7 @@ JRErrExpressionAdapter(PSAlerts *(^block)(void), JRErrExpression *expression, NS
     NSEnumerator *e = [self alertEnumerator];
     PSAlert *alert;
     NSString *listLabel = NSLocalizedString(@"* ", "Unordered list label (usually a bullet followed by a space)");
-    unsigned int length;
+    NSUInteger length;
     while ( (alert = [e nextObject]) != nil) {
         [string appendAttributedString: [listLabel small]];
         [string appendAttributedString: [alert actionDescription]];

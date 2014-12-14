@@ -191,7 +191,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
     }
     
     const int day = 60 * 60 * 24;
-    int daysUntilAlarm = [alarm daysFromToday];
+    NSInteger daysUntilAlarm = [alarm daysFromToday];
     NSString *onString;
     switch (daysUntilAlarm) {
 	case 0: onString = @"today,"; break;
@@ -240,7 +240,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 	    // This works fine synchronously only if you're using the keyboard shortcut to switch in/at.  Directly activating the button, a delayed invocation is necessary.
 	    NSInvocation *i = [NSInvocation invocationWithMethodSignature:
 			       [inAtMatrix methodSignatureForSelector: @selector(selectCellWithTag:)]];
-	    int tag = [old tag];
+	    NSInteger tag = [old tag];
 	    [i setSelector: @selector(selectCellWithTag:)];
 	    [i setTarget: inAtMatrix];
 	    [i setArgument: &tag atIndex: 2];

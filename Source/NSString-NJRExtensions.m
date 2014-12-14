@@ -139,7 +139,7 @@ static unichar combiningHelpChar[] = {0x003F, 0x20DD};
 
 @implementation NSMutableString (NJRExtensions)
 
-- (void)truncateToLength:(unsigned)maxLength by:(NSLineBreakMode)method;
+- (void)truncateToLength:(NSUInteger)maxLength by:(NSLineBreakMode)method;
 {
     if ([self length] > maxLength) {
         NSRange range = {0, [self length] - maxLength};
@@ -165,7 +165,7 @@ static unichar combiningHelpChar[] = {0x003F, 0x20DD};
 {
     if ([self sizeWithAttributes: attributes].width > maxWidth) {
         float width = maxWidth;
-        int min = 0, max = [self length], avg;
+        NSUInteger min = 0, max = [self length], avg;
         NSMutableString *original = [self mutableCopy];
         while (max >= min) {
             avg = (max + min) / 2;

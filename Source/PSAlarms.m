@@ -182,7 +182,7 @@ static NSMapTable *UUIDMapTableWithCapacity(NSUInteger capacity) {
     return nextAlarm;
 }
 
-- (int)alarmCount;
+- (NSUInteger)alarmCount;
 {
     return [alarms count];
 }
@@ -331,7 +331,7 @@ static NSMapTable *UUIDMapTableWithCapacity(NSUInteger capacity) {
 
 #pragma mark archiving (Pester 1.0)
 
-- (unsigned)countOfVersion1Alarms;
+- (NSUInteger)countOfVersion1Alarms;
 {
     return [[[NSUserDefaults standardUserDefaults] objectForKey: PSPendingAlarms] count];
 }
@@ -381,7 +381,7 @@ static NSMapTable *UUIDMapTableWithCapacity(NSUInteger capacity) {
         case PSAlarmsFailedToDeserializeStartOverRecoveryOptionIndex:
             return YES;
         default:
-            NSAssert1(NO, @"Invalid recovery option index: %u", recoveryOptionIndex);
+            NSAssert1(NO, @"Invalid recovery option index: %u", (unsigned)recoveryOptionIndex);
     }
     return NO;
 }

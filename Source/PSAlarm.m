@@ -360,7 +360,7 @@ flooredInterval:
 	    [gregorianCalendar components: NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit fromDate: alarmDate]];
 }
 
-- (int)daysFromToday;
+- (NSInteger)daysFromToday;
 {
     if (alarmType == PSAlarmInterval) [self _setDateFromInterval];
     
@@ -769,7 +769,7 @@ flooredInterval:
         case PSAlarmAlertsFailedToDeserializeUseRestoredRecoveryOptionIndex:
             break;
         default:
-            NSAssert1(NO, @"Invalid recovery option index: %u", recoveryOptionIndex);
+            NSAssert1(NO, @"Invalid recovery option index: %u", (unsigned)recoveryOptionIndex);
     }
     if (![self restoreOrUnexpireTimer]) {
         [self release];

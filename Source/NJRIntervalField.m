@@ -55,7 +55,7 @@ static NSDictionary *unitLabels;
         if (tag == 0)
             continue;
 
-        NSDictionary *labelsForUnit = unitLabels[[NSString stringWithFormat: @"%d", tag]];
+        NSDictionary *labelsForUnit = unitLabels[[NSString stringWithFormat: @"%ld", (long)tag]];
         if (labelsForUnit == nil)
             continue;
 
@@ -81,7 +81,7 @@ static NSDictionary *unitLabels;
 
 - (void)_updateUnitLabels;
 {
-    NSString *valueString = [NSString stringWithFormat: @"%d", [self intervalValue]];
+    NSString *valueString = [NSString stringWithFormat: @"%ld", (long)[self intervalValue]];
 
     for (NSMenuItem *item in [intervalUnits itemArray]) {
         NSDictionary *labelsForUnit = [item representedObject];
@@ -110,7 +110,7 @@ static NSDictionary *unitLabels;
         if (multiplierTag <= 0) continue;
         if (((NSInteger)interval % multiplierTag) == 0) {
             NSFormatter *formatter = [self formatter];
-            int intervalValue = (NSInteger)interval / multiplierTag;
+            NSUInteger intervalValue = (NSInteger)interval / multiplierTag;
             if (formatter != nil) {
                 id ignored;
                 if (![formatter getObjectValue: &ignored forString: [formatter stringForObjectValue: [NSNumber numberWithInteger: intervalValue]] errorDescription: NULL]) return NO;
@@ -125,12 +125,12 @@ static NSDictionary *unitLabels;
     return NO;
 }
 
-- (int)intervalMultiplierTag;
+- (NSInteger)intervalMultiplierTag;
 {
     return [intervalUnits selectedTag];
 }
 
-- (void)setIntervalMultiplierTag:(int)tag;
+- (void)setIntervalMultiplierTag:(NSInteger)tag;
 {
     if (tag == 0 || ![intervalUnits selectItemWithTag: tag])
 	[intervalUnits selectItemAtIndex: 0];
@@ -140,7 +140,7 @@ static NSDictionary *unitLabels;
 
 - (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)range replacementString:(NSString *)string;
 {
-    unsigned length = [string length];
+    NSUInteger length = [string length];
     if (length != 0) {
         unichar c;
         int tag = -1;
@@ -155,7 +155,7 @@ static NSDictionary *unitLabels;
             default: break;
         }
         if (tag != -1) {
-            int itemIndex = [intervalUnits indexOfItemWithTag: tag];
+            NSInteger itemIndex = [intervalUnits indexOfItemWithTag: tag];
             if (itemIndex != -1) {
                 [intervalUnits selectItemAtIndex: itemIndex];
                 [[intervalUnits menu] performActionForItemAtIndex: itemIndex];

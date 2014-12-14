@@ -175,7 +175,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 
 - (void)setEnabled:(BOOL)flag;
 {
-    unsigned int buttonIndex;
+    NSUInteger buttonIndex;
 
     [super setEnabled:flag];
     
@@ -516,7 +516,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     } else if (firstCharacter >= '0' && firstCharacter <= '9') {
         // For consistency with List Manager as documented, reset the typeahead buffer after twice the delay until key repeat (in ticks).
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        int keyRepeatTicks = [defaults integerForKey: @"InitialKeyRepeat"];
+        NSInteger keyRepeatTicks = [defaults integerForKey: @"InitialKeyRepeat"];
         NSTimeInterval resetDelay;
 
         if (keyRepeatTicks == 0) keyRepeatTicks = 35; // default may be missing; if so, set default
@@ -532,16 +532,16 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
         [typeSelectResetTime release];
         typeSelectResetTime = [[NSDate dateWithTimeIntervalSinceNow: resetDelay] retain];
 
-        int length = [typed length];
+        NSUInteger length = [typed length];
         if (length > 2) {
             [typed deleteCharactersInRange: NSMakeRange(0, length - 2)];
             length = 2;
         }
         if (length == 1 || length == 2) {
-            int dayOfMonth = [typed intValue], daysInMonth = [selectedDay numberOfDaysInMonth];
+            NSInteger dayOfMonth = [typed integerValue], daysInMonth = [selectedDay numberOfDaysInMonth];
             if (dayOfMonth >= daysInMonth) {
                 [typed deleteCharactersInRange: NSMakeRange(0, 1)];
-                dayOfMonth = [typed intValue];
+                dayOfMonth = [typed integerValue];
             }
             if (dayOfMonth > 0)
                 newDate = [selectedDay dateByAddingYears:0 months:0 days:dayOfMonth - [selectedDay dayOfMonth] hours:0 minutes:0 seconds:0];
@@ -639,7 +639,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     NSRect cellFrame;
     NSRect dayOfMonthFrame;
     NSRect discardRect;
-    int visibleMonthIndex;
+    NSInteger visibleMonthIndex;
     NSCalendarDate *thisDay;
     int cellIndex, row, column;
     NSSize cellSize;
@@ -664,7 +664,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
         cellFrame.origin.x = rect.origin.x + (column * columnWidth) - 1.0f;
         cellFrame.origin.y = rect.origin.y + (row * rowHeight);
 
-        [dayOfMonthCell setIntValue:[thisDay dayOfMonth]];
+        [dayOfMonthCell setIntegerValue:[thisDay dayOfMonth]];
         isVisibleMonth = ([thisDay monthOfYear] == visibleMonthIndex);
 
         if (flags.showsDaysForOtherMonths || isVisibleMonth) {
@@ -821,7 +821,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 - (NSCalendarDate *)_hitDateWithLocation:(NSPoint)targetPoint;
 {
     int hitRow, hitColumn;
-    int firstDayOfWeek, targetDayOfMonth;
+    NSInteger firstDayOfWeek, targetDayOfMonth;
     NSPoint offset;
 
     if (NSPointInRect(targetPoint, gridBodyRect) == NO)
@@ -849,7 +849,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
 - (NSCalendarDate *)_hitWeekdayWithLocation:(NSPoint)targetPoint;
 {
     int hitDayOfWeek;
-    int firstDayOfWeek, targetDayOfMonth;
+    NSInteger firstDayOfWeek, targetDayOfMonth;
     float offsetX;
 
     if (NSPointInRect(targetPoint, gridHeaderRect) == NO)

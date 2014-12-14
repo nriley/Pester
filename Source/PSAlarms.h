@@ -24,14 +24,14 @@ extern NSString * const PSAlarmsNextAlarmDidChangeNotification;
 + (void)setUp;
 + (PSAlarms *)allAlarms;
 
-- (unsigned)countOfVersion1Alarms;
+- (NSUInteger)countOfVersion1Alarms;
 - (void)importVersion1Alarms;
 - (void)discardVersion1Alarms;
 
 - (NSArray *)alarms;
 
 - (PSAlarm *)nextAlarm;
-- (int)alarmCount;
+- (NSUInteger)alarmCount;
 - (PSAlarm *)alarmWithUUIDString:(NSString *)uuidString;
 - (void)removeAlarms:(NSSet *)alarmsToRemove;
 - (void)restoreAlarms:(NSSet *)alarmsToRestore;

@@ -108,7 +108,7 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
 
 - (IBAction)snoozeIntervalUnitsChanged:(NSPopUpButton *)sender;
 {
-    int intervalMultiplierTag = [[sender selectedItem] tag];
+    NSInteger intervalMultiplierTag = [[sender selectedItem] tag];
     if (intervalMultiplierTag < 0)
 	return;
     lastValidIntervalMultiplierTag = intervalMultiplierTag;

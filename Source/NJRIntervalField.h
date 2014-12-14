@@ -18,7 +18,7 @@
 - (NSTimeInterval)interval;
 - (BOOL)setInterval:(NSTimeInterval)interval; // returns false if out of range
 
-- (int)intervalMultiplierTag;
-- (void)setIntervalMultiplierTag:(int)tag;
+- (NSInteger)intervalMultiplierTag;
+- (void)setIntervalMultiplierTag:(NSInteger)tag;
 
 @end
