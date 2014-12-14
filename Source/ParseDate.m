@@ -154,7 +154,7 @@ static void init_date_parser_on_queue(void) {
     BOOL isUS = [[dateFormatter dateFormat] characterAtIndex: 0] == 'M';
     [dateFormatter release];
 
-    int gmtOffsetMinutes = ([[NSTimeZone defaultTimeZone] secondsFromGMT]) / 60;
+    int gmtOffsetMinutes = (int)([[NSTimeZone defaultTimeZone] secondsFromGMT]) / 60;
     NSString *temp = [[NSString alloc] initWithFormat:
 	  @"Date_Init(\"Language=%s\", \"DateFormat=%s\", \"Printable=1\", \"SetDate=now,%c%02d:%02d\")",
 	  language, isUS ? "US" : "non-US",

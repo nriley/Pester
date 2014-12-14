@@ -96,7 +96,7 @@ static NSSize PopupTriangleSize;
      ^(NSInteger result) {
          if (result == NSOKButton) {
              NSArray *urls = [openPanel URLs];
-             NSAssert1([urls count] == 1, @"%d items returned, only one expected", [urls count]);
+             NSAssert1([urls count] == 1, @"%u items returned, only one expected", (unsigned)[urls count]);
              NSURL *url = [urls objectAtIndex: 0];
              NSAssert1([url isFileURL], @"file URL expected, %@ returned", url);
              [self setPath: [url path]];

@@ -98,7 +98,7 @@ static unichar combiningHelpChar[] = {0x003F, 0x20DD};
             (modifierFlags & NSCommandKeyMask) ? [NSString stringWithCharacter: kCommandUnicode] : @"",
                 keyEquivalentStringNoMask]
         attributedStringWithFont: menuItemFont];
-    unsigned noMaskLength = [keyEquivalentStringNoMask length];
+    NSUInteger noMaskLength = [keyEquivalentStringNoMask length];
     if (noMaskLength > 3 || // Fxx
         (noMaskLength == 1 && [keyEquivalentStringNoMask characterAtIndex: 0] <= 0x7F)) {
         NSMutableAttributedString *astr = [keyEquivalentAttributedString mutableCopy];

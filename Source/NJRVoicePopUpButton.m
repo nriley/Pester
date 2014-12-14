@@ -94,7 +94,7 @@
 
 - (void)setVoice:(NSString *)voice;
 {
-    int voiceIdx = [self indexOfItemWithRepresentedObject: voice];
+    NSInteger voiceIdx = [self indexOfItemWithRepresentedObject: voice];
     if (voiceIdx == -1) {
         [self _invalidateVoiceSelection];
     }

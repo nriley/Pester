@@ -91,7 +91,7 @@
 
 - (void)selectAlarm:(PSAlarm *)alarm;
 {
-    unsigned row = [reorderedAlarms indexOfObject: alarm];
+    NSUInteger row = [reorderedAlarms indexOfObject: alarm];
     if (row == NSNotFound)
         return;
 
@@ -146,7 +146,7 @@
     [self remove: aTableView];
 }
 
-- (NSString *)toolTipForRow:(int)rowIndex;
+- (NSString *)toolTipForRow:(NSInteger)rowIndex;
 {
     PSAlarm *alarm = [reorderedAlarms objectAtIndex: rowIndex];
 

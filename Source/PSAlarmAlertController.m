@@ -45,7 +45,7 @@ static NSString * const PSAlarmAlertWaitForIdleTime = @"PesterAlarmAlertWaitForI
 - (void)_alertCompleted:(NSNotification *)notification;
 {
     PSAlert *alert = [[notification userInfo] objectForKey: @"alert"];
-    unsigned count = [pendingAlerts count];
+    NSUInteger count = [pendingAlerts count];
     [pendingAlerts removeObject: alert];
     // NSLog(@"removed: %@; still pending: %@", alert, [pendingAlerts description]);
     // NSLog(@"alarm: %@ retainCount %d", [notification object], [[notification object] retainCount]);

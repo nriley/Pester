@@ -93,12 +93,12 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     NSData *aliasData;
     NSMenuItem *item;
     BDAlias *itemAlias;
-    int otherIndex = [self indexOfItem: otherItem];
-    int aliasDataCount = [recentMediaAliasData count];
-    int lastItemIndex = [self numberOfItems] - 1;
-    int recentItemCount = lastItemIndex - otherIndex;
-    int recentItemIndex = otherIndex;
-    NSAssert2(recentItemCount == aliasDataCount, @"Counted %d recent menu items, %d of alias data", recentItemCount, aliasDataCount);
+    NSInteger otherIndex = [self indexOfItem: otherItem];
+    NSInteger aliasDataCount = [recentMediaAliasData count];
+    NSInteger lastItemIndex = [self numberOfItems] - 1;
+    NSInteger recentItemCount = lastItemIndex - otherIndex;
+    NSInteger recentItemIndex = otherIndex;
+    NSAssert2(recentItemCount == aliasDataCount, @"Counted %d recent menu items, %d of alias data", (int)recentItemCount, (int)aliasDataCount);
     while ( (aliasData = [e nextObject]) != nil) { // go BACKWARD through array while going DOWN menu
         recentItemIndex++;
         item = [self itemAtIndex: recentItemIndex];
@@ -252,7 +252,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     NSString *path = [alias fullPath];
 
     // selected a system sound?
-    int itemIndex = [[self menu] indexOfItemWithRepresentedObject: path];
+    NSInteger itemIndex = [[self menu] indexOfItemWithRepresentedObject: path];
     if (itemIndex != -1) {
         // NSLog(@"_itemForAlias: selected system sound");
         return [self itemAtIndex: itemIndex];
@@ -265,8 +265,8 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
         while ( (aliasData = [e nextObject]) != nil) {
             // selected a recently selected, non-system sound?
             if ([alias aliasDataIsEqual: aliasData]) {
-                int otherIndex = [self indexOfItem: otherItem];
-                int menuIndex = recentIndex + otherIndex;
+                NSInteger otherIndex = [self indexOfItem: otherItem];
+                NSInteger menuIndex = recentIndex + otherIndex;
                 if (menuIndex == otherIndex + 1) return [self itemAtIndex: menuIndex]; // already at top
                 // remove item, add (at top) later
                 // NSLog(@"_itemForAlias removing item: idx %d + otherItemIdx %d + 1 = %d [%@]", recentIndex, otherIndex, menuIndex, [self itemAtIndex: menuIndex]);
@@ -427,12 +427,12 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (void)_aliasSelected:(NSMenuItem *)sender;
 {
     BDAlias *alias = [sender representedObject];
-    int itemIndex = [self indexOfItem: sender], otherIndex = [self indexOfItem: otherItem];
+    NSInteger itemIndex = [self indexOfItem: sender], otherIndex = [self indexOfItem: otherItem];
     [self _setAlias: alias];
     if (![self _validateWithPreview: YES]) {
         [[self menu] removeItem: sender];
     } else if (itemIndex > otherIndex + 1) { // move "other" item to top of list
-        int recentIndex = [recentMediaAliasData count] - itemIndex + otherIndex;
+        NSInteger recentIndex = [recentMediaAliasData count] - itemIndex + otherIndex;
         NSMenuItem *item = [[self itemAtIndex: itemIndex] retain];
         NSData *data = [[recentMediaAliasData objectAtIndex: recentIndex] retain];
         // [self _validateRecentMedia];
@@ -464,7 +464,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
      ^(NSInteger result) {
          if (result == NSOKButton) {
              NSArray *urls = [openPanel URLs];
-             NSAssert1([urls count] == 1, @"%d items returned, only one expected", [urls count]);
+             NSAssert1([urls count] == 1, @"%u items returned, only one expected", (unsigned)[urls count]);
              NSURL *url = [urls objectAtIndex: 0];
              NSAssert1([url isFileURL], @"file URL expected, %@ returned", url);
              [self _setPath: [url path]];

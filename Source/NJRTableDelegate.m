@@ -195,7 +195,7 @@ noContext:
 {
     NSMutableSet *result = [NSMutableSet set];
     NSIndexSet *selectedRowIndexes = [tableView selectedRowIndexes];
-    unsigned rowIndex = [selectedRowIndexes firstIndex];
+    NSUInteger rowIndex = [selectedRowIndexes firstIndex];
 
     while (rowIndex != NSNotFound) {
         id item = [reorderedData objectAtIndex: rowIndex];
@@ -214,7 +214,7 @@ noContext:
     [tableView deselectAll: nil];
 
     while ( (item = [e nextObject]) != nil) {
-        unsigned row = [reorderedData indexOfObjectIdenticalTo: item];
+        NSUInteger row = [reorderedData indexOfObjectIdenticalTo: item];
         if (row == NSNotFound)
 	    continue;
 	
@@ -264,7 +264,7 @@ noContext:
     if (columnIdentifier == nil) return;
 
     id<NJRTableViewDataSource> dataSource = (id<NJRTableViewDataSource>)[aTableView dataSource];
-    int i, rowCount = [reorderedData count];
+    NSInteger i, rowCount = (NSInteger)[reorderedData count];
 
     if (sortDescending) {
         for ( i = rowCount - 1 ; i >= 0 ; i-- ) {

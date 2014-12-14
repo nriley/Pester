@@ -69,7 +69,7 @@
 	return;
     }
 
-    int idx = [self indexOfSelectedItem];
+    NSInteger idx = [self indexOfSelectedItem];
     if (idx == -1) {
         [self selectItemWithObjectValue: [self stringValue]];
         idx = [self indexOfSelectedItem];
@@ -117,12 +117,12 @@
 - (BOOL)textShouldEndEditing:(NSText *)textObject;
 {
     NSString *newValue = [self stringValue];
-    int oldIndex = [self indexOfItemWithObjectValue: newValue];
+    NSInteger oldIndex = [self indexOfItemWithObjectValue: newValue];
     if ([newValue length] == 0) return YES; // don't save empty entries
     [self removeItemWithObjectValue: newValue];
     [self insertItemWithObjectValue: newValue atIndex: 0];
     if (oldIndex == NSNotFound) {
-        int numItems = [self numberOfItems];
+        NSInteger numItems = [self numberOfItems];
         while (numItems-- > NJRHistoryTrackingComboBoxMaxItems) {
             [self removeItemAtIndex: numItems - 1];
         }

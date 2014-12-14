@@ -29,7 +29,7 @@
 @optional
 
 - (void)removeSelectedRowsFromTableView:(NSTableView *)tableView;
-- (NSString *)toolTipForRow:(int)rowIndex;
+- (NSString *)toolTipForRow:(NSInteger)rowIndex;
 - (NSString *)stringValueForTableColumnIdentifier:(id)identifier row:(NSInteger)row;
 
 @end

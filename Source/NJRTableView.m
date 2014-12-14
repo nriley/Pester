@@ -64,7 +64,7 @@
 {
     // For consistency with List Manager as documented, reset the typeahead buffer after twice the delay until key repeat (in ticks).
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    int keyRepeatTicks = [defaults integerForKey: @"InitialKeyRepeat"];
+    NSInteger keyRepeatTicks = [defaults integerForKey: @"InitialKeyRepeat"];
     NSTimeInterval resetDelay;
 
     if (keyRepeatTicks == 0) keyRepeatTicks = 35; // default may be missing; if so, set default
