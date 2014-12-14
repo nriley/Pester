@@ -76,6 +76,11 @@
 		E143BA4317A461E100A7735E /* PSUserNotificationAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E143BA4217A461E100A7735E /* PSUserNotificationAlert.m */; };
 		E14AFF3011357B6500DC7922 /* Manip in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
 		E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */; };
+		E175B07A1A3DC0D700072594 /* ParseDateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E175B0791A3DC0D700072594 /* ParseDateTest.m */; };
+		E175B0841A3DCC7E00072594 /* libParseDate-10.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E198579D104F68EC0082AC3E /* libParseDate-10.9.dylib */; };
+		E175B0881A3DD5FE00072594 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
+		E175B0891A3DD5FE00072594 /* Manip in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
+		E175B09E1A3DE1BC00072594 /* DateCompletions.strings in Resources */ = {isa = PBXBuildFile; fileRef = E19D2D731158181A00B68D9F /* DateCompletions.strings */; };
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
 		E1869DB3177A82EA00DBCEC3 /* Calendar@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1869DB2177A82EA00DBCEC3 /* Calendar@2x.tiff */; };
 		E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
@@ -228,6 +233,13 @@
 			remoteGlobalIDString = 55C14BB7136EEF1500649790;
 			remoteInfo = finish_installation;
 		};
+		E175B07C1A3DC0D700072594 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1985794104F68EC0082AC3E;
+			remoteInfo = "ParseDate-10.9";
+		};
 		E19857A0104F69150082AC3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -259,6 +271,18 @@
 				722B9F6213DCF616000E0C3D /* Sparkle.framework in Copy Growl.framework & Sparkle.framework */,
 			);
 			name = "Copy Growl.framework & Sparkle.framework";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E175B0871A3DD5E900072594 /* Copy Perl Modules */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Date;
+			dstSubfolderSpec = 7;
+			files = (
+				E175B0881A3DD5FE00072594 /* Manip.pm in Copy Perl Modules */,
+				E175B0891A3DD5FE00072594 /* Manip in Copy Perl Modules */,
+			);
+			name = "Copy Perl Modules";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E17CA9A80CF7F89900018B34 /* Copy Perl Modules */ = {
@@ -302,7 +326,7 @@
 		E11CB6E1043025F500050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/Preferences.nib; sourceTree = "<group>"; };
 		E11E00B017BEE23B00BA997C /* JRErr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRErr.h; path = JRErr/JRErr/JRErr.h; sourceTree = "<group>"; };
 		E11E00B117BEE23B00BA997C /* JRErr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRErr.m; path = JRErr/JRErr/JRErr.m; sourceTree = "<group>"; };
-		E11E00BC17BEE2E900BA997C /* PesterTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PesterTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11E00BC17BEE2E900BA997C /* PesterTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PesterTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11E00C417BEE2E900BA997C /* PesterTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PesterTest-Info.plist"; sourceTree = "<group>"; };
 		E11E00C817BEE2E900BA997C /* PesterTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PesterTest.h; sourceTree = "<group>"; };
 		E11E00C917BEE2E900BA997C /* PesterTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PesterTest.m; sourceTree = "<group>"; };
@@ -344,6 +368,10 @@
 		E17562BE0CF8E7D000FC5057 /* release-notes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = "release-notes.html"; path = "../Updates/release-notes.html"; sourceTree = SOURCE_ROOT; };
 		E17562BF0CF8E7D000FC5057 /* release-notes.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = "release-notes.css"; path = "../Updates/release-notes.css"; sourceTree = SOURCE_ROOT; };
 		E17562C00CF8E7D000FC5057 /* Application icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Application icon.png"; path = "../Updates/Application icon.png"; sourceTree = SOURCE_ROOT; };
+		E175B0751A3DC0D700072594 /* ParseDateTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParseDateTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E175B0781A3DC0D700072594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E175B0791A3DC0D700072594 /* ParseDateTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseDateTest.m; sourceTree = "<group>"; };
+		E175B0811A3DC3FE00072594 /* ParseDateInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseDateInternal.h; sourceTree = "<group>"; };
 		E17CA9A90CF7F8C200018B34 /* Manip.pm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.script.perl; path = Manip.pm; sourceTree = SOURCE_ROOT; };
 		E17F2F3203FDF2F000050002 /* PSCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCalendarController.h; sourceTree = "<group>"; };
 		E17F2F3303FDF2F000050002 /* PSCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCalendarController.m; sourceTree = "<group>"; };
@@ -503,6 +531,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E175B0721A3DC0D700072594 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E175B0841A3DCC7E00072594 /* libParseDate-10.9.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1985797104F68EC0082AC3E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -580,7 +616,8 @@
 			children = (
 				E1B11F8C0CF5F30F004975AA /* Pester.app */,
 				E198579D104F68EC0082AC3E /* libParseDate-10.9.dylib */,
-				E11E00BC17BEE2E900BA997C /* PesterTest.octest */,
+				E11E00BC17BEE2E900BA997C /* PesterTest.xctest */,
+				E175B0751A3DC0D700072594 /* ParseDateTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -590,7 +627,7 @@
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
 				E11E00C217BEE2E900BA997C /* Tests */,
-				E17CA7B60CF7D07400018B34 /* Perl */,
+				E17CA7B60CF7D07400018B34 /* ParseDate */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -731,15 +768,35 @@
 			name = Sparkle;
 			sourceTree = "<group>";
 		};
-		E17CA7B60CF7D07400018B34 /* Perl */ = {
+		E175B0761A3DC0D700072594 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E175B0791A3DC0D700072594 /* ParseDateTest.m */,
+				E175B0771A3DC0D700072594 /* Supporting Files */,
+			);
+			name = Tests;
+			path = ParseDateTest;
+			sourceTree = "<group>";
+		};
+		E175B0771A3DC0D700072594 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E175B0781A3DC0D700072594 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E17CA7B60CF7D07400018B34 /* ParseDate */ = {
 			isa = PBXGroup;
 			children = (
 				E17CA9A90CF7F8C200018B34 /* Manip.pm */,
 				E14AFF2C11357B6100DC7922 /* Manip */,
 				E19CC53D0CFDE48C0079DCFC /* ParseDate.h */,
 				E19CC53E0CFDE48C0079DCFC /* ParseDate.m */,
+				E175B0811A3DC3FE00072594 /* ParseDateInternal.h */,
+				E175B0761A3DC0D700072594 /* Tests */,
 			);
-			name = Perl;
+			name = ParseDate;
 			sourceTree = "<group>";
 		};
 		E17F2F4C03FDF67D00050002 /* OACalendarView */ = {
@@ -967,7 +1024,26 @@
 			);
 			name = PesterTest;
 			productName = PesterTest;
-			productReference = E11E00BC17BEE2E900BA997C /* PesterTest.octest */;
+			productReference = E11E00BC17BEE2E900BA997C /* PesterTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E175B0741A3DC0D700072594 /* ParseDateTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E175B07E1A3DC0D700072594 /* Build configuration list for PBXNativeTarget "ParseDateTest" */;
+			buildPhases = (
+				E175B0711A3DC0D700072594 /* Sources */,
+				E175B0721A3DC0D700072594 /* Frameworks */,
+				E175B0871A3DD5E900072594 /* Copy Perl Modules */,
+				E175B09D1A3DE1B700072594 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E175B07D1A3DC0D700072594 /* PBXTargetDependency */,
+			);
+			name = ParseDateTest;
+			productName = ParseDateTest;
+			productReference = E175B0751A3DC0D700072594 /* ParseDateTest.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		E1985794104F68EC0082AC3E /* ParseDate-10.9 */ = {
@@ -1017,6 +1093,11 @@
 			attributes = {
 				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0460;
+				TargetAttributes = {
+					E175B0741A3DC0D700072594 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
 			};
 			buildConfigurationList = E1B11EDA0CF5F2EB004975AA /* Build configuration list for PBXProject "Pester" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1044,8 +1125,9 @@
 			projectRoot = "";
 			targets = (
 				E1B11EE30CF5F30F004975AA /* Pester */,
-				E1985794104F68EC0082AC3E /* ParseDate-10.9 */,
 				E11E00BB17BEE2E900BA997C /* PesterTest */,
+				E1985794104F68EC0082AC3E /* ParseDate-10.9 */,
+				E175B0741A3DC0D700072594 /* ParseDateTest */,
 			);
 		};
 /* End PBXProject section */
@@ -1094,6 +1176,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E11E012017BF0B7600BA997C /* PesterTestFixtures.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E175B09D1A3DE1B700072594 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E175B09E1A3DE1BC00072594 /* DateCompletions.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1213,6 +1303,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E175B0711A3DC0D700072594 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E175B07A1A3DC0D700072594 /* ParseDateTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1985795104F68EC0082AC3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1311,6 +1409,11 @@
 			isa = PBXTargetDependency;
 			name = Sparkle;
 			targetProxy = E11E010417BEF46200BA997C /* PBXContainerItemProxy */;
+		};
+		E175B07D1A3DC0D700072594 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1985794104F68EC0082AC3E /* ParseDate-10.9 */;
+			targetProxy = E175B07C1A3DC0D700072594 /* PBXContainerItemProxy */;
 		};
 		E19857A1104F69150082AC3E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1466,6 +1569,56 @@
 			};
 			name = Release;
 		};
+		E175B07F1A3DC0D700072594 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = ParseDateTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E175B0801A3DC0D700072594 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = ParseDateTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		E198579B104F68EC0082AC3E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1612,6 +1765,15 @@
 			buildConfigurations = (
 				E11E00CD17BEE2E900BA997C /* Debug */,
 				E11E00CE17BEE2E900BA997C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E175B07E1A3DC0D700072594 /* Build configuration list for PBXNativeTarget "ParseDateTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E175B07F1A3DC0D700072594 /* Debug */,
+				E175B0801A3DC0D700072594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
