@@ -101,9 +101,10 @@ JRErrExpressionAdapter(PSAlerts *(^block)(void), JRErrExpression *expression, NS
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
     NSEnumerator *e = [self alertEnumerator];
     PSAlert *alert;
+    NSString *listLabel = NSLocalizedString(@"* ", "Unordered list label (usually a bullet followed by a space)");
     unsigned int length;
     while ( (alert = [e nextObject]) != nil) {
-        [string appendAttributedString: [NSLocalizedString(@"* ", "Unordered list label (usually a bullet followed by a space)") small]];
+        [string appendAttributedString: [listLabel small]];
         [string appendAttributedString: [alert actionDescription]];
         [string appendAttributedString: [@"\n" small]];
     }
@@ -113,7 +114,7 @@ JRErrExpressionAdapter(PSAlerts *(^block)(void), JRErrExpression *expression, NS
     } else {
         NSMutableParagraphStyle *paraStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
         [string deleteCharactersInRange: NSMakeRange(length - 1, 1)]; // remove trailing newline
-        [paraStyle setHeadIndent: [[string attribute: NSFontAttributeName atIndex: 0 effectiveRange: NULL] widthOfString: NSLocalizedString(@"* ", "Unordered list label (usually a bullet followed by a space)")]];
+        [paraStyle setHeadIndent: [listLabel sizeWithAttributes: [string attributesAtIndex: 0 effectiveRange: NULL]].width];
         [string addAttribute: NSParagraphStyleAttributeName value: paraStyle range: NSMakeRange(0, length - 1)];
         [paraStyle release]; paraStyle = nil;
         return [string autorelease];
