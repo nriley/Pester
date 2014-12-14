@@ -1,39 +1,10 @@
-/*
-    Copyright (c) 2001, bDistributed.com, Inc.
-    All rights reserved.
+/*******************************************************************************
+    BDAlias.m
+        Copyright (c) 2001-2002 bDistributed.com, Inc.
+        Copyright (c) 2002-2009 BDAlias developers
+        Some rights reserved: <http://opensource.org/licenses/mit-license.php>
 
-    Redistribution and use in source and binary forms, with or
-    without modification, are permitted provided that the following
-    conditions are met:
-
-    *   Redistributions of source code must retain the above
-        copyright notice, this list of conditions and the following
-        disclaimer.
-    
-    *   Redistributions in binary form must reproduce the above
-        copyright notice, this list of conditions and the following
-        disclaimer in the documentation and/or other materials
-        provided with the distribution.
-    
-    *   Neither the name of bDistributed.com, Inc. nor the names of
-        its contributors may be used to endorse or promote products
-        derived from this software without specific prior written
-        permission.
-
-    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
-    CONTRIBUTORS ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-    MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-    DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE
-    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
-    OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
-    OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-    THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
-    TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
-    OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
-    OF SUCH DAMAGE.
-*/
+    ***************************************************************************/
 
 #include <assert.h>
 
@@ -58,13 +29,7 @@ static Handle DataToHandle(CFDataRef inData)
     
     len = CFDataGetLength(inData);
     
-    handle = NewHandle(len);
-    
-    if ((handle != NULL) && (len > 0)) {
-        HLock(handle);
-        BlockMoveData(CFDataGetBytePtr(inData), *handle, len);
-        HUnlock(handle);
-    }
+    PtrToHand(CFDataGetBytePtr(inData), (Handle*)&handle, len);
     
     return handle;
 }
@@ -154,16 +119,22 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
 
 - (id)initWithPath:(NSString *)fullPath
 {
+   return [self initWithPath:fullPath error:nil];
+}
+
+- (id)initWithPath:(NSString *)fullPath error:(NSError **)outError
+{
     OSStatus	anErr = noErr;
     FSRef		ref;
     
     anErr = PathToFSRef((CFStringRef) fullPath, &ref);
     
     if (anErr != noErr) {
+        if (outError) *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:anErr userInfo:nil];
         return nil;
     }
     
-    return [self initWithFSRef:&ref];;
+    return [self initWithFSRef:&ref error:outError];
 }
 
 - (id)initWithPath:(NSString *)path relativeToPath:(NSString *)relPath
@@ -192,7 +163,17 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
     return [self initWithFSRef:ref relativeToFSRef:NULL];
 }
 
+- (id)initWithFSRef:(FSRef *)ref error:(NSError **)outError
+{
+    return [self initWithFSRef:ref relativeToFSRef:NULL error:outError];
+}
+
 - (id)initWithFSRef:(FSRef *)ref relativeToFSRef:(FSRef *)relRef
+{
+    return [self initWithFSRef:ref relativeToFSRef:relRef error:nil];
+}
+
+- (id)initWithFSRef:(FSRef *)ref relativeToFSRef:(FSRef *)relRef error:(NSError **)outError
 {
     OSStatus	anErr = noErr;
     AliasHandle	alias = NULL;
@@ -200,10 +181,21 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
     anErr = FSNewAlias(relRef, ref, &alias);
     
     if (anErr != noErr) {
+        if (outError) *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:anErr userInfo:nil];
         return nil;
     }
     
     return [self initWithAliasHandle:alias];
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    return [self initWithData:[coder decodeDataObject]];
+}
+
+- (void)encodeWithCoder:(NSCoder*)coder
+{
+    [coder encodeDataObject:[self aliasData]];
 }
 
 - (void)dealloc
@@ -301,6 +293,41 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
     return [result autorelease];
 }
 
++ (BDAlias *)aliasWithAliasHandle:(AliasHandle)alias
+{
+    return [[[BDAlias alloc] initWithAliasHandle:alias] autorelease];
+}
+
++ (BDAlias *)aliasWithData:(NSData *)data
+{
+    return [[[BDAlias alloc] initWithData:data] autorelease];
+}
+
++ (BDAlias *)aliasWithPath:(NSString *)fullPath
+{
+    return [[[BDAlias alloc] initWithPath:fullPath] autorelease];
+}
+
++ (BDAlias *)aliasWithPath:(NSString *)fullPath error:(NSError **)outError
+{
+    return [[[BDAlias alloc] initWithPath:fullPath error:outError] autorelease];
+}
+
++ (BDAlias *)aliasWithPath:(NSString *)path relativeToPath:(NSString *)relPath
+{
+    return [[[BDAlias alloc] initWithPath:path relativeToPath:relPath] autorelease];
+}
+
++ (BDAlias *)aliasWithFSRef:(FSRef *)ref
+{
+    return [[[BDAlias alloc] initWithFSRef:ref] autorelease];
+}
+
++ (BDAlias *)aliasWithFSRef:(FSRef *)ref relativeToFSRef:(FSRef *)relRef
+{
+    return [[[BDAlias alloc] initWithFSRef:ref relativeToFSRef:relRef] autorelease];
+}
+
 - (BOOL)aliasIsEqual:(AliasHandle)otherAlias;
 {
     AliasHandle alias = [self alias];
@@ -327,36 +354,6 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
 {
     if (![object isKindOfClass: [BDAlias class]]) return NO;
     return [self aliasIsEqual: [object alias]];
-}
-
-+ (BDAlias *)aliasWithAliasHandle:(AliasHandle)alias
-{
-    return [[[BDAlias alloc] initWithAliasHandle:alias] autorelease];
-}
-
-+ (BDAlias *)aliasWithData:(NSData *)data
-{
-    return [[[BDAlias alloc] initWithData:data] autorelease];
-}
-
-+ (BDAlias *)aliasWithPath:(NSString *)fullPath
-{
-    return [[[BDAlias alloc] initWithPath:fullPath] autorelease];
-}
-
-+ (BDAlias *)aliasWithPath:(NSString *)path relativeToPath:(NSString *)relPath
-{
-    return [[[BDAlias alloc] initWithPath:path relativeToPath:relPath] autorelease];
-}
-
-+ (BDAlias *)aliasWithFSRef:(FSRef *)ref
-{
-    return [[[BDAlias alloc] initWithFSRef:ref] autorelease];
-}
-
-+ (BDAlias *)aliasWithFSRef:(FSRef *)ref relativeToFSRef:(FSRef *)relRef
-{
-    return [[[BDAlias alloc] initWithFSRef:ref relativeToFSRef:relRef] autorelease];
 }
 
 @end
