@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" promptedForUpgradeToXcode5="NO">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <development version="6000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6724"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PSAlarmNotifierController">
@@ -20,7 +20,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Alarm" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" id="5" userLabel="Alarm" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -122,12 +122,12 @@ from the popup menu.</string>
                         <string key="toolTip">While you're specifying an interval,
 type S, M, H, D, W or U to quickly select
 from this menu.</string>
-                        <popUpButtonCell key="cell" type="push" title="seconds" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" tag="1" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="142">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="142">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="25">
                                 <items>
-                                    <menuItem title="seconds" state="on" tag="1" id="23"/>
+                                    <menuItem title="seconds" tag="1" id="23"/>
                                     <menuItem title="minutes" tag="60" id="26"/>
                                     <menuItem title="hours" tag="3600" id="24"/>
                                     <menuItem title="days" tag="86400" id="132"/>
@@ -165,7 +165,7 @@ from this menu.</string>
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" id="36">
-                                    <rect key="frame" x="15" y="22" width="48" height="13"/>
+                                    <rect key="frame" x="-1" y="22" width="64" height="13"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Repeats:" id="144">
                                         <dateFormatter key="formatter" formatterBehavior="pre10_4" dateFormat="%x at %X" id="37"/>
@@ -216,6 +216,7 @@ from this menu.</string>
                 <outlet property="delegate" destination="-2" id="57"/>
                 <outlet property="initialFirstResponder" destination="22" id="44"/>
             </connections>
+            <point key="canvasLocation" x="222" y="334"/>
         </window>
     </objects>
     <resources>
