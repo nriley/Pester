@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::amsan_01;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:53:13 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:45 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,7 +25,7 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
@@ -320,7 +320,7 @@ END { undef $VERSION; }
           'WART',0,[2009,10,11,3,59,59],[2009,10,10,23,59,59],
           '2009030803:00:00','2009030723:00:00','2009101103:59:59','2009101023:59:59' ],
         [ [2009,10,11,4,0,0],[2009,10,11,1,0,0],'-03:00:00',[-3,0,0],
-          'WARST',1,[9999,12,31,0,0,0],[9999,12,30,21,0,0],
+          'ART',0,[9999,12,31,0,0,0],[9999,12,30,21,0,0],
           '2009101104:00:00','2009101101:00:00','9999123100:00:00','9999123021:00:00' ],
      ],
 );

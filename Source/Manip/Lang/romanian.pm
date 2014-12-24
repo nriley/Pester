@@ -1,5 +1,5 @@
 package Date::Manip::Lang::romanian;
-# Copyright (c) 1999-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1999-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,22 +13,21 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 iso-8859-16 perl);
 $LangName  = "Romanian";
 $YearAdded = 1999;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['AM', 'A.M.'], ['PM', 'P.M.']],
   at => ['la'],
   day_abb => [['lun'], ['mar'], ['mie'], ['joi'], ['vin'], ['sâm', 'sam'], ['dum']],
   day_char => [['L'], ['Ma'], ['Mi'], ['J'], ['V'], ['S'], ['D']],
   day_name => [
     ['luni'],
-    ['marți', 'marti'],
+    ['marți', 'marti', 'marþi'],
     ['miercuri'],
     ['joi'],
     ['vineri'],
@@ -345,6 +344,6 @@ $YearAdded = 1999;
     'miezul nopții' => '00:00:00',
   },
   when => [['in urma', 'în urmă'], ['in', 'în', 'mai tirziu', 'mai tîrziu']],
-}}
+};
 
 1;

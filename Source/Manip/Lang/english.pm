@@ -1,5 +1,5 @@
 package Date::Manip::Lang::english;
-# Copyright (c) 1995-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1995-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,7 +13,7 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 
 our($Language,@Encodings,$LangName,$YearAdded);
@@ -21,8 +21,7 @@ our($Language,@Encodings,$LangName,$YearAdded);
 $LangName  = "English";
 $YearAdded = 1995;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['AM', 'A.M.'], ['PM', 'P.M.']],
   at => ['at'],
   day_abb => [
@@ -47,12 +46,12 @@ $YearAdded = 1995;
   each => ['each', 'every'],
   fields => [
     ['years', 'y', 'yr', 'year', 'yrs'],
-    ['months', 'm', 'mon', 'month'],
+    ['months', 'm', 'mon', 'month', 'mons'],
     ['weeks', 'w', 'wk', 'wks', 'week'],
     ['days', 'd', 'day'],
     ['hours', 'h', 'hr', 'hrs', 'hour'],
-    ['minutes', 'mn', 'min', 'minute'],
-    ['seconds', 's', 'sec', 'second'],
+    ['minutes', 'mn', 'min', 'minute', 'mins'],
+    ['seconds', 's', 'sec', 'second', 'secs'],
   ],
   last => ['last', 'final'],
   mode => [['exactly', 'approximately'], ['business']],
@@ -155,6 +154,6 @@ $YearAdded = 1995;
     ['ago', 'past', 'in the past', 'earlier', 'before now'],
     ['in', 'later', 'future', 'in the future', 'from now'],
   ],
-}}
+};
 
 1;

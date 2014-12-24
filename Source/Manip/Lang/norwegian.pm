@@ -1,5 +1,5 @@
 package Date::Manip::Lang::norwegian;
-# Copyright (c) 1998-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1998-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,15 +13,14 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 iso-8859-1 perl);
 $LangName  = "Norwegian";
 $YearAdded = 1998;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['FM'], ['EM']],
   at => ['kl', 'kl.', 'klokken'],
   day_abb => [
@@ -154,6 +153,6 @@ $YearAdded = 1998;
     'midt på dagen'  => '12:00:00',
   },
   when => [['siden'], ['om', 'senere']],
-}}
+};
 
 1;

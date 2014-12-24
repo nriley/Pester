@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::asdhak00;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:52:54 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:36 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,7 +25,7 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
@@ -71,11 +71,11 @@ END { undef $VERSION; }
    2009 =>
      [
         [ [2009,6,19,17,0,0],[2009,6,20,0,0,0],'+07:00:00',[7,0,0],
-          'BDST',1,[2009,12,31,16,58,59],[2009,12,31,23,58,59],
-          '2009061917:00:00','2009062000:00:00','2009123116:58:59','2009123123:58:59' ],
-        [ [2009,12,31,16,59,0],[2009,12,31,22,59,0],'+06:00:00',[6,0,0],
+          'BDST',1,[2009,12,31,16,59,59],[2009,12,31,23,59,59],
+          '2009061917:00:00','2009062000:00:00','2009123116:59:59','2009123123:59:59' ],
+        [ [2009,12,31,17,0,0],[2009,12,31,23,0,0],'+06:00:00',[6,0,0],
           'BDT',0,[9999,12,31,0,0,0],[9999,12,31,6,0,0],
-          '2009123116:59:00','2009123122:59:00','9999123100:00:00','9999123106:00:00' ],
+          '2009123117:00:00','2009123123:00:00','9999123100:00:00','9999123106:00:00' ],
      ],
 );
 

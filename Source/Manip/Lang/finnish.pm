@@ -1,5 +1,5 @@
 package Date::Manip::Lang::finnish;
-# Copyright (c) 2012-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 2012-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,7 +13,7 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 
 our($Language,@Encodings,$LangName,$YearAdded);
@@ -21,8 +21,7 @@ our($Language,@Encodings,$LangName,$YearAdded);
 $LangName  = "Finnish";
 $YearAdded = 2012;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [
     ['AM', 'A.M.', 'aamulla', 'aamupäivällä', 'aamupaivalla'],
     ['PM', 'P.M.', 'illalla', 'iltapäivällä', 'iltapaivalla'],
@@ -31,13 +30,13 @@ $YearAdded = 2012;
   day_abb => [['ma'], ['ti'], ['ke'], ['to'], ['pe'], ['la'], ['su']],
   day_char => [['ma'], ['ti'], ['ke'], ['to'], ['pe'], ['la'], ['su']],
   day_name => [
-    ['maanantai', 'maanantaina'],
-    ['tiistai', 'tiistaina'],
-    ['keskiviikko', 'keskiviikkona'],
-    ['torstai', 'torstaina'],
-    ['perjantai', 'perjantaina'],
-    ['lauantai', 'lauantaina'],
-    ['sunnuntai', 'sunnuntaina'],
+    ['maanantai'],
+    ['tiistai'],
+    ['keskiviikko'],
+    ['torstai,'],
+    ['perjantai'],
+    ['lauantai'],
+    ['sunnuntai'],
   ],
   each => ['joka', 'jokainen'],
   fields => [
@@ -280,8 +279,8 @@ $YearAdded = 2012;
   },
   offset_time => { nyt => '0:0:0:0:0:0:0' },
   on => [''],
-  sephm => ['[.]'],
-  sepms => ['[.]'],
+  sephm => ['\.'],
+  sepms => ['\.'],
   times => {
     'keskipaiva'    => '12:00:00',
     'keskipaivalla' => '12:00:00',
@@ -293,6 +292,6 @@ $YearAdded = 2012;
     'keskiyöllä'    => '00:00:00',
   },
   when => [['sitten'], ['ssa', 'myöhemmin', 'myohemmin']],
-}}
+};
 
 1;

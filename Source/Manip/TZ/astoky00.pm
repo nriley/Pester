@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::astoky00;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:53:10 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:38 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,7 +25,7 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
@@ -44,14 +44,14 @@ END { undef $VERSION; }
    1895 =>
      [
         [ [1895,12,31,15,0,0],[1896,1,1,0,0,0],'+09:00:00',[9,0,0],
-          'CJT',0,[1937,12,31,14,59,59],[1937,12,31,23,59,59],
-          '1895123115:00:00','1896010100:00:00','1937123114:59:59','1937123123:59:59' ],
+          'JCST',0,[1937,9,30,14,59,59],[1937,9,30,23,59,59],
+          '1895123115:00:00','1896010100:00:00','1937093014:59:59','1937093023:59:59' ],
      ],
    1937 =>
      [
-        [ [1937,12,31,15,0,0],[1938,1,1,0,0,0],'+09:00:00',[9,0,0],
+        [ [1937,9,30,15,0,0],[1937,10,1,0,0,0],'+09:00:00',[9,0,0],
           'JST',0,[1948,5,1,16,59,59],[1948,5,2,1,59,59],
-          '1937123115:00:00','1938010100:00:00','1948050116:59:59','1948050201:59:59' ],
+          '1937093015:00:00','1937100100:00:00','1948050116:59:59','1948050201:59:59' ],
      ],
    1948 =>
      [

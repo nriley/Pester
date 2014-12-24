@@ -1,5 +1,5 @@
 package Date::Manip::Lang::spanish;
-# Copyright (c) 1998-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1998-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,15 +13,14 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 iso-8859-1 perl);
 $LangName  = "Spanish";
 $YearAdded = 1998;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['AM', 'A.M.'], ['PM', 'P.M.']],
   at => ['a'],
   day_abb => [['Lun'], ['Mar'], ['Mié', 'Mie'], ['Jue'], ['Vie'], ['Sáb', 'Sab'], ['Dom']],
@@ -38,9 +37,9 @@ $YearAdded = 1998;
   each => ['cada'],
   fields => [
     ['anos', 'a', 'ano', 'ano', 'anos', 'años', 'año'],
-    ['meses', 'm', 'mes'],
-    ['semanas', 'sem', 'semana'],
-    ['dias', 'd', 'dia', 'días'],
+    ['meses', 'm', 'mes', 'mes'],
+    ['semanas', 'sem', 'semana', 'semana'],
+    ['dias', 'd', 'dia'],
     ['horas', 'hr', 'hrs', 'hora'],
     ['minutos', 'min', 'min', 'minuto'],
     ['segundos', 's', 'seg', 'segundo'],
@@ -474,12 +473,12 @@ $YearAdded = 1998;
   offset_date => {
     ayer => '-0:0:0:1:0:0:0',
     Hoy => '0:0:0:0:0:0:0',
-    'mañana' => '+0:0:0:1:0:0:0',
+    manana => '+0:0:0:1:0:0:0',
   },
   offset_time => { Ahora => '0:0:0:0:0:0:0' },
   on => ['el'],
   times => { medianoche => '00:00:00', mediodia => '12:00:00' },
   when => [['hace'], ['en', 'later']],
-}}
+};
 
 1;

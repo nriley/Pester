@@ -1,5 +1,5 @@
 package Date::Manip::Base;
-# Copyright (c) 1995-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 1995-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -21,11 +21,11 @@ use warnings;
 use integer;
 use utf8;
 #use re 'debug';
-use Encode qw(encode_utf8 from_to);
+use Encode qw(encode_utf8 from_to find_encoding decode _utf8_off _utf8_on is_utf8);
 require Date::Manip::Lang::index;
 
 our $VERSION;
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 ###############################################################################
@@ -1428,6 +1428,15 @@ sub _rx_simple {
    }
 }
 
+# We need to quote strings that will be used in regexps, but we don't
+# want to quote UTF-8 characters.
+#
+sub _qe_quote {
+   my($string) = @_;
+   $string     =~ s/([-.+*?])/\\$1/g;
+   return $string;
+}
+
 # This takes a list of words and creates a simple regexp which matches
 # any of them.
 #
@@ -1447,7 +1456,7 @@ sub _rx_wordlist {
 
       my @tmp2;
       foreach my $tmp (@tmp) {
-         push(@tmp2,"\Q$tmp\E")  if ($tmp);
+         push(@tmp2,_qe_quote($tmp))  if ($tmp);
       }
       @tmp2  = sort _sortByLength(@tmp2);
 
@@ -1479,17 +1488,18 @@ sub _rx_replace {
 
    my(@key) = keys %{ $$self{'data'}{'lang'}{$ele} };
    my $i    = 1;
-   foreach my $key (@key) {
+   foreach my $key (sort(@key)) {
       my $val = $$self{'data'}{'lang'}{$ele}{$key};
-      $$self{'data'}{'rx'}{$ele}[$i++] = qr/\b(\Q$key\E)\b/i;
+      my $k   = _qe_quote($key);
+      $$self{'data'}{'rx'}{$ele}[$i++] = qr/(?:^|\b)($k)(?:\b|$)/i;
       $$self{'data'}{'wordmatch'}{$ele}{lc($key)} = $val;
    }
 
    @key   = sort _sortByLength(@key);
-   @key   = map { "\Q$_\E" } @key;
+   @key   = map { _qe_quote($_) } @key;
    my $rx = join('|',@key);
 
-   $$self{'data'}{'rx'}{$ele}[0] = qr/\b(?:$rx)\b/i;
+   $$self{'data'}{'rx'}{$ele}[0] = qr/(?:^|\b)(?:$rx)(?:\b|$)/i;
 }
 
 # This takes a list of values, each of which can be expressed in multiple
@@ -1514,7 +1524,7 @@ sub _rx_wordlists {
          foreach my $str (@tmp) {
             next  if (! $str);
             $$self{'data'}{'wordmatch'}{$subset}{lc($str)} = $i;
-            push(@str,"\Q$str\E");
+            push(@str,_qe_quote($str));
          }
          push(@all,@str);
 
@@ -1914,7 +1924,7 @@ sub _hms_fields {
 
    my ($h,$m,$s) = @fields;
    return (1)  if ($h > 24  ||  $m > 59  ||  $s > 59  ||
-                   ($h==24  &&  ($m  ||  $s)));
+                   ($h==24  &&  ($m > 0 ||  $s > 0)));
 
    #
    # Format
@@ -2385,14 +2395,16 @@ sub _encoding {
 
    foreach my $enc (@{ $$self{'data'}{'calc'}{'enc_in'} }) {
       if (lc($enc) eq 'utf-8') {
-         push(@ret,$string);
+         _utf8_on($string);
+         push(@ret,$string) if is_utf8($string, 1);
       } elsif (lc($enc) eq 'perl') {
          push(@ret,encode_utf8($string));
       } else {
          my $tmp = $string;
-         my $out = from_to($tmp,$enc,'utf-8');
-         next  if (! defined($out));
-         push(@ret,$tmp);
+         _utf8_off($tmp);
+         $tmp = encode_utf8(decode($enc, $tmp));
+         _utf8_on($tmp);
+         push(@ret,$tmp) if is_utf8($tmp, 1);;
       }
    }
 

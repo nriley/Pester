@@ -1,5 +1,5 @@
 package Date::Manip::Lang::turkish;
-# Copyright (c) 2001-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 2001-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,24 +13,23 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 iso-8859-1 perl);
 $LangName  = "Turkish";
 $YearAdded = 2001;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
-  ampm => [['ögleden önce', 'ogleden once'], ['öğleden sonra', 'ogleden sonra']],
+$Language = {
+  ampm => [['ögleden önce', 'ogleden once'], ['öðleden sonra', 'ogleden sonra']],
   at => ['saat'],
   day_abb => [['pzt'], ['sal'], ['çar', 'car'], ['per'], ['cum'], ['cts', 'cmt'], ['paz']],
   day_char => [['Pt'], ['S'], ['Ç', 'Cr'], ['Pr'], ['C'], ['Ct'], ['P']],
   day_name => [
     ['pazartesi'],
-    ['salı', 'sali'],
-    ['çarşamba', 'carsamba', 'Çarşamba'],
-    ['perşembe', 'persembe'],
+    ['salý', 'sali'],
+    ['çarþamba', 'carsamba'],
+    ['perþembe', 'persembe'],
     ['cuma'],
     ['cumartesi'],
     ['pazar'],
@@ -46,16 +45,16 @@ $YearAdded = 2001;
     ['saniye', 'sn'],
   ],
   last => ['son', 'sonuncu'],
-  mode => [['tam', 'yaklasik', 'yaklaşık'], ['is', 'iş', 'çalışma', 'calisma']],
+  mode => [['tam', 'yaklasik', 'yaklaþýk'], ['is', 'iþ', 'çalýþma', 'calisma']],
   month_abb => [
     ['oca'],
-    ['şub', 'sub'],
+    ['þub', 'sub'],
     ['mar'],
     ['nis'],
     ['may'],
     ['haz'],
     ['tem'],
-    ['ağu', 'agu'],
+    ['aðu', 'agu'],
     ['eyl'],
     ['eki'],
     ['kas'],
@@ -63,17 +62,17 @@ $YearAdded = 2001;
   ],
   month_name => [
     ['ocak'],
-    ['şubat', 'subat'],
+    ['þubat', 'subat'],
     ['mart'],
     ['nisan'],
-    ['mayıs', 'mayis'],
+    ['mayýs', 'mayis'],
     ['haziran'],
     ['temmuz'],
-    ['ağustos', 'agustos'],
+    ['aðustos', 'agustos'],
     ['eylül', 'eylul'],
     ['ekim'],
-    ['kasım', 'kasim'],
-    ['aralık', 'aralik'],
+    ['kasým', 'kasim'],
+    ['aralýk', 'aralik'],
   ],
   nextprev => [['gelecek', 'sonraki'], ['onceki', 'önceki']],
   nth => [
@@ -138,19 +137,19 @@ $YearAdded = 2001;
     'dun'   => '-0:0:0:1:0:0:0',
     'dün'   => '-0:0:0:1:0:0:0',
     'yarin' => '+0:0:0:1:0:0:0',
-    'yarın' => '+0:0:0:1:0:0:0',
+    'yarýn' => '+0:0:0:1:0:0:0',
   },
-  offset_time => { 'simdi' => '0:0:0:0:0:0:0', 'şimdi' => '0:0:0:0:0:0:0' },
+  offset_time => { 'simdi' => '0:0:0:0:0:0:0', 'þimdi' => '0:0:0:0:0:0:0' },
   on => ['on'],
   times => {
     'gece yarisi' => '00:00:00',
-    'gece yarısı' => '00:00:00',
+    'gece yarýsý' => '00:00:00',
     'oglen'       => '12:00:00',
     'yarim'       => '12:30:00',
-    'yarım'       => '12:30:00',
-    'öğlen'       => '12:00:00',
+    'yarým'       => '12:30:00',
+    'öðlen'       => '12:00:00',
   },
-  when => [['gecmis', 'geçmiş', 'gecen', 'geçen'], ['gelecek', 'sonra']],
-}}
+  when => [['gecmis', 'geçmiþ', 'gecen', 'geçen'], ['gelecek', 'sonra']],
+};
 
 1;

@@ -1,5 +1,5 @@
 package Date::Manip::Lang::catalan;
-# Copyright (c) 2003-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 2003-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,15 +13,14 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 iso-8859-1 perl);
 $LangName  = "Catalan";
 $YearAdded = 2003;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['AM', 'A.M.', 'de la matinada'], ['PM', 'P.M.', 'de la tarda']],
   at => ['a les', 'a', 'al'],
   day_abb => [
@@ -161,6 +160,6 @@ $YearAdded = 2003;
   on => ['el'],
   times => { migdia => '12:00:00', mitjanit => '00:00:00' },
   when => [['fa'], ['d\'aqui a', 'd\'aquí a', 'mes tard', 'més tard']],
-}}
+};
 
 1;

@@ -1,5 +1,5 @@
 package Date::Manip::Lang::danish;
-# Copyright (c) 2001-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 2001-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,15 +13,14 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 iso-8859-1 perl);
 $LangName  = "Danish";
 $YearAdded = 2001;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['FM', 'f.m.'], ['EM', 'e.m.']],
   at => ['klokken', 'kl', 'kl.'],
   day_abb => [['Man'], ['Tir'], ['Ons'], ['Tor'], ['Fre'], ['Lør', 'Lor'], ['Søn', 'Son']],
@@ -140,14 +139,14 @@ $YearAdded = 2001;
   },
   offset_time => { nu => '0:0:0:0:0:0:0' },
   on => ['pa', 'på'],
-  sephm => ['[.]'],
-  sepms => ['[:]'],
+  sephm => ['\.'],
+  sepms => [':'],
   times => {
     'midnat' => '00:00:00',
     'midt pa dagen' => '12:00:00',
     'midt på dagen' => '12:00:00',
   },
   when => [['siden'], ['om', 'senere']],
-}}
+};
 
 1;

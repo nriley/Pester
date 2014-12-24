@@ -1,5 +1,5 @@
 package Date::Manip::Obj;
-# Copyright (c) 2008-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,7 +13,7 @@ use IO::File;
 use Storable qw(dclone);
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 ########################################################################

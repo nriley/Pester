@@ -1,5 +1,5 @@
 package Date::Manip::Lang::portugue;
-# Copyright (c) 1999-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1999-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,27 +13,26 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 iso-8859-1 perl);
 $LangName  = "Portuguese";
 $YearAdded = 1999;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['AM', 'A.M.'], ['PM', 'P.M.']],
   at => ['as', 'às'],
-  day_abb => [['seg'], ['ter'], ['qua'], ['qui'], ['sex'], ['sáb', 'sab'], ['dom']],
+  day_abb => [['Seg'], ['Ter'], ['Qua'], ['Qui'], ['Sex'], ['Sáb', 'Sab'], ['Dom']],
   day_char => [['Sg'], ['T'], ['Qa'], ['Qi'], ['Sx'], ['Sb'], ['D']],
   day_name => [
-    ['segunda', 'segunda-feira'],
-    ['terça', 'terca', 'terça-feira', 'terca-feira'],
-    ['quarta', 'quarta-feira'],
-    ['quinta', 'quinta-feira'],
-    ['sexta', 'sexta-feira'],
-    ['sábado', 'sabado'],
-    ['domingo'],
+    ['Segunda'],
+    ['Terça', 'Terca'],
+    ['Quarta'],
+    ['Quinta'],
+    ['Sexta'],
+    ['Sábado', 'Sabado'],
+    ['Domingo'],
   ],
   each => ['cada'],
   fields => [
@@ -169,6 +168,6 @@ $YearAdded = 1999;
   on => ['na', 'no'],
   times => { 'meia-noite' => '00:00:00', 'meio-dia' => '12:00:00' },
   when => [['a', 'à'], ['em', 'passadas', 'passados']],
-}}
+};
 
 1;

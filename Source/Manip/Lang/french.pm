@@ -1,5 +1,5 @@
 package Date::Manip::Lang::french;
-# Copyright (c) 1996-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1996-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,15 +13,14 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 iso-8859-1 perl);
 $LangName  = "French";
 $YearAdded = 1996;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['du matin'], ['du soir']],
   at => ['a', 'à'],
   day_abb => [
@@ -47,7 +46,7 @@ $YearAdded = 1996;
   fields => [
     ['annees', 'années', 'an', 'annee', 'ans', 'année'],
     ['mois', 'm'],
-    ['semaine', 'semaines', 'sem'],
+    ['semaine', 'sem'],
     ['jours', 'j', 'jour', 'journee', 'journée'],
     ['heures', 'h', 'heure'],
     ['minutes', 'mn', 'min', 'minute'],
@@ -87,7 +86,7 @@ $YearAdded = 1996;
     ['décembre', 'decembre'],
   ],
   nextprev => [
-    ['suivant', 'suivante', 'prochain', 'prochaine'],
+    ['suivant', 'suivante', 'prochaine'],
     ['precedent', 'précédent', 'precedente', 'précédente', 'derniere', 'dernière'],
   ],
   nth => [
@@ -148,19 +147,18 @@ $YearAdded = 1996;
   of => ['de', 'en', 'du'],
   offset_date => {
     'aujourd\'hui' => '0:0:0:0:0:0:0',
-    'aujourd’hui' => '0:0:0:0:0:0:0',
     'demain' => '+0:0:0:1:0:0:0',
     'hier' => '-0:0:0:1:0:0:0',
   },
   offset_time => { maintenant => '0:0:0:0:0:0:0' },
   on => ['sur'],
-  sephm => ['[h]'],
-  sepms => ['[:]'],
+  sephm => ['h'],
+  sepms => [':'],
   times => { midi => '12:00:00', minuit => '00:00:00' },
   when => [
     ['il y a', 'auparavant', 'dans le passé', 'plus tot', 'plus tôt'],
     ['en', 'plus tard', 'dans l\'avenir', 'a venir', 'à venir', 'dans'],
   ],
-}}
+};
 
 1;

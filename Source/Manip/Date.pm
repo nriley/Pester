@@ -1,5 +1,5 @@
 package Date::Manip::Date;
-# Copyright (c) 1995-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1995-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -20,13 +20,14 @@ use strict;
 use integer;
 use utf8;
 use IO::File;
+use Storable qw(dclone);
 #use re 'debug';
 
 use Date::Manip::Base;
 use Date::Manip::TZ;
 
 our $VERSION;
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 ########################################################################
@@ -143,9 +144,11 @@ sub parse {
          }
 
          # There's lots of ways that commas may be included. Remove
-         # them.
+         # them (unless it's preceded and followed by a digit in
+         # which case it's probably a fractional separator).
 
-         $string =~ s/,/ /g;
+         $string =~ s/(?<!\d),/ /g;
+         $string =~ s/,(?!\d)/ /g;
 
          # Some special full date/time formats ('now', 'epoch')
 
@@ -190,52 +193,41 @@ sub parse {
          # At this point, the string might contain the following dates:
          #
          #   OTHER
-         #   OTHER ZONE
-         #   ZONE OTHER
+         #   OTHER ZONE / ZONE OTHER
          #   DELTA
+         #   DELTA ZONE / ZONE DELTA
          #   HOLIDAY
+         #   HOLIDAY ZONE / ZONE HOLIDAY
          #
          # ZONE is only allowed if it wasn't parsed with the time
-         # (and only occurs if the timezone is separate from the time).
 
-         # Other formats
+         # Unfortunately, there are some conflicts between zones and
+         # some other formats, so try parsing the entire string as a date.
 
-         {
-            my $string_bak = $string;
+         (@tmp) = $self->_parse_date($string,$dow,\$noupdate,%opts);
+         if (@tmp) {
+            ($y,$m,$d,$dow) = @tmp;
+            $default_time = 1;
+            last PARSE;
+         }
 
-            # Due to conflicts, we'll first try parsing the entire
-            # string as a date.
+         # Parse any timezone
 
+         if (! $tzstring) {
+            ($string,@tmp) = $self->_parse_tz($string,\$noupdate);
+            ($tzstring,$zone,$abb,$off) = @tmp  if (@tmp);
+            last PARSE  if (! $string);
+         }
+
+         # Try the remainder of the string as a date.
+
+         if ($tzstring) {
             (@tmp) = $self->_parse_date($string,$dow,\$noupdate,%opts);
             if (@tmp) {
                ($y,$m,$d,$dow) = @tmp;
                $default_time = 1;
                last PARSE;
             }
-
-            # Otherwise, we'll try parsing a timezone and then the remainder
-            # of the string.
-
-            if (! $tzstring) {
-               ($string,@tmp) = $self->_parse_tz($string,\$noupdate);
-               ($tzstring,$zone,$abb,$off) = @tmp  if (@tmp);
-               last PARSE  if (! $string);
-            }
-
-            if ($tzstring) {
-               (@tmp) = $self->_parse_date($string,$dow,\$noupdate,%opts);
-               if (@tmp) {
-                  ($y,$m,$d,$dow) = @tmp;
-                  $default_time = 1;
-                  last PARSE;
-               }
-            }
-
-            # Restore the previous values if we didn't get an
-            # entire date.
-
-            $string                     = $string_bak;
-            ($tzstring,$zone,$abb,$off) = ();
          }
 
          # Parse deltas
@@ -246,8 +238,18 @@ sub parse {
          # important conflicts are the ISO 8601 dates (many of which
          # could be interpreted as a delta), but those have already
          # been taken care of.
+         #
+         # We may have already gotten the time:
+         #   3 days ago at midnight UTC
+         # (we already stripped off the 'at midnight UTC' above).
+         #
+         # We also need to handle the sitution of a delta and a timezone.
+         #   in 2 hours EST
+         #   in 2 days EST
+         # but only if no time was entered.
 
          if (! exists $opts{'nodelta'}) {
+
             ($done,@tmp) =
               $self->_parse_delta($string,$dow,$got_time,$h,$mn,$s,\$noupdate);
             if (@tmp) {
@@ -317,7 +319,8 @@ sub parse {
 }
 
 sub parse_time {
-   my($self,$string) = @_;
+   my($self,$string,@opts) = @_;
+   my %opts     = map { $_,1 } @opts;
    my $noupdate = 0;
 
    if (! $string) {
@@ -340,7 +343,7 @@ sub parse_time {
    my($tzstring,$zone,$abb,$off);
 
    ($h,$mn,$s,$tzstring,$zone,$abb,$off) =
-     $self->_parse_time('parse_time',$string,\$noupdate);
+     $self->_parse_time('parse_time',$string,\$noupdate,%opts);
 
    return 1  if ($$self{'err'});
 
@@ -519,8 +522,8 @@ sub parse_format {
             $z = $dmt->_now('tz',$noupdate);
             $noupdate = 1;
          }
-         ($y,$m,$d,$h,$mn,$s) =
-           @{ $dmb->convert_from_gmt([$y,$m,$d,$h,$mn,$s],$z) };
+         my($err,$date) = $dmt->convert_from_gmt([$y,$m,$d,$h,$mn,$s],$z);
+         ($y,$m,$d,$h,$mn,$s) = @$date;
          last;
       }
 
@@ -567,7 +570,7 @@ sub parse_format {
       # Get h/mn/s from:
       #     $h,$mn,$s,$ampm
 
-      if ($h) {
+      if (defined($h)) {
          ($h,$mn,$s) = $self->_def_time($h,$mn,$s,\$noupdate);
       }
 
@@ -599,14 +602,20 @@ sub parse_format {
       ($y,$m,$d) = $dmt->_now('now',$noupdate);
       $noupdate = 1;
    }
-   if (! $h) {
+   if (! defined($h)) {
       ($h,$mn,$s) = (0,0,0);
    }
 
    $$self{'data'}{'set'} = 2;
-   return $self->_parse_check('parse_format',$string,
+   $err = $self->_parse_check('parse_format',$string,
                               $y,$m,$d,$h,$mn,$s,$dow_num,
                               $tzstring,$zone,$abb,$off);
+
+   if (wantarray) {
+      my %tmp = %{ dclone(\%+) };
+      return ($err,%tmp);
+   }
+   return $err;
 }
 
 BEGIN {
@@ -807,7 +816,7 @@ BEGIN {
             $re .= '(?<s>\d\d)';
 
          } elsif (exists $z_form{$f}) {
-            $re .= $dmt->_zrx();
+            $re .= $dmt->_zrx('zrx');
 
          } elsif ($f eq 's') {
             $re .= '(?<epochs>\d+)';
@@ -1110,7 +1119,7 @@ sub _iso8601_rx {
       my $fm     = '(?:[\.,](?<fm>\d*))'; # fractional seconds (keep)
       my $fs     = '(?:[\.,]\d*)'; # fractional hours (discard)
 
-      my $zrx    = $dmt->_zrx();
+      my $zrx    = $dmt->_zrx('zrx');
 
       my $ctimerx =
         "${hh}${mn}${ss}${fs}?|" .         # HHMNSS[,S+]
@@ -1362,14 +1371,17 @@ sub _other_rx {
          $timerx .= "${h24}$hm${mn}|" .                     # H24:MN
                     "(?<h>24)$hm(?<mn>00)|";                # 24:00
       }
-      $timerx .= "${h12}${fh}${ampm}?|"                     # H12,H+ [AM]
+
+      $timerx .= "${h12}${fh}${ampm}|"                      # H12,H+ AM
         if ($ampm);
-      $timerx .= "${h24}${fh}|";                            # H24,H+
 
       $timerx .= "${h12}${ampm}|"  if ($ampm);              # H12 AM
+
+      $timerx .= "${h24}${fh}|";                            # H24,H+
+
       chop($timerx);                                        # remove trailing pipe
 
-      my $zrx    = $dmt->_zrx();
+      my $zrx    = $dmt->_zrx('zrx');
       my $at     = $$dmb{'data'}{'rx'}{'at'};
       my $atrx   = qr/(?:^|\s+)(?:$at)\s+/;
       $timerx    = qr/(?:$atrx|^|\s+)(?:$timerx)(?:\s*$zrx)?(?:\s+|$)/i;
@@ -1440,7 +1452,6 @@ sub _other_rx {
 
         "${y4}:${m}:${d}";                    # YYYY:MM:DD
 
-
       $daterx = qr/^\s*(?:$daterx)\s*$/i;
       $$dmb{'data'}{'rx'}{'other'}{$rx} = $daterx;
 
@@ -1468,11 +1479,25 @@ sub _other_rx {
 
       $special     = "(?<special>$special)";
       my $secs     = "(?<epoch>[-+]?\\d+)";
+      my $abb      = $$dmb{'data'}{'rx'}{'month_abb'}[0];
+      my $mmm      = "(?<mmm>$abb)";
+      my $y4       = '(?<y>\d\d\d\d)';
+      my $dd       = '(?<d>\d\d)';
+      my $h24      = '(?<h>2[0-3]|[01][0-9])';      # 00-23
+      my $mn       = '(?<mn>[0-5][0-9])';           # 00-59
+      my $ss       = '(?<s>[0-5][0-9])';            # 00-59
+      my $offrx    = $dmt->_zrx('offrx');
+      my $zrx      = $dmt->_zrx('zrx');
 
       my $daterx   =
-        "${special}|" .       # now
+        "${special}|" .                 # now
+        "${special}\\s+${zrx}|" .       # now EDT
 
-        "epoch\\s+$secs";     # epoch SECS
+        "epoch\\s+$secs|" .             # epoch SECS
+        "epoch\\s+$secs\\s+${zrx}|" .   # epoch SECS EDT
+
+        "${dd}\\/${mmm}\\/${y4}:${h24}:${mn}:${ss}\\s*${offrx}";
+                              # Common log format: 10/Oct/2000:13:55:36 -0700
 
       $daterx = qr/^\s*(?:$daterx)\s*$/i;
       $$dmb{'data'}{'rx'}{'other'}{$rx} = $daterx;
@@ -1550,9 +1575,39 @@ sub _parse_time {
    my $dmt = $$self{'tz'};
    my $dmb = $$dmt{'base'};
 
+   my($timerx,$h,$mn,$s,$fh,$fm,$h24,$ampm,$tzstring,$zone,$abb,$off);
+   my $got_time = 0;
+
+   # Check for ISO 8601 time
+   #
+   # This is only called via. parse_time (parse_date uses a regexp
+   # that matches a full ISO 8601 date/time instead of parsing them
+   # separately.  Since some ISO 8601 times are a substring of non-ISO
+   # 8601 times (i.e. 12:30 is a substring of '12:30 PM'), we need to
+   # match entire strings here.
+
+   if ($caller eq 'parse_time') {
+      $timerx = (exists $$dmb{'data'}{'rx'}{'iso'}{'time'} ?
+                 $$dmb{'data'}{'rx'}{'iso'}{'time'} :
+                 $self->_iso8601_rx('time'));
+
+      if (! exists $opts{'noiso8601'}) {
+         if ($string =~ s/^\s*$timerx\s*$//) {
+            ($h,$fh,$mn,$fm,$s,$ampm,$tzstring,$zone,$abb,$off) =
+              @+{qw(h fh mn fm s ampm tzstring zone abb off)};
+
+            ($h,$mn,$s) = $self->_def_time($h,$mn,$s,$noupdate);
+            $h24      = 1  if ($h == 24  &&  $mn == 0  &&  $s == 0);
+            $string   =~ s/\s*$//;
+            $got_time = 1;
+         }
+      }
+   }
+
    # Make time substitutions (i.e. noon => 12:00:00)
 
-   unless (exists $opts{'noother'}) {
+   if (! $got_time  &&
+       ! exists $opts{'noother'}) {
       my @rx = @{ $$dmb{'data'}{'rx'}{'times'} };
       shift(@rx);
       foreach my $rx (@rx) {
@@ -1565,20 +1620,20 @@ sub _parse_time {
 
    # Check to see if there is a time in the string
 
-   my $timerx = (exists $$dmb{'data'}{'rx'}{'other'}{'time'} ?
+   if (! $got_time) {
+      $timerx = (exists $$dmb{'data'}{'rx'}{'other'}{'time'} ?
                  $$dmb{'data'}{'rx'}{'other'}{'time'} :
                  $self->_other_rx('time'));
-   my $got_time = 0;
 
-   my($h,$mn,$s,$fh,$fm,$h24,$ampm,$tzstring,$zone,$abb,$off);
+      if ($string =~ s/$timerx/ /) {
+         ($h,$fh,$mn,$fm,$s,$ampm,$tzstring,$zone,$abb,$off) =
+           @+{qw(h fh mn fm s ampm tzstring zone abb off)};
 
-   if ($string =~ s/$timerx/ /) {
-      ($h,$fh,$mn,$fm,$s,$ampm,$tzstring,$zone,$abb,$off) =
-        @+{qw(h fh mn fm s ampm tzstring zone abb off)};
-
-      $h24      = 1  if ($h == 24  &&  $mn == 0  &&  $s == 0);
-      $string   =~ s/\s*$//;
-      $got_time = 1;
+         ($h,$mn,$s) = $self->_def_time($h,$mn,$s,$noupdate);
+         $h24      = 1  if ($h == 24  &&  $mn == 0  &&  $s == 0);
+         $string   =~ s/\s*$//;
+         $got_time = 1;
+      }
    }
 
    # If we called this from $date->parse()
@@ -1656,7 +1711,7 @@ sub _parse_tz {
    my $dmt = $$self{'tz'};
    my($tzstring,$zone,$abb,$off);
 
-   my $rx  = $dmt->_zrx();
+   my $rx  = $dmt->_zrx('zrx');
    if ($string =~ s/(?:^|\s)$rx(?:$|\s)/ /) {
       ($tzstring,$zone,$abb,$off) = @+{qw(tzstring zone abb off)};
       return($string,$tzstring,$zone,$abb,$off);
@@ -1688,6 +1743,7 @@ sub _parse_dow {
    }
 
    $string =~ s/\s*$//;
+   $string =~ s/^\s*//;
 
    return (0,$string,$dow)  if ($string);
 
@@ -1809,7 +1865,11 @@ sub _parse_datetime_other {
                  $self->_other_rx('miscdatetime'));
 
    if ($string =~ $rx) {
-      my ($special,$epoch) = @+{qw(special epoch)};
+      my ($special,$epoch,$y,$mmm,$d,$h,$mn,$s,$tzstring,$zone,$abb,$off) =
+        @+{qw(special epoch y mmm d h mn s tzstring zone abb off)};
+
+      if ($tzstring) {
+      }
 
       if (defined($special)) {
          my $delta  = $$dmb{'data'}{'wordmatch'}{'offset_time'}{lc($special)};
@@ -1822,17 +1882,49 @@ sub _parse_datetime_other {
          my($err,$date2,$offset,$abbrev);
          ($err,$date2,$offset,$isdst,$abbrev) =
            $self->__calc_date_delta([@date],[@delta],0,0,$tz,$isdst);
+
+         if ($tzstring) {
+            my(@args);
+            push(@args,$zone)  if ($zone);
+            push(@args,$abb)   if ($abb);
+            push(@args,$off)   if ($off);
+            push(@args,$date2);
+            $zone = $dmt->zone(@args);
+
+            return (0)  if (! $zone);
+
+            my(@tmp) = $dmt->_convert('_parse_datetime_other',$date2,$tz,$zone);
+            $date2   = $tmp[1];
+         }
+
          @date = @$date2;
 
-         return (1,@date);
+         return (1,@date,$tzstring,$zone,$abb,$off);
 
       } elsif (defined($epoch)) {
          my $date   = [1970,1,1,0,0,0];
          my @delta  = (0,0,$epoch);
          $date      = $dmb->calc_date_time($date,\@delta);
          my($err);
-         ($err,$date) = $dmt->convert_from_gmt($date);
-         return (1,@$date);
+         if ($tzstring) {
+            my(@args);
+            push(@args,$zone)  if ($zone);
+            push(@args,$abb)   if ($abb);
+            push(@args,$off)   if ($off);
+            push(@args,$date);
+            $zone = $dmt->zone(@args);
+
+            return (0)  if (! $zone);
+
+            ($err,$date) = $dmt->convert_from_gmt($date,$zone);
+         } else {
+            ($err,$date) = $dmt->convert_from_gmt($date);
+         }
+         return (1,@$date,$tzstring,$zone,$abb,$off);
+
+      } elsif (defined($y)) {
+         my $m = $$dmb{'data'}{'wordmatch'}{'month_abb'}{lc($mmm)};
+         return (1,$y,$m,$d,$h,$mn,$s,$tzstring,$zone,$abb,$off);
       }
    }
 
@@ -1851,6 +1943,7 @@ sub _parse_date_other {
 
    my($mmm,$month,$nextprev,$last,$field_y,$field_m,$field_w,$field_d,$nth);
    my($special,$got_m,$n,$got_y);
+
    if ($string =~ $rx) {
       ($y,$mmm,$month,$nextprev,$last,$field_y,$field_m,$field_w,$field_d,$nth,
        $special,$n) =
@@ -4154,7 +4247,7 @@ BEGIN {
 
             # Normals one-character formats
 
-            $in =~ s/^%(.)//;
+            $in =~ s/^%(.)//s;
             my $f = $1;
 
             if (exists $$self{'data'}{'f'}{$f}) {
@@ -4537,6 +4630,7 @@ sub list_events {
          }
       }
 
+      return ()  if (! @tmp2);
       @tmp2 = sort { $$a[0]->cmp($$b[0])  ||
                      $$a[1] cmp $$b[1]    ||
                      $$a[2] cmp $$b[2] } @tmp2;

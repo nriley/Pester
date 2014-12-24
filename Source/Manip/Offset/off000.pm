@@ -1,14 +1,14 @@
 package #
 Date::Manip::Offset::off000;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:55:38 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 11:03:44 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -19,7 +19,7 @@ use warnings;
 require 5.010000;
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 our ($Offset,%Offset);
@@ -34,23 +34,13 @@ $Offset        = '+00:00:00';
    0 => [
       'wet',
       'europe/london',
-      'africa/lome',
       'atlantic/faroe',
       'africa/abidjan',
-      'africa/bamako',
-      'africa/conakry',
-      'africa/nouakchott',
-      'africa/ouagadougou',
-      'africa/sao_tome',
       'europe/lisbon',
       'africa/casablanca',
       'europe/dublin',
       'africa/accra',
-      'africa/dakar',
       'atlantic/canary',
-      'atlantic/st_helena',
-      'africa/freetown',
-      'africa/banjul',
       'atlantic/madeira',
       'atlantic/reykjavik',
       'africa/monrovia',
@@ -64,8 +54,6 @@ $Offset        = '+00:00:00';
       'atlantic/azores',
       'africa/ceuta',
       'africa/algiers',
-      'africa/malabo',
-      'africa/niamey',
       'america/rankin_inlet',
       'europe/gibraltar',
       'america/inuvik',
@@ -79,19 +67,18 @@ $Offset        = '+00:00:00';
       'europe/paris',
       'europe/luxembourg',
       'america/yellowknife',
-      'africa/porto-novo',
       'america/pangnirtung',
       'america/cambridge_bay',
+      'antarctica/troll',
+      'antarctica/rothera',
       'antarctica/casey',
       'antarctica/davis',
-      'antarctica/dumontdurville',
-      'antarctica/macquarie',
-      'antarctica/mawson',
-      'antarctica/mcmurdo',
       'antarctica/palmer',
-      'antarctica/rothera',
       'antarctica/syowa',
       'antarctica/vostok',
+      'antarctica/dumontdurville',
+      'antarctica/mawson',
+      'antarctica/macquarie',
       ],
    1 => [
       'atlantic/azores',

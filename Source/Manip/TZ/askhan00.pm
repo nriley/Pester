@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::askhan00;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:53:10 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:45 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,7 +25,7 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
@@ -329,8 +329,14 @@ END { undef $VERSION; }
           'VLAT',0,[2011,9,12,12,59,59],[2011,9,12,23,59,59],
           '2011032616:00:00','2011032703:00:00','2011091212:59:59','2011091223:59:59' ],
         [ [2011,9,12,13,0,0],[2011,9,12,23,0,0],'+10:00:00',[10,0,0],
-          'YAKT',0,[9999,12,31,0,0,0],[9999,12,31,10,0,0],
-          '2011091213:00:00','2011091223:00:00','9999123100:00:00','9999123110:00:00' ],
+          'YAKT',0,[2014,10,25,15,59,59],[2014,10,26,1,59,59],
+          '2011091213:00:00','2011091223:00:00','2014102515:59:59','2014102601:59:59' ],
+     ],
+   2014 =>
+     [
+        [ [2014,10,25,16,0,0],[2014,10,26,1,0,0],'+09:00:00',[9,0,0],
+          'YAKT',0,[9999,12,31,0,0,0],[9999,12,31,9,0,0],
+          '2014102516:00:00','2014102601:00:00','9999123100:00:00','9999123109:00:00' ],
      ],
 );
 

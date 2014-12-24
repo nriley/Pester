@@ -1,5 +1,5 @@
 package Date::Manip::DM6;
-# Copyright (c) 1995-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 1995-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -17,6 +17,7 @@ require Exporter;
    ParseDate
    ParseDateString
    ParseDateDelta
+   ParseDateFormat
    ParseRecur
    Date_IsHoliday
    Date_IsWorkDay
@@ -53,7 +54,7 @@ use integer;
 use warnings;
 
 our $VERSION;
-$VERSION='6.40';
+$VERSION='6.48';
 
 ###########################################################################
 
@@ -99,6 +100,15 @@ sub ParseDateString {
    my($string) = @_;
    $string = ''  if (! defined($string));
    my $err = $date->parse($string);
+   return ''  if ($err);
+   my $ret = $date->value('local');
+   return $ret;
+}
+
+sub ParseDateFormat {
+   my($format,$string) = @_;
+   $string = ''  if (! defined($string));
+   my $err = $date->parse_format($format,$string);
    return ''  if ($err);
    my $ret = $date->value('local');
    return $ret;

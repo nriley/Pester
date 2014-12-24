@@ -1,5 +1,5 @@
 package Date::Manip::Delta;
-# Copyright (c) 1995-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1995-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -25,7 +25,7 @@ use Date::Manip::Base;
 use Date::Manip::TZ;
 
 our $VERSION;
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 ########################################################################

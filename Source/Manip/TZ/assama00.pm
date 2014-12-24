@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::assama00;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:52:56 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:46 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,21 +25,21 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
    1    =>
      [
-        [ [1,1,2,0,0,0],[1,1,2,4,27,12],'+04:27:12',[4,27,12],
-          'LMT',0,[1924,5,1,19,32,47],[1924,5,1,23,59,59],
-          '0001010200:00:00','0001010204:27:12','1924050119:32:47','1924050123:59:59' ],
+        [ [1,1,2,0,0,0],[1,1,2,4,27,53],'+04:27:53',[4,27,53],
+          'LMT',0,[1924,5,1,19,32,6],[1924,5,1,23,59,59],
+          '0001010200:00:00','0001010204:27:53','1924050119:32:06','1924050123:59:59' ],
      ],
    1924 =>
      [
-        [ [1924,5,1,19,32,48],[1924,5,1,23,32,48],'+04:00:00',[4,0,0],
+        [ [1924,5,1,19,32,7],[1924,5,1,23,32,7],'+04:00:00',[4,0,0],
           'SAMT',0,[1930,6,20,19,59,59],[1930,6,20,23,59,59],
-          '1924050119:32:48','1924050123:32:48','1930062019:59:59','1930062023:59:59' ],
+          '1924050119:32:07','1924050123:32:07','1930062019:59:59','1930062023:59:59' ],
      ],
    1930 =>
      [

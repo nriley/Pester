@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::asshan00;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:52:58 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:40 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,21 +25,21 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
    1    =>
      [
-        [ [1,1,2,0,0,0],[1,1,2,8,5,57],'+08:05:57',[8,5,57],
-          'LMT',0,[1927,12,31,15,54,2],[1927,12,31,23,59,59],
-          '0001010200:00:00','0001010208:05:57','1927123115:54:02','1927123123:59:59' ],
+        [ [1,1,2,0,0,0],[1,1,2,8,5,43],'+08:05:43',[8,5,43],
+          'LMT',0,[1900,12,31,15,54,16],[1900,12,31,23,59,59],
+          '0001010200:00:00','0001010208:05:43','1900123115:54:16','1900123123:59:59' ],
      ],
-   1927 =>
+   1900 =>
      [
-        [ [1927,12,31,15,54,3],[1927,12,31,23,54,3],'+08:00:00',[8,0,0],
+        [ [1900,12,31,15,54,17],[1900,12,31,23,54,17],'+08:00:00',[8,0,0],
           'CST',0,[1940,6,2,15,59,59],[1940,6,2,23,59,59],
-          '1927123115:54:03','1927123123:54:03','1940060215:59:59','1940060223:59:59' ],
+          '1900123115:54:17','1900123123:54:17','1940060215:59:59','1940060223:59:59' ],
      ],
    1940 =>
      [

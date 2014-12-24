@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::asustm00;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:53:06 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:46 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,7 +25,7 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
@@ -326,8 +326,14 @@ END { undef $VERSION; }
           'MAGT',0,[2011,9,12,11,59,59],[2011,9,12,23,59,59],
           '2011032615:00:00','2011032703:00:00','2011091211:59:59','2011091223:59:59' ],
         [ [2011,9,12,12,0,0],[2011,9,12,23,0,0],'+11:00:00',[11,0,0],
-          'VLAT',0,[9999,12,31,0,0,0],[9999,12,31,11,0,0],
-          '2011091212:00:00','2011091223:00:00','9999123100:00:00','9999123111:00:00' ],
+          'VLAT',0,[2014,10,25,14,59,59],[2014,10,26,1,59,59],
+          '2011091212:00:00','2011091223:00:00','2014102514:59:59','2014102601:59:59' ],
+     ],
+   2014 =>
+     [
+        [ [2014,10,25,15,0,0],[2014,10,26,1,0,0],'+10:00:00',[10,0,0],
+          'VLAT',0,[9999,12,31,0,0,0],[9999,12,31,10,0,0],
+          '2014102515:00:00','2014102601:00:00','9999123100:00:00','9999123110:00:00' ],
      ],
 );
 

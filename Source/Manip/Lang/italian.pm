@@ -1,5 +1,5 @@
 package Date::Manip::Lang::italian;
-# Copyright (c) 1999-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1999-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,15 +13,14 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 iso-8859-1 perl);
 $LangName  = "Italian";
 $YearAdded = 1999;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['AM', 'm.'], ['PM', 'p.']],
   at => ['alle'],
   day_abb => [['Lun'], ['Mar'], ['Mer'], ['Gio'], ['Ven'], ['Sab'], ['Dom']],
@@ -141,6 +140,6 @@ $YearAdded = 1999;
   on => ['di'],
   times => { mezzanotte => '00:00:00', mezzogiorno => '12:00:00' },
   when => [['fa'], ['fra', 'dopo']],
-}}
+};
 
 1;

@@ -1,5 +1,5 @@
 package Date::Manip::Lang::russian;
-# Copyright (c) 2001-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 2001-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,18 +13,17 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
-@Encodings = qw(utf-8 koi8-r perl);
+@Encodings = qw(utf-8 koi8-r cp1251 perl);
 $LangName  = "Russian";
 $YearAdded = 2001;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [
     ['ДП', 'дп', 'Д.П.', 'ночи', 'утра', 'до полудня'],
-    ['ПП', 'пп', 'П.П.', 'дня', 'вечера', 'после полудня', 'по полудню'],
+    ['ПП', 'пп', 'П.П.', 'дня', 'вечера', 'после полудня', 'по полудню', 'пополудню'],
   ],
   at => ['в'],
   day_abb => [
@@ -272,11 +271,11 @@ $YearAdded = 2001;
   },
   offset_time => { 'сейчас' => '0:0:0:0:0:0:0' },
   on => ['в'],
-  sepfr => ['[с]'],
-  sephm => ['[ч]'],
-  sepms => ['[м]'],
+  sepfr => 'с',
+  sephm => ['ч'],
+  sepms => ['м'],
   times => { 'полдень' => '12:00:00', 'полночь' => '00:00:00' },
   when => [['назад на '], ['вперед на', 'позже']],
-}}
+};
 
 1;

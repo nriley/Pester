@@ -1,5 +1,5 @@
 package Date::Manip::Lang::polish;
-# Copyright (c) 1998-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1998-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,15 +13,14 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 iso-8859-2 perl);
 $LangName  = "Polish";
 $YearAdded = 1998;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['AM', 'A.M.'], ['PM', 'P.M.']],
   at => ['o', 'u'],
   day_abb => [
@@ -305,6 +304,6 @@ $YearAdded = 1998;
     'północ'   => '00:00:00',
   },
   when => [['temu'], ['za', 'later']],
-}}
+};
 
 1;

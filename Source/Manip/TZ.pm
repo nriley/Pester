@@ -1,5 +1,5 @@
 package Date::Manip::TZ;
-# Copyright (c) 2008-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -24,7 +24,7 @@ require Date::Manip::Zones;
 use Date::Manip::Base;
 
 our $VERSION;
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 # To get rid of a 'used only once' warnings.
@@ -1480,17 +1480,37 @@ sub _convert {
 # REGULAR EXPRESSIONS FOR TIMEZONE INFORMATION
 ########################################################################
 
-# Returns a regular expression capable of matching all timezone names
-# and aliases.
+# Returns regular expressions capable of matching timezones.
+#
+# The timezone regular expressions are:
+#   namerx   : this will match a zone name or alias (America/New_York)
+#   abbrx    : this will match a zone abbreviation (EDT)
+#   zonerx   : this will match a zone name or an abbreviation
+#   offrx    : this will match a pure offset (+0400)
+#   offabbrx : this will match an offset with an abbreviation (+0400 WET)
+#   offparrx : this will match an offset and abbreviation if parentheses
+#              ("+0400 (WET)")
+#   zrx      : this will match all forms
 #
 # The regular expression will have the following named matches:
-#   zone  = a zone name or alias
+#   tzstring : the full string matched
+#   zone     : the name/alias
+#   abb      : the zone abbrevation
+#   off      : the offset
 #
-sub _zonerx {
-   my($self) = @_;
-   return $$self{'data'}{'zonerx'}  if (defined $$self{'data'}{'zonerx'});
-   my @zone  = (keys %{ $$self{'data'}{'Alias'} },
+sub _zrx {
+   my($self,$re) = @_;
+   return $$self{'data'}{$re}  if (defined $$self{'data'}{$re});
+
+   # Zone name
+
+   my @zone;
+   if (exists $ENV{'DATE_MANIP_DEBUG_ZONES'}) {
+      @zone  = split(/\s+/,$ENV{'DATE_MANIP_DEBUG_ZONES'});
+   } else {
+      @zone  = (keys %{ $$self{'data'}{'Alias'} },
                 keys %{ $$self{'data'}{'MyAlias'} });
+   }
    @zone     = sort _sortByLength(@zone);
    foreach my $zone (@zone) {
       $zone  =~ s/\057/\\057/g;   # /
@@ -1500,83 +1520,61 @@ sub _zonerx {
       $zone  =~ s/\051/\\051/g;   # )
       $zone  =~ s/\053/\\053/g;   # +
    }
-   my $re    = join('|',@zone);
-   $$self{'data'}{'zonerx'} = qr/(?<zone>$re)/i;
-   return $$self{'data'}{'zonerx'};
-}
 
-# Returns a regular expression capable of matching all abbreviations.
-#
-# The regular expression will have the following named matches:
-#   abb  = a zone abbreviation
-#
-sub _abbrx {
-   my($self) = @_;
-   return $$self{'data'}{'abbrx'}  if (defined $$self{'data'}{'abbrx'});
-   my @abb  = (keys %{ $$self{'data'}{'Abbrev'} },
+   my $zone  = join('|',@zone);
+   $zone     = qr/(?<zone>$zone)/i;
+
+   # Abbreviation
+
+   my @abb;
+   if (exists $ENV{'DATE_MANIP_DEBUG_ABBREVS'}) {
+      @abb  = split(/\s+/,$ENV{'DATE_MANIP_DEBUG_ABBREVS'});
+   } else {
+      @abb  = (keys %{ $$self{'data'}{'Abbrev'} },
                keys %{ $$self{'data'}{'MyAbbrev'} });
+   }
    @abb     = sort _sortByLength(@abb);
    foreach my $abb (@abb) {
-      $abb =~ s/\055/\\055/g;   # -
-      $abb =~ s/\053/\\053/g;   # +
+      $abb  =~ s/\055/\\055/g;   # -
+      $abb  =~ s/\053/\\053/g;   # +
    }
-   my $re    = join('|',@abb);
-   $$self{'data'}{'abbrx'} = qr/(?<abb>$re)/i;
-   return $$self{'data'}{'abbrx'};
-}
 
-# Returns a regular expression capable of matching a valid timezone as
-# an offset. Known formats are:
-#    +07              +07 (HST)
-#    +0700            +0700 (HST)
-#    +07:00           +07:00 (HST)
-#    +070000          +070000 (HST)
-#    +07:00:00        +07:00:00 (HST)
-#
-# The regular expression will have the following named matches:
-#   off   = the offset
-#   abb   = the abbreviation
-#
-sub _offrx {
-   my($self) = @_;
-   return $$self{'data'}{'offrx'}  if (defined $$self{'data'}{'offrx'});
+   my $abb  = join('|',@abb);
+   $abb     = qr/(?<abb>$abb)/i;
 
-   my($hr) = qr/(?:[0-1][0-9]|2[0-3])/;  # 00 - 23
-   my($mn) = qr/(?:[0-5][0-9])/;         # 00 - 59
-   my($ss) = qr/(?:[0-5][0-9])/;         # 00 - 59
-   my($abb)= $self->_abbrx();
+   # Offset (+HH, +HHMM, +HH:MM, +HH:MM:SS, +HHMMSS)
 
-   my($re) = qr/ (?<off> [+-] (?: $hr:$mn:$ss |
-                                  $hr$mn$ss   |
-                                  $hr:?$mn    |
-                                  $hr
-                              )
-                 )
-                 (?: \s* (?: \( $abb \) | $abb))? /ix;
+   my($hr)  = qr/(?:[0-1][0-9]|2[0-3])/;  # 00 - 23
+   my($mn)  = qr/(?:[0-5][0-9])/;         # 00 - 59
+   my($ss)  = qr/(?:[0-5][0-9])/;         # 00 - 59
 
-   $$self{'data'}{'offrx'} = $re;
-   return $$self{'data'}{'offrx'};
-}
+   my($off) = qr/ (?<off> [+-] (?: $hr:$mn:$ss |
+                                   $hr$mn$ss   |
+                                   $hr:?$mn    |
+                                   $hr
+                               )
+                  ) /ix;
 
-# Returns a regular expression capable of matching all timezone
-# information available. It will match a full timezone, an
-# abbreviation, or an offset/abbreviation combination. The regular
-# expression will have the following named matches:
-#    tzstring  = the full string matched
-# in addition to the matches from the _zonerx, _abbrx, and _offrx
-# functions.
-#
-sub _zrx {
-   my($self) = @_;
-   return $$self{'data'}{'zrx'}  if (defined $$self{'data'}{'zrx'});
+   # Assemble everything
+   #
+   # A timezone can be any of the following in this order:
+   #    Offset (ABB)
+   #    Offset ABB
+   #    ABB
+   #    Zone
+   #    Offset
+   # We put ABB before Zone so CET gets parse as the more common abbreviation
+   # than the less common zone name.
 
-   my $zonerx    = $self->_zonerx();          # (?<zone>america/new_york|...)
-   my $zoneabbrx = $self->_abbrx();           # (?<abb>edt|est|...)
-   my $zoneoffrx = $self->_offrx();           # (?<off>07:00) (?<abb>GMT)
+   $$self{'data'}{'namerx'}   = qr/(?<tzstring>$zone)/;
+   $$self{'data'}{'abbrx'}    = qr/(?<tzstring>$abb)/;
+   $$self{'data'}{'zonerx'}   = qr/(?<tzstring>(?:$abb|$zone))/;
+   $$self{'data'}{'offrx'}    = qr/(?<tzstring>$off)/;
+   $$self{'data'}{'offabbrx'} = qr/(?<tzstring>$off\s+$abb)/;
+   $$self{'data'}{'offparrx'} = qr/(?<tzstring>$off\s*\($abb\))/;
+   $$self{'data'}{'zrx'}      = qr/(?<tzstring>(?:$off\s*\($abb\)|$off\s+$abb|$abb|$zone|$off))/;
 
-   my $zrx       = qr/(?<tzstring>$zoneabbrx|$zoneoffrx|$zonerx)/;
-   $$self{'data'}{'zrx'} = $zrx;
-   return $zrx;
+   return $$self{'data'}{$re};
 }
 
 # This sorts from longest to shortest element

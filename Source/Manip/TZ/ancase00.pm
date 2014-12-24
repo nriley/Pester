@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::ancase00;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:52:58 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:37 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,7 +25,7 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
@@ -38,7 +38,7 @@ END { undef $VERSION; }
    1969 =>
      [
         [ [1969,1,1,0,0,0],[1969,1,1,8,0,0],'+08:00:00',[8,0,0],
-          'WST',0,[2009,10,17,17,59,59],[2009,10,18,1,59,59],
+          'AWST',0,[2009,10,17,17,59,59],[2009,10,18,1,59,59],
           '1969010100:00:00','1969010108:00:00','2009101717:59:59','2009101801:59:59' ],
      ],
    2009 =>
@@ -50,7 +50,7 @@ END { undef $VERSION; }
    2010 =>
      [
         [ [2010,3,4,15,0,0],[2010,3,4,23,0,0],'+08:00:00',[8,0,0],
-          'WST',0,[2011,10,27,17,59,59],[2011,10,28,1,59,59],
+          'AWST',0,[2011,10,27,17,59,59],[2011,10,28,1,59,59],
           '2010030415:00:00','2010030423:00:00','2011102717:59:59','2011102801:59:59' ],
      ],
    2011 =>
@@ -62,7 +62,7 @@ END { undef $VERSION; }
    2012 =>
      [
         [ [2012,2,21,17,0,0],[2012,2,22,1,0,0],'+08:00:00',[8,0,0],
-          'WST',0,[9999,12,31,0,0,0],[9999,12,31,8,0,0],
+          'AWST',0,[9999,12,31,0,0,0],[9999,12,31,8,0,0],
           '2012022117:00:00','2012022201:00:00','9999123100:00:00','9999123108:00:00' ],
      ],
 );

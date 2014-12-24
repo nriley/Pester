@@ -1,5 +1,5 @@
 package Date::Manip;
-# Copyright (c) 2010-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2010-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -11,7 +11,7 @@ use strict;
 use Exporter;
 
 our $VERSION;
-$VERSION='6.40';
+$VERSION='6.48';
 
 our (@ISA,@EXPORT);
 
@@ -32,7 +32,7 @@ my $backend_exp = $backend . "::EXPORT";
 
 my $flag = eval "require $backend; $backend->import(); return 'loaded';";
 if (! $flag) {
-   die "ERROR LOADING MODULE";
+   die "ERROR LOADING MODULE: $backend";
 }
 
 {

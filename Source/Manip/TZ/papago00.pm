@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::papago00;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:53:00 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:37 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,7 +25,7 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
@@ -43,15 +43,9 @@ END { undef $VERSION; }
      ],
    1911 =>
      [
-        [ [1911,1,1,11,22,48],[1910,12,31,23,52,48],'-11:30:00',[-11,-30,0],
-          'SAMT',0,[1950,1,1,11,29,59],[1949,12,31,23,59,59],
-          '1911010111:22:48','1910123123:52:48','1950010111:29:59','1949123123:59:59' ],
-     ],
-   1950 =>
-     [
-        [ [1950,1,1,11,30,0],[1950,1,1,0,30,0],'-11:00:00',[-11,0,0],
+        [ [1911,1,1,11,22,48],[1911,1,1,0,22,48],'-11:00:00',[-11,0,0],
           'NST',0,[1967,4,1,10,59,59],[1967,3,31,23,59,59],
-          '1950010111:30:00','1950010100:30:00','1967040110:59:59','1967033123:59:59' ],
+          '1911010111:22:48','1911010100:22:48','1967040110:59:59','1967033123:59:59' ],
      ],
    1967 =>
      [

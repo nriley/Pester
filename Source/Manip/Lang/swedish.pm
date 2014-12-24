@@ -1,5 +1,5 @@
 package Date::Manip::Lang::swedish;
-# Copyright (c) 1996-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1996-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
@@ -13,15 +13,14 @@ use warnings;
 use utf8;
 
 our($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 
 our($Language,@Encodings,$LangName,$YearAdded);
 @Encodings = qw(utf-8 ISO-8859-15 perl);
 $LangName  = "Swedish";
 $YearAdded = 1996;
 
-# These strings are raw undecoded UTF-8 octets:
-{ no utf8; $Language = {
+$Language = {
   ampm => [['FM'], ['EM']],
   at => ['kl', 'kl.', 'klockan'],
   day_abb => [
@@ -141,21 +140,21 @@ $YearAdded = 1996;
   ],
   of => ['om'],
   offset_date => {
-    'i dag'    => '0:0:0:0:0:0:0',
-    'i gar'    => '-0:0:0:1:0:0:0',
-    'i går'    => '-0:0:0:1:0:0:0',
-    'i morgon' => '+0:0:0:1:0:0:0',
+    'idag'    => '0:0:0:0:0:0:0',
+    'igar'    => '-0:0:0:1:0:0:0',
+    'igår'    => '-0:0:0:1:0:0:0',
+    'imorgon' => '+0:0:0:1:0:0:0',
   },
   offset_time => { nu => '0:0:0:0:0:0:0' },
   on => ['pa', 'på'],
-  sephm => ['[.]'],
-  sepms => ['[:]'],
+  sephm => ['\.'],
+  sepms => [':'],
   times => {
     'midnatt'       => '00:00:00',
     'mitt pa dagen' => '12:00:00',
     'mitt på dagen' => '12:00:00',
   },
   when => [['sedan'], ['om', 'senare']],
-}}
+};
 
 1;

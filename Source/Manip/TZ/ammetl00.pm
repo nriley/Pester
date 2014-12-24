@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::ammetl00;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:53:14 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:44 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,7 +25,7 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
@@ -194,7 +194,7 @@ END { undef $VERSION; }
           'PDT',1,[1983,10,30,8,59,59],[1983,10,30,1,59,59],
           '1983042410:00:00','1983042403:00:00','1983103008:59:59','1983103001:59:59' ],
         [ [1983,10,30,9,0,0],[1983,10,30,1,0,0],'-08:00:00',[-8,0,0],
-          'MeST',0,[9999,12,31,0,0,0],[9999,12,30,16,0,0],
+          'PST',0,[9999,12,31,0,0,0],[9999,12,30,16,0,0],
           '1983103009:00:00','1983103001:00:00','9999123100:00:00','9999123016:00:00' ],
      ],
 );

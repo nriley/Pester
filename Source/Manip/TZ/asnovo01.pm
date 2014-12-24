@@ -1,14 +1,14 @@
 package #
 Date::Manip::TZ::asnovo01;
-# Copyright (c) 2008-2013 Sullivan Beck.  All rights reserved.
+# Copyright (c) 2008-2014 Sullivan Beck.  All rights reserved.
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
 
 # This file was automatically generated.  Any changes to this file will
 # be lost the next time 'tzdata' is run.
-#    Generated on: Mon Jun  3 12:53:03 EDT 2013
-#    Data version: tzdata2013c
-#    Code version: tzcode2013c
+#    Generated on: Fri Nov 21 10:41:43 EST 2014
+#    Data version: tzdata2014j
+#    Code version: tzcode2014j
 
 # This module contains data from the zoneinfo time zone database.  The original
 # data was obtained from the URL:
@@ -25,7 +25,7 @@ END {
 }
 
 our ($VERSION);
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 %Dates         = (
@@ -326,8 +326,14 @@ END { undef $VERSION; }
    2011 =>
      [
         [ [2011,3,26,20,0,0],[2011,3,27,3,0,0],'+07:00:00',[7,0,0],
-          'NOVT',0,[9999,12,31,0,0,0],[9999,12,31,7,0,0],
-          '2011032620:00:00','2011032703:00:00','9999123100:00:00','9999123107:00:00' ],
+          'NOVT',0,[2014,10,25,18,59,59],[2014,10,26,1,59,59],
+          '2011032620:00:00','2011032703:00:00','2014102518:59:59','2014102601:59:59' ],
+     ],
+   2014 =>
+     [
+        [ [2014,10,25,19,0,0],[2014,10,26,1,0,0],'+06:00:00',[6,0,0],
+          'NOVT',0,[9999,12,31,0,0,0],[9999,12,31,6,0,0],
+          '2014102519:00:00','2014102601:00:00','9999123100:00:00','9999123106:00:00' ],
      ],
 );
 

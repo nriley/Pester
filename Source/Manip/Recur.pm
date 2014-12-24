@@ -1,5 +1,5 @@
 package Date::Manip::Recur;
-# Copyright (c) 1998-2013 Sullivan Beck. All rights reserved.
+# Copyright (c) 1998-2014 Sullivan Beck. All rights reserved.
 # This program is free software; you can redistribute it and/or modify
 # it under the same terms as Perl itself.
 
@@ -26,7 +26,7 @@ use Date::Manip::Base;
 use Date::Manip::TZ;
 
 our $VERSION;
-$VERSION='6.40';
+$VERSION='6.48';
 END { undef $VERSION; }
 
 ########################################################################
@@ -194,6 +194,7 @@ sub parse {
       $string  =~ s/\s*\*\s*/\*/g;
 
       if ($string =~ /^([^*]*\*[^*]*)\*/) {
+         # Everything up to the 2nd '*'
          my $freq = $1;
          $err     = $self->frequency($freq);
          if (! $err) {
@@ -303,7 +304,7 @@ sub frequency {
    $self->_init();
    my (@int,@rtime);
 
- PARSE: {
+   PARSE: {
 
       # Standard frequency notation
 
@@ -363,7 +364,7 @@ sub frequency {
    # to 1.
 
    if (@int) {
-    TEST_INT: {
+      TEST_INT: {
          for my $i (@int) {
             last TEST_INT if ($i);
          }
@@ -373,6 +374,8 @@ sub frequency {
 
    # If @int contains 2 or 3 elements, move a trailing 0 to the start
    # of @rtime.
+   #
+   #   Y:M:0 * D:H:MN:S  =>  Y:M * 0:D:H:MN:S
 
    while (@int  &&
           ($#int == 1 || $#int == 2)  &&
@@ -735,42 +738,48 @@ sub next {
    my ($err) = $self->_error();
    return (undef,$err)  if ($err);
 
-   # If curr is set, find the next defined one
+   # If curr is not set, we have to get it.
 
-   if (defined $$self{'data'}{'curr'}) {
+   if (! defined $$self{'data'}{'curr'}) {
+
+      CURR:
       while (1) {
-         $$self{'data'}{'curr'}++;
+
+         # If no interval then
+         #    return base date
+
          if ($$self{'data'}{'noint'}) {
-            return (undef,0)
-              if (! exists $$self{'data'}{'dates'}{$$self{'data'}{'curr'}});
+            $$self{'data'}{'curr'} = -1;
+            last CURR;
          }
-         my ($d,$e) = $self->nth($$self{'data'}{'curr'});
-         return (undef,$e)  if ($e);
-         return ($d,0)      if (defined $d);
+
+         # If a range is defined
+         #    find first event in range and return it
+
+         if (defined $$self{'data'}{'start'}  &&
+             defined $$self{'data'}{'end'}) {
+
+            my $n = $self->_locate_n('first');
+            $$self{'data'}{'curr'} = $n-1;
+
+         } else {
+            $$self{'data'}{'curr'} = -1;
+         }
+         last CURR;
       }
    }
 
-   # If no interval then
-   #    return base date
+   # With curr set, find the next defined one
 
-   if ($$self{'data'}{'noint'}) {
-      $$self{'data'}{'curr'} = -1;
-      return $self->next();
-   }
-
-   # If a range is defined
-   #    find first event in range and return it
-
-   if (defined $$self{'data'}{'start'}  &&
-       defined $$self{'data'}{'end'}) {
-
-      my $n = $self->_locate_n('first');
-      $$self{'data'}{'curr'} = $n-1;
-      return $self->next();
-
-   } else {
-      $$self{'data'}{'curr'} = -1;
-      return $self->next();
+   while (1) {
+      $$self{'data'}{'curr'}++;
+      if ($$self{'data'}{'noint'}) {
+         return (undef,0)
+           if (! exists $$self{'data'}{'dates'}{$$self{'data'}{'curr'}});
+      }
+      my ($d,$e) = $self->nth($$self{'data'}{'curr'});
+      return (undef,$e)  if ($e);
+      return ($d,0)      if (defined $d);
    }
 }
 
@@ -780,43 +789,49 @@ sub prev {
    my ($err) = $self->_error();
    return (undef,$err)  if ($err);
 
-   # If curr is set, find the previous defined one
+   # If curr is not set, we have to get it.
 
-   if (defined $$self{'data'}{'curr'}) {
+   if (! defined $$self{'data'}{'curr'}) {
+
+      CURR:
       while (1) {
-         $$self{'data'}{'curr'}--;
+
+         # If no interval then
+         #    return last one
+
          if ($$self{'data'}{'noint'}) {
-            return (undef,0)
-              if (! exists $$self{'data'}{'dates'}{$$self{'data'}{'curr'}});
+            my @n = sort { $a <=> $b } keys %{ $$self{'data'}{'dates'} };
+            $$self{'data'}{'curr'} = pop(@n) + 1;
+            last CURR;
          }
-         my ($d,$e) = $self->nth($$self{'data'}{'curr'});
-         return (undef,$e)  if ($e);
-         return ($d,0)      if (defined $d);
+
+         # If a range is defined
+         #    find last event in range and return it
+
+         if (defined $$self{'data'}{'start'}  &&
+             defined $$self{'data'}{'end'}) {
+
+            my $n = $self->_locate_n('last');
+            $$self{'data'}{'curr'} = $n+1;
+
+         } else {
+            $$self{'data'}{'curr'} = 0;
+         }
+         last CURR;
       }
    }
 
-   # If no interval then
-   #    return last one
+   # With curr set, find the previous defined one
 
-   if ($$self{'data'}{'noint'}) {
-      my @n = sort { $a <=> $b } keys %{ $$self{'data'}{'dates'} };
-      $$self{'data'}{'curr'} = pop(@n) + 1;
-      return $self->prev();
-   }
-
-   # If a range is defined
-   #    find last event in range and return it
-
-   if (defined $$self{'data'}{'start'}  &&
-       defined $$self{'data'}{'end'}) {
-
-      my $n = $self->_locate_n('last');
-      $$self{'data'}{'curr'} = $n+1;
-      return $self->prev();
-
-   } else {
-      $$self{'data'}{'curr'} = 0;
-      return $self->prev();
+   while (1) {
+      $$self{'data'}{'curr'}--;
+      if ($$self{'data'}{'noint'}) {
+         return (undef,0)
+           if (! exists $$self{'data'}{'dates'}{$$self{'data'}{'curr'}});
+      }
+      my ($d,$e) = $self->nth($$self{'data'}{'curr'});
+      return (undef,$e)  if ($e);
+      return ($d,0)      if (defined $d);
    }
 }
 
@@ -944,38 +959,31 @@ sub _error {
          my @dates = $self->_apply_rtime_mods();
          $$self{'data'}{'noint'} = 2;
 
-         while (@dates  &&  ! defined $dates[0]) {
-            shift(@dates);
-         }
-
-         return (0,$start,$end)  if (! @dates);
-
-         $$self{'data'}{'BASE'}  = $dates[0];
-         $$self{'data'}{'start'} = $dates[0];
-         $$self{'data'}{'end'}   = $dates[$#dates];
          my $n = 0;
-
-         while (1) {
-            while (@dates  &&  ! defined $dates[0]) {
-               shift(@dates);
-            }
-            last  if (! @dates);
-            $$self{'data'}{'dates'}{$n} = shift(@dates);
-            $n++;
+         foreach my $date (@dates) {
+            next  if (! defined $date);
+            $$self{'data'}{'dates'}{$n++} = $date;
          }
+
+         return (0,$start,$end)  if ($n == 0);
 
          if (defined $start  &&  defined $end) {
             my ($first,$last);
-            for (my $i=0; $i<=$n-1; $i++) {
-               if (! defined $first  &&
-                   $start->cmp($$self{'data'}{'dates'}{$i}) < 1) {
+            for (my $i=0; $i<$n; $i++) {
+               my $date = $$self{'data'}{'dates'}{$i};
+               if ($start->cmp($date) <= 0  &&
+                   $end->cmp($date) >= 0) {
                   $first = $i;
                   last;
                }
             }
-            for (my $i=0; $i<=$n-1; $i++) {
-               last  if ($end->cmp($$self{'data'}{'dates'}{$i}) == -1);
-               $last = $i;
+            for (my $i=$n-1; $i>=0; $i--) {
+               my $date = $$self{'data'}{'dates'}{$i};
+               if ($start->cmp($date) <= 0  &&
+                   $end->cmp($date) >= 0) {
+                  $last = $i;
+                  last;
+               }
             }
 
             $$self{'data'}{'first'} = $first;
@@ -1761,7 +1769,8 @@ sub _nth_interval {
 sub _locate_n {
    my($self,$op) = @_;
 
-   return $$self{'data'}{$op}  if (defined $$self{'data'}{$op});
+   return $$self{'data'}{$op}  if (defined $$self{'data'}{$op}  ||
+                                   $$self{'data'}{'noint'} == 2);
 
    my ($first,$last);
    my $start = $$self{'data'}{'start'};
@@ -1862,12 +1871,13 @@ sub _locate_n {
 
    my $base  = $$self{'data'}{'BASE'};
    my $delta = $$self{'data'}{'delta'};
+   # $len = 0 is when a recur contains no delta (i.e. *Y:M:W:D:H:Mn:S)
    my $len   = ($delta ? $delta->printf('%sys') : 0);
 
    my $targ = ($op eq 'first' ? $start : $end);
    my $diff  = $base->calc($targ);
    my $tot   = $diff->printf('%sys');
-   my $nn    = int($tot/$len);
+   my $nn    = ($len ? int($tot/$len) : 1);
    my $n     = $nn*$$self{'data'}{'ev_per_d'};
 
    #
