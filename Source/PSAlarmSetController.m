@@ -194,12 +194,12 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
     NSInteger daysUntilAlarm = [alarm daysFromToday];
     NSString *onString;
     switch (daysUntilAlarm) {
-	case 0: onString = @"today,"; break;
-	case 1: onString = @"tomorrow,"; break;
-	default: onString = @"on";
+	case 0: onString = @" today,\n"; break;
+	case 1: onString = @" tomorrow,\n"; break;
+	default: onString = @"\non ";
     }
     
-    [self setStatus: [NSString stringWithFormat: @"Alarm will be set for %@\n%@ %@.", [alarm timeString], onString, [alarm dateString]]];
+    [self setStatus: [NSString stringWithFormat: @"Alarm will be set for %@%@%@.", [alarm timeString], onString, [alarm dateString]]];
     [setButton setEnabled: YES];
     if (updateTimer == nil || ![updateTimer isValid]) {
 	// XXX this logic (and the timer) should really go into PSAlarm, to send notifications for status updates instead.  Timer starts when people are watching, stops when people aren't.
