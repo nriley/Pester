@@ -27,18 +27,25 @@
     [item setHidden: YES];
 
     NSArray *voices = [NSSpeechSynthesizer availableVoices];
+    NSString *defaultVoice = [NSSpeechSynthesizer defaultVoice];
     item = nil;
 
     if (voices != nil) {
         // XXX unaware of any public way to get enabled voice information
+        // value in visibleIdentifiers is 1 if the voice is visible in the System Voice popup menu in System Preferences, otherwise 2 or 0.
+        // Unclear what 2 and 0 represent; some un-downloaded voices are 0, but some are 2 as well.
         NSDictionary *visibleIdentifiers = [[[NSUserDefaults standardUserDefaults] persistentDomainForName: @"com.apple.speech.voice.prefs"] objectForKey: @"VisibleIdentifiers"];
+        if (visibleIdentifiers != nil && [visibleIdentifiers count] == 0)
+            visibleIdentifiers = nil;
 
         for (NSString *voice in voices) {
             if (visibleIdentifiers != nil) {
                 NSNumber *visibleIdentifier = [visibleIdentifiers objectForKey: voice];
                 if (visibleIdentifier == nil)
                     visibleIdentifier = [visibleIdentifiers objectForKey: [voice stringByAppendingString: @".premium"]];
-                if (visibleIdentifier == nil || [visibleIdentifier integerValue] != 1)
+                // avoid infinite loop if default voice is not marked as visible (unclear what circumstances cause this)
+                if ((visibleIdentifier == nil || [visibleIdentifier integerValue] != 1) &&
+                    ![voice isEqualToString: defaultVoice])
                     continue;
             }
             NSDictionary *voiceAttributes = [NSSpeechSynthesizer attributesForVoice: voice];
@@ -55,7 +62,7 @@
         item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate voices", "Voice popup menu item surrogate for voice list if no voices are found") action: nil keyEquivalent: @""];
         [item setEnabled: NO];
     } else if (selectedVoice == nil) {
-        [self setVoice: [NSSpeechSynthesizer defaultVoice]];
+        [self setVoice: defaultVoice];
     }
 
     if (!registeredForVoiceChangedNotification) {
@@ -97,6 +104,7 @@
     NSInteger voiceIdx = [self indexOfItemWithRepresentedObject: voice];
     if (voiceIdx == -1) {
         [self _invalidateVoiceSelection];
+        return;
     }
     [self selectItemAtIndex: voiceIdx];
 }
