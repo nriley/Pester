@@ -157,11 +157,11 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 650}" column-titles-display-mode="auto">
+  <editor content-size="{551, 650}" scroll-position="{0, 154}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="p5PB7yWqxC4"/>
+    <selected-rows ids="hthDdDyEoT5"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{6, 0}"/>
+    <selected-characters range="{123, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -5650,37 +5650,7 @@
             </item>
           </children>
         </item>
-        <item id="p5PB7yWqxC4" expanded="yes">
-          <style>
-            <value key="paragraph-alignment">left</value>
-          </style>
-          <style>
-            <value key="paragraph-alignment">left</value>
-          </style>
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Pester 1.1b19 introduced voice loading infinite recursion in certain cases (thanks, João Nelas)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="gdDzylDNimX">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Need to verify this; waiting for him to get back to me.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="gWWWwNtrdMA">
+        <item id="gWWWwNtrdMA" state="checked">
           <style>
             <value key="font-family">Menlo</value>
             <value key="font-fixed-pitch">yes</value>
@@ -5700,6 +5670,369 @@
             </text>
           </values>
         </item>
+        <item id="ii_SIUeb0xo" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Update Sparkle acknowledgement</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="p5PB7yWqxC4" state="checked">
+          <style>
+            <value key="paragraph-alignment">left</value>
+          </style>
+          <style>
+            <value key="paragraph-alignment">left</value>
+          </style>
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Pester 1.1b19 introduced voice loading infinite recursion in certain cases (thanks, João Nelas)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="gdDzylDNimX" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Need to verify this; waiting for him to get back to me.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="aWv2ABzX8Pv" expanded="yes" state="indeterminate">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Update Date::Manip — looks like some UTF-8 changes have been made</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="atbxEXDYqYq" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Use https://github.com/SBECK-github/Date-Manip</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="aefpU54spuW" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Automate this testing based on the plists</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="abRxrbeRISV" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Weekday support failures — needed patch in prior version</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="dVZjkcUjb2p" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Finnish</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="kQQhzDNGvql" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Portuguese</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="nd2UkrvlXWw" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Turkish</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="efWTfBEXSVF" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Full support failures — needed patch in prior version</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="l8t6vYouhcH" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>French</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="mFx-7Q1ElPJ" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Swedish</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="hthDdDyEoT5" expanded="yes">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Could not figure out how to fix fully in prior version — still broken (waiting for Sullivan Beck to get back from vacation)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="dwvzio6VsE6">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Italian</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="e5J6s1SwUT2">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Spanish</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="pgYNNfLuqGR" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Weekday supported languages (may work fully — no translations available) </lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="bWKGsIcKz3U" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Catalan</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="kTb20MBXsm9" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Danish</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="dr_IFtrCEWF" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Polish</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="e6r9UYwhX0W" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Romanian</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="c_bRiSE_Bb_" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Russian</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="nqA38dA923k" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Fully supported languages</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="odBGrwxR09m" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>English</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="gzXgZqcCkmP" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>German</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="gU5o2CWeP5g" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Dutch</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+          </children>
+        </item>
+        <item id="imT3VdoxENp" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Persist notifier position</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="hasINdeFaav">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Add a hidden pref</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="jqlKe6x3PPs">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>If no saved position, default to centering</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="mvVt89j0e_C">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Add some kind of removal hook to PSAlerts</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cORa2tOnnX7">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Document in release notes</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
       </children>
     </item>
     <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
@@ -5713,54 +6046,6 @@
         </text>
       </values>
       <children>
-        <item id="aWv2ABzX8Pv" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Update Date::Manip — looks like some UTF-8 changes have been made</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="atbxEXDYqYq">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Use https://github.com/SBECK-github/Date-Manip</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="jLn4LxZH1wg" expanded="yes">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Spanish and Italian</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="aefpU54spuW">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Automate this testing based on the plists</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-          </children>
-        </item>
         <item id="lJLlHRbPcb8">
           <values>
             <text>
@@ -5808,17 +6093,6 @@
               </values>
             </item>
           </children>
-        </item>
-        <item id="ii_SIUeb0xo">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Update Sparkle acknowledgement</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="jmUtivqbYtW">
           <values>
@@ -5885,30 +6159,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="kCOPoGtA412" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Stop abusing NSAssert — http://chanson.livejournal.com/170068.html</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="fROCS_-8Da1">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Follow-up to http://www.mikeash.com/pyblog/friday-qa-2013-08-30-model-serialization-with-property-lists.html should help</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="fc_13JEUtZ4" state="indeterminate">
           <values>
@@ -6026,85 +6276,6 @@
             </text>
           </values>
         </item>
-        <item id="gn1qGNMAUZp" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Integrate a crash/feedback reporter?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="hAzAQdn0cgN">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Add feedback email link to help menu (&quot;Provide Pester Feedback&quot; before updates check, or in Apple&apos;s position later in the menu)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="irQTea3581Z">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>JRFeedbackProvider? </lit>
-                    </run>
-                    <run>
-                      <lit><cell href="http://github.com/rentzsch/jrfeedbackprovider" name="github.com—jrfeedbackprovider" type="link"/></lit>
-                    </run>
-                    <run>
-                      <lit> Very small. Looks fine.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="eEpSyE4SdOw">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Give PLCrashReporter a shot: it&apos;s written by Landon Fuller and has a GUI/server component (</lit>
-                    </run>
-                    <run>
-                      <lit><cell href="http://github.com/TheRealKerni/CrashReporterDemo)." name="github.com—CrashReporterDemo)." type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="kFviBnJhB1l">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Breakpad? (744K, used by Camino).  Seems OK but won&apos;t build cleanly, and is quite complex.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="h4qxu-KQonZ">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Link error is fixed now.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-          </children>
-        </item>
         <item id="dzjxToMHtIi">
           <values>
             <text>
@@ -6140,7 +6311,7 @@
         </text>
       </values>
       <children>
-        <item id="fYQJ4Bknvt1" expanded="yes">
+        <item id="fYQJ4Bknvt1">
           <values>
             <text>
               <p>
@@ -6443,6 +6614,19 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="gAqWAMSahBL">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Use NSCalendarDayChangeNotification?</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="f0PGOAMPq0w">
           <values>
@@ -8046,6 +8230,85 @@
             </text>
           </values>
         </item>
+        <item id="gn1qGNMAUZp">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Integrate a crash/feedback reporter?</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="hAzAQdn0cgN">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Add feedback email link to help menu (&quot;Provide Pester Feedback&quot; before updates check, or in Apple&apos;s position later in the menu)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="irQTea3581Z">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>JRFeedbackProvider? </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://github.com/rentzsch/jrfeedbackprovider" name="github.com—jrfeedbackprovider" type="link"/></lit>
+                    </run>
+                    <run>
+                      <lit> Very small. Looks fine.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="eEpSyE4SdOw">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Give PLCrashReporter a shot: it&apos;s written by Landon Fuller and has a GUI/server component (</lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://github.com/TheRealKerni/CrashReporterDemo)." name="github.com—CrashReporterDemo)." type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="kFviBnJhB1l">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Breakpad? (744K, used by Camino).  Seems OK but won&apos;t build cleanly, and is quite complex.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="h4qxu-KQonZ">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Link error is fixed now.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+          </children>
+        </item>
       </children>
     </item>
     <item id="l-RdtxzvxCc">
@@ -8059,6 +8322,30 @@
         </text>
       </values>
       <children>
+        <item id="kCOPoGtA412" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Stop abusing NSAssert — http://chanson.livejournal.com/170068.html</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="fROCS_-8Da1">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Follow-up to http://www.mikeash.com/pyblog/friday-qa-2013-08-30-model-serialization-with-property-lists.html should help</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="jHl8Wf2bM8k">
           <values>
             <text>
@@ -8243,7 +8530,7 @@
         </text>
       </values>
       <children>
-        <item id="oF3K30LkPWO" expanded="yes">
+        <item id="oF3K30LkPWO">
           <values>
             <text>
               <p>
@@ -8348,7 +8635,7 @@
             </text>
           </values>
         </item>
-        <item id="jZ4eav_FhrO">
+        <item id="jZ4eav_FhrO" expanded="yes">
           <values>
             <text>
               <p>
@@ -8374,6 +8661,17 @@
                   <p>
                     <run>
                       <lit>Could use NSSound or AudioQueue for sounds; AVFoundation for movies; Quick Look (!) or PDFKit for still images/PDFs.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="kDun6yg4TKi">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>If we just want to *run* on 64-bit, we only need to migrate off for audio-containing items</lit>
                     </run>
                   </p>
                 </text>
@@ -8722,7 +9020,7 @@
             </text>
           </values>
         </item>
-        <item id="ci-VEvEsyg6" expanded="yes">
+        <item id="ci-VEvEsyg6">
           <values>
             <text>
               <p>
