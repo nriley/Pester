@@ -52,6 +52,16 @@
                ReferencedContainer = "container:Pester.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E175B0741A3DC0D700072594"
+               BuildableName = "ParseDateTest.xctest"
+               BlueprintName = "ParseDateTest"
+               ReferencedContainer = "container:Pester.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <EnvironmentVariables>
          <EnvironmentVariable
