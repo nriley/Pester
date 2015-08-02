@@ -1,17 +1,13 @@
 build
-_build
 xcbaselines
 xcuserdata
 .DS_Store
 *.pbxuser
-*.perspectivev3
-*.mode?v3
 *.xccheckout
+*.xcscmblueprint
 *~
-*~.nib
-#*
-authors-file
-.OABK
+\#*
+.\#*
 .idea
 Pester ?.*
 Pester-*.dmg
