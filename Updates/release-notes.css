@@ -9,7 +9,7 @@ table {
 }
 
 table.note {
-    border: solid 1px #900e00;
+	border: solid 1px #900e00;
 }
 
 h1, h2, h3, th {
@@ -26,7 +26,7 @@ th {
 
 table.note th {
 	background-color: #900e00;
-    color: #fff;
+	color: #fff;
 }
 
 tr {
@@ -90,7 +90,7 @@ td, td > p {
 }
 
 td > p {
-    margin: 4px 6px 4px 6px;
+	margin: 4px 6px 4px 6px;
 }
 
 ul {
