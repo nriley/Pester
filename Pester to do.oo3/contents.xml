@@ -159,7 +159,9 @@
   </settings>
   <editor content-size="{551, 689}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="p38HHuWW80p"/>
+    <selected-rows ids="hIx91hn2guU"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{20, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -214,8 +216,7 @@
       <value key="underline-style">single</value>
     </style>
     <style>
-      <value key="font-family">Lucida Grande</value>
-      <value key="font-size">11</value>
+      <value key="font-weight">9</value>
     </style>
     <style>
       <value key="font-family">Lucida Grande</value>
@@ -3982,7 +3983,10 @@
                     <text>
                       <p>
                         <run>
-                          <lit>Steal from iTunes (10.7!): http://stackoverflow.com/questions/5069705/how-to-get-images-from-itunes-rsrc-using-derez/11784713#11784713</lit>
+                          <lit>Steal from iTunes (10.7!): </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="http://stackoverflow.com/questions/5069705/how-to-get-images-from-itunes-rsrc-using-derez/11784713#11784713" name="stackoverflow.com—11784713" type="link"/></lit>
                         </run>
                       </p>
                     </text>
@@ -4142,7 +4146,10 @@
                     <text>
                       <p>
                         <run>
-                          <lit>See http://search.cpan.org/~sbeck/Date-Manip-6.40/lib/Date/Manip/Config.pod#TIME_ZONE_RELATED_CONFIGURATION_VARIABLES.</lit>
+                          <lit>See </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="http://search.cpan.org/~sbeck/Date-Manip-6.40/lib/Date/Manip/Config.pod#TIME_ZONE_RELATED_CONFIGURATION_VARIABLES." name="search.cpan.org—Config.pod" type="link"/></lit>
                         </run>
                       </p>
                     </text>
@@ -4177,7 +4184,10 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Integrate patch to disable dock icon (https://github.com/nriley/Pester/pull/11)</lit>
+                      <lit>Integrate patch to disable dock icon (</lit>
+                    </run>
+                    <run>
+                      <lit><cell href="https://github.com/nriley/Pester/pull/11)" name="github.com—11)" type="link"/></lit>
                     </run>
                   </p>
                 </text>
@@ -4188,7 +4198,10 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Implement logging (http://twitter.com/mgpreppy/status/361353544714039296)</lit>
+                      <lit>Implement logging (</lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://twitter.com/mgpreppy/status/361353544714039296)" name="twitter.com—361353544714039296)" type="link"/></lit>
                     </run>
                   </p>
                 </text>
@@ -4254,7 +4267,17 @@
                             </value>
                             <value key="font-size">13</value>
                           </style>
-                          <lit>the clicking of the notification having no effect is a known issue that we haven&apos;t fully solved, but is slated for a release after 2.1.&quot;: https://groups.google.com/forum/?fromgroups#!searchin/growl-development/delegate/growl-development/L9Avfk1qGsI/KPG_TamZaV8J</lit>
+                          <lit>the clicking of the notification having no effect is a known issue that we haven&apos;t fully solved, but is slated for a release after 2.1.&quot;: </lit>
+                        </run>
+                        <run>
+                          <style>
+                            <value key="font-family">Arial</value>
+                            <value key="font-fill">
+                              <color r="0.101961" g="0.101961" b="0.101961"/>
+                            </value>
+                            <value key="font-size">13</value>
+                          </style>
+                          <lit><cell href="https://groups.google.com/forum/?fromgroups#!searchin/growl-development/delegate/growl-development/L9Avfk1qGsI/KPG_TamZaV8J" name="groups.google.com—forum" type="link"/></lit>
                         </run>
                       </p>
                     </text>
@@ -4742,7 +4765,10 @@
                     <text>
                       <p>
                         <run>
-                          <lit>Use https://github.com/rentzsch/JRErr</lit>
+                          <lit>Use </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="https://github.com/rentzsch/JRErr" name="github.com—JRErr" type="link"/></lit>
                         </run>
                       </p>
                     </text>
@@ -4764,7 +4790,10 @@
                     <text>
                       <p>
                         <run>
-                          <lit>Read http://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ErrorHandlingCocoa/ErrorHandling/ErrorHandling.html</lit>
+                          <lit>Read </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="http://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ErrorHandlingCocoa/ErrorHandling/ErrorHandling.html" name="developer.apple.com—ErrorHandling.html" type="link"/></lit>
                         </run>
                       </p>
                     </text>
@@ -5389,7 +5418,10 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Fix code signing for embedded frameworks for 10.9.5/10.10 compatibility: http://furbo.org/2013/10/17/code-signing-and-mavericks/</lit>
+                      <lit>Fix code signing for embedded frameworks for 10.9.5/10.10 compatibility: </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://furbo.org/2013/10/17/code-signing-and-mavericks/" name="furbo.org—code-signing-and-mavericks" type="link"/></lit>
                     </run>
                   </p>
                 </text>
@@ -5742,12 +5774,12 @@
             <text>
               <p>
                 <run>
-                  <lit>http://mikeabdullah.net/thl-diary-21-lenient-date-parsing.html</lit>
+                  <lit><cell href="http://mikeabdullah.net/thl-diary-21-lenient-date-parsing.html" name="mikeabdullah.net—thl-diary-21-lenient-date-parsing.html" type="link"/></lit>
                 </run>
               </p>
               <p>
                 <run>
-                  <lit>http://nshipster.com/nsdatadetector/</lit>
+                  <lit><cell href="http://nshipster.com/nsdatadetector/" name="nshipster.com—nsdatadetector" type="link"/></lit>
                 </run>
               </p>
             </text>
@@ -5769,7 +5801,10 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Use https://github.com/SBECK-github/Date-Manip</lit>
+                      <lit>Use </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="https://github.com/SBECK-github/Date-Manip" name="github.com—Date-Manip" type="link"/></lit>
                     </run>
                   </p>
                 </text>
@@ -6021,6 +6056,85 @@
             </item>
           </children>
         </item>
+        <item id="lEHXO9xYHnS" expanded="yes" state="indeterminate">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>10.11 issues</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="mpP2yKCsc1g" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Help window width — seems a beta bug, fixed</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cSvSBLapWS1" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Check choosing “Other…” — did I already fix this? It’s crashing.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="p9Nx_wx1EnM">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Use some fancy new font options</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="moozp6vhR2W">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>AirPlay devices don&apos;t show as output devices in Preferences</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="fAzGbAzNqoS">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Enabled voices selection changed — we get no (or all?) available voices now</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="oTCaDdwekw7">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Double-clicking to collapse split view doesn&apos;t work any more</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="imT3VdoxENp" expanded="yes">
           <values>
             <text>
@@ -6099,74 +6213,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="lEHXO9xYHnS" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>10.11 issues</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="p9Nx_wx1EnM">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Use some fancy new font options</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="fAzGbAzNqoS">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Enabled voices selection changed — we get no available voices now</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="oTCaDdwekw7">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Double-clicking to collapse split view doesn&apos;t work any more</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="mpP2yKCsc1g">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Help window width</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="cSvSBLapWS1">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Check choosing “Other…” — did I already fix this? It’s crashing.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
       </children>
     </item>
@@ -6427,7 +6473,10 @@
             <text>
               <p>
                 <run>
-                  <lit>More than 4 years, sadly. http://njr.sabi.net/2007/11/24/pester-11b5-released/</lit>
+                  <lit>More than 4 years, sadly. </lit>
+                </run>
+                <run>
+                  <lit><cell href="http://njr.sabi.net/2007/11/24/pester-11b5-released/" name="njr.sabi.net—pester-11b5-released" type="link"/></lit>
                 </run>
               </p>
             </text>
@@ -7271,7 +7320,10 @@
                 <text>
                   <p>
                     <run>
-                      <lit>…but, you can *write* to the audio source property. Wow. http://joris.kluivers.nl/blog/2012/07/25/per-application-airplay-in-mountain-lion/</lit>
+                      <lit>…but, you can *write* to the audio source property. Wow. </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://joris.kluivers.nl/blog/2012/07/25/per-application-airplay-in-mountain-lion/" name="joris.kluivers.nl—per-application-airplay-in-mountain-lion" type="link"/></lit>
                     </run>
                   </p>
                 </text>
@@ -8359,7 +8411,10 @@
             <text>
               <p>
                 <run>
-                  <lit>Watch system sound folders for changes (https://github.com/bdkjones/VDKQueue)</lit>
+                  <lit>Watch system sound folders for changes (</lit>
+                </run>
+                <run>
+                  <lit><cell href="https://github.com/bdkjones/VDKQueue)" name="github.com—VDKQueue)" type="link"/></lit>
                 </run>
               </p>
             </text>
@@ -8462,7 +8517,10 @@
             <text>
               <p>
                 <run>
-                  <lit>Stop abusing NSAssert — http://chanson.livejournal.com/170068.html</lit>
+                  <lit>Stop abusing NSAssert — </lit>
+                </run>
+                <run>
+                  <lit><cell href="http://chanson.livejournal.com/170068.html" name="chanson.livejournal.com—170068.html" type="link"/></lit>
                 </run>
               </p>
             </text>
@@ -8473,7 +8531,13 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Follow-up to http://www.mikeash.com/pyblog/friday-qa-2013-08-30-model-serialization-with-property-lists.html should help</lit>
+                      <lit>Follow-up to </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://www.mikeash.com/pyblog/friday-qa-2013-08-30-model-serialization-with-property-lists.html" name="www.mikeash.com—friday-qa-2013-08-30-model-serialization-with-property-lists.html" type="link"/></lit>
+                    </run>
+                    <run>
+                      <lit> should help</lit>
                     </run>
                   </p>
                 </text>
@@ -8681,7 +8745,7 @@
                 <text>
                   <p>
                     <run>
-                      <lit>http://www.mikeabdullah.net/migrating-from-alias-handle.html</lit>
+                      <lit><cell href="http://www.mikeabdullah.net/migrating-from-alias-handle.html" name="www.mikeabdullah.net—migrating-from-alias-handle.html" type="link"/></lit>
                     </run>
                   </p>
                 </text>
@@ -8692,7 +8756,7 @@
                 <text>
                   <p>
                     <run>
-                      <lit>http://www.mikeabdullah.net/last-known-bookmark-location.html</lit>
+                      <lit><cell href="http://www.mikeabdullah.net/last-known-bookmark-location.html" name="www.mikeabdullah.net—last-known-bookmark-location.html" type="link"/></lit>
                     </run>
                   </p>
                 </text>
@@ -8703,7 +8767,7 @@
                 <text>
                   <p>
                     <run>
-                      <lit>http://www.mikeabdullah.net/convert-between-path+reference-urls.html</lit>
+                      <lit><cell href="http://www.mikeabdullah.net/convert-between-path+reference-urls.html" name="www.mikeabdullah.net—convert-between-path+reference-urls.html" type="link"/></lit>
                     </run>
                   </p>
                 </text>
@@ -8795,7 +8859,10 @@
             <text>
               <p>
                 <run>
-                  <lit>Movist migration from QT to AVFoundation: https://github.com/samiamwork/Movist/commit/0552ed927a28ad7c6583393943c101faf5085493</lit>
+                  <lit>Movist migration from QT to AVFoundation: </lit>
+                </run>
+                <run>
+                  <lit><cell href="https://github.com/samiamwork/Movist/commit/0552ed927a28ad7c6583393943c101faf5085493" name="github.com—0552ed927a28ad7c6583393943c101faf5085493" type="link"/></lit>
                 </run>
               </p>
             </text>
