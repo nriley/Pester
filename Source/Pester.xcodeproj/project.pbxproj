@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		722B9F6213DCF616000E0C3D /* Sparkle.framework in Copy Growl.framework & Sparkle.framework */ = {isa = PBXBuildFile; fileRef = 722B9F5713DCF2B6000E0C3D /* Sparkle.framework */; };
+		722B9F6213DCF616000E0C3D /* Sparkle.framework in Copy Growl.framework & Sparkle.framework */ = {isa = PBXBuildFile; fileRef = 722B9F5713DCF2B6000E0C3D /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E102D848116EB43A00207746 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D847116EB43A00207746 /* AudioToolbox.framework */; };
 		E102D84A116EB43A00207746 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D849116EB43A00207746 /* AudioUnit.framework */; };
 		E102D876116EB73100207746 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D875116EB73100207746 /* ApplicationServices.framework */; };
@@ -15,7 +15,7 @@
 		E11BE21912238E2400240657 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; };
 		E11BE21D12238E6700240657 /* PSGrowlAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BE21C12238E6700240657 /* PSGrowlAlert.m */; };
 		E11BE23C12238FB600240657 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = E11BE23B12238FB600240657 /* Growl Registration Ticket.growlRegDict */; };
-		E11BE34412239B7A00240657 /* Growl.framework in Copy Growl.framework & Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; };
+		E11BE34412239B7A00240657 /* Growl.framework in Copy Growl.framework & Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E11BE3791224388B00240657 /* PSGrowlController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BE3781224388B00240657 /* PSGrowlController.m */; };
 		E11E00B217BEE23B00BA997C /* JRErr.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E00B117BEE23B00BA997C /* JRErr.m */; };
 		E11E00CA17BEE2E900BA997C /* PesterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E00C917BEE2E900BA997C /* PesterTest.m */; };
@@ -1071,7 +1071,6 @@
 				E1B11F260CF5F30F004975AA /* Resources */,
 				E17CA9A80CF7F89900018B34 /* Copy Perl Modules */,
 				E17562730CF8C55D00FC5057 /* Copy Growl.framework & Sparkle.framework */,
-				E1BDC2791A17F5F800B6C8A1 /* Code Sign Embedded Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1236,20 +1235,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n# \"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"";
-		};
-		E1BDC2791A17F5F800B6C8A1 /* Code Sign Embedded Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Code Sign Embedded Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [[ X\"$EXPANDED_CODE_SIGN_IDENTITY_NAME\" != X ]]; then\n    for embedded_framework in \"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH\"/*; do\n        /usr/bin/codesign --verbose --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY_NAME\" \"$embedded_framework\"\n\tdone\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
