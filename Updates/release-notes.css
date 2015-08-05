@@ -13,7 +13,7 @@ table.note {
 }
 
 h1, h2, h3, th {
-	font-family: "Gill Sans", "Lucida Grande", sans-serif;
+	font-family: "Avenir Next", sans-serif;
 }
 
 th {
@@ -85,7 +85,7 @@ ol p {
 
 td, td > p {
 	font-size: 9pt;
-	font-family: "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+	font-family: -apple-system, ".HelveticaNeueDeskInterface-Regular", ".LucidaGrandeUI", "Lucida Grande", Arial, sans-serif;
 	line-height: 12pt;
 }
 
@@ -118,7 +118,6 @@ ul p {
 a {
 	color: #00f;
 	font-size: 9pt;
-	font-family: "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
 	line-height: 12pt;
 	text-decoration: none
 	}
@@ -126,7 +125,6 @@ a {
 
 a:hover {
 	color: #00f;
-	font-family: "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
 	text-decoration: underline
 	}
 
