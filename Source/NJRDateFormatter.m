@@ -172,7 +172,7 @@ static NSString *timeFormats[] = {
     if ([string length] == 0)
         return NO;
     
-    NSDate *date;
+    NSDate *date = nil;
     NSEnumerator *e = [tryFormatters objectEnumerator];
     NSDateFormatter *tryFormatter;
     NSString *cleaned = nil;
@@ -197,7 +197,7 @@ static NSString *timeFormats[] = {
 	    }
 	}
     }
-    
+
     while ( (tryFormatter = [e nextObject]) != nil) {
 	date = [tryFormatter dateFromString: string];
 
@@ -228,7 +228,21 @@ static NSString *timeFormats[] = {
 
     date = parse_natural_language_date(string);
     if (date != nil) goto success;
-    
+
+    // finally, try NSDataDetector.  No API to give it a locale, but it may be helpful.
+    static NSDataDetector *dateDetector = nil;
+    if (dateDetector == nil) {
+        dateDetector = [[NSDataDetector alloc] initWithTypes: NSTextCheckingTypeDate error: nil];
+        if (dateDetector == nil)
+            return NO;
+    }
+    for (NSTextCheckingResult *result in [dateDetector matchesInString: string options: 0 range: NSMakeRange(0, [string length])]) {
+        date = result.date;
+        break;
+    }
+    if (date != nil)
+        goto success;
+
     return NO;
 
 success:
