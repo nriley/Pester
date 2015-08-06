@@ -154,14 +154,13 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
+      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 689}" column-titles-display-mode="auto">
+  <editor content-size="{551, 689}" scroll-position="{0, 76}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="hIx91hn2guU"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{20, 0}"/>
+    <selected-rows ids="p9Nx_wx1EnM"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6089,23 +6088,69 @@
                 </text>
               </values>
             </item>
-            <item id="p9Nx_wx1EnM">
+            <item id="p9Nx_wx1EnM" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Use some fancy new font options</lit>
+                      <lit>San Francisco changes for 10.11</lit>
                     </run>
                   </p>
                 </text>
               </values>
+              <children>
+                <item id="bAvYnHZlSgE" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Dock icon</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="jWlUww0PYna" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>“Alarm will be set for…”</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="lZxTuFot-18" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>“Next alarm:”</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="jJndKjNsYha" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Consider using a larger font in the notifier</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
             </item>
             <item id="moozp6vhR2W">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>AirPlay devices don&apos;t show as output devices in Preferences</lit>
+                      <lit>AirPlay devices don&apos;t show as output devices in Preferences (but they don&apos;t show up in Sound System Prefs either, so…)</lit>
                     </run>
                   </p>
                 </text>
@@ -6227,6 +6272,17 @@
         </text>
       </values>
       <children>
+        <item id="d25qohnTJLU">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Update images in Preferences</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="lJLlHRbPcb8">
           <values>
             <text>
