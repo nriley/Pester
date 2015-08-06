@@ -70,6 +70,9 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
     if (NJROSXMinorVersion() >= 10)
         [messageField setFrame: NSOffsetRect([messageField frame], 0, -1)];
 
+    if ([NSFont respondsToSelector:@selector(monospacedDigitSystemFontOfSize:weight:)])
+        timeSummary.font = [NSFont monospacedDigitSystemFontOfSize:timeSummary.font.pointSize + 1 weight:NSFontWeightRegular];
+
     if ([[removeMessageButton image] size].width != 0)
 	[removeMessageButton setTitle: @""];
     timeDateEditor = [[PSTimeDateEditor alloc] initWithTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions controller: self];

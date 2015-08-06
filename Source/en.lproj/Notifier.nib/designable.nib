@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A244d" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <development version="6000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6724"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8164.2"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PSAlarmNotifierController">
@@ -33,8 +33,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" id="7">
-                        <rect key="frame" x="92" y="126" width="324" height="61"/>
+                        <rect key="frame" x="92" y="127" width="326" height="61"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <animations/>
                         <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" alignment="left" title="Ayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy!" id="136">
                             <font key="font" metaFont="systemBold" size="24"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -42,8 +43,9 @@
                         </textFieldCell>
                     </textField>
                     <button toolTip="Acknowledge this alarm" verticalHuggingPriority="750" id="6">
-                        <rect key="frame" x="332" y="12" width="90" height="32"/>
+                        <rect key="frame" x="332" y="13" width="90" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                        <animations/>
                         <buttonCell key="cell" type="push" title="Dismiss" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="135">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -56,33 +58,27 @@ DQ
                             <outlet property="nextKeyView" destination="21" id="54"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" id="9">
-                        <rect key="frame" x="164" y="104" width="252" height="14"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="left" title="23456" id="137">
-                            <font key="font" metaFont="system" size="10"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <imageView id="18">
                         <rect key="frame" x="20" y="124" width="64" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <animations/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Application icon" id="138"/>
                     </imageView>
                     <textField verticalHuggingPriority="750" id="19">
-                        <rect key="frame" x="92" y="105" width="64" height="13"/>
+                        <rect key="frame" x="92" y="105" width="71" height="13"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Alarm time:" id="139">
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Alarm time:" id="139">
                             <dateFormatter key="formatter" formatterBehavior="pre10_4" dateFormat="%x at %X" id="20"/>
-                            <font key="font" metaFont="systemBold" size="10"/>
+                            <font key="font" metaFont="smallSystemBold"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <button toolTip="Reset alarm for a later interval or date" verticalHuggingPriority="750" id="21">
-                        <rect key="frame" x="86" y="12" width="90" height="32"/>
+                        <rect key="frame" x="86" y="13" width="90" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                        <animations/>
                         <buttonCell key="cell" type="push" title="Snooze:" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="140">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -93,11 +89,12 @@ DQ
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" id="22" customClass="NJRIntervalField">
-                        <rect key="frame" x="178" y="20" width="25" height="22"/>
+                        <rect key="frame" x="178" y="21" width="25" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                         <string key="toolTip">Number of seconds, minutes, hours, days or weeks.
 To specify an absolute date, type U or select “until…”
 from the popup menu.</string>
+                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" drawsBackground="YES" id="141">
                             <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="-0" hasThousandSeparators="NO" thousandSeparator="," id="27" customClass="NJRIntegerFilter">
                                 <attributedString key="attributedStringForZero">
@@ -117,11 +114,12 @@ from the popup menu.</string>
                         </connections>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" id="28">
-                        <rect key="frame" x="208" y="16" width="101" height="26"/>
+                        <rect key="frame" x="209" y="17" width="101" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                         <string key="toolTip">While you're specifying an interval,
 type S, M, H, D, W or U to quickly select
 from this menu.</string>
+                        <animations/>
                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="142">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
@@ -155,47 +153,42 @@ from this menu.</string>
                             <rect key="frame" x="0.0" y="0.0" width="324" height="41"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField verticalHuggingPriority="750" id="31">
-                                    <rect key="frame" x="71" y="22" width="141" height="13"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="every XYZ minutes" id="143">
-                                        <font key="font" metaFont="system" size="10"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
                                 <textField verticalHuggingPriority="750" id="36">
-                                    <rect key="frame" x="-1" y="22" width="64" height="13"/>
+                                    <rect key="frame" x="0.0" y="22" width="71" height="13"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Repeats:" id="144">
+                                    <animations/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Repeats:" id="144">
                                         <dateFormatter key="formatter" formatterBehavior="pre10_4" dateFormat="%x at %X" id="37"/>
-                                        <font key="font" metaFont="systemBold" size="10"/>
+                                        <font key="font" metaFont="smallSystemBold"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" id="38">
-                                    <rect key="frame" x="-1" y="1" width="64" height="13"/>
+                                    <rect key="frame" x="0.0" y="1" width="71" height="13"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Next alarm:" id="145">
+                                    <animations/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Next alarm:" id="145">
                                         <dateFormatter key="formatter" formatterBehavior="pre10_4" dateFormat="%x at %X" id="39"/>
-                                        <font key="font" metaFont="systemBold" size="10"/>
+                                        <font key="font" metaFont="smallSystemBold"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" id="40">
-                                    <rect key="frame" x="71" y="1" width="255" height="13"/>
+                                    <rect key="frame" x="75" y="1" width="251" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="23456" id="146">
-                                        <font key="font" metaFont="system" size="10"/>
+                                    <animations/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="23456" id="146">
+                                        <font key="font" metaFont="smallSystem"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
                                 <button toolTip="Stop alarm from further repeating" verticalHuggingPriority="750" id="60">
-                                    <rect key="frame" x="212" y="14" width="116" height="28"/>
+                                    <rect key="frame" x="213" y="13" width="116" height="28"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
                                     <buttonCell key="cell" type="push" title="Stop Repeating" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" inset="2" id="147">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="smallSystem"/>
@@ -204,19 +197,42 @@ from this menu.</string>
                                         <action selector="stopRepeating:" target="-2" id="61"/>
                                     </connections>
                                 </button>
+                                <textField verticalHuggingPriority="750" id="31">
+                                    <rect key="frame" x="75" y="22" width="137" height="13"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                    <animations/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="every XYZ minutes" id="143">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                             </subviews>
+                            <animations/>
                         </view>
+                        <animations/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
                     </box>
+                    <textField verticalHuggingPriority="750" id="9">
+                        <rect key="frame" x="167" y="104" width="251" height="14"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <animations/>
+                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="23456" id="137">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
+                <animations/>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="57"/>
                 <outlet property="initialFirstResponder" destination="22" id="44"/>
             </connections>
-            <point key="canvasLocation" x="222" y="334"/>
+            <point key="canvasLocation" x="154" y="410"/>
         </window>
     </objects>
     <resources>

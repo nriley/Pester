@@ -221,7 +221,15 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
         do {
             fontSize -= 1;
-            NSFont *font = useBoldFont ? [NSFont boldSystemFontOfSize: fontSize] : [NSFont systemFontOfSize: fontSize];
+            NSFont *font;
+            if (useBoldFont) {
+                font = [NSFont boldSystemFontOfSize: fontSize];
+            } else {
+                if ([NSFont respondsToSelector:@selector(monospacedDigitSystemFontOfSize:weight:)])
+                    font = [NSFont monospacedDigitSystemFontOfSize: fontSize weight: NSFontWeightRegular];
+                else
+                    font = [NSFont systemFontOfSize: fontSize];
+            }
             [atts setObject: font forKey: NSFontAttributeName];
             textSize = [tileString sizeWithAttributes: atts];
         } while (textSize.width > imageSize.width - 20);

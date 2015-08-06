@@ -31,6 +31,9 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
         NSWindow *window = [self window];
         NSRect frameRect = [window frame];
         alarm = [anAlarm retain];
+        if ([NSFont respondsToSelector:@selector(monospacedDigitSystemFontOfSize:weight:)])
+            dateField.font = [NSFont monospacedDigitSystemFontOfSize:dateField.font.pointSize weight:NSFontWeightRegular];
+
         [messageField setStringValue: [alarm message]];
         [messageField setToolTip: [alarm message]];
         [dateField setStringValue: [alarm dateTimeString]];
@@ -40,6 +43,8 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
         if ([alarm isRepeating]) {
             [intervalField setStringValue:
                 [NSString stringWithFormat: @"every %@", [alarm repeatIntervalString]]];
+            if ([NSFont respondsToSelector:@selector(monospacedDigitSystemFontOfSize:weight:)])
+                nextDateField.font = [NSFont monospacedDigitSystemFontOfSize:nextDateField.font.pointSize weight:NSFontWeightRegular];
             [self updateNextDateDisplay: nil];
             updateTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(updateNextDateDisplay:) userInfo: nil repeats: YES];
             frameRect.size = [window maxSize];
