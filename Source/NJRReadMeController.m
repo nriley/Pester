@@ -292,7 +292,8 @@ static NJRReadMeController *sharedController = nil;
 
 - (BOOL)splitView:(NSSplitView *)splitView shouldCollapseSubview:(NSView *)subview forDoubleClickOnDividerAtIndex:(NSInteger)dividerIndex;
 {
-    return YES;
+    // XXX never called on 10.11 (r. 22675408)
+    return [contents isDescendantOf: subview];
 }
 
 @end
