@@ -158,9 +158,9 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 689}" scroll-position="{0, 475}" column-titles-display-mode="auto">
+  <editor content-size="{551, 689}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="kh7zp_hP7vk"/>
+    <selected-rows ids="jAOT-TLS_lI"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -5784,7 +5784,7 @@
             </text>
           </note>
         </item>
-        <item id="aWv2ABzX8Pv" expanded="yes" state="indeterminate">
+        <item id="aWv2ABzX8Pv" state="indeterminate">
           <values>
             <text>
               <p>
@@ -6060,7 +6060,7 @@
             <text>
               <p>
                 <run>
-                  <lit>10.11 issues</lit>
+                  <lit>10.11 issues — work around or document</lit>
                 </run>
               </p>
             </text>
@@ -6156,12 +6156,23 @@
                 </text>
               </values>
               <children>
+                <item id="ipyX7gwiz8i">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Also ugly artifacts when dragging the split bar</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
                 <item id="eM9aa1eGlCz">
                   <values>
                     <text>
                       <p>
                         <run>
-                          <lit>We seem to be using the correct API; file a bug</lit>
+                          <lit>We seem to be using the correct API; file some bugs</lit>
                         </run>
                       </p>
                     </text>
@@ -6169,16 +6180,29 @@
                 </item>
               </children>
             </item>
-            <item id="moozp6vhR2W">
+            <item id="d4lrfUo3eAD" expanded="yes">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>AirPlay devices don&apos;t show as output devices in Preferences (but they don&apos;t show up in Sound System Prefs either, so…)</lit>
+                      <lit>AirPlay doesn&apos;t show up always: https://forums.developer.apple.com/thread/17664</lit>
                     </run>
                   </p>
                 </text>
               </values>
+              <children>
+                <item id="oDUQpx6_F9g">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>May just want to disable AirPlay entirely on 10.11</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
             </item>
             <item id="fAzGbAzNqoS">
               <values>
@@ -6260,6 +6284,17 @@
                   </note>
                 </item>
               </children>
+            </item>
+            <item id="kFenjhCFkyj">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Check choosing “Other…” — did I already fix this? It’s crashing.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
             </item>
           </children>
         </item>
@@ -8754,7 +8789,7 @@
         </item>
       </children>
     </item>
-    <item id="jAOT-TLS_lI" expanded="yes">
+    <item id="jAOT-TLS_lI">
       <values>
         <text>
           <p>
@@ -8903,7 +8938,7 @@
             </text>
           </values>
         </item>
-        <item id="jZ4eav_FhrO" expanded="yes">
+        <item id="jZ4eav_FhrO">
           <values>
             <text>
               <p>
@@ -8943,6 +8978,17 @@
                   <p>
                     <run>
                       <lit>If we just want to *run* on 64-bit, we only need to migrate off for audio-containing items</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="fUQ6HrVGun0">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>qtmodernizer(1)</lit>
                     </run>
                   </p>
                 </text>
