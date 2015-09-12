@@ -10,6 +10,7 @@
     <style-attribute version="0" key="font-italic" group="font" name="italic" class="bool">no</style-attribute>
     <style-attribute version="0" key="font-size" group="font" name="size" class="number">12</style-attribute>
     <style-attribute version="0" key="font-weight" group="font" name="weight" class="number">5</style-attribute>
+    <style-attribute version="0" key="kerning-adjust" group="kerning" name="adjust" class="number">NaN</style-attribute>
     <style-attribute version="0" key="ligature-selection" group="ligature" name="selection" class="enum">
       <enum-name-table default-value="1">
         <enum-name-table-element value="0" name="none"/>
@@ -154,13 +155,12 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
-      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 689}" scroll-position="{0, 76}" column-titles-display-mode="auto">
+  <editor content-size="{551, 689}" scroll-position="{0, 475}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="p9Nx_wx1EnM"/>
+    <selected-rows ids="kh7zp_hP7vk"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6145,6 +6145,30 @@
                 </item>
               </children>
             </item>
+            <item id="oTCaDdwekw7" expanded="yes">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Double-clicking to collapse split view doesn&apos;t work any more</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="eM9aa1eGlCz">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>We seem to be using the correct API; file a bug</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
             <item id="moozp6vhR2W">
               <values>
                 <text>
@@ -6166,17 +6190,76 @@
                   </p>
                 </text>
               </values>
-            </item>
-            <item id="oTCaDdwekw7">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Double-clicking to collapse split view doesn&apos;t work any more</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
+              <children>
+                <item id="aWKZ-ThFiTl">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Yeah, seems that 0/1/2 no longer do what we&apos;re expecting. May have to remove this feature entirely.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="giswC9qxluX">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Can I use GetVoiceInfo with </lit>
+                        </run>
+                        <run>
+                          <style>
+                            <value key="font-family">Menlo</value>
+                            <value key="font-fixed-pitch">yes</value>
+                            <value key="kerning-adjust">0</value>
+                          </style>
+                          <lit>soVoiceFile? </lit>
+                        </run>
+                        <run>
+                          <lit>No.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="by9ORAbTOIZ">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>We have another infinite recursion in voice list creation?!</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <note>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>508 net.sabi.Pester               	0x0007b485 -[NJRVoicePopUpButton _invalidateVoiceSelection] + 35</lit>
+                        </run>
+                      </p>
+                      <p>
+                        <run>
+                          <lit>509 net.sabi.Pester               	0x0007b4ea -[NJRVoicePopUpButton setVoice:] + 68</lit>
+                        </run>
+                      </p>
+                      <p>
+                        <run>
+                          <lit>510 net.sabi.Pester               	0x0007b240 -[NJRVoicePopUpButton _refreshVoiceList] + 1084</lit>
+                        </run>
+                      </p>
+                      <p>
+                        <run>
+                          <lit>511 net.sabi.Pester               	0x0007b485 -[NJRVoicePopUpButton _invalidateVoiceSelection] + 35</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </note>
+                </item>
+              </children>
             </item>
           </children>
         </item>
@@ -6248,12 +6331,12 @@
             </text>
           </values>
         </item>
-        <item id="fJOcCn_Cj8c">
+        <item id="bFytgsBi0w9">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Update Sparkle (can we still compile 32-bit?)</lit>
+                  <lit>Run analysis and make sure everything is OK</lit>
                 </run>
               </p>
             </text>
@@ -6323,7 +6406,7 @@
                 <text>
                   <p>
                     <run>
-                      <lit>It&apos;s going to go away, but if it&apos;s fixed in 10.9/10, reenable it</lit>
+                      <lit>It&apos;s going to go away, but if it&apos;s fixed in 10.9/10/11, reenable it</lit>
                     </run>
                   </p>
                 </text>
@@ -6796,7 +6879,7 @@
             </text>
           </values>
         </item>
-        <item id="d6falrxFuPW" expanded="yes">
+        <item id="d6falrxFuPW">
           <values>
             <text>
               <p>
@@ -8147,30 +8230,6 @@
             </text>
           </values>
         </item>
-        <item id="kEknfjVzLZX">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Fix remaining leaks identified with clang checker</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="pS1XCBh___p">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Mostly related to &quot;interesting&quot; retain behavior with convenience constructors.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
         <item id="nUbwEoWpEo0">
           <values>
             <text>
@@ -8476,85 +8535,6 @@
             </text>
           </values>
         </item>
-        <item id="gn1qGNMAUZp">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Integrate a crash/feedback reporter?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="hAzAQdn0cgN">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Add feedback email link to help menu (&quot;Provide Pester Feedback&quot; before updates check, or in Apple&apos;s position later in the menu)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="irQTea3581Z">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>JRFeedbackProvider? </lit>
-                    </run>
-                    <run>
-                      <lit><cell href="http://github.com/rentzsch/jrfeedbackprovider" name="github.com—jrfeedbackprovider" type="link"/></lit>
-                    </run>
-                    <run>
-                      <lit> Very small. Looks fine.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="eEpSyE4SdOw">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Give PLCrashReporter a shot: it&apos;s written by Landon Fuller and has a GUI/server component (</lit>
-                    </run>
-                    <run>
-                      <lit><cell href="http://github.com/TheRealKerni/CrashReporterDemo)." name="github.com—CrashReporterDemo)." type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="kFviBnJhB1l">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Breakpad? (744K, used by Camino).  Seems OK but won&apos;t build cleanly, and is quite complex.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="h4qxu-KQonZ">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Link error is fixed now.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-          </children>
-        </item>
       </children>
     </item>
     <item id="l-RdtxzvxCc">
@@ -8774,7 +8754,7 @@
         </item>
       </children>
     </item>
-    <item id="jAOT-TLS_lI">
+    <item id="jAOT-TLS_lI" expanded="yes">
       <values>
         <text>
           <p>
@@ -8785,6 +8765,28 @@
         </text>
       </values>
       <children>
+        <item id="chVzYKvd0Yn">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>NSSplitViewController for NSReadMeController</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="kh7zp_hP7vk">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit><cell href="https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSUserInterfaceItemSearching_Protocol/" name="NSUserInterfaceItemSearching" type="link"/></lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="oF3K30LkPWO">
           <values>
             <text>
