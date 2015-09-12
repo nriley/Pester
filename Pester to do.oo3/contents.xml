@@ -160,7 +160,9 @@
   </settings>
   <editor content-size="{551, 689}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="jAOT-TLS_lI"/>
+    <selected-rows ids="oTCaDdwekw7"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{2, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6145,65 +6147,6 @@
                 </item>
               </children>
             </item>
-            <item id="oTCaDdwekw7" expanded="yes">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Double-clicking to collapse split view doesn&apos;t work any more</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="ipyX7gwiz8i">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Also ugly artifacts when dragging the split bar</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="eM9aa1eGlCz">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>We seem to be using the correct API; file some bugs</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-            <item id="d4lrfUo3eAD" expanded="yes">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>AirPlay doesn&apos;t show up always: https://forums.developer.apple.com/thread/17664</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="oDUQpx6_F9g">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>May just want to disable AirPlay entirely on 10.11</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
             <item id="fAzGbAzNqoS">
               <values>
                 <text>
@@ -6282,6 +6225,64 @@
                       </p>
                     </text>
                   </note>
+                </item>
+              </children>
+            </item>
+            <item id="oTCaDdwekw7">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Double-clicking to collapse split view doesn&apos;t work any more</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <note>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://www.openradar.me/22675408" name="www.openradar.me—22675408" expanded="yes" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </note>
+            </item>
+            <item id="ipyX7gwiz8i">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Also ugly artifacts when dragging the split bar</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="d4lrfUo3eAD" expanded="yes">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>AirPlay doesn&apos;t show up always: </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="https://forums.developer.apple.com/thread/17664" name="forums.developer.apple.com—17664" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="oDUQpx6_F9g">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>May just want to disable AirPlay entirely on 10.11</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
                 </item>
               </children>
             </item>
