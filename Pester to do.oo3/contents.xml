@@ -160,9 +160,9 @@
   </settings>
   <editor content-size="{551, 689}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="oTCaDdwekw7"/>
+    <selected-rows ids="lTVBzL_34hV"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{2, 0}"/>
+    <selected-characters range="{173, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -5476,12 +5476,117 @@
         </item>
       </children>
     </item>
+    <item id="g6biHxBxsqO" expanded="yes" state="indeterminate">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Build 60: finally fix the voice handling</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="fAzGbAzNqoS" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Enabled voices selection changed — we get no (or all?) available voices now</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="aWKZ-ThFiTl" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Yeah, seems that 0/1/2 no longer do what we&apos;re expecting. May have to remove this feature entirely.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="giswC9qxluX" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Can I use GetVoiceInfo with </lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="kerning-adjust">0</value>
+                      </style>
+                      <lit>soVoiceFile? </lit>
+                    </run>
+                    <run>
+                      <lit>No.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="by9ORAbTOIZ" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>We have another infinite recursion in voice list creation?!</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <note>
+                <text>
+                  <p>
+                    <run>
+                      <lit>508 net.sabi.Pester               	0x0007b485 -[NJRVoicePopUpButton _invalidateVoiceSelection] + 35</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <lit>509 net.sabi.Pester               	0x0007b4ea -[NJRVoicePopUpButton setVoice:] + 68</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <lit>510 net.sabi.Pester               	0x0007b240 -[NJRVoicePopUpButton _refreshVoiceList] + 1084</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <lit>511 net.sabi.Pester               	0x0007b485 -[NJRVoicePopUpButton _invalidateVoiceSelection] + 35</lit>
+                    </run>
+                  </p>
+                </text>
+              </note>
+            </item>
+          </children>
+        </item>
+        <item id="lTVBzL_34hV">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Release build 60 with *just* this changed, since it&apos;s such a showstopper; will need to rebuild on 10.9.5 with the 10.10 SDK to do this, so we can still support back to 10.7.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+      </children>
+    </item>
     <item id="kG1BKZsTaZB" expanded="yes" state="indeterminate">
       <values>
         <text>
           <p>
             <run>
-              <lit>Beta 20</lit>
+              <lit>Beta 21</lit>
             </run>
           </p>
         </text>
@@ -6144,87 +6249,6 @@
                       </p>
                     </text>
                   </values>
-                </item>
-              </children>
-            </item>
-            <item id="fAzGbAzNqoS">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Enabled voices selection changed — we get no (or all?) available voices now</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="aWKZ-ThFiTl">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Yeah, seems that 0/1/2 no longer do what we&apos;re expecting. May have to remove this feature entirely.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="giswC9qxluX">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Can I use GetVoiceInfo with </lit>
-                        </run>
-                        <run>
-                          <style>
-                            <value key="font-family">Menlo</value>
-                            <value key="font-fixed-pitch">yes</value>
-                            <value key="kerning-adjust">0</value>
-                          </style>
-                          <lit>soVoiceFile? </lit>
-                        </run>
-                        <run>
-                          <lit>No.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="by9ORAbTOIZ">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>We have another infinite recursion in voice list creation?!</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                  <note>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>508 net.sabi.Pester               	0x0007b485 -[NJRVoicePopUpButton _invalidateVoiceSelection] + 35</lit>
-                        </run>
-                      </p>
-                      <p>
-                        <run>
-                          <lit>509 net.sabi.Pester               	0x0007b4ea -[NJRVoicePopUpButton setVoice:] + 68</lit>
-                        </run>
-                      </p>
-                      <p>
-                        <run>
-                          <lit>510 net.sabi.Pester               	0x0007b240 -[NJRVoicePopUpButton _refreshVoiceList] + 1084</lit>
-                        </run>
-                      </p>
-                      <p>
-                        <run>
-                          <lit>511 net.sabi.Pester               	0x0007b485 -[NJRVoicePopUpButton _invalidateVoiceSelection] + 35</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </note>
                 </item>
               </children>
             </item>
