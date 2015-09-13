@@ -11,16 +11,21 @@ VERSION=`agvtool mvers -terse1`
 BUILD=`agvtool vers -terse`
 DMG="$PRODUCT-$VERSION.dmg" VOL="$PRODUCT $VERSION"
 DSTROOT="$PACKAGEDIR/$VOL"
+SYMROOT="$PWD/build"
 
 # clean and build
 find . -name \*~ -exec rm '{}' \;
-rm -rf build/ Sparkle/build/
-xcodebuild -target Pester -configuration Release "DSTROOT=$DSTROOT" \
-    DEPLOYMENT_LOCATION=YES install
-rm -rf build/Release # or Xcode gets confused next time because of the symlink
+rm -rf "$SYMROOT" "$DSTROOT"
+xcodebuild -target "$PRODUCT" -configuration Release "DSTROOT=$DSTROOT" \
+    SYMROOT="$SYMROOT" DEPLOYMENT_LOCATION=YES install
+
+cd "$PACKAGEDIR"
+
+# ensure code signature and Developer ID are valid
+codesign --verify --verbose=4 "$VOL"/*.app
+spctl -vv --assess "$VOL"/*.app
 
 # create disk image
-cd "$PACKAGEDIR"
 rm -f $DMG
 hdiutil create $DMG -megabytes 20 -ov -layout NONE -fs 'HFS+' -volname $VOL
 MOUNT=`hdiutil attach $DMG`
@@ -46,8 +51,10 @@ perl -pe 's|release-notes.html<|release-notes.html#sparkle<|' < Updates/updates.
 scp $DMG osric:web/nriley/software/$DMG.new
 ssh osric chmod go+r web/nriley/software/$DMG.new
 ssh osric mv web/nriley/software/$DMG{.new,}
+# for testing
+mv Updates/updates.xml Updates/updatez.xml
 rsync -avz --exclude='.*' Updates/ osric:web/nriley/software/$PRODUCT/
+# for testing
+mv Updates/updatez.xml Updates/updates.xml
 ssh osric chmod -R go+rX web/nriley/software/$PRODUCT
-# cd "$PACKAGEDIR"/Source
-# agvtool bump -all
-
+cd "$PACKAGEDIR"/Source
