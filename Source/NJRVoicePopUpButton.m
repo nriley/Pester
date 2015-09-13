@@ -12,6 +12,16 @@
 - (void)_previewVoice;
 @end
 
+// XXX unaware of any public way to get enabled voice information; this is reverse-engineered
+// Voices enabled by default do not have VoiceShowInFullListOnly in their voice attributes.
+// Value in visibleIdentifiers is 1 if the voice is visible in the System Voice popup menu.
+// Voices disabled by the user are 0; 2 is for voices that have never been disabled or enabled.
+typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
+    NJRVoiceDisabled = 0,
+    NJRVoiceEnabled = 1,
+    NJRVoiceUseDefault = 2
+};
+
 @implementation NJRVoicePopUpButton
 
 - (void)_refreshVoiceList;
@@ -31,24 +41,31 @@
     item = nil;
 
     if (voices != nil) {
-        // XXX unaware of any public way to get enabled voice information
-        // value in visibleIdentifiers is 1 if the voice is visible in the System Voice popup menu in System Preferences, otherwise 2 or 0.
-        // Unclear what 2 and 0 represent; some un-downloaded voices are 0, but some are 2 as well.
+        // XXX unaware of any public way to get enabled voice information; this is reverse-engineered
         NSDictionary *visibleIdentifiers = [[[NSUserDefaults standardUserDefaults] persistentDomainForName: @"com.apple.speech.voice.prefs"] objectForKey: @"VisibleIdentifiers"];
         if (visibleIdentifiers != nil && [visibleIdentifiers count] == 0)
             visibleIdentifiers = nil;
 
         for (NSString *voice in voices) {
-            if (visibleIdentifiers != nil) {
-                NSNumber *visibleIdentifier = [visibleIdentifiers objectForKey: voice];
+            NJRVoiceVisibility visibility = NJRVoiceUseDefault;
+            // default voice may be unchecked, but we should show it (so does System Preferences)
+            if ([voice isEqualToString: defaultVoice]) {
+                visibility = NJRVoiceEnabled;
+            } else if (visibleIdentifiers != nil) {
+                NSNumber *visibleIdentifier = visibleIdentifiers[voice];
                 if (visibleIdentifier == nil)
-                    visibleIdentifier = [visibleIdentifiers objectForKey: [voice stringByAppendingString: @".premium"]];
-                // avoid infinite loop if default voice is not marked as visible (unclear what circumstances cause this)
-                if ((visibleIdentifier == nil || [visibleIdentifier integerValue] != 1) &&
-                    ![voice isEqualToString: defaultVoice])
+                    visibleIdentifier = visibleIdentifiers[[voice stringByAppendingString: @".premium"]];
+                if (visibleIdentifier == nil)
+                    continue;
+                visibility = [visibleIdentifier integerValue];
+                if (visibility == NJRVoiceDisabled)
                     continue;
             }
             NSDictionary *voiceAttributes = [NSSpeechSynthesizer attributesForVoice: voice];
+            if (visibility == NJRVoiceUseDefault) {
+                if (voiceAttributes[@"VoiceShowInFullListOnly"] != nil)
+                    continue;
+            }
             item = [menu addItemWithTitle:
                     voiceAttributes[NSVoiceName]
                                    action: @selector(_previewVoice) keyEquivalent: @""];
