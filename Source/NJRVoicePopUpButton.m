@@ -46,6 +46,13 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
         if (visibleIdentifiers != nil && [visibleIdentifiers count] == 0)
             visibleIdentifiers = nil;
 
+        // 1. Filter out disabled voices and arrange into a multilevel dictionary, Language-Country-Gender-Voice (identifier)-Name
+        NSMutableDictionary *languageCountryGenderVoiceNames = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *countryGenderVoiceNames = nil;
+        NSMutableDictionary *genderVoiceNames = nil;
+        NSMutableDictionary *voiceNames = nil;
+        NSString *lastLocaleIdentifier = nil;
+
         for (NSString *voice in voices) {
             NJRVoiceVisibility visibility = NJRVoiceUseDefault;
             // default voice may be unchecked, but we should show it (so does System Preferences)
@@ -66,14 +73,102 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
                 if (voiceAttributes[@"VoiceShowInFullListOnly"] != nil)
                     continue;
             }
-            item = [menu addItemWithTitle:
-                    voiceAttributes[NSVoiceName]
-                                   action: @selector(_previewVoice) keyEquivalent: @""];
-            [item setRepresentedObject: voice];
-            [item setTarget: self];
-            if ([voice isEqualToString: selectedVoice])
-                [self selectItem: item];
+
+            NSString *localeIdentifier = voiceAttributes[NSVoiceLocaleIdentifier];
+            if (![localeIdentifier isEqualToString: lastLocaleIdentifier]) {
+                NSLocale *locale = [NSLocale localeWithLocaleIdentifier: localeIdentifier];
+                NSString *languageCode = [locale objectForKey: NSLocaleLanguageCode];
+                NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
+                NSString *gender = voiceAttributes[NSVoiceGender];
+                countryGenderVoiceNames = languageCountryGenderVoiceNames[languageCode];
+                if (countryGenderVoiceNames == nil) {
+                    [countryGenderVoiceNames = languageCountryGenderVoiceNames[languageCode] = [[NSMutableDictionary alloc] init] release];
+                }
+                genderVoiceNames = countryGenderVoiceNames[countryCode];
+                if (genderVoiceNames == nil) {
+                    [genderVoiceNames = countryGenderVoiceNames[countryCode] = [[NSMutableDictionary alloc] init] release];
+                }
+                voiceNames = genderVoiceNames[gender];
+                if (voiceNames == nil) {
+                    [voiceNames = genderVoiceNames[gender] = [[NSMutableDictionary alloc] init] release];
+                }
+            }
+            voiceNames[voice] = voiceAttributes[NSVoiceName];
         }
+        // NSLog(@"%@", languageCountryGenderVoiceNames);
+
+        // 2. Sort into a 2-level dictionary, Label-Voice (identifier)-Name
+        NSLocale *currentLocale = [NSLocale currentLocale];
+        NSMutableDictionary *groups = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *voicesByGroup = nil;
+
+        BOOL includeLanguage = ([languageCountryGenderVoiceNames count] > 1);
+        NSString *languageLabel = nil, *countryLabel = nil, *genderLabel = nil;
+        for (NSString *languageCode in languageCountryGenderVoiceNames) {
+            languageLabel = includeLanguage ? [currentLocale displayNameForKey: NSLocaleLanguageCode value: languageCode] : nil;
+            countryGenderVoiceNames = languageCountryGenderVoiceNames[languageCode];
+            BOOL includeCountry = ([countryGenderVoiceNames count] > 1);
+            for (NSString *countryCode in countryGenderVoiceNames) {
+                if (includeCountry) {
+                    countryLabel = [currentLocale displayNameForKey: NSLocaleCountryCode value: countryCode];
+                    if (languageLabel)
+                        countryLabel = [NSString stringWithFormat: @"%@ (%@)", languageLabel, countryLabel];
+                } else {
+                    countryLabel = languageLabel;
+                }
+                genderVoiceNames = countryGenderVoiceNames[countryCode];
+                BOOL includeGender = ([genderVoiceNames count] > 1);
+                if (includeGender) {
+                    NSUInteger voiceCount = 0;
+                    for (NSString *gender in genderVoiceNames) {
+                        voiceCount += [genderVoiceNames[gender] count];
+                    }
+                    if (voiceCount <= 4) {
+                        includeGender = NO;
+                    }
+                }
+                if (includeGender) {
+                    for (NSString *gender in genderVoiceNames) {
+                        genderLabel = @{NSVoiceGenderMale: @"Male", NSVoiceGenderFemale: @"Female", NSVoiceGenderNeuter: @"Novelty"}[gender];
+                        if (countryLabel)
+                            genderLabel = [NSString stringWithFormat: @"%@ — %@", countryLabel, genderLabel];
+                        groups[genderLabel] = genderVoiceNames[gender];
+                    }
+                } else {
+                    genderLabel = countryLabel == nil ? @"" : countryLabel;
+                    voicesByGroup = groups[genderLabel];
+                    if (voicesByGroup == nil)
+                        [voicesByGroup = groups[genderLabel] = [[NSMutableDictionary alloc] init] release];
+                    for (NSString *gender in genderVoiceNames) {
+                        [voicesByGroup addEntriesFromDictionary: genderVoiceNames[gender]];
+                    }
+                }
+            }
+        }
+        [languageCountryGenderVoiceNames release];
+        // NSLog(@"%@", groups);
+
+        // 3. Sort the groups and voice names and insert them into the menu
+        NSDictionary *groupVoices = nil;
+
+        for (NSString *groupLabel in [[groups allKeys] sortedArrayUsingSelector: @selector(localizedCaseInsensitiveCompare:)]) {
+            if (![@"" isEqualToString: groupLabel]) {
+                if (groupVoices != nil)
+                    [menu addItem: [NSMenuItem separatorItem]];
+                item = [menu addItemWithTitle: groupLabel action: NULL keyEquivalent: @""];
+                [item setEnabled: NO];
+            }
+            groupVoices = groups[groupLabel];
+            for (NSString *voice in [groupVoices keysSortedByValueUsingSelector: @selector(localizedCaseInsensitiveCompare:)]) {
+                item = [menu addItemWithTitle: groupVoices[voice]
+                                       action: @selector(_previewVoice) keyEquivalent: @""];
+                [item setRepresentedObject: voice];
+                [item setTarget: self];
+                if ([voice isEqualToString: selectedVoice])
+                    [self selectItem: item];
+            }
+        }
+        [groups release];
     }
     if (item == nil) {
         item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate voices", "Voice popup menu item surrogate for voice list if no voices are found") action: nil keyEquivalent: @""];
