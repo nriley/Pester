@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>Pest</string>
 	<key>CFBundleVersion</key>
-	<string>60</string>
+	<string>61</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
