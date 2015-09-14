@@ -39,12 +39,6 @@ this window to fail.</p>
     <tr><td><ul>
         <li>Speed up launching Pester by delaying natural language date
         parser initialization.</li>
-        <li>Fix an issue introduced in 1.1b19 where Pester would hang
-        on launch with some voice preferences.  (Thanks to João Nelas
-        for the report.)</li>
-        <li>Fix issues where the correct voice list would not be
-        shown; try to display the voice list as much like Dictation
-        &amp; Speech System Preferences as possible.</li>
         <li>Fix an issue where the selected sound output device would
         be incorrectly reset if the default sound output device was
         changed.</li>
@@ -74,7 +68,7 @@ this window to fail.</p>
 </table>
 <p />
 <table>
-    <tr><th>Pester 1.1 beta 19 (59)</th></tr>
+    <tr><th>Pester 1.1 beta 19 (61)</th></tr>
     <tr><td><ul>
         <li>Display messages in help tags in notification alerts,
         useful when messages are too large to fit.</li>
@@ -83,9 +77,13 @@ this window to fail.</p>
         <li>Improve speech voice handling: limit the voice pop-up
         menu’s contents to the voices you have enabled in System
         Preferences; more reliably select non-MacinTalk voices
-        (previously, the default voice was used); do not display
-        «unknown» in the voice pop-up menu; update the voice pop-up
-        menu when voices are enabled or disabled.</li>
+        (previously, the default voice was used); don't display
+        «unknown» in the voice pop-up menu unless it’s currently
+        selected; update the voice pop-up menu when voices are enabled
+        or disabled. (Build 61: Fix an issue where Pester would hang
+        or crash on launch in some configurations — thanks to João
+        Nelas for the report; also, display the voice pop-up menu
+        similarly to its counterpart in System Preferences.)</li>
         <li>Support natural-language date and time entry on OS X
         Yosemite (10.10), by linking to Perl 5.16 on OS X
         10.9&ndash;10.10.  Perl 5.12 remains in use on OS X
