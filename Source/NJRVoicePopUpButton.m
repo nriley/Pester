@@ -59,9 +59,9 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
             if ([voice isEqualToString: defaultVoice]) {
                 visibility = NJRVoiceEnabled;
             } else if (visibleIdentifiers != nil) {
-                NSNumber *visibleIdentifier = visibleIdentifiers[voice];
+                NSNumber *visibleIdentifier = [visibleIdentifiers objectForKey: voice];
                 if (visibleIdentifier == nil)
-                    visibleIdentifier = visibleIdentifiers[[voice stringByAppendingString: @".premium"]];
+                    visibleIdentifier = [visibleIdentifiers objectForKey: [voice stringByAppendingString: @".premium"]];
                 if (visibleIdentifier == nil)
                     continue;
                 visibility = [visibleIdentifier integerValue];
@@ -70,30 +70,36 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
             }
             NSDictionary *voiceAttributes = [NSSpeechSynthesizer attributesForVoice: voice];
             if (visibility == NJRVoiceUseDefault) {
-                if (voiceAttributes[@"VoiceShowInFullListOnly"] != nil)
+                if ([voiceAttributes objectForKey: @"VoiceShowInFullListOnly"] != nil)
                     continue;
             }
 
-            NSString *localeIdentifier = voiceAttributes[NSVoiceLocaleIdentifier];
+            NSString *localeIdentifier = [voiceAttributes objectForKey: NSVoiceLocaleIdentifier];
             if (![localeIdentifier isEqualToString: lastLocaleIdentifier]) {
                 NSLocale *locale = [NSLocale localeWithLocaleIdentifier: localeIdentifier];
                 NSString *languageCode = [locale objectForKey: NSLocaleLanguageCode];
                 NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
-                NSString *gender = voiceAttributes[NSVoiceGender];
-                countryGenderVoiceNames = languageCountryGenderVoiceNames[languageCode];
+                NSString *gender = [voiceAttributes objectForKey: NSVoiceGender];
+                countryGenderVoiceNames = [languageCountryGenderVoiceNames objectForKey: languageCode];
                 if (countryGenderVoiceNames == nil) {
-                    [countryGenderVoiceNames = languageCountryGenderVoiceNames[languageCode] = [[NSMutableDictionary alloc] init] release];
+                    countryGenderVoiceNames = [[NSMutableDictionary alloc] init];
+                    [languageCountryGenderVoiceNames setObject: countryGenderVoiceNames forKey: languageCode];
+                    [countryGenderVoiceNames release];
                 }
-                genderVoiceNames = countryGenderVoiceNames[countryCode];
+                genderVoiceNames = [countryGenderVoiceNames objectForKey: countryCode];
                 if (genderVoiceNames == nil) {
-                    [genderVoiceNames = countryGenderVoiceNames[countryCode] = [[NSMutableDictionary alloc] init] release];
+                    genderVoiceNames = [[NSMutableDictionary alloc] init];
+                    [countryGenderVoiceNames setObject: genderVoiceNames forKey: countryCode];
+                    [genderVoiceNames release];
                 }
-                voiceNames = genderVoiceNames[gender];
+                voiceNames = [genderVoiceNames objectForKey: gender];
                 if (voiceNames == nil) {
-                    [voiceNames = genderVoiceNames[gender] = [[NSMutableDictionary alloc] init] release];
+                    voiceNames = [[NSMutableDictionary alloc] init];
+                    [genderVoiceNames setObject: voiceNames forKey: gender];
+                    [voiceNames release];
                 }
             }
-            voiceNames[voice] = voiceAttributes[NSVoiceName];
+            [voiceNames setObject: [voiceAttributes objectForKey: NSVoiceName] forKey: voice];
         }
         // NSLog(@"%@", languageCountryGenderVoiceNames);
 
@@ -106,7 +112,7 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
         NSString *languageLabel = nil, *countryLabel = nil, *genderLabel = nil;
         for (NSString *languageCode in languageCountryGenderVoiceNames) {
             languageLabel = includeLanguage ? [currentLocale displayNameForKey: NSLocaleLanguageCode value: languageCode] : nil;
-            countryGenderVoiceNames = languageCountryGenderVoiceNames[languageCode];
+            countryGenderVoiceNames = [languageCountryGenderVoiceNames objectForKey: languageCode];
             BOOL includeCountry = ([countryGenderVoiceNames count] > 1);
             for (NSString *countryCode in countryGenderVoiceNames) {
                 if (includeCountry) {
@@ -116,12 +122,12 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
                 } else {
                     countryLabel = languageLabel;
                 }
-                genderVoiceNames = countryGenderVoiceNames[countryCode];
+                genderVoiceNames = [countryGenderVoiceNames objectForKey: countryCode];
                 BOOL includeGender = ([genderVoiceNames count] > 1);
                 if (includeGender) {
                     NSUInteger voiceCount = 0;
                     for (NSString *gender in genderVoiceNames) {
-                        voiceCount += [genderVoiceNames[gender] count];
+                        voiceCount += [[genderVoiceNames objectForKey: gender] count];
                     }
                     if (voiceCount <= 4) {
                         includeGender = NO;
@@ -129,18 +135,21 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
                 }
                 if (includeGender) {
                     for (NSString *gender in genderVoiceNames) {
-                        genderLabel = @{NSVoiceGenderMale: @"Male", NSVoiceGenderFemale: @"Female", NSVoiceGenderNeuter: @"Novelty"}[gender];
+                        genderLabel = [@{NSVoiceGenderMale: @"Male", NSVoiceGenderFemale: @"Female", NSVoiceGenderNeuter: @"Novelty"} objectForKey: gender];
                         if (countryLabel)
                             genderLabel = [NSString stringWithFormat: @"%@ — %@", countryLabel, genderLabel];
-                        groups[genderLabel] = genderVoiceNames[gender];
+                        [groups setObject: [genderVoiceNames objectForKey: gender] forKey: genderLabel];
                     }
                 } else {
                     genderLabel = countryLabel == nil ? @"" : countryLabel;
-                    voicesByGroup = groups[genderLabel];
-                    if (voicesByGroup == nil)
-                        [voicesByGroup = groups[genderLabel] = [[NSMutableDictionary alloc] init] release];
+                    voicesByGroup = [groups objectForKey: genderLabel];
+                    if (voicesByGroup == nil) {
+                        voicesByGroup = [[NSMutableDictionary alloc] init];
+                        [groups setObject: voicesByGroup forKey: genderLabel];
+                        [voicesByGroup release];
+                    }
                     for (NSString *gender in genderVoiceNames) {
-                        [voicesByGroup addEntriesFromDictionary: genderVoiceNames[gender]];
+                        [voicesByGroup addEntriesFromDictionary: [genderVoiceNames objectForKey: gender]];
                     }
                 }
             }
@@ -158,9 +167,9 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
                 item = [menu addItemWithTitle: groupLabel action: NULL keyEquivalent: @""];
                 [item setEnabled: NO];
             }
-            groupVoices = groups[groupLabel];
+            groupVoices = [groups objectForKey: groupLabel];
             for (NSString *voice in [groupVoices keysSortedByValueUsingSelector: @selector(localizedCaseInsensitiveCompare:)]) {
-                item = [menu addItemWithTitle: groupVoices[voice]
+                item = [menu addItemWithTitle: [groupVoices objectForKey: voice]
                                        action: @selector(_previewVoice) keyEquivalent: @""];
                 [item setRepresentedObject: voice];
                 [item setTarget: self];
@@ -240,7 +249,7 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
     }
 
     if (previewString == nil)
-        previewString = [NSSpeechSynthesizer attributesForVoice: voice][NSVoiceDemoText];
+        previewString = [[NSSpeechSynthesizer attributesForVoice: voice] objectForKey: NSVoiceDemoText];
 
     [_speaker startSpeakingString: previewString];
 }
