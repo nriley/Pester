@@ -59,6 +59,11 @@ static NSDictionary *statusAttributes = nil;
     [notificationCenter addObserver: self selector: @selector(windowDidResignKey:) name: NSWindowDidResignKeyNotification object: newWindow];
 }
 
+- (void)resetCursorRects;
+{
+    // don't show I-beam in this field, when you can't actually select text
+}
+
 #pragma mark initialize-release
 
 - (id)initWithCoder:(NSCoder *)coder;
