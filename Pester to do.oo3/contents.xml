@@ -158,11 +158,9 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 689}" column-titles-display-mode="auto">
+  <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="ipyX7gwiz8i"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{1, 0}"/>
+    <selected-rows ids="oTCaDdwekw7"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6252,12 +6250,12 @@
                 </item>
               </children>
             </item>
-            <item id="oTCaDdwekw7">
+            <item id="oTCaDdwekw7" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Double-clicking to collapse split view doesn&apos;t work any more</lit>
+                      <lit>Double-clicking to collapse split view doesn&apos;t work any more (filed a Radar)</lit>
                     </run>
                   </p>
                 </text>
@@ -6310,20 +6308,67 @@
                 </item>
               </children>
             </item>
-            <item id="kFenjhCFkyj">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Check choosing “Other…” — did I already fix this? It’s crashing.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
           </children>
         </item>
-        <item id="imT3VdoxENp" expanded="yes">
+        <item id="bFytgsBi0w9">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Run analysis and make sure everything is OK</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="aeY7CBOkRaJ">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Remove &quot;</lit>
+                </run>
+                <run>
+                  <style>
+                    <value key="font-family">Menlo</value>
+                    <value key="font-fixed-pitch">yes</value>
+                    <value key="font-weight">9</value>
+                    <value key="ligature-selection">none</value>
+                  </style>
+                  <lit>time to -applicationDidFinishLaunching:…</lit>
+                </run>
+                <run>
+                  <lit>&quot; NSLog before release</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+      </children>
+    </item>
+    <item id="gotAfbOXCFU" state="indeterminate">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>For 1.1 final</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="jhNYT_Qw9vK">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Incorporate SFBCrashReporter (now it&apos;s 10.8+ and trivial to do)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="imT3VdoxENp">
           <values>
             <text>
               <p>
@@ -6380,41 +6425,6 @@
             </item>
           </children>
         </item>
-        <item id="jhNYT_Qw9vK">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Incorporate SFBCrashReporter (now it&apos;s 10.8+ and trivial to do)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="bFytgsBi0w9">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Run analysis and make sure everything is OK</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-      </children>
-    </item>
-    <item id="gotAfbOXCFU" state="indeterminate">
-      <values>
-        <text>
-          <p>
-            <run>
-              <lit>For 1.1 final</lit>
-            </run>
-          </p>
-        </text>
-      </values>
-      <children>
         <item id="d25qohnTJLU">
           <values>
             <text>
@@ -8825,6 +8835,64 @@
         </text>
       </values>
       <children>
+        <item id="jZ4eav_FhrO">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Migrate off QuickTime to AVFoundation / PDFKit? / something else for image display?</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <note expanded="yes">
+            <text>
+              <p>
+                <run>
+                  <lit>Movist migration from QT to AVFoundation: </lit>
+                </run>
+                <run>
+                  <lit><cell href="https://github.com/samiamwork/Movist/commit/0552ed927a28ad7c6583393943c101faf5085493" name="github.com—0552ed927a28ad7c6583393943c101faf5085493" type="link"/></lit>
+                </run>
+              </p>
+            </text>
+          </note>
+          <children>
+            <item id="gxG3Bnt2RLC">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Could use NSSound or AudioQueue for sounds; AVFoundation for movies; Quick Look (!) or PDFKit for still images/PDFs.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="kDun6yg4TKi">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>If we just want to *run* on 64-bit, we only need to migrate off for audio-containing items</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="fUQ6HrVGun0">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>qtmodernizer(1)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="chVzYKvd0Yn">
           <values>
             <text>
@@ -8962,64 +9030,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="jZ4eav_FhrO">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Migrate off QuickTime to AVFoundation / PDFKit? / something else for image display?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <note expanded="yes">
-            <text>
-              <p>
-                <run>
-                  <lit>Movist migration from QT to AVFoundation: </lit>
-                </run>
-                <run>
-                  <lit><cell href="https://github.com/samiamwork/Movist/commit/0552ed927a28ad7c6583393943c101faf5085493" name="github.com—0552ed927a28ad7c6583393943c101faf5085493" type="link"/></lit>
-                </run>
-              </p>
-            </text>
-          </note>
-          <children>
-            <item id="gxG3Bnt2RLC">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Could use NSSound or AudioQueue for sounds; AVFoundation for movies; Quick Look (!) or PDFKit for still images/PDFs.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="kDun6yg4TKi">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>If we just want to *run* on 64-bit, we only need to migrate off for audio-containing items</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="fUQ6HrVGun0">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>qtmodernizer(1)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="ofDiUwDQNsR">
           <values>
