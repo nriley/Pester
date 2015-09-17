@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A244d" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <development version="6000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8164.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PSAlarmNotifierController">
@@ -24,16 +24,19 @@
         <window title="Alarm" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" id="5" userLabel="Alarm" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="167" y="289" width="436" height="208"/>
+            <rect key="contentRect" x="167" y="289" width="454" height="208"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
-            <value key="minSize" type="size" width="436" height="164"/>
-            <value key="maxSize" type="size" width="436" height="208"/>
+            <value key="minSize" type="size" width="454" height="164"/>
+            <value key="maxSize" type="size" width="454" height="208"/>
             <view key="contentView" id="8">
-                <rect key="frame" x="0.0" y="0.0" width="436" height="208"/>
+                <rect key="frame" x="0.0" y="0.0" width="454" height="208"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <userGuides>
+                    <userLayoutGuide location="433" affinity="minX"/>
+                </userGuides>
                 <subviews>
                     <textField verticalHuggingPriority="750" id="7">
-                        <rect key="frame" x="92" y="127" width="326" height="61"/>
+                        <rect key="frame" x="92" y="127" width="344" height="61"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <animations/>
                         <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" alignment="left" title="Ayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy!" id="136">
@@ -43,7 +46,7 @@
                         </textFieldCell>
                     </textField>
                     <button toolTip="Acknowledge this alarm" verticalHuggingPriority="750" id="6">
-                        <rect key="frame" x="332" y="13" width="90" height="32"/>
+                        <rect key="frame" x="350" y="13" width="90" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Dismiss" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="135">
@@ -147,10 +150,10 @@ from this menu.</string>
                         </connections>
                     </popUpButton>
                     <box title="Title" boxType="oldStyle" borderType="none" titlePosition="noTitle" id="50">
-                        <rect key="frame" x="92" y="62" width="324" height="41"/>
+                        <rect key="frame" x="92" y="62" width="346" height="41"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <view key="contentView">
-                            <rect key="frame" x="0.0" y="0.0" width="324" height="41"/>
+                        <view key="contentView" id="Iye-Is-aLN">
+                            <rect key="frame" x="0.0" y="0.0" width="346" height="41"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField verticalHuggingPriority="750" id="36">
@@ -176,7 +179,7 @@ from this menu.</string>
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" id="40">
-                                    <rect key="frame" x="75" y="1" width="251" height="13"/>
+                                    <rect key="frame" x="75" y="1" width="269" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                     <animations/>
                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="23456" id="146">
@@ -186,7 +189,7 @@ from this menu.</string>
                                     </textFieldCell>
                                 </textField>
                                 <button toolTip="Stop alarm from further repeating" verticalHuggingPriority="750" id="60">
-                                    <rect key="frame" x="213" y="13" width="116" height="28"/>
+                                    <rect key="frame" x="231" y="13" width="116" height="28"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                     <buttonCell key="cell" type="push" title="Stop Repeating" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" inset="2" id="147">
@@ -198,7 +201,7 @@ from this menu.</string>
                                     </connections>
                                 </button>
                                 <textField verticalHuggingPriority="750" id="31">
-                                    <rect key="frame" x="75" y="22" width="137" height="13"/>
+                                    <rect key="frame" x="75" y="22" width="159" height="13"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                     <animations/>
                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="every XYZ minutes" id="143">
@@ -216,7 +219,7 @@ from this menu.</string>
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField verticalHuggingPriority="750" id="9">
-                        <rect key="frame" x="167" y="104" width="251" height="14"/>
+                        <rect key="frame" x="167" y="104" width="269" height="14"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <animations/>
                         <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="23456" id="137">
