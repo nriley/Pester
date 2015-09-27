@@ -160,7 +160,9 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="oTCaDdwekw7"/>
+    <selected-rows ids="pl4S1ZzFw4V"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{19, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -2610,7 +2612,7 @@
                 </text>
               </values>
             </item>
-            <item id="obCUAZ0gfFg" state="checked">
+            <item id="obCUAZ0gfFg" expanded="yes" state="checked">
               <values>
                 <text>
                   <p>
@@ -5889,6 +5891,217 @@
             </text>
           </note>
         </item>
+        <item id="lEHXO9xYHnS" expanded="yes" state="indeterminate">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>10.11 issues — work around or document</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="mpP2yKCsc1g" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Help window width — seems a beta bug, fixed</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cSvSBLapWS1" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Check choosing “Other…” — did I already fix this? It’s crashing.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="p9Nx_wx1EnM" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>San Francisco changes for 10.11</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="bAvYnHZlSgE" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Dock icon</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="jWlUww0PYna" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>“Alarm will be set for…”</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="lZxTuFot-18" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>“Next alarm:”</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="jJndKjNsYha" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Consider using a larger font in the notifier</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="oTCaDdwekw7" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Double-clicking to collapse split view doesn&apos;t work any more (filed a Radar)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <note>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://www.openradar.me/22675408" name="www.openradar.me—22675408" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </note>
+            </item>
+            <item id="ipyX7gwiz8i">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Ugly artifacts when dragging the split bar</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="d4lrfUo3eAD" expanded="yes">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>AirPlay doesn&apos;t show up always: </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="https://forums.developer.apple.com/thread/17664" name="forums.developer.apple.com—17664" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="oDUQpx6_F9g">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Disable AirPlay entirely on 10.11 (figure out what the bizarro names show up as so we can filter them)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="pl4S1ZzFw4V">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Report a bug with </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="https://developer.apple.com/library/mac/samplecode/HALExamples/Listings/ConfigDefaultOutput_c.html" name="developer.apple.com—ConfigDefaultOutput_c.html" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+          </children>
+        </item>
+        <item id="bFytgsBi0w9">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Run analysis and make sure everything is OK</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="aeY7CBOkRaJ">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Remove &quot;</lit>
+                </run>
+                <run>
+                  <style>
+                    <value key="font-family">Menlo</value>
+                    <value key="font-fixed-pitch">yes</value>
+                    <value key="font-weight">9</value>
+                    <value key="ligature-selection">none</value>
+                  </style>
+                  <lit>time to -applicationDidFinishLaunching:…</lit>
+                </run>
+                <run>
+                  <lit>&quot; NSLog before release</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+      </children>
+    </item>
+    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>For 1.1 final</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
         <item id="aWv2ABzX8Pv" state="indeterminate">
           <values>
             <text>
@@ -6160,89 +6373,105 @@
             </item>
           </children>
         </item>
-        <item id="lEHXO9xYHnS" expanded="yes" state="indeterminate">
+        <item id="lJLlHRbPcb8" expanded="yes">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>10.11 issues — work around or document</lit>
+                  <lit>See if we can stop the hang-on-alarm-set when system output device is set to AirPlay (and there is no current AirPlay output) — it is the case even if it&apos;s not the device being used by Pester!</lit>
                 </run>
               </p>
             </text>
           </values>
           <children>
-            <item id="mpP2yKCsc1g" state="checked">
+            <item id="ou4tKpGSD_i">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Help window width — seems a beta bug, fixed</lit>
+                      <lit>Try using NSSound — it lets you set a playbackDeviceIdentifier</lit>
                     </run>
                   </p>
                 </text>
               </values>
             </item>
-            <item id="cSvSBLapWS1" state="checked">
+            <item id="omkT9ZPCZSw">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Check choosing “Other…” — did I already fix this? It’s crashing.</lit>
+                      <lit>Even with AirPlay is not in use, we sometimes get a hang on window close.</lit>
                     </run>
                   </p>
                 </text>
               </values>
             </item>
-            <item id="p9Nx_wx1EnM" state="checked">
+            <item id="aCkJMZNRDEJ">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>San Francisco changes for 10.11</lit>
+                      <lit>Apple may have just given up on this entirely as of 10.11, so it may not be worth fixing</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="jVNgf8Aen4-">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Profile slow changing between Edit and View when sounds are enabled, but only in 1.1b20; can sometimes delay for over a second. Not just actionDescription.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="o_HUpC9RrgI" expanded="yes">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Switch to AVAudioPlayer where supported (if we can create an </lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color r="0.360784" g="0.14902" b="0.6"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="ligature-selection">none</value>
+                      </style>
+                      <lit>AVAudioFile</lit>
+                    </run>
+                    <run>
+                      <lit>) — 10.10+</lit>
                     </run>
                   </p>
                 </text>
               </values>
               <children>
-                <item id="bAvYnHZlSgE" state="checked">
+                <item id="pQOXX0_KDNX">
                   <values>
                     <text>
                       <p>
                         <run>
-                          <lit>Dock icon</lit>
+                          <lit>Dedup </lit>
                         </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="jWlUww0PYna" state="checked">
-                  <values>
-                    <text>
-                      <p>
                         <run>
-                          <lit>“Alarm will be set for…”</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="lZxTuFot-18" state="checked">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>“Next alarm:”</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="jJndKjNsYha" state="checked">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Consider using a larger font in the notifier</lit>
+                          <style>
+                            <value key="font-family">Menlo</value>
+                            <value key="font-fill">
+                              <color r="0.247059" g="0.431373" b="0.454902"/>
+                            </value>
+                            <value key="font-fixed-pitch">yes</value>
+                            <value key="ligature-selection">none</value>
+                          </style>
+                          <lit>PLAlertRepetitions</lit>
                         </run>
                       </p>
                     </text>
@@ -6250,57 +6479,64 @@
                 </item>
               </children>
             </item>
-            <item id="oTCaDdwekw7" state="checked">
+            <item id="hIPIhSxk8nV">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Double-clicking to collapse split view doesn&apos;t work any more (filed a Radar)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <note>
-                <text>
-                  <p>
-                    <run>
-                      <lit><cell href="http://www.openradar.me/22675408" name="www.openradar.me—22675408" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </note>
-            </item>
-            <item id="ipyX7gwiz8i">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Ugly artifacts when dragging the split bar</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="d4lrfUo3eAD" expanded="yes">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>AirPlay doesn&apos;t show up always: </lit>
-                    </run>
-                    <run>
-                      <lit><cell href="https://forums.developer.apple.com/thread/17664" name="forums.developer.apple.com—17664" type="link"/></lit>
+                      <lit>AVPlayer won&apos;t work for video</lit>
                     </run>
                   </p>
                 </text>
               </values>
               <children>
-                <item id="oDUQpx6_F9g">
+                <item id="fy8QWDXJEjw" expanded="yes">
                   <values>
                     <text>
                       <p>
                         <run>
-                          <lit>May just want to disable AirPlay entirely on 10.11</lit>
+                          <lit>Redirecting audio is impossible — </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="https://forums.developer.apple.com/message/59178" name="forums.developer.apple.com—59178" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="aJZ6X99xr5p">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>File a bug</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
+                </item>
+                <item id="cihhCehRAXD">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Need to stay off the main thread: </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="https://forums.developer.apple.com/message/39798#39798" name="forums.developer.apple.com—39798" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="hd_EzNavzQi">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Likely just drop support for non-audio formats in the next version; too much trouble.</lit>
                         </run>
                       </p>
                     </text>
@@ -6310,53 +6546,6 @@
             </item>
           </children>
         </item>
-        <item id="bFytgsBi0w9">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Run analysis and make sure everything is OK</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="aeY7CBOkRaJ">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Remove &quot;</lit>
-                </run>
-                <run>
-                  <style>
-                    <value key="font-family">Menlo</value>
-                    <value key="font-fixed-pitch">yes</value>
-                    <value key="font-weight">9</value>
-                    <value key="ligature-selection">none</value>
-                  </style>
-                  <lit>time to -applicationDidFinishLaunching:…</lit>
-                </run>
-                <run>
-                  <lit>&quot; NSLog before release</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-      </children>
-    </item>
-    <item id="gotAfbOXCFU" state="indeterminate">
-      <values>
-        <text>
-          <p>
-            <run>
-              <lit>For 1.1 final</lit>
-            </run>
-          </p>
-        </text>
-      </values>
-      <children>
         <item id="jhNYT_Qw9vK">
           <values>
             <text>
@@ -6435,30 +6624,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="lJLlHRbPcb8">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>See if we can stop the hang-on-alarm-set when system output device is set to AirPlay (and there is no current AirPlay output) — it is the case even if it&apos;s not the device being used by Pester!</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="omkT9ZPCZSw">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Even with AirPlay is not in use, we sometimes get a hang on window close.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="fBzQIOZSu5i" expanded="yes">
           <values>
@@ -8835,6 +9000,52 @@
         </text>
       </values>
       <children>
+        <item id="oF3K30LkPWO">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Aliases &amp; paths → bookmark URLs</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="olxsZ_mYV2y">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://www.mikeabdullah.net/migrating-from-alias-handle.html" name="www.mikeabdullah.net—migrating-from-alias-handle.html" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cx4xfUeP1P8">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://www.mikeabdullah.net/last-known-bookmark-location.html" name="www.mikeabdullah.net—last-known-bookmark-location.html" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="aQiRdKxQL1x">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://www.mikeabdullah.net/convert-between-path+reference-urls.html" name="www.mikeabdullah.net—convert-between-path+reference-urls.html" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="jZ4eav_FhrO">
           <values>
             <text>
@@ -8863,7 +9074,21 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Could use NSSound or AudioQueue for sounds; AVFoundation for movies; Quick Look (!) or PDFKit for still images/PDFs.</lit>
+                      <lit>Try NSSound for sounds; AVFoundation for movies; Quick Look (!) or PDFKit for still images/PDFs.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="j6C-dUrilZr">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>AVAudioPlayer won&apos;t work well enough — </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://openradar.me/22873794" name="openradar.me—22873794" type="link"/></lit>
                     </run>
                   </p>
                 </text>
@@ -8914,52 +9139,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="oF3K30LkPWO">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Aliases &amp; paths → bookmark URLs</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="olxsZ_mYV2y">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit><cell href="http://www.mikeabdullah.net/migrating-from-alias-handle.html" name="www.mikeabdullah.net—migrating-from-alias-handle.html" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="cx4xfUeP1P8">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit><cell href="http://www.mikeabdullah.net/last-known-bookmark-location.html" name="www.mikeabdullah.net—last-known-bookmark-location.html" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="aQiRdKxQL1x">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit><cell href="http://www.mikeabdullah.net/convert-between-path+reference-urls.html" name="www.mikeabdullah.net—convert-between-path+reference-urls.html" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="kYuD0u30fLq">
           <values>
