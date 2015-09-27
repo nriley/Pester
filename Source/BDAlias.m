@@ -257,6 +257,14 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
     return (NSString *)name;
 }
 
+- (NSURL *)fileURL
+{
+    NSString *path = [self fullPath];
+    if (path == nil)
+        return nil;
+    return [NSURL fileURLWithPath: path];
+}
+
 - (NSString *)fullPath
 {
     return [self fullPathRelativeToPath:nil];

@@ -28,6 +28,7 @@
 #import "PSDockBounceAlert.h"
 #import "PSScriptAlert.h"
 #import "PSNotifierAlert.h"
+#import "PSAudioAlert.h"
 #import "PSBeepAlert.h"
 #import "PSMovieAlert.h"
 #import "PSSpeechAlert.h"
@@ -473,6 +474,8 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
             [self _setVolume: [(PSMediaAlert *)alert outputVolume] withPreview: NO];
             if ([alert isKindOfClass: [PSBeepAlert class]]) {
                 [sound setAlias: nil];
+            } else if ([alert isKindOfClass: [PSAudioAlert class]]) {
+                [sound setAlias: [(PSAudioAlert *)alert audioFileAlias]];
             } else if ([alert isKindOfClass: [PSMovieAlert class]]) {
                 [sound setAlias: [(PSMovieAlert *)alert movieFileAlias]];
             }

@@ -40,6 +40,7 @@
 
 - (NSString *)displayNameWithKindString:(NSString **)outKindString;
 
+- (NSURL *)fileURL;
 - (NSString *)fullPath;
 - (NSString *)fullPathRelativeToPath:(NSString *)relPath;
 

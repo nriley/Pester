@@ -8,6 +8,7 @@
 
 #import <QTKit/QTKit.h>
 #import <QuickTime/Movies.h>
+#import "PSAudioAlert.h" // XXX transitional
 #import "PSMovieAlert.h"
 #import "PSMovieAlertController.h"
 #import "NSDictionary-NJRExtensions.h"
@@ -95,16 +96,20 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
+    // XXX no, do this earlier
+    PSAudioAlert *audioAlert = [[PSAudioAlert alloc] initWithAudioFileAlias: alias repetitions: repetitions];
+    if (audioAlert != nil) {
+        [audioAlert triggerForAlarm: alarm];
+        return;
+    }
     [PSMovieAlertController newControllerWithAlarm: alarm movieAlert: self];
 }
 
-#if __LP64__
-#define kNoVolume 0
-#endif
-
 - (NSAttributedString *)actionDescription;
 {
+    clock_t before = clock();
     BOOL isStatic = [[self movie] NJR_isStatic];
+    NSLog(@"isStatic: %f", (clock() - before) / (float)CLOCKS_PER_SEC);
     NSMutableAttributedString *string = [[(isStatic ? @"Show " : @"Play ") small] mutableCopy];
     NSString *kindString = nil, *name = [alias displayNameWithKindString: &kindString];
     if (name == nil) name = NSLocalizedString(@"<<can't locate media file>>", "Movie alert description surrogate for media display name when alias doesn't resolve");
@@ -113,7 +118,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     if (repetitions > 1 && !isStatic) {
         [string appendAttributedString: [[NSString stringWithFormat: @" %hu times", repetitions] small]];
     }
-    if (hasAudio && outputVolume != kNoVolume) {
+    if (hasAudio && outputVolume != PSMediaAlertNoVolume) {
         [string appendAttributedString: [[NSString stringWithFormat: @" at %.0f%% volume", outputVolume * 100] small]];
     }
     return [string autorelease];
