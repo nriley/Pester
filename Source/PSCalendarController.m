@@ -47,7 +47,7 @@
         }
         
         [window setOpaque: NO];
-        [window setBackgroundColor: [NSColor colorWithCalibratedWhite: 0.81f alpha: 0.9f]];
+        [window setBackgroundColor: [NSColor windowBackgroundColor]];
         [window setLevel: NSModalPanelWindowLevel];
         [NSApp runModalForWindow: window];
     }
