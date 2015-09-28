@@ -15,7 +15,6 @@
 #import "BDAlias.h"
 
 // property list keys
-static NSString * const PLAlertRepetitions = @"times"; // NSString
 static NSString * const PLAlertAlias = @"alias"; // NSData
 
 @implementation PSMovieAlert
@@ -25,29 +24,36 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     return [[[self alloc] initWithMovieFileAlias: anAlias repetitions: numReps] autorelease];
 }
 
+// shared partial initializer - requires superclass initializer be run first
+- (id)_initWithMovieFileAlias:(BDAlias *)anAlias;
+{
+    NSString *path = [anAlias fullPath];
+    if (path == nil) {
+        [self release];
+        [NSException raise: PSAlertCreationException format: NSLocalizedString(@"Can't locate media to play as alert.", "Exception message on PSMovieAlert initialization when alias doesn't resolve")];
+    }
+    alias = [anAlias retain];
+    QTMovie *movie = [[QTMovie alloc] initWithFile: path error: NULL];
+    if (movie == nil) {
+        [self release];
+        self = nil;
+    } else {
+        hasAudio = [movie NJR_hasAudio];
+        hasVideo = [movie NJR_hasVideo];
+        
+        if (!hasAudio && !hasVideo) {
+            [self release]; self = nil;
+        }
+    }
+    [movie release];
+
+    return self;
+}
+
 - (id)initWithMovieFileAlias:(BDAlias *)anAlias repetitions:(unsigned int)numReps;
 {
-    if ( (self = [super initWithRepetitions: numReps]) != nil) {
-        NSString *path = [anAlias fullPath];
-        if (path == nil) {
-            [self release];
-            [NSException raise: PSAlertCreationException format: NSLocalizedString(@"Can't locate media to play as alert.", "Exception message on PSMovieAlert initialization when alias doesn't resolve")];
-        }
-        alias = [anAlias retain];
-	QTMovie *movie = [[QTMovie alloc] initWithFile: path error: NULL];
-        if (movie == nil) {
-            [self release];
-            self = nil;
-        } else {
-            hasAudio = [movie NJR_hasAudio];
-            hasVideo = [movie NJR_hasVideo];
-            
-            if (!hasAudio && !hasVideo) {
-                [self release]; self = nil;
-            }
-        }
-	[movie release];
-    }
+    if ( (self = [super initWithRepetitions: numReps]) != nil)
+        self = [self _initWithMovieFileAlias: anAlias];
     
     return self;
 }
@@ -74,11 +80,6 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 - (BDAlias *)movieFileAlias;
 {
     return alias;
-}
-
-- (unsigned short)repetitions;
-{
-    return repetitions;
 }
 
 - (void)dealloc;
@@ -124,7 +125,6 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 - (NSDictionary *)propertyListRepresentation;
 {
     NSMutableDictionary *plAlert = [[super propertyListRepresentation] mutableCopy];
-    [plAlert setObject: [NSNumber numberWithUnsignedShort: repetitions] forKey: PLAlertRepetitions];
     [plAlert setObject: [alias aliasData] forKey: PLAlertAlias];
     return [plAlert autorelease];
 }
@@ -132,8 +132,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 - (instancetype)initWithPropertyList:(NSDictionary *)dict error:(NSError **)error;
 {
     if ( (self = [super initWithPropertyList: dict error: error]) != nil)
-        [self initWithMovieFileAlias: [BDAlias aliasWithData: [dict objectForRequiredKey: PLAlertAlias]]
-                         repetitions: [[dict objectForRequiredKey: PLAlertRepetitions] unsignedShortValue]];
+        self = [self _initWithMovieFileAlias: [BDAlias aliasWithData: [dict objectForRequiredKey: PLAlertAlias]]];
     return self;
 }
 
