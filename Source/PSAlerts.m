@@ -96,6 +96,12 @@ JRErrExpressionAdapter(PSAlerts *(^block)(void), JRErrExpression *expression, NS
 
 #pragma mark printing
 
+- (NSString *)description;
+{
+    return [NSString stringWithFormat: @"%@: %@%@",
+            [super description], alerts, requirePesterFrontmost ? @" - requires Pester frontmost" : @""];
+}
+
 - (NSAttributedString *)prettyList;
 {
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
