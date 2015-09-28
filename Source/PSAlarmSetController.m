@@ -30,6 +30,7 @@
 #import "PSNotifierAlert.h"
 #import "PSBeepAlert.h"
 #import "PSMovieAlert.h"
+#import "PSSoundAlert.h"
 #import "PSSpeechAlert.h"
 #import "PSWakeAlert.h"
 #import "PSGrowlAlert.h"
@@ -473,6 +474,8 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
             [self _setVolume: [(PSMediaAlert *)alert outputVolume] withPreview: NO];
             if ([alert isKindOfClass: [PSBeepAlert class]]) {
                 [sound setAlias: nil];
+            } else if ([alert isKindOfClass: [PSSoundAlert class]]) {
+                [sound setAlias: [(PSSoundAlert *)alert soundFileAlias]];
             } else if ([alert isKindOfClass: [PSMovieAlert class]]) {
                 [sound setAlias: [(PSMovieAlert *)alert movieFileAlias]];
             }
@@ -519,8 +522,11 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
             PSMediaAlert *alert;
             if (soundAlias == nil) // beep alert
                 alert = [PSBeepAlert alertWithRepetitions: numReps];
-            else // movie alert
-                alert = [PSMovieAlert alertWithMovieFileAlias: soundAlias repetitions: numReps];
+            else { // sound or movie alert
+                alert = [PSSoundAlert alertWithSoundFileAlias: soundAlias repetitions: numReps];
+                if (alert == nil)
+                    alert = [PSMovieAlert alertWithMovieFileAlias: soundAlias repetitions: numReps];
+            }
             [alerts addAlert: alert];
             [alert setOutputVolume: [sound outputVolume]];
         }

@@ -181,6 +181,7 @@
 		E1E1F1CD17BC7E3700DC565A /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CA17BC7E3700DC565A /* NSString+SymlinksAndAliases.m */; };
 		E1E1F1CE17BC7E3700DC565A /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CC17BC7E3700DC565A /* PFMoveApplication.m */; };
 		E1E1F1D217BC80C500DC565A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1F1D117BC80C500DC565A /* Security.framework */; };
+		E1FDFC271BB920EC00A4961B /* PSSoundAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FDFC261BB920EC00A4961B /* PSSoundAlert.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -447,6 +448,8 @@
 		E1F993C20436280200050002 /* NJRHotKeyField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRHotKeyField.m; sourceTree = "<group>"; };
 		E1F993C60436310F00050002 /* PSPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPreferencesController.h; sourceTree = "<group>"; };
 		E1F993C70436310F00050002 /* PSPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPreferencesController.m; sourceTree = "<group>"; tabWidth = 4; };
+		E1FDFC251BB920EC00A4961B /* PSSoundAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSoundAlert.h; sourceTree = "<group>"; };
+		E1FDFC261BB920EC00A4961B /* PSSoundAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSoundAlert.m; sourceTree = "<group>"; };
 		F517D63E0356B80C016D68B9 /* PSAlarmsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAlarmsController.m; sourceTree = "<group>"; };
 		F517D63F0356B80C016D68B9 /* PSAlarmsController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSAlarmsController.h; sourceTree = "<group>"; };
 		F517D6420356B8CC016D68B9 /* PSAlarms.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PSAlarms.m; sourceTree = "<group>"; };
@@ -993,6 +996,8 @@
 				F59E47AB036AAC1E016B311C /* PSBeepAlert.m */,
 				F59E47BD036AB228016B311C /* PSMovieAlert.h */,
 				F59E47BC036AB228016B311C /* PSMovieAlert.m */,
+				E1FDFC251BB920EC00A4961B /* PSSoundAlert.h */,
+				E1FDFC261BB920EC00A4961B /* PSSoundAlert.m */,
 				F5F1986D036B813101EB0372 /* PSSpeechAlert.h */,
 				F5F1986C036B813101EB0372 /* PSSpeechAlert.m */,
 				E143BA4817A466C000A7735E /* NSUserNotification.h */,
@@ -1345,6 +1350,7 @@
 				E1B11F630CF5F30F004975AA /* PSSpeechAlert.m in Sources */,
 				E1B11F640CF5F30F004975AA /* main.m in Sources */,
 				E1B11F650CF5F30F004975AA /* NJRIntervalField.m in Sources */,
+				E1FDFC271BB920EC00A4961B /* PSSoundAlert.m in Sources */,
 				E1B11F690CF5F30F004975AA /* PSTimer.m in Sources */,
 				E1B11F6A0CF5F30F004975AA /* PSWakeAlert.m in Sources */,
 				E1B11F6B0CF5F30F004975AA /* PSCalendarController.m in Sources */,
