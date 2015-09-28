@@ -46,7 +46,8 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
         if (visibleIdentifiers != nil && [visibleIdentifiers count] == 0)
             visibleIdentifiers = nil;
 
-        // 1. Filter out disabled voices and arrange into a multilevel dictionary, Language-Country-Gender-Voice (identifier)-Name
+        // 1. Filter out disabled voices and arrange into a multilevel dictionary, Language-Country/Variant-Gender-Voice (identifier)-Name
+        // (note, "country" means "country or variant" below to avoid even more awkward variable names)
         NSMutableDictionary *languageCountryGenderVoiceNames = [[NSMutableDictionary alloc] init];
         NSMutableDictionary *countryGenderVoiceNames = nil;
         NSMutableDictionary *genderVoiceNames = nil;
@@ -79,7 +80,11 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
                 NSLocale *locale = [NSLocale localeWithLocaleIdentifier: localeIdentifier];
                 NSString *languageCode = [locale objectForKey: NSLocaleLanguageCode];
                 NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
+                if (countryCode == nil) countryCode = [locale objectForKey: NSLocaleVariantCode];
                 NSString *gender = voiceAttributes[NSVoiceGender];
+                if (languageCode == nil) languageCode = @"";
+                if (countryCode == nil) countryCode = @"";
+                if (gender == nil) gender = @"";
                 countryGenderVoiceNames = languageCountryGenderVoiceNames[languageCode];
                 if (countryGenderVoiceNames == nil) {
                     [countryGenderVoiceNames = languageCountryGenderVoiceNames[languageCode] = [[NSMutableDictionary alloc] init] release];
@@ -111,6 +116,8 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
             for (NSString *countryCode in countryGenderVoiceNames) {
                 if (includeCountry) {
                     countryLabel = [currentLocale displayNameForKey: NSLocaleCountryCode value: countryCode];
+                    if (countryLabel == nil)
+                        countryLabel = [currentLocale displayNameForKey: NSLocaleVariantCode value: countryCode];
                     if (languageLabel)
                         countryLabel = [NSString stringWithFormat: @"%@ (%@)", languageLabel, countryLabel];
                 } else {
