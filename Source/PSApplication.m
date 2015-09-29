@@ -358,7 +358,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
 {
-    NSLog(@"time to -applicationDidFinishLaunching: %f", clock() / (float)CLOCKS_PER_SEC);
+    // NSLog(@"time to -applicationDidFinishLaunching: %f", clock() / (float)CLOCKS_PER_SEC);
     PSAlarms *allAlarms = [PSAlarms allAlarms];
     NSUInteger version1AlarmCount = [allAlarms countOfVersion1Alarms];
     if (version1AlarmCount > 0) {
