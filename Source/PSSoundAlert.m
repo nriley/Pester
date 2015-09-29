@@ -35,9 +35,10 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     if (sound == nil) {
         [self release];
         self = nil;
+    } else {
+        [sound release];
+        sound = nil;
     }
-    [sound release];
-    sound = nil;
 
     return self;
 }
