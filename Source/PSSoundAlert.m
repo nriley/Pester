@@ -57,7 +57,6 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 
 - (void)dealloc;
 {
-    NSLog(@"DEALLOC %@", self);
     [[NSNotificationCenter defaultCenter] removeObserver: self];
     [alias release];
     [super dealloc];
@@ -70,7 +69,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 
 - (void)sound:(NSSound *)aSound didFinishPlaying:(BOOL)didFinish;
 {
-    NSLog(@"%@ - %hu left, didFinish:%d", self, repetitionsRemaining, didFinish);
+    // NSLog(@"%@ - %hu left, didFinish:%d", self, repetitionsRemaining, didFinish);
     if (repetitionsRemaining <= 1 || !didFinish) {
         [self completedForAlarm: alarm];
         [sound release];

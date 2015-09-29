@@ -48,6 +48,7 @@ JRErrExpressionAdapter(PSAlerts *(^block)(void), JRErrExpression *expression, NS
 
 - (void)dealloc;
 {
+    // NSLog(@"DEALLOC alerts %@", self);
     [alerts release]; alerts = nil;
     [super dealloc];
 }
