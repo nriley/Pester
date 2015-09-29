@@ -39,6 +39,8 @@ this window to fail.</p>
     <tr><td><ul>
         <li>Speed up launching Pester by delaying natural language date
         parser initialization.</li>
+        <li>No longer use QuickTime for sound playback in most
+        cases.</li>
         <li>Fix an issue where the selected sound output device would
         be incorrectly reset if the default sound output device was
         changed.</li>
@@ -50,15 +52,19 @@ this window to fail.</p>
         <li>Fix an issue in which long date formats (e.g.,
         Portuguese) could cause the end of the date to be cut off at
         the bottom left of the Set Alarm window.</li>
+        <li>Fix an issue where Pester would crash on launch if you had
+        a Scottish voice enabled (others may have been affected as
+        well) — thanks to Horacio Mijail Antón Quiles for the
+        report.</li>
         <li>Update the natural language date
         parser, <tt>Date::Manip</tt> (fixes for XXX).</li>
+        <li>Use Apple’s Data Detectors (reintroduced in OS X 10.7
+        Lion) as a fallback date parser.</li>
         <li>Support natural-language date and time entry on OS X
         El Capitan (10.11), by linking to Perl 5.16 on OS X
         10.9&ndash;10.11.</li>
         <li>Adjust some user interface elements to account for changes
         in OS X El Capitan.</li>
-        <li>Use Apple’s Data Detectors (reintroduced in OS X Lion
-        10.7) as an additional date parser.</li>
         <li>Code cleanups and modernization without (intended) changes
         in functionality; remove some code which was never used.</li>
         <li><b>Note:</b> This version requires OS X 10.9 or later;
