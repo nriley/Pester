@@ -6,16 +6,26 @@
     <description>Appcast for Pester updates.</description>
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>
     <language>en</language>
-    <pubDate>Sat, 15 Nov 2014 20:16:59 -0500</pubDate>
-    <lastBuildDate>Sat, 15 Nov 2014 20:16:59 -0500</lastBuildDate>
+    <pubDate>Tue, 29 Sep 2015 15:15:39 -0400</pubDate>
+    <lastBuildDate>Tue, 29 Sep 2015 15:15:39 -0400</lastBuildDate>
     
     <atom:link href="http://sabi.net/nriley/software/Pester/updates.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Pester 1.1b20</title>
+      <link>http://sabi.net/nriley/software/#pester</link>
+      <author>pester@sabi.net (Nicholas Riley)</author>
+      <pubDate>Tue, 29 Sep 2015 15:15:39 -0400</pubDate>
+      <enclosure url="http://sabi.net/nriley/software/Pester-1.1b20.dmg" length="1956736" type="application/x-apple-diskimage" sparkle:version="63" sparkle:shortVersionString="1.1b20" sparkle:dsaSignature="MCwCFFcAUXbi4+SeBGJNdon20dvSiWYQAhQMKb5NRVnbG6iPegSpJC4mgcgJqg=="/>
+      <guid isPermaLink="false">pester-11b20</guid>
+      <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>
+    </item>
     <item>
       <title>Pester 1.1b19</title>
       <link>http://sabi.net/nriley/software/#pester</link>
       <author>pester@sabi.net (Nicholas Riley)</author>
-      <pubDate>Sat, 15 Nov 2014 20:16:59 -0500</pubDate>
-      <enclosure url="http://sabi.net/nriley/software/Pester-1.1b19.dmg" length="2393502" type="application/x-apple-diskimage" sparkle:version="58" sparkle:shortVersionString="1.1b19" sparkle:dsaSignature="MCwCFFm2+REgh+B0lAFYd1qUtk1HeAB8AhQY3YLkGSvG5ve3BsBXhgkc4N+Bsg=="/>
+      <pubDate>Mon, 14 Sep 2015 17:18:27 -0400</pubDate>
+      <enclosure url="http://sabi.net/nriley/software/Pester-1.1b19.dmg" length="2395190" type="application/x-apple-diskimage" sparkle:version="61" sparkle:shortVersionString="1.1b19" sparkle:dsaSignature="MC0CFQCTFA8MyaaiuY72gijFM3jT50qbrgIUcaW3il9em9ZqCQe6r6xLhLzSnsE="/>
       <guid isPermaLink="false">pester-11b19</guid>
       <sparkle:minimumSystemVersion>10.7</sparkle:minimumSystemVersion>
       <sparkle:releaseNotesLink>http://sabi.net/nriley/software/Pester/release-notes.html</sparkle:releaseNotesLink>

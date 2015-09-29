@@ -160,7 +160,7 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="d4lrfUo3eAD"/>
+    <selected-rows ids="ljfGfEGQhin"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6128,7 +6128,7 @@
             </item>
           </children>
         </item>
-        <item id="j64LU92GqJh">
+        <item id="j64LU92GqJh" state="checked">
           <values>
             <text>
               <p>
@@ -6150,7 +6150,7 @@
             </text>
           </values>
         </item>
-        <item id="bFytgsBi0w9">
+        <item id="bFytgsBi0w9" state="checked">
           <values>
             <text>
               <p>
@@ -6161,7 +6161,7 @@
             </text>
           </values>
         </item>
-        <item id="ljfGfEGQhin">
+        <item id="ljfGfEGQhin" state="checked">
           <values>
             <text>
               <p>
