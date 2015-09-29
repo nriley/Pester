@@ -160,7 +160,7 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="ljfGfEGQhin"/>
+    <selected-rows ids="gotAfbOXCFU"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -5577,416 +5577,82 @@
             </item>
           </children>
         </item>
-      </children>
-    </item>
-    <item id="kG1BKZsTaZB" expanded="yes" state="indeterminate">
-      <style/>
-      <style/>
-      <style/>
-      <style/>
-      <style>
-        <value key="font-family">Menlo</value>
-        <value key="font-fill">
-          <color r="0.247059" g="0.431373" b="0.454902"/>
-        </value>
-        <value key="font-fixed-pitch">yes</value>
-        <value key="ligature-selection">none</value>
-        <value key="paragraph-alignment">left</value>
-        <value key="paragraph-tab-stop-interval">52.95</value>
-        <value key="paragraph-tab-stops">52.95L</value>
-      </style>
-      <values>
-        <text>
-          <p>
-            <run>
-              <lit>Beta 20</lit>
-            </run>
-          </p>
-        </text>
-      </values>
-      <children>
-        <item id="okG2reIHMa5" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Drop 10.7</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="jbvMXqgGwRQ" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Drop 10.8 (no need to compile on 10.9 any more)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="hIx91hn2guU" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>The media open sheet didn&apos;t display if the alert sound was selected.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="oDxrkho4JX4" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>“Play sound through:” reverts to “Default alert device” when refreshing list</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="gpOgWT9du2H" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Fixed.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="kNP2dcyXtxd" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Sound output target reverts to [something else] when changing default output device</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="j8MTuYh-w8W" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>The whole flow here is really a mess. We&apos;re conflating the *system* default output device with Pester’s default output device for many purposes.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="aB_HXdWNVRR" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Work on startup time — slow even with SSD (fewer time zones? compare ± Perl)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="fYK6q9_AmWb" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Need to refresh -[PSTimeDateEditor _update] when loading complete (add completions, etc.)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="ljwNsh3hqX8" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Likely use something like NJRNaturalLanguageDateParsingAvailableNotification.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="nZkxHQ3Nhny" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Deadlock issue with parsing nil to check whether parsing works (yet).</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="mBRq_rr-Rd5" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>By Instruments, looks like about 0.5s for +[NJRDateFormatter initialize], or about 50% of startup time</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="o9_QGvNXRNN" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>We can *delay* Perl startup entirely, halving startup time from about 0.9 to about 0.45 seconds.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="omgZK-aWuUX" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>With async initialization being triggered from when the software needs it versus on library initialization, startup time decreases less, to about 0.6 seconds.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="gpImUwqnRA2" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Starting the async init from the main runloop, we can do as well as 0.4 seconds.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="kPpcR9ExvDm" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>It doesn&apos;t help initializing the queue as </lit>
-                    </run>
-                    <run>
-                      <style>
-                        <value key="font-family">Menlo</value>
-                        <value key="font-fill">
-                          <color r="0.168627" g="0.513726" b="0.623529"/>
-                        </value>
-                        <value key="font-fixed-pitch">yes</value>
-                        <value key="ligature-selection">none</value>
-                      </style>
-                      <lit>QOS_CLASS_BACKGROUND</lit>
-                    </run>
-                    <run>
-                      <lit> — it&apos;s 10.10-only in any case.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="p7WS1Fl16Fv" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Still need to check into ownership/leakage issues and test time zone/locale changes.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="gWWWwNtrdMA" state="checked">
+        <item id="kG1BKZsTaZB" state="checked">
+          <style/>
+          <style/>
+          <style/>
+          <style/>
           <style>
             <value key="font-family">Menlo</value>
+            <value key="font-fill">
+              <color r="0.247059" g="0.431373" b="0.454902"/>
+            </value>
             <value key="font-fixed-pitch">yes</value>
-            <value key="font-weight">9</value>
             <value key="ligature-selection">none</value>
             <value key="paragraph-alignment">left</value>
-            <value key="paragraph-tab-stop-interval">28</value>
-            <value key="paragraph-tab-stops">28L</value>
+            <value key="paragraph-tab-stop-interval">52.95</value>
+            <value key="paragraph-tab-stops">52.95L</value>
           </style>
           <values>
             <text>
               <p>
                 <run>
-                  <lit>2014-12-13 11:35:03.019 Pester[46856:13484177] Failed to connect (contentsBox) outlet from (NJRReadMeController) to (NSBox): missing setter or instance variable</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="ii_SIUeb0xo" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Update Sparkle acknowledgement</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="p5PB7yWqxC4" state="checked">
-          <style>
-            <value key="paragraph-alignment">left</value>
-          </style>
-          <style>
-            <value key="paragraph-alignment">left</value>
-          </style>
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Pester 1.1b19 introduced voice loading infinite recursion in certain cases (thanks, João Nelas)</lit>
+                  <lit>Beta 20</lit>
                 </run>
               </p>
             </text>
           </values>
           <children>
-            <item id="gdDzylDNimX" state="checked">
+            <item id="okG2reIHMa5" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Need to verify this; waiting for him to get back to me.</lit>
+                      <lit>Drop 10.7</lit>
                     </run>
                   </p>
                 </text>
               </values>
             </item>
-          </children>
-        </item>
-        <item id="ar3CLs5WOOS" state="checked">
-          <style>
-            <value key="paragraph-alignment">left</value>
-          </style>
-          <style>
-            <value key="paragraph-alignment">left</value>
-          </style>
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Use Data Detectors!</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <note>
-            <text>
-              <p>
-                <run>
-                  <lit><cell href="http://mikeabdullah.net/thl-diary-21-lenient-date-parsing.html" name="mikeabdullah.net—thl-diary-21-lenient-date-parsing.html" type="link"/></lit>
-                </run>
-              </p>
-              <p>
-                <run>
-                  <lit><cell href="http://nshipster.com/nsdatadetector/" name="nshipster.com—nsdatadetector" type="link"/></lit>
-                </run>
-              </p>
-            </text>
-          </note>
-        </item>
-        <item id="lEHXO9xYHnS" expanded="yes" state="indeterminate">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>10.11 issues — work around or document</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="mpP2yKCsc1g" state="checked">
+            <item id="jbvMXqgGwRQ" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Help window width — seems a beta bug, fixed</lit>
+                      <lit>Drop 10.8 (no need to compile on 10.9 any more)</lit>
                     </run>
                   </p>
                 </text>
               </values>
             </item>
-            <item id="cSvSBLapWS1" state="checked">
+            <item id="hIx91hn2guU" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Check choosing “Other…” — did I already fix this? It’s crashing.</lit>
+                      <lit>The media open sheet didn&apos;t display if the alert sound was selected.</lit>
                     </run>
                   </p>
                 </text>
               </values>
             </item>
-            <item id="p9Nx_wx1EnM" state="checked">
+            <item id="oDxrkho4JX4" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>San Francisco changes for 10.11</lit>
+                      <lit>“Play sound through:” reverts to “Default alert device” when refreshing list</lit>
                     </run>
                   </p>
                 </text>
               </values>
               <children>
-                <item id="bAvYnHZlSgE" state="checked">
+                <item id="gpOgWT9du2H" state="checked">
                   <values>
                     <text>
                       <p>
                         <run>
-                          <lit>Dock icon</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="jWlUww0PYna" state="checked">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>“Alarm will be set for…”</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="lZxTuFot-18" state="checked">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>“Next alarm:”</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="jJndKjNsYha" state="checked">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Consider using a larger font in the notifier</lit>
+                          <lit>Fixed.</lit>
                         </run>
                       </p>
                     </text>
@@ -5994,12 +5660,229 @@
                 </item>
               </children>
             </item>
-            <item id="oTCaDdwekw7" state="checked">
+            <item id="kNP2dcyXtxd" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Double-clicking to collapse split view doesn&apos;t work any more (filed a Radar)</lit>
+                      <lit>Sound output target reverts to [something else] when changing default output device</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="j8MTuYh-w8W" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>The whole flow here is really a mess. We&apos;re conflating the *system* default output device with Pester’s default output device for many purposes.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="aB_HXdWNVRR" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Work on startup time — slow even with SSD (fewer time zones? compare ± Perl)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="fYK6q9_AmWb" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Need to refresh -[PSTimeDateEditor _update] when loading complete (add completions, etc.)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="ljwNsh3hqX8" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Likely use something like NJRNaturalLanguageDateParsingAvailableNotification.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="nZkxHQ3Nhny" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Deadlock issue with parsing nil to check whether parsing works (yet).</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="mBRq_rr-Rd5" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>By Instruments, looks like about 0.5s for +[NJRDateFormatter initialize], or about 50% of startup time</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="o9_QGvNXRNN" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>We can *delay* Perl startup entirely, halving startup time from about 0.9 to about 0.45 seconds.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="omgZK-aWuUX" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>With async initialization being triggered from when the software needs it versus on library initialization, startup time decreases less, to about 0.6 seconds.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="gpImUwqnRA2" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Starting the async init from the main runloop, we can do as well as 0.4 seconds.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="kPpcR9ExvDm" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>It doesn&apos;t help initializing the queue as </lit>
+                        </run>
+                        <run>
+                          <style>
+                            <value key="font-family">Menlo</value>
+                            <value key="font-fill">
+                              <color r="0.168627" g="0.513726" b="0.623529"/>
+                            </value>
+                            <value key="font-fixed-pitch">yes</value>
+                            <value key="ligature-selection">none</value>
+                          </style>
+                          <lit>QOS_CLASS_BACKGROUND</lit>
+                        </run>
+                        <run>
+                          <lit> — it&apos;s 10.10-only in any case.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="p7WS1Fl16Fv" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Still need to check into ownership/leakage issues and test time zone/locale changes.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="gWWWwNtrdMA" state="checked">
+              <style>
+                <value key="font-family">Menlo</value>
+                <value key="font-fixed-pitch">yes</value>
+                <value key="font-weight">9</value>
+                <value key="ligature-selection">none</value>
+                <value key="paragraph-alignment">left</value>
+                <value key="paragraph-tab-stop-interval">28</value>
+                <value key="paragraph-tab-stops">28L</value>
+              </style>
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>2014-12-13 11:35:03.019 Pester[46856:13484177] Failed to connect (contentsBox) outlet from (NJRReadMeController) to (NSBox): missing setter or instance variable</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="ii_SIUeb0xo" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Update Sparkle acknowledgement</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="p5PB7yWqxC4" state="checked">
+              <style>
+                <value key="paragraph-alignment">left</value>
+              </style>
+              <style>
+                <value key="paragraph-alignment">left</value>
+              </style>
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Pester 1.1b19 introduced voice loading infinite recursion in certain cases (thanks, João Nelas)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="gdDzylDNimX" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Need to verify this; waiting for him to get back to me.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="ar3CLs5WOOS" state="checked">
+              <style>
+                <value key="paragraph-alignment">left</value>
+              </style>
+              <style>
+                <value key="paragraph-alignment">left</value>
+              </style>
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Use Data Detectors!</lit>
                     </run>
                   </p>
                 </text>
@@ -6008,119 +5891,278 @@
                 <text>
                   <p>
                     <run>
-                      <lit><cell href="http://www.openradar.me/22675408" name="www.openradar.me—22675408" type="link"/></lit>
+                      <lit><cell href="http://mikeabdullah.net/thl-diary-21-lenient-date-parsing.html" name="mikeabdullah.net—thl-diary-21-lenient-date-parsing.html" type="link"/></lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <lit><cell href="http://nshipster.com/nsdatadetector/" name="nshipster.com—nsdatadetector" type="link"/></lit>
                     </run>
                   </p>
                 </text>
               </note>
             </item>
-            <item id="oVCaALcyb_k" state="checked">
+            <item id="lEHXO9xYHnS" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>More voice changes (Scottish; #16).</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="hhStu8s2mLG" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Use NSSound where we can — it lets you set a playbackDeviceIdentifier</lit>
+                      <lit>10.11 issues — work around or document</lit>
                     </run>
                   </p>
                 </text>
               </values>
               <children>
-                <item id="oIY0zTi2ktU" state="checked">
+                <item id="mpP2yKCsc1g" state="checked">
                   <values>
                     <text>
                       <p>
                         <run>
-                          <lit>Duplication of </lit>
-                        </run>
-                        <run>
-                          <style>
-                            <value key="font-family">Menlo</value>
-                            <value key="font-fill">
-                              <color r="0.247059" g="0.431373" b="0.454902"/>
-                            </value>
-                            <value key="font-fixed-pitch">yes</value>
-                            <value key="ligature-selection">none</value>
-                          </style>
-                          <lit>PLAlertRepetitions</lit>
-                        </run>
-                        <run>
-                          <lit> and kVolumeWhatever needs fixing</lit>
+                          <lit>Help window width — seems a beta bug, fixed</lit>
                         </run>
                       </p>
                     </text>
                   </values>
                 </item>
-                <item id="pv7b6G0dz1m" state="checked">
+                <item id="cSvSBLapWS1" state="checked">
                   <values>
                     <text>
                       <p>
                         <run>
-                          <lit>Leaking seems to not actually be an issue. Never mind.</lit>
+                          <lit>Check choosing “Other…” — did I already fix this? It’s crashing.</lit>
                         </run>
                       </p>
                     </text>
                   </values>
+                </item>
+                <item id="p9Nx_wx1EnM" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>San Francisco changes for 10.11</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="bAvYnHZlSgE" state="checked">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Dock icon</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                    <item id="jWlUww0PYna" state="checked">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>“Alarm will be set for…”</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                    <item id="lZxTuFot-18" state="checked">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>“Next alarm:”</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                    <item id="jJndKjNsYha" state="checked">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Consider using a larger font in the notifier</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
+                </item>
+                <item id="oTCaDdwekw7" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Double-clicking to collapse split view doesn&apos;t work any more (filed a Radar)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <note>
+                    <text>
+                      <p>
+                        <run>
+                          <lit><cell href="http://www.openradar.me/22675408" name="www.openradar.me—22675408" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </note>
+                </item>
+                <item id="oVCaALcyb_k" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>More voice changes (Scottish; #16).</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="hhStu8s2mLG" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Use NSSound where we can — it lets you set a playbackDeviceIdentifier</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="oIY0zTi2ktU" state="checked">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Duplication of </lit>
+                            </run>
+                            <run>
+                              <style>
+                                <value key="font-family">Menlo</value>
+                                <value key="font-fill">
+                                  <color r="0.247059" g="0.431373" b="0.454902"/>
+                                </value>
+                                <value key="font-fixed-pitch">yes</value>
+                                <value key="ligature-selection">none</value>
+                              </style>
+                              <lit>PLAlertRepetitions</lit>
+                            </run>
+                            <run>
+                              <lit> and kVolumeWhatever needs fixing</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                    <item id="pv7b6G0dz1m" state="checked">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Leaking seems to not actually be an issue. Never mind.</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
+                </item>
+                <item id="d4lrfUo3eAD" expanded="yes" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>AirPlay doesn&apos;t show up always: </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="https://forums.developer.apple.com/thread/17664" name="forums.developer.apple.com—17664" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="oDUQpx6_F9g" state="checked">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Disable AirPlay entirely on 10.11 (figure out what the bizarro names show up as so we can filter them)</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
                 </item>
               </children>
             </item>
-            <item id="d4lrfUo3eAD" expanded="yes" state="indeterminate">
+            <item id="j64LU92GqJh" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>AirPlay doesn&apos;t show up always: </lit>
-                    </run>
-                    <run>
-                      <lit><cell href="https://forums.developer.apple.com/thread/17664" name="forums.developer.apple.com—17664" type="link"/></lit>
+                      <lit>Check tests still work</lit>
                     </run>
                   </p>
                 </text>
               </values>
-              <children>
-                <item id="oDUQpx6_F9g" state="checked">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Disable AirPlay entirely on 10.11 (figure out what the bizarro names show up as so we can filter them)</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="pl4S1ZzFw4V">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Report a bug with </lit>
-                        </run>
-                        <run>
-                          <lit><cell href="https://developer.apple.com/library/mac/samplecode/HALExamples/Listings/ConfigDefaultOutput_c.html" name="developer.apple.com—ConfigDefaultOutput_c.html" type="link"/></lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
             </item>
-            <item id="ipyX7gwiz8i">
+            <item id="ncpS8F2BOgC" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Ugly artifacts when dragging the split bar (report a bug)</lit>
+                      <lit>Test on 10.9 too</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="bFytgsBi0w9" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Analyze and make sure everything is OK</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="ljfGfEGQhin" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Fix Date::Manip mention in release notes</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="aeY7CBOkRaJ" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Remove &quot;</lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                      </style>
+                      <lit>time to -applicationDidFinishLaunching:…</lit>
+                    </run>
+                    <run>
+                      <lit>&quot; NSLog before release</lit>
                     </run>
                   </p>
                 </text>
@@ -6128,76 +6170,9 @@
             </item>
           </children>
         </item>
-        <item id="j64LU92GqJh" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Check tests still work</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="ncpS8F2BOgC">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Test on 10.9 too</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="bFytgsBi0w9" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Analyze and make sure everything is OK</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="ljfGfEGQhin" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Fix Date::Manip mention in release notes.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="aeY7CBOkRaJ">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Remove &quot;</lit>
-                </run>
-                <run>
-                  <style>
-                    <value key="font-family">Menlo</value>
-                    <value key="font-fixed-pitch">yes</value>
-                    <value key="font-weight">9</value>
-                    <value key="ligature-selection">none</value>
-                  </style>
-                  <lit>time to -applicationDidFinishLaunching:…</lit>
-                </run>
-                <run>
-                  <lit>&quot; NSLog before release</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" state="indeterminate">
+    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
       <values>
         <text>
           <p>
@@ -6208,6 +6183,31 @@
         </text>
       </values>
       <children>
+        <item id="pl4S1ZzFw4V">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Report a bug with AirPlay and </lit>
+                </run>
+                <run>
+                  <lit><cell href="https://developer.apple.com/library/mac/samplecode/HALExamples/Listings/ConfigDefaultOutput_c.html" name="developer.apple.com—ConfigDefaultOutput_c.html" type="link"/></lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="ipyX7gwiz8i">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Ugly artifacts when dragging the split bar (report a bug)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="ocEoKGMvXZ_">
           <values>
             <text>
