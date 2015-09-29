@@ -129,6 +129,18 @@ static OSStatus AudioDeviceDataSourceChanged(AudioObjectID objectID,
 	return nil;
     }
 
+    // AirPlay is flaky on 10.11, so don't even offer
+    if (NJROSXMinorVersion() >= 11) {
+        propertyAddress.mSelector = kAudioDevicePropertyTransportType;
+        UInt32 transportType;
+        propertySize = sizeof(transportType);
+        err = AudioObjectGetPropertyData(audioDeviceID, &propertyAddress, 0, NULL, &propertySize, &transportType);
+        if (err == noErr && transportType == kAudioDeviceTransportTypeAirPlay) {
+            [self release];
+            return nil;
+        }
+    }
+
     // prefer (optional) device's currently selected data source name
     // e.g. 'Headphones', or name of AirPlay device
     propertyAddress.mSelector = kAudioDevicePropertyDataSource;
