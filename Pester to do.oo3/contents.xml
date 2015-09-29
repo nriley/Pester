@@ -158,11 +158,9 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 639}" column-titles-display-mode="auto">
+  <editor content-size="{551, 639}" scroll-position="{0, 25}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="pl4S1ZzFw4V"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{19, 0}"/>
+    <selected-rows ids="bFytgsBi0w9"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -5582,6 +5580,21 @@
       </children>
     </item>
     <item id="kG1BKZsTaZB" expanded="yes" state="indeterminate">
+      <style/>
+      <style/>
+      <style/>
+      <style/>
+      <style>
+        <value key="font-family">Menlo</value>
+        <value key="font-fill">
+          <color r="0.247059" g="0.431373" b="0.454902"/>
+        </value>
+        <value key="font-fixed-pitch">yes</value>
+        <value key="ligature-selection">none</value>
+        <value key="paragraph-alignment">left</value>
+        <value key="paragraph-tab-stop-interval">52.95</value>
+        <value key="paragraph-tab-stops">52.95L</value>
+      </style>
       <values>
         <text>
           <p>
@@ -6001,12 +6014,72 @@
                 </text>
               </note>
             </item>
+            <item id="oVCaALcyb_k" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>More voice changes (Scottish; #16).</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="hhStu8s2mLG" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Use NSSound where we can — it lets you set a playbackDeviceIdentifier</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="oIY0zTi2ktU" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Duplication of </lit>
+                        </run>
+                        <run>
+                          <style>
+                            <value key="font-family">Menlo</value>
+                            <value key="font-fill">
+                              <color r="0.247059" g="0.431373" b="0.454902"/>
+                            </value>
+                            <value key="font-fixed-pitch">yes</value>
+                            <value key="ligature-selection">none</value>
+                          </style>
+                          <lit>PLAlertRepetitions</lit>
+                        </run>
+                        <run>
+                          <lit> and kVolumeWhatever needs fixing</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="pv7b6G0dz1m" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Leaking seems to not actually be an issue. Never mind.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
             <item id="ipyX7gwiz8i">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Ugly artifacts when dragging the split bar</lit>
+                      <lit>Ugly artifacts when dragging the split bar (report a bug)</lit>
                     </run>
                   </p>
                 </text>
@@ -6055,12 +6128,45 @@
             </item>
           </children>
         </item>
+        <item id="j64LU92GqJh">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Check tests still work</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="ncpS8F2BOgC">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Test on 10.9 too</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="bFytgsBi0w9">
           <values>
             <text>
               <p>
                 <run>
                   <lit>Run analysis and make sure everything is OK</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="ljfGfEGQhin">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix Date::Manip mention in release notes.</lit>
                 </run>
               </p>
             </text>
@@ -6091,7 +6197,7 @@
         </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+    <item id="gotAfbOXCFU" state="indeterminate">
       <values>
         <text>
           <p>
@@ -6102,6 +6208,17 @@
         </text>
       </values>
       <children>
+        <item id="ocEoKGMvXZ_">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Migrate PSMovieAlert to PSSoundAlert as possible</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="aWv2ABzX8Pv" state="indeterminate">
           <values>
             <text>
@@ -6384,17 +6501,6 @@
             </text>
           </values>
           <children>
-            <item id="ou4tKpGSD_i">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Try using NSSound — it lets you set a playbackDeviceIdentifier</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
             <item id="omkT9ZPCZSw">
               <values>
                 <text>
