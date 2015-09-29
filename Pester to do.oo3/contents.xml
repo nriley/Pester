@@ -160,9 +160,7 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="kG1BKZsTaZB"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{7, 0}"/>
+    <selected-rows ids="d4lrfUo3eAD"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6076,18 +6074,7 @@
                 </item>
               </children>
             </item>
-            <item id="ipyX7gwiz8i">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Ugly artifacts when dragging the split bar (report a bug)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="d4lrfUo3eAD" expanded="yes">
+            <item id="d4lrfUo3eAD" expanded="yes" state="indeterminate">
               <values>
                 <text>
                   <p>
@@ -6101,7 +6088,7 @@
                 </text>
               </values>
               <children>
-                <item id="oDUQpx6_F9g">
+                <item id="oDUQpx6_F9g" state="checked">
                   <values>
                     <text>
                       <p>
@@ -6127,6 +6114,17 @@
                   </values>
                 </item>
               </children>
+            </item>
+            <item id="ipyX7gwiz8i">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Ugly artifacts when dragging the split bar (report a bug)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
             </item>
           </children>
         </item>
