@@ -160,7 +160,9 @@
   </settings>
   <editor content-size="{551, 639}" scroll-position="{0, 25}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="bFytgsBi0w9"/>
+    <selected-rows ids="ljfGfEGQhin"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{20, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6155,7 +6157,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Run analysis and make sure everything is OK</lit>
+                  <lit>Analyze and make sure everything is OK</lit>
                 </run>
               </p>
             </text>
@@ -6490,7 +6492,7 @@
             </item>
           </children>
         </item>
-        <item id="lJLlHRbPcb8" expanded="yes">
+        <item id="lJLlHRbPcb8">
           <values>
             <text>
               <p>
@@ -6535,122 +6537,6 @@
               </p>
             </text>
           </values>
-          <children>
-            <item id="o_HUpC9RrgI" expanded="yes">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Switch to AVAudioPlayer where supported (if we can create an </lit>
-                    </run>
-                    <run>
-                      <style>
-                        <value key="font-family">Menlo</value>
-                        <value key="font-fill">
-                          <color r="0.360784" g="0.14902" b="0.6"/>
-                        </value>
-                        <value key="font-fixed-pitch">yes</value>
-                        <value key="ligature-selection">none</value>
-                      </style>
-                      <lit>AVAudioFile</lit>
-                    </run>
-                    <run>
-                      <lit>) — 10.10+</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="pQOXX0_KDNX">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Dedup </lit>
-                        </run>
-                        <run>
-                          <style>
-                            <value key="font-family">Menlo</value>
-                            <value key="font-fill">
-                              <color r="0.247059" g="0.431373" b="0.454902"/>
-                            </value>
-                            <value key="font-fixed-pitch">yes</value>
-                            <value key="ligature-selection">none</value>
-                          </style>
-                          <lit>PLAlertRepetitions</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-            <item id="hIPIhSxk8nV">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>AVPlayer won&apos;t work for video</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="fy8QWDXJEjw" expanded="yes">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Redirecting audio is impossible — </lit>
-                        </run>
-                        <run>
-                          <lit><cell href="https://forums.developer.apple.com/message/59178" name="forums.developer.apple.com—59178" type="link"/></lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                  <children>
-                    <item id="aJZ6X99xr5p">
-                      <values>
-                        <text>
-                          <p>
-                            <run>
-                              <lit>File a bug</lit>
-                            </run>
-                          </p>
-                        </text>
-                      </values>
-                    </item>
-                  </children>
-                </item>
-                <item id="cihhCehRAXD">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Need to stay off the main thread: </lit>
-                        </run>
-                        <run>
-                          <lit><cell href="https://forums.developer.apple.com/message/39798#39798" name="forums.developer.apple.com—39798" type="link"/></lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="hd_EzNavzQi">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Likely just drop support for non-audio formats in the next version; too much trouble.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-          </children>
         </item>
         <item id="jhNYT_Qw9vK">
           <values>
@@ -7903,7 +7789,7 @@
               </p>
             </text>
           </values>
-          <note>
+          <note expanded="yes">
             <text>
               <p>
                 <run>
@@ -8454,17 +8340,6 @@
             </text>
           </values>
         </item>
-        <item id="nvsPGMRk62G">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Better propagate marketing version (have to change in too many places; see ICeCoffEE)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
         <item id="cS6a4UkzJrt">
           <values>
             <text>
@@ -8955,6 +8830,17 @@
                 </text>
               </values>
             </item>
+            <item id="fqPE6Pb9LcE">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>OACalendarView: replace with newer version? Not using current stuff.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
           </children>
         </item>
         <item id="eL79soqc3fW">
@@ -9035,17 +8921,6 @@
               </p>
             </text>
           </note>
-        </item>
-        <item id="fqPE6Pb9LcE">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>OACalendarView: replace with newer version? Not using current stuff.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="gYC-LwRNs54">
           <values>
@@ -9180,7 +9055,7 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Try NSSound for sounds; AVFoundation for movies; Quick Look (!) or PDFKit for still images/PDFs.</lit>
+                      <lit>AVFoundation for movies; Quick Look (!) or PDFKit for still images/PDFs.</lit>
                     </run>
                   </p>
                 </text>
@@ -9199,6 +9074,71 @@
                   </p>
                 </text>
               </values>
+            </item>
+            <item id="hIPIhSxk8nV" expanded="yes">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>AVPlayer won&apos;t work for video</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="fy8QWDXJEjw" expanded="yes">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Redirecting audio is impossible — </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="https://forums.developer.apple.com/message/59178" name="forums.developer.apple.com—59178" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="aJZ6X99xr5p">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>File a bug</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
+                </item>
+                <item id="cihhCehRAXD">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Need to stay off the main thread: </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="https://forums.developer.apple.com/message/39798#39798" name="forums.developer.apple.com—39798" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="hd_EzNavzQi">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Likely just drop support for non-audio formats; too much trouble.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
             </item>
             <item id="kDun6yg4TKi">
               <values>
