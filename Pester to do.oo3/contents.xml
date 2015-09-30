@@ -160,7 +160,9 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="gotAfbOXCFU"/>
+    <selected-rows ids="hUYALDG_47S"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{53, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6183,6 +6185,122 @@
         </text>
       </values>
       <children>
+        <item id="fc_13JEUtZ4" expanded="yes" state="indeterminate">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Auto-tomorrow *is* misbehaving.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="jzcI3imPTHR">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Somehow, the date gets set to a prior date and then everything just breaks. Not sure how this happens.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="kr2Lrqg_AuM">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Problem seems to be setting auto-tomorrow when the window first opens, *not* when tabbing into the field.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="coA43tsa67L">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Proposed fix: make the auto-tomorrow actually be auto-*today*.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="c5WcA1Zce9p">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>But this is what happens now! So when do we mess up?</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="gTmdxvUDr3W">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Perhaps we&apos;re not recognizing when Pester comes to the front or the window becomes visible, somehow.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="lFvO5fgreup">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>But we also may have an issue where it&apos;s advancing an extra day.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="nvmyvxut2Zc">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Might just want to insert logging.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="i9eiMXwsYTJ" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Idea: use cmd-J to highlight it when it changes.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="fVZiD4vHhLc" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Tried it; this requires we keep the selection intact for the period of the highlight.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+          </children>
+        </item>
         <item id="pl4S1ZzFw4V">
           <values>
             <text>
@@ -6203,6 +6321,17 @@
               <p>
                 <run>
                   <lit>Ugly artifacts when dragging the split bar (report a bug)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="hUYALDG_47S">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Check alignment of date popup menu on Retina displays</lit>
                 </run>
               </p>
             </text>
@@ -6609,7 +6738,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Update images in Preferences</lit>
+                  <lit>Update images in Read Me</lit>
                 </run>
               </p>
             </text>
@@ -6704,111 +6833,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="fc_13JEUtZ4" state="indeterminate">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Auto-tomorrow *is* misbehaving. Fix it.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="kr2Lrqg_AuM">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Problem seems to be setting auto-tomorrow when the window first opens, *not* when tabbing into the field.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="coA43tsa67L">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Proposed fix: make the auto-tomorrow actually be auto-*today*.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="c5WcA1Zce9p">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>But this is what happens now! So when do we mess up?</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="gTmdxvUDr3W">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Perhaps we&apos;re not recognizing when Pester comes to the front or the window becomes visible, somehow.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-            <item id="lFvO5fgreup">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>But we also may have an issue where it&apos;s advancing an extra day.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="nvmyvxut2Zc">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Might just want to insert logging.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="i9eiMXwsYTJ" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Idea: use cmd-J to highlight it when it changes.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="fVZiD4vHhLc" state="checked">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Tried it; this requires we keep the selection intact for the period of the highlight.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-          </children>
         </item>
         <item id="on-H0eb7CPg">
           <values>
