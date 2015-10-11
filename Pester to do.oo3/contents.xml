@@ -160,9 +160,9 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="hUYALDG_47S"/>
+    <selected-rows ids="ch2EDAGsL0q"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{53, 0}"/>
+    <selected-characters range="{62, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6185,6 +6185,17 @@
         </text>
       </values>
       <children>
+        <item id="ch2EDAGsL0q">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Split view autosizing is broken on 10.10.  Auto Layout, maybe?</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="fc_13JEUtZ4" expanded="yes" state="indeterminate">
           <values>
             <text>
@@ -6300,6 +6311,17 @@
               </children>
             </item>
           </children>
+        </item>
+        <item id="a6hpcEcVUrx">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Launching with Gatekeeper alert doesn&apos;t activate Pester any more on launch (10.11 only?).</lit>
+                </run>
+              </p>
+            </text>
+          </values>
         </item>
         <item id="pl4S1ZzFw4V">
           <values>
