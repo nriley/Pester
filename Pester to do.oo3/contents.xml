@@ -158,11 +158,11 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 639}" column-titles-display-mode="auto">
+  <editor content-size="{551, 639}" scroll-position="{0, 156}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="ch2EDAGsL0q"/>
+    <selected-rows ids="e1DplVtaAIa"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{62, 0}"/>
+    <selected-characters range="{0, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6185,6 +6185,17 @@
         </text>
       </values>
       <children>
+        <item id="nQNzEMaU2FC">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Incorporate new icon from José Manuel Sánchez (josema@vitaminew.com)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="ch2EDAGsL0q">
           <values>
             <text>
@@ -6894,7 +6905,7 @@
         </item>
       </children>
     </item>
-    <item id="nqWfp1JOMA5">
+    <item id="nqWfp1JOMA5" expanded="yes">
       <values>
         <text>
           <p>
@@ -6905,7 +6916,7 @@
         </text>
       </values>
       <children>
-        <item id="fYQJ4Bknvt1">
+        <item id="fYQJ4Bknvt1" expanded="yes">
           <values>
             <text>
               <p>
@@ -6921,7 +6932,13 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Repeat every day if date is omitted. ***</lit>
+                      <lit>Repeat every day if date is omitted (</lit>
+                    </run>
+                    <run>
+                      <lit>#19</lit>
+                    </run>
+                    <run>
+                      <lit>)</lit>
                     </run>
                   </p>
                 </text>
