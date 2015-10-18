@@ -158,11 +158,11 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 639}" scroll-position="{0, 156}" column-titles-display-mode="auto">
+  <editor content-size="{551, 639}" scroll-position="{0, 168}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
     <selected-rows ids="e1DplVtaAIa"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{0, 0}"/>
+    <selected-characters range="{39, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6935,7 +6935,7 @@
                       <lit>Repeat every day if date is omitted (</lit>
                     </run>
                     <run>
-                      <lit>#19</lit>
+                      <lit><cell href="https://github.com/nriley/Pester/issues/19" name="#19" type="link"/></lit>
                     </run>
                     <run>
                       <lit>)</lit>
