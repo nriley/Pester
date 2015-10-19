@@ -158,11 +158,9 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 639}" scroll-position="{0, 168}" column-titles-display-mode="auto">
+  <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="e1DplVtaAIa"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{39, 0}"/>
+    <selected-rows ids="nQNzEMaU2FC"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6179,18 +6177,24 @@
         <text>
           <p>
             <run>
-              <lit>For 1.1 final</lit>
+              <lit>1.1 final</lit>
             </run>
           </p>
         </text>
       </values>
       <children>
-        <item id="nQNzEMaU2FC">
+        <item id="nQNzEMaU2FC" state="checked">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Incorporate new icon from José Manuel Sánchez (josema@vitaminew.com)</lit>
+                  <lit>Incorporate new icon from José Manuel Sánchez (</lit>
+                </run>
+                <run>
+                  <lit><cell href="mailto:josema@vitaminew.com" name="josema@vitaminew.com" type="link"/></lit>
+                </run>
+                <run>
+                  <lit>)</lit>
                 </run>
               </p>
             </text>
@@ -6845,17 +6849,6 @@
             </text>
           </values>
         </item>
-        <item id="imAr-votsga">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Retina icon? Ask Diederik?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
         <item id="mnfOn6uvRmW">
           <values>
             <text>
@@ -6905,7 +6898,7 @@
         </item>
       </children>
     </item>
-    <item id="nqWfp1JOMA5" expanded="yes">
+    <item id="nqWfp1JOMA5">
       <values>
         <text>
           <p>
@@ -6916,7 +6909,7 @@
         </text>
       </values>
       <children>
-        <item id="fYQJ4Bknvt1" expanded="yes">
+        <item id="fYQJ4Bknvt1">
           <values>
             <text>
               <p>
@@ -6935,7 +6928,7 @@
                       <lit>Repeat every day if date is omitted (</lit>
                     </run>
                     <run>
-                      <lit><cell href="https://github.com/nriley/Pester/issues/19" name="#19" type="link"/></lit>
+                      <lit><cell href="https://github.com/nriley/Pester/issues/19" name="#19" expanded="yes" type="link"/></lit>
                     </run>
                     <run>
                       <lit>)</lit>
