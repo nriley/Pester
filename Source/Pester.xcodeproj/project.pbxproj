@@ -181,7 +181,7 @@
 		E1E1F1CD17BC7E3700DC565A /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CA17BC7E3700DC565A /* NSString+SymlinksAndAliases.m */; };
 		E1E1F1CE17BC7E3700DC565A /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CC17BC7E3700DC565A /* PFMoveApplication.m */; };
 		E1E1F1D217BC80C500DC565A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1F1D117BC80C500DC565A /* Security.framework */; };
-		E1FDFC271BB920EC00A4961B /* PSSoundAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FDFC261BB920EC00A4961B /* PSSoundAlert.m */; settings = {ASSET_TAGS = (); }; };
+		E1FDFC271BB920EC00A4961B /* PSSoundAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FDFC261BB920EC00A4961B /* PSSoundAlert.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
