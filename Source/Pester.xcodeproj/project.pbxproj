@@ -473,7 +473,7 @@
 		F59DC6E90353F58B01AEEDB1 /* NJRIntegerFilter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = NJRIntegerFilter.h; sourceTree = "<group>"; };
 		F59DC6FC0354188F01AEEDB1 /* NJRDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = NJRDateFormatter.h; sourceTree = "<group>"; };
 		F59DC6FD0354188F01AEEDB1 /* NJRDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NJRDateFormatter.m; sourceTree = "<group>"; };
-		F59DD4500358ABF4017318D0 /* en */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; name = en; path = en.lproj/Credits.html; sourceTree = "<group>"; };
+		F59DD4500358ABF4017318D0 /* en */ = {isa = PBXFileReference; fileEncoding = 7; lastKnownFileType = text.html; name = en; path = en.lproj/Credits.html; sourceTree = "<group>"; };
 		F59E47A7036AAA6D016B311C /* PSAlert.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PSAlert.m; sourceTree = "<group>"; };
 		F59E47A8036AAA6D016B311C /* PSAlert.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSAlert.h; sourceTree = "<group>"; };
 		F59E47AB036AAC1E016B311C /* PSBeepAlert.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PSBeepAlert.m; sourceTree = "<group>"; };
