@@ -66,7 +66,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
             [self _updateDockTile: nil];
         } else {
             [self _resetUpdateTimer];
-            [NSApp setApplicationIconImage: appIconImage];
+            self.applicationIconImage = appIconImage;
         }
         return;
     }
@@ -94,7 +94,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
     [alarmSetController showWindow: self];
     [window performSelector: @selector(setCollectionBehavior:) withObject:
      (id)NSWindowCollectionBehaviorDefault afterDelay: 0];
-    [NSApp activateIgnoringOtherApps: YES]; // XXX causes title bar to flash
+    [self activateIgnoringOtherApps: YES]; // XXX causes title bar to flash
 }
 
 - (void)orderFrontSetAlarmPanelIfPreferencesNotKey:(id)sender;
@@ -108,7 +108,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (IBAction)orderFrontAlarmsPanel:(id)sender;
 {
-    [NSApp activateIgnoringOtherApps: YES];
+    [self activateIgnoringOtherApps: YES];
     if (alarmsController == nil) {
         alarmsController = [[PSAlarmsController alloc] init];
     }
@@ -127,6 +127,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 {
     // XXX work around bug in OS X 10.7 / 10.8 where the Credits text is not centered (r. 14829080)
     NSSet *windowsBefore = [NSSet setWithArray:[NSApp windows]];
+    NSSet *windowsBefore = [NSSet setWithArray:[self windows]];
 
     [super orderFrontStandardAboutPanelWithOptions:optionsDictionary];
 
