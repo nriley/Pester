@@ -130,7 +130,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
     [super orderFrontStandardAboutPanelWithOptions:optionsDictionary];
 
-    for (NSWindow *window in [NSApp windows]) {
+    for (NSWindow *window in [self windows]) {
         if ([windowsBefore containsObject:window])
             continue;
 
@@ -161,7 +161,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 - (void)orderOutSetAlarmPanelIfHidden;
 {
     // prevent set alarm panel from "yanking" focus from an alarm notification, thereby obscuring the notification
-    if ([NSApp isActive])
+    if ([self isActive])
 	return;
     
     NSWindow *window = [alarmSetController window];
@@ -199,7 +199,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
     // NSLog(@"nextAlarmDidChange: %@", nextAlarm);
     [self _resetUpdateTimer];
     if (nextAlarm == nil) {
-        [NSApp setApplicationIconImage: appIconImage];
+        [self setApplicationIconImage: appIconImage];
     } else {
         [self _updateDockTile: nil];
     }
@@ -293,7 +293,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
     PSAlarm *alarm = [timer userInfo];
     if (timer == nil) alarm = [[PSAlarms allAlarms] nextAlarm];
     if (alarm == nil) return;
-	[NSApp setApplicationIconImage: [self iconImageWithAlarm: alarm]];
+	[self setApplicationIconImage: [self iconImageWithAlarm: alarm]];
 
     NSTimeInterval timeRemaining = [alarm timeRemaining];
     // NSLog(@"_updateDockTile > time remaining %@ (%.8lfs), last update interval %.8lfs", [alarm timeRemainingString], timeRemaining, dockUpdateInterval);
@@ -325,7 +325,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 {
     [[NSNotificationCenter defaultCenter] postNotificationName: PSApplicationWillReopenNotification object: self];
     // XXX sometimes alarmsExpiring is NO (?), and we display the alarm set controller on top of an expiring alarm, try to reproduce
-    if (!flag && ![[PSAlarms allAlarms] alarmsExpiring] && [NSApp modalWindow] == nil)
+    if (!flag && ![[PSAlarms allAlarms] alarmsExpiring] && [self modalWindow] == nil)
         [alarmSetController showWindow: self];
     return YES;
 }
@@ -392,19 +392,19 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (void)applicationWillTerminate:(NSNotification *)notification;
 {
-    [NSApp setApplicationIconImage: appIconImage];
+    [self setApplicationIconImage: appIconImage];
 }
 
 // calendar window (running in modal session) will appear even when app is in background; shouldn't
 - (void)applicationWillBecomeActive:(NSNotification *)notification;
 {
-    NSWindow *modalWindow = [NSApp modalWindow];
+    NSWindow *modalWindow = [self modalWindow];
     if (modalWindow != nil) [modalWindow makeKeyAndOrderFront: nil];
 }
 
 - (void)applicationWillResignActive:(NSNotification *)notification;
 {
-    NSWindow *modalWindow = [NSApp modalWindow];
+    NSWindow *modalWindow = [self modalWindow];
     if (modalWindow != nil) [modalWindow orderOut: nil];
 }
 
