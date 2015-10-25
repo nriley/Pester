@@ -141,11 +141,11 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
         font = [fontManager convertFont: font toFamily: systemFontFamily];
         [credits addAttribute: NSFontAttributeName value: font range: effectiveRange];
     }
-    
-    NSMutableDictionary *optionsWithCredits = [optionsDictionary mutableCopy];
+
+    NSMutableDictionary *optionsWithCredits = optionsDictionary == nil ? [[NSMutableDictionary alloc] initWithCapacity: 1] : [optionsDictionary mutableCopy];
     optionsWithCredits[@"Credits"] = credits;
     [credits release];
-    
+
     [super orderFrontStandardAboutPanelWithOptions: optionsWithCredits];
     [optionsWithCredits release];
 
