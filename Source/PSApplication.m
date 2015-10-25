@@ -128,7 +128,26 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
     // XXX work around bug in OS X 10.7-10.11 where the Credits text is not centered (r. 14829080)
     NSSet *windowsBefore = [NSSet setWithArray: [self windows]];
 
-    [super orderFrontStandardAboutPanelWithOptions: optionsDictionary];
+    // change credits font to current system font
+    NSData *creditsData = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource: @"Credits" ofType: @"html"]];
+    NSMutableAttributedString *credits = [[NSMutableAttributedString alloc] initWithHTML: creditsData documentAttributes: nil];
+    NSString *systemFontFamily = [[NSFont systemFontOfSize: [NSFont labelFontSize]].fontDescriptor objectForKey: NSFontFamilyAttribute];
+
+    NSFontManager *fontManager = [NSFontManager sharedFontManager];
+    NSRange effectiveRange = {0, 0};
+    NSUInteger length = credits.length;
+    while (NSMaxRange(effectiveRange) < length) {
+        NSFont *font = [credits attribute: NSFontAttributeName atIndex: NSMaxRange(effectiveRange) effectiveRange: &effectiveRange];
+        font = [fontManager convertFont: font toFamily: systemFontFamily];
+        [credits addAttribute: NSFontAttributeName value: font range: effectiveRange];
+    }
+    
+    NSMutableDictionary *optionsWithCredits = [optionsDictionary mutableCopy];
+    optionsWithCredits[@"Credits"] = credits;
+    [credits release];
+    
+    [super orderFrontStandardAboutPanelWithOptions: optionsWithCredits];
+    [optionsWithCredits release];
 
     for (NSWindow *window in [self windows]) {
         if ([windowsBefore containsObject: window])
