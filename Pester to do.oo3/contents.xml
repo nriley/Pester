@@ -160,7 +160,9 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="nQNzEMaU2FC"/>
+    <selected-rows ids="meBZ73gOV8P"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{10, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6183,7 +6185,7 @@
         </text>
       </values>
       <children>
-        <item id="nQNzEMaU2FC" state="checked">
+        <item id="nQNzEMaU2FC" expanded="yes">
           <values>
             <text>
               <p>
@@ -6199,6 +6201,30 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="meBZ73gOV8P">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Done (v2).</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="jug0UcC8w_y">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Still need to put the minute hand back in</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="ch2EDAGsL0q">
           <values>
@@ -6326,6 +6352,17 @@
               </children>
             </item>
           </children>
+        </item>
+        <item id="iXkl30N0T1E">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Growl and Sparkle framework headers are being shipped. Thought these were being stripped — something wrong with build process?</lit>
+                </run>
+              </p>
+            </text>
+          </values>
         </item>
         <item id="a6hpcEcVUrx">
           <values>
@@ -6909,7 +6946,7 @@
         </text>
       </values>
       <children>
-        <item id="fYQJ4Bknvt1">
+        <item id="fYQJ4Bknvt1" expanded="yes">
           <values>
             <text>
               <p>
