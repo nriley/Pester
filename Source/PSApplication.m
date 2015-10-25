@@ -125,8 +125,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (void)orderFrontStandardAboutPanelWithOptions:(NSDictionary *)optionsDictionary;
 {
-    // XXX work around bug in OS X 10.7 / 10.8 where the Credits text is not centered (r. 14829080)
-    NSSet *windowsBefore = [NSSet setWithArray:[NSApp windows]];
+    // XXX work around bug in OS X 10.7-10.11 where the Credits text is not centered (r. 14829080)
     NSSet *windowsBefore = [NSSet setWithArray:[self windows]];
 
     [super orderFrontStandardAboutPanelWithOptions:optionsDictionary];
