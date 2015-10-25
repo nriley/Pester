@@ -126,12 +126,12 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 - (void)orderFrontStandardAboutPanelWithOptions:(NSDictionary *)optionsDictionary;
 {
     // XXX work around bug in OS X 10.7-10.11 where the Credits text is not centered (r. 14829080)
-    NSSet *windowsBefore = [NSSet setWithArray:[self windows]];
+    NSSet *windowsBefore = [NSSet setWithArray: [self windows]];
 
-    [super orderFrontStandardAboutPanelWithOptions:optionsDictionary];
+    [super orderFrontStandardAboutPanelWithOptions: optionsDictionary];
 
     for (NSWindow *window in [self windows]) {
-        if ([windowsBefore containsObject:window])
+        if ([windowsBefore containsObject: window])
             continue;
 
         for (NSView *view in [[window contentView] subviews]) {
@@ -148,7 +148,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
             if (clipViewFrame.size.width != documentViewFrame.size.width) {
                 documentViewFrame.size.width = clipViewFrame.size.width;
-                [documentView setFrame:documentViewFrame];
+                [documentView setFrame: documentViewFrame];
                 break;
             }
         }
