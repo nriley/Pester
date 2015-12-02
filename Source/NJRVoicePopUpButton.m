@@ -220,12 +220,21 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
 
 - (void)setVoice:(NSString *)voice;
 {
-    NSInteger voiceIdx = [self indexOfItemWithRepresentedObject: voice];
+    NSInteger voiceIdx = [self getIndexForVoice: voice];
     if (voiceIdx == -1) {
         [self _invalidateVoiceSelection];
         return;
     }
     [self selectItemAtIndex: voiceIdx];
+}
+
+- (NSInteger) getIndexForVoice:(NSString *)voiceId {
+    NSInteger voiceIdx = [self indexOfItemWithRepresentedObject: voiceId];
+    if (voiceIdx > -1) {
+	return voiceIdx;
+    }
+    // try again with '.premium' suffix
+    return [self indexOfItemWithRepresentedObject: [voiceId stringByAppendingString:@".premium"]];
 }
 
 - (void)_previewVoice;
