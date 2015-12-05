@@ -160,9 +160,7 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="meBZ73gOV8P"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{10, 0}"/>
+    <selected-rows ids="d25qohnTJLU"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6185,7 +6183,42 @@
         </text>
       </values>
       <children>
-        <item id="nQNzEMaU2FC" expanded="yes">
+        <item id="lJLlHRbPcb8" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>See if we can stop the hang-on-alarm-set when system output device is set to AirPlay (and there is no current AirPlay output) — it is the case even if it&apos;s not the device being used by Pester!</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="omkT9ZPCZSw" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Even with AirPlay is not in use, we sometimes get a hang on window close.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="aCkJMZNRDEJ" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Apple may have just given up on this entirely as of 10.11, so it may not be worth fixing</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="nQNzEMaU2FC" state="checked">
           <values>
             <text>
               <p>
@@ -6202,7 +6235,7 @@
             </text>
           </values>
           <children>
-            <item id="meBZ73gOV8P">
+            <item id="meBZ73gOV8P" state="checked">
               <values>
                 <text>
                   <p>
@@ -6213,7 +6246,7 @@
                 </text>
               </values>
             </item>
-            <item id="jug0UcC8w_y">
+            <item id="jug0UcC8w_y" state="checked">
               <values>
                 <text>
                   <p>
@@ -6226,6 +6259,28 @@
             </item>
           </children>
         </item>
+        <item id="pNerOLSU3Rx" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix crash on startup when default voice is premium (#20; thanks to Sven-S. Porst)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="iXkl30N0T1E">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Growl and Sparkle framework headers are being shipped. Thought these were being stripped — something wrong with build process?</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="ch2EDAGsL0q">
           <values>
             <text>
@@ -6236,6 +6291,28 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="fbgw8SEHt9k">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>There seems to be a lot of new split view behavior in 10.11.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <note expanded="yes">
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="https://developer.apple.com/library/mac/releasenotes/AppKit/RN-AppKit/" name="developer.apple.com—RN-AppKit" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </note>
+            </item>
+          </children>
         </item>
         <item id="fc_13JEUtZ4" expanded="yes" state="indeterminate">
           <values>
@@ -6352,17 +6429,6 @@
               </children>
             </item>
           </children>
-        </item>
-        <item id="iXkl30N0T1E">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Growl and Sparkle framework headers are being shipped. Thought these were being stripped — something wrong with build process?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="a6hpcEcVUrx">
           <values>
@@ -6693,41 +6759,6 @@
             </item>
           </children>
         </item>
-        <item id="lJLlHRbPcb8">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>See if we can stop the hang-on-alarm-set when system output device is set to AirPlay (and there is no current AirPlay output) — it is the case even if it&apos;s not the device being used by Pester!</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="omkT9ZPCZSw">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Even with AirPlay is not in use, we sometimes get a hang on window close.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="aCkJMZNRDEJ">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Apple may have just given up on this entirely as of 10.11, so it may not be worth fixing</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
         <item id="jVNgf8Aen4-">
           <values>
             <text>
@@ -6806,17 +6837,6 @@
               </values>
             </item>
           </children>
-        </item>
-        <item id="d25qohnTJLU">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Update images in Read Me</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="fBzQIOZSu5i" expanded="yes">
           <values>
@@ -6903,6 +6923,17 @@
               <p>
                 <run>
                   <lit>Recent media validation may not be working at all; the method looks unfinished (see Clang Analyzer results).</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="d25qohnTJLU">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Update images in Read Me</lit>
                 </run>
               </p>
             </text>
