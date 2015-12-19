@@ -160,7 +160,7 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="d25qohnTJLU"/>
+    <selected-rows ids="iXkl30N0T1E"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6270,7 +6270,7 @@
             </text>
           </values>
         </item>
-        <item id="iXkl30N0T1E">
+        <item id="iXkl30N0T1E" state="checked">
           <values>
             <text>
               <p>
@@ -6280,6 +6280,22 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="azkrZ2a8CMJ" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>No, just Xcode being inscrutable. </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="http://stackoverflow.com/a/30920141/6372" name="stackoverflow.com—6372" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="ch2EDAGsL0q">
           <values>
@@ -6781,7 +6797,7 @@
             </text>
           </values>
         </item>
-        <item id="imT3VdoxENp">
+        <item id="imT3VdoxENp" expanded="yes">
           <values>
             <text>
               <p>
