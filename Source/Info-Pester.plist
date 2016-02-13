@@ -37,7 +37,7 @@
 	<key>SUExpectsDSASignature</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://sabi.net/nriley/software/Pester/updates.xml</string>
+	<string>https://sabi.net/nriley/software/Pester/updates.xml</string>
 	<key>SUPublicDSAKey</key>
 	<string>-----BEGIN PUBLIC KEY-----
 MIIDOjCCAi0GByqGSM44BAEwggIgAoIBAQCz8OxP7pTvOJ5Q2yW0b12P8hozumkQ
@@ -59,16 +59,5 @@ wl25FfzK7r8uG9e0lbz1mJuuhJfS0HnIrgmHdo+Vuv18HRAO1Q1NRPvGK2CsC2uX
 YSz77RTaBpnV48SKS36fulgcQNKHllEG/MtdHn66TLLHplNai8XvAvCC6H/0yKHF
 ncNZEp14qWoKVKn3CXk=
 -----END PUBLIC KEY-----</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>sabi.net</key>
-			<dict>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
 </dict>
 </plist>
