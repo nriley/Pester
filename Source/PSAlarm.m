@@ -76,7 +76,7 @@ JRErrExpressionAdapter(PSAlarm *(^block)(void), JRErrExpression *expression, NSE
     timeFormatter = [[NSDateFormatter alloc] init];
     [timeFormatter setTimeStyle: NSDateFormatterMediumStyle];
     [timeFormatter setDateStyle: NSDateFormatterNoStyle];
-    gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
 }
 
 - (void)dealloc;
