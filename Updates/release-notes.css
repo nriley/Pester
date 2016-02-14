@@ -33,15 +33,6 @@ tr {
 	vertical-align: top;
 }
 
-td.icon {
-	width: 150px;
-	height: 128px;
-	background-position: top center;
-	background-repeat: no-repeat;
-	background-image: url('Application icon.png');
-	background-attachment: scroll;
-}
-
 h3, th {
 	font-size: 11pt;
 	font-weight: bold;
