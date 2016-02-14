@@ -37,16 +37,20 @@
 <table>
     <tr><th>Pester 1.1 beta 21 (64)</th></tr>
     <tr><td><ul>
-        <li>Update icon for Retina displays and newer aesthetics —
-        thanks to José Manuel Sánchez for the contribution.</li>
+        <li>Use the current date when the Set Alarm window activates
+        and the date isn’t currently being edited; should prevent an
+        old date getting “stuck” and forcing you to explicitly choose
+        today or tomorrow.</li>
+        <li>Update icon for Retina displays and modern OS X aesthetics
+        — thanks to José Manuel Sánchez for the contribution.</li>
         <li>Don’t crash on startup if your default voice is a
         downloadable enhanced quality (”premium”) voice — thanks to
         Sven-S. Porst for the report and patch.</li>
-        <li>Use SSL for Sparkle appcast; works around a <a
+        <li>Use SSL to retrieve Pester’s appcast, working around a <a
         href="https://vulnsec.com/2016/osx-apps-vulnerabilities/">Sparkle
-        vulnerability.</a></li>
-        <li>Don’t ship Growl or Sparkle headers (reduces application
-        size).</li>
+        security vulnerability.</a></li>
+        <li>Don’t include Growl or Sparkle headers (reducing
+        application size).</li>
     </ul></td></tr>
 </table>
 <p />
