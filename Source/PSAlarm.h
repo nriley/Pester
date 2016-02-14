@@ -39,6 +39,8 @@ extern NSString * const PSAlarmDiedNotification;
     BOOL repeating;
 }
 
++ (NSCalendar *)calendar;
+
 - (void)setInterval:(NSTimeInterval)anInterval;
 - (void)setForDateAtTime:(NSCalendarDate *)dateTime;
 - (void)setForDate:(NSDate *)date atTime:(NSDate *)time;

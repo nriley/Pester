@@ -92,6 +92,13 @@ JRErrExpressionAdapter(PSAlarm *(^block)(void), JRErrExpression *expression, NSE
     [super dealloc];
 }
 
+#pragma mark calendar
+
++ (NSCalendar *)calendar;
+{
+    return gregorianCalendar;
+}
+
 #pragma mark private
 
 - (void)_setAlarmDate:(NSCalendarDate *)aDate;
