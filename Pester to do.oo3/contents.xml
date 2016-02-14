@@ -6172,7 +6172,7 @@
         </item>
       </children>
     </item>
-    <item id="ex_NK9LPjlo" expanded="yes" state="checked">
+    <item id="ex_NK9LPjlo" state="checked">
       <values>
         <text>
           <p>
@@ -6411,6 +6411,63 @@
         </text>
       </values>
       <children>
+        <item id="imT3VdoxENp">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Persist notifier position (partially implemented)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="hasINdeFaav">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Add a hidden pref</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="jqlKe6x3PPs">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>If no saved position, default to centering</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="mvVt89j0e_C">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Add some kind of removal hook to PSAlerts</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cORa2tOnnX7">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Document in release notes</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="ch2EDAGsL0q">
           <values>
             <text>
@@ -6807,63 +6864,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="imT3VdoxENp" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Persist notifier position</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="hasINdeFaav">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Add a hidden pref</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="jqlKe6x3PPs">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>If no saved position, default to centering</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="mvVt89j0e_C">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Add some kind of removal hook to PSAlerts</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="cORa2tOnnX7">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Document in release notes</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="fBzQIOZSu5i" expanded="yes">
           <values>
