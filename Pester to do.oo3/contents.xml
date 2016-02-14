@@ -160,7 +160,7 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="iXkl30N0T1E"/>
+    <selected-rows ids="ex_NK9LPjlo"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6172,12 +6172,12 @@
         </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+    <item id="ex_NK9LPjlo" expanded="yes" state="checked">
       <values>
         <text>
           <p>
             <run>
-              <lit>1.1 final</lit>
+              <lit>Beta 21</lit>
             </run>
           </p>
         </text>
@@ -6297,6 +6297,120 @@
             </item>
           </children>
         </item>
+        <item id="nVBTnoKEUuO" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>SSL for sabi.net and appcast</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <note expanded="yes">
+            <text>
+              <p>
+                <run>
+                  <lit><cell href="https://vulnsec.com/2016/osx-apps-vulnerabilities/" name="vulnsec.com—osx-apps-vulnerabilities" type="link"/></lit>
+                </run>
+              </p>
+            </text>
+          </note>
+        </item>
+        <item id="fc_13JEUtZ4" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Auto-tomorrow *is* misbehaving.</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="jzcI3imPTHR" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Somehow, the date gets set to a prior date and then everything just breaks. Not sure how this happens.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="kr2Lrqg_AuM" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Problem seems to be setting auto-tomorrow when the window first opens, *not* when tabbing into the field.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="coA43tsa67L" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Proposed fix: make the auto-tomorrow actually be auto-*today*.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="lFvO5fgreup" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>But we also may have an issue where it&apos;s advancing an extra day.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="i9eiMXwsYTJ" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Idea: use cmd-J to highlight it when it changes.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="fVZiD4vHhLc" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Tried it; this requires we keep the selection intact for the period of the highlight.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+          </children>
+        </item>
+      </children>
+    </item>
+    <item id="gotAfbOXCFU" state="indeterminate">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>1.1 final</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
         <item id="ch2EDAGsL0q">
           <values>
             <text>
@@ -6330,122 +6444,6 @@
             </item>
           </children>
         </item>
-        <item id="fc_13JEUtZ4" expanded="yes" state="indeterminate">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Auto-tomorrow *is* misbehaving.</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="jzcI3imPTHR">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Somehow, the date gets set to a prior date and then everything just breaks. Not sure how this happens.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="kr2Lrqg_AuM">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Problem seems to be setting auto-tomorrow when the window first opens, *not* when tabbing into the field.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="coA43tsa67L">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Proposed fix: make the auto-tomorrow actually be auto-*today*.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="c5WcA1Zce9p">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>But this is what happens now! So when do we mess up?</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="gTmdxvUDr3W">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Perhaps we&apos;re not recognizing when Pester comes to the front or the window becomes visible, somehow.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-            <item id="lFvO5fgreup">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>But we also may have an issue where it&apos;s advancing an extra day.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="nvmyvxut2Zc">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Might just want to insert logging.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="i9eiMXwsYTJ" state="checked">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Idea: use cmd-J to highlight it when it changes.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="fVZiD4vHhLc" state="checked">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Tried it; this requires we keep the selection intact for the period of the highlight.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-          </children>
-        </item>
         <item id="a6hpcEcVUrx">
           <values>
             <text>
@@ -6470,6 +6468,19 @@
               </p>
             </text>
           </values>
+          <children>
+            <item id="oOMoLa9fbqe">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="https://forums.developer.apple.com/thread/17664" name="forums.developer.apple.com—17664" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="ipyX7gwiz8i">
           <values>
@@ -6993,7 +7004,7 @@
         </text>
       </values>
       <children>
-        <item id="fYQJ4Bknvt1" expanded="yes">
+        <item id="fYQJ4Bknvt1">
           <values>
             <text>
               <p>
@@ -7020,6 +7031,19 @@
                   </p>
                 </text>
               </values>
+              <children>
+                <item id="cMl03hRBNmn">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>This is a lot of work. Probably several days&apos; worth. Probably want to migrate off NSCalendarDate first.  Some early attempts are in a branch on mary.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
             </item>
             <item id="hFUcMaCHqaD">
               <values>
@@ -9119,7 +9143,7 @@
         </text>
       </values>
       <children>
-        <item id="oF3K30LkPWO">
+        <item id="oF3K30LkPWO" expanded="yes">
           <values>
             <text>
               <p>
@@ -9158,6 +9182,17 @@
                   <p>
                     <run>
                       <lit><cell href="http://www.mikeabdullah.net/convert-between-path+reference-urls.html" name="www.mikeabdullah.net—convert-between-path+reference-urls.html" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="jFyCeIkRLER">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>LetsMove uses aliases too</lit>
                     </run>
                   </p>
                 </text>
