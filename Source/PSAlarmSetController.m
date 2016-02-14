@@ -686,17 +686,20 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 	return;
     
     // if date is today and we've picked a time before now, set the date for tomorrow
-    NSDate *dateTime = [NSCalendarDate dateWithDate: [timeDate objectValue] atTime: [timeOfDay objectValue]];
+    NSDate *date = [timeDate objectValue], *time = [timeOfDay objectValue];
+    NSDate *dateTime = [NSCalendarDate dateWithDate: date atTime: time];
     if (dateTime == nil)
 	return;
 
-    NSDate *now = [NSDate date];
-    NSCalendarDate *today = [NSCalendarDate dateForDay: now];
-    NSCalendarDate *date = [NSCalendarDate dateForDay: [timeDate objectValue]];
-    if (![date isEqualToDate: today] || [dateTime compare: now] != NSOrderedAscending)
-	return;
+    NSCalendar *calendar = [PSAlarm calendar];
+    if (![calendar isDateInToday: date])
+        return;
 
-    [timeDate setObjectValue: [today dateByAddingYears: 0 months: 0 days: 1 hours: 0 minutes: 0 seconds: 0]];
+    NSDate *now = [NSDate date];
+    if ([dateTime compare: now] != NSOrderedAscending)
+        return;
+
+    [timeDate setObjectValue: [calendar dateByAddingUnit: NSCalendarUnitDay value: 1 toDate: now options: NSCalendarMatchFirst]];
     [self update: timeOfDay];
 }
 
