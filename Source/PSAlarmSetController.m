@@ -664,6 +664,15 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 
     [[notifyWith NJR_itemWithRepresentedObjectNameOfClass: [PSGrowlAlert class]] setEnabled: growlAvailable];
     [[notifyWith NJR_itemWithRepresentedObjectNameOfClass: [PSUserNotificationAlert class]] setEnabled: userNotificationsAvailable];
+
+    // If date is in the past and isn't being edited, use today so alarm setting/auto-tomorrow can work
+    if ([timeDate currentEditor] == nil) {
+        NSDate *date = [timeDate objectValue], *now = [NSDate date];
+        if (date != nil && [[PSAlarm calendar] compareDate: date toDate: now toUnitGranularity: NSCalendarUnitDay] == NSOrderedAscending) {
+            [timeDate setObjectValue: now];
+            [self update: nil];
+        }
+    }
 }
 
 - (void)windowWillClose:(NSNotification *)notification;
