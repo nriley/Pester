@@ -160,7 +160,9 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="gotAfbOXCFU"/>
+    <selected-rows ids="jAOT-TLS_lI"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{12, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6411,6 +6413,17 @@
         </text>
       </values>
       <children>
+        <item id="cFomdV6AMyi">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>The “–” button doesn&apos;t work reliably (the item gets reinserted at the top of the list).</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="imT3VdoxENp">
           <values>
             <text>
@@ -9137,7 +9150,7 @@
         <text>
           <p>
             <run>
-              <lit>1.2 (10.10+) — address deprecations</lit>
+              <lit>1.2 (10.11+?) — address deprecations</lit>
             </run>
           </p>
         </text>
