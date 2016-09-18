@@ -136,6 +136,8 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
 	[soundFolderPaths addObject: (NSString *)pathString];
 	CFRelease(pathString);
     }
+
+    NSArray *audiovisualTypes = AVURLAsset.audiovisualTypes;
     NSFileManager *fm = [NSFileManager defaultManager];
     NSEnumerator *e = [soundFolderPaths objectEnumerator];
     NSString *folderPath;
@@ -151,6 +153,20 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
 		[de skipDescendents]; // [sic]
 		continue;
 	    }
+
+            NSString *type = [[NSWorkspace sharedWorkspace] typeOfFile: path error: NULL];
+            if (type == nil)
+                continue;
+
+            BOOL hasConformingType = NO;
+            for (NSString *matchingType in audiovisualTypes) {
+                if (UTTypeConformsTo((CFStringRef)type, (CFStringRef)matchingType)) {
+                    hasConformingType = YES;
+                    break;
+                }
+            }
+            if (!hasConformingType)
+                continue;
 
             NSURL *url = [NSURL fileURLWithPath: path];
             AVAsset *asset = [[AVURLAsset alloc] initWithURL: url options: nil];
