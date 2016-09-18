@@ -2,36 +2,59 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-	<title>What's new in Pester</title>
-	<meta name="robots" content="anchors" />
-	<link href="release-notes.css" type="text/css" rel="stylesheet" media="all" />
-	<script type="text/javascript">
-		window.onload = function() {
-			if (location.hash == '#sparkle')
-				document.getElementById('sparkle-note').style.cssText = '';
-		}
-	</script>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>What's new in Pester</title>
+    <meta name="robots" content="anchors" />
+    <link href="release-notes.css" type="text/css" rel="stylesheet" media="all" />
+    <script type="text/javascript">
+    window.onload = function() {
+      if (location.hash == '#sparkle')
+        document.getElementById('sparkle-note').style.cssText = '';
+    }
+    </script>
 </head>
 
 <body>
 <table class="note" id="sparkle-note" style="display: none">
-	<tr><th>Important: do not click “Install Update”</th></tr>
-	<tr><td>
+    <tr><th>Important: do not click “Install Update”</th></tr>
+    <tr><td>
         <p>A recent Apple security update causes updates through this
         window to fail.</p>
-        <p>To update,
-        please <a href="http://sabi.net/nriley/software/Pester-1.1b19.dmg">download
-            Pester 1.1b19</a> (for OS X 10.8) or
-        <a href="http://sabi.net/nriley/software/Pester-1.1.dmg">Pester
-          1.1</a> (for OS X 10.9–10.11) and replace this copy of
+        <p>To update, please <a href="http://sabi.net/nriley/software/Pester-1.1b19.dmg">download
+        Pester 1.1b19</a> (for OS X 10.8) or
+        <a href="http://sabi.net/nriley/software/Pester-1.1b22.dmg">Pester
+        1.1b2</a> (for OS X 10.9–10.12) and replace this copy of
         Pester with the updated version.</p>
         <p><b>You must update Pester if you are using OS X Mountain
         Lion (10.8) or later: versions 1.1b14 and earlier will not
         work properly.</b></p>
-        <p>Pester 1.1b15 and later are again able to update
-        through this window.</p>
-	</td></tr>
+        <p>Pester 1.1b15 and later are again able to update through
+        this window.</p>
+    </td></tr>
+</table>
+<p />
+<table>
+    <tr><th>Pester 1.1 beta 22 (66)</th></tr>
+    <tr><td><ul>
+        <li>Pester is now a 64-bit application.</li>
+        <li>Use AVFoundation rather than QuickTime for movie playback.
+        Note that this removes support for playback of some formats;
+        please let me know if (and why) you rely on any of these, and
+        I will consider re-adding them to a future version of Pester.
+        Because of a limitation of AVFoundation, audio from movie
+        playback will be sent to the system sound output device,
+        rather than the alert device selected in Preferences.
+        </li>
+        <li>Fix an issue introduced in 1.1b20 in which movie alerts
+        would play their audio only, not their video.</li>
+        <li>Update to the current version of Sparkle.</li>
+        <li>Pester no longer bounces its Dock icon when it is
+        frontmost, since there is no supported way to do so in a
+        64-bit application.</li>
+        <li>Support natural-language date and time entry on macOS
+        Sierra (10.12), by linking to Perl 5.16 on macOS
+        10.9&ndash;10.12.</li>
+    </ul></td></tr>
 </table>
 <p />
 <table>
@@ -237,100 +260,100 @@
 <table>
     <tr><th>Pester 1.1 beta 15 (48)</th></tr>
     <tr><td><ul>
-	<li>Fix rare instances where the Dock displays an inaccurate
-	time remaining.</li>
-	<li>Fix Read Me losing its section navigation.  (If you're
-	viewing the Read Me on a Retina display, you may find it gains
-	unwanted horizontal scrolling.  To work around this issue,
-	close and reopen the Read Me window.)</li>
-	<li>Fix natural-language date processing on OS X Mountain
-	Lion.  Earlier Pester 1.1 betas are not compatible with OS X
-	Mountain Lion.</li>
-	<li>Permit entry of single-digit hour/minute times without
-	punctuation or an initial zero.  For example, you can now type
-	“930” for 9:30, where previously “0930” or “9:30” was
-	required.</li>
-	<li>Don’t require the discrete GPU on MacBook Pro models from
-	early 2011 and later, on OS X Lion or later. If you’re using an
-	earlier OS X version or an older multi-GPU MacBook Pro, Apple
-	provides no way for Pester to “opt out” of the discrete GPU.  You
-	may find <a href="https://gfx.io">gfxCardStatus</a> helpful as a
-	workaround.</li>
-	<li>Update Growl framework to 1.2.3.</li>
-	<li>Update Sparkle to work around a problem with update
-	verification that only occurred after recent OS X security
-	updates.</li>
-	<li>Sign with Developer ID for Gatekeeper on OS X Mountain
-	Lion (10.8).</li>
+        <li>Fix rare instances where the Dock displays an inaccurate
+        time remaining.</li>
+        <li>Fix Read Me losing its section navigation.  (If you're
+        viewing the Read Me on a Retina display, you may find it gains
+        unwanted horizontal scrolling.  To work around this issue,
+        close and reopen the Read Me window.)</li>
+        <li>Fix natural-language date processing on OS X Mountain
+        Lion.  Earlier Pester 1.1 betas are not compatible with OS X
+        Mountain Lion.</li>
+        <li>Permit entry of single-digit hour/minute times without
+        punctuation or an initial zero.  For example, you can now type
+        “930” for 9:30, where previously “0930” or “9:30” was
+        required.</li>
+        <li>Don’t require the discrete GPU on MacBook Pro models from
+        early 2011 and later, on OS X Lion or later. If you’re using
+        an earlier OS X version or an older multi-GPU MacBook Pro,
+        Apple provides no way for Pester to “opt out” of the discrete
+        GPU.  You may find <a href="https://gfx.io">gfxCardStatus</a>
+        helpful as a workaround.</li>
+        <li>Update Growl framework to 1.2.3.</li>
+        <li>Update Sparkle to work around a problem with update
+        verification that only occurred after recent OS X security
+        updates.</li>
+        <li>Sign with Developer ID for Gatekeeper on OS X Mountain
+        Lion (10.8).</li>
     </ul></td></tr>
 </table>
 <p />
 <table>
-	<tr><th>Pester 1.1 beta 14 (47)</th></tr>
-	<tr><td><ul>
+    <tr><th>Pester 1.1 beta 14 (47)</th></tr>
+    <tr><td><ul>
         <li>Avoid a crash that can be triggered by dragging the volume
         slider quickly on OS X Lion.  To ensure accurate volume
         preview, drag the slider more slowly (or use the keyboard if
         full keyboard access is enabled).</li>
-	<li>Fix a problem with relative date/time display where the
-	cutoff for a larger unit was 999 hours/days; now displays
-	smaller units up to twice the larger unit.  Multiple units are
-	still only used up to &ldquo;days and hours&rdquo;, not
-	&ldquo;weeks and days&rdquo;.</li>
+        <li>Fix a problem with relative date/time display where the
+        cutoff for a larger unit was 999 hours/days; now displays
+        smaller units up to twice the larger unit.  Multiple units are
+        still only used up to &ldquo;days and hours&rdquo;, not
+        &ldquo;weeks and days&rdquo;.</li>
         <li>Fix a few minor visual glitches on OS X Lion.</li>
-	<li>Update Growl framework to 1.2.2 for compatibility with
-	Growl 1.3 (OS X Lion only).</li>
-	</ul></td></tr>
+        <li>Update Growl framework to 1.2.2 for compatibility with
+        Growl 1.3 (OS X Lion only).</li>
+    </ul></td></tr>
 </table>
 <p />
 <table>
-	<tr><th>Pester 1.1 beta 13 (46)</th></tr>
-	<tr><td><ul>
+    <tr><th>Pester 1.1 beta 13 (46)</th></tr>
+    <tr><td><ul>
         <li><b>Note:</b> This version requires Mac OS X 10.6 or later,
         including OS X Lion (10.7); 1.1b12 is the last version of
         Pester to support Mac OS X 10.4 and 10.5.</li>
         <li>Link to Perl 5.10 rather than 5.8, to support OS X Lion.
         Earlier Pester 1.1 betas are not compatible with OS X Lion.</li>
-	</ul></td></tr>
+    </ul></td></tr>
 </table>
 <p />
 <table>
-	<tr><th>Pester 1.1 beta 12 (42)</th></tr>
-	<tr><td><ul>
+    <tr><th>Pester 1.1 beta 12 (42)</th></tr>
+    <tr><td><ul>
         <li>Display alarm remaining time in a friendlier fashion.  (Build 42: don’t display “0 seconds”, etc.).</li>
         <li>Fix problem where Pester keyboard equivalents involving the “A” key would not be assigned.</li>
         <li>Wake up the display when a message is displayed.  By putting the display to sleep with ⌃⇧⏏ after setting an alarm, you can thus use Pester as an effective visual alarm.  (Just make sure your Mac doesn’t go to sleep or enter a locking screen saver before the alarm expires.)</li>
-	</ul></td></tr>
+    </ul></td></tr>
 </table>
 <p />
 <table>
-	<tr><th>Pester 1.1 beta 11 (39)</th></tr>
-	<tr><td><ul>
-	    <li>Added <a href="http://growl.info/">Growl</a> alerts. Configure Growl alert appearance and behavior from Growl System Preferences or the Growl application (in 2.0 and later).  Growl is optional; install it separately if you wish to use it.</li>
-	    <li>If Growl is installed, display an alarm’s time remaining when it is set as a confirmation.  You can disable this from the Growl System Preferences pane as well.</li>
-	    <li>Fix Preferences not displaying on Mac OS X 10.4.</li>
-	    <li>Fix intermittent failure to play the correct speech voice.</li>
-	    <li>Fix memory leak on speech completion on Mac OS X 10.5.</li>
-	    <li>Make date popup fully functional for French and more functional for Italian and Swedish.</li>
-	</ul></td></tr>
+    <tr><th>Pester 1.1 beta 11 (39)</th></tr>
+    <tr><td><ul>
+        <li>Added <a href="http://growl.info/">Growl</a> alerts. Configure Growl alert appearance and behavior from Growl System Preferences or the Growl application (in 2.0 and later).  Growl is optional; install it separately if you wish to use it.</li>
+        <li>If Growl is installed, display an alarm’s time remaining when it is set as a confirmation.  You can disable this from the Growl System Preferences pane as well.</li>
+        <li>Fix Preferences not displaying on Mac OS X 10.4.</li>
+        <li>Fix intermittent failure to play the correct speech voice.</li>
+        <li>Fix memory leak on speech completion on Mac OS X 10.5.</li>
+        <li>Make date popup fully functional for French and more functional for Italian and Swedish.</li>
+    </ul></td></tr>
 </table>
 <p />
 <table>
-	<tr><th>Pester 1.1 beta 10 (36)</th></tr>
-	<tr><td><ul>
-	    <li>Fix regression whereby Pester would not come to the front automatically in Mac OS X 10.5.</li>
-	    <li>Fix problems where various Pester keyboard equivalents could not be assigned; improve reliability of keyboard equivalent display.</li>
-	    <li>Fix crash on speech voice preview.</li>
-	    <li>Handle audio devices being connected/disconnected while Pester is running.</li>
-	    <li>Really fix some long-standing inconsistencies between icon and Dock menu time display.</li>
-	</ul></td></tr>
+    <tr><th>Pester 1.1 beta 10 (36)</th></tr>
+    <tr><td><ul>
+        <li>Fix regression whereby Pester would not come to the front automatically in Mac OS X 10.5.</li>
+        <li>Fix problems where various Pester keyboard equivalents could not be assigned; improve reliability of keyboard equivalent display.</li>
+        <li>Fix crash on speech voice preview.</li>
+        <li>Handle audio devices being connected/disconnected while Pester is running.</li>
+        <li>Really fix some long-standing inconsistencies between icon and Dock menu time display.</li>
+    </ul></td></tr>
 </table>
 <p />
 <table>
-	<tr><th>Pester 1.1 beta 9 (35)</th></tr>
-	<tr><td><ul>
-	    <li>If you have no snooze time set, then choose “until,” then cancel, restore the previously selected snooze duration.</li>
-	    <li>Handle default alert device changing while Pester is running.</li>
+    <tr><th>Pester 1.1 beta 9 (35)</th></tr>
+    <tr><td><ul>
+        <li>If you have no snooze time set, then choose “until,” then cancel, restore the previously selected snooze duration.</li>
+        <li>Handle default alert device changing while Pester is running.</li>
             <li>Allow keyboard navigation of the Read Me.</li>
             <li>Expand selectable sound output device (in Preferences) to speech as well as alert sounds (Mac OS X 10.5 and later).</li>
             <li>Make date popup fully functional for German and Dutch.</li>
@@ -340,56 +363,56 @@
             <li>Readd “– All” (remove all recent messages) via Option-click.</li>
             <li>Fix launching on machines without English as the preferred language (sorry!).</li>
             <li>Don’t allow setting =, `, etc. as the Pester keyboard equivalent.</li>
-	</ul></td></tr>
+    </ul></td></tr>
 </table>
 <p />
 <table>
-	<tr><th>Pester 1.1 beta 8 (31)</th></tr>
-	<tr><td><ul>
-	    <li>Added customizable alert sounds—the most requested feature. The feature uses QuickTime, so you're welcome to pick a movie or even a bitmap or PDF to use instead.</li>
-	    <li>Added selectable sound output device (in Preferences) and adjustable volume for alert sounds. (Note: Pester doesn't yet respond to audio devices being connected/disconnected while it is running, although you should always get audio output <em>somewhere</em>.)</li>
-	    <li>Baseline, ICU-based support for non-natural language dates and times is much more robust (for example, simply “20” or “8p” works to specify 8:00 PM).</li>
-	    <li>Support natural-language dates in non-English languages via <tt>Date::Manip</tt>. I uncovered some bugs here, which the author of <tt>Date::Manip</tt> is working on fixing, but Catalan, Danish, Dutch, French, German, Polish and Russian should work fine. The date popup is limited to the days of the week, for now.</li>
-	    <li>Optionally wait until you stop typing or moving the mouse to display a message. This is quite helpful so you don't start typing into the Snooze box when you want to be typing into another document. The feature is disabled by default; enable it in Preferences.</li>
-	    <li>Handle time zone changes, many more time zones, and more reliably determine the time zone.</li>
-	    <li>Autocomplete common natural-language dates.</li>
-	    <li>Simplify tab ordering.</li>
-	    <li>Better save and restore focus when you're working as an alarm goes off; will no longer bring unwanted windows to the front.</li>
-	    <li>Open the Set Alarm window in the current Space when triggered with a keyboard equivalent or the Dock menu.</li>
-	    <li>Switch to tomorrow automatically if necessary when tabbing into “on”. If you specify a time that's already passed, while the specified date is today, simply tabbing into the date field will switch the date to tomorrow.</li>
-	    <li>Display “today” and “tomorrow” in the bottom left corner of the Set Alarm window.</li>
-	    <li>Open the Set Alarm window in the current Space when triggered with a keyboard equivalent or the Dock menu.</li>
-	    <li>If the Set Alarm window was visible when Pester was last active, prevent it from switching Spaces and obscuring a notification alert.</li>
-	    <li>(Re-)added optional dock icon bouncing, which works more reliably.</li>
-	    <li>Restored “today” item to date completion menus.</li>
-	    <li>Fix horizontal resizing glitches in the Alarms window.</li>
-	    <li>Save the most recent alarm message across runs of Pester.</li>
-	    <li>Disable the “–” button when it would do nothing.</li>
+    <tr><th>Pester 1.1 beta 8 (31)</th></tr>
+    <tr><td><ul>
+        <li>Added customizable alert sounds—the most requested feature. The feature uses QuickTime, so you're welcome to pick a movie or even a bitmap or PDF to use instead.</li>
+        <li>Added selectable sound output device (in Preferences) and adjustable volume for alert sounds. (Note: Pester doesn't yet respond to audio devices being connected/disconnected while it is running, although you should always get audio output <em>somewhere</em>.)</li>
+        <li>Baseline, ICU-based support for non-natural language dates and times is much more robust (for example, simply “20” or “8p” works to specify 8:00 PM).</li>
+        <li>Support natural-language dates in non-English languages via <tt>Date::Manip</tt>. I uncovered some bugs here, which the author of <tt>Date::Manip</tt> is working on fixing, but Catalan, Danish, Dutch, French, German, Polish and Russian should work fine. The date popup is limited to the days of the week, for now.</li>
+        <li>Optionally wait until you stop typing or moving the mouse to display a message. This is quite helpful so you don't start typing into the Snooze box when you want to be typing into another document. The feature is disabled by default; enable it in Preferences.</li>
+        <li>Handle time zone changes, many more time zones, and more reliably determine the time zone.</li>
+        <li>Autocomplete common natural-language dates.</li>
+        <li>Simplify tab ordering.</li>
+        <li>Better save and restore focus when you're working as an alarm goes off; will no longer bring unwanted windows to the front.</li>
+        <li>Open the Set Alarm window in the current Space when triggered with a keyboard equivalent or the Dock menu.</li>
+        <li>Switch to tomorrow automatically if necessary when tabbing into “on”. If you specify a time that's already passed, while the specified date is today, simply tabbing into the date field will switch the date to tomorrow.</li>
+        <li>Display “today” and “tomorrow” in the bottom left corner of the Set Alarm window.</li>
+        <li>Open the Set Alarm window in the current Space when triggered with a keyboard equivalent or the Dock menu.</li>
+        <li>If the Set Alarm window was visible when Pester was last active, prevent it from switching Spaces and obscuring a notification alert.</li>
+        <li>(Re-)added optional dock icon bouncing, which works more reliably.</li>
+        <li>Restored “today” item to date completion menus.</li>
+        <li>Fix horizontal resizing glitches in the Alarms window.</li>
+        <li>Save the most recent alarm message across runs of Pester.</li>
+        <li>Disable the “–” button when it would do nothing.</li>
             <li>Added “days” and “weeks” alarm interval units.</li>
-	    <li>Allow specifying intervals up to 999 weeks.</li>
+        <li>Allow specifying intervals up to 999 weeks.</li>
             <li>Many more bug fixes and full compatibility with Mac OS X 10.6 Snow Leopard.</li>
-	</ul></td></tr>
+    </ul></td></tr>
 </table>
 <p />
 <table>
-	<tr><th>Pester 1.1 beta 7 (24)</th></tr>
-	<tr><td><ul>
-	    <li>Fix “Snooze until” times being an hour late in some time zones.</li>
-	    <li>Fix speech voices displaying as dotted identifiers instead of names.</li>
-	    <li>Fix crash on launch on PowerPC Macs running Leopard.</li>
-	</ul></td></tr>
+    <tr><th>Pester 1.1 beta 7 (24)</th></tr>
+    <tr><td><ul>
+        <li>Fix “Snooze until” times being an hour late in some time zones.</li>
+        <li>Fix speech voices displaying as dotted identifiers instead of names.</li>
+        <li>Fix crash on launch on PowerPC Macs running Leopard.</li>
+    </ul></td></tr>
 </table>
 <p />
 <table>
-	<tr><th>Pester 1.1 beta 6 (22)</th></tr>
-	<tr><td><ul>
-	    <li>Repeating alarms continue to repeat if they didn’t expire while Pester was not running.</li>
-	    <li>(Re-)added speech alerts.</li>
-	    <li>Alert help tags in the alarm list appear correctly in Leopard.</li>
-	    <li>Changes to the field you’re editing are saved when switching between “in” and “at”.</li>
-	    <li>Corrected validation of the alert repetition field which allowed you to specify zero (blank) or over 99 repetitions.</li>
-	    <li>Pester 1.0 alarms no longer create duplicates of themselves on import.</li>
-	</ul></td></tr>
+    <tr><th>Pester 1.1 beta 6 (22)</th></tr>
+    <tr><td><ul>
+        <li>Repeating alarms continue to repeat if they didn’t expire while Pester was not running.</li>
+        <li>(Re-)added speech alerts.</li>
+        <li>Alert help tags in the alarm list appear correctly in Leopard.</li>
+        <li>Changes to the field you’re editing are saved when switching between “in” and “at”.</li>
+        <li>Corrected validation of the alert repetition field which allowed you to specify zero (blank) or over 99 repetitions.</li>
+        <li>Pester 1.0 alarms no longer create duplicates of themselves on import.</li>
+    </ul></td></tr>
 </table>
 </body>
 </html>
