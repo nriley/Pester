@@ -577,7 +577,6 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
     if (mask & NSDragOperationMove) [s appendString: @" move"];
     if (mask & NSDragOperationDelete) [s appendString: @" delete"];
     if (mask & NSDragOperationEvery) [s appendString: @" every"];
-    if (mask & NSDragOperationNone) [s appendString: @" none"];
     [s appendFormat: @"\nImage: %@ at %@", [sender draggedImage],
         NSStringFromPoint([sender draggedImageLocation])];
     [s appendFormat: @"\nDestination: %@ at %@", [sender draggingDestinationWindow],
