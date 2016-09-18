@@ -155,15 +155,12 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
-      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="mPiGQj3PbaX"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{14, 0}"/>
+    <selected-rows ids="gfesp4ACuOT"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6458,7 +6455,29 @@
             </text>
           </values>
         </item>
-        <item id="cdQ-cexKFk3" state="indeterminate">
+        <item id="m6MqEj5bWx0" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Hot keys are broken (no 64-bit refCon)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="nFl6dCQXfSW">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Hot keys are not getting deregistered appropriately (if you reset with the same hot key, it activates Pester twice)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="cdQ-cexKFk3" expanded="yes" state="indeterminate">
           <values>
             <text>
               <p>
@@ -6469,29 +6488,7 @@
             </text>
           </values>
           <children>
-            <item id="bD3Iir_7V_L">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Will get bugs if people view images/PDFs, I guess</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="jeAXV8loZaG">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Things that don’t work any more: PDFs, images</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="jZ4eav_FhrO">
+            <item id="jZ4eav_FhrO" state="checked">
               <values>
                 <text>
                   <p>
@@ -6514,7 +6511,7 @@
                 </text>
               </note>
               <children>
-                <item id="gxG3Bnt2RLC">
+                <item id="gxG3Bnt2RLC" state="checked">
                   <values>
                     <text>
                       <p>
@@ -6525,7 +6522,7 @@
                     </text>
                   </values>
                 </item>
-                <item id="j6C-dUrilZr">
+                <item id="j6C-dUrilZr" state="checked">
                   <values>
                     <text>
                       <p>
@@ -6539,7 +6536,7 @@
                     </text>
                   </values>
                 </item>
-                <item id="hIPIhSxk8nV">
+                <item id="hIPIhSxk8nV" state="checked">
                   <values>
                     <text>
                       <p>
@@ -6550,7 +6547,7 @@
                     </text>
                   </values>
                   <children>
-                    <item id="fy8QWDXJEjw">
+                    <item id="fy8QWDXJEjw" state="checked">
                       <values>
                         <text>
                           <p>
@@ -6564,7 +6561,7 @@
                         </text>
                       </values>
                       <children>
-                        <item id="aJZ6X99xr5p">
+                        <item id="aJZ6X99xr5p" state="checked">
                           <values>
                             <text>
                               <p>
@@ -6577,7 +6574,7 @@
                         </item>
                       </children>
                     </item>
-                    <item id="cihhCehRAXD">
+                    <item id="cihhCehRAXD" state="checked">
                       <values>
                         <text>
                           <p>
@@ -6591,7 +6588,7 @@
                         </text>
                       </values>
                     </item>
-                    <item id="hd_EzNavzQi">
+                    <item id="hd_EzNavzQi" state="checked">
                       <values>
                         <text>
                           <p>
@@ -6604,23 +6601,36 @@
                     </item>
                   </children>
                 </item>
-                <item id="kDun6yg4TKi">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>If we just want to *run* on 64-bit, we only need to migrate off for audio-containing items</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="fUQ6HrVGun0">
+                <item id="fUQ6HrVGun0" state="checked">
                   <values>
                     <text>
                       <p>
                         <run>
                           <lit>qtmodernizer(1)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="jeAXV8loZaG" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Things that don’t work any more: PDFs, images</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="bD3Iir_7V_L" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Will get bugs if people view images/PDFs, I guess</lit>
                         </run>
                       </p>
                     </text>
@@ -6645,6 +6655,93 @@
                   <p>
                     <run>
                       <lit>Wow, this was *already* broken. As long as a movie had a soundtrack, we could create a PSSoundAlert with it. Whoops.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="o1LlpnJiQjS" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Test repetition</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="fQeV2wkzQuq" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Filter with AVURLAsset.audiovisualTypes, or you get lots of logging on 10.10</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <note expanded="yes">
+                <text>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">28</value>
+                        <value key="paragraph-tab-stops">28L</value>
+                      </style>
+                      <lit>[09:44:54.920] &lt;&lt;&lt; FFR_Common &gt;&gt;&gt; FigFormatReaderCreateForStreamReturningMatchingContainerLabelType: *** Could not find format reader for URL &quot;</lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">28</value>
+                        <value key="paragraph-tab-stops">28L</value>
+                      </style>
+                      <lit><cell href="file:///Users/nicholas/Library/Sounds/.DS_Store" alias="AAAAAAFiAAIAAARNYXJ5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMy9JESCsAAAAKi/cJLkRTX1N0b3JlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqL+MNQkGgAAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAABlNvdW5kcwAQAAgAAMzMGJQAAAARAAgAAMNQyKgAAAABABAACov3AAhYMQAFyxwAAgY6AAIAME1hcnk6VXNlcnM6AG5pY2hvbGFzOgBMaWJyYXJ5OgBTb3VuZHM6AC5EU19TdG9yZQAOABQACQAuAEQAUwBfAFMAdABvAHIAZQAPAAoABABNAGEAcgB5ABIAJ1VzZXJzL25pY2hvbGFzL0xpYnJhcnkvU291bmRzLy5EU19TdG9yZQAAEwABLwAAFQACAA///wAA" name=".DS_Store" type="link"/></lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">28</value>
+                        <value key="paragraph-tab-stops">28L</value>
+                      </style>
+                      <lit>&quot; path &quot;/Users/nicholas/Library/Sounds/.DS_Store&quot; extension &quot;DS_Store&quot; FileType &apos;&apos; MIMETYPE &quot;(null)&quot; SuggFileName &quot;(null)&quot; SuggNameExtension &quot;(null)&quot;</lit>
+                    </run>
+                  </p>
+                </text>
+              </note>
+            </item>
+            <item id="bYB3h0JUuwF">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Shouldn&apos;t be able to drag onto disabled button</lit>
                     </run>
                   </p>
                 </text>
@@ -7458,17 +7555,6 @@
                 </text>
               </note>
             </item>
-            <item id="o1LlpnJiQjS">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Test repetition</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
             <item id="bOgfeGj5L4n">
               <values>
                 <text>
@@ -7480,40 +7566,7 @@
                 </text>
               </values>
             </item>
-            <item id="fQeV2wkzQuq">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Get a list of UTIs from AVAsset.audiovisualTypes</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
           </children>
-        </item>
-        <item id="m6MqEj5bWx0" state="checked">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Hot keys are broken (no 64-bit refCon)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="nFl6dCQXfSW">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Hot keys are not getting deregistered appropriately (if you reset with the same hot key, it activates Pester twice)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="mPiGQj3PbaX">
           <values>
@@ -7526,7 +7579,7 @@
             </text>
           </values>
         </item>
-        <item id="gfesp4ACuOT">
+        <item id="gfesp4ACuOT" expanded="yes">
           <values>
             <text>
               <p>
@@ -7558,6 +7611,19 @@
               </p>
             </text>
           </note>
+          <children>
+            <item id="nFfG_V48gYh">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Only happening on my MBP? Huh?</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
         </item>
         <item id="i2CmyW3sH9I">
           <values>
