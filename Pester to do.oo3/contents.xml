@@ -160,7 +160,9 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="gfesp4ACuOT"/>
+    <selected-rows ids="fQeV2wkzQuq"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{37, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6681,7 +6683,7 @@
                   </p>
                 </text>
               </values>
-              <note expanded="yes">
+              <note>
                 <text>
                   <p>
                     <run>
@@ -6731,6 +6733,39 @@
                         <value key="paragraph-tab-stops">28L</value>
                       </style>
                       <lit>&quot; path &quot;/Users/nicholas/Library/Sounds/.DS_Store&quot; extension &quot;DS_Store&quot; FileType &apos;&apos; MIMETYPE &quot;(null)&quot; SuggFileName &quot;(null)&quot; SuggNameExtension &quot;(null)&quot;</lit>
+                    </run>
+                  </p>
+                </text>
+              </note>
+            </item>
+            <item id="m4zuxN-9toD">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>More errors when closing the on 10.10</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <note expanded="yes">
+                <text>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">28</value>
+                        <value key="paragraph-tab-stops">28L</value>
+                      </style>
+                      <lit>[10:00:07.596] itemasync_CopyProperty signalled err=-12785 (kFigBaseObjectError_Invalidated) (invalidated) at /SourceCache/CoreMedia/CoreMedia-1562.240/Prototypes/Player/FigPlayer_Async.c line 2088</lit>
                     </run>
                   </p>
                 </text>
