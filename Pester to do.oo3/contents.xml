@@ -155,14 +155,15 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
+      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="fQeV2wkzQuq"/>
+    <selected-rows ids="bYB3h0JUuwF"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{37, 0}"/>
+    <selected-characters range="{38, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6468,17 +6469,6 @@
             </text>
           </values>
         </item>
-        <item id="nFl6dCQXfSW">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Hot keys are not getting deregistered appropriately (if you reset with the same hot key, it activates Pester twice)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
         <item id="cdQ-cexKFk3" expanded="yes" state="indeterminate">
           <values>
             <text>
@@ -6743,7 +6733,7 @@
                 <text>
                   <p>
                     <run>
-                      <lit>More errors when closing the on 10.10</lit>
+                      <lit>Errors when closing the movie controller window on 10.10</lit>
                     </run>
                   </p>
                 </text>
@@ -7590,18 +7580,18 @@
                 </text>
               </note>
             </item>
-            <item id="bOgfeGj5L4n">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Check if NJR_isStatic works like I expect (images?)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
           </children>
+        </item>
+        <item id="nFl6dCQXfSW">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Hot keys are not getting deregistered appropriately (if you reset with the same hot key, it activates Pester twice)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
         </item>
         <item id="mPiGQj3PbaX">
           <values>
@@ -7717,6 +7707,30 @@
         </text>
       </values>
       <children>
+        <item id="onCiaQxRRoB" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>More QuickTime conversion?</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="nLSiLYGb6p9">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Remove NJR_isStatic? It isn&apos;t even relevant because we don&apos;t handle images</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="oF3K30LkPWO" expanded="yes">
           <values>
             <text>
