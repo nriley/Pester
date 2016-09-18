@@ -28,7 +28,6 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 {
     NSURL *url = [anAlias fileURL];
     if (url == nil) {
-        [self release];
         [NSException raise: PSAlertCreationException format: NSLocalizedString(@"Can't locate media to play as alert.", "Exception message on PSMovieAlert initialization when alias doesn't resolve")];
     }
     alias = [anAlias retain];

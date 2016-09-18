@@ -27,7 +27,6 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 {
     NSString *path = [anAlias fullPath];
     if (path == nil) {
-        [self release];
         [NSException raise: PSAlertCreationException format: NSLocalizedString(@"Can't locate sound to play as alert.", "Exception message on PSSoundAlert initialization when alias doesn't resolve")];
     }
     alias = [anAlias retain];
