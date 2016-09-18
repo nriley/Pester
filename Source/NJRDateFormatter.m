@@ -69,8 +69,8 @@ static NSString *timeFormats[] = {
     NSInteger minorVersion = NJROSXMinorVersion();
 
     NSString *libName;
-    if (minorVersion == 9 || minorVersion == 10 || minorVersion == 11)
-        libName = @"libParseDate-10.9"; // Perl 5.16: 5.12/5.16 in 10.9; 5.16/5.18 in 10.10 and 10.11
+    if (minorVersion >= 9 && minorVersion <= 12)
+        libName = @"libParseDate-10.9"; // Perl 5.16: 5.12/5.16 in 10.9; 5.16/5.18 in 10.10Ð10.12
     else
         return;
 
