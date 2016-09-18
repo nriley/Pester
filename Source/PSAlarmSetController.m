@@ -93,7 +93,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
                 [[JRErrContext currentContext] popError]; // don't log unhandled error
 
                 NSString *title = @"Unable to restore alerts";
-                NSString *description = [NSString stringWithFormat: @"Pester could not restore recent alert information for the Set Alarm window, probably because you have previously used a newer version of Pester.\n\n%@", [e reason]];
+                NSString *description = [NSString stringWithFormat: @"Pester could not restore recent alert information for the Set Alarm window, potentially because you have previously used a newer version of Pester.\n\n%@", [e reason]];
                 NSString *alternateButton = nil;
                 NSString *otherButton = @"Use Defaults";
 

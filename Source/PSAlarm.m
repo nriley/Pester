@@ -661,7 +661,7 @@ flooredInterval:
             [self setAlerts: alarmAlerts];
             [alarmAlerts release];
             if (alarmAlerts == nil || jrErr) {
-                NSString *description = [NSString stringWithFormat: NSLocalizedString(@"Pester could not fully restore the alerts for alarm '%@', probably because they were created with a newer version of Pester.", "PSAlarmAlertsFailedToDeserializeError description"), [self message]];
+                NSString *description = [NSString stringWithFormat: NSLocalizedString(@"Pester could not fully restore the alerts for alarm '%@', potentially because they were created with a newer version of Pester.", "PSAlarmAlertsFailedToDeserializeError description"), [self message]];
                 if (jrErr) {
                     description = [description stringByAppendingFormat: @"\n\n%@", [[[JRErrContext currentContext]popError] localizedDescription]];
                 }
