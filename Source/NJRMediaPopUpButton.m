@@ -474,11 +474,11 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
     NSString *path = [selectedAlias fullPath];
     NSURL *url = path == nil ? nil : [NSURL fileURLWithPath: [selectedAlias fullPath]];
-    [openPanel setAllowsMultipleSelection: NO];
-    [openPanel setCanChooseDirectories: NO];
-    [openPanel setCanChooseFiles: YES];
-    [openPanel setDelegate: self];
-    [openPanel setDirectoryURL: url]; // [sic] - this works with a file URL
+    openPanel.allowedFileTypes = AVURLAsset.audiovisualTypes;
+    openPanel.allowsMultipleSelection = NO;
+    openPanel.canChooseDirectories = NO;
+    openPanel.canChooseFiles = YES;
+    openPanel.directoryURL = url; // [sic] - this works with a file URL
 
     [openPanel beginSheetModalForWindow: [self window] completionHandler:
      ^(NSInteger result) {
@@ -524,21 +524,6 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
     } else {
         [super drawRect: rect];
     }
-}
-
-@end
-
-@implementation NJRMediaPopUpButton (NSSavePanelDelegate)
-
-- (BOOL)panel:(id)sender shouldEnableURL:(NSURL *)url;
-{
-    BOOL isDir = NO;
-    [[NSFileManager defaultManager] fileExistsAtPath: url.path isDirectory: &isDir];
-
-    if (isDir)
-	return YES;
-
-    return [AVAsset assetWithURL: url].isPlayable;
 }
 
 @end
