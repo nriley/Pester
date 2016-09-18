@@ -14,7 +14,6 @@
 #include <Carbon/Carbon.h>
 
 static PSDockBounceAlert *PSDockBounceAlertShared;
-static NMRec nmr;
 
 @interface PSDockBounceAlert (Private)
 - (void)_stopBouncing;
@@ -29,10 +28,6 @@ static NMRec nmr;
 	
 	[[NSNotificationCenter defaultCenter] addObserver: PSDockBounceAlertShared selector: @selector(_stopBouncing) name: PSAlarmAlertStopNotification object: nil];
 	[[NSNotificationCenter defaultCenter] addObserver: PSDockBounceAlertShared selector: @selector(_stopBouncing) name:PSApplicationWillReopenNotification object: nil];
-	
-	bzero(&nmr, sizeof(nmr));
-	nmr.nmMark = 1;
-	nmr.qType = nmType;
     }
     
     return PSDockBounceAlertShared;
@@ -40,23 +35,12 @@ static NMRec nmr;
 
 - (void)_stopBouncing;
 {
-#if !__LP64__
-    if ((void *)nmr.nmRefCon != self)
-	return;
-    
-    nmr.nmRefCon = 0;
-    NMRemove(&nmr);
-#endif
+    [NSApp cancelUserAttentionRequest: userAttentionRequest];
 }
 
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
-#if !__LP64__
-    if (nmr.nmRefCon == 0) {
-	nmr.nmRefCon = (long)self;
-	NMInstall(&nmr);
-    }
-#endif
+    userAttentionRequest = [NSApp requestUserAttention: NSCriticalRequest];
 
     [self completedForAlarm: alarm];
 }

@@ -6,12 +6,11 @@
 //  Copyright (c) 2002 Nicholas Riley. All rights reserved.
 //
 
-#import <QTKit/QTKit.h>
-#import <QuickTime/Movies.h>
+#import <AVFoundation/AVFoundation.h>
+#import "AVAsset-NJRExtensions.h"
 #import "PSMovieAlert.h"
 #import "PSMovieAlertController.h"
 #import "NSDictionary-NJRExtensions.h"
-#import "QTMovie-NJRExtensions.h"
 #import "BDAlias.h"
 
 // property list keys
@@ -27,25 +26,17 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 // shared partial initializer - requires superclass initializer be run first
 - (id)_initWithMovieFileAlias:(BDAlias *)anAlias;
 {
-    NSString *path = [anAlias fullPath];
-    if (path == nil) {
+    NSURL *url = [anAlias fileURL];
+    if (url == nil) {
         [self release];
         [NSException raise: PSAlertCreationException format: NSLocalizedString(@"Can't locate media to play as alert.", "Exception message on PSMovieAlert initialization when alias doesn't resolve")];
     }
     alias = [anAlias retain];
-    QTMovie *movie = [[QTMovie alloc] initWithFile: path error: NULL];
-    if (movie == nil) {
+    AVAsset *asset = [AVAsset assetWithURL: url];
+    if (asset == nil || ![asset NJR_hasVideo]) {
         [self release];
         self = nil;
-    } else {
-        hasAudio = [movie NJR_hasAudio];
-        hasVideo = [movie NJR_hasVideo];
-        
-        if (!hasAudio && !hasVideo) {
-            [self release]; self = nil;
-        }
     }
-    [movie release];
 
     return self;
 }
@@ -68,13 +59,13 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     return hasVideo;
 }
 
-- (QTMovie *)movie;
+- (AVAsset *)asset;
 {
-    NSString *path = [alias fullPath];
-    if (path == nil)
+    NSURL *url = [alias fileURL];
+    if (url == nil)
 	return nil;
     
-    return [[[QTMovie alloc] initWithFile: path error: NULL] autorelease];
+    return [AVAsset assetWithURL: url];
 }
 
 - (BDAlias *)movieFileAlias;
@@ -99,13 +90,9 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     [PSMovieAlertController newControllerWithAlarm: alarm movieAlert: self];
 }
 
-#if __LP64__
-#define kNoVolume 0
-#endif
-
 - (NSAttributedString *)actionDescription;
 {
-    BOOL isStatic = [[self movie] NJR_isStatic];
+    BOOL isStatic = [[self asset] NJR_isStatic];
     NSMutableAttributedString *string = [[(isStatic ? @"Show " : @"Play ") small] mutableCopy];
     NSString *kindString = nil, *name = [alias displayNameWithKindString: &kindString];
     if (name == nil) name = NSLocalizedString(@"<<can't locate media file>>", "Movie alert description surrogate for media display name when alias doesn't resolve");
@@ -114,7 +101,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     if (repetitions > 1 && !isStatic) {
         [string appendAttributedString: [[NSString stringWithFormat: @" %hu times", repetitions] small]];
     }
-    if (hasAudio && outputVolume != kNoVolume) {
+    if (hasAudio && outputVolume != 0) {
         [string appendAttributedString: [[NSString stringWithFormat: @" at %.0f%% volume", outputVolume * 100] small]];
     }
     return [string autorelease];

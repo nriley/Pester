@@ -35,7 +35,6 @@
 		E11E00DD17BEE6B400BA997C /* PSWakeAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E19FD39F03C98645001509F3 /* PSWakeAlert.m */; };
 		E11E00DE17BEE72B00BA997C /* PSAlarmAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E47B4036AAD55016B311C /* PSAlarmAlertController.m */; };
 		E11E00DF17BEE75C00BA997C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		E11E00E017BEE76300BA997C /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B121B30CF639A1004975AA /* QTKit.framework */; };
 		E11E00E117BEE76F00BA997C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F240D0036A87E301FE7503 /* Carbon.framework */; };
 		E11E00E217BEE77900BA997C /* BDAlias.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F240CA036A869401FE7503 /* BDAlias.m */; };
 		E11E00E317BEE79100BA997C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D847116EB43A00207746 /* AudioToolbox.framework */; };
@@ -45,7 +44,6 @@
 		E11E00E717BEE7D600BA997C /* PSGrowlController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BE3781224388B00240657 /* PSGrowlController.m */; };
 		E11E00E817BEE7F200BA997C /* NSDictionary-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EE8DB9038A76AC0134BEAC /* NSDictionary-NJRExtensions.m */; };
 		E11E00E917BEE80F00BA997C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; };
-		E11E00EA17BEE82500BA997C /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D94C8911473CBA00C88B55 /* QuickTime.framework */; };
 		E11E00EB17BEE82E00BA997C /* PSAlarmsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F517D63E0356B80C016D68B9 /* PSAlarmsController.m */; };
 		E11E00EC17BEE83F00BA997C /* JRErr.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E00B117BEE23B00BA997C /* JRErr.m */; };
 		E11E00ED17BEE84500BA997C /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
@@ -91,6 +89,10 @@
 		E1985798104F68EC0082AC3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
 		E19857B6104F697D0082AC3E /* libParseDate-10.9.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E198579D104F68EC0082AC3E /* libParseDate-10.9.dylib */; };
 		E19D2D751158181A00B68D9F /* DateCompletions.strings in Resources */ = {isa = PBXBuildFile; fileRef = E19D2D731158181A00B68D9F /* DateCompletions.strings */; };
+		E19ECC561D8E8CC400552F66 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19ECC551D8E8CC400552F66 /* AVFoundation.framework */; };
+		E19ECC591D8E949B00552F66 /* AVAsset-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E19ECC581D8E949B00552F66 /* AVAsset-NJRExtensions.m */; };
+		E19ECC5B1D8EAD1800552F66 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19ECC5A1D8EAD1800552F66 /* CoreMedia.framework */; };
+		E19ECC5D1D8EB2AC00552F66 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19ECC5C1D8EB2AC00552F66 /* AVKit.framework */; };
 		E1A927E817A9EA1000322A13 /* NSPopUpButton-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A927E717A9EA1000322A13 /* NSPopUpButton-NJRExtensions.m */; };
 		E1AECF941A18068600559A5F /* NJROperatingSystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = E194E73E1A0FEA47004070C5 /* NJROperatingSystemVersion.m */; };
 		E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */ = {isa = PBXBuildFile; fileRef = F59DC6DF0353DF5E01AEEDB1 /* Notifier.nib */; };
@@ -116,17 +118,15 @@
 		E1B11F420CF5F30F004975AA /* NJRFSObjectSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F240B5036A862101FE7503 /* NJRFSObjectSelector.m */; };
 		E1B11F430CF5F30F004975AA /* NJRHistoryTrackingComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F560E3160357895001A4E466 /* NJRHistoryTrackingComboBox.m */; };
 		E1B11F440CF5F30F004975AA /* NJRIntegerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F59DC6E80353F58B01AEEDB1 /* NJRIntegerFilter.m */; };
-		E1B11F450CF5F30F004975AA /* NJRQTMediaPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F240CC036A877301FE7503 /* NJRQTMediaPopUpButton.m */; };
+		E1B11F450CF5F30F004975AA /* NJRMediaPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F240CC036A877301FE7503 /* NJRMediaPopUpButton.m */; };
 		E1B11F460CF5F30F004975AA /* NJRScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F552A8AC0358E8B201AEEDB1 /* NJRScrollView.m */; };
 		E1B11F470CF5F30F004975AA /* NJRTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F198D0036BE57401EB0372 /* NJRTableDelegate.m */; };
 		E1B11F480CF5F30F004975AA /* NJRTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B79836035F64F80136A8DD /* NJRTableView.m */; };
-		E1B11F490CF5F30F004975AA /* NJRUnfocusableMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0B14B03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.m */; };
 		E1B11F4A0CF5F30F004975AA /* NJRVoicePopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F19870036B822E01EB0372 /* NJRVoicePopUpButton.m */; };
 		E1B11F4B0CF5F30F004975AA /* NSAttributedString-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0B26903AEDE8600AEFBE0 /* NSAttributedString-NJRExtensions.m */; };
 		E1B11F4C0CF5F30F004975AA /* NSCalendarDate-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E162698A03B6190B00000028 /* NSCalendarDate-NJRExtensions.m */; };
 		E1B11F4D0CF5F30F004975AA /* NSCharacterSet-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B79865038865B30136A8DD /* NSCharacterSet-NJRExtensions.m */; };
 		E1B11F4E0CF5F30F004975AA /* NSDictionary-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EE8DB9038A76AC0134BEAC /* NSDictionary-NJRExtensions.m */; };
-		E1B11F500CF5F30F004975AA /* QTMovie-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E4C0D036B43D2016B311C /* QTMovie-NJRExtensions.m */; };
 		E1B11F510CF5F30F004975AA /* NSString-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0B14F03ADBE3800AEFBE0 /* NSString-NJRExtensions.m */; };
 		E1B11F520CF5F30F004975AA /* NSTableView-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E162698303B6189000000028 /* NSTableView-NJRExtensions.m */; };
 		E1B11F530CF5F30F004975AA /* PSAlarm.m in Sources */ = {isa = PBXBuildFile; fileRef = F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */; };
@@ -171,9 +171,7 @@
 		E1B11F830CF5F30F004975AA /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14DB31203B8038300000028 /* IOKit.framework */; };
 		E1B11F840CF5F30F004975AA /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18DAAEE0442D02500050002 /* CoreAudio.framework */; };
 		E1B121970CF62FD1004975AA /* NSMenuItem-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B121960CF62FD1004975AA /* NSMenuItem-NJRExtensions.m */; };
-		E1B121B40CF639A1004975AA /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B121B30CF639A1004975AA /* QTKit.framework */; };
 		E1C26DAD17C0685A0057E74F /* NSString-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0B14F03ADBE3800AEFBE0 /* NSString-NJRExtensions.m */; };
-		E1D94C8A11473CBA00C88B55 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D94C8911473CBA00C88B55 /* QuickTime.framework */; };
 		E1DE3C15115930BD00C17BB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1DE3C13115930BD00C17BB0 /* Localizable.strings */; };
 		E1E0EFEA145DF20100C421D4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722B9F5713DCF2B6000E0C3D /* Sparkle.framework */; };
 		E1E1F14717B2E42C00444F94 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1E1F14617B2E42C00444F94 /* FontAwesome.otf */; };
@@ -401,6 +399,11 @@
 		E19CC53E0CFDE48C0079DCFC /* ParseDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseDate.m; sourceTree = "<group>"; };
 		E19D2D741158181A00B68D9F /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E19DCBD203BE4AA200B934BF /* Pester_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Pester_Prefix.h; sourceTree = "<group>"; };
+		E19ECC551D8E8CC400552F66 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E19ECC571D8E949B00552F66 /* AVAsset-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAsset-NJRExtensions.h"; sourceTree = "<group>"; };
+		E19ECC581D8E949B00552F66 /* AVAsset-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAsset-NJRExtensions.m"; sourceTree = "<group>"; };
+		E19ECC5A1D8EAD1800552F66 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E19ECC5C1D8EB2AC00552F66 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		E19FD39E03C98645001509F3 /* PSWakeAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWakeAlert.h; sourceTree = "<group>"; };
 		E19FD39F03C98645001509F3 /* PSWakeAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWakeAlert.m; sourceTree = "<group>"; };
 		E1A18CAB03B4344C00000028 /* PSAlerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAlerts.h; sourceTree = "<group>"; };
@@ -413,7 +416,6 @@
 		E1B11F8C0CF5F30F004975AA /* Pester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B121950CF62FD1004975AA /* NSMenuItem-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMenuItem-NJRExtensions.h"; sourceTree = "<group>"; };
 		E1B121960CF62FD1004975AA /* NSMenuItem-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMenuItem-NJRExtensions.m"; sourceTree = "<group>"; };
-		E1B121B30CF639A1004975AA /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E1BF67B811E37E0400A85B42 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E1BF6E9003C928D200050002 /* PSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTimer.h; sourceTree = "<group>"; };
 		E1BF6E9103C928D200050002 /* PSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTimer.m; sourceTree = "<group>"; };
@@ -421,7 +423,6 @@
 		E1CDEC3E0444053F00AEEDB1 /* NJRNonCenteringWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRNonCenteringWindow.m; sourceTree = "<group>"; };
 		E1D88CEF11E4BA9800F472E6 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = hr.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E1D88CF011E4BA9900F472E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DateCompletions.strings; sourceTree = "<group>"; };
-		E1D94C8911473CBA00C88B55 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		E1DE3C14115930BD00C17BB0 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E1DEF0F903FE9F2C00050002 /* NJROffCenterPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJROffCenterPanel.h; sourceTree = "<group>"; };
 		E1DEF0FA03FE9F2C00050002 /* NJROffCenterPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJROffCenterPanel.m; sourceTree = "<group>"; };
@@ -438,8 +439,6 @@
 		E1E1F1CC17BC7E3700DC565A /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; tabWidth = 4; };
 		E1E1F1D117BC80C500DC565A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E1EF3EE8177FF6760051200A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DateCompletions.strings; sourceTree = "<group>"; };
-		E1F0B14A03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJRUnfocusableMovieView.h; sourceTree = "<group>"; };
-		E1F0B14B03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJRUnfocusableMovieView.m; sourceTree = "<group>"; };
 		E1F0B14E03ADBE3800AEFBE0 /* NSString-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-NJRExtensions.h"; sourceTree = "<group>"; };
 		E1F0B14F03ADBE3800AEFBE0 /* NSString-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-NJRExtensions.m"; sourceTree = "<group>"; };
 		E1F0B26803AEDE8600AEFBE0 /* NSAttributedString-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString-NJRExtensions.h"; sourceTree = "<group>"; };
@@ -491,8 +490,6 @@
 		F59E4BDF036B1D94016B311C /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = "en.lproj/Movie alert.nib"; sourceTree = "<group>"; };
 		F59E4BE6036B2E5E016B311C /* PSScriptAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSScriptAlert.m; sourceTree = "<group>"; };
 		F59E4BE7036B2E5E016B311C /* PSScriptAlert.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSScriptAlert.h; sourceTree = "<group>"; };
-		F59E4C0D036B43D2016B311C /* QTMovie-NJRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = "QTMovie-NJRExtensions.m"; sourceTree = "<group>"; };
-		F59E4C0E036B43D2016B311C /* QTMovie-NJRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "QTMovie-NJRExtensions.h"; sourceTree = "<group>"; };
 		F59F6CB40354E7DA01AEEDB1 /* PSAlarm.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PSAlarm.h; sourceTree = "<group>"; };
 		F59F6CB50354E7DA01AEEDB1 /* PSAlarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAlarm.m; sourceTree = "<group>"; tabWidth = 8; };
 		F5B79836035F64F80136A8DD /* NJRTableView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NJRTableView.m; sourceTree = "<group>"; };
@@ -511,8 +508,8 @@
 		F5F240B6036A862101FE7503 /* NJRFSObjectSelector.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = NJRFSObjectSelector.h; sourceTree = "<group>"; };
 		F5F240B9036A867901FE7503 /* BDAlias.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = BDAlias.h; sourceTree = "<group>"; };
 		F5F240CA036A869401FE7503 /* BDAlias.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = BDAlias.m; sourceTree = "<group>"; };
-		F5F240CC036A877301FE7503 /* NJRQTMediaPopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NJRQTMediaPopUpButton.m; sourceTree = "<group>"; };
-		F5F240CD036A877301FE7503 /* NJRQTMediaPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = NJRQTMediaPopUpButton.h; sourceTree = "<group>"; };
+		F5F240CC036A877301FE7503 /* NJRMediaPopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = NJRMediaPopUpButton.m; sourceTree = "<group>"; };
+		F5F240CD036A877301FE7503 /* NJRMediaPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = NJRMediaPopUpButton.h; sourceTree = "<group>"; };
 		F5F240D0036A87E301FE7503 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -522,11 +519,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E11E00DF17BEE75C00BA997C /* Cocoa.framework in Frameworks */,
-				E11E00E017BEE76300BA997C /* QTKit.framework in Frameworks */,
 				E11E00E117BEE76F00BA997C /* Carbon.framework in Frameworks */,
 				E11E00E317BEE79100BA997C /* AudioToolbox.framework in Frameworks */,
 				E11E00E917BEE80F00BA997C /* Growl.framework in Frameworks */,
-				E11E00EA17BEE82500BA997C /* QuickTime.framework in Frameworks */,
 				E11E00F117BEE86600BA997C /* Security.framework in Frameworks */,
 				E11E00F217BEE87900BA997C /* CoreAudio.framework in Frameworks */,
 				E11E00F617BEE8A300BA997C /* IOKit.framework in Frameworks */,
@@ -554,16 +549,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1E1F1D217BC80C500DC565A /* Security.framework in Frameworks */,
-				E1B11F7F0CF5F30F004975AA /* Cocoa.framework in Frameworks */,
-				E1B11F800CF5F30F004975AA /* Carbon.framework in Frameworks */,
-				E1B11F830CF5F30F004975AA /* IOKit.framework in Frameworks */,
-				E1B11F840CF5F30F004975AA /* CoreAudio.framework in Frameworks */,
-				E1B121B40CF639A1004975AA /* QTKit.framework in Frameworks */,
-				E1D94C8A11473CBA00C88B55 /* QuickTime.framework in Frameworks */,
 				E102D848116EB43A00207746 /* AudioToolbox.framework in Frameworks */,
 				E102D84A116EB43A00207746 /* AudioUnit.framework in Frameworks */,
 				E102D876116EB73100207746 /* ApplicationServices.framework in Frameworks */,
+				E19ECC561D8E8CC400552F66 /* AVFoundation.framework in Frameworks */,
+				E19ECC5D1D8EB2AC00552F66 /* AVKit.framework in Frameworks */,
+				E1B11F800CF5F30F004975AA /* Carbon.framework in Frameworks */,
+				E1B11F7F0CF5F30F004975AA /* Cocoa.framework in Frameworks */,
+				E1B11F840CF5F30F004975AA /* CoreAudio.framework in Frameworks */,
+				E19ECC5B1D8EAD1800552F66 /* CoreMedia.framework in Frameworks */,
+				E1B11F830CF5F30F004975AA /* IOKit.framework in Frameworks */,
+				E1E1F1D217BC80C500DC565A /* Security.framework in Frameworks */,
 				E11BE21912238E2400240657 /* Growl.framework in Frameworks */,
 				E1E0EFEA145DF20100C421D4 /* Sparkle.framework in Frameworks */,
 			);
@@ -593,13 +589,12 @@
 				E102D875116EB73100207746 /* ApplicationServices.framework */,
 				E102D847116EB43A00207746 /* AudioToolbox.framework */,
 				E102D849116EB43A00207746 /* AudioUnit.framework */,
+				E19ECC551D8E8CC400552F66 /* AVFoundation.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				F5F240D0036A87E301FE7503 /* Carbon.framework */,
 				E18DAAEE0442D02500050002 /* CoreAudio.framework */,
 				E11BE21812238E2400240657 /* Growl.framework */,
 				E14DB31203B8038300000028 /* IOKit.framework */,
-				E1B121B30CF639A1004975AA /* QTKit.framework */,
-				E1D94C8911473CBA00C88B55 /* QuickTime.framework */,
 				E1E1F1D117BC80C500DC565A /* Security.framework */,
 			);
 			name = "Linked Frameworks";
@@ -684,6 +679,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E19ECC5C1D8EB2AC00552F66 /* AVKit.framework */,
+				E19ECC5A1D8EAD1800552F66 /* CoreMedia.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -735,6 +732,8 @@
 		E162698703B6189D00000028 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				E19ECC571D8E949B00552F66 /* AVAsset-NJRExtensions.h */,
+				E19ECC581D8E949B00552F66 /* AVAsset-NJRExtensions.m */,
 				E1F0B26803AEDE8600AEFBE0 /* NSAttributedString-NJRExtensions.h */,
 				E1F0B26903AEDE8600AEFBE0 /* NSAttributedString-NJRExtensions.m */,
 				E162698903B6190B00000028 /* NSCalendarDate-NJRExtensions.h */,
@@ -743,8 +742,6 @@
 				F5B79865038865B30136A8DD /* NSCharacterSet-NJRExtensions.m */,
 				F5EE8DBA038A76AC0134BEAC /* NSDictionary-NJRExtensions.h */,
 				F5EE8DB9038A76AC0134BEAC /* NSDictionary-NJRExtensions.m */,
-				F59E4C0E036B43D2016B311C /* QTMovie-NJRExtensions.h */,
-				F59E4C0D036B43D2016B311C /* QTMovie-NJRExtensions.m */,
 				E1F0B14E03ADBE3800AEFBE0 /* NSString-NJRExtensions.h */,
 				E1F0B14F03ADBE3800AEFBE0 /* NSString-NJRExtensions.m */,
 				E162698403B6189000000028 /* NSTableView-NJRExtensions.h */,
@@ -936,8 +933,6 @@
 			isa = PBXGroup;
 			children = (
 				E17F2F4C03FDF67D00050002 /* OACalendarView */,
-				E1F0B14A03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.h */,
-				E1F0B14B03AD8CEF00AEFBE0 /* NJRUnfocusableMovieView.m */,
 				F5B79837035F64F80136A8DD /* NJRTableView.h */,
 				F5B79836035F64F80136A8DD /* NJRTableView.m */,
 				F552A8AB0358E8B201AEEDB1 /* NJRScrollView.h */,
@@ -954,8 +949,8 @@
 				F5F240B5036A862101FE7503 /* NJRFSObjectSelector.m */,
 				E12CBFD110CC310800159E88 /* NJRMenuSlider.h */,
 				E12CBFD210CC310800159E88 /* NJRMenuSlider.m */,
-				F5F240CD036A877301FE7503 /* NJRQTMediaPopUpButton.h */,
-				F5F240CC036A877301FE7503 /* NJRQTMediaPopUpButton.m */,
+				F5F240CD036A877301FE7503 /* NJRMediaPopUpButton.h */,
+				F5F240CC036A877301FE7503 /* NJRMediaPopUpButton.m */,
 				E15044650CFCDC7E00DE47E9 /* NJRValidatingField.h */,
 				E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */,
 				F5F19871036B822E01EB0372 /* NJRVoicePopUpButton.h */,
@@ -1318,17 +1313,15 @@
 				E1B11F420CF5F30F004975AA /* NJRFSObjectSelector.m in Sources */,
 				E1B11F430CF5F30F004975AA /* NJRHistoryTrackingComboBox.m in Sources */,
 				E1B11F440CF5F30F004975AA /* NJRIntegerFilter.m in Sources */,
-				E1B11F450CF5F30F004975AA /* NJRQTMediaPopUpButton.m in Sources */,
+				E1B11F450CF5F30F004975AA /* NJRMediaPopUpButton.m in Sources */,
 				E1B11F460CF5F30F004975AA /* NJRScrollView.m in Sources */,
 				E1B11F470CF5F30F004975AA /* NJRTableDelegate.m in Sources */,
 				E1B11F480CF5F30F004975AA /* NJRTableView.m in Sources */,
-				E1B11F490CF5F30F004975AA /* NJRUnfocusableMovieView.m in Sources */,
 				E1B11F4A0CF5F30F004975AA /* NJRVoicePopUpButton.m in Sources */,
 				E1B11F4B0CF5F30F004975AA /* NSAttributedString-NJRExtensions.m in Sources */,
 				E1B11F4C0CF5F30F004975AA /* NSCalendarDate-NJRExtensions.m in Sources */,
 				E1B11F4D0CF5F30F004975AA /* NSCharacterSet-NJRExtensions.m in Sources */,
 				E1B11F4E0CF5F30F004975AA /* NSDictionary-NJRExtensions.m in Sources */,
-				E1B11F500CF5F30F004975AA /* QTMovie-NJRExtensions.m in Sources */,
 				E1B11F510CF5F30F004975AA /* NSString-NJRExtensions.m in Sources */,
 				E1B11F520CF5F30F004975AA /* NSTableView-NJRExtensions.m in Sources */,
 				E1B11F530CF5F30F004975AA /* PSAlarm.m in Sources */,
@@ -1348,6 +1341,7 @@
 				E1B11F610CF5F30F004975AA /* PSPowerManager.m in Sources */,
 				E1B11F620CF5F30F004975AA /* PSScriptAlert.m in Sources */,
 				E1B11F630CF5F30F004975AA /* PSSpeechAlert.m in Sources */,
+				E19ECC591D8E949B00552F66 /* AVAsset-NJRExtensions.m in Sources */,
 				E1B11F640CF5F30F004975AA /* main.m in Sources */,
 				E1B11F650CF5F30F004975AA /* NJRIntervalField.m in Sources */,
 				E1FDFC271BB920EC00A4961B /* PSSoundAlert.m in Sources */,
@@ -1649,7 +1643,6 @@
 		E1B11ED40CF5F2EB004975AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -1676,7 +1669,6 @@
 		E1B11ED50CF5F2EB004975AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;

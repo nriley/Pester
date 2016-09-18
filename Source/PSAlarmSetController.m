@@ -16,7 +16,7 @@
 #import "NJRDateFormatter.h"
 #import "NJRFSObjectSelector.h"
 #import "NJRIntervalField.h"
-#import "NJRQTMediaPopUpButton.h"
+#import "NJRMediaPopUpButton.h"
 #import "NJRValidatingField.h"
 #import "NJRVoicePopUpButton.h"
 #import "NSString-NJRExtensions.h"
@@ -128,7 +128,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
-    [notificationCenter addObserver: self selector: @selector(playSoundChanged:) name: NJRQTMediaPopUpButtonMovieChangedNotification object: sound];
+    [notificationCenter addObserver: self selector: @selector(playSoundChanged:) name: NJRMediaPopUpButtonMovieChangedNotification object: sound];
     [notificationCenter addObserver: self selector: @selector(applicationWillHide:) name: NSApplicationWillHideNotification object: NSApp];
     [notificationCenter addObserver: self selector: @selector(applicationDidUnhide:) name: NSApplicationDidUnhideNotification object: NSApp];
     [notificationCenter addObserver: self selector: @selector(applicationWillTerminate:) name: NSApplicationWillTerminateNotification object: NSApp];
@@ -522,11 +522,10 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
             PSMediaAlert *alert;
             if (soundAlias == nil) // beep alert
                 alert = [PSBeepAlert alertWithRepetitions: numReps];
-            else { // sound or movie alert
+            else if ([sound hasVideo]) // movie alert
+                alert = [PSMovieAlert alertWithMovieFileAlias: soundAlias repetitions: numReps];
+            else // sound alert
                 alert = [PSSoundAlert alertWithSoundFileAlias: soundAlias repetitions: numReps];
-                if (alert == nil)
-                    alert = [PSMovieAlert alertWithMovieFileAlias: soundAlias repetitions: numReps];
-            }
             [alerts addAlert: alert];
             [alert setOutputVolume: [sound outputVolume]];
         }

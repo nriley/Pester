@@ -1,26 +1,27 @@
 //
-//  NJRQTMediaPopUpButton.m
+//  NJRMediaPopUpButton.m
 //  Pester
 //
 //  Created by Nicholas Riley on Sat Oct 26 2002.
 //  Copyright (c) 2002 Nicholas Riley. All rights reserved.
 //
 
-#import "NJRQTMediaPopUpButton.h"
+#import "AVAsset-NJRExtensions.h"
+#import "BDAlias.h"
+#import "NJRMediaPopUpButton.h"
 #import "NJRFSObjectSelector.h"
 #import "NJRSoundDevice.h"
-#import "QTMovie-NJRExtensions.h"
 #import "NSMenuItem-NJRExtensions.h"
 
 #include <AudioToolbox/AudioToolbox.h>
-#include <QuickTime/QuickTime.h>
+#include <AVFoundation/AVFoundation.h>
 #include <limits.h>
 
-static const int NJRQTMediaPopUpButtonMaxRecentItems = 10;
+static const int NJRMediaPopUpButtonMaxRecentItems = 10;
 
-NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPopUpButtonMovieChangedNotification";
+NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpButtonMovieChangedNotification";
 
-@interface NJRQTMediaPopUpButton (Private)
+@interface NJRMediaPopUpButton (Private)
 - (void)_setPath:(NSString *)path;
 - (NSMenuItem *)_itemForAlias:(BDAlias *)alias;
 - (BOOL)_validateWithPreview:(BOOL)doPreview;
@@ -32,7 +33,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 - (void)_systemSoundSelected:(NSMenuItem *)sender;
 @end
 
-@implementation NJRQTMediaPopUpButton
+@implementation NJRMediaPopUpButton
 
 // XXX handle refreshing sound list on resume
 // XXX launch preview on a separate thread (if movies take too long to load, they inhibit the interface responsiveness)
@@ -45,7 +46,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (NSString *)_defaultKey;
 {
-    NSAssert([self tag] != 0, NSLocalizedString(@"Can't track recently selected media for popup with tag 0: please set a tag", "Assertion for QuickTime media popup button if tag is 0"));
+    NSAssert([self tag] != 0, NSLocalizedString(@"Can't track recently selected media for popup with tag 0: please set a tag", "Assertion for media popup button if tag is 0"));
     return [NSString stringWithFormat: @"NJRQTMediaPopUpButtonMaxRecentItems tag %ld", (long)[self tag]];
 }
 
@@ -67,7 +68,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [item setRepresentedObject: alias];
     [item setImageFromPath: path];
     [recentMediaAliasData addObject: [alias aliasData]];
-    if ([recentMediaAliasData count] > NJRQTMediaPopUpButtonMaxRecentItems) {
+    if ([recentMediaAliasData count] > NJRMediaPopUpButtonMaxRecentItems) {
         [menu removeItemAtIndex: [menu numberOfItems] - 1];
         [recentMediaAliasData removeObjectAtIndex: 0];
     }
@@ -151,7 +152,11 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 		continue;
 	    }
 
-	    if (![QTMovie canInitWithFile: path]) continue;
+            NSURL *url = [NSURL fileURLWithPath: path];
+            AVAsset *asset = [[AVURLAsset alloc] initWithURL: url options: nil];
+            BOOL isPlayable = asset.isPlayable;
+            [asset release];
+            if (!isPlayable) continue;
 	    
 	    displayName = [fm displayNameAtPath: path];
 	    if ([[NSNumber numberWithBool: NO] isEqualTo: [[de fileAttributes] objectForKey: NSFileExtensionHidden]])
@@ -170,7 +175,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [soundFolderPaths release];
     
     if ([menu numberOfItems] == 2) {
-        item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate alert sounds", "QuickTime media popup menu item surrogate for alert sound list if no sounds are found") action: nil keyEquivalent: @""];
+        item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate alert sounds", "Media popup menu item surrogate for alert sound list if no sounds are found") action: nil keyEquivalent: @""];
         [item setEnabled: NO];
     }
 	 
@@ -179,9 +184,10 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [item setTarget: self];
     otherItem = [item retain];
 
+    preview = [[AVPlayer alloc] initWithPlayerItem: nil];
     [self _validateWithPreview: NO];
 
-    recentMediaAliasData = [[NSMutableArray alloc] initWithCapacity: NJRQTMediaPopUpButtonMaxRecentItems + 1];
+    recentMediaAliasData = [[NSMutableArray alloc] initWithCapacity: NJRMediaPopUpButtonMaxRecentItems + 1];
     [self _addRecentMediaFromAliasesData: [[NSUserDefaults standardUserDefaults] arrayForKey: [self _defaultKey]]];
     // [self _validateRecentMedia];
 
@@ -210,6 +216,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     [recentMediaAliasData release]; recentMediaAliasData = nil;
     [otherItem release];
     [selectedAlias release]; [previousAlias release];
+    [preview release];
     [super dealloc];
 }
 
@@ -294,6 +301,11 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     return mediaCanAdjustVolume;
 }
 
+- (BOOL)hasVideo;
+{
+    return mediaHasVideo;
+}
+
 - (float)outputVolume;
 {
     return outputVolume;
@@ -305,11 +317,9 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
     outputVolume = volume;
     if (!doPreview) return;
     // NSLog(@"setting volume to %f, preview movie %@", volume, [preview movie]);
-    if ([preview movie] == nil) {
+    if (preview.currentItem == nil) {
         [self _validateWithPreview: YES];
     } else {
-        if (NJROSXMinorVersion() >= 7) // XXX this is crashy on Lion
-            return;
         [self _startSoundPreview];
     }
 }
@@ -320,38 +330,32 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 {
     [self _setAlias: previousAlias];
     [self selectItem: [self _itemForAlias: [self selectedAlias]]];
-    [[NSNotificationCenter defaultCenter] postNotificationName: NJRQTMediaPopUpButtonMovieChangedNotification object: self];
+    [[NSNotificationCenter defaultCenter] postNotificationName: NJRMediaPopUpButtonMovieChangedNotification object: self];
 }
-
-#if __LP64__
-#define kNoVolume 0
-#endif
 
 - (void)_startSoundPreview;
 {
-    if ([preview movie] == nil)
+    if (preview.currentItem == nil)
         return;
 
-    if (outputVolume == kNoVolume) {
+    if (outputVolume == 0) {
         [self _resetPreview];
         return;
     }
 
-    [[preview movie] setVolume: outputVolume];
+    preview.volume = outputVolume;
 
-#if !__LP64__
-    SetMovieAudioContext([[preview movie] quickTimeMovie],
-			 [[NJRSoundDevice defaultOutputDevice] quickTimeAudioContext]);
-#endif
-
-    if ([[preview movie] rate] != 0)
+    if (preview.rate != 0)
 	return; // don't restart preview if already playing
     
+    preview.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+
     [[NSNotificationCenter defaultCenter] addObserver: self
-					     selector: @selector(_soundPreviewDidEnd:)
-						 name: QTMovieDidEndNotification
-					       object: [preview movie]];
-    [preview play: self];
+                                             selector: @selector(_soundPreviewDidEnd:)
+                                                 name: AVPlayerItemDidPlayToEndTimeNotification
+                                               object: preview.currentItem];
+    
+    [preview play];
 }
 
 - (void)_soundPreviewDidEnd:(NSNotification *)notification;
@@ -361,50 +365,60 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (void)_resetPreview;
 {
-    [preview setMovie: nil];
+    [preview replaceCurrentItemWithPlayerItem: nil];
 }
 
 - (BOOL)_validateWithPreview:(BOOL)doPreview;
 {
     // prevent _resetPreview from triggering afterward (crashes)
     [[NSNotificationCenter defaultCenter] removeObserver: self
-						    name: QTMovieDidEndNotification
-						  object: [preview movie]];
-    [preview pause: self];
+						    name: AVPlayerItemDidPlayToEndTimeNotification
+						  object: nil];
+    [preview pause];
     if (selectedAlias == nil) {
-        [preview setMovie: nil];
+        [self _resetPreview];
         mediaCanRepeat = YES;
         mediaCanAdjustVolume = NO;
+        mediaHasVideo = NO;
         if (doPreview) {
             AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert);
         }
     } else {
-	NSError *error;
-	QTMovie *movie = [[QTMovie alloc] initWithFile: [selectedAlias fullPath] error: &error];
-        mediaCanRepeat = ![movie NJR_isStatic];
-        if ( (mediaCanAdjustVolume = [movie NJR_hasAudio])) {
-            [preview setMovie: doPreview ? movie : nil];
+        AVAsset *asset = [AVAsset assetWithURL: [selectedAlias fileURL]];
+        if (!asset.isPlayable)
+            asset = nil;
+    
+        if ([asset NJR_hasAudio]) {
+            mediaCanAdjustVolume = YES;
+            if (doPreview) {
+                AVPlayerItem *item = [AVPlayerItem playerItemWithAsset: asset];
+                [preview replaceCurrentItemWithPlayerItem: item];
+            } else {
+                [self _resetPreview];
+            }
         } else {
             [self _resetPreview];
             doPreview = NO;
-            if (movie == nil) {
-                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The item you selected isn't an image, sound or movie recognized by QuickTime. (%@)\n\nPlease select a different item.", "Message displayed in alert sheet when media document is not recognized by QuickTime"), [error localizedDescription]);
+            if (asset == nil) {
+                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The item you selected isn't a supported image, sound or movie.\n\nPlease select a different item.", "Message displayed in alert sheet when media document is not recognized by AVFoundation"));
                 [self _invalidateSelection];
                 return NO;
             }
-            if (![movie NJR_hasAudio] && ![movie NJR_hasVideo]) {
-                NSBeginAlertSheet(@"No video or audio", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"'%@' contains neither audio nor video content playable by QuickTime.\n\nPlease select a different item.", "Message displayed in alert sheet when media document is readable, but has neither audio nor video tracks"), [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]);
+            if (![asset NJR_hasVideo]) {
+                NSBeginAlertSheet(@"No video or audio", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"'%@' contains neither audio nor video content.\n\nPlease select a different item.", "Message displayed in alert sheet when media document is readable, but has neither audio nor video tracks"), [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]);
                 [self _invalidateSelection];
-                [movie release];
                 return NO;
             }
+            mediaCanAdjustVolume = NO;
         }
+        mediaCanRepeat = ![asset NJR_isStatic];
+        mediaHasVideo = [asset NJR_hasVideo];
+
         if (doPreview) {
             [self _startSoundPreview];
         }
-        [movie release];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName: NJRQTMediaPopUpButtonMovieChangedNotification object: self];
+    [[NSNotificationCenter defaultCenter] postNotificationName: NJRMediaPopUpButtonMovieChangedNotification object: self];
     return YES;
 }
 
@@ -412,7 +426,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 - (IBAction)stopSoundPreview:(id)sender;
 {
-    [preview pause: self];
+    [preview pause];
     [self _resetPreview];
 }
 
@@ -459,7 +473,7 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
     NSString *path = [selectedAlias fullPath];
-    NSURL *url = path == nil ? nil : [NSURL fileURLWithPath:[selectedAlias fullPath]];
+    NSURL *url = path == nil ? nil : [NSURL fileURLWithPath: [selectedAlias fullPath]];
     [openPanel setAllowsMultipleSelection: NO];
     [openPanel setCanChooseDirectories: NO];
     [openPanel setCanChooseFiles: YES];
@@ -514,22 +528,22 @@ NSString * const NJRQTMediaPopUpButtonMovieChangedNotification = @"NJRQTMediaPop
 
 @end
 
-@implementation NJRQTMediaPopUpButton (NSSavePanelDelegate)
+@implementation NJRMediaPopUpButton (NSSavePanelDelegate)
 
-- (BOOL)panel:(id)sender shouldShowFilename:(NSString *)filename;
+- (BOOL)panel:(id)sender shouldEnableURL:(NSURL *)url;
 {
     BOOL isDir = NO;
-    [[NSFileManager defaultManager] fileExistsAtPath: filename isDirectory: &isDir];
+    [[NSFileManager defaultManager] fileExistsAtPath: url.path isDirectory: &isDir];
 
     if (isDir)
 	return YES;
 
-    return [QTMovie canInitWithFile: filename];
+    return [AVAsset assetWithURL: url].isPlayable;
 }
 
 @end
 
-@implementation NJRQTMediaPopUpButton (NSDraggingDestination)
+@implementation NJRMediaPopUpButton (NSDraggingDestination)
 
 - (BOOL)acceptsDragFrom:(id <NSDraggingInfo>)sender;
 {

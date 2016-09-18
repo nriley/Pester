@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <development version="7000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
-        <plugIn identifier="com.apple.QTKitIBPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PSApplication">
@@ -158,7 +156,7 @@ choose “Stop Alerts” from the Alarm menu.</string>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <popUpButton toolTip="Select an image, sound or movie." verticalHuggingPriority="750" tag="1" id="1378" customClass="NJRQTMediaPopUpButton">
+                                        <popUpButton toolTip="Select an image, sound or movie." verticalHuggingPriority="750" tag="1" id="1378" customClass="NJRMediaPopUpButton">
                                             <rect key="frame" x="46" y="58" width="169" height="26"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <popUpButtonCell key="cell" type="push" title="Alert sound" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" enabled="NO" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="1381" id="1584">
@@ -172,7 +170,6 @@ choose “Stop Alerts” from the Alarm menu.</string>
                                             </popUpButtonCell>
                                             <connections>
                                                 <outlet property="nextKeyView" destination="512" id="1603"/>
-                                                <outlet property="preview" destination="373" id="1387"/>
                                             </connections>
                                         </popUpButton>
                                         <button verticalHuggingPriority="750" id="1436">
@@ -447,10 +444,6 @@ this menu.</string>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <qtMovieView focusRingType="none" controllerVisible="NO" id="373" customClass="NJRUnfocusableMovieView">
-                        <rect key="frame" x="-98" y="374" width="1" height="1"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </qtMovieView>
                     <button toolTip="Set the alarm." verticalHuggingPriority="750" id="211">
                         <rect key="frame" x="346" y="16" width="84" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -513,7 +506,7 @@ DQ
                     <button toolTip="Collapse or expand the alert editor." horizontalHuggingPriority="750" verticalHuggingPriority="750" id="1541">
                         <rect key="frame" x="399" y="142" width="29" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="E308036C-91A6-4D66-9C7E-421BC5272D87" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1591">
+                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="E7B895A0-A27E-4A2A-82DC-1C1439C496C9" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1591">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -809,10 +802,10 @@ DQ
     </objects>
     <resources>
         <image name="Calendar" width="13" height="15"/>
-        <image name="E308036C-91A6-4D66-9C7E-421BC5272D87" width="1" height="1">
+        <image name="E7B895A0-A27E-4A2A-82DC-1C1439C496C9" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
-GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
 c1dOU0NvbG9ygAKADRIgwwAAgAOAC1Z7MSwgMX3SFQoWGFpOUy5vYmplY3RzoReABIAK0hUKGh2iGxyA
 BYAGgAkQANIgCiEiXxAUTlNUSUZGUmVwcmVzZW50YXRpb26AB4AITxESIE1NACoAAAAKAAAADgEAAAMA
 AAABAAEAAAEBAAMAAAABAAEAAAECAAMAAAACAAgACAEDAAMAAAABAAEAAAEGAAMAAAABAAEAAAERAAQA
@@ -892,13 +885,13 @@ cMDswWfB48JfwtvDWMPUxFHEzsVLxcjGRsbDx0HHv8g9yLzJOsm5yjjKt8s2y7bMNcy1zTXNtc42zrbP
 N8+40DnQutE80b7SP9LB00TTxtRJ1MvVTtXR1lXW2Ndc1+DYZNjo2WzZ8dp22vvbgNwF3IrdEN2W3hze
 ot8p36/gNuC94UThzOJT4tvjY+Pr5HPk/OWE5g3mlucf56noMui86Ubp0Opb6uXrcOv77IbtEe2c7iju
 tO9A78zwWPDl8XLx//KM8xnzp/Q09ML1UPXe9m32+/eK+Bn4qPk4+cf6V/rn+3f8B/yY/Sn9uv5L/tz/
-bf//0iUmJyhaJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjKSorXxAQTlNCaXRt
-YXBJbWFnZVJlcFpOU0ltYWdlUmVwWE5TT2JqZWN00iUmLS5XTlNBcnJheaItK9IlJjAxXk5TTXV0YWJs
-ZUFycmF5ozAtK9MzNAo1NjdXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAzSJSY5OldOU0NvbG9y
-ojkr0iUmPD1XTlNJbWFnZaI8K18QD05TS2V5ZWRBcmNoaXZlctFAQVRyb290gAEACAARABoAIwAtADIA
-NwBGAEwAVwBeAGUAcgB5AIEAgwCFAIoAjACOAJUAmgClAKcAqQCrALAAswC1ALcAuQC7AMAA1wDZANsS
-/xMEEw8TGBMrEy8TQhNNE1YTWxNjE2YTaxN6E34ThRONE5oTnxOhE6MTqBOwE7MTuBPAE8MT1RPYE90A
-AAAAAAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAT3w
+bf//0iUmJyhaJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjJykqWk5TSW1hZ2VS
+ZXBYTlNPYmplY3TSJSYsLVdOU0FycmF5oiwq0iUmLzBeTlNNdXRhYmxlQXJyYXmjLywq0zIzCjQ1NldO
+U1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOADNIlJjg5V05TQ29sb3KiOCrSJSY7PFdOU0ltYWdlojsq
+XxAPTlNLZXllZEFyY2hpdmVy0T9AVHJvb3SAAQAIABEAGgAjAC0AMgA3AEYATABXAF4AZQByAHkAgQCD
+AIUAigCMAI4AlQCaAKUApwCpAKsAsACzALUAtwC5ALsAwADXANkA2xL/EwQTDxMYEysTLxM6E0MTSBNQ
+E1MTWBNnE2sTchN6E4cTjBOOE5ATlROdE6ATpROtE7ATwhPFE8oAAAAAAAACAQAAAAAAAABBAAAAAAAA
+AAAAAAAAAAATzA
 </mutableData>
         </image>
         <image name="NSRemoveTemplate" width="11" height="11"/>

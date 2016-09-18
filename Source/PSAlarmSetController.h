@@ -11,7 +11,7 @@
 
 @class NJRFSObjectSelector;
 @class NJRIntervalField;
-@class NJRQTMediaPopUpButton;
+@class NJRMediaPopUpButton;
 @class NJRValidatingField;
 @class NJRVoicePopUpButton;
 @class PSTimeDateEditor;
@@ -33,7 +33,7 @@
     IBOutlet NSButtonCell *displayMessage;
     IBOutlet NSButtonCell *bounceDockIcon;
     IBOutlet NSButtonCell *playSound;
-    IBOutlet NJRQTMediaPopUpButton *sound;
+    IBOutlet NJRMediaPopUpButton *sound;
     IBOutlet NSButton *soundVolumeButton;
     IBOutlet NJRValidatingField *soundRepetitions;
     IBOutlet NSStepper *soundRepetitionStepper;

@@ -8,14 +8,14 @@
 
 #import <AppKit/AppKit.h>
 
+@class AVPlayerView;
 @class PSAlarm;
 @class PSMovieAlert;
-@class QTMovieView;
 
 @interface PSMovieAlertController : NSWindowController {
     PSAlarm *alarm;
     PSMovieAlert *alert;
-    IBOutlet QTMovieView *movieView;
+    IBOutlet AVPlayerView *playerView;
     unsigned short repetitions;
     unsigned short repetitionsRemaining;
 }

@@ -1,15 +1,14 @@
 //
-//  QTMovie-NJRExtensions.h
+//  AVAsset-NJRExtensions.h
 //  Pester
 //
 //  Created by Nicholas Riley on Sat Oct 26 2002.
 //  Copyright (c) 2002 Nicholas Riley. All rights reserved.
 //
 
-#import <QTKit/QTKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-
-@interface QTMovie (NJRExtensions)
+@interface AVAsset (NJRExtensions)
 
 - (BOOL)NJR_hasAudio;
 - (BOOL)NJR_hasVideo;

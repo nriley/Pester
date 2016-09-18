@@ -1,5 +1,5 @@
 //
-//  NJRQTMediaPopUpButton.h
+//  NJRMediaPopUpButton.h
 //  Pester
 //
 //  Created by Nicholas Riley on Sat Oct 26 2002.
@@ -7,14 +7,15 @@
 //
 
 #import <AppKit/AppKit.h>
-#import <QTKit/QTKit.h>
-#import "BDAlias.h"
 
-extern NSString * const NJRQTMediaPopUpButtonMovieChangedNotification;
+@class AVPlayer;
+@class BDAlias;
 
-@interface NJRQTMediaPopUpButton : NSPopUpButton <NSOpenSavePanelDelegate> {
-    IBOutlet QTMovieView *preview;
-    BOOL mediaCanRepeat, mediaCanAdjustVolume;
+extern NSString * const NJRMediaPopUpButtonMovieChangedNotification;
+
+@interface NJRMediaPopUpButton : NSPopUpButton <NSOpenSavePanelDelegate> {
+    AVPlayer *preview;
+    BOOL mediaCanRepeat, mediaCanAdjustVolume, mediaHasVideo;
     NSMenuItem *otherItem;
     BDAlias *selectedAlias, *previousAlias;
     NSMutableArray *recentMediaAliasData;
@@ -29,6 +30,7 @@ extern NSString * const NJRQTMediaPopUpButtonMovieChangedNotification;
 
 - (BOOL)canRepeat;
 - (BOOL)canAdjustVolume;
+- (BOOL)hasVideo;
 
 - (IBAction)stopSoundPreview:(id)sender;
 

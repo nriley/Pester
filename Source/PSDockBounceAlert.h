@@ -10,7 +10,7 @@
 
 
 @interface PSDockBounceAlert : PSAlert {
-
+    NSInteger userAttentionRequest;
 }
 
 @end

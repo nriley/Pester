@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import <CoreAudio/CoreAudio.h>
-#import <QuickTime/QuickTime.h>
 
 extern NSString * const NJRSoundDeviceListChangedNotification;
 extern NSString * const NJRSoundDeviceDefaultOutputDeviceChangedNotification;
@@ -27,9 +26,6 @@ extern NSString * const NJRSoundDeviceDefaultOutputDeviceChangedNotification;
 - (NSString *)name;
 - (NSString *)uid;
 
-#if !__LP64__
-- (QTAudioContextRef)quickTimeAudioContext;
-#endif
 - (AudioDeviceID)deviceID;
 
 + (BOOL)volumeIsNotMutedOrInvalid:(float)volume;

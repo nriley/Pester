@@ -9,8 +9,8 @@
 #import <AppKit/AppKit.h>
 #import "PSMediaAlert.h"
 
+@class AVAsset;
 @class BDAlias;
-@class QTMovie;
 
 @interface PSMovieAlert : PSMediaAlert {
     BDAlias *alias;
@@ -23,7 +23,7 @@
 - (id)initWithMovieFileAlias:(BDAlias *)anAlias repetitions:(unsigned int) numReps;
 
 - (BOOL)hasVideo;
-- (QTMovie *)movie;
+- (AVAsset *)asset;
 - (BDAlias *)movieFileAlias;
 
 @end
