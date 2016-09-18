@@ -161,9 +161,7 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="bYB3h0JUuwF"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{38, 0}"/>
+    <selected-rows ids="gotAfbOXCFU"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -7604,52 +7602,6 @@
             </text>
           </values>
         </item>
-        <item id="gfesp4ACuOT" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Test and potentially downgrade Sparkle — it isn&apos;t working</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <note expanded="yes">
-            <text>
-              <p>
-                <run>
-                  <style>
-                    <value key="font-family">Menlo</value>
-                    <value key="font-fill">
-                      <color w="0"/>
-                    </value>
-                    <value key="font-fixed-pitch">yes</value>
-                    <value key="font-italic">no</value>
-                    <value key="font-weight">9</value>
-                    <value key="ligature-selection">none</value>
-                    <value key="paragraph-alignment">left</value>
-                    <value key="paragraph-tab-stop-interval">27.15</value>
-                    <value key="paragraph-tab-stops">27.15L</value>
-                  </style>
-                  <lit>NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9806)</lit>
-                </run>
-              </p>
-            </text>
-          </note>
-          <children>
-            <item id="nFfG_V48gYh">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Only happening on my MBP? Huh?</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
         <item id="i2CmyW3sH9I">
           <values>
             <text>
@@ -7696,7 +7648,7 @@
         </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+    <item id="gotAfbOXCFU" state="indeterminate">
       <values>
         <text>
           <p>
