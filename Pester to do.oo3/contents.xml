@@ -155,14 +155,15 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
+      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="jAOT-TLS_lI"/>
+    <selected-rows ids="mPiGQj3PbaX"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{12, 0}"/>
+    <selected-characters range="{14, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6402,6 +6403,1208 @@
         </item>
       </children>
     </item>
+    <item id="aNc3GdZCQpK" expanded="yes" state="indeterminate">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Beta 22</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="jlNiTrDEedJ" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>64-bit, finally!</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="kSxRYifF1Ew" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Update Perl for 10.12</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="i9gFcEcSnKo" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Get rid of tab-specific menu items when alarm list is visible</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="lmZR1p9aCtt" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>No more custom Sparkle</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="cdQ-cexKFk3" state="indeterminate">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>QuickTime → AVFoundation for videos</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="bD3Iir_7V_L">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Will get bugs if people view images/PDFs, I guess</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="jeAXV8loZaG">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Things that don’t work any more: PDFs, images</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="jZ4eav_FhrO">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>References</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <note>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Movist migration from QT to AVFoundation: </lit>
+                    </run>
+                    <run>
+                      <lit><cell href="https://github.com/samiamwork/Movist/commit/0552ed927a28ad7c6583393943c101faf5085493" name="github.com—0552ed927a28ad7c6583393943c101faf5085493" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </note>
+              <children>
+                <item id="gxG3Bnt2RLC">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>AVFoundation for movies; Quick Look (!) or PDFKit for still images/PDFs.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="j6C-dUrilZr">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>AVAudioPlayer won&apos;t work well enough — </lit>
+                        </run>
+                        <run>
+                          <lit><cell href="http://openradar.me/22873794" name="openradar.me—22873794" type="link"/></lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="hIPIhSxk8nV">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>AVPlayer is suboptimal for video</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                  <children>
+                    <item id="fy8QWDXJEjw">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Redirecting audio is impossible — </lit>
+                            </run>
+                            <run>
+                              <lit><cell href="https://forums.developer.apple.com/message/59178" name="forums.developer.apple.com—59178" type="link"/></lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                      <children>
+                        <item id="aJZ6X99xr5p">
+                          <values>
+                            <text>
+                              <p>
+                                <run>
+                                  <lit>File a bug</lit>
+                                </run>
+                              </p>
+                            </text>
+                          </values>
+                        </item>
+                      </children>
+                    </item>
+                    <item id="cihhCehRAXD">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>May need to stay off the main thread: </lit>
+                            </run>
+                            <run>
+                              <lit><cell href="https://forums.developer.apple.com/message/39798#39798" name="forums.developer.apple.com—39798" type="link"/></lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                    <item id="hd_EzNavzQi">
+                      <values>
+                        <text>
+                          <p>
+                            <run>
+                              <lit>Likely just drop support for non-audio formats; too much trouble.</lit>
+                            </run>
+                          </p>
+                        </text>
+                      </values>
+                    </item>
+                  </children>
+                </item>
+                <item id="kDun6yg4TKi">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>If we just want to *run* on 64-bit, we only need to migrate off for audio-containing items</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="fUQ6HrVGun0">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>qtmodernizer(1)</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
+            <item id="aAmFKzJIWvU" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Remove the hidden preview QTMovieView</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="il_F6RqbbnR" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Wow, this was *already* broken. As long as a movie had a soundtrack, we could create a PSSoundAlert with it. Whoops.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cFaEDnhF_rm">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>When we remove an item from the menu because it isn&apos;t valid any more, we don&apos;t update the list of aliases properly</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <note>
+                <text>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>2016-09-18 08:11:25.580 Pester[28057:3010113] *** Assertion failure in -[NJRMediaPopUpButton _validateRecentMedia], /Users/nicholas/Documents/Development/Pester/Source/NJRMediaPopUpButton.m:102</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>2016-09-18 08:11:25.580 Pester[28057:3010113] An uncaught exception was raised</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>2016-09-18 08:11:25.580 Pester[28057:3010113] Counted 2 recent menu items, 3 of alias data</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>2016-09-18 08:11:25.591 Pester[28057:3010113] (</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	0   CoreFoundation                      0x00007fff958f54f2 __exceptionPreprocess + 178</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	1   libobjc.A.dylib                     0x00007fff930cbf7e objc_exception_throw + 48</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	2   CoreFoundation                      0x00007fff958fa1ca +[NSException raise:format:arguments:] + 106</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	3   Foundation                          0x00007fff94d36856 -[NSAssertionHandler handleFailureInMethod:object:file:lineNumber:description:] + 198</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	4   Pester                              0x00000001000133df -[NJRMediaPopUpButton _validateRecentMedia] + 1023</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	5   Pester                              0x0000000100019228 -[NJRMediaPopUpButton _aliasSelected:] + 2568</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	6   libsystem_trace.dylib               0x00007fff9300e07a _os_activity_initiate + 75</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	7   AppKit                              0x00007fff967d1dbd -[NSApplication sendAction:to:from:] + 460</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	8   AppKit                              0x00007fff967d1b57 -[NSMenuItem _corePerformAction] + 336</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	9   AppKit                              0x00007fff967d18b7 -[NSCarbonMenuImpl performActionWithHighlightingForItemAtIndex:] + 114</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	10  libsystem_trace.dylib               0x00007fff9300e07a _os_activity_initiate + 75</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	11  AppKit                              0x00007fff96863e54 -[NSMenu performActionForItemAtIndex:] + 131</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	12  AppKit                              0x00007fff96863dc7 -[NSMenu _internalPerformActionForItemAtIndex:] + 35</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	13  AppKit                              0x00007fff96863c1f -[NSCarbonMenuImpl _carbonCommandProcessEvent:handlerCallRef:] + 107</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	14  AppKit                              0x00007fff96708fd9 NSSLMMenuEventHandler + 708</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	15  HIToolbox                           0x00007fff974fe7be _ZL23DispatchEventToHandlersP14EventTargetRecP14OpaqueEventRefP14HandlerCallRec + 1231</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	16  HIToolbox                           0x00007fff974fdc48 _ZL30SendEventToEventTargetInternalP14OpaqueEventRefP20OpaqueEventTargetRefP14HandlerCallRec + 404</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	17  HIToolbox                           0x00007fff975139e6 SendEventToEventTarget + 40</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	18  HIToolbox                           0x00007fff9755d99a _ZL18SendHICommandEventjPK9HICommandjjhPKvP20OpaqueEventTargetRefS5_PP14OpaqueEventRef + 411</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	19  HIToolbox                           0x00007fff97588d5b SendMenuCommandWithContextAndModifiers + 59</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	20  HIToolbox                           0x00007fff97588d0c SendMenuItemSelectedEvent + 188</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	21  HIToolbox                           0x00007fff97588be8 _ZL19FinishMenuSelectionP13SelectionDataP10MenuResultS2_ + 96</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	22  HIToolbox                           0x00007fff97567b81 _ZL19PopUpMenuSelectCoreP8MenuData5PointdS1_tjPK4RecttjS4_S4_PK14__CFDictionaryPK10__CFStringPP13OpaqueMenuRefPt + 1794</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	23  HIToolbox                           0x00007fff97566c5c _ZL26_HandlePopUpMenuSelection8P13OpaqueMenuRefP14OpaqueEventRefj5PointtjPK4RecttS6_S6_PK14__CFDictionaryPK10__CFStringPS0_Pt + 610</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	24  HIToolbox                           0x00007fff97566853 _HandlePopUpMenuSelectionWithDictionary + 287</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	25  AppKit                              0x00007fff9685ac6c _NSSLMPopUpCarbonMenu3 + 6168</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	26  AppKit                              0x00007fff96859442 _NSPopUpCarbonMenu3 + 153</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	27  AppKit                              0x00007fff9685939a -[NSCarbonMenuImpl popUpMenu:atLocation:width:forView:withSelectedItem:withFont:withFlags:withOptions:] + 356</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	28  AppKit                              0x00007fff968dc0df -[NSPopUpButtonCell trackMouse:inRect:ofView:untilMouseUp:] + 559</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	29  AppKit                              0x00007fff967e0ae8 -[NSControl mouseDown:] + 669</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	30  AppKit                              0x00007fff96d353c9 -[NSWindow _handleMouseDownEvent:isDelayedEvent:] + 6322</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	31  AppKit                              0x00007fff96d363ad -[NSWindow _reallySendEvent:isDelayedEvent:] + 212</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	32  AppKit                              0x00007fff96775539 -[NSWindow sendEvent:] + 517</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	33  AppKit                              0x00007fff966f5a38 -[NSApplication sendEvent:] + 2540</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	34  AppKit                              0x00007fff9655cdf2 -[NSApplication run] + 796</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	35  AppKit                              0x00007fff96526368 NSApplicationMain + 1176</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	36  Pester                              0x0000000100077d12 main + 34</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	37  libdyld.dylib                       0x00007fff936f65ad start + 1</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>	38  ???                                 0x0000000000000003 0x0 + 3</lit>
+                    </run>
+                  </p>
+                  <p>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-weight">9</value>
+                        <value key="ligature-selection">none</value>
+                        <value key="paragraph-alignment">left</value>
+                        <value key="paragraph-tab-stop-interval">27.15</value>
+                        <value key="paragraph-tab-stops">27.15L</value>
+                      </style>
+                      <lit>)</lit>
+                    </run>
+                  </p>
+                  <p/>
+                </text>
+              </note>
+            </item>
+            <item id="o1LlpnJiQjS">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Test repetition</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="bOgfeGj5L4n">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Check if NJR_isStatic works like I expect (images?)</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="fQeV2wkzQuq">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Get a list of UTIs from AVAsset.audiovisualTypes</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
+        <item id="m6MqEj5bWx0" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Hot keys are broken (no 64-bit refCon)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="nFl6dCQXfSW">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Hot keys are not getting deregistered appropriately (if you reset with the same hot key, it activates Pester twice)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="mPiGQj3PbaX">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix up Read Me</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="gfesp4ACuOT">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Test and potentially downgrade Sparkle — it isn&apos;t working</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <note expanded="yes">
+            <text>
+              <p>
+                <run>
+                  <style>
+                    <value key="font-family">Menlo</value>
+                    <value key="font-fill">
+                      <color w="0"/>
+                    </value>
+                    <value key="font-fixed-pitch">yes</value>
+                    <value key="font-italic">no</value>
+                    <value key="font-weight">9</value>
+                    <value key="ligature-selection">none</value>
+                    <value key="paragraph-alignment">left</value>
+                    <value key="paragraph-tab-stop-interval">27.15</value>
+                    <value key="paragraph-tab-stops">27.15L</value>
+                  </style>
+                  <lit>NSURLSession/NSURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9806)</lit>
+                </run>
+              </p>
+            </text>
+          </note>
+        </item>
+        <item id="i2CmyW3sH9I">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Test 10.9</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="iHq9867AB9W">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Test 10.10</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="bTxXGb8ewx1">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Test 10.11</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="p-SdyFqCYL9">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Test 10.12</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+      </children>
+    </item>
     <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
       <values>
         <text>
@@ -6413,6 +7616,63 @@
         </text>
       </values>
       <children>
+        <item id="oF3K30LkPWO" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Aliases &amp; paths → bookmark URLs (last major area of deprecation warnings)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="olxsZ_mYV2y">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://www.mikeabdullah.net/migrating-from-alias-handle.html" name="www.mikeabdullah.net—migrating-from-alias-handle.html" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="cx4xfUeP1P8">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://www.mikeabdullah.net/last-known-bookmark-location.html" name="www.mikeabdullah.net—last-known-bookmark-location.html" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="aQiRdKxQL1x">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://www.mikeabdullah.net/convert-between-path+reference-urls.html" name="www.mikeabdullah.net—convert-between-path+reference-urls.html" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="jFyCeIkRLER">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>LetsMove uses aliases too</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="cFomdV6AMyi">
           <values>
             <text>
@@ -9156,200 +10416,6 @@
         </text>
       </values>
       <children>
-        <item id="oF3K30LkPWO" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Aliases &amp; paths → bookmark URLs</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="olxsZ_mYV2y">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit><cell href="http://www.mikeabdullah.net/migrating-from-alias-handle.html" name="www.mikeabdullah.net—migrating-from-alias-handle.html" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="cx4xfUeP1P8">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit><cell href="http://www.mikeabdullah.net/last-known-bookmark-location.html" name="www.mikeabdullah.net—last-known-bookmark-location.html" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="aQiRdKxQL1x">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit><cell href="http://www.mikeabdullah.net/convert-between-path+reference-urls.html" name="www.mikeabdullah.net—convert-between-path+reference-urls.html" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="jFyCeIkRLER">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>LetsMove uses aliases too</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="jZ4eav_FhrO">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Migrate off QuickTime to AVFoundation / PDFKit? / something else for image display?</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <note expanded="yes">
-            <text>
-              <p>
-                <run>
-                  <lit>Movist migration from QT to AVFoundation: </lit>
-                </run>
-                <run>
-                  <lit><cell href="https://github.com/samiamwork/Movist/commit/0552ed927a28ad7c6583393943c101faf5085493" name="github.com—0552ed927a28ad7c6583393943c101faf5085493" type="link"/></lit>
-                </run>
-              </p>
-            </text>
-          </note>
-          <children>
-            <item id="gxG3Bnt2RLC">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>AVFoundation for movies; Quick Look (!) or PDFKit for still images/PDFs.</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="j6C-dUrilZr">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>AVAudioPlayer won&apos;t work well enough — </lit>
-                    </run>
-                    <run>
-                      <lit><cell href="http://openradar.me/22873794" name="openradar.me—22873794" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="hIPIhSxk8nV" expanded="yes">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>AVPlayer won&apos;t work for video</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-              <children>
-                <item id="fy8QWDXJEjw" expanded="yes">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Redirecting audio is impossible — </lit>
-                        </run>
-                        <run>
-                          <lit><cell href="https://forums.developer.apple.com/message/59178" name="forums.developer.apple.com—59178" type="link"/></lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                  <children>
-                    <item id="aJZ6X99xr5p">
-                      <values>
-                        <text>
-                          <p>
-                            <run>
-                              <lit>File a bug</lit>
-                            </run>
-                          </p>
-                        </text>
-                      </values>
-                    </item>
-                  </children>
-                </item>
-                <item id="cihhCehRAXD">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Need to stay off the main thread: </lit>
-                        </run>
-                        <run>
-                          <lit><cell href="https://forums.developer.apple.com/message/39798#39798" name="forums.developer.apple.com—39798" type="link"/></lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-                <item id="hd_EzNavzQi">
-                  <values>
-                    <text>
-                      <p>
-                        <run>
-                          <lit>Likely just drop support for non-audio formats; too much trouble.</lit>
-                        </run>
-                      </p>
-                    </text>
-                  </values>
-                </item>
-              </children>
-            </item>
-            <item id="kDun6yg4TKi">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>If we just want to *run* on 64-bit, we only need to migrate off for audio-containing items</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="fUQ6HrVGun0">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>qtmodernizer(1)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
         <item id="chVzYKvd0Yn">
           <values>
             <text>
