@@ -40,8 +40,8 @@ static BOOL voiceSpecForVoice(NSString *voice, VoiceSpec *voiceSpec) {
     NSNumber *synthesizerID = voiceAttributes[@"VoiceSynthesizerNumericID"];
     NSNumber *voiceID = voiceAttributes[@"VoiceNumericID"];
     if (voiceID != nil && synthesizerID != nil) {
-        voiceSpec->creator = [synthesizerID longValue];
-        voiceSpec->id = [voiceID longValue];
+        voiceSpec->creator = [synthesizerID unsignedIntValue];
+        voiceSpec->id = [voiceID unsignedIntValue];
         return YES;
     }
 

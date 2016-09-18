@@ -208,7 +208,7 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
         EventHotKeyID keyID;
 
         keyID.signature = kHotKeyManagerSignature;
-        keyID.id = (unsigned long)shortcut;
+        keyID.id = (UInt32)shortcut;
         if (RegisterEventHotKey([hotKey keyCode], [hotKey modifiers], keyID, GetEventDispatcherTarget(), 0, &shortcut->hotKeyRef) != noErr)
             return NO;
 

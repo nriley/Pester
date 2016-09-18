@@ -57,9 +57,9 @@
     NSString *partialMatch = [self string];
     NSUInteger partialLength = [partialMatch length];
     NSMutableArray *completions = [allCompletions mutableCopy];
-    for (int i = [completions count] - 1 ; i >= 0 ; i--) {
+    for (NSInteger i = [completions count] - 1 ; i >= 0 ; i--) {
 	NSString *completion = [completions objectAtIndex: i];
-	unsigned length = [completion length];
+	NSUInteger length = [completion length];
 	if (partialLength == 0) {
 	    if (length > 0)
 		continue;
