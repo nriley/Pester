@@ -13,8 +13,6 @@
 #import "NJRHotKey.h"
 #import <Carbon/Carbon.h>
 
-const OSType kHotKeyManagerSignature = 'NHKM';
-
 @interface _NJRHotKeyShortcut : NSObject {
     @public
     BOOL isRegistered;
@@ -113,7 +111,7 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
 
     [shortcuts setObject: newShortcut forKey: identifier];
     [newShortcut release];
-    
+
     return [self _registerHotKeyIfNeeded: newShortcut];
 }
 
@@ -136,6 +134,18 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
     _NJRHotKeyShortcut *hotKey = [shortcuts objectForKey: identifier];
 
     return (hotKey == nil ? nil : [[hotKey->hotKey retain] autorelease]);
+}
+
+- (BOOL)hotKeyInUseWithCode:(NSInteger)keyCode modifierFlags:(NSUInteger)modifierFlags;
+{
+    NSEnumerator *enumerator = [shortcuts objectEnumerator];
+    _NJRHotKeyShortcut *hotKey;
+
+    while ( (hotKey = [enumerator nextObject]) != nil) {
+        if ([hotKey->hotKey keyCode] == keyCode && [hotKey->hotKey modifierFlags] == modifierFlags)
+            return YES;
+    }
+    return NO;
 }
 
 - (void)setShortcutsEnabled:(BOOL)enabled;
@@ -175,9 +185,7 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
                                   sizeof(EventHotKeyID), nil, &hotKeyID)) != noErr)
         return err;
 
-    NSAssert(hotKeyID.signature == kHotKeyManagerSignature, @"Unknown hot key");
-
-    shortcut = (_NJRHotKeyShortcut *)hotKeyID.id;
+    shortcut = (_NJRHotKeyShortcut *)((NSUInteger)hotKeyID.signature << 32 | (NSUInteger)hotKeyID.id);
     NSAssert(shortcut != nil, @"Got bad hot key");
 
     switch (GetEventKind(inEvent)) {
@@ -207,9 +215,10 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
     if (shortcutsEnabled && !(shortcut->isRegistered)) {
         EventHotKeyID keyID;
 
-        keyID.signature = kHotKeyManagerSignature;
+        keyID.signature = (NSUInteger)shortcut >> 32;
         keyID.id = (UInt32)shortcut;
-        if (RegisterEventHotKey([hotKey keyCode], [hotKey modifiers], keyID, GetEventDispatcherTarget(), 0, &shortcut->hotKeyRef) != noErr)
+
+        if (RegisterEventHotKey([hotKey keyCode], [hotKey modifiers], keyID, GetEventDispatcherTarget(), kEventHotKeyExclusive, &shortcut->hotKeyRef) != noErr)
             return NO;
 
         shortcut->isRegistered = YES;
@@ -221,7 +230,7 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
 - (void)_unregisterHotKeyIfNeeded:(_NJRHotKeyShortcut *)shortcut;
 {
     NSParameterAssert(shortcut != nil);
- 
+
     if (shortcut->isRegistered && shortcut->hotKeyRef != nil) {
         UnregisterEventHotKey(shortcut->hotKeyRef);
 	shortcut->isRegistered = NO;
