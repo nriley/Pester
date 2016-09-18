@@ -53,9 +53,9 @@ static NSString * const PLKeyCode = @"keyCode"; // NSNumber
     return hotKeyModifierFlags;
 }
 
-- (long)modifiers;
+- (UInt16)modifiers;
 {
-    static long modifierMap[5][2] = {
+    static NSUInteger modifierMap[5][2] = {
        { NSCommandKeyMask, cmdKey },
        { NSAlternateKeyMask, optionKey },
        { NSControlKeyMask, controlKey },
@@ -63,12 +63,11 @@ static NSString * const PLKeyCode = @"keyCode"; // NSNumber
        { 0, 0 }
     };
 
-    long modifiers = 0;
-    int i;
+    UInt16 modifiers = 0;
 
-    for (i = 0 ; modifierMap[i][0] != 0 ; i++)
+    for (NSUInteger i = 0 ; modifierMap[i][0] != 0 ; i++)
         if (hotKeyModifierFlags & modifierMap[i][0])
-            modifiers |= modifierMap[i][1];
+            modifiers |= (UInt16)modifierMap[i][1];
 
     return modifiers;
 }
