@@ -377,6 +377,9 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification;
 {
+    if ([NSWindow respondsToSelector:@selector(setAllowsAutomaticWindowTabbing:)]) // 10.12+
+        NSWindow.allowsAutomaticWindowTabbing = NO;
+
     // NSLog(@"time to -applicationDidFinishLaunching: %f", clock() / (float)CLOCKS_PER_SEC);
     PSAlarms *allAlarms = [PSAlarms allAlarms];
     NSUInteger version1AlarmCount = [allAlarms countOfVersion1Alarms];
