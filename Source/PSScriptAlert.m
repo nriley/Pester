@@ -35,14 +35,14 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
 
 - (void)triggerForAlarm:(PSAlarm *)alarm;
 {
-    NSString *scriptPath = [alias fullPath];
+    NSURL *scriptURL = [alias fileURL];
 
-    if (scriptPath == nil) {
+    if (scriptURL == nil) {
         NSRunAlertPanel(NSLocalizedString(@"Can't find script", "Title of alert sheet when alias to script didn't resolve"), NSLocalizedString(@"Pester couldn't find the script for the alarm '%@'.", "Message displayed in alert sheet when alias to script didn't resolve"),
                         nil, nil, nil, [alarm message]);
     } else {
         NSDictionary *errorInfo;
-        NSAppleScript *script = [[NSAppleScript alloc] initWithContentsOfURL: [NSURL fileURLWithPath: scriptPath] error: &errorInfo];
+        NSAppleScript *script = [[NSAppleScript alloc] initWithContentsOfURL: scriptURL error: &errorInfo];
         if (script == nil) {
             NSString *errorMessage = [errorInfo objectForKey: NSAppleScriptErrorMessage];
             NSNumber *errorNumber = [errorInfo objectForKey: NSAppleScriptErrorNumber];
@@ -51,7 +51,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
             NSRunAlertPanel(@"Script loading error",
                             @"Pester encountered an error while attempting to load “%@”%@ %@",
                             nil, nil, nil,
-                            [[NSFileManager defaultManager] displayNameAtPath: scriptPath],
+                            [[NSFileManager defaultManager] displayNameAtPath: scriptURL.path],
                             errorMessage == nil ? @"" : [NSString stringWithFormat: @":\n\n%@%@", appName == nil ? @"" : @"“%@” reported an error: ", errorMessage],
                             errorNumber == nil ? @"" : [NSString stringWithFormat: @"(%@)", errorNumber]);
         } else {
@@ -64,7 +64,7 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
                 NSRunAlertPanel(@"Script execution error",
                                 @"Pester encountered an error while attempting to execute the script “%@”%@ %@",
                                 nil, nil, nil,
-                                [[NSFileManager defaultManager] displayNameAtPath: scriptPath],
+                                [[NSFileManager defaultManager] displayNameAtPath: scriptURL.path],
                                 errorMessage == nil ? @"" : [NSString stringWithFormat: @":\n\n%@%@", appName == nil ? @"" : @"“%@” reported an error: ", errorMessage],
                                 errorNumber == nil ? @"" : [NSString stringWithFormat: @"(%@)", errorNumber]);
             }

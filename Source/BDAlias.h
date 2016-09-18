@@ -43,6 +43,8 @@
 - (NSString *)fullPath;
 - (NSString *)fullPathRelativeToPath:(NSString *)relPath;
 
+- (NSURL *)fileURL;
+
 + (BDAlias *)aliasWithAliasHandle:(AliasHandle)alias;
 + (BDAlias *)aliasWithData:(NSData *)data;
 + (BDAlias *)aliasWithPath:(NSString *)fullPath;

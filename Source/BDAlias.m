@@ -293,6 +293,16 @@ static CFStringRef FSRefToPathCopy(const FSRef *inRef)
     return [result autorelease];
 }
 
+- (NSURL *)fileURL
+{
+    NSString *fullPath = [self fullPath];
+
+    if (fullPath == nil)
+        return nil;
+
+    return [NSURL fileURLWithPath:fullPath];
+}
+
 + (BDAlias *)aliasWithAliasHandle:(AliasHandle)alias
 {
     return [[[BDAlias alloc] initWithAliasHandle:alias] autorelease];
