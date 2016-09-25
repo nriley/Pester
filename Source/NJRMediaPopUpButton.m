@@ -119,48 +119,38 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
     [item setTarget: self];
     [menu addItem: [NSMenuItem separatorItem]];
 
-    NSMutableArray *soundFolderPaths = [[NSMutableArray alloc] initWithCapacity: kLastDomainConstant - kSystemDomain + 1];
-    for (FSVolumeRefNum domain = kSystemDomain ; domain <= kLastDomainConstant ; domain++) {
-	OSStatus err;
-	FSRef fsr;
-	err = FSFindFolder(domain, kSystemSoundsFolderType, kDontCreateFolder, &fsr);
-	if (err != noErr) continue;
 
-	UInt8 path[PATH_MAX];
-	err = FSRefMakePath(&fsr, path, PATH_MAX);
-	if (err != noErr) continue;
+    NSFileManager *fm = [NSFileManager defaultManager];
 
-	CFStringRef pathString = CFStringCreateWithFileSystemRepresentation(NULL, (const char *)path);
-	if (pathString == NULL) continue;
-
-	[soundFolderPaths addObject: (NSString *)pathString];
-	CFRelease(pathString);
-    }
+    // FSFindFolder is deprecated and there's no replacement for kSystemSoundsFolderType
+    // so use the documented domains (in Folders.h) to look for the Library/Sounds folder
+    NSArray *soundLibraryFolderURLs = [fm URLsForDirectory:NSLibraryDirectory inDomains:NSSystemDomainMask | NSLocalDomainMask | NSUserDomainMask];
 
     NSArray *audiovisualTypes = AVURLAsset.audiovisualTypes;
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSEnumerator *e = [soundFolderPaths objectEnumerator];
-    NSString *folderPath;
-    while ( (folderPath = [e nextObject]) != nil) {
-	if (![fm changeCurrentDirectoryPath: folderPath]) continue;
+    NSEnumerator *e = [soundLibraryFolderURLs objectEnumerator];
+    NSURL *libraryFolderURL;
 
-	NSDirectoryEnumerator *de = [fm enumeratorAtPath: folderPath];
-	NSString *path;
-	NSString *displayName;
-	while ( (path = [de nextObject]) != nil) {
-	    BOOL isDir;
-	    if (![fm fileExistsAtPath: path isDirectory: &isDir] || isDir) {
-		[de skipDescendents]; // [sic]
-		continue;
-	    }
+    while ( (libraryFolderURL = [e nextObject]) != nil) {
+        NSDirectoryEnumerator *de = [fm enumeratorAtURL: [libraryFolderURL URLByAppendingPathComponent: @"Sounds"]
+                             includingPropertiesForKeys: @[NSURLLocalizedNameKey, NSURLIsDirectoryKey,
+                                                           NSURLTypeIdentifierKey, NSURLHasHiddenExtensionKey]
+                                                options: NSDirectoryEnumerationSkipsSubdirectoryDescendants | NSDirectoryEnumerationSkipsHiddenFiles
+                                           errorHandler: NULL];
+        if (!de) continue;
 
-            NSString *type = [[NSWorkspace sharedWorkspace] typeOfFile: path error: NULL];
-            if (type == nil)
+        NSURL *url;
+        while ( (url = [de nextObject]) != nil) {
+            NSNumber *isDirectory;
+            if (![url getResourceValue: &isDirectory forKey: NSURLIsDirectoryKey error: NULL] || [isDirectory boolValue])
+                continue;
+
+            NSString *typeIdentifier;
+            if (![url getResourceValue: &typeIdentifier forKey: NSURLTypeIdentifierKey error: NULL] || typeIdentifier == nil)
                 continue;
 
             BOOL hasConformingType = NO;
             for (NSString *matchingType in audiovisualTypes) {
-                if (UTTypeConformsTo((CFStringRef)type, (CFStringRef)matchingType)) {
+                if (UTTypeConformsTo((CFStringRef)typeIdentifier, (CFStringRef)matchingType)) {
                     hasConformingType = YES;
                     break;
                 }
@@ -168,28 +158,35 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
             if (!hasConformingType)
                 continue;
 
-            NSURL *url = [NSURL fileURLWithPath: path];
             AVAsset *asset = [[AVURLAsset alloc] initWithURL: url options: nil];
             BOOL isPlayable = asset.isPlayable;
             [asset release];
             if (!isPlayable) continue;
-	    
-	    displayName = [fm displayNameAtPath: path];
-	    if ([[NSNumber numberWithBool: NO] isEqualTo: [[de fileAttributes] objectForKey: NSFileExtensionHidden]])
-		displayName = [displayName stringByDeletingPathExtension];
 
-	    item = [menu addItemWithTitle: displayName
-				   action: @selector(_systemSoundSelected:)
-			    keyEquivalent: @""];
+            NSString *displayName;
+            if (![url getResourceValue: &displayName forKey: NSURLLocalizedNameKey error: NULL])
+                continue;
+
+            NSNumber *extensionIsHidden;
+            if (![url getResourceValue: &extensionIsHidden forKey: NSURLHasHiddenExtensionKey error: NULL])
+                continue;
+
+            if (![extensionIsHidden boolValue])
+                displayName = [displayName stringByDeletingPathExtension];
+
+            item = [menu addItemWithTitle: displayName
+                                   action: @selector(_systemSoundSelected:)
+                            keyEquivalent: @""];
             [item setTarget: self];
+
+            // XXX push URLs further through
+            NSString *path = [url path];
             [item setImageFromPath: path];
-	    path = [folderPath stringByAppendingPathComponent: path];
             [item setRepresentedObject: path];
-	    [item setToolTip: [[fm componentsToDisplayForPath: path] componentsJoinedByString: @" \u25b8 "]];
+            [item setToolTip: [[fm componentsToDisplayForPath: path] componentsJoinedByString: @" \u25b8 "]];
         }
     }
-    [soundFolderPaths release];
-    
+
     if ([menu numberOfItems] == 2) {
         item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate alert sounds", "Media popup menu item surrogate for alert sound list if no sounds are found") action: nil keyEquivalent: @""];
         [item setEnabled: NO];
