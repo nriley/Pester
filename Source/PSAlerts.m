@@ -161,7 +161,7 @@ JRErrExpressionAdapter(PSAlerts *(^block)(void), JRErrExpression *expression, NS
             }
 
             if (exceptions != nil)
-                JRThrowErrMsg([[exceptions valueForKey: @"description"] componentsJoinedByString: @"\n"], nil);
+                JRThrowErrMsg([[exceptions valueForKey: @"description"] componentsJoinedByString: @"\n"], @"Exception(s) generated while restoring alerts");
 	} @catch (JRErrException *je) {
             // object may be partially valid; keep it around
         } @catch (NSException *e) {
