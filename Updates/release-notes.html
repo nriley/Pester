@@ -37,23 +37,26 @@
     <tr><th>Pester 1.1 beta 22 (66)</th></tr>
     <tr><td><ul>
         <li>Pester is now a 64-bit application.</li>
-        <li>Use AVFoundation rather than QuickTime for movie playback.
-        Note that this removes support for playback of some formats;
-        please let me know if (and why) you rely on any of these, and
-        I will consider re-adding them to a future version of Pester.
-        Because of a limitation of AVFoundation, audio from movie
-        playback will be sent to the system sound output device,
-        rather than the alert device selected in Preferences.
+        <li>Use AVFoundation rather than QuickTime.  Note that this
+        removes support for image/PDF display and playback of some
+        movie formats; please let me know if (and why) you rely on any
+        of these, and I will consider re-adding them to a future
+        version of Pester.  Because of a <a href="https://forums.developer.apple.com/message/59178">limitation of AVFoundation</a>,
+        audio from movie playback will be sent to the system sound
+        output device, rather than the alert device selected in
+        Preferences.
         </li>
         <li>Fix an issue introduced in 1.1b20 in which movie alerts
         would play their audio only, not their video.</li>
         <li>Update to the current version of Sparkle.</li>
         <li>Pester no longer bounces its Dock icon when it is
-        frontmost, since there is no supported way to do so in a
-        64-bit application.</li>
+        frontmost even if you have requested it to do so, since there
+        is no supported way to do so in a 64-bit application.</li>
         <li>Support natural-language date and time entry on macOS
         Sierra (10.12), by linking to Perl 5.16 on macOS
         10.9&ndash;10.12.</li>
+        <li>Code cleanups and modernization without (intended) changes
+        in functionality; remove some code which was never used.</li>
     </ul></td></tr>
 </table>
 <p />
