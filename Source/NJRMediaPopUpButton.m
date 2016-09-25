@@ -197,6 +197,8 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
     [item setTarget: self];
     otherItem = [item retain];
 
+    // XXX this generates a nullability warning when compiled against the 10.11 SDK.  The correct declaration (as of 10.12) is:
+    // - (instancetype)initWithPlayerItem:(nullable AVPlayerItem *)item;
     preview = [[AVPlayer alloc] initWithPlayerItem: nil];
     [self _validateWithPreview: NO];
 
