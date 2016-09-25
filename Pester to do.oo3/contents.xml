@@ -160,9 +160,9 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="i2CmyW3sH9I"/>
+    <selected-rows ids="d25qohnTJLU"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{42, 0}"/>
+    <selected-characters range="{24, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6435,6 +6435,30 @@
             </text>
           </values>
         </item>
+        <item id="ipyX7gwiz8i" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Ugly artifacts when dragging the split bar on 10.11 (report a bug)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
+            <item id="deJTY3kGSqz" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Fixed in 10.12; updated Web page</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+          </children>
+        </item>
         <item id="i9gFcEcSnKo" state="checked">
           <values>
             <text>
@@ -7938,17 +7962,6 @@
               </values>
             </item>
           </children>
-        </item>
-        <item id="ipyX7gwiz8i">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Ugly artifacts when dragging the split bar (report a bug)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="hUYALDG_47S">
           <values>
