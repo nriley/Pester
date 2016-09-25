@@ -151,7 +151,7 @@
         [[NSNotificationCenter defaultCenter] removeObserver: self
                                                         name: AVPlayerItemDidPlayToEndTimeNotification
                                                       object: nil];
-        [player pause];
+        [player replaceCurrentItemWithPlayerItem: nil];
     }
     [alert completedForAlarm: alarm];
     [self autorelease];
