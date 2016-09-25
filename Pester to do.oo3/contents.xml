@@ -160,9 +160,9 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="d25qohnTJLU"/>
+    <selected-rows ids="cFaEDnhF_rm"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{24, 0}"/>
+    <selected-characters range="{12, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6843,7 +6843,7 @@
             </text>
           </values>
         </item>
-        <item id="khfBnNLkMiG" expanded="yes">
+        <item id="khfBnNLkMiG" expanded="yes" state="indeterminate">
           <values>
             <text>
               <p>
@@ -6854,6 +6854,28 @@
             </text>
           </values>
           <children>
+            <item id="kPGHp2Z90Gc" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>When it&apos;s in an alert being restored on startup, it seems to hang sometimes (wrong thread) and needs a better message which suggests you contact me if needed</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
+            <item id="piemLYgxZMi" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Can&apos;t display All Alarms window after clicking “Use Defaults”.</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
             <item id="cFaEDnhF_rm">
               <values>
                 <text>
@@ -7662,17 +7684,6 @@
                 </text>
               </note>
             </item>
-            <item id="kPGHp2Z90Gc">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>When it&apos;s in an alert being restored on startup, it seems to hang sometimes (wrong thread) and needs a better message which suggests you contact me if needed</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
           </children>
         </item>
         <item id="nFl6dCQXfSW">
@@ -7685,6 +7696,27 @@
               </p>
             </text>
           </values>
+        </item>
+        <item id="ahhvRQ_NNKH">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Sign the disk image (10.11+)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <note>
+            <text>
+              <p>
+                <run>
+                  <lit><cell href="https://developer.apple.com/library/prerelease/content/technotes/tn2206/_index.html#//apple_ref/doc/uid/DTS40007919-CH1-TNTAG18" name="Signing Disk Images
+" type="link"/></lit>
+                </run>
+              </p>
+            </text>
+          </note>
         </item>
         <item id="i2CmyW3sH9I">
           <values>
@@ -7732,7 +7764,7 @@
         </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
+    <item id="gotAfbOXCFU" state="indeterminate">
       <values>
         <text>
           <p>
