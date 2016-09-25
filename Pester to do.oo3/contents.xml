@@ -155,15 +155,14 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
-      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="m4zuxN-9toD"/>
+    <selected-rows ids="i2CmyW3sH9I"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{56, 0}"/>
+    <selected-characters range="{42, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6469,7 +6468,7 @@
             </text>
           </values>
         </item>
-        <item id="cdQ-cexKFk3" expanded="yes" state="indeterminate">
+        <item id="cdQ-cexKFk3" state="checked">
           <values>
             <text>
               <p>
@@ -6641,6 +6640,41 @@
                 </text>
               </values>
             </item>
+            <item id="fBzQIOZSu5i" state="checked">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>Do some more testing with [NJRQTMediaPopUpButton setOutputVolume:withPreview:]</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+              <children>
+                <item id="lRiyXQJPcaL" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>It&apos;s going to go away, but if it&apos;s fixed in 10.9/10/11, reenable it</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+                <item id="mAKRCzyd2Xq" state="checked">
+                  <values>
+                    <text>
+                      <p>
+                        <run>
+                          <lit>Seems fixed with move to AVFoundation.</lit>
+                        </run>
+                      </p>
+                    </text>
+                  </values>
+                </item>
+              </children>
+            </item>
             <item id="il_F6RqbbnR" state="checked">
               <values>
                 <text>
@@ -6728,17 +6762,17 @@
                 </text>
               </note>
             </item>
-            <item id="m4zuxN-9toD">
+            <item id="m4zuxN-9toD" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Errors when closing the movie controller window on 10.10</lit>
+                      <lit>Lots of logging when closing the movie controller window on 10.10</lit>
                     </run>
                   </p>
                 </text>
               </values>
-              <note expanded="yes">
+              <note>
                 <text>
                   <p>
                     <run>
@@ -6761,23 +6795,47 @@
                 </text>
               </note>
             </item>
-            <item id="bYB3h0JUuwF">
+            <item id="bYB3h0JUuwF" state="checked">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Shouldn&apos;t be able to drag onto disabled button</lit>
+                      <lit>Shouldn&apos;t be able to drag onto disabled NJRMediaPopUpButton</lit>
                     </run>
                   </p>
                 </text>
               </values>
             </item>
+          </children>
+        </item>
+        <item id="mPiGQj3PbaX" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Fix up Read Me</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="khfBnNLkMiG" expanded="yes">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Better handle no-longer-supported image types</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+          <children>
             <item id="cFaEDnhF_rm">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>When we remove an item from the menu because it isn&apos;t valid any more, we don&apos;t update the list of aliases properly</lit>
+                      <lit>When we select and remove an item from the menu because it isn&apos;t valid any more, we don&apos;t update the list of aliases properly and fail to validate</lit>
                     </run>
                   </p>
                 </text>
@@ -7580,18 +7638,18 @@
                 </text>
               </note>
             </item>
+            <item id="kPGHp2Z90Gc">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit>When it&apos;s in an alert being restored on startup, it seems to hang sometimes (wrong thread) and needs a better message which suggests you contact me if needed</lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
           </children>
-        </item>
-        <item id="kPGHp2Z90Gc">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Test removing no-longer-supported media from alerts — it seems to hang sometimes (wrong thread) and needs a better message which suggests you contact me if needed</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="nFl6dCQXfSW">
           <values>
@@ -7604,23 +7662,12 @@
             </text>
           </values>
         </item>
-        <item id="mPiGQj3PbaX">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Fix up Read Me</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
         <item id="i2CmyW3sH9I">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Test on 10.9</lit>
+                  <lit>Test on 10.9 (and desupport if it&apos;s buggy)</lit>
                 </run>
               </p>
             </text>
@@ -7661,7 +7708,7 @@
         </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" state="indeterminate">
+    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
       <values>
         <text>
           <p>
@@ -8217,30 +8264,6 @@
               </p>
             </text>
           </values>
-        </item>
-        <item id="fBzQIOZSu5i" expanded="yes">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Do some more testing with [NJRQTMediaPopUpButton setOutputVolume:withPreview:]</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="lRiyXQJPcaL">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>It&apos;s going to go away, but if it&apos;s fixed in 10.9/10/11, reenable it</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
         </item>
         <item id="jmUtivqbYtW">
           <values>
