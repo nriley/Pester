@@ -415,7 +415,7 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
             [self _resetPreview];
             doPreview = NO;
             if (asset == nil) {
-                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The item you selected isn't a supported image, sound or movie.\n\nPlease select a different item.", "Message displayed in alert sheet when media document is not recognized by AVFoundation"));
+                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The item you selected isn't a supported sound or movie.\n\nPlease select a different item.", "Message displayed in alert sheet when media document is not recognized by AVFoundation"));
                 [self _invalidateSelection];
                 return NO;
             }
