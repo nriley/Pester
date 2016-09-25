@@ -37,17 +37,19 @@
     <tr><th>Pester 1.1 beta 22 (66)</th></tr>
     <tr><td><ul>
         <li>Pester is now a 64-bit application.</li>
-        <li>Use AVFoundation rather than QuickTime.  Note that this
-        removes support for image/PDF display and playback of some
-        movie formats; please let me know if (and why) you rely on any
-        of these, and I will consider re-adding them to a future
-        version of Pester.  Because of a <a href="https://forums.developer.apple.com/message/59178">limitation of AVFoundation</a>,
+        <li>Use AVFoundation, Apple’s modern framework for video,
+        rather than “classic” QuickTime.  Note that this removes
+        support for image/PDF display and playback of some movie
+        formats; please let me know if (and why) you rely on any of
+        these.  Because of a <a href="https://forums.developer.apple.com/message/59178">limitation of AVFoundation</a>,
         audio from movie playback will be sent to the system sound
         output device, rather than the alert device selected in
         Preferences.
         </li>
         <li>Fix an issue introduced in 1.1b20 in which movie alerts
         would play their audio only, not their video.</li>
+        <li>Fix an issue in which the All Alarms window could be
+        invisible if alert restoration failed.</li>
         <li>Update to the current version of Sparkle.</li>
         <li>Pester no longer bounces its Dock icon when it is
         frontmost even if you have requested it to do so, since there
