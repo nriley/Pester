@@ -597,7 +597,7 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
 
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender;
 {
-    if ([self acceptsDragFrom: sender] && [sender draggingSourceOperationMask] &
+    if (self.enabled && [self acceptsDragFrom: sender] && [sender draggingSourceOperationMask] &
         (NSDragOperationCopy | NSDragOperationLink)) {
         dragAccepted = YES;
         [self setNeedsDisplay: YES];
