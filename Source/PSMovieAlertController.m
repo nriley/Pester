@@ -155,7 +155,7 @@
     }
     [alert completedForAlarm: alarm];
     [self autorelease];
-    // note: there may still be a retained copy of this object until the runloop timer has let go of us at the end of the current movie playback cycle; don’t worry about it.
+    // note: there may still be a retained copy of this object until the runloop timer has let go of us at the end of the current movie playback cycle; don't worry about it.
 }
 
 @end

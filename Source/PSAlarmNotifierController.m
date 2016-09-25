@@ -191,16 +191,16 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
 {
     // NSLog(@"UPDATING from textView: %@", NSStringFromSelector(commandSelector));
     if (commandSelector == @selector(cancel:)) {
-        // if someone just wants the stupid thing to go away and presses escape, don’t hinder them
+        // if someone just wants the stupid thing to go away and presses escape, don't hinder them
         [self close: control];
         return YES;
     }
-    // if someone invokes the default button or switches fields, don’t override it
+    // if someone invokes the default button or switches fields, don't override it
     if (commandSelector == @selector(insertNewline:) ||
         commandSelector == @selector(insertTab:) ||
         commandSelector == @selector(insertBacktab:)) return NO;
     [self update: control]; // ...or if they type a navigation key...
-    return NO; // we don’t handle it
+    return NO; // we don't handle it
 }
 
 @end
@@ -219,7 +219,7 @@ static NSString * const PSAlarmSnoozeInterval = @"Pester alarm snooze interval";
 
 - (void)windowWillClose:(NSNotification *)notification;
 {
-    // can’t rely on dealloc to invalidate the timer, because it retains this object
+    // can't rely on dealloc to invalidate the timer, because it retains this object
     [updateTimer invalidate]; updateTimer = nil;
     [self release]; // in non-document-based apps, this is needed; see docs
 }
