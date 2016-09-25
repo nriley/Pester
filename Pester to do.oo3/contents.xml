@@ -161,7 +161,9 @@
   </settings>
   <editor content-size="{551, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="gotAfbOXCFU"/>
+    <selected-rows ids="m4zuxN-9toD"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{56, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -7580,6 +7582,17 @@
             </item>
           </children>
         </item>
+        <item id="kPGHp2Z90Gc">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Test removing no-longer-supported media from alerts — it seems to hang sometimes (wrong thread) and needs a better message which suggests you contact me if needed</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="nFl6dCQXfSW">
           <values>
             <text>
@@ -7607,7 +7620,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Test 10.9</lit>
+                  <lit>Test on 10.9</lit>
                 </run>
               </p>
             </text>
@@ -7618,7 +7631,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Test 10.10</lit>
+                  <lit>Test on 10.10</lit>
                 </run>
               </p>
             </text>
@@ -7629,7 +7642,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Test 10.11</lit>
+                  <lit>Test on 10.11</lit>
                 </run>
               </p>
             </text>
@@ -7640,7 +7653,7 @@
             <text>
               <p>
                 <run>
-                  <lit>Test 10.12</lit>
+                  <lit>Test on 10.12</lit>
                 </run>
               </p>
             </text>
