@@ -33,8 +33,8 @@ static NSString * const PLAlertAlias = @"alias"; // NSData
     alias = [anAlias retain];
     AVAsset *asset = [AVAsset assetWithURL: url];
     if (asset == nil || ![asset NJR_hasVideo]) {
-        [self release];
-        self = nil;
+        [NSException raise: PSAlertCreationException format: NSLocalizedString(@"'%@' is not playable by this version of Pester.\n\nIf this item was playable in a prior version of Pester and you would like to continue to play it, please let me know (pester@sabi.net).", "Exception message on PSMovieAlert initialization when AVAsset can't initialize"), [[NSFileManager defaultManager] displayNameAtPath: [url path]]];
+        [alias release];
     }
 
     return self;
