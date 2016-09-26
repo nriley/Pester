@@ -160,7 +160,9 @@
   </settings>
   <editor content-size="{666, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="khfBnNLkMiG"/>
+    <selected-rows ids="iHq9867AB9W"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{13, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -7684,6 +7686,17 @@
             </item>
           </children>
         </item>
+        <item id="on-H0eb7CPg" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Recent media validation may not be working at all; the method looks unfinished (see Clang Analyzer results).</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
         <item id="nFl6dCQXfSW">
           <values>
             <text>
@@ -8358,17 +8371,6 @@
               <p>
                 <run>
                   <lit>Figure out a way to generate and archive dSYMs (we do it for Shroud).</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-        </item>
-        <item id="on-H0eb7CPg">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Recent media validation may not be working at all; the method looks unfinished (see Clang Analyzer results).</lit>
                 </run>
               </p>
             </text>
