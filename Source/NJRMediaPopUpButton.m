@@ -488,22 +488,24 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
     NSInteger itemIndex = [self indexOfItem: sender];
     NSAssert(itemIndex >= 0, @"Can't find selected alias in media popup menu");
 
+    NSInteger otherIndex = [self indexOfItem: otherItem];
+    NSAssert(otherIndex >= 0, @"Can't find 'Other' item in media popup menu");
+
+    NSInteger recentIndex = [recentMediaAliasData count] - itemIndex + otherIndex;
+    NSAssert(recentIndex >= 0, @"Recent media index invalid");
+
     BDAlias *alias = [sender representedObject];
     [self _setAlias: alias];
 
     if (![self _validateWithPreview: YES]) {
-        [recentMediaAliasData removeObject: alias.aliasData];
+        [recentMediaAliasData removeObjectAtIndex: recentIndex];
         [self removeItemAtIndex: itemIndex];
+
+        [self _validateRecentMedia];
         return;
     }
 
-    NSInteger otherIndex = [self indexOfItem: otherItem];
-    NSAssert(otherIndex >= 0, @"Can't find 'Other' item in media popup menu");
-
     if (itemIndex > otherIndex + 1) { // move selected item to top of recent list
-        NSInteger recentIndex = [recentMediaAliasData count] - itemIndex + otherIndex;
-        NSAssert(recentIndex >= 0, @"Recent media index invalid");
-
         // hold onto the item and alias data
         [sender retain];
         NSData *data = [[recentMediaAliasData objectAtIndex: recentIndex] retain];
