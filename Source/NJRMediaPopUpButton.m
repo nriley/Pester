@@ -397,6 +397,7 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = messageText;
     alert.informativeText = informativeText;
+    [informativeText release];
 
     NSWindow *window = self.window;
     if (!window || ![window isVisible])
