@@ -21,7 +21,7 @@ static const int NJRMediaPopUpButtonMaxRecentItems = 10;
 
 NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpButtonMovieChangedNotification";
 
-@interface NJRMediaPopUpButton (Private)
+@interface NJRMediaPopUpButton ()
 - (void)_setPath:(NSString *)path;
 - (NSMenuItem *)_itemForAlias:(BDAlias *)alias;
 - (BOOL)_validateWithPreview:(BOOL)doPreview;
@@ -383,6 +383,29 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
     [preview replaceCurrentItemWithPlayerItem: nil];
 }
 
+- (BOOL)_validationFailedWithMessageText:(NSString *)messageText informativeText:(NSString *)informativeText, ...;
+{
+    va_list ap;
+    va_start(ap, informativeText);
+    informativeText = [[NSString alloc] initWithFormat: informativeText arguments: ap];
+    va_end(ap);
+
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.messageText = messageText;
+    alert.informativeText = informativeText;
+
+    NSWindow *window = self.window;
+    if (!window || ![window isVisible])
+        [alert runModal];
+    else
+        [alert beginSheetModalForWindow: window completionHandler: nil];
+    [alert release];
+
+    [self _invalidateSelection];
+
+    return NO;
+}
+
 - (BOOL)_validateWithPreview:(BOOL)doPreview;
 {
     // prevent _resetPreview from triggering afterward (crashes)
@@ -399,7 +422,12 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
             AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert);
         }
     } else {
-        AVAsset *asset = [AVAsset assetWithURL: [selectedAlias fileURL]];
+        NSURL *fileURL = [selectedAlias fileURL];
+        if (fileURL == nil)
+            return [self _validationFailedWithMessageText: @"Media not found"
+                                          informativeText: NSLocalizedString(@"The selected media item couldn't be found on disk.\n\nPlease select a different item.", "Message displayed in alert sheet when media alias couldn't be resolved")];
+
+        AVAsset *asset = [AVAsset assetWithURL: fileURL];
         if (!asset.isPlayable)
             asset = nil;
     
@@ -414,16 +442,12 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
         } else {
             [self _resetPreview];
             doPreview = NO;
-            if (asset == nil) {
-                NSBeginAlertSheet(@"Format not recognized", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"The item you selected isn't a supported sound or movie.\n\nPlease select a different item.", "Message displayed in alert sheet when media document is not recognized by AVFoundation"));
-                [self _invalidateSelection];
-                return NO;
-            }
-            if (![asset NJR_hasVideo]) {
-                NSBeginAlertSheet(@"No video or audio", nil, nil, nil, [self window], nil, nil, nil, nil, NSLocalizedString(@"'%@' contains neither audio nor video content.\n\nPlease select a different item.", "Message displayed in alert sheet when media document is readable, but has neither audio nor video tracks"), [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]);
-                [self _invalidateSelection];
-                return NO;
-            }
+            if (asset == nil)
+                return [self _validationFailedWithMessageText: @"Format not recognized" informativeText: NSLocalizedString(@"'%@' isn't in a supported sound or movie format.\n\nPlease select a different item.\n\nIf this item was playable in a prior version of Pester and you would like to continue to play it, please let me know (pester@sabi.net).", "Message displayed in alert sheet when media document is not recognized by AVFoundation"), [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]];
+
+            if (![asset NJR_hasVideo])
+                return [self _validationFailedWithMessageText:@"No video or audio" informativeText: NSLocalizedString(@"'%@' contains neither audio nor video content.\n\nPlease select a different item.", "Message displayed in alert sheet when media document is readable, but has neither audio nor video tracks"), [[NSFileManager defaultManager] displayNameAtPath: [selectedAlias fullPath]]];
+
             mediaCanAdjustVolume = NO;
         }
         mediaCanRepeat = ![asset NJR_isStatic];
@@ -461,27 +485,42 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
 
 - (void)_aliasSelected:(NSMenuItem *)sender;
 {
+    NSInteger itemIndex = [self indexOfItem: sender];
+    NSAssert(itemIndex >= 0, @"Can't find selected alias in media popup menu");
+
     BDAlias *alias = [sender representedObject];
-    NSInteger itemIndex = [self indexOfItem: sender], otherIndex = [self indexOfItem: otherItem];
     [self _setAlias: alias];
+
     if (![self _validateWithPreview: YES]) {
-        [[self menu] removeItem: sender];
-    } else if (itemIndex > otherIndex + 1) { // move "other" item to top of list
-        NSInteger recentIndex = [recentMediaAliasData count] - itemIndex + otherIndex;
-        NSMenuItem *item = [[self itemAtIndex: itemIndex] retain];
-        NSData *data = [[recentMediaAliasData objectAtIndex: recentIndex] retain];
-        // [self _validateRecentMedia];
+        [recentMediaAliasData removeObject: alias.aliasData];
         [self removeItemAtIndex: itemIndex];
-        [[self menu] insertItem: item atIndex: otherIndex + 1];
-        [self selectItem: item];
-        [item release];
+        return;
+    }
+
+    NSInteger otherIndex = [self indexOfItem: otherItem];
+    NSAssert(otherIndex >= 0, @"Can't find 'Other' item in media popup menu");
+
+    if (itemIndex > otherIndex + 1) { // move selected item to top of recent list
+        NSInteger recentIndex = [recentMediaAliasData count] - itemIndex + otherIndex;
         NSAssert(recentIndex >= 0, @"Recent media index invalid");
-        // NSLog(@"_aliasSelected removing item %d - %d + %d = %d of recentMediaAliasData", [recentMediaAliasData count], index, otherIndex, recentIndex);
+
+        // hold onto the item and alias data
+        [sender retain];
+        NSData *data = [[recentMediaAliasData objectAtIndex: recentIndex] retain];
+
+        // move the item
+        [self removeItemAtIndex: itemIndex];
+        [[self menu] insertItem: sender atIndex: otherIndex + 1];
+        [self selectItem: sender];
+        [sender release];
+
+        // move the alias data
         [recentMediaAliasData removeObjectAtIndex: recentIndex];
         [recentMediaAliasData addObject: data];
-        [self _validateRecentMedia];
         [data release];
-    } // else NSLog(@"_aliasSelected ...already at top");
+
+        [self _validateRecentMedia];
+    }
 }
 
 - (IBAction)select:(id)sender;
