@@ -343,8 +343,12 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
 
 - (void)_invalidateSelection;
 {
+    if ([selectedAlias isEqual: previousAlias]) {
+        [previousAlias release];
+        previousAlias = nil;
+    }
     [self _setAlias: previousAlias];
-    [self selectItem: [self _itemForAlias: [self selectedAlias]]];
+    [self selectItem: [self _itemForAlias: selectedAlias]];
     [[NSNotificationCenter defaultCenter] postNotificationName: NJRMediaPopUpButtonMovieChangedNotification object: self];
 }
 
