@@ -158,11 +158,9 @@
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
-  <editor content-size="{551, 639}" column-titles-display-mode="auto">
+  <editor content-size="{666, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="cFaEDnhF_rm"/>
-    <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{12, 0}"/>
+    <selected-rows ids="khfBnNLkMiG"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -199,7 +197,7 @@
         </text>
       </title>
     </column>
-    <column id="jFqHUGd_Dg1" type="text" width="530" minimum-width="13" maximum-width="1000000" text-export-width="72" is-outline-column="yes">
+    <column id="jFqHUGd_Dg1" type="text" width="645" minimum-width="13" maximum-width="1000000" text-export-width="72" is-outline-column="yes">
       <title>
         <text>
           <p>
@@ -6843,7 +6841,7 @@
             </text>
           </values>
         </item>
-        <item id="khfBnNLkMiG" expanded="yes" state="indeterminate">
+        <item id="khfBnNLkMiG" state="checked">
           <values>
             <text>
               <p>
@@ -6876,7 +6874,7 @@
                 </text>
               </values>
             </item>
-            <item id="cFaEDnhF_rm">
+            <item id="cFaEDnhF_rm" state="checked">
               <values>
                 <text>
                   <p>
