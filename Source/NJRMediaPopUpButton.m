@@ -586,7 +586,7 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
         if ([type hasPrefix: @"CorePasteboardFlavorType 0x"]) {
             const char *osTypeHex = [[type substringFromIndex: [type rangeOfString: @"0x" options: NSBackwardsSearch].location] UTF8String];
             OSType osType;
-            sscanf(osTypeHex, "%lx", &osType);
+            sscanf(osTypeHex, "%x", &osType);
             [s appendFormat: @" '%4s'", (char *)&osType];
         } else {
             [s appendFormat: @" '%@'", type];
