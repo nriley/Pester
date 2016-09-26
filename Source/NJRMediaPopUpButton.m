@@ -90,20 +90,20 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
 
 - (void)_validateRecentMedia;
 {
-    NSEnumerator *e = [recentMediaAliasData reverseObjectEnumerator];
-    NSData *aliasData;
-    NSMenuItem *item;
-    BDAlias *itemAlias;
     NSInteger otherIndex = [self indexOfItem: otherItem];
     NSInteger aliasDataCount = [recentMediaAliasData count];
     NSInteger lastItemIndex = [self numberOfItems] - 1;
     NSInteger recentItemCount = lastItemIndex - otherIndex;
     NSInteger recentItemIndex = otherIndex;
-    NSAssert2(recentItemCount == aliasDataCount, @"Counted %d recent menu items, %d of alias data", (int)recentItemCount, (int)aliasDataCount);
+    NSAssert2(recentItemCount == aliasDataCount, @"Counted %ld recent menu items, %ld of alias data", recentItemCount, aliasDataCount);
+
+    NSEnumerator *e = [recentMediaAliasData reverseObjectEnumerator];
+    NSData *aliasData;
     while ( (aliasData = [e nextObject]) != nil) { // go BACKWARD through array while going DOWN menu
         recentItemIndex++;
-        item = [self itemAtIndex: recentItemIndex];
-        itemAlias = [item representedObject];
+        NSMenuItem *item = [self itemAtIndex: recentItemIndex];
+        BDAlias *itemAlias = [item representedObject];
+        NSAssert2([itemAlias aliasDataIsEqual: aliasData], @"Alias does not match alias data: %@ %@", itemAlias, aliasData);
     }
 }
 
