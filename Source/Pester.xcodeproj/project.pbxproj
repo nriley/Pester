@@ -1761,6 +1761,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Info-Pester.plist";
 				INSTALL_PATH = /;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.sabi.Pester;
 				PRODUCT_NAME = Pester;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1783,6 +1784,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Info-Pester.plist";
 				INSTALL_PATH = /;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.sabi.Pester;
 				PRODUCT_NAME = Pester;
 				VERSIONING_SYSTEM = "apple-generic";
