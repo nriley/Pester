@@ -30,8 +30,6 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 + (void)readPreferences;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NJRHotKeyManager *hotKeyManager = [NJRHotKeyManager sharedManager];
-    NJRHotKey *hotKey = [[[NJRHotKey alloc] initWithPropertyList: [defaults dictionaryForKey: PSSetAlarmHotKey]] autorelease];
 
     // migrate from 1.1b8
     NSValue *waitForIdle = [defaults objectForKey: @"PesterAlarmNotifierWaitForIdle"];
@@ -41,9 +39,11 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 	[defaults synchronize];
     }
 
-    if (hotKey == nil) {
-        [hotKeyManager removeShortcutWithIdentifier: PSSetAlarmHotKeyShortcut];
-    } else {
+    NJRHotKeyManager *hotKeyManager = [NJRHotKeyManager sharedManager];
+    NJRHotKey *hotKey = [[[NJRHotKey alloc] initWithPropertyList: [defaults dictionaryForKey: PSSetAlarmHotKey]] autorelease];
+
+    [hotKeyManager removeShortcutWithIdentifier: PSSetAlarmHotKeyShortcut];
+    if (hotKey != nil) {
         if (![hotKeyManager addShortcutWithIdentifier: PSSetAlarmHotKeyShortcut
                                                hotKey: hotKey
                                                target: NSApp
