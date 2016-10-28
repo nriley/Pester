@@ -49,9 +49,13 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
                                                target: NSApp
                                                action: @selector(orderFrontSetAlarmPanelIfPreferencesNotKey:)]) {
             [defaults removeObjectForKey: PSSetAlarmHotKey];
-            NSRunAlertPanel(NSLocalizedString(@"Can't reserve alarm key equivalent", "Hot key set failure"),
-                            NSLocalizedString(@"Pester was unable to reserve the key equivalent %@. Please select another in Pester's Preferences, or click Clear to remove it.", "Hot key set failure"), nil, nil, nil, [hotKey keyGlyphs]);
-            [(PSApplication *)NSApp performSelector: @selector(orderFrontPreferencesPanel:) withObject: self afterDelay: 0.1];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSAlert *alert = [[NSAlert alloc] init];
+                alert.messageText = NSLocalizedString(@"Can't reserve alarm key equivalent", "Hot key set failure");
+                alert.informativeText = [NSString stringWithFormat: NSLocalizedString(@"Pester was unable to reserve the key equivalent %@. Please select another in Pester's Preferences, or click Clear to remove it.", "Hot key set failure"), [hotKey keyGlyphs]];
+                [alert runModal];
+                [(PSApplication *)NSApp orderFrontPreferencesPanel: self];
+            });
         }
     }
 
