@@ -46,8 +46,8 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
 - (OSStatus)_handleHotKeyEvent:(EventRef)inEvent;
 - (BOOL)_registerHotKeyIfNeeded:(_NJRHotKeyShortcut *)shortcut;
 - (void)_unregisterHotKeyIfNeeded:(_NJRHotKeyShortcut *)shortcut;
-- (void)_hotKeyDown:(_NJRHotKeyShortcut *)hotKey;
-- (void)_hotKeyUp:(_NJRHotKeyShortcut *)hotKey;
+- (void)_hotKeyDown:(_NJRHotKeyShortcut *)shortcut;
+- (void)_hotKeyUp:(_NJRHotKeyShortcut *)shortcut;
 - (void)_hotKeyDownWithRef:(EventHotKeyRef)ref;
 - (void)_hotKeyUpWithRef:(EventHotKeyRef)ref;
 - (_NJRHotKeyShortcut *)_findShortcutWithRef:(EventHotKeyRef)ref;
@@ -117,10 +117,10 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
 
 - (void)removeShortcutWithIdentifier:(NSString *)identifier;
 {
-    _NJRHotKeyShortcut *hotKey = [shortcuts objectForKey: identifier];
+    _NJRHotKeyShortcut *shortcut = [shortcuts objectForKey: identifier];
 
-    if (hotKey == nil) return;
-    [self _unregisterHotKeyIfNeeded: hotKey];
+    if (shortcut == nil) return;
+    [self _unregisterHotKeyIfNeeded: shortcut];
     [shortcuts removeObjectForKey: identifier];
 }
 
@@ -131,18 +131,18 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
 
 - (NJRHotKey *)hotKeyForShortcutWithIdentifier:(NSString *)identifier;
 {
-    _NJRHotKeyShortcut *hotKey = [shortcuts objectForKey: identifier];
+    _NJRHotKeyShortcut *shortcut = [shortcuts objectForKey: identifier];
 
-    return (hotKey == nil ? nil : [[hotKey->hotKey retain] autorelease]);
+    return (shortcut == nil ? nil : [[shortcut->hotKey retain] autorelease]);
 }
 
 - (BOOL)hotKeyInUseWithCode:(NSInteger)keyCode modifierFlags:(NSUInteger)modifierFlags;
 {
     NSEnumerator *enumerator = [shortcuts objectEnumerator];
-    _NJRHotKeyShortcut *hotKey;
+    _NJRHotKeyShortcut *shortcut;
 
-    while ( (hotKey = [enumerator nextObject]) != nil) {
-        if ([hotKey->hotKey keyCode] == keyCode && [hotKey->hotKey modifierFlags] == modifierFlags)
+    while ( (shortcut = [enumerator nextObject]) != nil) {
+        if ([shortcut->hotKey keyCode] == keyCode && [shortcut->hotKey modifierFlags] == modifierFlags)
             return YES;
     }
     return NO;
@@ -156,13 +156,13 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
     shortcutsEnabled = enabled;
 
     NSEnumerator *enumerator = [shortcuts objectEnumerator];
-    _NJRHotKeyShortcut *hotKey;
+    _NJRHotKeyShortcut *shortcut;
 
-    while ( (hotKey = [enumerator nextObject]) != nil) {
+    while ( (shortcut = [enumerator nextObject]) != nil) {
         if (enabled)
-            [self _registerHotKeyIfNeeded: hotKey];
+            [self _registerHotKeyIfNeeded: shortcut];
         else
-            [self _unregisterHotKeyIfNeeded: hotKey];
+            [self _unregisterHotKeyIfNeeded: shortcut];
     }
 }
 
@@ -235,6 +235,7 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
         UnregisterEventHotKey(shortcut->hotKeyRef);
 	shortcut->isRegistered = NO;
     }
+
 }
 
 - (void)_hotKeyDown:(_NJRHotKeyShortcut *)hotKey;
@@ -251,10 +252,10 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
 
 - (void)_hotKeyDownWithRef:(EventHotKeyRef)ref;
 {
-    _NJRHotKeyShortcut *hotKey = [self _findShortcutWithRef: ref];
+    _NJRHotKeyShortcut *shortcut = [self _findShortcutWithRef: ref];
 
-    if (hotKey != nil)
-        [self _hotKeyDown: hotKey];
+    if (shortcut != nil)
+        [self _hotKeyDown: shortcut];
 }
 
 - (void)_hotKeyUpWithRef:(EventHotKeyRef)ref;
@@ -264,11 +265,11 @@ pascal OSErr keyEventHandler(EventHandlerCallRef inHandlerRef, EventRef inEvent,
 - (_NJRHotKeyShortcut *)_findShortcutWithRef:(EventHotKeyRef)ref;
 {
     NSEnumerator *enumerator = [shortcuts objectEnumerator];
-    _NJRHotKeyShortcut *hotKey;
+    _NJRHotKeyShortcut *shortcut;
 
-    while ( (hotKey = [enumerator nextObject]) != nil) {
-        if (hotKey->hotKeyRef == ref)
-            return hotKey;
+    while ( (shortcut = [enumerator nextObject]) != nil) {
+        if (shortcut->hotKeyRef == ref)
+            return shortcut;
     }
     return nil;
 }
