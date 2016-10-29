@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PSApplication">
@@ -235,8 +236,8 @@ Customize the notification from Growl, or Notifications System Preferences, resp
                                     <rect key="frame" x="0.0" y="0.0" width="338" height="109"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField verticalHuggingPriority="750" id="543">
-                                            <rect key="frame" x="9" y="-23" width="343" height="112"/>
+                                        <textField verticalHuggingPriority="750" misplaced="YES" id="543">
+                                            <rect key="frame" x="9" y="0.0" width="331" height="89"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="1586">
                                                 <font key="font" metaFont="smallSystem"/>
@@ -506,7 +507,7 @@ DQ
                     <button toolTip="Collapse or expand the alert editor." horizontalHuggingPriority="750" verticalHuggingPriority="750" id="1541">
                         <rect key="frame" x="399" y="142" width="29" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="E7B895A0-A27E-4A2A-82DC-1C1439C496C9" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1591">
+                        <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="B451F8DA-3804-4226-B77B-BDD73D929BFA" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1591">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -801,8 +802,7 @@ DQ
         <userDefaultsController representsSharedInstance="YES" id="mI9-ue-Gfi"/>
     </objects>
     <resources>
-        <image name="Calendar" width="13" height="15"/>
-        <image name="E7B895A0-A27E-4A2A-82DC-1C1439C496C9" width="1" height="1">
+        <image name="B451F8DA-3804-4226-B77B-BDD73D929BFA" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -894,6 +894,7 @@ E1MTWBNnE2sTchN6E4cTjBOOE5ATlROdE6ATpROtE7ATwhPFE8oAAAAAAAACAQAAAAAAAABBAAAAAAAA
 AAAAAAAAAAATzA
 </mutableData>
         </image>
+        <image name="Calendar" width="13" height="15"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="Volume 3" width="40" height="28"/>
     </resources>
