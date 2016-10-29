@@ -1290,7 +1290,7 @@
                 </text>
               </values>
             </item>
-            <item id="oOozIKr5eXj" expanded="yes" state="checked">
+            <item id="oOozIKr5eXj" state="checked">
               <values>
                 <text>
                   <p>
@@ -1346,7 +1346,7 @@
                   </p>
                 </text>
               </values>
-              <note expanded="yes">
+              <note>
                 <text>
                   <p>
                     <run>
@@ -8496,7 +8496,7 @@
                       <lit>Repeat every day if date is omitted (</lit>
                     </run>
                     <run>
-                      <lit><cell href="https://github.com/nriley/Pester/issues/19" name="#19" expanded="yes" type="link"/></lit>
+                      <lit><cell href="https://github.com/nriley/Pester/issues/19" name="#19" type="link"/></lit>
                     </run>
                     <run>
                       <lit>)</lit>
@@ -9293,91 +9293,6 @@
               </children>
             </item>
           </children>
-        </item>
-        <item id="e35cj38l-Iw">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Make sound output selection more sophisticated, particularly wrt AirPlay</lit>
-                </run>
-              </p>
-            </text>
-          </values>
-          <children>
-            <item id="fq4-ziOSYAz">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Pull in the sound source enumeration/labeling stuff from soundsource — actually no</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="eUyNQ9sBD9z">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>…but, you can *write* to the audio source property. Wow. </lit>
-                    </run>
-                    <run>
-                      <lit><cell href="http://joris.kluivers.nl/blog/2012/07/25/per-application-airplay-in-mountain-lion/" name="joris.kluivers.nl—per-application-airplay-in-mountain-lion" type="link"/></lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="pFtUqDvuKTa">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>We can&apos;t use anything more granular than UID in </lit>
-                    </run>
-                    <run>
-                      <style>
-                        <value key="font-family">Menlo</value>
-                        <value key="font-fill">
-                          <color r="0" g="0.501961" b="0"/>
-                        </value>
-                        <value key="font-fixed-pitch">yes</value>
-                        <value key="ligature-selection">none</value>
-                      </style>
-                      <lit>QTAudioContextCreateForAudioDevice</lit>
-                    </run>
-                    <run>
-                      <lit> (UID of any AirPlay device is just &quot;AirPlay&quot;)</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="fL6zmzUiqRO">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Handle case where selected output device is missing - save name in prefs, display in italic</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-          </children>
-        </item>
-        <item id="cO4IPXG2NDq">
-          <values>
-            <text>
-              <p>
-                <run>
-                  <lit>Speech preview uses CPU in QuickTime movie idle (need to destroy something?)</lit>
-                </run>
-              </p>
-            </text>
-          </values>
         </item>
         <item id="nVBLUJLMa_2">
           <values>
