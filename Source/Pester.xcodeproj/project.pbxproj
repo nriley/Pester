@@ -1650,10 +1650,7 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				HEADER_SEARCH_PATHS = (
-					"/System/Library/Perl/5.16/darwin-thread-multi-2level/CORE",
-					"/System/Library/Perl/5.16/darwin-thread-multi-2level/CORE",
-				);
+				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.16/darwin-thread-multi-2level/CORE";
 				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.16/darwin-thread-multi-2level/CORE";
 				OTHER_LDFLAGS = "-lperl";
 				PRODUCT_NAME = "ParseDate-10.9";
@@ -1667,10 +1664,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EXECUTABLE_PREFIX = lib;
-				HEADER_SEARCH_PATHS = (
-					"/System/Library/Perl/5.16/darwin-thread-multi-2level/CORE",
-					"/System/Library/Perl/5.16/darwin-thread-multi-2level/CORE",
-				);
+				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.16/darwin-thread-multi-2level/CORE";
 				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.16/darwin-thread-multi-2level/CORE";
 				OTHER_LDFLAGS = "-lperl";
 				PRODUCT_NAME = "ParseDate-10.9";
