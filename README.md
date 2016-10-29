@@ -17,9 +17,11 @@ The corresponding Xcode version is mentioned in the version history, though ther
 Running tests
 -------------
 
-Pester’s test coverage is dismal, but some tests do exist for trickier bits such as the exception-y deserialization process and interaction of `Date::Manip` with macOS date formats.
+Pester’s tests cover some trickier bits such as the exception-y deserialization process and interaction of `Date::Manip` with macOS date formats.
 
 1. Select Product → Test in Xcode.
+
+Note that `testDateCompletionSupportedLocales` is expected to fail for some Spanish and Italian relative dates — these appear to be `Date::Manip` issues (patches welcome!)
 
 Need ideas?
 -----------
