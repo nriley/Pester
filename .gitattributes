@@ -1,0 +1,5 @@
+Documentation/* linguist-documentation
+Source/*.eps linguist-generated
+Source/Manip.pm linguist-vendored
+Source/Manip/* linguist-vendored
+Updates/* linguist-documentation
