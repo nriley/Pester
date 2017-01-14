@@ -155,13 +155,14 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
-      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
   <editor content-size="{666, 639}" column-titles-display-mode="auto">
     <drawer palette-height="167"/>
-    <selected-rows ids="p38HHuWW80p"/>
+    <selected-rows ids="fANYz1engIh"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{36, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -7792,6 +7793,63 @@
               </values>
             </item>
           </children>
+        </item>
+      </children>
+    </item>
+    <item id="huyEVmOMd7x" expanded="yes">
+      <values>
+        <text>
+          <p>
+            <run>
+              <lit>Beta 23</lit>
+            </run>
+          </p>
+        </text>
+      </values>
+      <children>
+        <item id="g-OQpudaz_n">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Path info in help tag for custom media (not built-in sounds) is no longer displaying (regression from…?)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="fANYz1engIh">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>More crashes with speech voice lists on 10.12</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="pQVHvFGxpM0">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Crashes on startup (#22)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="cjERowmIACi">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>About panel workaround breaks on 10.12</lit>
+                </run>
+              </p>
+            </text>
+          </values>
         </item>
       </children>
     </item>
