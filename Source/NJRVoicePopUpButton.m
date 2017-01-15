@@ -12,7 +12,16 @@
 - (void)_previewVoice;
 @end
 
-// XXX unaware of any public way to get enabled voice information; this is reverse-engineered
+// As of macOS 10.12, the storage format changed *again* and instead of trying to reverse-engineer
+// it once more, prefer to harvest a voice list from SpeechObjects.framework's SOVoiceObject
+// SPI, which seems more stable across OS releases.  Fallback is still parsing voice prefs as below,
+// which currently does not work fully on 10.12 (causes crashes and invalid results - XXX).
+@interface SOVoiceObject : NSObject
++ (NSArray *)visibleVoicesForLocaleIdentifier:(NSString *)localeIdentifier additionalRequiredVoices:(NSArray *)additionalVoices allowAllVoices:(BOOL)allVoices;
+- (id)identifier;
+@end
+
+// XXX no public way to get enabled voice information; this is reverse-engineered
 // Voices enabled by default do not have VoiceShowInFullListOnly in their voice attributes.
 // Value in visibleIdentifiers is 1 if the voice is visible in the System Voice popup menu.
 // Voices disabled by the user are 0; 2 is for voices that have never been disabled or enabled.
@@ -41,8 +50,22 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
     item = nil;
 
     if (voices != nil) {
-        // XXX unaware of any public way to get enabled voice information; this is reverse-engineered
-        NSDictionary *visibleIdentifiers = [[[NSUserDefaults standardUserDefaults] persistentDomainForName: @"com.apple.speech.voice.prefs"] objectForKey: @"VisibleIdentifiers"];
+        // XXX no public way to get enabled voice information; use SPI or reverse-engineered prefs format
+        NSDictionary *visibleIdentifiers = nil;
+        if ([[SOVoiceObject class] respondsToSelector: @selector(visibleVoicesForLocaleIdentifier:additionalRequiredVoices:allowAllVoices:)] && [SOVoiceObject instancesRespondToSelector: @selector(identifier)]) {
+            NSArray *visibleVoices = [SOVoiceObject visibleVoicesForLocaleIdentifier: [NSLocale currentLocale].localeIdentifier additionalRequiredVoices: nil allowAllVoices: NO];
+            NSLog(@"visible voices: %@", visibleVoices);
+            NSUInteger visibleVoiceCount = visibleVoices.count;
+            if (visibleVoiceCount > 0) {
+                NSMutableDictionary *mutableVisibleIdentifiers = [[NSMutableDictionary alloc] initWithCapacity: visibleVoiceCount];
+                for (SOVoiceObject *voice in visibleVoices)
+                    mutableVisibleIdentifiers[voice.identifier] = @(NJRVoiceEnabled);
+                visibleIdentifiers = [[mutableVisibleIdentifiers copy] autorelease];
+                [mutableVisibleIdentifiers release];
+            }
+        }
+        if (visibleIdentifiers == nil)
+            visibleIdentifiers = [[[NSUserDefaults standardUserDefaults] persistentDomainForName: @"com.apple.speech.voice.prefs"] objectForKey: @"VisibleIdentifiers"];
         if (visibleIdentifiers != nil && [visibleIdentifiers count] == 0)
             visibleIdentifiers = nil;
 

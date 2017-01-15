@@ -74,6 +74,7 @@
 		E143BA4317A461E100A7735E /* PSUserNotificationAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E143BA4217A461E100A7735E /* PSUserNotificationAlert.m */; };
 		E14AFF3011357B6500DC7922 /* Manip in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
 		E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */; };
+		E158D5501E2BE1C1009F0AB9 /* SpeechObjects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E158D54F1E2BE1C1009F0AB9 /* SpeechObjects.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E175B07A1A3DC0D700072594 /* ParseDateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E175B0791A3DC0D700072594 /* ParseDateTest.m */; };
 		E175B0841A3DCC7E00072594 /* libParseDate-10.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E198579D104F68EC0082AC3E /* libParseDate-10.9.dylib */; };
 		E175B0881A3DD5FE00072594 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
@@ -375,6 +376,7 @@
 		E14DEC830438969400050002 /* NJRHotKeyFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRHotKeyFieldCell.m; sourceTree = "<group>"; };
 		E15044650CFCDC7E00DE47E9 /* NJRValidatingField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRValidatingField.h; sourceTree = "<group>"; };
 		E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRValidatingField.m; sourceTree = "<group>"; };
+		E158D54F1E2BE1C1009F0AB9 /* SpeechObjects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechObjects.framework; path = /System/Library/PrivateFrameworks/SpeechObjects.framework; sourceTree = "<absolute>"; };
 		E162698303B6189000000028 /* NSTableView-NJRExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTableView-NJRExtensions.m"; sourceTree = "<group>"; };
 		E162698403B6189000000028 /* NSTableView-NJRExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTableView-NJRExtensions.h"; sourceTree = "<group>"; };
 		E162698903B6190B00000028 /* NSCalendarDate-NJRExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSCalendarDate-NJRExtensions.h"; sourceTree = "<group>"; };
@@ -567,6 +569,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E158D5501E2BE1C1009F0AB9 /* SpeechObjects.framework in Frameworks */,
 				E102D848116EB43A00207746 /* AudioToolbox.framework in Frameworks */,
 				E102D84A116EB43A00207746 /* AudioUnit.framework in Frameworks */,
 				E102D876116EB73100207746 /* ApplicationServices.framework in Frameworks */,
@@ -616,6 +619,7 @@
 				E11BE21812238E2400240657 /* Growl.framework */,
 				E14DB31203B8038300000028 /* IOKit.framework */,
 				E1E1F1D117BC80C500DC565A /* Security.framework */,
+				E158D54F1E2BE1C1009F0AB9 /* SpeechObjects.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -1753,6 +1757,10 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 67;
 				DEVELOPMENT_TEAM = CYEL96ZVC2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1781,6 +1789,10 @@
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 67;
 				DEVELOPMENT_TEAM = CYEL96ZVC2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pester_Prefix.h;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
