@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE outline PUBLIC "-//omnigroup.com//DTD OUTLINE 3.0//EN" "http://www.omnigroup.com/namespace/OmniOutliner/xmloutline-v3.dtd">
 <outline xmlns="http://www.omnigroup.com/namespace/OmniOutliner/v3">
   <style-attribute-registry>
@@ -8,9 +8,9 @@
     </style-attribute>
     <style-attribute version="0" key="font-fixed-pitch" group="font" name="fixed pitch" class="bool">no</style-attribute>
     <style-attribute version="0" key="font-italic" group="font" name="italic" class="bool">no</style-attribute>
-    <style-attribute version="0" key="font-size" group="font" name="size" class="number" integral="0" min="1" max="65536">12</style-attribute>
-    <style-attribute version="0" key="font-weight" group="font" name="weight" class="number" integral="1" min="1" max="14">5</style-attribute>
-    <style-attribute version="0" key="kerning-adjust" group="kerning" name="adjust" class="number" integral="0" min="-1000" max="1000">NaN</style-attribute>
+    <style-attribute version="0" key="font-size" group="font" name="size" class="number">12</style-attribute>
+    <style-attribute version="0" key="font-weight" group="font" name="weight" class="number">5</style-attribute>
+    <style-attribute version="0" key="kerning-adjust" group="kerning" name="adjust" class="number">NaN</style-attribute>
     <style-attribute version="0" key="ligature-selection" group="ligature" name="selection" class="enum">
       <enum-name-table default-value="1">
         <enum-name-table-element value="0" name="none"/>
@@ -28,15 +28,14 @@
       </enum-name-table>
     </style-attribute>
     <style-attribute version="0" key="paragraph-base-writing-direction" group="paragraph" name="writing direction" class="enum">
-      <enum-name-table default-value="-1">
-        <enum-name-table-element value="-1" name="natural"/>
+      <enum-name-table default-value="0">
         <enum-name-table-element value="0" name="left-to-right"/>
         <enum-name-table-element value="1" name="right-to-left"/>
       </enum-name-table>
     </style-attribute>
-    <style-attribute version="0" key="paragraph-head-indent" group="paragraph" name="head indent" class="number" integral="1" min="-1000" max="1000">0</style-attribute>
-    <style-attribute version="0" key="paragraph-spacing" group="paragraph" name="spacing" class="number" integral="1" min="-1000" max="1000">0</style-attribute>
-    <style-attribute version="0" key="paragraph-tab-stop-interval" group="paragraph" name="tab stop interval" class="number" integral="0" min="0" max="1000">0</style-attribute>
+    <style-attribute version="0" key="paragraph-head-indent" group="paragraph" name="head indent" class="number">0</style-attribute>
+    <style-attribute version="0" key="paragraph-spacing" group="paragraph" name="spacing" class="number">0</style-attribute>
+    <style-attribute version="0" key="paragraph-tab-stop-interval" group="paragraph" name="tab stop interval" class="number">0</style-attribute>
     <style-attribute version="0" key="paragraph-tab-stops" group="paragraph" name="tab stops" class="string">28L,56L,84L,112L,140L,168L,196L,224L,252L,280L,308L,336L</style-attribute>
     <style-attribute version="1" key="strikethrough-color" group="strikethrough" name="color" class="color">
       <color w="0"/>
@@ -138,8 +137,8 @@
     </named-style>
   </named-styles>
   <attachments>
-    <attachment id="att0" href="Pasted_Graphic.pict" type="image"/>
-    <attachment id="att1" href="Picture_1.png" type="image"/>
+    <attachment id="att0" href="Pasted_Graphic.pict"/>
+    <attachment id="att1" href="Picture_1.png"/>
   </attachments>
   <settings>
     <base-style>
@@ -170,7 +169,9 @@
   <editor content-size="{535, 426}" column-titles-display-mode="auto">
     <drawer palette-height="166"/>
     <note-split-view height="141"/>
-    <selected-rows ids="iIGDoa8k_X9"/>
+    <selected-rows ids="k9tEy_3qjd7"/>
+    <selected-columns ids="jFqHUGd_Dg1"/>
+    <selected-characters range="{76, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -2324,7 +2325,7 @@
                 <text>
                   <p>
                     <run>
-                      <lit><cell refid="att0" name="Pasted Graphic"/></lit>
+                      <lit><cell refid="att0" name="Pasted Graphic" type="image" width="516" height="310"/></lit>
                     </run>
                   </p>
                 </text>
@@ -4425,6 +4426,18 @@
                         <value key="paragraph-alignment">center</value>
                       </style>
                       <lit><cell href="http://www.potionfactory.com/blog/2009/09/17/move-applications-folder" name="www.potionfactory.com—move-applications-folder" type="link"/></lit>
+                    </run>
+                    <run>
+                      <style>
+                        <value key="font-family">Menlo</value>
+                        <value key="font-fill">
+                          <color w="0"/>
+                        </value>
+                        <value key="font-fixed-pitch">yes</value>
+                        <value key="font-italic">no</value>
+                        <value key="font-size">10</value>
+                        <value key="paragraph-alignment">center</value>
+                      </style>
                     </run>
                   </p>
                   <p>
@@ -6685,7 +6698,7 @@
                             <value key="paragraph-tab-stop-interval">28</value>
                             <value key="paragraph-tab-stops">28L</value>
                           </style>
-                          <lit><cell href="file:///Users/nicholas/Library/Sounds/.DS_Store" alias="AAAAAAFiAAIAAARNYXJ5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMy9JESCsAAAAKi/cJLkRTX1N0b3JlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqL+MNQkGgAAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAABlNvdW5kcwAQAAgAAMzMGJQAAAARAAgAAMNQyKgAAAABABAACov3AAhYMQAFyxwAAgY6AAIAME1hcnk6VXNlcnM6AG5pY2hvbGFzOgBMaWJyYXJ5OgBTb3VuZHM6AC5EU19TdG9yZQAOABQACQAuAEQAUwBfAFMAdABvAHIAZQAPAAoABABNAGEAcgB5ABIAJ1VzZXJzL25pY2hvbGFzL0xpYnJhcnkvU291bmRzLy5EU19TdG9yZQAAEwABLwAAFQACAA///wAA" name=".DS_Store"/></lit>
+                          <lit><cell href="file:///Users/nicholas/Library/Sounds/.DS_Store" alias="AAAAAAFiAAIAAARNYXJ5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMy9JESCsAAAAKi/cJLkRTX1N0b3JlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqL+MNQkGgAAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAABlNvdW5kcwAQAAgAAMzMGJQAAAARAAgAAMNQyKgAAAABABAACov3AAhYMQAFyxwAAgY6AAIAME1hcnk6VXNlcnM6AG5pY2hvbGFzOgBMaWJyYXJ5OgBTb3VuZHM6AC5EU19TdG9yZQAOABQACQAuAEQAUwBfAFMAdABvAHIAZQAPAAoABABNAGEAcgB5ABIAJ1VzZXJzL25pY2hvbGFzL0xpYnJhcnkvU291bmRzLy5EU19TdG9yZQAAEwABLwAAFQACAA///wAA" name=".DS_Store" type="link"/></lit>
                         </run>
                         <run>
                           <style>
@@ -6822,7 +6835,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>2016-09-18 08:11:25.580 Pester[28057:3010113] *** Assertion failure in -[NJRMediaPopUpButton _validateRecentMedia], /Users/nicholas/Documents/Development/Pester/Source/NJRMediaPopUpButton.m:102</lit>
                         </run>
@@ -6840,7 +6853,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>2016-09-18 08:11:25.580 Pester[28057:3010113] An uncaught exception was raised</lit>
                         </run>
@@ -6858,7 +6871,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>2016-09-18 08:11:25.580 Pester[28057:3010113] Counted 2 recent menu items, 3 of alias data</lit>
                         </run>
@@ -6876,7 +6889,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>2016-09-18 08:11:25.591 Pester[28057:3010113] (</lit>
                         </run>
@@ -6894,7 +6907,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	0   CoreFoundation                      0x00007fff958f54f2 __exceptionPreprocess + 178</lit>
                         </run>
@@ -6912,7 +6925,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	1   libobjc.A.dylib                     0x00007fff930cbf7e objc_exception_throw + 48</lit>
                         </run>
@@ -6930,7 +6943,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	2   CoreFoundation                      0x00007fff958fa1ca +[NSException raise:format:arguments:] + 106</lit>
                         </run>
@@ -6948,7 +6961,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	3   Foundation                          0x00007fff94d36856 -[NSAssertionHandler handleFailureInMethod:object:file:lineNumber:description:] + 198</lit>
                         </run>
@@ -6966,7 +6979,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	4   Pester                              0x00000001000133df -[NJRMediaPopUpButton _validateRecentMedia] + 1023</lit>
                         </run>
@@ -6984,7 +6997,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	5   Pester                              0x0000000100019228 -[NJRMediaPopUpButton _aliasSelected:] + 2568</lit>
                         </run>
@@ -7002,7 +7015,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	6   libsystem_trace.dylib               0x00007fff9300e07a _os_activity_initiate + 75</lit>
                         </run>
@@ -7020,7 +7033,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	7   AppKit                              0x00007fff967d1dbd -[NSApplication sendAction:to:from:] + 460</lit>
                         </run>
@@ -7038,7 +7051,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	8   AppKit                              0x00007fff967d1b57 -[NSMenuItem _corePerformAction] + 336</lit>
                         </run>
@@ -7056,7 +7069,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	9   AppKit                              0x00007fff967d18b7 -[NSCarbonMenuImpl performActionWithHighlightingForItemAtIndex:] + 114</lit>
                         </run>
@@ -7074,7 +7087,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	10  libsystem_trace.dylib               0x00007fff9300e07a _os_activity_initiate + 75</lit>
                         </run>
@@ -7092,7 +7105,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	11  AppKit                              0x00007fff96863e54 -[NSMenu performActionForItemAtIndex:] + 131</lit>
                         </run>
@@ -7110,7 +7123,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	12  AppKit                              0x00007fff96863dc7 -[NSMenu _internalPerformActionForItemAtIndex:] + 35</lit>
                         </run>
@@ -7128,7 +7141,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	13  AppKit                              0x00007fff96863c1f -[NSCarbonMenuImpl _carbonCommandProcessEvent:handlerCallRef:] + 107</lit>
                         </run>
@@ -7146,7 +7159,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	14  AppKit                              0x00007fff96708fd9 NSSLMMenuEventHandler + 708</lit>
                         </run>
@@ -7164,7 +7177,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	15  HIToolbox                           0x00007fff974fe7be _ZL23DispatchEventToHandlersP14EventTargetRecP14OpaqueEventRefP14HandlerCallRec + 1231</lit>
                         </run>
@@ -7182,7 +7195,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	16  HIToolbox                           0x00007fff974fdc48 _ZL30SendEventToEventTargetInternalP14OpaqueEventRefP20OpaqueEventTargetRefP14HandlerCallRec + 404</lit>
                         </run>
@@ -7200,7 +7213,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	17  HIToolbox                           0x00007fff975139e6 SendEventToEventTarget + 40</lit>
                         </run>
@@ -7218,7 +7231,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	18  HIToolbox                           0x00007fff9755d99a _ZL18SendHICommandEventjPK9HICommandjjhPKvP20OpaqueEventTargetRefS5_PP14OpaqueEventRef + 411</lit>
                         </run>
@@ -7236,7 +7249,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	19  HIToolbox                           0x00007fff97588d5b SendMenuCommandWithContextAndModifiers + 59</lit>
                         </run>
@@ -7254,7 +7267,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	20  HIToolbox                           0x00007fff97588d0c SendMenuItemSelectedEvent + 188</lit>
                         </run>
@@ -7272,7 +7285,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	21  HIToolbox                           0x00007fff97588be8 _ZL19FinishMenuSelectionP13SelectionDataP10MenuResultS2_ + 96</lit>
                         </run>
@@ -7290,7 +7303,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	22  HIToolbox                           0x00007fff97567b81 _ZL19PopUpMenuSelectCoreP8MenuData5PointdS1_tjPK4RecttjS4_S4_PK14__CFDictionaryPK10__CFStringPP13OpaqueMenuRefPt + 1794</lit>
                         </run>
@@ -7308,7 +7321,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	23  HIToolbox                           0x00007fff97566c5c _ZL26_HandlePopUpMenuSelection8P13OpaqueMenuRefP14OpaqueEventRefj5PointtjPK4RecttS6_S6_PK14__CFDictionaryPK10__CFStringPS0_Pt + 610</lit>
                         </run>
@@ -7326,7 +7339,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	24  HIToolbox                           0x00007fff97566853 _HandlePopUpMenuSelectionWithDictionary + 287</lit>
                         </run>
@@ -7344,7 +7357,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	25  AppKit                              0x00007fff9685ac6c _NSSLMPopUpCarbonMenu3 + 6168</lit>
                         </run>
@@ -7362,7 +7375,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	26  AppKit                              0x00007fff96859442 _NSPopUpCarbonMenu3 + 153</lit>
                         </run>
@@ -7380,7 +7393,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	27  AppKit                              0x00007fff9685939a -[NSCarbonMenuImpl popUpMenu:atLocation:width:forView:withSelectedItem:withFont:withFlags:withOptions:] + 356</lit>
                         </run>
@@ -7398,7 +7411,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	28  AppKit                              0x00007fff968dc0df -[NSPopUpButtonCell trackMouse:inRect:ofView:untilMouseUp:] + 559</lit>
                         </run>
@@ -7416,7 +7429,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	29  AppKit                              0x00007fff967e0ae8 -[NSControl mouseDown:] + 669</lit>
                         </run>
@@ -7434,7 +7447,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	30  AppKit                              0x00007fff96d353c9 -[NSWindow _handleMouseDownEvent:isDelayedEvent:] + 6322</lit>
                         </run>
@@ -7452,7 +7465,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	31  AppKit                              0x00007fff96d363ad -[NSWindow _reallySendEvent:isDelayedEvent:] + 212</lit>
                         </run>
@@ -7470,7 +7483,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	32  AppKit                              0x00007fff96775539 -[NSWindow sendEvent:] + 517</lit>
                         </run>
@@ -7488,7 +7501,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	33  AppKit                              0x00007fff966f5a38 -[NSApplication sendEvent:] + 2540</lit>
                         </run>
@@ -7506,7 +7519,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	34  AppKit                              0x00007fff9655cdf2 -[NSApplication run] + 796</lit>
                         </run>
@@ -7524,7 +7537,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	35  AppKit                              0x00007fff96526368 NSApplicationMain + 1176</lit>
                         </run>
@@ -7542,7 +7555,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	36  Pester                              0x0000000100077d12 main + 34</lit>
                         </run>
@@ -7560,7 +7573,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	37  libdyld.dylib                       0x00007fff936f65ad start + 1</lit>
                         </run>
@@ -7578,7 +7591,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>	38  ???                                 0x0000000000000003 0x0 + 3</lit>
                         </run>
@@ -7596,7 +7609,7 @@
                             <value key="ligature-selection">none</value>
                             <value key="paragraph-alignment">left</value>
                             <value key="paragraph-tab-stop-interval">27.15</value>
-                            <value key="paragraph-tab-stops"></value>
+                            <value key="paragraph-tab-stops"/>
                           </style>
                           <lit>)</lit>
                         </run>
@@ -7719,7 +7732,7 @@
         </item>
       </children>
     </item>
-    <item id="huyEVmOMd7x" expanded="yes">
+    <item id="huyEVmOMd7x" expanded="yes" state="indeterminate">
       <values>
         <text>
           <p>
@@ -7771,56 +7784,18 @@
                 <text>
                   <p>
                     <run>
-                      <lit>Give up trying to match Apple’s logic — just use </lit>
-                    </run>
-                    <run>
-                      <style>
-                        <value key="font-family">Menlo</value>
-                        <value key="font-fill">
-                          <color r="0" g="0" b="0"/>
-                        </value>
-                        <value key="font-fixed-pitch">yes</value>
-                        <value key="font-size">10</value>
-                        <value key="ligature-selection">none</value>
-                      </style>
-                      <lit>SOVoicePopUpButton</lit>
+                      <lit>Give up trying to match Apple’s logic — just use SpeechObject</lit>
                     </run>
                   </p>
                 </text>
               </values>
             </item>
-            <item id="iIGDoa8k_X9">
+            <item id="k9tEy_3qjd7">
               <values>
                 <text>
                   <p>
                     <run>
-                      <lit>Decide whether or not we want to use this on 10.12 or on earlier macOS versions as well</lit>
-                    </run>
-                  </p>
-                </text>
-              </values>
-            </item>
-            <item id="dqoAsPY09IF">
-              <values>
-                <text>
-                  <p>
-                    <run>
-                      <lit>Programmatically build the </lit>
-                    </run>
-                    <run>
-                      <style>
-                        <value key="font-family">Menlo</value>
-                        <value key="font-fill">
-                          <color r="0" g="0" b="0"/>
-                        </value>
-                        <value key="font-fixed-pitch">yes</value>
-                        <value key="font-size">10</value>
-                        <value key="ligature-selection">none</value>
-                      </style>
-                      <lit>SOVoicePopUpButton</lit>
-                    </run>
-                    <run>
-                      <lit> in place of an existing NSPopUpButton</lit>
+                      <lit>Still figure out why we are crashing in 10.12 — wrong is one thing, crashing is another</lit>
                     </run>
                   </p>
                 </text>
@@ -8965,7 +8940,7 @@
             <text>
               <p>
                 <run>
-                  <lit><cell refid="att1" name="Picture 1"/></lit>
+                  <lit><cell refid="att1" name="Picture 1" type="image" width="494" height="326"/></lit>
                 </run>
               </p>
             </text>
