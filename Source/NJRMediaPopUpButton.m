@@ -59,14 +59,16 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
 
 - (NSMenuItem *)_addRecentMediaAtPath:(NSString *)path withAlias:(BDAlias *)alias;
 {
-    NSString *title = [[NSFileManager defaultManager] displayNameAtPath: path];
-    NSMenu *menu = [self menu];
-    NSMenuItem *item;
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *title = [fm displayNameAtPath: path];
     if (title == nil || path == nil) return nil;
-    item = [menu insertItemWithTitle: title action: @selector(_aliasSelected:) keyEquivalent: @"" atIndex: [menu indexOfItem: otherItem] + 1];
+
+    NSMenu *menu = [self menu];
+    NSMenuItem *item = [menu insertItemWithTitle: title action: @selector(_aliasSelected:) keyEquivalent: @"" atIndex: [menu indexOfItem: otherItem] + 1];
     [item setTarget: self];
-    [item setRepresentedObject: alias];
     [item setImageFromPath: path];
+    [item setRepresentedObject: alias];
+    [item setToolTip: [[fm componentsToDisplayForPath: path] componentsJoinedByString: @" \u25b8 "]];
     [recentMediaAliasData addObject: [alias aliasData]];
     if ([recentMediaAliasData count] > NJRMediaPopUpButtonMaxRecentItems) {
         [menu removeItemAtIndex: [menu numberOfItems] - 1];
