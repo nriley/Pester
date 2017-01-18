@@ -47,6 +47,10 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
 
     NSArray *voices = [NSSpeechSynthesizer availableVoices];
     NSString *defaultVoice = [NSSpeechSynthesizer defaultVoice];
+    NSString *premiumDefaultVoice = nil;
+    if (defaultVoice != nil && ![defaultVoice hasSuffix: @".premium"])
+        premiumDefaultVoice = [defaultVoice stringByAppendingString: @".premium"];
+
     item = nil;
 
     if (voices != nil) {
@@ -80,7 +84,7 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
         for (NSString *voice in voices) {
             NJRVoiceVisibility visibility = NJRVoiceUseDefault;
             // default voice may be unchecked, but we should show it (so does System Preferences)
-            if ([voice isEqualToString: defaultVoice]) {
+            if ([voice isEqualToString: defaultVoice] || (premiumDefaultVoice && [voice isEqualToString: premiumDefaultVoice])) {
                 visibility = NJRVoiceEnabled;
             } else if (visibleIdentifiers != nil) {
                 NSNumber *visibleIdentifier = visibleIdentifiers[voice];
@@ -204,7 +208,11 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
         item = [menu addItemWithTitle: NSLocalizedString(@"Can't locate voices", "Voice popup menu item surrogate for voice list if no voices are found") action: nil keyEquivalent: @""];
         [item setEnabled: NO];
     } else if (selectedVoice == nil) {
-        [self setVoice: defaultVoice];
+        // set the default voice, but avoid infinite recursion in case default voice isn't in the list
+        NSInteger voiceIdx = [self _indexForVoice: defaultVoice];
+        if (voiceIdx == -1)
+            voiceIdx = 0;
+        [self selectItemAtIndex: voiceIdx];
     }
 
     if (!registeredForVoiceChangedNotification) {
