@@ -162,6 +162,7 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
+      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
     <auto-generate-level-styles>no</auto-generate-level-styles>
@@ -169,9 +170,9 @@
   <editor content-size="{535, 426}" column-titles-display-mode="auto">
     <drawer palette-height="166"/>
     <note-split-view height="141"/>
-    <selected-rows ids="k9tEy_3qjd7"/>
+    <selected-rows ids="o4Fvua2w90V"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{76, 0}"/>
+    <selected-characters range="{22, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -7754,7 +7755,18 @@
             </text>
           </values>
         </item>
-        <item id="gBTLW__5BOO" expanded="yes">
+        <item id="g-OQpudaz_n" state="checked">
+          <values>
+            <text>
+              <p>
+                <run>
+                  <lit>Path is not shown in help tags for custom media (unlike built-in sounds)</lit>
+                </run>
+              </p>
+            </text>
+          </values>
+        </item>
+        <item id="gBTLW__5BOO" state="checked">
           <values>
             <text>
               <p>
@@ -7764,7 +7776,7 @@
               </p>
             </text>
           </values>
-          <note expanded="yes">
+          <note>
             <text>
               <p>
                 <run>
@@ -7779,7 +7791,7 @@
             </text>
           </note>
           <children>
-            <item id="pQVHvFGxpM0">
+            <item id="pQVHvFGxpM0" state="checked">
               <values>
                 <text>
                   <p>
@@ -7790,7 +7802,7 @@
                 </text>
               </values>
             </item>
-            <item id="k9tEy_3qjd7">
+            <item id="k9tEy_3qjd7" state="checked">
               <values>
                 <text>
                   <p>
@@ -7803,12 +7815,12 @@
             </item>
           </children>
         </item>
-        <item id="g-OQpudaz_n">
+        <item id="o4Fvua2w90V">
           <values>
             <text>
               <p>
                 <run>
-                  <lit>Path info in help tag for custom media (not built-in sounds) is no longer displaying (regression from…?)</lit>
+                  <lit>Test on 10.9 and 10.10</lit>
                 </run>
               </p>
             </text>
