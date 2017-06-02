@@ -162,7 +162,6 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
-      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
     <auto-generate-level-styles>no</auto-generate-level-styles>
@@ -170,9 +169,9 @@
   <editor content-size="{535, 431}" column-titles-display-mode="auto">
     <drawer palette-height="166"/>
     <note-split-view height="141"/>
-    <selected-rows ids="o4Fvua2w90V"/>
+    <selected-rows ids="iwkB-_h5xwj"/>
     <selected-columns ids="jFqHUGd_Dg1"/>
-    <selected-characters range="{26, 0}"/>
+    <selected-characters range="{1, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
@@ -6699,7 +6698,7 @@
                             <value key="paragraph-tab-stop-interval">28</value>
                             <value key="paragraph-tab-stops">28L</value>
                           </style>
-                          <lit><cell href="file:///Users/nicholas/Library/Sounds/.DS_Store" alias="AAAAAAFiAAIAAARNYXJ5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMy9JESCsAAAAKi/cJLkRTX1N0b3JlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqL+MNQkGgAAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAABlNvdW5kcwAQAAgAAMzMGJQAAAARAAgAAMNQyKgAAAABABAACov3AAhYMQAFyxwAAgY6AAIAME1hcnk6VXNlcnM6AG5pY2hvbGFzOgBMaWJyYXJ5OgBTb3VuZHM6AC5EU19TdG9yZQAOABQACQAuAEQAUwBfAFMAdABvAHIAZQAPAAoABABNAGEAcgB5ABIAJ1VzZXJzL25pY2hvbGFzL0xpYnJhcnkvU291bmRzLy5EU19TdG9yZQAAEwABLwAAFQACAA///wAA" name=".DS_Store" type="link"/></lit>
+                          <lit><cell href="file://localhost/Users/nicholas/Pictures/iPod%20touch%20screenshots/IMG_0042.PNG" alias="AAAAAAGkAAIAAAVNYXJ5KwAAAAAAAAAAAAAAAAAAAAAAAAAAAADMy9JESCsAAAAKi8oMSU1HXzAwNDIuUE5HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqL+Mm3pIYAAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAAFmlQb2QgdG91Y2ggc2NyZWVuc2hvdHMAEAAIAADMzBiUAAAAEQAIAADJt9zGAAAAAQAQAAqLygAKi5IACRUHAAkUvwACAEVNYXJ5KzpVc2VyczoAbmljaG9sYXM6AFBpY3R1cmVzOgBpUG9kIHRvdWNoIHNjcmVlbnNob3RzOgBJTUdfMDA0Mi5QTkcAAA4AGgAMAEkATQBHAF8AMAAwADQAMgAuAFAATgBHAA8ADAAFAE0AYQByAHkAKwASADtVc2Vycy9uaWNob2xhcy9QaWN0dXJlcy9pUG9kIHRvdWNoIHNjcmVlbnNob3RzL0lNR18wMDQyLlBORwAAEwABLwAAFQACAA///wAA" name=".DS_Store" type="image" width="320" height="480"/></lit>
                         </run>
                         <run>
                           <style>
@@ -7733,7 +7732,7 @@
         </item>
       </children>
     </item>
-    <item id="huyEVmOMd7x" expanded="yes" state="indeterminate">
+    <item id="huyEVmOMd7x" state="checked">
       <values>
         <text>
           <p>
@@ -7815,7 +7814,7 @@
             </item>
           </children>
         </item>
-        <item id="o4Fvua2w90V">
+        <item id="o4Fvua2w90V" state="checked">
           <values>
             <text>
               <p>
@@ -7828,7 +7827,7 @@
         </item>
       </children>
     </item>
-    <item id="gotAfbOXCFU" state="indeterminate">
+    <item id="gotAfbOXCFU" expanded="yes" state="indeterminate">
       <values>
         <text>
           <p>
@@ -7874,6 +7873,17 @@
             </text>
           </values>
           <children>
+            <item id="iwkB-_h5xwj">
+              <values>
+                <text>
+                  <p>
+                    <run>
+                      <lit><cell href="http://indiestack.com/2017/05/resolving-modern-mac-alias-files/" name="indiestack.com—resolving-modern-mac-alias-files" type="link"/></lit>
+                    </run>
+                  </p>
+                </text>
+              </values>
+            </item>
             <item id="olxsZ_mYV2y">
               <values>
                 <text>
