@@ -1,0 +1,527 @@
+
+html {
+    overflow-y: scroll;
+}
+
+body#wholeDocument {
+    -webkit-text-size-adjust:none; 
+    font-family: Helvetica, sans-serif; 
+    font-size: 12px;
+font-family: "SF UI Text", sans-serif; 
+    font-size: 11px;
+    
+}
+table {
+    border-collapse: collapse;
+}
+div {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 13px;
+}
+div#centered, .temp {
+    display: block;
+    text-align: center;
+}
+div#centered > table, div.temp-wrapper {
+    margin: 0 auto;
+    text-align: left;
+}
+tr.outline-row > td > div, table.note-table {
+    display: inline-table;
+}
+tr.outline-row > td > div > div, tr.outline-row > td div.note-icon, tr.note-row > td > div, table.outline-column div, table.note-table div  {
+    display: inline-table;
+}
+div.column, div.note-filler > div {
+    display: inline-block; 
+}
+tr#header div {
+    display: inline-block;
+}
+td,th {
+    padding: 0px;
+    empty-cells: show;
+}
+div.force-wrap {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+tr#header {
+
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+    
+}
+/* This is the table used for just the outline column/note column and is nested in the cell for the outline column of the row */
+table.outline-column td, table.outline-column-note td {
+    border-bottom: 0px;
+    border-left: 0px;
+}
+tr.outline-row > td, tr.note-row > td  {
+    height: inherit;
+}
+table.outline-column, tr.outline-row td, tr.note-row td, div.outline-column-div, div.note-filler, tr#header td, tr#header > td > div, div.note-outline-column-div {
+    height: 100%;
+}
+@media all and (-ms-high-contrast:none) {
+    /* Target IE */
+    div#centered tr.outline-row > td, div#centered tr.note-row > td, div#centered tr#header td  {
+        height: 5px;
+    }
+}
+@supports (-ms-accelerator:true) {
+    /* Target MS Edge */
+    div#centered tr.outline-row > td, div#centered tr.note-row > td, div#centered tr#header td  {
+        height: 5px;
+    }
+}
+tr#header div, table.outline-column, table.note-table {
+    width: 100%;
+}
+.handle {
+    white-space: nowrap;
+    text-align:right;
+    vertical-align: baseline;
+}
+td.label {
+    text-align: right;
+    white-space: nowrap;
+}
+td.label, .column {
+    vertical-align: baseline;
+}
+tr.note-row td.label {
+    /* Same row label is put in invisibly the note to keep alignment but,
+    if it's a large font size, this will cause the note to be taller
+    than it should be. This works around that */
+    line-height: 0;
+}
+div.white-space {
+    white-space: pre-wrap;
+}
+
+
+/********* START ********
+Grid lines
+*************************/
+tr#header td > div {
+
+}
+div.note-div, div.note-filler, div.outline-column-div, tr.outline-row > td:not(.column) > div.fill-cell, div.note-outline-column-div, tr.outline-row > td:nth-of-type(1) > div  {
+    
+}
+
+
+table#column-header {
+
+}
+table#column-header ~ table.whole-row:first-of-type {
+    border-top: none;
+}
+tr.outline-row > td:last-of-type:not(.column) > div.fill-cell, tr.note-row > td:last-of-type:not(.note) > div.note-filler, tr#header td:last-of-type > div {
+
+}
+/* END grid lines */
+
+table.outline-column-note {
+    width: 100%;
+    height: 100%;
+}
+.fill-cell {
+    height: 100%;
+    width: 100%;
+}
+
+.summary_node {
+    background: rgba(0,0,0,.12);
+}
+    
+/* To make checkbox columns always centered */
+div#centered div.checkbox {
+    text-align: center;
+}
+
+table.outline-column td:not(:last-of-type) {
+
+}
+
+/********* START ********
+Expand/collapse
+*************************/
+.visible {
+
+}
+.hidden {
+    display: none;
+}
+.temp {
+    min-height: 0px;
+}
+/* END expand/collapse */
+
+div.note-outline-column-div table {
+    vertical-align: top;
+}
+
+td.empty {
+    display: none;
+}
+
+
+/********* START ********
+Image handle styles
+*************************/
+td.note {
+    vertical-align: baseline;
+}
+div.handle img {
+    vertical-align: middle;
+}
+div.note-icon {
+    text-align: center;
+}
+img.status {
+    height: 13px;
+    width: 13px;
+    position: relative;
+    bottom: 1px;
+    top: 0px;
+}
+img.checkbox-column {
+    height: 13px;
+    width: 13px;
+    vertical-align: middle;
+}
+img.leaf {
+    height: 5px;
+    width: 5px;
+    position: relative;
+    top: -1px;
+}
+img.parent {
+    height: 9px;
+    width: 9px;
+}
+img.note-icon {
+    height: 13px;
+    width: 13px;
+    position: relative;
+    vertical-align: middle;
+}
+
+/* END image handle styles */
+
+
+/********* START ********
+Padding values
+*************************/
+
+/* Column text */
+table.outline-column td:nth-of-type(4), div.column, tr#header div > div > div  {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+table.outline-column td:nth-of-type(4), div.column, div.note-icon  {
+    padding-bottom: 2px;
+    padding-top: 1px;
+}
+/* When a note is expanded, the row it belongs to doesn't have bottom row padding, that padding goes to the bottom of the note */
+table.note-expanded table.outline-column td:nth-of-type(4), table.note-expanded div.column, table.note-expanded div.note-icon {
+    padding-bottom: 0px;
+}
+/* last-child class is set by JS */
+tr.last-child table.outline-column td:nth-of-type(4), tr.last-child div.column, tr.last-child div.note-icon {
+    padding-bottom: 2px;
+}
+/* Note text */
+table.note-table td:nth-of-type(4) {
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-top: 0px;
+    padding-bottom: 2px;
+}
+table.note-table {
+    margin-top: 0px;
+}
+/* Set above children padding */
+tr[data-state="expanded"][data-has-children="1"] table.outline-column td:nth-of-type(4), tr[data-state="expanded"][data-has-children="1"] div.column {
+    padding-bottom: 2px;
+}
+/* When there are children and note is expanded, don't set above children padding on the row, it goes to the note */
+tr[data-state="expanded"][data-has-children="1"].note-expanded table.outline-column td:nth-of-type(4), tr[data-state="expanded"][data-has-children="1"].note-expanded div.column, tr[data-state="expanded"][data-has-children="1"].note-expanded div.note-icon {
+    padding-bottom: 0px;
+}
+/* Set above children padding on the note when it is visible */
+tr[data-state="expanded"][data-has-children="1"].note-expanded + tr.note-row table.note-table td:nth-of-type(4) {
+    padding-bottom: 2px;
+}
+/* Set last child padding on the note when it is visible, last-child class is set through JS */
+tr.note-row.last-child table.note-table td:nth-of-type(4) {
+    padding-bottom: 2px;
+}
+
+
+
+td.label {
+    padding-top: 0px;
+    padding-left: 2px;
+    padding-right: 3px;
+}
+td.label:empty {
+    vertical-align: inherit;
+}
+img.parent {
+    padding-right: 3px;
+}
+img.leaf {
+    padding-right: 5px;
+}
+/* End padding values */
+
+
+
+tr.note-row td.note {
+    /* padding-left: 5px;
+    padding-right: 3px; */ 
+    border: none;
+color: rgb(103,103,103);
+    font-style: italic;
+    font-style: italic;
+    
+}
+tr.note-row td.note-bg {
+
+}
+table.whole-row, table.whole-note, table#column-header, div.temp-wrapper {
+width: 625px;
+
+}
+/******************
+Column widths and styles, including background. Also applies to column titles. Skip tr.note-row for the outline column.
+These fold in any named styles applied to columns so any manual changes to named styles will also need to be done here
+*******************/
+/* When notes are set to span columns, need to override column widths */
+div#centered table.span-columns {
+    width: 100%;
+    max-width: 100%;
+}
+/* Column widths + backgrounds */
+tr#header td:nth-of-type(1), tr.outline-row > td:nth-of-type(1), tr.note-row > td:nth-of-type(1) { 
+    width: 20px; 
+    max-width: 20px; 
+}
+table.outline-column { 
+    width: 605px; 
+    max-width: 605px; 
+}
+tr#header td:nth-of-type(2), tr.outline-row > td:nth-of-type(2) { 
+    width: 605px; 
+    max-width: 605px; 
+    
+}
+
+/* Column styles but not background. Separate from above because this doesn't apply to column titles. Skip tr.note-row for the outline column. */
+tr.outline-row > td:nth-of-type(1), tr.note-row > td:nth-of-type(1){ 
+    
+}
+tr.outline-row > td:nth-of-type(2) { 
+    
+}
+
+
+/* Column header style */
+
+tr#header div > div > div {
+padding-bottom: 2px;
+
+}
+tr#header > td > div > div {
+    
+}
+
+
+/* Level Styles */
+/*****************
+Level# styles – Does not include background colors. Applied to both nested outline column table and divs in non-nested row cells. Applied to row label cell of note rows.
+Level# background color – Applied to both div holding nested outline column table and divs in non-nested row cells
+Level# gutter color – Only applied to nested table for outline column
+******************/
+/* Level 1 styles */
+tr.outline-row.level-1 td, tr.outline-row.level-1 div > div, tr.note-row.level-1 table.note-table td:nth-of-type(3) { 
+    font-weight: 700;
+    
+}
+/* Level 1 background color */
+tr.level-1 > td > div.alt-row-layer > div, tr.level-1.note-row > td > div { 
+    
+}
+/* Level 1 gutter color */
+tr.outline-row.level-1 table.outline-column td:not(:last-of-type) { 
+    
+}
+/* Level 2 styles */
+tr.outline-row.level-2 td, tr.outline-row.level-2 div > div, tr.note-row.level-2 table.note-table td:nth-of-type(3) { 
+    
+}
+/* Level 2 background color */
+tr.level-2 > td > div.alt-row-layer > div, tr.level-2.note-row > td > div { 
+    
+}
+/* Level 2 gutter color */
+tr.outline-row.level-2 table.outline-column td:not(:last-of-type) { 
+    
+}
+/* Level 3 styles */
+tr.outline-row.level-3 td, tr.outline-row.level-3 div > div, tr.note-row.level-3 table.note-table td:nth-of-type(3) { 
+    
+}
+/* Level 3 background color */
+tr.level-3 > td > div.alt-row-layer > div, tr.level-3.note-row > td > div { 
+    
+}
+/* Level 3 gutter color */
+tr.outline-row.level-3 table.outline-column td:not(:last-of-type) { 
+    
+}
+/* Level 4 styles */
+tr.outline-row.level-4 td, tr.outline-row.level-4 div > div, tr.note-row.level-4 table.note-table td:nth-of-type(3) { 
+    
+}
+/* Level 4 background color */
+tr.level-4 > td > div.alt-row-layer > div, tr.level-4.note-row > td > div { 
+    
+}
+/* Level 4 gutter color */
+tr.outline-row.level-4 table.outline-column td:not(:last-of-type) { 
+    
+}
+/* Level 5 styles */
+tr.outline-row.level-5 td, tr.outline-row.level-5 div > div, tr.note-row.level-5 table.note-table td:nth-of-type(3) { 
+    
+}
+/* Level 5 background color */
+tr.level-5 > td > div.alt-row-layer > div, tr.level-5.note-row > td > div { 
+    
+}
+/* Level 5 gutter color */
+tr.outline-row.level-5 table.outline-column td:not(:last-of-type) { 
+    
+}
+/* Level 6 styles */
+tr.outline-row.level-6 td, tr.outline-row.level-6 div > div, tr.note-row.level-6 table.note-table td:nth-of-type(3) { 
+    
+}
+/* Level 6 background color */
+tr.level-6 > td > div.alt-row-layer > div, tr.level-6.note-row > td > div { 
+    
+}
+/* Level 6 gutter color */
+tr.outline-row.level-6 table.outline-column td:not(:last-of-type) { 
+    
+}
+
+/*********************************************
+Named styles info:
+Padding values are not included here because they are additive and can affect a different row than the one that has the attribute
+*********************************************/
+/* Named Styles */
+div#centered tr td .ns-fX4oymYqiYH-Highlight, .ns-fX4oymYqiYH-Highlight, div#centered .ns-fX4oymYqiYH-Highlight div { 
+    
+}
+div#centered tr td .ns-nSC3WDVttN6-Citation, .ns-nSC3WDVttN6-Citation, div#centered .ns-nSC3WDVttN6-Citation div { 
+    text-decoration: underline;
+    
+}
+div#centered tr td .ns-aTkn_JLW77O-Emphasis, .ns-aTkn_JLW77O-Emphasis, div#centered .ns-aTkn_JLW77O-Emphasis div { 
+    font-style: italic;
+    
+}
+div#centered tr td .ns-mCwfrWzftWK-Priority, .ns-mCwfrWzftWK-Priority, div#centered .ns-mCwfrWzftWK-Priority div { 
+    
+}
+div#centered tr td .ns-n-8hkqbCmq2-Question, .ns-n-8hkqbCmq2-Question, div#centered .ns-n-8hkqbCmq2-Question div { 
+    
+}
+div#centered tr td .ns-d1yoiCVSYdH-InProgress, .ns-d1yoiCVSYdH-InProgress, div#centered .ns-d1yoiCVSYdH-InProgress div { 
+    color: rgb(255,255,255);
+    
+}
+div#centered tr td .ns-hRxztjouqrb-Code, .ns-hRxztjouqrb-Code, div#centered .ns-hRxztjouqrb-Code div { 
+    font-family: "Consolas", sans-serif; 
+    font-size: 11px;
+    
+}
+div#centered tr td .ns-dtB5HfHWZe8-FIXME, .ns-dtB5HfHWZe8-FIXME, div#centered .ns-dtB5HfHWZe8-FIXME div { 
+    color: rgb(148,17,0);
+    
+}
+div#centered tr td .ns-hfdQeDxbxcu-Done, .ns-hfdQeDxbxcu-Done, div#centered .ns-hfdQeDxbxcu-Done div { 
+    color: rgb(145,145,145);
+    font-family: "Calibri", sans-serif; 
+    text-decoration: line-through;
+    font-size: 13px;
+    
+}
+
+/* Named Styles Backgroud Colors */
+div#centered tr td .ns-bg-fX4oymYqiYH-Highlight, .ns-bg-fX4oymYqiYH-Highlight { 
+    background-color: rgb(254,252,120);
+    
+}
+div#centered tr td .ns-bg-nSC3WDVttN6-Citation, .ns-bg-nSC3WDVttN6-Citation { 
+    
+}
+div#centered tr td .ns-bg-aTkn_JLW77O-Emphasis, .ns-bg-aTkn_JLW77O-Emphasis { 
+    
+}
+div#centered tr td .ns-bg-mCwfrWzftWK-Priority, .ns-bg-mCwfrWzftWK-Priority { 
+    background-color: rgb(254,252,120);
+    
+}
+div#centered tr td .ns-bg-n-8hkqbCmq2-Question, .ns-bg-n-8hkqbCmq2-Question { 
+    background-color: rgb(246,103,93);
+    
+}
+div#centered tr td .ns-bg-d1yoiCVSYdH-InProgress, .ns-bg-d1yoiCVSYdH-InProgress { 
+    background-color: rgb(157,146,133);
+    
+}
+div#centered tr td .ns-bg-hRxztjouqrb-Code, .ns-bg-hRxztjouqrb-Code { 
+    
+}
+div#centered tr td .ns-bg-dtB5HfHWZe8-FIXME, .ns-bg-dtB5HfHWZe8-FIXME { 
+    
+}
+div#centered tr td .ns-bg-hfdQeDxbxcu-Done, .ns-bg-hfdQeDxbxcu-Done { 
+    
+}
+
+/* Named Styles Gutter Colors */
+div#centered tr td .ns-gutter-fX4oymYqiYH-Highlight, .ns-gutter-fX4oymYqiYH-Highlight { 
+    
+}
+div#centered tr td .ns-gutter-nSC3WDVttN6-Citation, .ns-gutter-nSC3WDVttN6-Citation { 
+    
+}
+div#centered tr td .ns-gutter-aTkn_JLW77O-Emphasis, .ns-gutter-aTkn_JLW77O-Emphasis { 
+    
+}
+div#centered tr td .ns-gutter-mCwfrWzftWK-Priority, .ns-gutter-mCwfrWzftWK-Priority { 
+    
+}
+div#centered tr td .ns-gutter-n-8hkqbCmq2-Question, .ns-gutter-n-8hkqbCmq2-Question { 
+    
+}
+div#centered tr td .ns-gutter-d1yoiCVSYdH-InProgress, .ns-gutter-d1yoiCVSYdH-InProgress { 
+    
+}
+div#centered tr td .ns-gutter-hRxztjouqrb-Code, .ns-gutter-hRxztjouqrb-Code { 
+    
+}
+div#centered tr td .ns-gutter-dtB5HfHWZe8-FIXME, .ns-gutter-dtB5HfHWZe8-FIXME { 
+    
+}
+div#centered tr td .ns-gutter-hfdQeDxbxcu-Done, .ns-gutter-hfdQeDxbxcu-Done { 
+    
+}

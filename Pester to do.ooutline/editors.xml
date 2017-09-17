@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.omnigroup.com/namespace/OmniOutliner/xmloutline-editors-v1.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0?>
+<editors xmlns="http://www.omnigroup.com/namespace/OmniOutliner/editors/v1">
+  <editor content-size="{626, 633}" column-titles-display-mode="auto" auto-size-outline-column="yes">
+    <sidebar width="182" selected-tab="styles"/>
+    <column-states columns-id="oAcW9dKDZIB">
+      <column-state column-id="cteV0F-AwRG" width="32" summary="state"/>
+      <column-state column-id="dTpN3JwYpBn" width="18"/>
+      <column-state column-id="jFqHUGd_Dg1" width="605"/>
+    </column-states>
+    <note-split-view height="33"/>
+    <item-states>
+      <item item-id="bDrrZ4jemFN" expanded="yes"/>
+      <item item-id="bxDY6h3Eui_" expanded="yes"/>
+      <item item-id="c61LUusn2hI" expanded="yes"/>
+      <item item-id="cY3ZDl36fmk" expanded="yes"/>
+      <item item-id="cwsw3ROJDTT" expanded="yes"/>
+      <item item-id="cxhjINnivnn" note-expanded="yes"/>
+      <item item-id="d4lrfUo3eAD" expanded="yes"/>
+      <item item-id="ePF2dZ3OjQK" expanded="yes"/>
+      <item item-id="ebI1x9HP7EL" expanded="yes"/>
+      <item item-id="fT_egq1wxuE" expanded="yes"/>
+      <item item-id="fbgw8SEHt9k" note-expanded="yes"/>
+      <item item-id="gU1KumwhFhv" expanded="yes"/>
+      <item item-id="g_gySRqux7-" expanded="yes"/>
+      <item item-id="gotAfbOXCFU" expanded="yes"/>
+      <item item-id="hthDdDyEoT5" expanded="yes"/>
+      <item item-id="igrozEzw4_Z" expanded="yes"/>
+      <item item-id="iqzzf9O-n-p" expanded="yes"/>
+      <item item-id="ix_fI3-cnC-" expanded="yes"/>
+      <item item-id="jIrvTksY45A" expanded="yes"/>
+      <item item-id="jTywgVdXZzA" expanded="yes"/>
+      <item item-id="jaiyjjo0fl5" expanded="yes"/>
+      <item item-id="kCOPoGtA412" expanded="yes"/>
+      <item item-id="l5XqAT5ljpW" expanded="yes"/>
+      <item item-id="lU6L0nxmxAW" expanded="yes"/>
+      <item item-id="lW3uo6zibYg" expanded="yes"/>
+      <item item-id="mIs0ctj4Ngo" note-expanded="yes"/>
+      <item item-id="n9FIWx86xfC" note-expanded="yes"/>
+      <item item-id="nGjaVQ6TycR" expanded="yes"/>
+      <item item-id="nVBTnoKEUuO" note-expanded="yes"/>
+      <item item-id="ndkUlQo0eKA" expanded="yes"/>
+      <item item-id="o5VE-Oj5Sv4" note-expanded="yes"/>
+      <item item-id="oF3K30LkPWO" expanded="yes"/>
+      <item item-id="o_0mcPraBH7" note-expanded="yes"/>
+      <item item-id="obCUAZ0gfFg" expanded="yes"/>
+      <item item-id="onCiaQxRRoB" expanded="yes"/>
+      <item item-id="p8IxntctwZ8" expanded="yes"/>
+    </item-states>
+    <selected-items>
+      <item item-id="g_gySRqux7-"/>
+    </selected-items>
+    <selected-columns>
+      <column-ref idref="jFqHUGd_Dg1"/>
+    </selected-columns>
+    <selected-characters range="{7, 0}"/>
+    <toolbar>{
+    &quot;TB Display Mode&quot; = 1;
+    &quot;TB Icon Size Mode&quot; = 1;
+    &quot;TB Is Shown&quot; = 0;
+    &quot;TB Item Identifiers&quot; =     (
+        ToggleSections,
+        SelectSection,
+        ActionButton,
+        NSToolbarSeparatorItem,
+        AddColumn,
+        Attach,
+        ToggleRecording,
+        NSToolbarFlexibleSpaceItem,
+        NSToolbarSeparatorItem,
+        ShowInfo
+    );
+    &quot;TB Size Mode&quot; = 1;
+    &quot;TB Visibility Priority Values&quot; =     {
+    };
+}</toolbar>
+  </editor>
+</editors>
