@@ -491,6 +491,17 @@
         </p>
       </text>
     </item>
+    <item id="aFpPLlaY2La" parent-id="huyEVmOMd7x" rank="00025f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Figure out what is going on with the split view in the Read Me. Things are very broken.</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="aJZ6X99xr5p" parent-id="fy8QWDXJEjw" rank="">
       <checkbox>checked</checkbox>
       <entry/>
@@ -4498,17 +4509,6 @@
         </p>
       </text>
     </item>
-    <item id="gARKl8j852j" parent-id="g_gySRqux7-" rank="">
-      <checkbox>unchecked</checkbox>
-      <entry/>
-      <text>
-        <p>
-          <run>
-            <lit>Figure out what is going on with the split view in the Read Me. Things are very broken.</lit>
-          </run>
-        </p>
-      </text>
-    </item>
     <item id="gAXD9kTbtYx" parent-id="nAN3YBMnpEC" rank="">
       <checkbox>checked</checkbox>
       <entry/>
@@ -4560,6 +4560,17 @@
         <p>
           <run>
             <lit>Speech voice storage changed again in 10.12, is causing crashing and incorrect voice lists</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="gCvqfsY2Rkw" parent-id="huyEVmOMd7x" rank="00026f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Update to Perl 5.18 for macOS 10.13</lit>
           </run>
         </p>
       </text>
@@ -4800,17 +4811,6 @@
         <p>
           <run>
             <lit>Why are we not sharing the same menu between &quot;snooze until&quot; and the main window? Dumb.</lit>
-          </run>
-        </p>
-      </text>
-    </item>
-    <item id="g_gySRqux7-" rank="0001">
-      <checkbox>unchecked</checkbox>
-      <entry/>
-      <text>
-        <p>
-          <run>
-            <lit>Beta 24</lit>
           </run>
         </p>
       </text>
@@ -5499,7 +5499,7 @@
         </p>
       </text>
     </item>
-    <item id="huyEVmOMd7x" parent-id="p38HHuWW80p" rank="0012">
+    <item id="huyEVmOMd7x" rank="0001">
       <checkbox>checked</checkbox>
       <entry/>
       <text>
@@ -8431,17 +8431,6 @@
         </p>
       </text>
     </item>
-    <item id="mXCH_xNmiVP" parent-id="g_gySRqux7-" rank="0001">
-      <checkbox>unchecked</checkbox>
-      <entry/>
-      <text>
-        <p>
-          <run>
-            <lit>Update to Perl 5.18 for macOS 10.13</lit>
-          </run>
-        </p>
-      </text>
-    </item>
     <item id="mXs4Mpfc06K" parent-id="pbiJPX5OU_Z" rank="0010">
       <checkbox>checked</checkbox>
       <entry/>
@@ -10056,7 +10045,7 @@
       </text>
     </item>
     <item id="o4Fvua2w90V" parent-id="huyEVmOMd7x" rank="0003">
-      <checkbox>checked</checkbox>
+      <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
@@ -10762,17 +10751,6 @@
         <p>
           <run>
             <lit>Do this on Lion only (currently it&apos;s unconditional)</lit>
-          </run>
-        </p>
-      </text>
-    </item>
-    <item id="or6DMxdc_B_" parent-id="g_gySRqux7-" rank="0002">
-      <checkbox>unchecked</checkbox>
-      <entry/>
-      <text>
-        <p>
-          <run>
-            <lit>Test</lit>
           </run>
         </p>
       </text>
