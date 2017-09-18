@@ -15,10 +15,7 @@
     IBOutlet NSTextFieldCell *headingCell;
     IBOutlet NSTextView *body;
     IBOutlet NSBox *bodyBox;
-    IBOutlet NSTabView *progressTabs;
-    IBOutlet NSProgressIndicator *progress;
     NSMutableArray *headings;
-    float maxContentsWidth;
     NSDictionary *headingAttributes;
 }
 

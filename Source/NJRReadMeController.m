@@ -93,9 +93,6 @@ static NJRReadMeController *sharedController = nil;
     }
     if ( (self = [super initWithWindowNibName: @"Read Me"]) != nil) {
         NSWindow *window = [self window];
-        [progress setIndeterminate: YES];
-        [progressTabs selectTabViewItemWithIdentifier: @"progress"];
-
         NSString *frameAutosaveName = [window frameAutosaveName];
         if (![window setFrameUsingName: frameAutosaveName])
             [window center];
@@ -117,11 +114,8 @@ static NJRReadMeController *sharedController = nil;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults removeObjectForKey: [frameAutosaveName stringByAppendingString: @" maximum contents heading width"]];
         [defaults removeObjectForKey: [frameAutosaveName stringByAppendingString: @" contents are collapsed"]];
-        
-        // set an interim max contents width to limit splitter resizing
-        maxContentsWidth = [[[splitter subviews] objectAtIndex: 0] frame].size.width;
-        
-        [NSThread detachNewThreadSelector: @selector(readRTF:) toTarget: self withObject: aPath];
+
+        [self readRTF: aPath];
 
         [window makeKeyAndOrderFront: self];
         sharedController = self;
@@ -142,24 +136,18 @@ static NJRReadMeController *sharedController = nil;
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     NSAttributedString *readMe = [[NSAttributedString alloc] initWithPath: aPath documentAttributes: nil];
     if (readMe == nil) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [body insertText: [NSString stringWithFormat: NSLocalizedString(@"Can't read document '%@'", "Message displayed in in place of read me contents when read me file could not be read; %@ replaced by last path component of filename, e.g. 'Read Me.rtfd'"), [aPath lastPathComponent]]];
-        });
+        [body insertText: [NSString stringWithFormat: NSLocalizedString(@"Can't read document '%@'", "Message displayed in in place of read me contents when read me file could not be read; %@ replaced by last path component of filename, e.g. 'Read Me.rtfd'"), [aPath lastPathComponent]]];
     } else {
         NSTextStorage *storage = [body textStorage];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [[body layoutManager] setBackgroundLayoutEnabled: NO];
-            [storage setAttributedString: readMe];
-        });
+        [[body layoutManager] setBackgroundLayoutEnabled: NO];
+        [storage setAttributedString: readMe];
         [readMe release]; readMe = nil;
 
         NSUInteger length = [storage length];
-        [progress setIndeterminate: NO];
-        [progress setMaxValue: length];
         NSRange effectiveRange = NSMakeRange(0, 0);
         NSUInteger chunkLength = 0;
         NSFont *fontAttr = nil;
-        NSString *fontName = nil; float fontSize = 0;
+        NSString *fontName = nil; CGFloat fontSize = 0;
         NSString *heading = nil;
 
         headings = [[NSMutableArray alloc] init];
@@ -201,42 +189,25 @@ static NJRReadMeController *sharedController = nil;
                 }
                 [headings addObject: [NJRHelpContentsEntry headingLevel: 2 description: [heading substringToIndex: chunkLength] range: NSMakeRange(effectiveRange.location, chunkLength)]];
             }
-            [progress setDoubleValue: NSMaxRange(effectiveRange)];
-            // [NSThread sleepForTimeInterval:0.01];
         }
     }
     NSMutableDictionary *allHeadingAttributes = [headingAttributes mutableCopy];
     [allHeadingAttributes setObject: [headingCell font] forKey: NSFontAttributeName];
     NSEnumerator *e = [headings objectEnumerator];
     NSString *s;
-    float width;
-    float maxHeadingWidth = 0;
+    CGFloat width;
+    CGFloat maxHeadingWidth = 0;
     while ( (s = [(NJRHelpContentsEntry *)[e nextObject] displayString]) != nil) {
         width = [s sizeWithAttributes: allHeadingAttributes].width;
         if (width > maxHeadingWidth) maxHeadingWidth = width;
     }
     [allHeadingAttributes release];
-    maxContentsWidth = maxHeadingWidth + 25; // account for scroll bar and frame
-    
-    NSBox *contentsBox = [[splitter subviews] objectAtIndex: 0];
-    NSSize contentsSize = [contentsBox frame].size;
-    float widthDiff = contentsSize.width - maxContentsWidth;
-    if (widthDiff > 0) {
-        NSSize bodySize = [bodyBox frame].size;
-        bodySize.width += widthDiff;
-        contentsSize.width -= widthDiff;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [contentsBox setFrameSize: contentsSize];
-            [bodyBox setFrameSize: bodySize];
-            [splitter adjustSubviews];
-        });
-    }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [contents reloadData];
-        [progressTabs selectTabViewItemWithIdentifier: @"completed"];
-        [[body layoutManager] setBackgroundLayoutEnabled: YES];
-    });
+    CGFloat maxContentsWidth = maxHeadingWidth + 25; // account for scroll bar and frame
+    NSScrollView *contentsScrollView = contents.enclosingScrollView;
+    [contentsScrollView addConstraint: [NSLayoutConstraint constraintWithItem: contentsScrollView attribute: NSLayoutAttributeWidth relatedBy: NSLayoutRelationLessThanOrEqual toItem: nil attribute: NSLayoutAttributeNotAnAttribute multiplier: 1.0 constant: maxContentsWidth]];
+
+    [contents reloadData];
+    [[body layoutManager] setBackgroundLayoutEnabled: YES];
     [pool release];
 }
 
@@ -274,16 +245,6 @@ static NJRReadMeController *sharedController = nil;
 @end
 
 @implementation NJRReadMeController (NSSplitViewDelegate)
-
-- (float)splitView:(NSSplitView *)sender constrainMinCoordinate:(float)proposedCoord ofSubviewAt:(int)offset;
-{
-    return MAX(proposedCoord, 80);
-}
-
-- (float)splitView:(NSSplitView *)sender constrainMaxCoordinate:(float)proposedCoord ofSubviewAt:(int)offset;
-{
-    return MIN(proposedCoord, maxContentsWidth);
-}
 
 - (BOOL)splitView:(NSSplitView *)sender canCollapseSubview:(NSView *)subview;
 {
