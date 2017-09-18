@@ -491,7 +491,7 @@
         </p>
       </text>
     </item>
-    <item id="aFpPLlaY2La" parent-id="huyEVmOMd7x" rank="00025f">
+    <item id="aFpPLlaY2La" parent-id="huyEVmOMd7x" rank="000217">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -647,6 +647,17 @@
           </run>
           <run>
             <lit><cell href="https://github.com/davedelong/CHLayoutManager" name="github.com—CHLayoutManager" type="link"/></lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="aZO3eggIaZG" parent-id="aFpPLlaY2La" rank="">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Need to migrate to Auto Layout.</lit>
           </run>
         </p>
       </text>
@@ -2445,6 +2456,17 @@
         </p>
       </text>
     </item>
+    <item id="cT1M1CGQJug" parent-id="huyEVmOMd7x" rank="0004">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Update Read Me</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="cTYsEJJxgrD" parent-id="dSkZh8kUzRP" rank="0001">
       <checkbox>checked</checkbox>
       <entry/>
@@ -2557,17 +2579,6 @@
         <p>
           <run>
             <lit>Medium</lit>
-          </run>
-        </p>
-      </text>
-    </item>
-    <item id="ch2EDAGsL0q" parent-id="gotAfbOXCFU" rank="0004">
-      <checkbox>unchecked</checkbox>
-      <entry/>
-      <text>
-        <p>
-          <run>
-            <lit>Split view autosizing is broken on 10.10.  Auto Layout, maybe?</lit>
           </run>
         </p>
       </text>
@@ -4219,23 +4230,6 @@
         </p>
       </text>
     </item>
-    <item id="fbgw8SEHt9k" parent-id="ch2EDAGsL0q" rank="">
-      <checkbox>unchecked</checkbox>
-      <text>
-        <p>
-          <run>
-            <lit><cell href="https://developer.apple.com/library/mac/releasenotes/AppKit/RN-AppKit/" name="developer.apple.com—RN-AppKit" type="link"/></lit>
-          </run>
-        </p>
-      </text>
-      <text>
-        <p>
-          <run>
-            <lit>There seems to be a lot of new split view behavior in 10.11.</lit>
-          </run>
-        </p>
-      </text>
-    </item>
     <item id="fc_13JEUtZ4" parent-id="ex_NK9LPjlo" rank="0005">
       <checkbox>checked</checkbox>
       <entry/>
@@ -4565,7 +4559,7 @@
       </text>
     </item>
     <item id="gCvqfsY2Rkw" parent-id="huyEVmOMd7x" rank="00026f">
-      <checkbox>unchecked</checkbox>
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
@@ -8749,6 +8743,17 @@
         </p>
       </text>
     </item>
+    <item id="nA5neLVLBcl" parent-id="aFpPLlaY2La" rank="0001">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Also — we’re trying to access NSProgressIndicator from a background thread. That is not OK.</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="nAN3YBMnpEC" parent-id="dnyPkcPZQD1" rank="0003">
       <checkbox>checked</checkbox>
       <text>
@@ -10050,7 +10055,7 @@
       <text>
         <p>
           <run>
-            <lit>Test on 10.9 through 10.12</lit>
+            <lit>Test on 10.9 through 10.13</lit>
           </run>
         </p>
       </text>
