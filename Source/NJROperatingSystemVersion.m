@@ -12,7 +12,7 @@ static NSInteger majorVersion;
 static NSInteger minorVersion;
 static NSInteger patchVersion;
 
-NSInteger NJROSXMinorVersion() {
+NSInteger NJROSXMinorVersion(void) {
     if (majorVersion == 0) {
         NSProcessInfo *processInfo = [NSProcessInfo processInfo];
         if ([processInfo respondsToSelector: @selector(operatingSystemVersion)]) {
