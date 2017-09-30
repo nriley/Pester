@@ -83,7 +83,7 @@ JRErrExpressionAdapter(PSAlarm *(^block)(void), JRErrExpression *expression, NSE
 {
     // NSLog(@"DEALLOC %@", self);
     alarmType = PSAlarmInvalid;
-    if (uuid != NULL) CFRelease(uuid), uuid = NULL;
+    if (uuid != NULL) { CFRelease(uuid); uuid = NULL; }
     [alarmDate release]; alarmDate = nil;
     [alarmMessage release]; alarmMessage = nil;
     [invalidMessage release]; invalidMessage = nil;
