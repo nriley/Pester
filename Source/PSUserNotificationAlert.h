@@ -8,10 +8,6 @@
 
 #import "PSAlert.h"
 
-#ifndef NSUserNotification
-#import "NSUserNotification.h"
-#endif
-
 @interface PSUserNotificationAlert : PSAlert <NSUserNotificationCenterDelegate>
 
 @end

@@ -18,10 +18,6 @@
 #import "PSTimer.h"
 #import "NJRHotKey.h"
 
-#ifndef NSUserNotification
-#import "NSUserNotification.h"
-#endif
-
 #import "PFMoveApplication.h"
 #import <QuartzCore/QuartzCore.h>
 
