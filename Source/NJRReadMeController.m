@@ -118,6 +118,20 @@ static NJRReadMeController *sharedController = nil;
         [self readRTF: aPath];
 
         [window makeKeyAndOrderFront: self];
+        // XXX work around 10.12 bug in which this window doesn't stick around as the key window once shown
+        // XXX and doesn't trigger the window's -resignKeyWindow so we can't easily capture it
+        if (NJROSXMinorVersion() == 12) {
+            [NSTimer scheduledTimerWithTimeInterval: 0.05 repeats: YES block: ^(NSTimer * _Nonnull timer) {
+                if ([NSApp keyWindow] == nil && [NSApp mainWindow] == window) {
+                    [window makeKeyWindow];
+                    [timer invalidate];
+                    return;
+                }
+                static uint32_t firings = 0;
+                if (++firings > 10) // in testing, never requires more than 2
+                    [timer invalidate];
+            }];
+        }
         sharedController = self;
     }
     return self;
