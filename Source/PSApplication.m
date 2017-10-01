@@ -149,6 +149,10 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
     [super orderFrontStandardAboutPanelWithOptions: optionsWithCredits];
     [optionsWithCredits release];
 
+    // XXX centering bug is finally fixed in 10.13
+    if (NJROSXMinorVersion() >= 13)
+        return;
+
     for (NSWindow *window in [self windows]) {
         if ([windowsBefore containsObject: window])
             continue;
