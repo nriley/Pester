@@ -152,7 +152,7 @@
       </style>
     </base-style>
     <margin-color>
-      <color w="0.666667"/>
+      <color space="gg22" w="0.723367"/>
     </margin-color>
     <page-adornment>
       <first-page-headers is-active="yes">
@@ -627,7 +627,7 @@
       </text>
     </item>
     <item id="aWv2ABzX8Pv" parent-id="gotAfbOXCFU" rank="0009">
-      <entry/>
+      <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
@@ -1506,7 +1506,7 @@
       </text>
     </item>
     <item id="c16shmiTx0T" parent-id="kqBAGVCUnzg" rank="0001">
-      <entry/>
+      <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
@@ -3141,7 +3141,7 @@
       </text>
     </item>
     <item id="dnyPkcPZQD1" rank="0009">
-      <entry/>
+      <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
@@ -3393,7 +3393,7 @@
       </text>
     </item>
     <item id="eF4q1mW2pDJ" parent-id="kqBAGVCUnzg" rank="0013">
-      <entry/>
+      <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
@@ -4045,6 +4045,17 @@
         <p>
           <run>
             <lit>Not seen this in a very long time, probably fixed.</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="fEFew7xck2-" parent-id="o4Fvua2w90V" rank="0002">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Remove the ‘visible voices:’ debug info</lit>
           </run>
         </p>
       </text>
@@ -4809,6 +4820,17 @@
         </p>
       </text>
     </item>
+    <item id="ga2hLWvFb8_" parent-id="huyEVmOMd7x" rank="0005">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Update Web page listing of bugs I can’t work around</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="gcqDrSv7oGS" parent-id="ePF2dZ3OjQK" rank="">
       <checkbox>checked</checkbox>
       <entry/>
@@ -4852,6 +4874,17 @@
         <p>
           <run>
             <lit>When adding/resuming a time-based alarm, first try the saved date, then try the saved relative date, then try the next occurrence of the time (today or tomorrow)</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="ggi4MpjDdlY" parent-id="o4Fvua2w90V" rank="">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>See if the display artifacts are fixed on 10.11?</lit>
           </run>
         </p>
       </text>
@@ -4912,7 +4945,7 @@
       </text>
     </item>
     <item id="gotAfbOXCFU" rank="0002">
-      <entry/>
+      <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
@@ -5258,6 +5291,17 @@
         </p>
       </text>
     </item>
+    <item id="hOfihGDAGIB" parent-id="o4Fvua2w90V" rank="0001">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Test speech voices (again!) in 10.13</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="hQWxxFSfQgj" parent-id="bzWWXOvmNoS" rank="0010">
       <checkbox>checked</checkbox>
       <entry/>
@@ -5500,6 +5544,17 @@
         <p>
           <run>
             <lit>Beta 23</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="hwcI49rAfQa" parent-id="huyEVmOMd7x" rank="00027b">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Keyboard focus in Read Me is broken (worst on 10.12, but more generally too)</lit>
           </run>
         </p>
       </text>
@@ -7350,7 +7405,7 @@
       </text>
     </item>
     <item id="kqBAGVCUnzg" rank="0005">
-      <entry/>
+      <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
@@ -9580,7 +9635,7 @@
       </text>
     </item>
     <item id="nEfcke74SI8" parent-id="c16shmiTx0T" rank="0004">
-      <entry/>
+      <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
@@ -9695,7 +9750,7 @@
       <text>
         <p>
           <run>
-            <lit>Remove NJR_isStatic? It isn&apos;t even relevant because we don&apos;t handle images</lit>
+            <lit>Remove NJR_isStatic? It is no longer relevant because we don&apos;t handle images any more</lit>
           </run>
         </p>
       </text>
@@ -9948,7 +10003,7 @@
       </text>
     </item>
     <item id="nmM0QvVNEKC" parent-id="eF4q1mW2pDJ" rank="">
-      <entry/>
+      <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
@@ -10285,7 +10340,7 @@
         </p>
       </text>
     </item>
-    <item id="oF3K30LkPWO" parent-id="gotAfbOXCFU" rank="0001">
+    <item id="oF3K30LkPWO" parent-id="gotAfbOXCFU" rank="00ff">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -11030,6 +11085,17 @@
         <p>
           <run>
             <lit>Save/restore selected notification system in defaults</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="pJeZ65AyDow" parent-id="huyEVmOMd7x" rank="000277">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Update Sparkle</lit>
           </run>
         </p>
       </text>
