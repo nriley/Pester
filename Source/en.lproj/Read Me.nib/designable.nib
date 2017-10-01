@@ -86,6 +86,9 @@
                                                 <rect key="frame" x="241" y="1" width="15" height="349"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
+                                            <connections>
+                                                <outlet property="nextKeyView" destination="12" id="KDG-Og-SmE"/>
+                                            </connections>
                                         </scrollView>
                                     </subviews>
                                     <constraints>
@@ -110,7 +113,7 @@
                                                 <rect key="frame" x="1" y="1" width="466" height="451"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textView editable="NO" importsGraphics="NO" horizontallyResizable="YES" verticallyResizable="YES" spellingCorrection="YES" id="12">
+                                                    <textView focusRingType="none" editable="NO" importsGraphics="NO" horizontallyResizable="YES" verticallyResizable="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="12">
                                                         <rect key="frame" x="0.0" y="0.0" width="466" height="451"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -129,6 +132,9 @@
                                                 <rect key="frame" x="450" y="1" width="16" height="449"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
+                                            <connections>
+                                                <outlet property="nextKeyView" destination="7" id="Tgj-W1-O01"/>
+                                            </connections>
                                         </scrollView>
                                     </subviews>
                                     <constraints>
@@ -159,6 +165,7 @@
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="45"/>
+                <outlet property="initialFirstResponder" destination="12" id="6Bc-U2-y2R"/>
             </connections>
             <point key="canvasLocation" x="56" y="158"/>
         </window>
