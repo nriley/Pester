@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, NJRVoiceVisibility) {
         NSDictionary *visibleIdentifiers = nil;
         if ([[SOVoiceObject class] respondsToSelector: @selector(visibleVoicesForLocaleIdentifier:additionalRequiredVoices:allowAllVoices:)] && [SOVoiceObject instancesRespondToSelector: @selector(identifier)]) {
             NSArray *visibleVoices = [SOVoiceObject visibleVoicesForLocaleIdentifier: [NSLocale currentLocale].localeIdentifier additionalRequiredVoices: nil allowAllVoices: NO];
-            NSLog(@"visible voices: %@", visibleVoices);
+            // NSLog(@"visible voices: %@", visibleVoices);
             NSUInteger visibleVoiceCount = visibleVoices.count;
             if (visibleVoiceCount > 0) {
                 NSMutableDictionary *mutableVisibleIdentifiers = [[NSMutableDictionary alloc] initWithCapacity: visibleVoiceCount];
