@@ -41,6 +41,10 @@ hdiutil internet-enable $DMG
 zmodload zsh/stat
 SIZE=$(stat -L +size $DMG)
 
+if [[ -n $1 ]]; then
+    return
+fi
+
 # update Web presence
 DIGEST=`openssl dgst -sha1 -binary < $DMG | openssl dgst -dss1 -sign ~/Documents/Development/DSA/dsa_priv.pem | openssl enc -base64`
 NOW=`perl -e 'use POSIX qw(strftime); print strftime("%a, %d %b %Y %H:%M:%S %z", localtime(time())) . $tz'`
