@@ -23,7 +23,6 @@
       <item item-id="gU1KumwhFhv" expanded="yes"/>
       <item item-id="gotAfbOXCFU" expanded="yes"/>
       <item item-id="hthDdDyEoT5" expanded="yes"/>
-      <item item-id="huyEVmOMd7x" expanded="yes"/>
       <item item-id="igrozEzw4_Z" expanded="yes"/>
       <item item-id="iqzzf9O-n-p" expanded="yes"/>
       <item item-id="ix_fI3-cnC-" expanded="yes"/>
@@ -39,7 +38,6 @@
       <item item-id="nGjaVQ6TycR" expanded="yes"/>
       <item item-id="nVBTnoKEUuO" note-expanded="yes"/>
       <item item-id="ndkUlQo0eKA" expanded="yes"/>
-      <item item-id="o4Fvua2w90V" expanded="yes"/>
       <item item-id="o5VE-Oj5Sv4" note-expanded="yes"/>
       <item item-id="oF3K30LkPWO" expanded="yes"/>
       <item item-id="o_0mcPraBH7" note-expanded="yes"/>
@@ -48,12 +46,8 @@
       <item item-id="p8IxntctwZ8" expanded="yes"/>
     </item-states>
     <selected-items>
-      <item item-id="gBTLW__5BOO"/>
+      <item item-id="p38HHuWW80p"/>
     </selected-items>
-    <selected-columns>
-      <column-ref idref="jFqHUGd_Dg1"/>
-    </selected-columns>
-    <selected-characters range="{90, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
