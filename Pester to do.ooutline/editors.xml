@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://www.omnigroup.com/namespace/OmniOutliner/xmloutline-editors-v1.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0?>
 <editors xmlns="http://www.omnigroup.com/namespace/OmniOutliner/editors/v1">
-  <editor content-size="{626, 633}" scroll-position="{0, 3}" column-titles-display-mode="auto" auto-size-outline-column="yes">
+  <editor content-size="{626, 633}" column-titles-display-mode="auto" auto-size-outline-column="yes">
     <sidebar width="182" selected-tab="styles"/>
     <column-states columns-id="oAcW9dKDZIB">
       <column-state column-id="cteV0F-AwRG" width="32" summary="state"/>
