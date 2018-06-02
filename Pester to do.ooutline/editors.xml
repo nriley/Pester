@@ -38,6 +38,7 @@
       <item item-id="nGjaVQ6TycR" expanded="yes"/>
       <item item-id="nVBTnoKEUuO" note-expanded="yes"/>
       <item item-id="ndkUlQo0eKA" expanded="yes"/>
+      <item item-id="niKjeGojQ0q" note-expanded="yes"/>
       <item item-id="o5VE-Oj5Sv4" note-expanded="yes"/>
       <item item-id="oF3K30LkPWO" expanded="yes"/>
       <item item-id="o_0mcPraBH7" note-expanded="yes"/>
@@ -46,8 +47,12 @@
       <item item-id="p8IxntctwZ8" expanded="yes"/>
     </item-states>
     <selected-items>
-      <item item-id="p38HHuWW80p"/>
+      <item item-id="niKjeGojQ0q"/>
     </selected-items>
+    <selected-columns>
+      <column-ref idref="dTpN3JwYpBn"/>
+    </selected-columns>
+    <selected-characters range="{113, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;

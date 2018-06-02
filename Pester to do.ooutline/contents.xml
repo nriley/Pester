@@ -4,7 +4,7 @@
   <style-attribute-registry>
     <style-attribute version="0" key="font-family" group="font" name="family" class="string">Helvetica</style-attribute>
     <style-attribute version="1" key="font-fill" group="font" name="fill color" class="color">
-      <color w="0"/>
+      <color space="gg22" w="0"/>
     </style-attribute>
     <style-attribute version="0" key="font-fixed-pitch" group="font" name="fixed pitch" class="bool">no</style-attribute>
     <style-attribute version="0" key="font-italic" group="font" name="italic" class="bool">no</style-attribute>
@@ -40,7 +40,7 @@
     <style-attribute version="0" key="paragraph-tab-stop-interval" group="paragraph" name="tab stop interval" class="number" integral="0" min="0" max="1000">0</style-attribute>
     <style-attribute version="0" key="paragraph-tab-stops" group="paragraph" name="tab stops" class="string">28L,56L,84L,112L,140L,168L,196L,224L,252L,280L,308L,336L</style-attribute>
     <style-attribute version="1" key="strikethrough-color" group="strikethrough" name="color" class="color">
-      <color w="0"/>
+      <color space="gg22" w="0"/>
     </style-attribute>
     <style-attribute version="1" key="strikethrough-style" group="strikethrough" name="style" class="enum">
       <enum-name-table default-value="0">
@@ -51,10 +51,10 @@
       </enum-name-table>
     </style-attribute>
     <style-attribute version="0" key="text-background-color" group="text" name="background color" class="color">
-      <color w="0" a="0"/>
+      <color space="gg22" w="0" a="0"/>
     </style-attribute>
     <style-attribute version="1" key="underline-color" group="underline" name="color" class="color">
-      <color w="0"/>
+      <color space="gg22" w="0"/>
     </style-attribute>
     <style-attribute version="1" key="underline-style" group="underline" name="style" class="enum">
       <enum-name-table default-value="0">
@@ -168,6 +168,7 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
+      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
@@ -222,7 +223,7 @@
       <value key="paragraph-tab-stops">56L</value>
     </style>
     <item rank="" is-root="yes" schema="oAcW9dKDZIB" children-are-sections="yes">
-      <checkbox>unchecked</checkbox>
+      <entry/>
       <entry/>
       <entry/>
     </item>
@@ -1596,6 +1597,17 @@
         </p>
       </text>
     </item>
+    <item id="cBprimD_Khd" parent-id="gotAfbOXCFU" rank="00fe">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Drop 10.9 and 10.10 compatibility</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="cCtY3M17Yhe" parent-id="aOfDgAHfyu7" rank="">
       <checkbox>checked</checkbox>
       <entry/>
@@ -2946,6 +2958,17 @@
         <p>
           <run>
             <lit>Check in diff and add it to the build</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="dDQ5ifSnIW3" parent-id="gotAfbOXCFU" rank="00fe3f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Drop Growl?</lit>
           </run>
         </p>
       </text>
@@ -9987,6 +10010,23 @@
         <p>
           <run>
             <lit>Interval alarms don&apos;t get saved as interval + date; this is a difference from the hiptop Pester</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="niKjeGojQ0q" parent-id="gotAfbOXCFU" rank="00fe5f">
+      <checkbox>unchecked</checkbox>
+      <text>
+        <p>
+          <run>
+            <lit>2018-06-02 08:42:58.354477-0400 Pester[16590:1111497] Scheduling the NSURLDownload loader is no longer supported.</lit>
+          </run>
+        </p>
+      </text>
+      <text>
+        <p>
+          <run>
+            <lit>Update Sparkle and fix deprecation warnings</lit>
           </run>
         </p>
       </text>
