@@ -11,9 +11,11 @@
     <note-split-view height="33"/>
     <item-states>
       <item item-id="bDrrZ4jemFN" expanded="yes"/>
+      <item item-id="buRRj7XVVhW" note-expanded="yes"/>
       <item item-id="bxDY6h3Eui_" expanded="yes"/>
       <item item-id="c61LUusn2hI" expanded="yes"/>
       <item item-id="cY3ZDl36fmk" expanded="yes"/>
+      <item item-id="coal7dF5v66" note-expanded="yes"/>
       <item item-id="cwsw3ROJDTT" expanded="yes"/>
       <item item-id="cxhjINnivnn" note-expanded="yes"/>
       <item item-id="d4lrfUo3eAD" expanded="yes"/>
@@ -27,9 +29,11 @@
       <item item-id="iqzzf9O-n-p" expanded="yes"/>
       <item item-id="ix_fI3-cnC-" expanded="yes"/>
       <item item-id="jIrvTksY45A" expanded="yes"/>
+      <item item-id="jO3MG0aXyfg" expanded="yes"/>
       <item item-id="jTywgVdXZzA" expanded="yes"/>
       <item item-id="jaiyjjo0fl5" expanded="yes"/>
       <item item-id="kCOPoGtA412" expanded="yes"/>
+      <item item-id="l-RdtxzvxCc" expanded="yes"/>
       <item item-id="l5XqAT5ljpW" expanded="yes"/>
       <item item-id="lU6L0nxmxAW" expanded="yes"/>
       <item item-id="lW3uo6zibYg" expanded="yes"/>
@@ -47,12 +51,12 @@
       <item item-id="p8IxntctwZ8" expanded="yes"/>
     </item-states>
     <selected-items>
-      <item item-id="niKjeGojQ0q"/>
+      <item item-id="dDQ5ifSnIW3"/>
     </selected-items>
     <selected-columns>
-      <column-ref idref="dTpN3JwYpBn"/>
+      <column-ref idref="jFqHUGd_Dg1"/>
     </selected-columns>
-    <selected-characters range="{113, 0}"/>
+    <selected-characters range="{53, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;

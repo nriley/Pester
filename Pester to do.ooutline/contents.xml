@@ -767,7 +767,7 @@
       <text>
         <p>
           <run>
-            <lit>Sign the disk image (10.11+)</lit>
+            <lit>Sign the disk image (10.11+), or potentially just </lit>
           </run>
         </p>
       </text>
@@ -1199,6 +1199,17 @@
         </p>
       </text>
     </item>
+    <item id="bWLFFAUexYn" parent-id="jO3MG0aXyfg" rank="00023f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Should we set up notification triggers so they’ll run when Pester isn’t? May need an extension.</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="bXeVBjUi9s5" parent-id="jdl7WCu82K6" rank="0001">
       <checkbox>unchecked</checkbox>
       <entry/>
@@ -1441,6 +1452,28 @@
         </p>
       </text>
     </item>
+    <item id="buRRj7XVVhW" parent-id="jO3MG0aXyfg" rank="0002">
+      <checkbox>unchecked</checkbox>
+      <text>
+        <p>
+          <run>
+            <lit><cell href="https://developer.apple.com/documentation/usernotifications" name="https://developer.apple.com/documentation/usernotifications" type="link"/></lit>
+          </run>
+        </p>
+        <p>
+          <run>
+            <lit><cell href="https://developer.apple.com/documentation/usernotifications/unusernotificationcenter/1649500-removedeliverednotifications" name="https://developer.apple.com/documentation/usernotifications/unusernotificationcenter/1649500-removedeliverednotifications" type="link"/></lit>
+          </run>
+        </p>
+      </text>
+      <text>
+        <p>
+          <run>
+            <lit>Can we do what we do with Growl with the UserNotifications framework in 10.14?</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="bvWNNdlCBRA" parent-id="bteX3uwopYy" rank="0002">
       <checkbox>checked</checkbox>
       <entry/>
@@ -1603,7 +1636,7 @@
       <text>
         <p>
           <run>
-            <lit>Drop 10.9 and 10.10 compatibility</lit>
+            <lit>Potentially only support 10.13 and 10.14</lit>
           </run>
         </p>
       </text>
@@ -2576,10 +2609,7 @@
             <lit>QuickTime </lit>
           </run>
           <run>
-            <lit>→</lit>
-          </run>
-          <run>
-            <lit> AVFoundation for videos</lit>
+            <lit>→ AVFoundation for videos</lit>
           </run>
         </p>
       </text>
@@ -2726,6 +2756,23 @@
         <p>
           <run>
             <lit>Speech voices are not showing their names</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="coal7dF5v66" parent-id="jO3MG0aXyfg" rank="0001">
+      <checkbox>unchecked</checkbox>
+      <text>
+        <p>
+          <run>
+            <lit><cell href="https://mackuba.eu/2018/07/04/dark-side-mac-1/" name="https://mackuba.eu/2018/07/04/dark-side-mac-1/" type="link"/></lit>
+          </run>
+        </p>
+      </text>
+      <text>
+        <p>
+          <run>
+            <lit>Dark Mode testing and fixing</lit>
           </run>
         </p>
       </text>
@@ -2962,13 +3009,13 @@
         </p>
       </text>
     </item>
-    <item id="dDQ5ifSnIW3" parent-id="gotAfbOXCFU" rank="00fe3f">
+    <item id="dDQ5ifSnIW3" parent-id="gotAfbOXCFU" rank="00fb">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
           <run>
-            <lit>Drop Growl?</lit>
+            <lit>Upgrade to current Growl framework as the old one just stopped working at some point</lit>
           </run>
         </p>
       </text>
@@ -5066,6 +5113,17 @@
         </p>
       </text>
     </item>
+    <item id="gyd3x-OTBd-" parent-id="jO3MG0aXyfg" rank="0003">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Update build process for notarization</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="gzXgZqcCkmP" parent-id="nqA38dA923k" rank="0001">
       <checkbox>checked</checkbox>
       <entry/>
@@ -6333,13 +6391,13 @@
         </p>
       </text>
     </item>
-    <item id="jAOT-TLS_lI" rank="0007">
+    <item id="jAOT-TLS_lI" rank="00013f">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
           <run>
-            <lit>1.2 (10.11+?) — address deprecations</lit>
+            <lit>Deprecations</lit>
           </run>
         </p>
       </text>
@@ -6421,17 +6479,6 @@
         </p>
       </text>
     </item>
-    <item id="jHl8Wf2bM8k" parent-id="l-RdtxzvxCc" rank="0001">
-      <checkbox>unchecked</checkbox>
-      <entry/>
-      <text>
-        <p>
-          <run>
-            <lit>Inspections in AppCode</lit>
-          </run>
-        </p>
-      </text>
-    </item>
     <item id="jHoDsGoRHZv" parent-id="l7La09bra8I" rank="0004">
       <checkbox>checked</checkbox>
       <entry/>
@@ -6494,6 +6541,17 @@
         <p>
           <run>
             <lit>When resizing Read Me, sidebar can become wider than maximum width, which looks ugly.  (Try starting with no defaults then zooming. Bleah.)</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="jO3MG0aXyfg" parent-id="gotAfbOXCFU" rank="00fc">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>10.14 updates</lit>
           </run>
         </p>
       </text>
@@ -6684,13 +6742,7 @@
       <text>
         <p>
           <run>
-            <lit>Bigger default size for Read Me window (check 11</lit>
-          </run>
-          <run>
-            <lit>ʺ</lit>
-          </run>
-          <run>
-            <lit> MacBook Air resolution). Make the sidebar wider too since the cropping/ellipsization seems annoyingly flaky.</lit>
+            <lit>Bigger default size for Read Me window (check 11ʺ MacBook Air resolution). Make the sidebar wider too since the cropping/ellipsization seems annoyingly flaky.</lit>
           </run>
         </p>
       </text>
@@ -7303,6 +7355,17 @@
         </p>
       </text>
     </item>
+    <item id="kU4I85ZmH0i" parent-id="jO3MG0aXyfg" rank="">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Control metrics changed again; remove prior workarounds and put a new one in</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="kUYzxJFqS2E" parent-id="pj5i1JVIPTm" rank="0009">
       <checkbox>unchecked</checkbox>
       <entry/>
@@ -7345,7 +7408,7 @@
       <text>
         <p>
           <run>
-            <lit>Is the original reason we use a popup menu as opposed to a combobox for the date fixed?  That is, can formatters work on a combobox yet?  What about </lit>
+            <lit>Is the original reason we use a popup menu as opposed to a combobox for the date fixed?  That is, can formatters work on a combobox yet?</lit>
           </run>
         </p>
       </text>
@@ -7699,10 +7762,7 @@
             <lit>32</lit>
           </run>
           <run>
-            <lit>→</lit>
-          </run>
-          <run>
-            <lit>64 transition (-DNS_BUILD_32_LIKE_64).</lit>
+            <lit>→64 transition (-DNS_BUILD_32_LIKE_64).</lit>
           </run>
         </p>
       </text>
@@ -10389,10 +10449,7 @@
             <lit>Aliases &amp; paths </lit>
           </run>
           <run>
-            <lit>→</lit>
-          </run>
-          <run>
-            <lit> bookmark URLs (last major area of deprecation warnings)</lit>
+            <lit>→ bookmark URLs (last major deprecation area, aside from NSCalendarDate)</lit>
           </run>
         </p>
       </text>
@@ -10597,10 +10654,7 @@
             <lit>NSCalendarDate (deprecated) </lit>
           </run>
           <run>
-            <lit>⇒</lit>
-          </run>
-          <run>
-            <lit> NSCalendar + NSCalendarComponents + NSDate</lit>
+            <lit>⇒ NSCalendar + NSCalendarComponents + NSDate</lit>
           </run>
         </p>
       </text>
@@ -10693,17 +10747,6 @@
         <p>
           <run>
             <lit>You can&apos;t replace the field editor while it&apos;s editing! Either we refocus it or don&apos;t discard the field editor.</lit>
-          </run>
-        </p>
-      </text>
-    </item>
-    <item id="ofDiUwDQNsR" parent-id="jAOT-TLS_lI" rank="0006">
-      <checkbox>unchecked</checkbox>
-      <entry/>
-      <text>
-        <p>
-          <run>
-            <lit>Event Kit support — we can use EKAlarmTypeProcedure to trigger a URL in Pester, and potentially an audio/display alarm too. Or no we can&apos;t, because EKAlarmTypeProcedure has been removed in 10.9. So much for that.</lit>
           </run>
         </p>
       </text>
