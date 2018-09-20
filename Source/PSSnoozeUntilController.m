@@ -52,7 +52,7 @@
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(PSAlarmNotifierController *)aController;
 {
-    if (returnCode == NSRunAbortedResponse) {
+    if (returnCode == NSModalResponseAbort) {
         [aController setSnoozeInterval: snoozeInterval];
     } else {
         [aController snoozeUntilDate: [alarm date]];
@@ -130,13 +130,13 @@
 
 - (IBAction)close:(id)sender;
 {
-    [NSApp endSheet: [self window] returnCode: NSRunAbortedResponse];
+    [NSApp endSheet: [self window] returnCode: NSModalResponseAbort];
 }
 
 - (IBAction)snooze:(NSButton *)sender;
 {
     if ([alarm isValid]) {
-        [NSApp endSheet: [self window] returnCode: NSRunStoppedResponse];
+        [NSApp endSheet: [self window] returnCode: NSModalResponseStop];
     } else {
         [messageField setStringValue: [@"Unable to snooze. " stringByAppendingString: [alarm invalidMessage]]];
         [sender setEnabled: NO];

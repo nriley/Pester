@@ -183,20 +183,20 @@ static NSString * const PSSetAlarmHotKeyShortcut = @"PSSetAlarmHotKeyShortcut";
 {
     *message = nil;
 
-    if (modifierFlags == 0 || modifierFlags == NSShiftKeyMask || modifierFlags == NSEventModifierFlagOption || modifierFlags == (NSShiftKeyMask | NSEventModifierFlagOption)) {
+    if (modifierFlags == 0 || modifierFlags == NSEventModifierFlagShift || modifierFlags == NSEventModifierFlagOption || modifierFlags == (NSEventModifierFlagShift | NSEventModifierFlagOption)) {
         *message = modifierFlags == 0 ? @"key is reserved for typing text" :
                                         @"key combination is reserved for typing text";
         return ![textRejectSet characterIsMember: keyChar];
     }
-    if (modifierFlags == NSCommandKeyMask) {
+    if (modifierFlags == NSEventModifierFlagCommand) {
         *message = @"key combination is reserved for application use";
         return ![commandRejectSet characterIsMember: keyChar];
     }
-    if (modifierFlags == (NSEventModifierFlagCommand | NSShiftKeyMask)) {
+    if (modifierFlags == (NSEventModifierFlagCommand | NSEventModifierFlagShift)) {
         *message = @"key combination is reserved for application use";
         return ![commandShiftRejectSet characterIsMember: keyChar];
     }
-    if (modifierFlags == (NSCommandKeyMask | NSEventModifierFlagOption)) {
+    if (modifierFlags == (NSEventModifierFlagCommand | NSEventModifierFlagOption)) {
         *message = @"key combination is reserved for Mac OS X use";
         return ![commandOptionRejectSet characterIsMember: keyChar];
     }
