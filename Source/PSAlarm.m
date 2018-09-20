@@ -37,7 +37,7 @@ static NSCalendar *gregorianCalendar;
 
 static NSDate *midnightOnDate(NSDate *date) {
     return [gregorianCalendar dateFromComponents: 
-	    [gregorianCalendar components: NSMonthCalendarUnit|NSDayCalendarUnit|NSYearCalendarUnit fromDate: date]];
+	    [gregorianCalendar components: NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitYear fromDate: date]];
 }
 
 enum {

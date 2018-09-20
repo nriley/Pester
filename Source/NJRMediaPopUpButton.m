@@ -582,7 +582,7 @@ NSString * const NJRMediaPopUpButtonMovieChangedNotification = @"NJRMediaPopUpBu
         if (isFirstResponder) [window makeFirstResponder: window];
         [super drawRect: rect];
         [[NSColor selectedControlColor] set];
-        NSFrameRectWithWidthUsingOperation(NSInsetRect(boundsRect, 2, 2), 3, NSCompositeSourceIn);
+        NSFrameRectWithWidthUsingOperation(NSInsetRect(boundsRect, 2, 2), 3, NSCompositingOperationSourceIn);
         if (isFirstResponder) [window makeFirstResponder: self];
     } else {
         [super drawRect: rect];

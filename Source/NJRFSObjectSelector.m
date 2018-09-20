@@ -55,7 +55,7 @@ static NSSize PopupTriangleSize;
         [NSBezierPath strokeRect: NSInsetRect(boundsRect, 2, 2)];
     } else if (selectedAlias != nil && [self isEnabled]) {
         // equivalent to popup triangle location for large bezel in Carbon
-        [PopupTriangleImage compositeToPoint: NSMakePoint(NSMaxX(boundsRect) - PopupTriangleSize.width - 5, NSMaxY(boundsRect) - 5) operation: NSCompositeSourceOver];
+        [PopupTriangleImage compositeToPoint: NSMakePoint(NSMaxX(boundsRect) - PopupTriangleSize.width - 5, NSMaxY(boundsRect) - 5) operation: NSCompositingOperationSourceOver];
     }
 }
 

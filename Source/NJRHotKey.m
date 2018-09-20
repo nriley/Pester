@@ -56,11 +56,11 @@ static NSString * const PLKeyCode = @"keyCode"; // NSNumber
 - (UInt16)modifiers;
 {
     static NSUInteger modifierMap[5][2] = {
-       { NSCommandKeyMask, cmdKey },
-       { NSAlternateKeyMask, optionKey },
-       { NSControlKeyMask, controlKey },
-       { NSShiftKeyMask, shiftKey },
-       { 0, 0 }
+        { NSEventModifierFlagCommand, cmdKey },
+        { NSEventModifierFlagOption, optionKey },
+        { NSEventModifierFlagControl, controlKey },
+        { NSEventModifierFlagShift, shiftKey },
+        { 0, 0 }
     };
 
     UInt16 modifiers = 0;

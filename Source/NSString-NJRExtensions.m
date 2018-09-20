@@ -92,10 +92,10 @@ static unichar combiningHelpChar[] = {0x003F, 0x20DD};
     NSString *keyEquivalentStringNoMask = [self keyEquivalentString];
     NSAttributedString *keyEquivalentAttributedString =
         [[NSString stringWithFormat: @"%@%@%@%@%@",
-            (modifierFlags & NSControlKeyMask) ? [NSString stringWithCharacter: kControlUnicode] : @"",
-            (modifierFlags & NSAlternateKeyMask) ? [NSString stringWithCharacter: kOptionUnicode] : @"",
-            (modifierFlags & NSShiftKeyMask) ? [NSString stringWithCharacter: kShiftUnicode] : @"",
-            (modifierFlags & NSCommandKeyMask) ? [NSString stringWithCharacter: kCommandUnicode] : @"",
+          (modifierFlags & NSEventModifierFlagControl) ? [NSString stringWithCharacter: kControlUnicode] : @"",
+          (modifierFlags & NSEventModifierFlagOption) ? [NSString stringWithCharacter: kOptionUnicode] : @"",
+          (modifierFlags & NSEventModifierFlagShift) ? [NSString stringWithCharacter: kShiftUnicode] : @"",
+          (modifierFlags & NSEventModifierFlagCommand) ? [NSString stringWithCharacter: kCommandUnicode] : @"",
                 keyEquivalentStringNoMask]
         attributedStringWithFont: menuItemFont];
     NSUInteger noMaskLength = [keyEquivalentStringNoMask length];

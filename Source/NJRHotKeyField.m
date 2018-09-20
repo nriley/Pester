@@ -15,10 +15,10 @@
 #include <objc/runtime.h>
 
 static const NSRange zeroRange = {0, 0};
-static const unsigned int capturedModifierMask = (NSShiftKeyMask |
-                                                  NSControlKeyMask |
-                                                  NSAlternateKeyMask |
-                                                  NSCommandKeyMask);
+static const unsigned int capturedModifierMask = (NSEventModifierFlagShift |
+                                                  NSEventModifierFlagControl |
+                                                  NSEventModifierFlagOption |
+                                                  NSEventModifierFlagCommand);
 
 static NSParagraphStyle *leftAlignStyle = nil, *centerAlignStyle = nil;
 static NSDictionary *statusAttributes = nil;
@@ -33,9 +33,9 @@ static NSDictionary *statusAttributes = nil;
 + (void)initialize;
 {
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-    [paraStyle setAlignment: NSLeftTextAlignment];
+    [paraStyle setAlignment: NSTextAlignmentLeft];
     leftAlignStyle = [paraStyle copy];
-    [paraStyle setAlignment: NSCenterTextAlignment];
+    [paraStyle setAlignment: NSTextAlignmentCenter];
     centerAlignStyle = [paraStyle copy];
     [paraStyle release];
 

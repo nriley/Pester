@@ -63,10 +63,10 @@
     [delegate volumeController: self didSetVolume: [sender floatValue]];
     NSEventMask eventMask = NSEventMaskFromType([[NSApp currentEvent] type]);
     // The event may simply be a mouse-up: close the menu.
-    if (eventMask & (NSLeftMouseUpMask | NSRightMouseDownMask | NSOtherMouseDownMask))
+    if (eventMask & (NSEventMaskLeftMouseUp | NSEventMaskRightMouseDown | NSEventMaskOtherMouseDown))
 	[menu cancelTracking];
     // On a quick click, the event may be a mouse down but the mouse button is no longer down.
-    if (!(eventMask & (NSLeftMouseDownMask | NSRightMouseDownMask | NSOtherMouseDownMask)))
+    if (!(eventMask & (NSEventMaskLeftMouseDown | NSEventMaskRightMouseDown | NSEventMaskOtherMouseDown)))
 	return;
     if ([NSEvent pressedMouseButtons] == 0)
 	[menu cancelTracking];

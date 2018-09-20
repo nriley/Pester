@@ -99,12 +99,12 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
     [formatter release];
     for (dayOfWeek = 0; dayOfWeek < OACalendarViewNumDaysPerWeek; dayOfWeek++) {
         dayOfWeekCell[dayOfWeek] = [[NSTableHeaderCell alloc] init];
-        [dayOfWeekCell[dayOfWeek] setAlignment:NSCenterTextAlignment];
+        [dayOfWeekCell[dayOfWeek] setAlignment:NSTextAlignmentCenter];
         [dayOfWeekCell[dayOfWeek] setStringValue:[[shortWeekDays objectAtIndex:dayOfWeek] substringToIndex:1]];
     }
 
     dayOfMonthCell = [[NSTextFieldCell alloc] init];
-    [dayOfMonthCell setAlignment:NSCenterTextAlignment];
+    [dayOfMonthCell setAlignment:NSTextAlignmentCenter];
     [dayOfMonthCell setFont:[NSFont controlContentFontOfSize:11.0f]];
 
     buttons = [[NSMutableArray alloc] initWithCapacity:2];

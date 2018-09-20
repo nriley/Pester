@@ -35,8 +35,8 @@
     if (removeEntryButton == nil)
 	return;
 
-    flagsChangedEventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask: NSFlagsChangedMask handler: ^NSEvent *(NSEvent *event) {
-        [self optionKeyStateChanged: (event.modifierFlags & NSAlternateKeyMask) != 0];
+    flagsChangedEventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask: NSEventMaskFlagsChanged handler: ^NSEvent *(NSEvent *event) {
+        [self optionKeyStateChanged: (event.modifierFlags & NSEventModifierFlagOption) != 0];
         return event;
     }];
 }
@@ -64,7 +64,7 @@
 
 - (IBAction)removeEntry:(id)sender;
 {
-    if ([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask) {
+    if ([[NSApp currentEvent] modifierFlags] & NSEventModifierFlagOption) {
 	NSBeginAlertSheet(@"Are you sure you want to remove all recent messages from the list?", @"Remove All", @"Cancel", nil, [self window], self, @selector(clearAllSheetDidEnd:returnCode:contextInfo:), NULL, NULL, @"You can't undo this action.");
 	return;
     }
