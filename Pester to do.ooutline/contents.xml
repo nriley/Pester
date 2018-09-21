@@ -168,7 +168,6 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
-      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
@@ -368,13 +367,13 @@
         </p>
       </text>
     </item>
-    <item id="a6hpcEcVUrx" parent-id="gotAfbOXCFU" rank="0005">
+    <item id="a6hpcEcVUrx" parent-id="hga6xJBjy0l" rank="0001">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
           <run>
-            <lit>Launching with Gatekeeper alert doesn&apos;t activate Pester any more on launch (10.11 only?).</lit>
+            <lit>Launching with Gatekeeper alert doesn&apos;t activate Pester (any more?) on launch — since 10.11</lit>
           </run>
         </p>
       </text>
@@ -751,23 +750,6 @@
         <p>
           <run>
             <lit>Automate this testing based on the plists</lit>
-          </run>
-        </p>
-      </text>
-    </item>
-    <item id="ahhvRQ_NNKH" parent-id="gotAfbOXCFU" rank="0012">
-      <checkbox>unchecked</checkbox>
-      <text>
-        <p>
-          <run>
-            <lit><cell href="https://developer.apple.com/library/prerelease/content/technotes/tn2206/_index.html#//apple_ref/doc/uid/DTS40007919-CH1-TNTAG18" name="Signing Disk Images " type="link"/></lit>
-          </run>
-        </p>
-      </text>
-      <text>
-        <p>
-          <run>
-            <lit>Sign the disk image (10.11+), or potentially just </lit>
           </run>
         </p>
       </text>
@@ -1636,7 +1618,7 @@
       <text>
         <p>
           <run>
-            <lit>Potentially only support 10.13 and 10.14</lit>
+            <lit>Support 10.13+?</lit>
           </run>
         </p>
       </text>
@@ -2760,19 +2742,19 @@
         </p>
       </text>
     </item>
-    <item id="coal7dF5v66" parent-id="jO3MG0aXyfg" rank="0001">
+    <item id="coal7dF5v66" parent-id="hga6xJBjy0l" rank="00fe">
       <checkbox>unchecked</checkbox>
+      <entry/>
       <text>
         <p>
+          <run>
+            <lit>Dark Mode (</lit>
+          </run>
           <run>
             <lit><cell href="https://mackuba.eu/2018/07/04/dark-side-mac-1/" name="https://mackuba.eu/2018/07/04/dark-side-mac-1/" type="link"/></lit>
           </run>
-        </p>
-      </text>
-      <text>
-        <p>
           <run>
-            <lit>Dark Mode testing and fixing</lit>
+            <lit>)</lit>
           </run>
         </p>
       </text>
@@ -3009,8 +2991,8 @@
         </p>
       </text>
     </item>
-    <item id="dDQ5ifSnIW3" parent-id="gotAfbOXCFU" rank="00fb">
-      <checkbox>unchecked</checkbox>
+    <item id="dDQ5ifSnIW3" parent-id="hga6xJBjy0l" rank="00fd">
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
@@ -3686,6 +3668,17 @@
         </p>
       </text>
     </item>
+    <item id="eT0qdpwv_xM" parent-id="coal7dF5v66" rank="0002">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Volume icon</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="eULMbVX8t2C" parent-id="pXixUuSef0K" rank="">
       <checkbox>checked</checkbox>
       <entry/>
@@ -4130,6 +4123,17 @@
         </p>
       </text>
     </item>
+    <item id="fLwDQ5KZ8if" parent-id="gotAfbOXCFU" rank="00fd">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Update build process with notarization</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="fQeV2wkzQuq" parent-id="cdQ-cexKFk3" rank="0006">
       <checkbox>checked</checkbox>
       <text>
@@ -4205,6 +4209,17 @@
           </run>
           <run>
             <lit> should help</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="fS80cTrkZSc" parent-id="coal7dF5v66" rank="">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>NJRHotKeyField</lit>
           </run>
         </p>
       </text>
@@ -5113,13 +5128,13 @@
         </p>
       </text>
     </item>
-    <item id="gyd3x-OTBd-" parent-id="jO3MG0aXyfg" rank="0003">
+    <item id="gyd3x-OTBd-" parent-id="hga6xJBjy0l" rank="0002">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
           <run>
-            <lit>Update build process for notarization</lit>
+            <lit>Update build process with archiving and signed disk images (crib from NewsBlur Helper)</lit>
           </run>
         </p>
       </text>
@@ -5432,7 +5447,7 @@
         </p>
       </text>
     </item>
-    <item id="hUYALDG_47S" parent-id="gotAfbOXCFU" rank="0007">
+    <item id="hUYALDG_47S" parent-id="kU4I85ZmH0i" rank="">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -5494,6 +5509,17 @@
         <p>
           <run>
             <lit>&quot;Stop Alerts&quot; menu item should validate</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="hga6xJBjy0l" rank="00003f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Beta 24</lit>
           </run>
         </p>
       </text>
@@ -5872,6 +5898,17 @@
         </p>
       </text>
     </item>
+    <item id="iIr8ejX8qGT" parent-id="coal7dF5v66" rank="0001">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Calendar icon</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="iJtXVSA0aU8" parent-id="ae-5Fk5l7R3" rank="0019">
       <checkbox>checked</checkbox>
       <entry/>
@@ -6219,6 +6256,17 @@
         </p>
       </text>
     </item>
+    <item id="isl9Y7isARq" parent-id="hga6xJBjy0l" rank="00fc">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Drop support for pre-10.12</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="it2dxm5UjxE" parent-id="iqzzf9O-n-p" rank="0002">
       <style>
         <value key="paragraph-tab-stop-interval">56</value>
@@ -6424,13 +6472,13 @@
         </p>
       </text>
     </item>
-    <item id="jFyCeIkRLER" parent-id="oF3K30LkPWO" rank="0004">
+    <item id="jFyCeIkRLER" parent-id="hga6xJBjy0l" rank="0003">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
           <run>
-            <lit>LetsMove uses aliases too</lit>
+            <lit>LetsMove uses aliases too? — update to newer version modified from NewsBlur Helper</lit>
           </run>
         </p>
       </text>
@@ -7355,13 +7403,13 @@
         </p>
       </text>
     </item>
-    <item id="kU4I85ZmH0i" parent-id="jO3MG0aXyfg" rank="">
+    <item id="kU4I85ZmH0i" parent-id="hga6xJBjy0l" rank="00ff">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
           <run>
-            <lit>Control metrics changed again; remove prior workarounds and put a new one in</lit>
+            <lit>Control metrics changed again — recheck in the final version</lit>
           </run>
         </p>
       </text>
@@ -10074,8 +10122,8 @@
         </p>
       </text>
     </item>
-    <item id="niKjeGojQ0q" parent-id="gotAfbOXCFU" rank="00fe5f">
-      <checkbox>unchecked</checkbox>
+    <item id="niKjeGojQ0q" parent-id="hga6xJBjy0l" rank="00fd3f">
+      <checkbox>checked</checkbox>
       <text>
         <p>
           <run>
@@ -10177,7 +10225,7 @@
       <text>
         <p>
           <run>
-            <lit>Don&apos;t need [NSUserDefaults synchronize] everywhere</lit>
+            <lit>Don&apos;t need [NSUserDefaults synchronize] everywhere — it is really a no-op in 10.14</lit>
           </run>
         </p>
       </text>

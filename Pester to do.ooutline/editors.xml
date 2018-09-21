@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://www.omnigroup.com/namespace/OmniOutliner/xmloutline-editors-v1.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0?>
 <editors xmlns="http://www.omnigroup.com/namespace/OmniOutliner/editors/v1">
-  <editor content-size="{626, 633}" column-titles-display-mode="auto" auto-size-outline-column="yes">
+  <editor content-size="{709, 818}" column-titles-display-mode="auto" auto-size-outline-column="yes">
     <sidebar width="182" selected-tab="styles"/>
     <column-states columns-id="oAcW9dKDZIB">
       <column-state column-id="cteV0F-AwRG" width="32" summary="state"/>
       <column-state column-id="dTpN3JwYpBn" width="18"/>
-      <column-state column-id="jFqHUGd_Dg1" width="605"/>
+      <column-state column-id="jFqHUGd_Dg1" width="688"/>
     </column-states>
     <note-split-view height="33"/>
     <item-states>
@@ -15,7 +15,7 @@
       <item item-id="bxDY6h3Eui_" expanded="yes"/>
       <item item-id="c61LUusn2hI" expanded="yes"/>
       <item item-id="cY3ZDl36fmk" expanded="yes"/>
-      <item item-id="coal7dF5v66" note-expanded="yes"/>
+      <item item-id="coal7dF5v66" expanded="yes"/>
       <item item-id="cwsw3ROJDTT" expanded="yes"/>
       <item item-id="cxhjINnivnn" note-expanded="yes"/>
       <item item-id="d4lrfUo3eAD" expanded="yes"/>
@@ -24,6 +24,7 @@
       <item item-id="fT_egq1wxuE" expanded="yes"/>
       <item item-id="gU1KumwhFhv" expanded="yes"/>
       <item item-id="gotAfbOXCFU" expanded="yes"/>
+      <item item-id="hga6xJBjy0l" expanded="yes"/>
       <item item-id="hthDdDyEoT5" expanded="yes"/>
       <item item-id="igrozEzw4_Z" expanded="yes"/>
       <item item-id="iqzzf9O-n-p" expanded="yes"/>
@@ -33,7 +34,7 @@
       <item item-id="jTywgVdXZzA" expanded="yes"/>
       <item item-id="jaiyjjo0fl5" expanded="yes"/>
       <item item-id="kCOPoGtA412" expanded="yes"/>
-      <item item-id="l-RdtxzvxCc" expanded="yes"/>
+      <item item-id="kU4I85ZmH0i" expanded="yes"/>
       <item item-id="l5XqAT5ljpW" expanded="yes"/>
       <item item-id="lU6L0nxmxAW" expanded="yes"/>
       <item item-id="lW3uo6zibYg" expanded="yes"/>
@@ -51,12 +52,12 @@
       <item item-id="p8IxntctwZ8" expanded="yes"/>
     </item-states>
     <selected-items>
-      <item item-id="dDQ5ifSnIW3"/>
+      <item item-id="fS80cTrkZSc"/>
     </selected-items>
     <selected-columns>
       <column-ref idref="jFqHUGd_Dg1"/>
     </selected-columns>
-    <selected-characters range="{53, 0}"/>
+    <selected-characters range="{14, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;
