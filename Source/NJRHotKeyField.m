@@ -33,15 +33,16 @@ static NSDictionary *statusAttributes = nil;
 + (void)initialize;
 {
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-    [paraStyle setAlignment: NSTextAlignmentLeft];
+    paraStyle.alignment = NSTextAlignmentLeft;
     leftAlignStyle = [paraStyle copy];
-    [paraStyle setAlignment: NSTextAlignmentCenter];
+
+    paraStyle.alignment = NSTextAlignmentCenter;
     centerAlignStyle = [paraStyle copy];
     [paraStyle release];
 
-    statusAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:
-        [NSFont systemFontOfSize: [NSFont labelFontSize]], NSFontAttributeName,
-        centerAlignStyle, NSParagraphStyleAttributeName, nil];
+    statusAttributes = [@{NSFontAttributeName: [NSFont systemFontOfSize: [NSFont labelFontSize]],
+                          NSForegroundColorAttributeName: NSColor.controlTextColor,
+                          NSParagraphStyleAttributeName: centerAlignStyle} retain];
 }
 
 - (void)_setUp;
@@ -103,7 +104,9 @@ static NSDictionary *statusAttributes = nil;
 - (void)previewKeyEquivalentAttributedString:(NSAttributedString *)equivString;
 {
     NSMutableAttributedString *previewString = [equivString mutableCopy];
-    [previewString addAttribute: NSParagraphStyleAttributeName value: leftAlignStyle range: NSMakeRange(0, [previewString length])];
+    [previewString addAttributes: @{NSParagraphStyleAttributeName: leftAlignStyle,
+                                    NSForegroundColorAttributeName: NSColor.controlTextColor}
+                           range: NSMakeRange(0, [previewString length])];
     [self setAttributedStringValue: previewString];
     [[self currentEditor] setSelectedRange: zeroRange];
     [previewString release];
@@ -116,9 +119,9 @@ static NSDictionary *statusAttributes = nil;
         return;
     }
     NSMutableAttributedString *equivString = [[[hotKey characters] keyEquivalentAttributedStringWithModifierFlags: [hotKey modifierFlags]] mutableCopy];
-    [equivString addAttribute: NSParagraphStyleAttributeName
-                        value: (finalized ? centerAlignStyle : leftAlignStyle)
-                        range: NSMakeRange(0, [equivString length])];
+    [equivString addAttributes: @{NSParagraphStyleAttributeName: (finalized ? centerAlignStyle : leftAlignStyle),
+                                  NSForegroundColorAttributeName: NSColor.controlTextColor}
+                         range: NSMakeRange(0, [equivString length])];
     [self setAttributedStringValue: equivString];
     [[self currentEditor] setSelectedRange: zeroRange];
     [equivString release];
