@@ -83,6 +83,7 @@
 		E1869DB3177A82EA00DBCEC3 /* Calendar@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1869DB2177A82EA00DBCEC3 /* Calendar@2x.tiff */; };
 		E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
 		E18BEDAD1F6F55800046F655 /* libParseDate-10.12.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.12.dylib */; };
+		E18C10F821551B7100B20D83 /* libParseDate-10.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.12.dylib */; };
 		E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E18E822F113CC5C300687310 /* PSDateFieldEditor.m */; };
 		E194E73D1A0FCFC0004070C5 /* NJRIntervalField.plist in Resources */ = {isa = PBXBuildFile; fileRef = E194E73C1A0FCFC0004070C5 /* NJRIntervalField.plist */; };
 		E194E73F1A0FEA47004070C5 /* NJROperatingSystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = E194E73E1A0FEA47004070C5 /* NJROperatingSystemVersion.m */; };
@@ -247,6 +248,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = E1AD35D91F6F2F38008A0AE7;
 			remoteInfo = "ParseDate-10.10";
+		};
+		E18C10F921551B7D00B20D83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1AD35D91F6F2F38008A0AE7;
+			remoteInfo = "ParseDate-10.12";
 		};
 		E19ECC601D8EC4B600552F66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -552,6 +560,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E18C10F821551B7100B20D83 /* libParseDate-10.12.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1062,6 +1071,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E18C10FA21551B7D00B20D83 /* PBXTargetDependency */,
 			);
 			name = ParseDateTest;
 			productName = ParseDateTest;
@@ -1446,6 +1456,11 @@
 			isa = PBXTargetDependency;
 			target = E1AD35D91F6F2F38008A0AE7 /* ParseDate-10.12 */;
 			targetProxy = E18BEDA21F6F55760046F655 /* PBXContainerItemProxy */;
+		};
+		E18C10FA21551B7D00B20D83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1AD35D91F6F2F38008A0AE7 /* ParseDate-10.12 */;
+			targetProxy = E18C10F921551B7D00B20D83 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
