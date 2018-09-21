@@ -124,7 +124,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
     [self doScriptChanged: nil];
     [self doSpeakChanged: nil];
     [self editAlertChanged: nil];
-    [script setFileTypes: [NSArray arrayWithObjects: @"applescript", @"script", NSFileTypeForHFSTypeCode(kOSAFileType), NSFileTypeForHFSTypeCode('TEXT'), nil]];
+    [script setFileTypes: [NSArray arrayWithObjects: @"applescript", @"script", NSFileTypeForHFSTypeCode('osas'), NSFileTypeForHFSTypeCode('TEXT'), nil]];
 
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
