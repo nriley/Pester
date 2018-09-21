@@ -35,21 +35,21 @@
                             <box fixedFrame="YES" borderType="none" title="Contents" titlePosition="noTitle" transparent="YES" id="31">
                                 <rect key="frame" x="-3" y="-2" width="279" height="456"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <view key="contentView" id="ZK9-ru-fYW">
+                                <view key="contentView" id="ZK9-ru-fYW" userLabel="Contents View">
                                     <rect key="frame" x="0.0" y="0.0" width="279" height="456"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <visualEffectView appearanceType="inheritedVibrantLight" blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Qdl-5j-MLr">
+                                        <visualEffectView appearanceType="inheritedVibrantLight" blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Qdl-5j-MLr" userLabel="Sidebar Effect">
                                             <rect key="frame" x="-18" y="0.0" width="319" height="476"/>
                                             <subviews>
                                                 <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="16" horizontalPageScroll="10" verticalLineScroll="16" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7" userLabel="Bordered Scroll View - Contents">
-                                                    <rect key="frame" x="20" y="20" width="279" height="436"/>
+                                                    <rect key="frame" x="20" y="0.0" width="279" height="456"/>
                                                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="ct4-dK-3CM">
-                                                        <rect key="frame" x="1" y="1" width="277" height="434"/>
+                                                        <rect key="frame" x="1" y="1" width="277" height="454"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="14" id="9" userLabel="Table View - Contents">
-                                                                <rect key="frame" x="0.0" y="0.0" width="277" height="434"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="277" height="454"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                                 <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,7 +95,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="7" firstAttribute="leading" secondItem="Qdl-5j-MLr" secondAttribute="leading" constant="20" id="84d-19-aac"/>
-                                                <constraint firstAttribute="bottom" secondItem="7" secondAttribute="bottom" constant="20" id="UOk-0Q-Qhh"/>
+                                                <constraint firstAttribute="bottom" secondItem="7" secondAttribute="bottom" id="UOk-0Q-Qhh"/>
                                                 <constraint firstAttribute="trailing" secondItem="7" secondAttribute="trailing" constant="20" id="ZYo-EB-mLs"/>
                                                 <constraint firstItem="7" firstAttribute="top" secondItem="Qdl-5j-MLr" secondAttribute="top" constant="20" id="t9i-vz-sZ5"/>
                                             </constraints>
@@ -113,34 +113,34 @@
                             <box appearanceType="aqua" fixedFrame="YES" borderType="none" title="Body" titlePosition="noTitle" id="33">
                                 <rect key="frame" x="280" y="-2" width="473" height="456"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" id="5VE-pM-xV8">
+                                <view key="contentView" id="5VE-pM-xV8" userLabel="Body View">
                                     <rect key="frame" x="0.0" y="0.0" width="473" height="456"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="11">
-                                            <rect key="frame" x="2" y="-1" width="472" height="458"/>
+                                            <rect key="frame" x="2" y="2" width="469" height="453"/>
                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="gfg-hU-uqG">
-                                                <rect key="frame" x="1" y="1" width="470" height="456"/>
+                                                <rect key="frame" x="1" y="1" width="467" height="451"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView focusRingType="none" editable="NO" importsGraphics="NO" horizontallyResizable="YES" verticallyResizable="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="12">
-                                                        <rect key="frame" x="0.0" y="0.0" width="470" height="456"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="467" height="451"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        <size key="minSize" width="470" height="456"/>
+                                                        <size key="minSize" width="467" height="451"/>
                                                         <size key="maxSize" width="5000" height="10000000"/>
                                                         <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </clipView>
-                                            <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="52">
-                                                <rect key="frame" x="1" y="441" width="470" height="16"/>
+                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="52">
+                                                <rect key="frame" x="1" y="440" width="469" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="51">
-                                                <rect key="frame" x="450" y="1" width="16" height="450"/>
+                                                <rect key="frame" x="455" y="1" width="16" height="455"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <connections>
@@ -149,9 +149,9 @@
                                         </scrollView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="11" secondAttribute="bottom" constant="-1" id="36D-5Y-m5I"/>
-                                        <constraint firstAttribute="trailing" secondItem="11" secondAttribute="trailing" constant="-1" id="4yf-fu-3AW"/>
-                                        <constraint firstItem="11" firstAttribute="top" secondItem="5VE-pM-xV8" secondAttribute="top" constant="-1" id="MMu-oX-HXn"/>
+                                        <constraint firstAttribute="bottom" secondItem="11" secondAttribute="bottom" constant="2" id="36D-5Y-m5I"/>
+                                        <constraint firstAttribute="trailing" secondItem="11" secondAttribute="trailing" constant="2" id="4yf-fu-3AW"/>
+                                        <constraint firstItem="11" firstAttribute="top" secondItem="5VE-pM-xV8" secondAttribute="top" constant="1" id="MMu-oX-HXn"/>
                                         <constraint firstItem="11" firstAttribute="leading" secondItem="5VE-pM-xV8" secondAttribute="leading" constant="2" id="PkU-2O-LAa"/>
                                     </constraints>
                                 </view>
