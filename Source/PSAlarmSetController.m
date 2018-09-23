@@ -314,7 +314,9 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 
     if (outputVolume > 0 && volumeImageIndex == VOLUME_IMAGE_INDEX(outputVolume)) return;
     NSString *volumeImageName = [NSString stringWithFormat: @"Volume %hd", volumeImageIndex];
-    [soundVolumeButton setImage: [NSImage imageNamed: volumeImageName]];
+    NSImage *volumeImage = [NSImage imageNamed: volumeImageName];
+    [volumeImage setTemplate: YES];
+    [soundVolumeButton setImage: volumeImage];
 
     [sound setOutputVolume: volume withPreview: preview];
 }
