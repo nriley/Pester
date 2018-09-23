@@ -74,6 +74,7 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
     timeSummary.font = [NSFont monospacedDigitSystemFontOfSize: timeSummary.font.pointSize weight: NSFontWeightRegular];
 
     timeDateEditor = [[PSTimeDateEditor alloc] initWithTimeField: timeOfDay dateField: timeDate completions: timeDateCompletions controller: self];
+    [timeCalendarButton.image setTemplate: YES];
     [self _setVolume: 1.0f withPreview: NO]; // volume default, usually overridden by restored alert info
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

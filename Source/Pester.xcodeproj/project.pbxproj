@@ -71,6 +71,11 @@
 		E121E9421146A14E0063E471 /* NJRArrayToObjectTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */; };
 		E1246FDE1177EF4700AC249B /* NJRSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */; };
 		E12CBFD310CC310800159E88 /* NJRMenuSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E12CBFD210CC310800159E88 /* NJRMenuSlider.m */; };
+		E13A8BF32157C0F3000F02D2 /* Volume 2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E13A8BE52157C0F3000F02D2 /* Volume 2.pdf */; };
+		E13A8BF42157C0F3000F02D2 /* Volume 3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E13A8BF02157C0F3000F02D2 /* Volume 3.pdf */; };
+		E13A8BF52157C0F3000F02D2 /* Volume 1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E13A8BF12157C0F3000F02D2 /* Volume 1.pdf */; };
+		E13A8BF62157C0F3000F02D2 /* Volume 0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E13A8BF22157C0F3000F02D2 /* Volume 0.pdf */; };
+		E13A8BF82157C90A000F02D2 /* Calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E13A8BF72157C90A000F02D2 /* Calendar.pdf */; };
 		E143BA4317A461E100A7735E /* PSUserNotificationAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E143BA4217A461E100A7735E /* PSUserNotificationAlert.m */; };
 		E14AFF3011357B6500DC7922 /* Manip in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
 		E15044670CFCDC7E00DE47E9 /* NJRValidatingField.m in Sources */ = {isa = PBXBuildFile; fileRef = E15044660CFCDC7E00DE47E9 /* NJRValidatingField.m */; };
@@ -80,7 +85,6 @@
 		E175B0891A3DD5FE00072594 /* Manip in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E14AFF2C11357B6100DC7922 /* Manip */; };
 		E175B09E1A3DE1BC00072594 /* DateCompletions.strings in Resources */ = {isa = PBXBuildFile; fileRef = E19D2D731158181A00B68D9F /* DateCompletions.strings */; };
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
-		E1869DB3177A82EA00DBCEC3 /* Calendar@2x.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1869DB2177A82EA00DBCEC3 /* Calendar@2x.tiff */; };
 		E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
 		E18BEDAD1F6F55800046F655 /* libParseDate-10.12.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.12.dylib */; };
 		E18C10F821551B7100B20D83 /* libParseDate-10.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.12.dylib */; };
@@ -107,14 +111,9 @@
 		E1B11F2E0CF5F30F004975AA /* Movie alert.nib in Resources */ = {isa = PBXBuildFile; fileRef = F59E4BDE036B1D94016B311C /* Movie alert.nib */; };
 		E1B11F2F0CF5F30F004975AA /* Popup triangle.tiff in Resources */ = {isa = PBXBuildFile; fileRef = F5243DA40378681101AEEDB1 /* Popup triangle.tiff */; };
 		E1B11F300CF5F30F004975AA /* Calendar.nib in Resources */ = {isa = PBXBuildFile; fileRef = E17F2F4D03FDFB3100050002 /* Calendar.nib */; };
-		E1B11F310CF5F30F004975AA /* Calendar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E17F2F6B03FDFE2C00050002 /* Calendar.tiff */; };
 		E1B11F360CF5F30F004975AA /* Snooze until.nib in Resources */ = {isa = PBXBuildFile; fileRef = E1DEF10603FF83AC00050002 /* Snooze until.nib */; };
 		E1B11F370CF5F30F004975AA /* Read Me.nib in Resources */ = {isa = PBXBuildFile; fileRef = E10F2A3B0402E61C00050002 /* Read Me.nib */; };
 		E1B11F390CF5F30F004975AA /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = E11CB6E0043025F500050002 /* Preferences.nib */; };
-		E1B11F3A0CF5F30F004975AA /* Volume 2.png in Resources */ = {isa = PBXBuildFile; fileRef = E127900104429F9300050002 /* Volume 2.png */; };
-		E1B11F3B0CF5F30F004975AA /* Volume 0.png in Resources */ = {isa = PBXBuildFile; fileRef = E127900204429F9300050002 /* Volume 0.png */; };
-		E1B11F3C0CF5F30F004975AA /* Volume 3.png in Resources */ = {isa = PBXBuildFile; fileRef = E127900304429F9300050002 /* Volume 3.png */; };
-		E1B11F3D0CF5F30F004975AA /* Volume 1.png in Resources */ = {isa = PBXBuildFile; fileRef = E127900404429F9300050002 /* Volume 1.png */; };
 		E1B11F3E0CF5F30F004975AA /* Volume.nib in Resources */ = {isa = PBXBuildFile; fileRef = E12790090442A5B100050002 /* Volume.nib */; };
 		E1B11F400CF5F30F004975AA /* BDAlias.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F240CA036A869401FE7503 /* BDAlias.m */; };
 		E1B11F410CF5F30F004975AA /* NJRDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F59DC6FD0354188F01AEEDB1 /* NJRDateFormatter.m */; settings = {COMPILER_FLAGS = "-Wno-unused-function"; }; };
@@ -359,10 +358,6 @@
 		E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRArrayToObjectTransformer.m; sourceTree = "<group>"; };
 		E1246FDC1177EF4700AC249B /* NJRSpeechSynthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRSpeechSynthesizer.h; sourceTree = "<group>"; };
 		E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRSpeechSynthesizer.m; sourceTree = "<group>"; };
-		E127900104429F9300050002 /* Volume 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Volume 2.png"; sourceTree = "<group>"; };
-		E127900204429F9300050002 /* Volume 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Volume 0.png"; sourceTree = "<group>"; };
-		E127900304429F9300050002 /* Volume 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Volume 3.png"; sourceTree = "<group>"; };
-		E127900404429F9300050002 /* Volume 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Volume 1.png"; sourceTree = "<group>"; };
 		E127900A0442A5B100050002 /* Volume.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Volume.nib; path = en.lproj/Volume.nib; sourceTree = "<group>"; };
 		E127900C0442A92900050002 /* PSVolumeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSVolumeController.h; sourceTree = "<group>"; };
 		E127900D0442A92900050002 /* PSVolumeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSVolumeController.m; sourceTree = "<group>"; };
@@ -372,6 +367,11 @@
 		E130B9AD03B7C59700000028 /* PSPowerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSPowerManager.m; sourceTree = "<group>"; };
 		E13919E203B9E4E100000028 /* NJRIntervalField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRIntervalField.h; sourceTree = "<group>"; };
 		E13919E303B9E4E100000028 /* NJRIntervalField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRIntervalField.m; sourceTree = "<group>"; };
+		E13A8BE52157C0F3000F02D2 /* Volume 2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Volume 2.pdf"; sourceTree = "<group>"; };
+		E13A8BF02157C0F3000F02D2 /* Volume 3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Volume 3.pdf"; sourceTree = "<group>"; };
+		E13A8BF12157C0F3000F02D2 /* Volume 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Volume 1.pdf"; sourceTree = "<group>"; };
+		E13A8BF22157C0F3000F02D2 /* Volume 0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Volume 0.pdf"; sourceTree = "<group>"; };
+		E13A8BF72157C90A000F02D2 /* Calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Calendar.pdf; sourceTree = "<group>"; };
 		E143BA4117A461E100A7735E /* PSUserNotificationAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserNotificationAlert.h; sourceTree = "<group>"; };
 		E143BA4217A461E100A7735E /* PSUserNotificationAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserNotificationAlert.m; sourceTree = "<group>"; };
 		E143BA4817A466C000A7735E /* NSUserNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSUserNotification.h; sourceTree = "<group>"; };
@@ -406,9 +406,7 @@
 		E17F2F4403FDF67800050002 /* NSImage-OAExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage-OAExtensions.h"; sourceTree = "<group>"; };
 		E17F2F4503FDF67800050002 /* NSCalendarDate-OFExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSCalendarDate-OFExtensions.m"; sourceTree = "<group>"; };
 		E17F2F4E03FDFB3100050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/Calendar.nib; sourceTree = "<group>"; };
-		E17F2F6B03FDFE2C00050002 /* Calendar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Calendar.tiff; sourceTree = "<group>"; };
 		E1866A2711592DB800262485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DateCompletions.strings; sourceTree = "<group>"; };
-		E1869DB2177A82EA00DBCEC3 /* Calendar@2x.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Calendar@2x.tiff"; sourceTree = "<group>"; };
 		E18A26351145D41400E27A11 /* NJRSoundDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRSoundDevice.h; sourceTree = "<group>"; };
 		E18A26361145D41400E27A11 /* NJRSoundDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRSoundDevice.m; sourceTree = "<group>"; };
 		E18DA4080442C56D00050002 /* PSMediaAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMediaAlert.h; sourceTree = "<group>"; };
@@ -699,7 +697,7 @@
 				E1E1F1C217BC7DFB00DC565A /* MoveApplication.strings */,
 				E19D2D731158181A00B68D9F /* DateCompletions.strings */,
 				E194E73C1A0FCFC0004070C5 /* NJRIntervalField.plist */,
-				E18830410442B5FC00050002 /* Calendar icons */,
+				E18830410442B5FC00050002 /* Calendar icon */,
 				F59DD44F0358ABF4017318D0 /* Credits.html */,
 				E11BE23B12238FB600240657 /* Growl Registration Ticket.growlRegDict */,
 				F59DC6E30353ED1201AEEDB1 /* Application icon.icns */,
@@ -846,22 +844,21 @@
 			name = OACalendarView;
 			sourceTree = "<group>";
 		};
-		E18830410442B5FC00050002 /* Calendar icons */ = {
+		E18830410442B5FC00050002 /* Calendar icon */ = {
 			isa = PBXGroup;
 			children = (
-				E17F2F6B03FDFE2C00050002 /* Calendar.tiff */,
-				E1869DB2177A82EA00DBCEC3 /* Calendar@2x.tiff */,
+				E13A8BF72157C90A000F02D2 /* Calendar.pdf */,
 			);
-			name = "Calendar icons";
+			name = "Calendar icon";
 			sourceTree = "<group>";
 		};
 		E18830420442B60000050002 /* Volume icons */ = {
 			isa = PBXGroup;
 			children = (
-				E127900204429F9300050002 /* Volume 0.png */,
-				E127900404429F9300050002 /* Volume 1.png */,
-				E127900104429F9300050002 /* Volume 2.png */,
-				E127900304429F9300050002 /* Volume 3.png */,
+				E13A8BF22157C0F3000F02D2 /* Volume 0.pdf */,
+				E13A8BF12157C0F3000F02D2 /* Volume 1.pdf */,
+				E13A8BE52157C0F3000F02D2 /* Volume 2.pdf */,
+				E13A8BF02157C0F3000F02D2 /* Volume 3.pdf */,
 			);
 			name = "Volume icons";
 			sourceTree = "<group>";
@@ -1248,28 +1245,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				E18BEDAD1F6F55800046F655 /* libParseDate-10.12.dylib in Resources */,
+				E13A8BF32157C0F3000F02D2 /* Volume 2.pdf in Resources */,
 				E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */,
 				E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */,
 				E1B11F290CF5F30F004975AA /* Alarms.nib in Resources */,
 				E1B11F2A0CF5F30F004975AA /* MainMenu.nib in Resources */,
+				E13A8BF82157C90A000F02D2 /* Calendar.pdf in Resources */,
+				E13A8BF52157C0F3000F02D2 /* Volume 1.pdf in Resources */,
 				E1B11F2C0CF5F30F004975AA /* Credits.html in Resources */,
 				E1B11F2D0CF5F30F004975AA /* Read Me.rtfd in Resources */,
 				E1B11F2E0CF5F30F004975AA /* Movie alert.nib in Resources */,
 				E1B11F2F0CF5F30F004975AA /* Popup triangle.tiff in Resources */,
 				E1B11F300CF5F30F004975AA /* Calendar.nib in Resources */,
-				E1B11F310CF5F30F004975AA /* Calendar.tiff in Resources */,
 				E1B11F360CF5F30F004975AA /* Snooze until.nib in Resources */,
 				E1B11F370CF5F30F004975AA /* Read Me.nib in Resources */,
 				E1B11F390CF5F30F004975AA /* Preferences.nib in Resources */,
-				E1B11F3A0CF5F30F004975AA /* Volume 2.png in Resources */,
-				E1B11F3B0CF5F30F004975AA /* Volume 0.png in Resources */,
-				E1B11F3C0CF5F30F004975AA /* Volume 3.png in Resources */,
-				E1B11F3D0CF5F30F004975AA /* Volume 1.png in Resources */,
 				E1B11F3E0CF5F30F004975AA /* Volume.nib in Resources */,
 				E19D2D751158181A00B68D9F /* DateCompletions.strings in Resources */,
+				E13A8BF62157C0F3000F02D2 /* Volume 0.pdf in Resources */,
 				E1DE3C15115930BD00C17BB0 /* Localizable.strings in Resources */,
 				E11BE23C12238FB600240657 /* Growl Registration Ticket.growlRegDict in Resources */,
-				E1869DB3177A82EA00DBCEC3 /* Calendar@2x.tiff in Resources */,
+				E13A8BF42157C0F3000F02D2 /* Volume 3.pdf in Resources */,
 				E1E1F14717B2E42C00444F94 /* FontAwesome.otf in Resources */,
 				E1E1F1C317BC7DFB00DC565A /* MoveApplication.strings in Resources */,
 				E194E73D1A0FCFC0004070C5 /* NJRIntervalField.plist in Resources */,
