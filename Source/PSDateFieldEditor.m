@@ -27,9 +27,9 @@
     [super dealloc];
 }
 
-- (void)insertText:(id)insertString;
+- (void)insertText:(id)insertString replacementRange:(NSRange)replacementRange;
 {
-    [super insertText: insertString];
+    [super insertText: insertString replacementRange: replacementRange];
     [self complete: nil];
 }
 
