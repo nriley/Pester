@@ -173,7 +173,7 @@ choose “Stop Alerts” from the Alarm menu.</string>
                                                 <outlet property="nextKeyView" destination="512" id="1603"/>
                                             </connections>
                                         </popUpButton>
-                                        <button verticalHuggingPriority="750" id="1436">
+                                        <button toolTip="Adjust the volume of the selected sound or movie. Disabled if the alert sound is selected or the movie has no audio." verticalHuggingPriority="750" id="1436">
                                             <rect key="frame" x="314" y="61" width="23" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Volume 3" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1585">
