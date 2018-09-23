@@ -23,9 +23,6 @@
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="442" height="275"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <userGuides>
-                    <userLayoutGuide location="423" affinity="minX"/>
-                </userGuides>
                 <subviews>
                     <popUpButton toolTip="Select a relative date from the menu." verticalHuggingPriority="750" id="656">
                         <rect key="frame" x="200" y="169" width="198" height="26"/>
@@ -179,7 +176,7 @@ choose “Stop Alerts” from the Alarm menu.</string>
                                         <button verticalHuggingPriority="750" id="1436">
                                             <rect key="frame" x="314" y="61" width="23" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Volume 3" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1585">
+                                            <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Volume 3" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1585">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -807,7 +804,7 @@ DQ
     <resources>
         <image name="Calendar" width="13" height="15"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
-        <image name="Volume 3" width="40" height="28"/>
+        <image name="Volume 3" width="22" height="12"/>
         <image name="buttonCell:1591:image" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
