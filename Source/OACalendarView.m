@@ -667,10 +667,9 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
         [dayOfMonthCell setIntegerValue:[thisDay dayOfMonth]];
         isVisibleMonth = ([thisDay monthOfYear] == visibleMonthIndex);
 
+        BOOL shouldHighlightThisDay = NO;
         if (flags.showsDaysForOtherMonths || isVisibleMonth) {
             if (selectedDay) {
-                BOOL shouldHighlightThisDay = NO;
-
                 // We could just check if thisDay is in [self selectedDays]. However, that makes the selection look somewhat weird when we
                 // are selecting by weekday, showing days for other months, and the visible month is the previous/next from the selected day.
                 // (Some of the weekdays are shown as highlighted, and later ones are not.)
@@ -694,7 +693,7 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
                 }
                 
                 if (shouldHighlightThisDay) {
-                    [(isFirstResponder ? [NSColor selectedControlColor] : [NSColor secondarySelectedControlColor]) set];
+                    [(isFirstResponder ? [NSColor alternateSelectedControlColor] : [NSColor secondarySelectedControlColor]) set];
                     NSRectFill(cellFrame);
                 }
             }
@@ -703,11 +702,17 @@ const int OACalendarViewMaxNumWeeksIntersectedByMonth = 6;
                 [[self target] calendarView:self willDisplayCell:dayOfMonthCell forDate:thisDay];
             } else {
                 if (!isVisibleMonth) {
-                    textColor = [NSColor grayColor];
+                    textColor = [NSColor disabledControlTextColor];
+                } else if (shouldHighlightThisDay) {
+                    textColor = [NSColor alternateSelectedControlTextColor];
                 } else if ((dayHighlightMask & (1 << cellIndex)) == 0) {
-                    textColor = [NSColor blackColor];
+                    textColor = [NSColor controlTextColor];
                 } else {
-                    textColor = [NSColor blueColor];
+                    if (@available(macOS 10.14, *)) {
+                        textColor = [NSColor controlAccentColor];
+                    } else {
+                        textColor = [NSColor systemBlueColor];
+                    }
                 }
                 [dayOfMonthCell setTextColor:textColor];
             }
