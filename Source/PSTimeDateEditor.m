@@ -26,14 +26,6 @@
 	timeDateCompletions = completions;
 	controller = obj;
 
-        if (NJROSXMinorVersion() >= 10) {
-	    // combo box/popup menu arrows are different sizes in Yosemite
-            // (same on Lion, Mountain Lion and Mavericks)
-	    NSSize size = [timeDate frame].size;
-            size.width += 1;
-	    [timeDate setFrameSize: size];
-	}
-
 	[NSDateFormatter setDefaultFormatterBehavior: NSDateFormatterBehavior10_4];
 
 	static NSDateFormatter *timeFormatter = nil, *dateFormatter = nil;
