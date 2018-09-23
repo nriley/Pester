@@ -168,6 +168,7 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
+      <print-info-key name="NSPaperSize" type="size">{612.02830219268799, 792}</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
@@ -367,7 +368,7 @@
         </p>
       </text>
     </item>
-    <item id="a6hpcEcVUrx" parent-id="hga6xJBjy0l" rank="0001">
+    <item id="a6hpcEcVUrx" parent-id="hga6xJBjy0l" rank="00ff3f">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -568,6 +569,17 @@
         </p>
       </text>
     </item>
+    <item id="aQ-PKypp8wQ" parent-id="kU4I85ZmH0i" rank="0001">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Fix date combo box in sheet too</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="aQQxZf33LCR" parent-id="k-qqVu2Nfsc" rank="0007">
       <checkbox>unchecked</checkbox>
       <entry/>
@@ -600,6 +612,17 @@
         <p>
           <run>
             <lit><cell href="http://www.mikeabdullah.net/convert-between-path+reference-urls.html" name="www.mikeabdullah.net—convert-between-path+reference-urls.html" type="link"/></lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="aSbDvEqtOYf" parent-id="hga6xJBjy0l" rank="00003f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Test on 10.12</lit>
           </run>
         </p>
       </text>
@@ -1265,6 +1288,17 @@
         <p>
           <run>
             <lit>We can move the calendar window by dragging on the calendar itself. Should not be possible (was it always?)</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="bi6GZRbxw-Z" parent-id="gotAfbOXCFU" rank="00fb3f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Alarms table displays a vestigial focus ring only in the light appearance</lit>
           </run>
         </p>
       </text>
@@ -3057,6 +3091,17 @@
         </p>
       </text>
     </item>
+    <item id="dL9-_HmNmX4" parent-id="gotAfbOXCFU" rank="00fb">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Alarms window sizing needs some help</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="dQAjlBpqe2K" parent-id="jQHqKbEsyGQ" rank="0001">
       <checkbox>checked</checkbox>
       <entry/>
@@ -3668,8 +3713,8 @@
         </p>
       </text>
     </item>
-    <item id="eT0qdpwv_xM" parent-id="coal7dF5v66" rank="0002">
-      <checkbox>unchecked</checkbox>
+    <item id="eT0qdpwv_xM" parent-id="coal7dF5v66" rank="00005f">
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
@@ -5128,7 +5173,7 @@
         </p>
       </text>
     </item>
-    <item id="gyd3x-OTBd-" parent-id="hga6xJBjy0l" rank="0002">
+    <item id="gyd3x-OTBd-" parent-id="hga6xJBjy0l" rank="00ff5f">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -5705,6 +5750,17 @@
         </p>
       </text>
     </item>
+    <item id="i8Z0v1gJRuy" parent-id="kU4I85ZmH0i" rank="00ff">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Search for NJROSXMinorVersion</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="i9eiMXwsYTJ" parent-id="fc_13JEUtZ4" rank="0004">
       <checkbox>checked</checkbox>
       <entry/>
@@ -5899,7 +5955,7 @@
       </text>
     </item>
     <item id="iIr8ejX8qGT" parent-id="coal7dF5v66" rank="0001">
-      <checkbox>unchecked</checkbox>
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
@@ -6472,7 +6528,7 @@
         </p>
       </text>
     </item>
-    <item id="jFyCeIkRLER" parent-id="hga6xJBjy0l" rank="0003">
+    <item id="jFyCeIkRLER" parent-id="hga6xJBjy0l" rank="00ff6f">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -6911,7 +6967,7 @@
       <text>
         <p>
           <run>
-            <lit>Fix or annotate away (not possible?) Clang analyzer issues so we can build cleanly.</lit>
+            <lit>Fix or annotate away (not possible?) Clang analyzer issues so we can build cleanly</lit>
           </run>
         </p>
       </text>
@@ -7409,7 +7465,7 @@
       <text>
         <p>
           <run>
-            <lit>Control metrics changed again — recheck in the final version</lit>
+            <lit>Control metrics changed? Remove pre-10.10 adjustments and make corresponding changes in the nib</lit>
           </run>
         </p>
       </text>
@@ -7833,6 +7889,17 @@
         <p>
           <run>
             <lit>Seems that message history isn&apos;t aging properly</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="lNx3q-TQulX" parent-id="coal7dF5v66" rank="00006f">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Calendar text</lit>
           </run>
         </p>
       </text>
@@ -8776,7 +8843,7 @@
         </p>
       </text>
     </item>
-    <item id="mnfOn6uvRmW" parent-id="gotAfbOXCFU" rank="0010">
+    <item id="mnfOn6uvRmW" parent-id="gyd3x-OTBd-" rank="">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -11359,6 +11426,17 @@
         <p>
           <run>
             <lit>Beta 5</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="pf28vLE_Diy" parent-id="hga6xJBjy0l" rank="00005f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Test on 10.13</lit>
           </run>
         </p>
       </text>
