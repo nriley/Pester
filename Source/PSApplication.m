@@ -234,21 +234,12 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
     BOOL (^drawingHandler)(NSRect) = ^(NSRect dstRect) {
         NSString *tileString = [alarm timeRemainingString];
         NSMutableDictionary *atts = [NSMutableDictionary dictionary];
-        BOOL useBoldFont = (NJROSXMinorVersion() < 10);
         float fontSize = 148;
         NSSize textSize;
 
         do {
             fontSize -= 1;
-            NSFont *font;
-            if (useBoldFont) {
-                font = [NSFont boldSystemFontOfSize: fontSize];
-            } else {
-                if ([NSFont respondsToSelector:@selector(monospacedDigitSystemFontOfSize:weight:)])
-                    font = [NSFont monospacedDigitSystemFontOfSize: fontSize weight: NSFontWeightRegular];
-                else
-                    font = [NSFont systemFontOfSize: fontSize];
-            }
+            NSFont *font = [NSFont monospacedDigitSystemFontOfSize: fontSize weight: NSFontWeightRegular];
             [atts setObject: font forKey: NSFontAttributeName];
             textSize = [tileString sizeWithAttributes: atts];
         } while (textSize.width > imageSize.width - 80);
@@ -258,20 +249,13 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
         NSRect frameRect = NSInsetRect(NSMakeRect(textOrigin.x, textOrigin.y, textSize.width, textSize.height), -40, -8);
 
         // draw the grayed-out app icon
-        [appIconImage drawAtPoint: NSZeroPoint fromRect: NSZeroRect operation: NSCompositeCopy fraction: 0.5f];
+        [appIconImage drawAtPoint: NSZeroPoint fromRect: NSZeroRect operation: NSCompositingOperationCopy fraction: 0.5f];
         // draw the frame
         [[NSColor colorWithCalibratedWhite: 0.1f alpha: 0.6f] set];
         float radius = frameRect.size.height / 2;
         // XXX this is opaque when called as a drawing handler and translucent otherwise
         [[NSBezierPath bezierPathWithRoundedRect: frameRect xRadius: radius yRadius: radius] fill];
         // draw text
-        if (useBoldFont) {
-            NSShadow *shadow = [[NSShadow alloc] init];
-            [shadow setShadowOffset: NSMakeSize(0, -8)];
-            [shadow setShadowBlurRadius: 12];
-            [atts setObject: shadow forKey: NSShadowAttributeName];
-            [shadow release];
-        }
         [atts setObject: [NSColor whiteColor] forKey: NSForegroundColorAttributeName];
         [tileString drawAtPoint: textOrigin withAttributes: atts];
         if (tile != nil) {
