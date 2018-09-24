@@ -6,32 +6,26 @@
     <title>What's new in Pester</title>
     <meta name="robots" content="anchors" />
     <link href="release-notes.css" type="text/css" rel="stylesheet" media="all" />
-    <script type="text/javascript">
-    window.onload = function() {
-      if (location.hash == '#sparkle')
-        document.getElementById('sparkle-note').style.cssText = '';
-    }
-    </script>
   </head>
 
   <body>
-    <table class="note" id="sparkle-note" style="display: none">
-      <tr><th>Important: do not click “Install Update”</th></tr>
-      <tr><td>
-        <p>A recent Apple security update causes updates through this
-          window to fail.</p>
-        <p>To update, please download
-          <a href="http://sabi.net/nriley/software/Pester-1.1b19.dmg">Pester
-            1.1b19</a> (for OS X 10.8) or
-          <a href="http://sabi.net/nriley/software/Pester-1.1b23.dmg">Pester
-            1.1b23</a> (for OS X 10.9&ndash;macOS 10.13) and replace this copy of
-          Pester with the updated version.</p>
-        <p><b>You must update Pester if you are using OS X Mountain
-          Lion (10.8) or later: versions 1.1b14 and earlier will not
-          work properly.</b></p>
-        <p>Pester 1.1b15 and later are again able to update through
-          this window.</p>
-      </td></tr>
+    <table>
+      <tr><th>Pester 1.1 beta 24 (71)</th></tr>
+      <tr><td><ul>
+        <li>Update appearance for macOS Mojave's Dark Mode and accent
+          colors.</li>
+        <li>Update Growl framework to 2.0.1 for compatibility with
+          recent macOS versions.</li>
+        <li>Update to the current version of Sparkle.</li>
+        <li>Support natural-language date and time entry on macOS
+          Mojave (10.14), by linking to Perl 5.18 on macOS
+          10.12&ndash;10.14.</li>
+        <li>Code cleanups and modernization without (intended) changes
+          in functionality; remove some code which was never used.</li>
+        <li><b>Note:</b> This version requires macOS 10.12 or later;
+          1.1b23 is the last version of Pester to support OS X
+          10.9&ndash;10.11.</li>
+      </ul></td></tr>
     </table>
     <p />
     <table>
