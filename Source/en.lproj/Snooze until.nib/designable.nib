@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" promptedForUpgradeToXcode5="NO">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <development version="6000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PSSnoozeUntilController">
@@ -18,29 +18,27 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Snooze alarm until" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="8" userLabel="Snooze until" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="322" width="440" height="98"/>
+            <rect key="contentRect" x="335" y="322" width="435" height="105"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
-            <value key="minSize" type="size" width="440" height="98"/>
-            <value key="maxSize" type="size" width="440" height="98"/>
+            <value key="minSize" type="size" width="435" height="98"/>
+            <value key="maxSize" type="size" width="435" height="98"/>
             <view key="contentView" id="22">
-                <rect key="frame" x="0.0" y="0.0" width="440" height="98"/>
+                <rect key="frame" x="0.0" y="0.0" width="435" height="105"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <popUpButton verticalHuggingPriority="750" id="64">
-                        <rect key="frame" x="196" y="56" width="198" height="26"/>
+                        <rect key="frame" x="189" y="59" width="198" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="push" title="Item1" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" pullsDown="YES" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="66" id="132">
+                        <popUpButtonCell key="cell" type="push" title="date" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" pullsDown="YES" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="132">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="63">
                                 <items>
-                                    <menuItem title="Item1" state="on" hidden="YES" id="66"/>
-                                    <menuItem title="Item2" id="65"/>
-                                    <menuItem title="Item3" id="67"/>
+                                    <menuItem title="date" state="on" hidden="YES" id="66"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
@@ -50,17 +48,8 @@
                             <outlet property="nextKeyView" destination="10" id="140"/>
                         </connections>
                     </popUpButton>
-                    <textField verticalHuggingPriority="750" id="23">
-                        <rect key="frame" x="20" y="60" width="91" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Snooze until:" id="129">
-                            <font key="font" metaFont="systemBold"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <button verticalHuggingPriority="750" id="13">
-                        <rect key="frame" x="256" y="12" width="84" height="32"/>
+                        <rect key="frame" x="251" y="13" width="84" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="127">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -75,7 +64,7 @@ Gw
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="5">
-                        <rect key="frame" x="340" y="12" width="86" height="32"/>
+                        <rect key="frame" x="335" y="13" width="86" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="push" title="Snooze" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="124">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -90,11 +79,11 @@ DQ
                         </connections>
                     </button>
                     <textField toolTip="Time of day." verticalHuggingPriority="750" id="11">
-                        <rect key="frame" x="119" y="58" width="72" height="22"/>
+                        <rect key="frame" x="112" y="63" width="72" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="126">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="time" drawsBackground="YES" id="126">
                             <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
@@ -103,7 +92,7 @@ DQ
                         </connections>
                     </textField>
                     <button verticalHuggingPriority="750" id="10">
-                        <rect key="frame" x="397" y="59" width="23" height="21"/>
+                        <rect key="frame" x="392" y="63" width="23" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Calendar" imagePosition="only" alignment="center" borderStyle="border" id="125">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -114,12 +103,12 @@ DQ
                             <outlet property="nextKeyView" destination="13" id="43"/>
                         </connections>
                     </button>
-                    <textField toolTip="Date." verticalHuggingPriority="750" id="18">
-                        <rect key="frame" x="199" y="58" width="174" height="22"/>
+                    <textField toolTip="Date." focusRingType="none" verticalHuggingPriority="750" id="18">
+                        <rect key="frame" x="199" y="65" width="169" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="128">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" placeholderString="date" id="128">
                             <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
@@ -128,10 +117,19 @@ DQ
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" id="61">
-                        <rect key="frame" x="20" y="16" width="234" height="28"/>
+                        <rect key="frame" x="18" y="23" width="233" height="14"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="131">
-                            <font key="font" metaFont="systemBold" size="10"/>
+                            <font key="font" metaFont="systemMedium" size="11"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="23">
+                        <rect key="frame" x="13" y="65" width="93" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Snooze until:" id="129">
+                            <font key="font" metaFont="systemBold"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -142,6 +140,7 @@ DQ
                 <outlet property="delegate" destination="-2" id="60"/>
                 <outlet property="initialFirstResponder" destination="11" id="138"/>
             </connections>
+            <point key="canvasLocation" x="350.5" y="-71.5"/>
         </window>
         <menu title="Menu" id="105" userLabel="datecompletion">
             <items>
