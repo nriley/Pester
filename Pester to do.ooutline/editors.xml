@@ -48,8 +48,12 @@
       <item item-id="p8IxntctwZ8" expanded="yes"/>
     </item-states>
     <selected-items>
-      <item item-id="gyd3x-OTBd-"/>
+      <item item-id="ktJhyasIdlr"/>
     </selected-items>
+    <selected-columns>
+      <column-ref idref="jFqHUGd_Dg1"/>
+    </selected-columns>
+    <selected-characters range="{31, 0}"/>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;
     &quot;TB Icon Size Mode&quot; = 1;

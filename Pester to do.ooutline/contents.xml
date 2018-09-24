@@ -5932,6 +5932,17 @@
         </p>
       </text>
     </item>
+    <item id="iFVE5oqdh_0" parent-id="hga6xJBjy0l" rank="00ff67">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Test Sparkle updating from 1.1b24</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="iHq9867AB9W" parent-id="aNc3GdZCQpK" rank="000f">
       <checkbox>checked</checkbox>
       <entry/>
@@ -7634,6 +7645,17 @@
         <p>
           <run>
             <lit>999 week interval.</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="ktJhyasIdlr" parent-id="hga6xJBjy0l" rank="00ff4f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Test Sparkle updating to 1.1b24</lit>
           </run>
         </p>
       </text>
