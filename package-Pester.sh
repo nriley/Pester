@@ -1,45 +1,64 @@
 #!/bin/zsh -e
 
-# set -x -v
+set -x -v
 
 PACKAGEDIR="$PWD"
-PRODUCT="Pester"
+ARCHIVEDIR="$PWD"/Archives
+EXPORTDIR=$(mktemp -d)
+RELEASEDIR="$PWD"/Releases
+SOURCEDIR="$PWD"/Source
+PRODUCT=$(print "$SOURCEDIR"/*.xcodeproj(:t:r))
 
 # gather information
-cd "$PACKAGEDIR"/Source
-VERSION=`agvtool mvers -terse1`
-BUILD=`agvtool vers -terse`
-DMG="$PRODUCT-$VERSION.dmg" VOL="$PRODUCT $VERSION"
-DSTROOT="$PACKAGEDIR/$VOL"
-SYMROOT="$PWD/build"
+cd $SOURCEDIR
+VERSION=$(agvtool mvers -terse1)
+BUILD=$(agvtool vers -terse)
+DMG="$RELEASEDIR/$PRODUCT $VERSION.dmg"
+VOL="$PRODUCT $VERSION"
+ARCHIVE="$ARCHIVEDIR/$PRODUCT $VERSION ($BUILD).xcarchive"
+EXPORT="$EXPORTDIR/$VOL"
 
-# clean and build
-find . -name \*~ -exec rm '{}' \;
-rm -rf "$SYMROOT" "$DSTROOT"
-xcodebuild -target "$PRODUCT" -configuration Release "DSTROOT=$DSTROOT" \
-    SYMROOT="$SYMROOT" DEPLOYMENT_LOCATION=YES install
-
-cd "$PACKAGEDIR"
+# archive and export
+mkdir -p $ARCHIVEDIR
+rm -rf $ARCHIVE
+xcodebuild -scheme $PRODUCT -archivePath $ARCHIVE archive
+xcodebuild -archivePath $ARCHIVE -exportArchive -exportPath $EXPORT -exportOptionsPlist $PACKAGEDIR/exportOptions.plist
 
 # ensure code signature and Developer ID are valid
-codesign --verify --verbose=4 "$VOL"/*.app
-spctl -vv --assess "$VOL"/*.app
+codesign --verify --verbose=4 "$EXPORT"/*.app
+# also capture the identity in order to sign the disk image
+IDENTITY=$(spctl -vv --assess "$EXPORT"/*.app 2>&1 | grep 'origin=' | sed -e 's/^origin=//')
+
+# remove export metadata we don't want in the disk image
+rm -f $EXPORT/*.plist $EXPORT/Packaging.log
 
 # create disk image
+mkdir -p $RELEASEDIR
 rm -f $DMG
 hdiutil create $DMG -megabytes 20 -ov -layout NONE -fs 'HFS+' -volname $VOL
-MOUNT=`hdiutil attach $DMG`
-DISK=`echo $MOUNT | sed -ne ' s|^/dev/\([^ ]*\).*$|\1|p'`
-MOUNTPOINT=`echo $MOUNT | sed -ne 's|^.*\(/Volumes/.*\)$|\1|p'`
-ditto -rsrc "$DSTROOT" "$MOUNTPOINT"
+MOUNT=$(hdiutil attach $DMG)
+DISK=$(echo $MOUNT | sed -ne ' s|^/dev/\([^ ]*\).*$|\1|p')
+MOUNTPOINT=$(echo $MOUNT | sed -ne 's|^.*\(/Volumes/.*\)$|\1|p')
+ditto -rsrc "$EXPORT" "$MOUNTPOINT"
 chmod -R a+rX,u+w "$MOUNTPOINT"
 hdiutil detach $DISK
 hdiutil resize -sectors min $DMG
-hdiutil convert $DMG -format UDBZ -o z$DMG
-mv z$DMG $DMG
+ZDMG="${DMG:r}z.dmg"
+hdiutil convert $DMG -format UDBZ -o $ZDMG
+mv $ZDMG $DMG
 hdiutil internet-enable $DMG
+
+# sign the disk image
+codesign --sign $IDENTITY $DMG
+
+# verify disk image signature
+spctl -vv --assess --type open --context context:primary-signature $DMG
+
 zmodload zsh/stat
 SIZE=$(stat -L +size $DMG)
+
+# clean up
+rm -rf "$EXPORTDIR"
 
 if [[ -n $1 ]]; then
     return

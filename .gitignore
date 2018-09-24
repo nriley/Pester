@@ -1,14 +1,8 @@
-build
-xcbaselines
 xcuserdata
+Archives/
+Releases/*.dmg
 .DS_Store
-*.pbxuser
-*.xccheckout
 *.xcscmblueprint
 *~
 \#*
 .\#*
-.idea
-Pester ?.*
-Pester-*.dmg
-updates-1.1b14.xml
