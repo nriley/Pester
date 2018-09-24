@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://www.omnigroup.com/namespace/OmniOutliner/xmloutline-editors-v1.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0?>
 <editors xmlns="http://www.omnigroup.com/namespace/OmniOutliner/editors/v1">
-  <editor content-size="{709, 818}" column-titles-display-mode="auto" auto-size-outline-column="yes">
+  <editor content-size="{709, 818}" scale-mac="1.1" column-titles-display-mode="auto" auto-size-outline-column="yes">
     <sidebar width="182" selected-tab="styles"/>
     <column-states columns-id="oAcW9dKDZIB">
       <column-state column-id="cteV0F-AwRG" width="32" summary="state"/>
       <column-state column-id="dTpN3JwYpBn" width="18"/>
-      <column-state column-id="jFqHUGd_Dg1" width="688"/>
+      <column-state column-id="jFqHUGd_Dg1" width="686"/>
     </column-states>
     <note-split-view height="33"/>
     <item-states>
@@ -22,7 +22,6 @@
       <item item-id="ebI1x9HP7EL" expanded="yes"/>
       <item item-id="fT_egq1wxuE" expanded="yes"/>
       <item item-id="gU1KumwhFhv" expanded="yes"/>
-      <item item-id="gotAfbOXCFU" expanded="yes"/>
       <item item-id="gyd3x-OTBd-" expanded="yes"/>
       <item item-id="hga6xJBjy0l" expanded="yes"/>
       <item item-id="hthDdDyEoT5" expanded="yes"/>
@@ -51,7 +50,7 @@
       <item item-id="p8IxntctwZ8" expanded="yes"/>
     </item-states>
     <selected-items>
-      <item item-id="c2T77bLGESd"/>
+      <item item-id="aQ-PKypp8wQ"/>
     </selected-items>
     <toolbar>{
     &quot;TB Display Mode&quot; = 1;

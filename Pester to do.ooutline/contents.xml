@@ -368,7 +368,7 @@
         </p>
       </text>
     </item>
-    <item id="a6hpcEcVUrx" parent-id="hga6xJBjy0l" rank="00ff3f">
+    <item id="a6hpcEcVUrx" parent-id="gotAfbOXCFU" rank="0015">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -570,7 +570,7 @@
       </text>
     </item>
     <item id="aQ-PKypp8wQ" parent-id="kU4I85ZmH0i" rank="0001">
-      <checkbox>unchecked</checkbox>
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
@@ -4174,7 +4174,7 @@
       <text>
         <p>
           <run>
-            <lit>Update build process with notarization</lit>
+            <lit>Update build process with notarization (waiting on Sparkle?)</lit>
           </run>
         </p>
       </text>
@@ -5173,7 +5173,7 @@
         </p>
       </text>
     </item>
-    <item id="gyd3x-OTBd-" parent-id="hga6xJBjy0l" rank="00ff5f">
+    <item id="gyd3x-OTBd-" parent-id="hga6xJBjy0l" rank="00ff1f">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -5493,7 +5493,7 @@
       </text>
     </item>
     <item id="hUYALDG_47S" parent-id="kU4I85ZmH0i" rank="">
-      <checkbox>unchecked</checkbox>
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
@@ -5751,7 +5751,7 @@
       </text>
     </item>
     <item id="i8Z0v1gJRuy" parent-id="kU4I85ZmH0i" rank="00ff">
-      <checkbox>unchecked</checkbox>
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
@@ -6528,7 +6528,7 @@
         </p>
       </text>
     </item>
-    <item id="jFyCeIkRLER" parent-id="hga6xJBjy0l" rank="00ff6f">
+    <item id="jFyCeIkRLER" parent-id="hga6xJBjy0l" rank="00ff2f">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
