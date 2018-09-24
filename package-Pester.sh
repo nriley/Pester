@@ -7,6 +7,7 @@ ARCHIVEDIR="$PWD"/Archives
 EXPORTDIR=$(mktemp -d)
 RELEASEDIR="$PWD"/Releases
 SOURCEDIR="$PWD"/Source
+UPDATEDIR="$PWD"/Updates
 PRODUCT=$(print "$SOURCEDIR"/*.xcodeproj(:t:r))
 
 # gather information
@@ -60,24 +61,29 @@ SIZE=$(stat -L +size $DMG)
 # clean up
 rm -rf "$EXPORTDIR"
 
+# update appcast
+APPCAST="$UPDATEDIR"/updates.xml
+DIGEST=`openssl dgst -sha1 -binary < $DMG | openssl dgst -dss1 -sign ~/Documents/Development/DSA/dsa_priv.pem | openssl enc -base64`
+NOW=`perl -e 'use POSIX qw(strftime); print strftime("%a, %d %b %Y %H:%M:%S %z", localtime(time())) . $tz'`
+perl -pi -e 's|(<enclosure url=".+'$DMG'").+/>|\1 length="'$SIZE'" type="application/x-apple-diskimage" sparkle:version="'$BUILD'" sparkle:shortVersionString="'$VERSION'" sparkle:dsaSignature="'$DIGEST'"/>|' $APPCAST
+perl -pi -e 's#<(pubDate|lastBuildDate)>[^<]*#<$1>'$NOW'# && $done++ if $done < 3' $APPCAST
+perl -pi -e 's|(<guid isPermaLink="false">)[^<]*|$1'${PRODUCT:l}-${VERSION:s/.//}'| && $done++ if $done < 1' $APPCAST
+
 if [[ -n $1 ]]; then
     return
 fi
 
 # update Web presence
-DIGEST=`openssl dgst -sha1 -binary < $DMG | openssl dgst -dss1 -sign ~/Documents/Development/DSA/dsa_priv.pem | openssl enc -base64`
-NOW=`perl -e 'use POSIX qw(strftime); print strftime("%a, %d %b %Y %H:%M:%S %z", localtime(time())) . $tz'`
-perl -pi -e 's|(<enclosure url=".+'$DMG'").+/>|\1 length="'$SIZE'" type="application/x-apple-diskimage" sparkle:version="'$BUILD'" sparkle:shortVersionString="'$VERSION'" sparkle:dsaSignature="'$DIGEST'"/>|' Updates/updates.xml
-perl -pi -e 's#<(pubDate|lastBuildDate)>[^<]*#<$1>'$NOW'# && $done++ if $done < 3' Updates/updates.xml
-perl -pi -e 's|(<guid isPermaLink="false">)[^<]*|$1'${PRODUCT:l}-${VERSION:s/.//}'| && $done++ if $done < 1' Updates/updates.xml
-perl -pe 's|release-notes.html<|release-notes.html#sparkle<|' < Updates/updates.xml >! Updates/updates-1.1b14.xml
-scp $DMG osric:web/nriley/software/$DMG.new
-ssh osric chmod go+r web/nriley/software/$DMG.new
-ssh osric mv web/nriley/software/$DMG{.new,}
+WEBDIR=web/nriley/software
+WEBDMG=$WEBDIR/${DMG:t}
+WEBAPPCAST=$WEBDIR/${APPCAST:t}
+scp $DMG osric:${WEBDMG:q}.new
+ssh osric chmod go+r ${WEBDMG:q}.new
+ssh osric mv ${WEBDMG:q}{.new,}
 # for testing
-mv Updates/updates.xml Updates/updatez.xml
-rsync -avz --exclude='.*' Updates/ osric:web/nriley/software/$PRODUCT/
+APPCAST_TESTING="$UPDATEDIR"/updatez.xml
+mv $APPCAST $APPCAST_TESTING
+rsync -avz --exclude='.*' $UPDATEDIR/ osric:$WEBDIR/$PRODUCT/
 # for testing
-mv Updates/updatez.xml Updates/updates.xml
-ssh osric chmod -R go+rX web/nriley/software/$PRODUCT
-cd "$PACKAGEDIR"/Source
+mv $APPCAST_TESTING $APPCAST
+ssh osric chmod -R go+rX $WEBDIR/$PRODUCT
