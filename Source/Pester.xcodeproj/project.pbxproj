@@ -49,7 +49,6 @@
 		E11E00ED17BEE84500BA997C /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
 		E11E00EE17BEE85100BA997C /* NJRReadMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10F2A3F0402E71400050002 /* NJRReadMeController.m */; };
 		E11E00EF17BEE85A00BA997C /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CC17BC7E3700DC565A /* PFMoveApplication.m */; };
-		E11E00F017BEE85D00BA997C /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CA17BC7E3700DC565A /* NSString+SymlinksAndAliases.m */; };
 		E11E00F117BEE86600BA997C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1F1D117BC80C500DC565A /* Security.framework */; };
 		E11E00F217BEE87900BA997C /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18DAAEE0442D02500050002 /* CoreAudio.framework */; };
 		E11E00F417BEE88D00BA997C /* NJRSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */; };
@@ -178,7 +177,6 @@
 		E1E0EFEA145DF20100C421D4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722B9F5713DCF2B6000E0C3D /* Sparkle.framework */; };
 		E1E1F14717B2E42C00444F94 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1E1F14617B2E42C00444F94 /* FontAwesome.otf */; };
 		E1E1F1C317BC7DFB00DC565A /* MoveApplication.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1E1F1C217BC7DFB00DC565A /* MoveApplication.strings */; };
-		E1E1F1CD17BC7E3700DC565A /* NSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CA17BC7E3700DC565A /* NSString+SymlinksAndAliases.m */; };
 		E1E1F1CE17BC7E3700DC565A /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E1F1CC17BC7E3700DC565A /* PFMoveApplication.m */; };
 		E1E1F1D217BC80C500DC565A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E1F1D117BC80C500DC565A /* Security.framework */; };
 		E1FDFC271BB920EC00A4961B /* PSSoundAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FDFC261BB920EC00A4961B /* PSSoundAlert.m */; };
@@ -456,8 +454,6 @@
 		E1DEF117040014EB00050002 /* PSTimeDateEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSTimeDateEditor.m; sourceTree = "<group>"; };
 		E1E1F14617B2E42C00444F94 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		E1E1F1C217BC7DFB00DC565A /* MoveApplication.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = MoveApplication.strings; sourceTree = "<group>"; };
-		E1E1F1C917BC7E3700DC565A /* NSString+SymlinksAndAliases.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SymlinksAndAliases.h"; sourceTree = "<group>"; tabWidth = 4; };
-		E1E1F1CA17BC7E3700DC565A /* NSString+SymlinksAndAliases.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+SymlinksAndAliases.m"; sourceTree = "<group>"; tabWidth = 4; };
 		E1E1F1CB17BC7E3700DC565A /* PFMoveApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; tabWidth = 4; };
 		E1E1F1CC17BC7E3700DC565A /* PFMoveApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; tabWidth = 4; };
 		E1E1F1D117BC80C500DC565A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -877,8 +873,6 @@
 			children = (
 				E1E1F1CB17BC7E3700DC565A /* PFMoveApplication.h */,
 				E1E1F1CC17BC7E3700DC565A /* PFMoveApplication.m */,
-				E1E1F1C917BC7E3700DC565A /* NSString+SymlinksAndAliases.h */,
-				E1E1F1CA17BC7E3700DC565A /* NSString+SymlinksAndAliases.m */,
 			);
 			name = LetsMove;
 			sourceTree = "<group>";
@@ -1324,7 +1318,6 @@
 				E11E00ED17BEE84500BA997C /* NJRSoundDevice.m in Sources */,
 				E11E00EE17BEE85100BA997C /* NJRReadMeController.m in Sources */,
 				E11E00EF17BEE85A00BA997C /* PFMoveApplication.m in Sources */,
-				E11E00F017BEE85D00BA997C /* NSString+SymlinksAndAliases.m in Sources */,
 				E11E00F417BEE88D00BA997C /* NJRSpeechSynthesizer.m in Sources */,
 				E11E00F517BEE89700BA997C /* PSPowerManager.m in Sources */,
 				E11E00F817BEE8B000BA997C /* PSAlarmNotifierController.m in Sources */,
@@ -1429,7 +1422,6 @@
 				E11BE3791224388B00240657 /* PSGrowlController.m in Sources */,
 				E143BA4317A461E100A7735E /* PSUserNotificationAlert.m in Sources */,
 				E1A927E817A9EA1000322A13 /* NSPopUpButton-NJRExtensions.m in Sources */,
-				E1E1F1CD17BC7E3700DC565A /* NSString+SymlinksAndAliases.m in Sources */,
 				E1E1F1CE17BC7E3700DC565A /* PFMoveApplication.m in Sources */,
 				E11E00B217BEE23B00BA997C /* JRErr.m in Sources */,
 			);
