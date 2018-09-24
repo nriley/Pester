@@ -136,6 +136,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
         NSFont *font = [credits attribute: NSFontAttributeName atIndex: NSMaxRange(effectiveRange) effectiveRange: &effectiveRange];
         font = [fontManager convertFont: font toFamily: systemFontFamily];
         [credits addAttribute: NSFontAttributeName value: font range: effectiveRange];
+        [credits addAttribute: NSForegroundColorAttributeName value: NSColor.controlTextColor range: effectiveRange];
     }
 
     NSMutableDictionary *optionsWithCredits = optionsDictionary == nil ? [[NSMutableDictionary alloc] initWithCapacity: 1] : [optionsDictionary mutableCopy];
