@@ -14,7 +14,7 @@ PRODUCT=$(print "$SOURCEDIR"/*.xcodeproj(:t:r))
 cd $SOURCEDIR
 VERSION=$(agvtool mvers -terse1)
 BUILD=$(agvtool vers -terse)
-DMG="$RELEASEDIR/$PRODUCT $VERSION.dmg"
+DMG="$RELEASEDIR/$PRODUCT-$VERSION.dmg"
 VOL="$PRODUCT $VERSION"
 ARCHIVE="$ARCHIVEDIR/$PRODUCT $VERSION ($BUILD).xcarchive"
 EXPORT="$EXPORTDIR/$VOL"
@@ -65,7 +65,7 @@ rm -rf "$EXPORTDIR"
 APPCAST="$UPDATEDIR"/updates.xml
 DIGEST=`openssl dgst -sha1 -binary < $DMG | openssl dgst -dss1 -sign ~/Documents/Development/DSA/dsa_priv.pem | openssl enc -base64`
 NOW=`perl -e 'use POSIX qw(strftime); print strftime("%a, %d %b %Y %H:%M:%S %z", localtime(time())) . $tz'`
-perl -pi -e 's|(<enclosure url=".+'$DMG'").+/>|\1 length="'$SIZE'" type="application/x-apple-diskimage" sparkle:version="'$BUILD'" sparkle:shortVersionString="'$VERSION'" sparkle:dsaSignature="'$DIGEST'"/>|' $APPCAST
+perl -pi -e 's|(<enclosure url=".+'${DMG:t}'").+/>|\1 length="'$SIZE'" type="application/x-apple-diskimage" sparkle:version="'$BUILD'" sparkle:shortVersionString="'$VERSION'" sparkle:dsaSignature="'$DIGEST'"/>|' $APPCAST
 perl -pi -e 's#<(pubDate|lastBuildDate)>[^<]*#<$1>'$NOW'# && $done++ if $done < 3' $APPCAST
 perl -pi -e 's|(<guid isPermaLink="false">)[^<]*|$1'${PRODUCT:l}-${VERSION:s/.//}'| && $done++ if $done < 1' $APPCAST
 
