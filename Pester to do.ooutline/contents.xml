@@ -168,7 +168,6 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
-      <print-info-key name="NSPaperSize" type="size">{612.02830219268799, 792}</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
@@ -617,7 +616,7 @@
       </text>
     </item>
     <item id="aSbDvEqtOYf" parent-id="hga6xJBjy0l" rank="00003f">
-      <checkbox>unchecked</checkbox>
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
@@ -5933,7 +5932,7 @@
       </text>
     </item>
     <item id="iFVE5oqdh_0" parent-id="hga6xJBjy0l" rank="00ff67">
-      <checkbox>unchecked</checkbox>
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
@@ -7650,7 +7649,7 @@
       </text>
     </item>
     <item id="ktJhyasIdlr" parent-id="hga6xJBjy0l" rank="00ff4f">
-      <checkbox>unchecked</checkbox>
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
@@ -11452,8 +11451,8 @@
         </p>
       </text>
     </item>
-    <item id="pf28vLE_Diy" parent-id="hga6xJBjy0l" rank="00005f">
-      <checkbox>unchecked</checkbox>
+    <item id="pf28vLE_Diy" parent-id="hga6xJBjy0l" rank="00ff73">
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
