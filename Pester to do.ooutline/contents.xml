@@ -168,6 +168,7 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
+      <print-info-key name="NSPaperSize" type="size">{612.02830219268799, 792}</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
@@ -5557,7 +5558,7 @@
         </p>
       </text>
     </item>
-    <item id="hga6xJBjy0l" rank="00003f">
+    <item id="hga6xJBjy0l" parent-id="p38HHuWW80p" rank="0013">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
