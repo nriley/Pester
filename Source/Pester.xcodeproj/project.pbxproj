@@ -372,7 +372,6 @@
 		E13A8BF72157C90A000F02D2 /* Calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Calendar.pdf; sourceTree = "<group>"; };
 		E143BA4117A461E100A7735E /* PSUserNotificationAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSUserNotificationAlert.h; sourceTree = "<group>"; };
 		E143BA4217A461E100A7735E /* PSUserNotificationAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSUserNotificationAlert.m; sourceTree = "<group>"; };
-		E143BA4817A466C000A7735E /* NSUserNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSUserNotification.h; sourceTree = "<group>"; };
 		E145383E043A1DB200050002 /* NJRHotKeyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRHotKeyManager.h; sourceTree = "<group>"; };
 		E145383F043A1DB200050002 /* NJRHotKeyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRHotKeyManager.m; sourceTree = "<group>"; };
 		E14AFF2C11357B6100DC7922 /* Manip */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Manip; sourceTree = "<group>"; };
@@ -1018,7 +1017,6 @@
 				E1FDFC261BB920EC00A4961B /* PSSoundAlert.m */,
 				F5F1986D036B813101EB0372 /* PSSpeechAlert.h */,
 				F5F1986C036B813101EB0372 /* PSSpeechAlert.m */,
-				E143BA4817A466C000A7735E /* NSUserNotification.h */,
 				E143BA4117A461E100A7735E /* PSUserNotificationAlert.h */,
 				E143BA4217A461E100A7735E /* PSUserNotificationAlert.m */,
 				E19FD39E03C98645001509F3 /* PSWakeAlert.h */,

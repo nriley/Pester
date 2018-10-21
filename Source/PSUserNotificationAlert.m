@@ -57,7 +57,7 @@ static PSUserNotificationAlert *PSUserNotificationAlertShared;
 
 - (NSAttributedString *)actionDescription;
 {
-    return [@"Notify with OS X" small];
+    return [@"Notify with macOS" small];
 }
 
 #pragma mark property list serialization (Pester 1.1)

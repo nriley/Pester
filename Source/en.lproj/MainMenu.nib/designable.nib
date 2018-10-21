@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.30.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -177,9 +177,9 @@ choose “Stop Alerts” from the Alarm menu.</string>
                                         <button id="1614">
                                             <rect key="frame" x="168" y="4" width="171" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <string key="toolTip">Use the Growl notification system, or alert via OS X notifications.
+                                            <string key="toolTip">Alert via macOS notifications, or use the Growl notification system.
 
-Customize the notification from Growl, or Notifications System Preferences, respectively.
+Customize notifications from Notifications System Preferences or the Growl app, respectively.
 
 (Growl option is disabled if Growl is not currently running.)</string>
                                             <buttonCell key="cell" type="check" title="Notify with" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1615">
@@ -190,12 +190,12 @@ Customize the notification from Growl, or Notifications System Preferences, resp
                                         <popUpButton verticalHuggingPriority="750" id="1631">
                                             <rect key="frame" x="259" y="-1" width="81" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" id="1632">
+                                            <popUpButtonCell key="cell" type="push" title="macOS" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="1635" id="1632">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" title="OtherViews" autoenablesItems="NO" id="1633">
                                                     <items>
-                                                        <menuItem title="OS X" tag="1" toolTip="Alert via Notification Center (OS X 10.8 and later)." id="1635">
+                                                        <menuItem title="macOS" state="on" tag="1" toolTip="Alert via a macOS notification." id="1635">
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="representedObject" value="PSUserNotificationAlert"/>
                                                             </userDefinedRuntimeAttributes>
@@ -528,7 +528,7 @@ DQ
                 <outlet property="delegate" destination="256" id="285"/>
                 <outlet property="initialFirstResponder" destination="316" id="1598"/>
             </connections>
-            <point key="canvasLocation" x="389" y="291.5"/>
+            <point key="canvasLocation" x="389" y="291"/>
         </window>
         <menu title="MainMenu" systemMenu="main" id="29" userLabel="MainMenu">
             <items>
