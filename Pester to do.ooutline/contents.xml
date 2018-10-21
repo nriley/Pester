@@ -168,7 +168,6 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
-      <print-info-key name="NSPaperSize" type="size">{612.02830219268799, 792}</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
@@ -1646,13 +1645,13 @@
         </p>
       </text>
     </item>
-    <item id="cBprimD_Khd" parent-id="gotAfbOXCFU" rank="00fe">
+    <item id="cBprimD_Khd" parent-id="gotAfbOXCFU" rank="0012">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
           <run>
-            <lit>Support 10.13+?</lit>
+            <lit>Drop 10.12 support?</lit>
           </run>
         </p>
       </text>
@@ -4436,6 +4435,17 @@
         <p>
           <run>
             <lit>Fix highlight appearance with play/script buttons: either use dark blue/light blue stuff from tables, or darken entire button</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="fmeKxOAM54g" parent-id="gotAfbOXCFU" rank="00fa">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Replace “OS X” via ”macOS” in notification preferences</lit>
           </run>
         </p>
       </text>
