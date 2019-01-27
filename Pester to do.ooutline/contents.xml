@@ -5453,6 +5453,17 @@
         </p>
       </text>
     </item>
+    <item id="hOvDp7yMKyK" parent-id="gotAfbOXCFU" rank="00fa3f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Use a monospaced digits font variant in the Alarms window table</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="hQWxxFSfQgj" parent-id="bzWWXOvmNoS" rank="0010">
       <checkbox>checked</checkbox>
       <entry/>
