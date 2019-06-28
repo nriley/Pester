@@ -5084,7 +5084,7 @@
         </p>
       </text>
     </item>
-    <item id="gotAfbOXCFU" rank="0001">
+    <item id="gotAfbOXCFU" rank="0001" children-are-sections="yes">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -7670,6 +7670,26 @@
         </p>
       </text>
     </item>
+    <item id="ksRL1zHJJ00" parent-id="gotAfbOXCFU" rank="00fa1f">
+      <checkbox>unchecked</checkbox>
+      <text>
+        <p>
+          <run>
+            <style>
+              <value key="font-family">.SF NS Text</value>
+            </style>
+            <lit><cell href="https://mjtsai.com/blog/2019/05/07/tying-the-locale-to-the-localization/https://mjtsai.com/blog/2019/05/07/tying-the-locale-to-the-localization/" name="https://mjtsai.com/blog/2019/05/07/tying-the-locale-to-the-localization/https://mjtsai.com/blog/2019/05/07/tying-the-locale-to-the-localization/" type="link"/></lit>
+          </run>
+        </p>
+      </text>
+      <text>
+        <p>
+          <run>
+            <lit>Is there any point in supporting localized date formats any more?</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="ktJhyasIdlr" parent-id="hga6xJBjy0l" rank="00ff4f">
       <checkbox>checked</checkbox>
       <entry/>
@@ -8107,6 +8127,17 @@
         <p>
           <run>
             <lit>Possible to set alarm with voice set to «unknown» (== nil); you get an exception in the status area if you do</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="ldAG6dp7HyJ" parent-id="jAOT-TLS_lI" rank="00ff">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Perl will no longer be bundled sometime after 10.15. Try looking for a native natural language date parser.</lit>
           </run>
         </p>
       </text>
