@@ -12,11 +12,7 @@
 		E102D84A116EB43A00207746 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D849116EB43A00207746 /* AudioUnit.framework */; };
 		E102D876116EB73100207746 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E102D875116EB73100207746 /* ApplicationServices.framework */; };
 		E10D3066115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D3065115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m */; };
-		E11BE21912238E2400240657 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; };
 		E11BE21D12238E6700240657 /* PSGrowlAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BE21C12238E6700240657 /* PSGrowlAlert.m */; };
-		E11BE23C12238FB600240657 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = E11BE23B12238FB600240657 /* Growl Registration Ticket.growlRegDict */; };
-		E11BE34412239B7A00240657 /* Growl.framework in Copy Growl.framework & Sparkle.framework */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E11BE3791224388B00240657 /* PSGrowlController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BE3781224388B00240657 /* PSGrowlController.m */; };
 		E11E00B217BEE23B00BA997C /* JRErr.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E00B117BEE23B00BA997C /* JRErr.m */; };
 		E11E00CA17BEE2E900BA997C /* PesterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E00C917BEE2E900BA997C /* PesterTest.m */; };
 		E11E00D017BEE69600BA997C /* PSAlarms.m in Sources */ = {isa = PBXBuildFile; fileRef = F517D6420356B8CC016D68B9 /* PSAlarms.m */; };
@@ -41,9 +37,7 @@
 		E11E00E417BEE79B00BA997C /* PSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF6E9103C928D200050002 /* PSTimer.m */; };
 		E11E00E517BEE7A100BA997C /* PSApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = F560E2F10357506401A4E466 /* PSApplication.m */; };
 		E11E00E617BEE7D400BA997C /* PSMovieAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59E47C0036B1ADD016B311C /* PSMovieAlertController.m */; };
-		E11E00E717BEE7D600BA997C /* PSGrowlController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BE3781224388B00240657 /* PSGrowlController.m */; };
 		E11E00E817BEE7F200BA997C /* NSDictionary-NJRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EE8DB9038A76AC0134BEAC /* NSDictionary-NJRExtensions.m */; };
-		E11E00E917BEE80F00BA997C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; };
 		E11E00EB17BEE82E00BA997C /* PSAlarmsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F517D63E0356B80C016D68B9 /* PSAlarmsController.m */; };
 		E11E00EC17BEE83F00BA997C /* JRErr.m in Sources */ = {isa = PBXBuildFile; fileRef = E11E00B117BEE23B00BA997C /* JRErr.m */; };
 		E11E00ED17BEE84500BA997C /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
@@ -65,7 +59,6 @@
 		E11E00FF17BEE92200BA997C /* PSTimeDateEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DEF117040014EB00050002 /* PSTimeDateEditor.m */; };
 		E11E010017BEE92B00BA997C /* PSDateFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E18E822F113CC5C300687310 /* PSDateFieldEditor.m */; };
 		E11E010117BEE93800BA997C /* NJRDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F59DC6FD0354188F01AEEDB1 /* NJRDateFormatter.m */; };
-		E11E010317BEEA5200BA997C /* Growl.framework in Copy Growl.framework */ = {isa = PBXBuildFile; fileRef = E11BE21812238E2400240657 /* Growl.framework */; };
 		E11E012017BF0B7600BA997C /* PesterTestFixtures.plist in Resources */ = {isa = PBXBuildFile; fileRef = E11E011F17BF0B7600BA997C /* PesterTestFixtures.plist */; };
 		E121E9421146A14E0063E471 /* NJRArrayToObjectTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */; };
 		E1246FDE1177EF4700AC249B /* NJRSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */; };
@@ -276,7 +269,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				E11E010317BEEA5200BA997C /* Growl.framework in Copy Growl.framework */,
 			);
 			name = "Copy Growl.framework";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +279,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E11BE34412239B7A00240657 /* Growl.framework in Copy Growl.framework & Sparkle.framework */,
 				722B9F6213DCF616000E0C3D /* Sparkle.framework in Copy Growl.framework & Sparkle.framework */,
 			);
 			name = "Copy Growl.framework & Sparkle.framework";
@@ -337,12 +328,8 @@
 		E10F2A3F0402E71400050002 /* NJRReadMeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRReadMeController.m; sourceTree = "<group>"; };
 		E11373140439FCC700050002 /* NJRHotKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRHotKey.h; sourceTree = "<group>"; };
 		E11373150439FCC700050002 /* NJRHotKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRHotKey.m; sourceTree = "<group>"; };
-		E11BE21812238E2400240657 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = /Library/Frameworks/Growl.framework; sourceTree = "<absolute>"; };
 		E11BE21B12238E6700240657 /* PSGrowlAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSGrowlAlert.h; sourceTree = "<group>"; };
 		E11BE21C12238E6700240657 /* PSGrowlAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSGrowlAlert.m; sourceTree = "<group>"; tabWidth = 8; };
-		E11BE23B12238FB600240657 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
-		E11BE3771224388B00240657 /* PSGrowlController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSGrowlController.h; sourceTree = "<group>"; };
-		E11BE3781224388B00240657 /* PSGrowlController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSGrowlController.m; sourceTree = "<group>"; tabWidth = 8; };
 		E11CB6E1043025F500050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/Preferences.nib; sourceTree = "<group>"; };
 		E11E00B017BEE23B00BA997C /* JRErr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JRErr.h; path = JRErr/JRErr/JRErr.h; sourceTree = "<group>"; };
 		E11E00B117BEE23B00BA997C /* JRErr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JRErr.m; path = JRErr/JRErr/JRErr.m; sourceTree = "<group>"; };
@@ -541,7 +528,6 @@
 				E19ECC651D8ECA1000552F66 /* AVFoundation.framework in Frameworks */,
 				E11E00E317BEE79100BA997C /* AudioToolbox.framework in Frameworks */,
 				E19ECC661D8ECA1B00552F66 /* CoreMedia.framework in Frameworks */,
-				E11E00E917BEE80F00BA997C /* Growl.framework in Frameworks */,
 				E11E00F117BEE86600BA997C /* Security.framework in Frameworks */,
 				E11E00F217BEE87900BA997C /* CoreAudio.framework in Frameworks */,
 				E11E00F617BEE8A300BA997C /* IOKit.framework in Frameworks */,
@@ -581,7 +567,6 @@
 				E19ECC5B1D8EAD1800552F66 /* CoreMedia.framework in Frameworks */,
 				E1B11F830CF5F30F004975AA /* IOKit.framework in Frameworks */,
 				E1E1F1D217BC80C500DC565A /* Security.framework in Frameworks */,
-				E11BE21912238E2400240657 /* Growl.framework in Frameworks */,
 				E1E0EFEA145DF20100C421D4 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,7 +601,6 @@
 				F5F240D0036A87E301FE7503 /* Carbon.framework */,
 				E18DAAEE0442D02500050002 /* CoreAudio.framework */,
 				E19ECC5A1D8EAD1800552F66 /* CoreMedia.framework */,
-				E11BE21812238E2400240657 /* Growl.framework */,
 				E14DB31203B8038300000028 /* IOKit.framework */,
 				E1E1F1D117BC80C500DC565A /* Security.framework */,
 				E158D54F1E2BE1C1009F0AB9 /* SpeechObjects.framework */,
@@ -694,7 +678,6 @@
 				E194E73C1A0FCFC0004070C5 /* NJRIntervalField.plist */,
 				E18830410442B5FC00050002 /* Calendar icon */,
 				F59DD44F0358ABF4017318D0 /* Credits.html */,
-				E11BE23B12238FB600240657 /* Growl Registration Ticket.growlRegDict */,
 				F59DC6E30353ED1201AEEDB1 /* Application icon.icns */,
 			);
 			name = Resources;
@@ -887,8 +870,6 @@
 				F59E47B4036AAD55016B311C /* PSAlarmAlertController.m */,
 				F59DC6DB0353DE5101AEEDB1 /* PSAlarmNotifierController.h */,
 				F59DC6DC0353DE5101AEEDB1 /* PSAlarmNotifierController.m */,
-				E11BE3771224388B00240657 /* PSGrowlController.h */,
-				E11BE3781224388B00240657 /* PSGrowlController.m */,
 				F59E47C1036B1ADD016B311C /* PSMovieAlertController.h */,
 				F59E47C0036B1ADD016B311C /* PSMovieAlertController.m */,
 				E17F2F3203FDF2F000050002 /* PSCalendarController.h */,
@@ -1256,7 +1237,6 @@
 				E19D2D751158181A00B68D9F /* DateCompletions.strings in Resources */,
 				E13A8BF62157C0F3000F02D2 /* Volume 0.pdf in Resources */,
 				E1DE3C15115930BD00C17BB0 /* Localizable.strings in Resources */,
-				E11BE23C12238FB600240657 /* Growl Registration Ticket.growlRegDict in Resources */,
 				E13A8BF42157C0F3000F02D2 /* Volume 3.pdf in Resources */,
 				E1E1F14717B2E42C00444F94 /* FontAwesome.otf in Resources */,
 				E1E1F1C317BC7DFB00DC565A /* MoveApplication.strings in Resources */,
@@ -1309,7 +1289,6 @@
 				E11E00E417BEE79B00BA997C /* PSTimer.m in Sources */,
 				E11E00E517BEE7A100BA997C /* PSApplication.m in Sources */,
 				E11E00E617BEE7D400BA997C /* PSMovieAlertController.m in Sources */,
-				E11E00E717BEE7D600BA997C /* PSGrowlController.m in Sources */,
 				E11E00E817BEE7F200BA997C /* NSDictionary-NJRExtensions.m in Sources */,
 				E11E00EB17BEE82E00BA997C /* PSAlarmsController.m in Sources */,
 				E11E00EC17BEE83F00BA997C /* JRErr.m in Sources */,
@@ -1417,7 +1396,6 @@
 				E10D3066115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m in Sources */,
 				E1246FDE1177EF4700AC249B /* NJRSpeechSynthesizer.m in Sources */,
 				E11BE21D12238E6700240657 /* PSGrowlAlert.m in Sources */,
-				E11BE3791224388B00240657 /* PSGrowlController.m in Sources */,
 				E143BA4317A461E100A7735E /* PSUserNotificationAlert.m in Sources */,
 				E1A927E817A9EA1000322A13 /* NSPopUpButton-NJRExtensions.m in Sources */,
 				E1E1F1CE17BC7E3700DC565A /* PFMoveApplication.m in Sources */,

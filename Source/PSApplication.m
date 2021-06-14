@@ -10,7 +10,6 @@
 #import "PSAlarmSetController.h"
 #import "PSAlarmAlertController.h"
 #import "PSAlarmsController.h"
-#import "PSGrowlController.h"
 #import "PSPreferencesController.h"
 #import "NJRReadMeController.h"
 #import "PSAlarm.h"
@@ -280,6 +279,8 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
 
 - (void)showTimeRemainingForAlarm:(PSAlarm *)alarm;
 {
+    // XXX replace Growl
+    /*
     [[PSGrowlController sharedController]
      notifyWithTitle: [alarm message]
      description: [NSString stringWithFormat: @"Alarm set for %@ from now.",
@@ -290,6 +291,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
      selector: @selector(selectAlarmInAlarmsPanel:)
      object: alarm
      onlyOnClick: YES];
+     */
 }
 
 - (void)_updateDockTile:(PSTimer *)timer;

@@ -8,44 +8,18 @@
 
 #import "PSAlarmAlertController.h"
 #import "PSGrowlAlert.h"
-#import "PSGrowlController.h"
-
-static PSGrowlAlert *PSGrowlAlertShared;
+#import "PSUserNotificationAlert.h"
 
 @implementation PSGrowlAlert
 
 + (BOOL)canTrigger;
 {
-    return [PSGrowlController canNotify];
+    return YES;
 }
 
 + (PSAlert *)alert;
 {
-    if (PSGrowlAlertShared == nil) {
-        PSGrowlAlertShared = [[PSGrowlAlert alloc] init];
-
-        [[NSNotificationCenter defaultCenter] addObserver:
-         [PSGrowlController sharedController] selector: @selector(timeOutAllNotifications) name: PSAlarmAlertStopNotification object: nil];
-    }
-    
-    return PSGrowlAlertShared;
-}
-
-- (void)triggerForAlarm:(PSAlarm *)alarm;
-{
-    [[PSGrowlController sharedController] notifyWithTitle: [alarm message]
-					      description: nil
-					 notificationName: @"Alarm Expired"
-						 isSticky: YES
-						   target: self
-						 selector: @selector(completedForAlarm:)
-						   object: alarm
-					      onlyOnClick: NO];
-}
-
-- (NSAttributedString *)actionDescription;
-{
-    return [@"Notify with Growl" small];
+    return [PSUserNotificationAlert alert];
 }
 
 #pragma mark property list serialization (Pester 1.1)
@@ -53,7 +27,7 @@ static PSGrowlAlert *PSGrowlAlertShared;
 - (instancetype)initWithPropertyList:(NSDictionary *)dict error:(NSError **)error;
 {
     [self release];
-    return [[PSGrowlAlert alert] retain];
+    return [[PSUserNotificationAlert alert] retain];
 }
 
 @end

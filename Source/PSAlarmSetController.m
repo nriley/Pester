@@ -36,12 +36,9 @@
 #import "PSGrowlAlert.h"
 #import "PSUserNotificationAlert.h"
 
-#import <Growl/Growl.h>
-
 // NSUserDefaults keys
 static NSString * const PSAlertsSelected = @"Pester alerts selected";
 static NSString * const PSAlertsEditing = @"Pester alerts editing";
-static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 
 @interface PSAlarmSetController (Private)
 
@@ -54,13 +51,6 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 @end
 
 @implementation PSAlarmSetController
-
-+ (void)initialize;
-{
-    NSString *notificationClassName = NSStringFromClass([PSUserNotificationAlert class]);
-    [[NSUserDefaults standardUserDefaults] registerDefaults:
-     [NSDictionary dictionaryWithObject: notificationClassName forKey: PSAlertNotifyWith]];
-}
 
 - (void)awakeFromNib;
 {
@@ -482,10 +472,8 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
             [wakeUp setIntValue: YES];
         } else if ([alert isKindOfClass: [PSGrowlAlert class]]) {
 	    [notifyButton setIntValue: YES];
-            [notifyWith NJR_selectItemWithRepresentedObjectNameOfClass: [PSGrowlAlert class]];
 	} else if ([alert isKindOfClass: [PSUserNotificationAlert class]]) {
 	    [notifyButton setIntValue: YES];
-            [notifyWith NJR_selectItemWithRepresentedObjectNameOfClass: [PSUserNotificationAlert class]];
         }
     }
 }
@@ -531,10 +519,9 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
         // wake alert
         if ([wakeUp intValue])
             [alerts addAlert: [PSWakeAlert alert]];
-        // notification alerts (Growl / OS X)
+        // notification alerts
 	if ([notifyButton intValue]) {
-            Class notifierAlertClass = [notifyWith NJR_classFromRepresentedObjectOfSelectedItem];
-            [alerts addAlert: [notifierAlertClass alert]];
+            [alerts addAlert: [PSUserNotificationAlert alert]];
         }
         [[NSUserDefaults standardUserDefaults] setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
     } @catch (NSException *exception) {
@@ -653,13 +640,6 @@ static NSString * const PSAlertNotifyWith = @"PesterAlertNotifyWith";
 
 - (void)windowDidBecomeKey:(NSNotification *)notification;
 {
-    BOOL growlAvailable = [PSGrowlAlert canTrigger];
-    BOOL userNotificationsAvailable = [PSUserNotificationAlert canTrigger];
-    [notifyButton setEnabled: growlAvailable || userNotificationsAvailable];
-
-    [[notifyWith NJR_itemWithRepresentedObjectNameOfClass: [PSGrowlAlert class]] setEnabled: growlAvailable];
-    [[notifyWith NJR_itemWithRepresentedObjectNameOfClass: [PSUserNotificationAlert class]] setEnabled: userNotificationsAvailable];
-
     // If date is in the past and isn't being edited, use today so alarm setting/auto-tomorrow can work
     if ([timeDate currentEditor] == nil) {
         NSDate *date = [timeDate objectValue], *now = [NSDate date];
