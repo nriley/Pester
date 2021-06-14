@@ -313,7 +313,6 @@
 /* Begin PBXFileReference section */
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29B97319FDCFA39411CA2CEA /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		722B9F4913DCF2B6000E0C3D /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = Sparkle/Sparkle.xcodeproj; sourceTree = "<group>"; };
@@ -323,14 +322,12 @@
 		E1050FC2116003DD00E5063D /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E10D3064115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject-PerformWhenIdle.h"; sourceTree = "<group>"; };
 		E10D3065115ADAFE00A7A1A3 /* NSObject-PerformWhenIdle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject-PerformWhenIdle.m"; sourceTree = "<group>"; };
-		E10F2A3C0402E61C00050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = "en.lproj/Read Me.nib"; sourceTree = "<group>"; };
 		E10F2A3E0402E71400050002 /* NJRReadMeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRReadMeController.h; sourceTree = "<group>"; };
 		E10F2A3F0402E71400050002 /* NJRReadMeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRReadMeController.m; sourceTree = "<group>"; };
 		E11373140439FCC700050002 /* NJRHotKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRHotKey.h; sourceTree = "<group>"; };
 		E11373150439FCC700050002 /* NJRHotKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRHotKey.m; sourceTree = "<group>"; };
 		E11BE21B12238E6700240657 /* PSGrowlAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSGrowlAlert.h; sourceTree = "<group>"; };
 		E11BE21C12238E6700240657 /* PSGrowlAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSGrowlAlert.m; sourceTree = "<group>"; tabWidth = 8; };
-		E11CB6E1043025F500050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/Preferences.nib; sourceTree = "<group>"; };
 		E11E00B017BEE23B00BA997C /* JRErr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JRErr.h; path = JRErr/JRErr/JRErr.h; sourceTree = "<group>"; };
 		E11E00B117BEE23B00BA997C /* JRErr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JRErr.m; path = JRErr/JRErr/JRErr.m; sourceTree = "<group>"; };
 		E11E00BC17BEE2E900BA997C /* PesterTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PesterTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,7 +340,6 @@
 		E121E9411146A14E0063E471 /* NJRArrayToObjectTransformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRArrayToObjectTransformer.m; sourceTree = "<group>"; };
 		E1246FDC1177EF4700AC249B /* NJRSpeechSynthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRSpeechSynthesizer.h; sourceTree = "<group>"; };
 		E1246FDD1177EF4700AC249B /* NJRSpeechSynthesizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRSpeechSynthesizer.m; sourceTree = "<group>"; };
-		E127900A0442A5B100050002 /* Volume.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Volume.nib; path = en.lproj/Volume.nib; sourceTree = "<group>"; };
 		E127900C0442A92900050002 /* PSVolumeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSVolumeController.h; sourceTree = "<group>"; };
 		E127900D0442A92900050002 /* PSVolumeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSVolumeController.m; sourceTree = "<group>"; };
 		E12CBFD110CC310800159E88 /* NJRMenuSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRMenuSlider.h; sourceTree = "<group>"; };
@@ -389,7 +385,6 @@
 		E17F2F4303FDF67700050002 /* NSImage-OAExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage-OAExtensions.m"; sourceTree = "<group>"; };
 		E17F2F4403FDF67800050002 /* NSImage-OAExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage-OAExtensions.h"; sourceTree = "<group>"; };
 		E17F2F4503FDF67800050002 /* NSCalendarDate-OFExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSCalendarDate-OFExtensions.m"; sourceTree = "<group>"; };
-		E17F2F4E03FDFB3100050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/Calendar.nib; sourceTree = "<group>"; };
 		E1866A2711592DB800262485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E18A26351145D41400E27A11 /* NJRSoundDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRSoundDevice.h; sourceTree = "<group>"; };
 		E18A26361145D41400E27A11 /* NJRSoundDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRSoundDevice.m; sourceTree = "<group>"; };
@@ -405,6 +400,15 @@
 		E19CC53E0CFDE48C0079DCFC /* ParseDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseDate.m; sourceTree = "<group>"; };
 		E19D2D741158181A00B68D9F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E19DCBD203BE4AA200B934BF /* Pester_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pester_Prefix.h; sourceTree = "<group>"; };
+		E19E2CB52677AA3700CD63B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		E19E2CB62677AA3800CD63B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/Alarms.nib; sourceTree = "<group>"; };
+		E19E2CB72677AA3800CD63B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/Notifier.nib; sourceTree = "<group>"; };
+		E19E2CB82677AA3900CD63B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = "Base.lproj/Movie alert.nib"; sourceTree = "<group>"; };
+		E19E2CB92677AA3900CD63B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/Volume.nib; sourceTree = "<group>"; };
+		E19E2CBA2677AA3A00CD63B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/Calendar.nib; sourceTree = "<group>"; };
+		E19E2CBB2677AA3A00CD63B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = "Base.lproj/Snooze until.nib"; sourceTree = "<group>"; };
+		E19E2CBC2677AA3B00CD63B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = "Base.lproj/Read Me.nib"; sourceTree = "<group>"; };
+		E19E2CBD2677AA3B00CD63B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = Base.lproj/Preferences.nib; sourceTree = "<group>"; };
 		E19ECC551D8E8CC400552F66 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E19ECC571D8E949B00552F66 /* AVAsset-NJRExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVAsset-NJRExtensions.h"; sourceTree = "<group>"; };
 		E19ECC581D8E949B00552F66 /* AVAsset-NJRExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVAsset-NJRExtensions.m"; sourceTree = "<group>"; };
@@ -435,7 +439,6 @@
 		E1DEF0FA03FE9F2C00050002 /* NJROffCenterPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJROffCenterPanel.m; sourceTree = "<group>"; };
 		E1DEF10203FF816300050002 /* PSSnoozeUntilController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSSnoozeUntilController.h; sourceTree = "<group>"; };
 		E1DEF10303FF816300050002 /* PSSnoozeUntilController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSSnoozeUntilController.m; sourceTree = "<group>"; };
-		E1DEF10703FF83AC00050002 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = "en.lproj/Snooze until.nib"; sourceTree = "<group>"; };
 		E1DEF116040014EB00050002 /* PSTimeDateEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSTimeDateEditor.h; sourceTree = "<group>"; };
 		E1DEF117040014EB00050002 /* PSTimeDateEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSTimeDateEditor.m; sourceTree = "<group>"; };
 		E1E1F14617B2E42C00444F94 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
@@ -461,7 +464,6 @@
 		F5243DA40378681101AEEDB1 /* Popup triangle.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Popup triangle.tiff"; sourceTree = "<group>"; };
 		F552A8AB0358E8B201AEEDB1 /* NJRScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRScrollView.h; sourceTree = "<group>"; };
 		F552A8AC0358E8B201AEEDB1 /* NJRScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRScrollView.m; sourceTree = "<group>"; };
-		F560E2EF03574F8A01A4E466 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/Alarms.nib; sourceTree = "<group>"; };
 		F560E2F10357506401A4E466 /* PSApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSApplication.m; sourceTree = "<group>"; };
 		F560E2F20357506401A4E466 /* PSApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSApplication.h; sourceTree = "<group>"; };
 		F560E3150357895001A4E466 /* NJRHistoryTrackingComboBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRHistoryTrackingComboBox.h; sourceTree = "<group>"; };
@@ -471,7 +473,6 @@
 		F59DC6D40353C9E601AEEDB1 /* PSAlarmSetController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAlarmSetController.m; sourceTree = "<group>"; };
 		F59DC6DB0353DE5101AEEDB1 /* PSAlarmNotifierController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAlarmNotifierController.h; sourceTree = "<group>"; };
 		F59DC6DC0353DE5101AEEDB1 /* PSAlarmNotifierController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAlarmNotifierController.m; sourceTree = "<group>"; };
-		F59DC6E00353DF5E01AEEDB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/Notifier.nib; sourceTree = "<group>"; };
 		F59DC6E30353ED1201AEEDB1 /* Application icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Application icon.icns"; sourceTree = "<group>"; };
 		F59DC6E80353F58B01AEEDB1 /* NJRIntegerFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJRIntegerFilter.m; sourceTree = "<group>"; };
 		F59DC6E90353F58B01AEEDB1 /* NJRIntegerFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJRIntegerFilter.h; sourceTree = "<group>"; };
@@ -492,7 +493,6 @@
 		F59E47BD036AB228016B311C /* PSMovieAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMovieAlert.h; sourceTree = "<group>"; };
 		F59E47C0036B1ADD016B311C /* PSMovieAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMovieAlertController.m; sourceTree = "<group>"; };
 		F59E47C1036B1ADD016B311C /* PSMovieAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMovieAlertController.h; sourceTree = "<group>"; };
-		F59E4BDF036B1D94016B311C /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = "en.lproj/Movie alert.nib"; sourceTree = "<group>"; };
 		F59E4BE6036B2E5E016B311C /* PSScriptAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSScriptAlert.m; sourceTree = "<group>"; };
 		F59E4BE7036B2E5E016B311C /* PSScriptAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSScriptAlert.h; sourceTree = "<group>"; };
 		F59F6CB40354E7DA01AEEDB1 /* PSAlarm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAlarm.h; sourceTree = "<group>"; };
@@ -1109,7 +1109,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
 				de,
 				fr,
 				nl,
@@ -1118,6 +1117,7 @@
 				sv,
 				hr,
 				es,
+				Base,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* Pester */;
 			projectDirPath = "";
@@ -1432,7 +1432,7 @@
 		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				29B97319FDCFA39411CA2CEA /* en */,
+				E19E2CB52677AA3700CD63B8 /* Base */,
 			);
 			name = MainMenu.nib;
 			sourceTree = "<group>";
@@ -1440,7 +1440,7 @@
 		E10F2A3B0402E61C00050002 /* Read Me.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E10F2A3C0402E61C00050002 /* en */,
+				E19E2CBC2677AA3B00CD63B8 /* Base */,
 			);
 			name = "Read Me.nib";
 			sourceTree = "<group>";
@@ -1448,7 +1448,7 @@
 		E11CB6E0043025F500050002 /* Preferences.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E11CB6E1043025F500050002 /* en */,
+				E19E2CBD2677AA3B00CD63B8 /* Base */,
 			);
 			name = Preferences.nib;
 			sourceTree = "<group>";
@@ -1456,7 +1456,7 @@
 		E12790090442A5B100050002 /* Volume.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E127900A0442A5B100050002 /* Volume.nib */,
+				E19E2CB92677AA3900CD63B8 /* Base */,
 			);
 			name = Volume.nib;
 			sourceTree = "<group>";
@@ -1464,7 +1464,7 @@
 		E17F2F4D03FDFB3100050002 /* Calendar.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E17F2F4E03FDFB3100050002 /* en */,
+				E19E2CBA2677AA3A00CD63B8 /* Base */,
 			);
 			name = Calendar.nib;
 			sourceTree = "<group>";
@@ -1495,7 +1495,7 @@
 		E1DEF10603FF83AC00050002 /* Snooze until.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E1DEF10703FF83AC00050002 /* en */,
+				E19E2CBB2677AA3A00CD63B8 /* Base */,
 			);
 			name = "Snooze until.nib";
 			sourceTree = "<group>";
@@ -1503,7 +1503,7 @@
 		F560E2EE03574F8A01A4E466 /* Alarms.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F560E2EF03574F8A01A4E466 /* en */,
+				E19E2CB62677AA3800CD63B8 /* Base */,
 			);
 			name = Alarms.nib;
 			sourceTree = "<group>";
@@ -1511,7 +1511,7 @@
 		F59DC6DF0353DF5E01AEEDB1 /* Notifier.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F59DC6E00353DF5E01AEEDB1 /* en */,
+				E19E2CB72677AA3800CD63B8 /* Base */,
 			);
 			name = Notifier.nib;
 			sourceTree = "<group>";
@@ -1527,7 +1527,7 @@
 		F59E4BDE036B1D94016B311C /* Movie alert.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F59E4BDF036B1D94016B311C /* en */,
+				E19E2CB82677AA3900CD63B8 /* Base */,
 			);
 			name = "Movie alert.nib";
 			sourceTree = "<group>";

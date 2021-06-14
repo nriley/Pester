@@ -353,7 +353,7 @@ static NSString * const PSShowDockCountdown = @"PesterShowDockCountdown"; // NSU
     [dockMenu addItem: [NSMenuItem separatorItem]];
     item = [dockMenu addItemWithTitle: NSLocalizedString(@"Set Alarm...", "Dock menu item") action: @selector(orderFrontSetAlarmPanel:) keyEquivalent: @""];
     [item setTarget: self];
-    item = [dockMenu addItemWithTitle: [NSString stringWithFormat: NSLocalizedString(@"All Alarms (%d)", "Dock menu item (%d replaced by number of alarms)"), [alarms alarmCount]] action: @selector(orderFrontAlarmsPanel:) keyEquivalent: @""];
+    item = [dockMenu addItemWithTitle: [NSString stringWithFormat: NSLocalizedString(@"All Alarms (%lu)", "Dock menu item (%lu replaced by number of alarms)"), (unsigned long)[alarms alarmCount]] action: @selector(orderFrontAlarmsPanel:) keyEquivalent: @""];
     [item setTarget: self];
     return [dockMenu autorelease];
 }
