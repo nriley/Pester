@@ -168,6 +168,7 @@
       </first-page-headers>
     </page-adornment>
     <print-info>
+      <print-info-key name="NSPaperName" type="string">ANSI A</print-info-key>
       <print-info-key name="OOScaleDocumentToFitPageWidth" type="boolean">true</print-info-key>
     </print-info>
   </settings>
@@ -352,6 +353,17 @@
         <p>
           <run>
             <lit>Individual numbers plus &quot;a&quot; or &quot;p&quot; to mean AM/PM. (We can use AMSymbol, PMSymbol)</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="a5qelncgQwB" parent-id="mdcxwDJ2RNx" rank="0002">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Notarization</lit>
           </run>
         </p>
       </text>
@@ -654,7 +666,7 @@
       <text>
         <p>
           <run>
-            <lit>Update Date::Manip — looks like some UTF-8 changes have been made</lit>
+            <lit>Update (or remove) Date::Manip — looks like some UTF-8 changes have been made</lit>
           </run>
         </p>
       </text>
@@ -1645,13 +1657,13 @@
         </p>
       </text>
     </item>
-    <item id="cBprimD_Khd" parent-id="gotAfbOXCFU" rank="0012">
-      <checkbox>unchecked</checkbox>
+    <item id="cBprimD_Khd" parent-id="eT180FNrbkU" rank="0002">
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
           <run>
-            <lit>Drop 10.12 support?</lit>
+            <lit>Drop support for 10.14 and earlier</lit>
           </run>
         </p>
       </text>
@@ -3297,6 +3309,17 @@
         </p>
       </text>
     </item>
+    <item id="dtSjyrNSrMW" parent-id="gotAfbOXCFU" rank="00fa19">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Use a monospaced digits font variant in the Alarms window table</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="dtatDCIZ-aC" parent-id="a9omo7-ZScn" rank="0001">
       <checkbox>checked</checkbox>
       <entry/>
@@ -3723,6 +3746,17 @@
         </p>
       </text>
     </item>
+    <item id="eT180FNrbkU" rank="00003f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Beta 25</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="eULMbVX8t2C" parent-id="pXixUuSef0K" rank="">
       <checkbox>checked</checkbox>
       <entry/>
@@ -3878,6 +3912,17 @@
         <p>
           <run>
             <lit>Retina volume icons</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="eriyhnkhDOT" parent-id="h0iobNkatzY" rank="">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Migrate to EdDSA signatures?</lit>
           </run>
         </p>
       </text>
@@ -4439,7 +4484,7 @@
         </p>
       </text>
     </item>
-    <item id="fmeKxOAM54g" parent-id="gotAfbOXCFU" rank="00fa">
+    <item id="fmeKxOAM54g" parent-id="eT180FNrbkU" rank="">
       <checkbox>checked</checkbox>
       <entry/>
       <text>
@@ -5084,7 +5129,7 @@
         </p>
       </text>
     </item>
-    <item id="gotAfbOXCFU" rank="0001" children-are-sections="yes">
+    <item id="gotAfbOXCFU" rank="00005f" children-are-sections="yes">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -5232,6 +5277,17 @@
           </run>
           <run>
             <lit><cell href="http://developer.apple.com/mac/library/qa/qa2006/qa1016.html" name="developer.apple.com—qa1016.html" type="link"/></lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="h0iobNkatzY" parent-id="mdcxwDJ2RNx" rank="0003">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Sparkle 1.22.0 (for hardened runtime)</lit>
           </run>
         </p>
       </text>
@@ -5449,17 +5505,6 @@
         <p>
           <run>
             <lit>Test speech voices (again!) in 10.13</lit>
-          </run>
-        </p>
-      </text>
-    </item>
-    <item id="hOvDp7yMKyK" parent-id="gotAfbOXCFU" rank="00fa3f">
-      <checkbox>unchecked</checkbox>
-      <entry/>
-      <text>
-        <p>
-          <run>
-            <lit>Use a monospaced digits font variant in the Alarms window table</lit>
           </run>
         </p>
       </text>
@@ -6681,13 +6726,13 @@
         </p>
       </text>
     </item>
-    <item id="jO3MG0aXyfg" parent-id="gotAfbOXCFU" rank="00fc">
+    <item id="jO3MG0aXyfg" parent-id="gotAfbOXCFU" rank="00fa1d">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
         <p>
           <run>
-            <lit>10.14 updates</lit>
+            <lit>10.14+ updates</lit>
           </run>
         </p>
       </text>
@@ -7615,6 +7660,17 @@
         </p>
       </text>
     </item>
+    <item id="kpVENU5taeZ" parent-id="mdcxwDJ2RNx" rank="">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Perl</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="kp_0xMo-Y5J" parent-id="bzWWXOvmNoS" rank="0004">
       <checkbox>checked</checkbox>
       <entry/>
@@ -8451,6 +8507,17 @@
         </p>
       </text>
     </item>
+    <item id="mFapM67IHNa" parent-id="eT180FNrbkU" rank="0001">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Remove Growl support</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="mFx-7Q1ElPJ" parent-id="efWTfBEXSVF" rank="0001">
       <checkbox>checked</checkbox>
       <entry/>
@@ -8836,6 +8903,17 @@
         <p>
           <run>
             <lit>If you enter a h:m:s interval, only h:m is saved</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="mdcxwDJ2RNx" parent-id="eT180FNrbkU" rank="0003">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>10.15 updates</lit>
           </run>
         </p>
       </text>
@@ -10022,7 +10100,7 @@
       <text>
         <p>
           <run>
-            <lit>Remove NJR_isStatic? It is no longer relevant because we don&apos;t handle images any more</lit>
+            <lit>Remove NJR_isStatic? It is no longer relevant because we don&apos;t handle images any mosre</lit>
           </run>
         </p>
       </text>
@@ -10855,6 +10933,17 @@
           </run>
           <run>
             <lit>⇒ NSCalendar + NSCalendarComponents + NSDate</lit>
+          </run>
+        </p>
+      </text>
+    </item>
+    <item id="oWPJM2hqASQ" parent-id="mdcxwDJ2RNx" rank="0001">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Hardened runtime</lit>
           </run>
         </p>
       </text>
