@@ -76,29 +76,38 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
 	    } @catch (NSException *e) {
                 [[JRErrContext currentContext] popError]; // don't log unhandled error
 
-                NSString *title = @"Unable to restore alerts";
-                NSString *description = [NSString stringWithFormat: @"Pester could not restore recent alert information for the Set Alarm window, potentially because you have previously used a newer version of Pester.\n\n%@", [e reason]];
-                NSString *alternateButton = nil;
-                NSString *otherButton = @"Use Defaults";
+                NSAlert *alert = [[NSAlert alloc] init];
+
+                alert.alertStyle = NSAlertStyleCritical;
+                alert.messageText = @"Unable to restore alerts";
+                NSString *informativeText = [NSString stringWithFormat: @"Pester %@ could not restore recent alert information for the Set Alarm window, potentially because you have previously used a newer version of Pester.\n\n%@", NSBundle.mainBundle.infoDictionary[@"CFBundleShortVersionString"], [e reason]];
+
+                [alert addButtonWithTitle: @"Quit"];
+                [alert addButtonWithTitle: @"Use Defaults"];
 
                 NSUInteger alertCount = [[alerts allAlerts] count];
                 if (alertCount > 0) {
-                    description = [description stringByAppendingFormat: @"\n\nClick Use Restored to use the alerts which could be restored:\n%@", [[alerts prettyList] string]];
-                    alternateButton = @"Use Restored";
+                    informativeText = [informativeText stringByAppendingFormat: @"\n\nClick Use Restored to use the alerts which could be restored:\n%@", [[alerts prettyList] string]];
+                    [alert addButtonWithTitle: @"Use Restored"];
                 }
-                description = [description stringByAppendingString: @"\n\nClick Use Defaults to use the default set of alerts instead.\n\nIf you accidentally opened the wrong version of Pester, click Quit.\n"];
-                switch (NSRunCriticalAlertPanel(title, @"%@", @"Quit", alternateButton, otherButton, description)) {
-                    case NSAlertAlternateReturn:
+                informativeText = [informativeText stringByAppendingString: @"\n\nClick Use Defaults to use the default set of alerts instead.\n\nIf you accidentally opened the wrong version of Pester, click Quit.\n"];
+
+                alert.informativeText = informativeText;
+
+                switch ([alert runModal]) {
+                    case NSAlertThirdButtonReturn:
                         [[NSUserDefaults standardUserDefaults] setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
                         break;
-                    case NSAlertOtherReturn:
+                    case NSAlertSecondButtonReturn:
                         [alerts release];
                         alerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
                         break;
                     default:
-                        [[NSUserDefaults standardUserDefaults] synchronize];
+                        CFPreferencesAppSynchronize(kCFPreferencesCurrentApplication);
                         exit(0);
                 }
+
+                [alert release];
             }
         }
         [self _readAlerts: alerts];
