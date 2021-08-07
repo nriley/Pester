@@ -52,6 +52,33 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
 
 @implementation PSAlarmSetController
 
+- (void)_finishLoadingAlerts:(PSAlerts *)alerts;
+{
+    [self _readAlerts: alerts];
+
+    [self inAtChanged: nil]; // by convention, if sender is nil, we're initializing
+    [self playSoundChanged: nil];
+    [self doScriptChanged: nil];
+    [self doSpeakChanged: nil];
+    [self editAlertChanged: nil];
+    [script setFileTypes: [NSArray arrayWithObjects: @"applescript", @"script", NSFileTypeForHFSTypeCode('osas'), NSFileTypeForHFSTypeCode('TEXT'), nil]];
+
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    [notificationCenter addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
+    [notificationCenter addObserver: self selector: @selector(playSoundChanged:) name: NJRMediaPopUpButtonMovieChangedNotification object: sound];
+    [notificationCenter addObserver: self selector: @selector(applicationWillHide:) name: NSApplicationWillHideNotification object: NSApp];
+    [notificationCenter addObserver: self selector: @selector(applicationDidUnhide:) name: NSApplicationDidUnhideNotification object: NSApp];
+    [notificationCenter addObserver: self selector: @selector(applicationWillTerminate:) name: NSApplicationWillTerminateNotification object: NSApp];
+
+    [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
+    [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
+
+    // XXX workaround for 10.1.x and 10.2.x bug which sets the first responder to the wrong field alternately, but it works if I set the initial first responder to nil... go figure.
+    NSWindow *window = [self window];
+    [window setInitialFirstResponder: nil];
+    [window makeKeyAndOrderFront: nil];
+}
+
 - (void)awakeFromNib;
 {
     alarm = [[PSAlarm alloc] init];
@@ -65,17 +92,19 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [editAlert setState: [defaults boolForKey: PSAlertsEditing]];
-    {
-        NSDictionary *plAlerts = [defaults dictionaryForKey: PSAlertsSelected];
-        __block PSAlerts *alerts = nil;
-        if (plAlerts == nil) {
-            alerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
-        } else {
-            @try {
-                JRThrowErr(alerts = [[PSAlerts alloc] initWithPropertyList: plAlerts error: jrErrRef]);
-	    } @catch (NSException *e) {
-                [[JRErrContext currentContext] popError]; // don't log unhandled error
 
+    NSDictionary *plAlerts = [defaults dictionaryForKey: PSAlertsSelected];
+    __block PSAlerts *alerts = nil;
+    if (plAlerts == nil) {
+        alerts = [[PSAlerts alloc] initWithPesterVersion1Alerts];
+    } else {
+        @try {
+            JRThrowErr(alerts = [[PSAlerts alloc] initWithPropertyList: plAlerts error: jrErrRef]);
+        } @catch (NSException *e) {
+            [[JRErrContext currentContext] popError]; // don't log unhandled error
+
+            // Work around issue on 10.15 (at least) whereby if you display NSAlert during nib loading, you can't display additional panels (e.g., the Alarms panel) later
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0), dispatch_get_main_queue(), ^{
                 NSAlert *alert = [[NSAlert alloc] init];
 
                 alert.alertStyle = NSAlertStyleCritical;
@@ -96,7 +125,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
 
                 switch ([alert runModal]) {
                     case NSAlertThirdButtonReturn:
-                        [[NSUserDefaults standardUserDefaults] setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
+                        [defaults setObject: [alerts propertyListRepresentation] forKey: PSAlertsSelected];
                         break;
                     case NSAlertSecondButtonReturn:
                         [alerts release];
@@ -106,33 +135,15 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
                         CFPreferencesAppSynchronize(kCFPreferencesCurrentApplication);
                         exit(0);
                 }
-
                 [alert release];
-            }
+
+                [self _finishLoadingAlerts: alerts];
+            });
+
+            return;
         }
-        [self _readAlerts: alerts];
     }
-    [self inAtChanged: nil]; // by convention, if sender is nil, we're initializing
-    [self playSoundChanged: nil];
-    [self doScriptChanged: nil];
-    [self doSpeakChanged: nil];
-    [self editAlertChanged: nil];
-    [script setFileTypes: [NSArray arrayWithObjects: @"applescript", @"script", NSFileTypeForHFSTypeCode('osas'), NSFileTypeForHFSTypeCode('TEXT'), nil]];
-
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-    [notificationCenter addObserver: self selector: @selector(silence:) name: PSAlarmAlertStopNotification object: nil];
-    [notificationCenter addObserver: self selector: @selector(playSoundChanged:) name: NJRMediaPopUpButtonMovieChangedNotification object: sound];
-    [notificationCenter addObserver: self selector: @selector(applicationWillHide:) name: NSApplicationWillHideNotification object: NSApp];
-    [notificationCenter addObserver: self selector: @selector(applicationDidUnhide:) name: NSApplicationDidUnhideNotification object: NSApp];
-    [notificationCenter addObserver: self selector: @selector(applicationWillTerminate:) name: NSApplicationWillTerminateNotification object: NSApp];
-
-    [voice setDelegate: self]; // XXX why don't we do this in IB?  It should use the accessor...
-    [wakeUp setEnabled: [PSPowerManager autoWakeSupported]];
-    
-    // XXX workaround for 10.1.x and 10.2.x bug which sets the first responder to the wrong field alternately, but it works if I set the initial first responder to nil... go figure.
-    NSWindow *window = [self window];
-    [window setInitialFirstResponder: nil];
-    [window makeKeyAndOrderFront: nil];
+    [self _finishLoadingAlerts: alerts];
 }
 
 - (void)setStatus:(NSString *)aString;
