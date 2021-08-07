@@ -9,8 +9,7 @@ Building Pester
 1. Clone this repository.
 2. ```cd /path/to/Pester```
 3. ```git submodule update --init --force```
-4. Copy the Growl 2.0.1 framework to `/Library/Frameworks` (included in the [Growl 2.0.1 SDK](http://growl.info/downloads#devdownloads)).
-5. Open Pester’s project file (in the `Source` folder) in Xcode and build. 
+4. Open Pester’s project file (in the `Source` folder) in Xcode and build. 
 
 The Xcode and macOS versions I use to build Pester are mentioned at the bottom of the version history in the Read Me — or Xcode builds them into Pester’s `Info.plist` — though there should be a reasonable amount of slop.  The most common thing to break is Perl dependencies, as macOS tends to include at most 2 versions of Perl.  This is one reason why recent versions of Pester no longer support as many macOS versions as they once did (Apple’s free yearly updates, more aggressive deprecation policy, and my vanishing free time don’t help).
 
