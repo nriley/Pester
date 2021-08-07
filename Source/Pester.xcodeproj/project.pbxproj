@@ -78,8 +78,8 @@
 		E175B09E1A3DE1BC00072594 /* DateCompletions.strings in Resources */ = {isa = PBXBuildFile; fileRef = E19D2D731158181A00B68D9F /* DateCompletions.strings */; };
 		E17CA9AB0CF7F8CB00018B34 /* Manip.pm in Copy Perl Modules */ = {isa = PBXBuildFile; fileRef = E17CA9A90CF7F8C200018B34 /* Manip.pm */; };
 		E18A26371145D41400E27A11 /* NJRSoundDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E18A26361145D41400E27A11 /* NJRSoundDevice.m */; };
-		E18BEDAD1F6F55800046F655 /* libParseDate-10.12.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.12.dylib */; };
-		E18C10F821551B7100B20D83 /* libParseDate-10.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.12.dylib */; };
+		E18BEDAD1F6F55800046F655 /* libParseDate-10.15.dylib in Resources */ = {isa = PBXBuildFile; fileRef = E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.15.dylib */; };
+		E18C10F821551B7100B20D83 /* libParseDate-10.15.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.15.dylib */; };
 		E18E8230113CC5C300687310 /* PSDateFieldEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E18E822F113CC5C300687310 /* PSDateFieldEditor.m */; };
 		E194E73D1A0FCFC0004070C5 /* NJRIntervalField.plist in Resources */ = {isa = PBXBuildFile; fileRef = E194E73C1A0FCFC0004070C5 /* NJRIntervalField.plist */; };
 		E194E73F1A0FEA47004070C5 /* NJROperatingSystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = E194E73E1A0FEA47004070C5 /* NJROperatingSystemVersion.m */; };
@@ -422,7 +422,7 @@
 		E1A7069111E3921700084DF5 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/DateCompletions.strings; sourceTree = "<group>"; };
 		E1A927E617A9EA1000322A13 /* NSPopUpButton-NJRExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSPopUpButton-NJRExtensions.h"; sourceTree = "<group>"; };
 		E1A927E717A9EA1000322A13 /* NSPopUpButton-NJRExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSPopUpButton-NJRExtensions.m"; sourceTree = "<group>"; };
-		E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.12.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.12.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.15.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libParseDate-10.15.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B11F8B0CF5F30F004975AA /* Info-Pester.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Pester.plist"; sourceTree = "<group>"; };
 		E1B11F8C0CF5F30F004975AA /* Pester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B121950CF62FD1004975AA /* NSMenuItem-NJRExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMenuItem-NJRExtensions.h"; sourceTree = "<group>"; };
@@ -539,7 +539,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18C10F821551B7100B20D83 /* libParseDate-10.12.dylib in Frameworks */,
+				E18C10F821551B7100B20D83 /* libParseDate-10.15.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,7 +623,7 @@
 				E1B11F8C0CF5F30F004975AA /* Pester.app */,
 				E11E00BC17BEE2E900BA997C /* PesterTest.xctest */,
 				E175B0751A3DC0D700072594 /* ParseDateTest.xctest */,
-				E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.12.dylib */,
+				E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.15.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1048,9 +1048,9 @@
 			productReference = E175B0751A3DC0D700072594 /* ParseDateTest.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E1AD35D91F6F2F38008A0AE7 /* ParseDate-10.12 */ = {
+		E1AD35D91F6F2F38008A0AE7 /* ParseDate-10.15 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1AD35DE1F6F2F38008A0AE7 /* Build configuration list for PBXNativeTarget "ParseDate-10.12" */;
+			buildConfigurationList = E1AD35DE1F6F2F38008A0AE7 /* Build configuration list for PBXNativeTarget "ParseDate-10.15" */;
 			buildPhases = (
 				E1AD35DA1F6F2F38008A0AE7 /* Sources */,
 				E1AD35DC1F6F2F38008A0AE7 /* Frameworks */,
@@ -1059,9 +1059,9 @@
 			);
 			dependencies = (
 			);
-			name = "ParseDate-10.12";
+			name = "ParseDate-10.15";
 			productName = "xsinit-10.4";
-			productReference = E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.12.dylib */;
+			productReference = E1AD35E11F6F2F38008A0AE7 /* libParseDate-10.15.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 		E1B11EE30CF5F30F004975AA /* Pester */ = {
@@ -1131,7 +1131,7 @@
 			targets = (
 				E1B11EE30CF5F30F004975AA /* Pester */,
 				E11E00BB17BEE2E900BA997C /* PesterTest */,
-				E1AD35D91F6F2F38008A0AE7 /* ParseDate-10.12 */,
+				E1AD35D91F6F2F38008A0AE7 /* ParseDate-10.15 */,
 				E175B0741A3DC0D700072594 /* ParseDateTest */,
 			);
 		};
@@ -1217,7 +1217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18BEDAD1F6F55800046F655 /* libParseDate-10.12.dylib in Resources */,
+				E18BEDAD1F6F55800046F655 /* libParseDate-10.15.dylib in Resources */,
 				E13A8BF32157C0F3000F02D2 /* Volume 2.pdf in Resources */,
 				E1B11F270CF5F30F004975AA /* Notifier.nib in Resources */,
 				E1B11F280CF5F30F004975AA /* Application icon.icns in Resources */,
@@ -1418,12 +1418,12 @@
 		};
 		E18BEDA31F6F55760046F655 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E1AD35D91F6F2F38008A0AE7 /* ParseDate-10.12 */;
+			target = E1AD35D91F6F2F38008A0AE7 /* ParseDate-10.15 */;
 			targetProxy = E18BEDA21F6F55760046F655 /* PBXContainerItemProxy */;
 		};
 		E18C10FA21551B7D00B20D83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E1AD35D91F6F2F38008A0AE7 /* ParseDate-10.12 */;
+			target = E1AD35D91F6F2F38008A0AE7 /* ParseDate-10.15 */;
 			targetProxy = E18C10F921551B7D00B20D83 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1652,7 +1652,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE";
 				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = "-lperl";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1668,7 +1668,7 @@
 				EXECUTABLE_PREFIX = lib;
 				HEADER_SEARCH_PATHS = "/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE";
 				LIBRARY_SEARCH_PATHS = "/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = "-lperl";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1713,7 +1713,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -1756,7 +1756,7 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				SDKROOT = macosx;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -1849,7 +1849,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E1AD35DE1F6F2F38008A0AE7 /* Build configuration list for PBXNativeTarget "ParseDate-10.12" */ = {
+		E1AD35DE1F6F2F38008A0AE7 /* Build configuration list for PBXNativeTarget "ParseDate-10.15" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1AD35DF1F6F2F38008A0AE7 /* Debug */,
