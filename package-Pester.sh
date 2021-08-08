@@ -47,7 +47,6 @@ hdiutil resize -sectors min $DMG
 ZDMG="${DMG:r}z.dmg"
 hdiutil convert $DMG -format UDBZ -o $ZDMG
 mv $ZDMG $DMG
-hdiutil internet-enable $DMG
 
 # sign the disk image
 codesign --sign $IDENTITY $DMG
