@@ -357,7 +357,7 @@
         </p>
       </text>
     </item>
-    <item id="a5qelncgQwB" parent-id="mdcxwDJ2RNx" rank="0002">
+    <item id="a5qelncgQwB" parent-id="mdcxwDJ2RNx" rank="000033">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -3779,6 +3779,17 @@
         </p>
       </text>
     </item>
+    <item id="eWh8xdRloZL" parent-id="eT180FNrbkU" rank="00025f">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Neither alarms list nor notifier display after dismissing “Unable to restore alerts” (with either option)</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="eaXrGE8mdSM" parent-id="ae-5Fk5l7R3" rank="0016">
       <checkbox>checked</checkbox>
       <entry/>
@@ -3916,7 +3927,7 @@
         </p>
       </text>
     </item>
-    <item id="eriyhnkhDOT" parent-id="h0iobNkatzY" rank="">
+    <item id="eriyhnkhDOT" parent-id="mdcxwDJ2RNx" rank="000037">
       <checkbox>unchecked</checkbox>
       <entry/>
       <text>
@@ -4208,17 +4219,6 @@
         <p>
           <run>
             <lit>Remove the ‘visible voices:’ debug info</lit>
-          </run>
-        </p>
-      </text>
-    </item>
-    <item id="fLwDQ5KZ8if" parent-id="gotAfbOXCFU" rank="00fd">
-      <checkbox>unchecked</checkbox>
-      <entry/>
-      <text>
-        <p>
-          <run>
-            <lit>Update build process with notarization (waiting on Sparkle?)</lit>
           </run>
         </p>
       </text>
@@ -5281,13 +5281,13 @@
         </p>
       </text>
     </item>
-    <item id="h0iobNkatzY" parent-id="mdcxwDJ2RNx" rank="0003">
-      <checkbox>unchecked</checkbox>
+    <item id="h0iobNkatzY" parent-id="mdcxwDJ2RNx" rank="00002f">
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
           <run>
-            <lit>Sparkle 1.22.0 (for hardened runtime)</lit>
+            <lit>Sparkle 1.26.0 (for hardened runtime)</lit>
           </run>
         </p>
       </text>
@@ -8841,6 +8841,17 @@
         </p>
       </text>
     </item>
+    <item id="mY8U7wtBYqa" parent-id="eT180FNrbkU" rank="00023f">
+      <checkbox>checked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>“Unable to restore alerts” alert stuck on screen</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="mZPIHfJXgWd" parent-id="bzWWXOvmNoS" rank="000f">
       <checkbox>checked</checkbox>
       <entry/>
@@ -10527,6 +10538,17 @@
         </p>
       </text>
     </item>
+    <item id="o6QBSGjh5KA" parent-id="mdcxwDJ2RNx" rank="00003f">
+      <checkbox>unchecked</checkbox>
+      <entry/>
+      <text>
+        <p>
+          <run>
+            <lit>Time remaining drawing at incorrect text size</lit>
+          </run>
+        </p>
+      </text>
+    </item>
     <item id="o6pNn9x70oF" parent-id="pbiJPX5OU_Z" rank="0005">
       <checkbox>checked</checkbox>
       <entry/>
@@ -10937,8 +10959,8 @@
         </p>
       </text>
     </item>
-    <item id="oWPJM2hqASQ" parent-id="mdcxwDJ2RNx" rank="0001">
-      <checkbox>unchecked</checkbox>
+    <item id="oWPJM2hqASQ" parent-id="mdcxwDJ2RNx" rank="00001f">
+      <checkbox>checked</checkbox>
       <entry/>
       <text>
         <p>
