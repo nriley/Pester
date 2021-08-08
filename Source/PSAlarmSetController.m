@@ -344,7 +344,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
 
 - (IBAction)editAlertChanged:(id)sender;
 {
-    BOOL editAlertSelected = [editAlert state] == NSOnState;
+    BOOL editAlertSelected = [editAlert state] == NSControlStateValueOn;
     NSWindow *window = [self window];
     NSRect frame = [window frame];
     if (editAlertSelected) {
@@ -458,7 +458,7 @@ static NSString * const PSAlertsEditing = @"Pester alerts editing";
     [alarm setAlerts: alerts];
 
     // turn off all alerts
-    [bounceDockIcon setState: NSOffState];
+    [bounceDockIcon setState: NSControlStateValueOff];
     [doScript setIntValue: NO];
     [displayMessage setIntValue: NO];
     [playSound setIntValue: NO];
