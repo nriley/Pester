@@ -16,8 +16,9 @@ VERSION=$(agvtool mvers -terse1)
 BUILD=$(agvtool vers -terse)
 DMG="$RELEASEDIR/$PRODUCT-$VERSION.dmg"
 VOL="$PRODUCT $VERSION"
-ARCHIVE="$ARCHIVEDIR/$PRODUCT $VERSION ($BUILD).xcarchive"
+ARCHIVE="$ARCHIVEDIR/$VOL ($BUILD).xcarchive"
 EXPORT="$EXPORTDIR/$VOL"
+NOTARIZATION_PLIST="$RELEASEDIR/$PRODUCT-$VERSION-notarization.plist"
 
 # archive and export
 mkdir -p $ARCHIVEDIR
@@ -51,14 +52,38 @@ mv $ZDMG $DMG
 # sign the disk image
 codesign --sign $IDENTITY $DMG
 
-# verify disk image signature
-spctl -vv --assess --type open --context context:primary-signature $DMG
-
-zmodload zsh/stat
-SIZE=$(stat -L +size $DMG)
+# verify disk image signature (expected to fail as un-notarized)
+spctl -vv --assess --type open --context context:primary-signature $DMG || true
 
 # clean up
 rm -rf "$EXPORTDIR"
+
+# notarize
+xcrun altool --notarize-app -f $DMG -p '@keychain:Notarization' --primary-bundle-id net.sabi.${PRODUCT}.dmg \
+      --asc-provider 'CYEL96ZVC2' --output-format xml >! $NOTARIZATION_PLIST
+
+NOTARIZATION_REQUEST_UUID=$(/usr/libexec/PlistBuddy -c 'Print :notarization-upload:RequestUUID' $NOTARIZATION_PLIST)
+
+while true; do
+    xcrun altool --notarization-info $NOTARIZATION_REQUEST_UUID -p '@keychain:Notarization' --output-format xml >! $NOTARIZATION_PLIST
+    NOTARIZATION_STATUS=$(/usr/libexec/PlistBuddy -c 'Print :notarization-info:Status' $NOTARIZATION_PLIST)
+    [[ $NOTARIZATION_STATUS != 'in progress' ]] && break
+    print 'Waiting for notarization...'
+    sleep 60
+done
+pl -input $NOTARIZATION_PLIST
+
+[[ $NOTARIZATION_STATUS == 'success' ]] || exit 1
+
+# staple notarization ticket (not necessary, but saves a network request)
+xcrun stapler staple $DMG
+
+if [[ -n $1 ]]; then
+    return
+fi
+
+zmodload zsh/stat
+SIZE=$(stat -L +size $DMG)
 
 # update appcast
 APPCAST="$UPDATEDIR"/updates.xml
@@ -67,10 +92,6 @@ NOW=`perl -e 'use POSIX qw(strftime); print strftime("%a, %d %b %Y %H:%M:%S %z",
 perl -pi -e 's|(<enclosure url=".+'${DMG:t}'").+/>|\1 length="'$SIZE'" type="application/x-apple-diskimage" sparkle:version="'$BUILD'" sparkle:shortVersionString="'$VERSION'" sparkle:dsaSignature="'$DIGEST'"/>|' $APPCAST
 perl -pi -e 's#<(pubDate|lastBuildDate)>[^<]*#<$1>'$NOW'# && $done++ if $done < 3' $APPCAST
 perl -pi -e 's|(<guid isPermaLink="false">)[^<]*|$1'${PRODUCT:l}-${VERSION:s/.//}'| && $done++ if $done < 1' $APPCAST
-
-if [[ -n $1 ]]; then
-    return
-fi
 
 # update Web presence
 WEBDIR=web/nriley/software
